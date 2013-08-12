@@ -99,7 +99,7 @@ class Visor extends CI_Controller {
 	}
 
 
-	//-------------------------------------------------------------------------------------
+	//----------------------------------CEDULA---------------------------------------------------
 
 	public function get_PadLocal($codigo_de_local){
 
@@ -123,6 +123,24 @@ class Visor extends CI_Controller {
 	public function get_PCar_C_1N($codigo_de_local){
 		
 		$data = $this->visor_model->Data_PCar_C_1N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P1_A($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_A($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P1_A_2N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_A_2N($codigo_de_local);
 
 		$jsonData = @json_encode($data->result());
 
