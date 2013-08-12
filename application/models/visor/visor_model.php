@@ -26,6 +26,34 @@ class Visor_model extends CI_MODEL{
     }
 
 
+    //===================================================================
+
+
+    function Data_PadLocal($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('Padlocal');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_PCar($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('PCar');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_PCar_C_1N($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('PCar_C_1N');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+
 
 /*    
 
