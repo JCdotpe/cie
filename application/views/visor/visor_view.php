@@ -24,7 +24,7 @@
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/urlRoot.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cedulas.js'); ?>"></script>
-<script src="<?php echo base_url('js/general/popover.js'); ?>"></script>
+<script src="<?php echo base_url('js/visor/data.js'); ?>"></script>
 <style type="text/css">
 
 	.modal{
@@ -178,7 +178,12 @@
 		//==================================================================
 
 		$('.view').live('click', function(event) {
-			$('#myModal').modal('show')
+			
+			$('#myModal').modal('show');
+			$('.codigo_local').val($(this).attr('id'));
+			get_PadLocal($(this).attr('id'));
+			get_PCar($(this).attr('id'));
+
 		});
 
 		//$('#pop').popover('show');
@@ -250,7 +255,7 @@
   						CIE01 <b class="caret"></b>
   					</a>
   					<ul class="dropdown-menu">
-  						<li>
+  						<li class="active">
 							<a data-toggle="tab" href="#general">Datos Generales</a>
 						</li>
 						<li>
@@ -291,7 +296,7 @@
   						<li>
 							<a data-toggle="tab" href="#g3">Datos Generales</a>
 						</li>
-						<li class="active">
+						<li>
 							<a data-toggle="tab" href="#cap6">Capitulo VI</a>
 						</li>
 						<li>
@@ -306,12 +311,12 @@
 
 			<div class="tab-content">
 				
-				<div class="tab-pane" id="general">
+				<div class="tab-pane active" id="general">
 					<div class="content" id="content1">
 						
 						<div class="panel">
 							<label>Codigo de Local Escolar</label>
-							<input style="width:300px;" type="text" class="form-control">
+							<input style="width:300px;" type="text" class="form-control codigo_local">
 						</div>
 						
 						<div class="panel panel-info">
@@ -321,12 +326,12 @@
 							
 							
 								<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control departamento"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control distrito"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control centro_poblado"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control nucleo_urbano"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control ugel"></li>
 								</ul>
 
 						</div>
@@ -335,31 +340,31 @@
 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
 								  	
 								  	<label class="checkbox-inline">
-										<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Avenida
+										<input type="radio" name="check" id="avenida1" value="option1"> 1. Avenida
 									</label>
 									
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Jiron
+										<input type="radio" name="check" id="jiron1" value="option2"> 2. Jiron
 									</label>
 									
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox3" name="check" value="option3"> 3. Calle
+										<input type="radio" name="check" id="calle1" value="option3"> 3. Calle
 									</label>
 
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox4" name="check" value="option4"> 4. Pasaje
+										<input type="radio" name="check" id="pasaje1" value="option4"> 4. Pasaje
 									</label>
 
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox5" name="check" value="option5"> 5. Carretera
+										<input type="radio" name="check" id="carretera1" value="option5"> 5. Carretera
 									</label>
 
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox6" name="check" value="option6"> 6. Autopista
+										<input type="radio" name="check" id="autopista1" value="option6"> 6. Autopista
 									</label>
 
 									<label class="checkbox-inline">
-										<input type="radio" id="Checkbox7" name="check" value="option7"> 7. Otro
+										<input type="radio" name="check" id="otro1" value="option7"> 7. Otro
 									</label>
 
 						</div>
@@ -369,7 +374,7 @@
 							
 								<tr>
 									<th>Nombre de la via</th>
-									<th>N° de Puerto</th>
+									<th>N° de Puerta</th>
 									<th>Piso</th>
 									<th>Mz.</th>
 									<th>Lote</th>
@@ -383,15 +388,15 @@
 							<tbody>
 							
 								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td id="via1"></td>
+									<td id="puerta1"></td>
+									<td id="piso1"></td>
+									<td id="mz1"></td>
+									<td id="lote1"></td>
+									<td id="sector1"></td>
+									<td id="zona1"></td>
+									<td id="etapa1"></td>
+									<td id="km1"></td>
 								</tr>
 							
 							</tbody>
@@ -401,15 +406,15 @@
 							<li class="list-group-item">
 								8. La dirección del colegio del local escolar del DOC.CIE.03.06
 								<label class="checkbox-inline">
-									<input type="radio" id="Checkbox1" name="radio" value="option1"> 1. Si
+									<input type="radio" id="verif1" name="radio" value="option1"> 1. Si
 								</label>
 								<label class="checkbox-inline">
-									<input type="radio" id="Checkbox2" name="radio" value="option2"> 2. No
+									<input type="radio" id="verif2" name="radio" value="option2"> 2. No
 								</label> 
 							</li>
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
-								<input type="text" class="form-control">
+								<input type="text" id="referencia_local1" class="form-control">
 							</li>
 						</ul>
 
@@ -421,8 +426,8 @@
 							<h6>Evaluador Tecnico</h6>
 
 							<ul class="list-group">
-								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" class="form-control"></li>
-								<li class="list-group-item">2. 9. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal <input type="text" class="form-control"></li>
+								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" id="tr_cod_local1" class="form-control"></li>
+								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal <input id="cnt_cod_env1" type="text" class="form-control"></li>
 							</ul>
 
 						</div>
@@ -473,78 +478,9 @@
 									</tr>
 								
 								</thead>
-								<tbody>
+								<tbody id="eva_solu1">
 								
-									<tr>
-										<td style="text-align:center;">1°</td>
-										<td></td>
-										<td>1.</td>
-										<td>
-
-																					</td>
-										<td>
-
-										</td>											
-										<td style="text-align:center;">1°</td>
-										<td></td>
-										<td>2.</td>
-										<td>
-		
-										</td>											
-										<td>
-		
-										</td>											
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-
-									<tr>
-										<td style="text-align:center;">2°</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-
-									<tr>
-										<td style="text-align:center;">3°</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-
-									<tr>
-										<td style="text-align:center;">4°</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
+									
 								
 								</tbody>
 							</table>
@@ -3368,7 +3304,7 @@
 	  	    	</div><!-- END CAPITULO G3-->
 
 	  	    	<!-- CAPITULO 6-->
-	  	    	<div class="tab-pane active" id="cap6">
+	  	    	<div class="tab-pane" id="cap6">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
 	  	    				<div class="panel-heading">Capitulo VI: Caracteristicas generales de la edificación</div>
@@ -5295,7 +5231,20 @@
 											1.
 										</td>
 										<td><strong>Esta edificación cuenta con red interna de agua</strong></td>
-										<td></td>
+										<td>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    1. Si
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. No
+													</label>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td>
@@ -5304,7 +5253,20 @@
 										<td>
 											<strong>La instalación es empotrada</strong>
 										</td>
-										<td></td>
+										<td>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    1. Si
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. No
+													</label>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td>
@@ -5313,7 +5275,20 @@
 										<td>
 											<strong>Esta edificación cuenta con red interna de desague</strong>
 										</td>
-										<td></td>
+										<td>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    1. Si
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. No
+													</label>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -5333,7 +5308,20 @@
 											1.
 										</td>
 										<td><strong>Esta edificación tiene instaladas canaletas aéreas y bajadas pluviales</strong></td>
-										<td></td>
+										<td>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    1. Si
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. No
+													</label>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td>
@@ -5343,7 +5331,26 @@
 											<strong>Cuál es el estado de conservación:</strong>
 											<br />(acepte sólo un código)
 										</td>
-										<td></td>
+										<td>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    1. Sin daños
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. Deterioro parcial
+													</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													    2. Colapso total
+													</label>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -5360,7 +5367,331 @@
 	  	    	<!-- CAPITULO 7-->
 	  	    	<div class="tab-pane" id="cap7">
 	  	    		<div class="content" id="content8">
-	  	    			7
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Sección A:  Sistema estructural predominante y estado de conservación de la edificación</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>1.</td>
+	  	    						<td>
+	  	    							<strong>Código de la edificación</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>2.</td>
+	  	    						<td>
+	  	    							<strong>¿quién es el ejecutor de la obra?</strong>
+	  	    							<br>(acepte un solo código)
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>3.</td>
+	  	    						<td>
+	  	    							<strong>¿cuál es la antigüedad de la edificación?</strong>
+	  	    							<br>(acepte un solo código)
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>4.</td>
+	  	    						<td>
+	  	    							<strong>Sistema estructural predominante</strong>
+	  	    							<br>(acepte un solo código)
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estado de los pórticos de concreto armado y/o muros de albañilería</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>5.</td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación de las columnas</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>6.</td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación de los muros portantes</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>7.</td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación de las vigas</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>8.</td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación de la losa del entrepiso</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>9.</td>
+	  	    						<td>
+	  	    							<strong>El tipo de techo es:</strong>
+	  	    						</td>
+	  	    						<td>9A.</td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td></td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación del techo de material noble</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>9B.</td>
+	  	    						<td>
+	  	    							<strong>Cobertura final del techo</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>9C.</td>
+	  	    						<td>
+	  	    							<strong>Estado de conservación del techo de cobertura liviana</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>9D.</td>
+	  	    						<td>
+	  	    							<strong>Detalle cobertura liviana del techo</strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estructuración de los pórticos</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>10.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>11.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Albañilería confinada o armada</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>12.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>13.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>14.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>15.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>15A.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>15B.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>15C.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>15D.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estructuración de albañilería</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>16.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estructura de acero</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>17.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>18.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>19.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>20.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estructuración de la estructura metálica</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>21.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>22.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Madera</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td>23.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    					<tr>
+	  	    						<td>24.</td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Adobe</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td></td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Estructuración de adobe</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td></td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
+	  	    			<table class="table table-bordered">
+	  	    				<thead>
+	  	    					<th colspan="3" style="text-align:center;">Sección B:  Opinión técnica del evaluador</th>
+	  	    				</thead>
+	  	    				<tbody>
+	  	    					<tr>
+	  	    						<td></td>
+	  	    						<td>
+	  	    							<strong></strong>
+	  	    						</td>
+	  	    						<td></td>
+	  	    					</tr>
+	  	    				</tbody>
+	  	    			</table>
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO 6-->
 
