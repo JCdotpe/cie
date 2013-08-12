@@ -1,4 +1,51 @@
+//================================BASICAS=============================================
 
+function get_Depa(code){
+
+	$.ajax({
+		url: 'convocatoria/registro/get_ajax_dpto/',
+		type: 'POST',
+		dataType: 'json',
+		data: {code: code},
+	})
+	.done(function(data) {
+		console.log("success");
+
+	});
+	
+	
+
+}
+
+function get_Prov(depa,prov){
+
+	$.ajax({
+		url: 'convocatoria/registro/get_ajax_provsbyCode/',
+		type: 'POST',
+		dataType: 'json',
+		data: { depa: depa , prov:prov }
+	})
+	.done(function(data) {
+		console.log("success");
+		
+	});
+
+}
+
+function get_Dist(code){
+
+	$.ajax({
+		url: 'convocatoria/registro/get_ajax_dpto/',
+		type: 'POST',
+		dataType: 'json',
+		data: {code: code},
+	})
+	.done(function(data) {
+		console.log("success");
+		
+	});
+
+}
 
 //=============================GENERAL1=========================================
 
@@ -68,6 +115,7 @@ function get_PCar(cod_local){
 				$('#tld1').html(val.PC_E_5_TLosa);
 				$('#tct1').html(val.PC_E_6_TCist);
 				$('#tmc1').html(val.PC_E_7_TMurCon);
+				PC_F_1
 
 			})
 			

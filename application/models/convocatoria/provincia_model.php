@@ -18,6 +18,14 @@ class Provincia_model extends CI_MODEL{
 		return $q;
     }
 
+    function get_provsbyCode($code1,$code2){
+        $this->db->select ('CCPP, Nombre');
+        $this->db->where('CCDD',$code1);
+        $this->db->where('CCPP',$code2);
+        $q = $this->db->get('PROV');
+        return $q;
+    }
+
     public function Get_Odei(){
 
  	    $this->db->select('CCDD, Nombre,CCPP,coddepe,detadepen');

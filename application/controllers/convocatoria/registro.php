@@ -33,9 +33,9 @@ class Registro extends CI_Controller {
 		$this->load->view('backend/includes/template',$data);
 	}
 
-	public function get_ajax_dpto(){
+	public function get_ajax_dptobyCode(){
 
-		$code=$_REQUEST['code'];
+		$code=$_POST['code'];
 
 		if($code){
 
@@ -44,6 +44,51 @@ class Registro extends CI_Controller {
 			foreach ($resultado->result() as $fila) {
 
 				$data['CCDD'] = utf8_encode($fila->CCDD);
+				$data['Nombre'] = utf8_encode($fila->Nombre);
+				array_push($return_arr['datos'],$data);
+			}
+			$this->load->view('backend/json/json_view', $return_arr);
+
+		}else{
+			show_404();
+		}
+	}
+
+	public function get_ajax_provsbyCode(){
+
+		$code1=$_POST['depa'];
+		$code2=$_POST['prov'];
+
+		if($code1){
+
+			$resultado = $this->Provincia_model->get_provsbyCode($code1,$code2);
+			$return_arr['datos']=  array();
+			foreach ($resultado->result() as $fila) {
+
+				$data['CCPP'] = utf8_encode($fila->CCPP);
+				$data['Nombre'] = utf8_encode($fila->Nombre);
+				array_push($return_arr['datos'],$data);
+			}
+			$this->load->view('backend/json/json_view', $return_arr);
+
+		}else{
+			show_404();
+		}
+	}
+
+	public function get_ajax_distbyCode(){
+
+		$code1=$_POST['depa'];
+		$code2=$_POST['prov'];
+		$code3=$_POST['dist'];
+
+		if($code1){
+
+			$resultado = $this->Dist_model->Get_DistbyCode($code1,$code2,$code3);
+			$return_arr['datos']=  array();
+			foreach ($resultado->result() as $fila) {
+
+				$data['CCDI'] = utf8_encode($fila->CCDI);
 				$data['Nombre'] = utf8_encode($fila->Nombre);
 				array_push($return_arr['datos'],$data);
 			}
