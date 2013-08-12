@@ -99,31 +99,30 @@ function get_PCar_C_1N(cod_local){
 	
 	$.getJSON('visor/visor/get_PCar_C_1N/'+cod_local, {}, function(data, textStatus) {
 
+		var html="";
+
 		$.each(data, function(index, val) {
-			alert(val.PC_C_1_NroVis);
+		
+
+ 			html+='<tr>'+
+				'<td style="text-align:center;">'+val.PC_C_1_NroVis+'°</td>'+
+				'<td>'+val.PC_C_1_Et_Fecha+'</td>'+
+				'<td>'+val.PC_C_1_Et_Hini+'</td>'+
+				'<td>'+val.PC_C_1_Et_Hfin+'</td>'+
+				'<td>'+val.PC_C_1_Et_Fecha_Prox+'</td>'+											
+				'<td>'+val.PC_C_1_Et_Hora_Prox+'</td>'+
+				'<td>'+val.PC_C_1_Et_Res+'</td>'+
+				'<td>'+val.PC_C_1_Jb_Fecha+'</td>'+											
+				'<td>'+val.PC_C_1_Jb_Hini+'</td>'+											
+				'<td>'+val.PC_C_1_Jb_Hfin+'</td>'+
+				'<td>'+val.PC_C_1_Jb_Res+'</td>'+
+			'</tr>';
+
 		});
+
+		$('#eva_solu1').html(html);
 
 	})
 }
 
 
-function get_evaluacionSuper(){
-
-
-	'<tr>'+
-		'<td style="text-align:center;">1°</td>'+
-		'<td></td>'+
-		'<td></td>'+
-		'<td></td>'+
-		'<td></td>'+											
-		'<td></td>'+
-		'<td></td>'+
-		'<td></td>'+											
-		'<td></td>'+											
-		'<td></td>'+
-		'<td></td>'+
-	'</tr>';
-
-	
-
-}

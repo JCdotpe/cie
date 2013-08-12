@@ -480,7 +480,7 @@
 								</thead>
 								<tbody id="eva_solu1">
 								
-									
+									<!--AJAX-->
 								
 								</tbody>
 							</table>
