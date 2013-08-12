@@ -27,7 +27,7 @@ function get_Prov(depa,prov){
 		url: 'convocatoria/registro/get_ajax_provsbyCode/',
 		type: 'POST',
 		dataType: 'json',
-		data: { depa: depa , prov:prov }
+		data: { depa: depa , prov:prov },
 		success: function(data){
         	
             $.each(data, function(index, val) {
@@ -40,7 +40,7 @@ function get_Prov(depa,prov){
 
 }
 
-function get_Dist(code){
+function get_Dist(depa,prov,dist){
 
 	$.ajax({
 		url: 'convocatoria/registro/get_ajax_distbyCode/',
@@ -67,9 +67,9 @@ function get_PadLocal(cod_local){
 			
 			$.each(data, function(index, val) {
 				 
-				 get_Depa(val.cod_dpto);
-				 get_Prov(val.cod_prov);
-				 get_Dist(val.cod_dist);
+				get_Depa(val.cod_dpto);
+				get_Prov(val.cod_dpto,val.cod_prov);
+				get_Dist(val.cod_dpto,val.cod_prov,val.cod_dist);
 				 $('.ugel').val(val.descripcion_DRE_UGEL);
 
 			});
@@ -127,7 +127,7 @@ function get_PCar(cod_local){
 				$('#tld1').html(val.PC_E_5_TLosa);
 				$('#tct1').html(val.PC_E_6_TCist);
 				$('#tmc1').html(val.PC_E_7_TMurCon);
-				PC_F_1
+				$('#n_predio1').html(val.PC_F_1);
 
 			})
 			

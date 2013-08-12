@@ -615,7 +615,7 @@
 									<th>N° de Predio</th>
 								</tr>
 								<tr>
-									<td></td>
+									<td id="n_predio1"></td>
 								</tr>
 							</table>
 
