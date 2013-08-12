@@ -124,6 +124,6 @@ function get_evaluacionSuper(){
 		'<td></td>'+
 	'</tr>';
 
-	var x="";
+	
 
 }
