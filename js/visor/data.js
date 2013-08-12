@@ -3,14 +3,18 @@
 function get_Depa(code){
 
 	$.ajax({
-		url: 'convocatoria/registro/get_ajax_dpto/',
+		url: 'convocatoria/registro/get_ajax_dptobyCode/',
 		type: 'POST',
 		dataType: 'json',
 		data: {code: code},
-	})
-	.done(function(data) {
-		console.log("success");
+		success: function(data){
+        	
+            $.each(data, function(index, val) {
+				$('.departamento').val(val.Nombre);			
+			});
 
+        }
+		
 	});
 	
 	
@@ -24,9 +28,13 @@ function get_Prov(depa,prov){
 		type: 'POST',
 		dataType: 'json',
 		data: { depa: depa , prov:prov }
-	})
-	.done(function(data) {
-		console.log("success");
+		success: function(data){
+        	
+            $.each(data, function(index, val) {
+				$('.provincia').val(val.Nombre);			
+			});
+
+        }
 		
 	});
 
@@ -35,13 +43,17 @@ function get_Prov(depa,prov){
 function get_Dist(code){
 
 	$.ajax({
-		url: 'convocatoria/registro/get_ajax_dpto/',
+		url: 'convocatoria/registro/get_ajax_distbyCode/',
 		type: 'POST',
 		dataType: 'json',
-		data: {code: code},
-	})
-	.done(function(data) {
-		console.log("success");
+		data: {depa:depa , prov:prov , dist:dist},
+		success: function(data){
+        	
+            $.each(data, function(index, val) {
+				$('.distrito').val(val.Nombre);			
+			});
+
+        }
 		
 	});
 
@@ -55,9 +67,9 @@ function get_PadLocal(cod_local){
 			
 			$.each(data, function(index, val) {
 				 
-				 $('.departamento').val(val.cod_dpto);
-				 $('.provincia').val(val.cod_prov);
-				 $('.distrito').val(val.cod_dist);
+				 get_Depa(val.cod_dpto);
+				 get_Prov(val.cod_prov);
+				 get_Dist(val.cod_dist);
 				 $('.ugel').val(val.descripcion_DRE_UGEL);
 
 			});
