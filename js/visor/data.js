@@ -50,6 +50,24 @@ function get_PCar(cod_local){
 				$('#resf_f1').html(val.PC_C_2_Rfinal_fecha); 
 				$('#resf_res1').html(val.PC_C_2_Rfinal_resul); 
 				$('#resf_otro1').html(val.PC_C_2_Rfinal_resul_O);
+				$('#etdni1').html(val.PC_D_EvT_dni);
+				$('#etnombres1').html(val.PC_D_EvT_Nomb);
+				$('#jbdni1').html(val.PC_D_JBri_dni);
+				$('#jbnombres1').html(val.PC_D_JBri_Nomb);
+				$('#cpdni1').html(val.PC_D_CProv_dni);
+				$('#cpnombres1').html(val.PC_D_CProv_Nomb);
+				$('#cddni1').html(val.PC_D_CDep_dni);
+				$('#cdnombres1').html(val.PC_D_CDep_Nomb);
+				$('#sndni1').html(val.PC_D_SupN_dni);
+				$('#snnombres1').html(val.PC_D_SupN_Nomb);
+
+				$('#tpr1').html(val.PC_E_1_TPred);
+				$('#tpn2').html(val.PC_E_2_TPred_NoCol);
+				$('#ted1').html(val.PC_E_3_TEdif);
+				$('#tpa1').html(val.PC_E_4_TPat);
+				$('#tld1').html(val.PC_E_5_TLosa);
+				$('#tct1').html(val.PC_E_6_TCist);
+				$('#tmc1').html(val.PC_E_7_TMurCon);
 
 			})
 			

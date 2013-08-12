@@ -33,6 +33,27 @@ class Registro extends CI_Controller {
 		$this->load->view('backend/includes/template',$data);
 	}
 
+	public function get_ajax_dpto(){
+
+		$code=$_REQUEST['code'];
+
+		if($code){
+
+			$resultado = $this->Dpto_model->Get_DptobyCode($code);
+			$return_arr['datos']=  array();
+			foreach ($resultado->result() as $fila) {
+
+				$data['CCDD'] = utf8_encode($fila->CCDD);
+				$data['Nombre'] = utf8_encode($fila->Nombre);
+				array_push($return_arr['datos'],$data);
+			}
+			$this->load->view('backend/json/json_view', $return_arr);
+
+		}else{
+			show_404();
+		}
+	}
+
 	public function get_ajax_prov($c){
 
 		$this->output->cache(9999999999);

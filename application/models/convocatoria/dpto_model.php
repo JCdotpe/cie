@@ -8,6 +8,15 @@ class Dpto_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_DptobyCode($code){
+
+ 		$this->db->select('CCDD, Nombre');              
+ 		$this->db->where('CCDD',$code);
+        $q = $this->db->get('DPTO');
+        return $q;
+        
+    }
+
 
 
 }

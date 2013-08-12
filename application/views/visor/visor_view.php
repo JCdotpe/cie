@@ -250,7 +250,7 @@
         <div class="modal-body">
          
         	<ul class="nav nav-tabs">
-  				<li class="dropdown">
+  				<li class="dropdown active">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
   						CIE01 <b class="caret"></b>
   					</a>
@@ -270,8 +270,6 @@
 					</ul>
   				</li>
 
-
-
   				<li class="dropdown">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
   						CIE01A <b class="caret"></b>
@@ -288,7 +286,8 @@
 						</li>
 					</ul>
   				</li>
-  				<li class="dropdown active">
+
+  				<li class="dropdown">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
   						CIE01B <b class="caret"></b>
   					</a>
@@ -540,32 +539,32 @@
 								<tbody>
 									<tr>
 										<td>Evaluador Técnico</td>
-										<td></td>
-										<td></td>
+										<td id="etdni1"></td>
+										<td id="etnombres1"></td>
 									</tr>
 
 									<tr>
 										<td>Jefe de Brigada</td>
-										<td></td>
-										<td></td>
+										<td id="jbdni1"></td>
+										<td id="jbnombres1"></td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Provincial</td>
-										<td></td>
-										<td></td>
+										<td id="cpdni1"></td>
+										<td id="cpnombres1"></td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Departamental</td>
-										<td></td>
-										<td></td>
+										<td id="cddni1"></td>
+										<td id="cdnombres1"></td>
 									</tr>
 
 									<tr>
 										<td>Supervisor Nacional</td>
-										<td></td>
-										<td></td>
+										<td id="sndni1"></td>
+										<td id="snnombres1"></td>
 									</tr>
 									
 								</tbody>
@@ -581,8 +580,8 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="text-align:center;">1.Total de pedidos</th>
-										<th style="text-align:center;">2.Total de pedidos colindantes</th>
+										<th style="text-align:center;">1.Total de predios</th>
+										<th style="text-align:center;">2.Total de predios no colindantes</th>
 										<th style="text-align:center;">3.Total de edificaciones</th>
 										<th style="text-align:center;">4.Total de patios</th>
 										<th style="text-align:center;">5.Total de lozas deportivas</th>
@@ -592,13 +591,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td id="tpr1"></td>
+										<td id="tpn2"></td>
+										<td id="ted1"></td>
+										<td id="tpa1"></td>
+										<td id="tld1"></td>
+										<td id="tct1"></td>
+										<td id="tmc1"></td>
 									</tr>
 								</tbody>
 							</table>
