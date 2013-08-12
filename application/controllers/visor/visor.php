@@ -10,6 +10,7 @@ class Visor extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		//$this->load->model('convocatoria/Resultados_model');
+		$this->load->model('visor/visor_model');
 
 	}
 
@@ -98,9 +99,36 @@ class Visor extends CI_Controller {
 	}
 
 
+	//-------------------------------------------------------------------------------------
+
+	public function get_PadLocal($codigo_de_local){
+
+		$data = $this->visor_model->Data_PadLocal($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+
+	}
+
+	public function get_PCar($codigo_de_local){
+		
+		$data = $this->visor_model->Data_PCar($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_PCar_C_1N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_PCar_C_1N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
 	
-
-
 }
 
 ?>
