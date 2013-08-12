@@ -494,11 +494,11 @@
 								<tbody>
 									<tr>
 										<td>Fecha: </td>
-										<td></td>
+										<td id="resf_f1"></td>
 									</tr>
 									<tr>
 										<td>Resultado: </td>
-										<td></td>
+										<td id="resf_res1"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -518,7 +518,7 @@
 											<li>4.Local cerrado/desocupado</li>
 										</ul>
 									</td>
-									<td>5.Otro <textarea class="form-control" rows="3"></textarea></td>
+									<td>5.Otro <textarea id="resf_otro1" class="form-control" rows="3"></textarea></td>
 								</tbody>
 							</table>
 

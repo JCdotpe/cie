@@ -45,10 +45,15 @@ function get_PCar(cod_local){
 				$('#tr_cod_local1').val(val.PC_B_1_CodLocal); 
 				$('#cnt_cod_env1').val(val.PC_B_2_CantEv); 
 
-				cod_loc=val.codigo_de_local;
+				cod_loc=val.codigo_de_local;//<--
+
+				$('#resf_f1').html(val.PC_C_2_Rfinal_fecha); 
+				$('#resf_res1').html(val.PC_C_2_Rfinal_resul); 
+				$('#resf_otro1').html(val.PC_C_2_Rfinal_resul_O);
+
 			})
 			
-			get_PCar_C_1N(cod_loc);
+			get_PCar_C_1N(cod_loc);//<--
 	})
 }
 
