@@ -11,6 +11,7 @@
     {
       $sedeArray[$filas->cod_sede_operativa]=utf8_encode(strtoupper($filas->sede_operativa));
     }
+    
 
     $provArray = array(-1 => '');
     $jefeArray = array(-1 => '');
