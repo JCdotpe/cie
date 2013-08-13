@@ -11,7 +11,7 @@
 
 
     <div class="span10" id="freg">
-    <?php $this->load->view('udra/forms/registro_form.php');?>
+    <?php $this->load->view('udra/forms/registro_festividad.php');?>
     </div>
 
 </div>
