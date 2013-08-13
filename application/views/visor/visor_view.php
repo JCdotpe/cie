@@ -186,6 +186,12 @@
 
 		});
 
+		$('#c1').click(function(event) {
+			code=$('.codigo_local').val();
+			get_P1_A(code);
+			get_P1_A_2N(code);
+		});
+
 		//$('#pop').popover('show');
 
 	});
@@ -256,16 +262,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li class="active">
-							<a data-toggle="tab" href="#general">Datos Generales</a>
+							<a data-toggle="tab" id="g1" href="#general">Datos Generales</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap1">Capitulo I</a>
+							<a data-toggle="tab" id="c1" href="#cap1">Capitulo I</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap2">Capitulo II</a>
+							<a data-toggle="tab" id="c2" href="#cap2">Capitulo II</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap3">Capitulo III</a>
+							<a data-toggle="tab" id="c3" href="#cap3">Capitulo III</a>
 						</li>
 					</ul>
   				</li>
@@ -276,13 +282,13 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li>
-							<a data-toggle="tab" href="#g2">Datos Generales</a>
+							<a data-toggle="tab" id="g2" href="#g2">Datos Generales</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap4">Capitulo IV</a>
+							<a data-toggle="tab" id="c4" href="#cap4">Capitulo IV</a>
 						</li>
 						<li >
-							<a data-toggle="tab" href="#cap5">Capitulo V</a>
+							<a data-toggle="tab" id="c5" href="#cap5">Capitulo V</a>
 						</li>
 					</ul>
   				</li>
@@ -293,16 +299,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li>
-							<a data-toggle="tab" href="#g3">Datos Generales</a>
+							<a data-toggle="tab" id="g3" href="#g3">Datos Generales</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap6">Capitulo VI</a>
+							<a data-toggle="tab" id="c6" href="#cap6">Capitulo VI</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap7">Capitulo VII</a>
+							<a data-toggle="tab" id="c7" href="#cap7">Capitulo VII</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#cap8">Capitulo VIII</a>
+							<a data-toggle="tab" id="c8" href="#cap8">Capitulo VIII</a>
 						</li>
 					</ul>
   				</li>
@@ -638,228 +644,15 @@
 								</thead>
 								<tbody>
 									<td><strong>1.¿Cuantas instituciones educativas prestan servicio en este local escolar?</strong></td>
-									<td>N° de instituciones educativas <input style="width:40px;" type="text" class="form-control"></td>
+									<td>N° de instituciones educativas <input id="nie2" style="width:40px;" type="text" class="form-control"></td>
 								</tbody>
 							</table>
 
-							<table class="table table-bordered">
-								<thead>
-									<th colspan="2">2. Institución educativa N° <span>1</span></th>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<strong>2.1.¿Cuál es el nombre de la institución educativa?</strong>
-										</td>
-										<td><input style="width:350px;" type="text" class="form-control"></td>
-									</tr>
-									<tr>
-										<td>
-											<strong>2.2.¿Cuáles son los apellidos y nombres del director?</strong>
-										</td>
-										<td><input style="width:350px;" type="text" class="form-control"></td>
-									</tr>
-									<tr>
-										<td>
-											<strong>2.3.¿Cuál es el numero número de DNI o Carnet de Extranjería del Director?</strong>
-										</td>
-										<td>
-											<div class="panel">
-												<label>D.N.I.</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-											<div class="panel">
-												<label>Carnet del Extrangero</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>2.4.¿Cuál es el numero de teléfono de (L) ?</strong></td>
-										<td>
-											<div class="panel">
-												<label>La Institucion Educativa?</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-											<div class="panel">
-												<label>Director?</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>2.5.¿Cuál es el correo electronico de (L)?</strong></td>
-										<td>
-											<div class="panel">
-												<label>La Institucion Educativa?</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-											<div class="panel">
-												<label>Director?</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>2.6.¿Apellidos y Nombres del informante?</strong></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td><strong>2.7.¿Cargo del informante?</strong></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td><strong>2.8.¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>
-										<td>
-											<div class="panel">
-												<label>N° de Códigos Modulares</label>
-												<input style="width:200px;" type="text" class="form-control">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							
-						</div><!-- END PANEL PRINCIPAL-->
+							<div id="inst_educa">
 
-						<div class="panel"><!-- N CODIGOS -->
-							<label>2.9 Códigos modulares asignados a la institución educativa:</label>
-							
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo Modular</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo local escolar</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">Nivel o Modalidad</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">Caracteristica</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">Numero de anexo</th>
-										<th rowspan="2" style="text-align:center;vertical-align:middle;">¿Cuantos ANexos tiene?</th>
-										<th colspan="2" style="text-align:center; border:1px solid #333;">1er. Turno</th>
-										<th colspan="2" style="text-align:center; border:1px solid #333;">2do. Turno</th>
-										<th colspan="2" style="text-align:center; border:1px solid #333;">3er. Turno</th>
-									</tr>
-									<tr>
-										<th style="text-align:center;">Total Alumnos</th>
-										<th style="text-align:center;">Total Aulas</th>
-										<th style="text-align:center;">Total Alumnos</th>
-										<th style="text-align:center;">Total Aulas</th>
-										<th style="text-align:center;">Total Alumnos</th>
-										<th style="text-align:center;">Total Aulas</th>										
-									</tr>
-									<tr>
-										<th></th>
-										<th style="text-align:center;">(a)</th>
-										<th style="text-align:center;">(b)</th>
-										<th style="text-align:center;">(c)</th>
-										<th style="text-align:center;">(d)</th>
-										<th style="text-align:center;">(e)</th>
-										<th style="text-align:center;">(f)</th>
-										<th style="text-align:center;">(g)</th>
-										<th style="text-align:center;">(h)</th>
-										<th style="text-align:center;">(i)</th>
-										<th style="text-align:center;">(j)</th>
-										<th style="text-align:center;">(k)</th>
-										<th style="text-align:center;">(l)</th>
-									</tr>
-								</thead>
-								<tbody>
+							</div>
 
-									<tr>
-										<td style="text-align:center;">1er</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-
-										<tr>
-											<td></td>
-											<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>
-											<th style="text-align:center;">N°</th>
-											<td></td>
-											<td colspan="2"></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-
-										<tr>
-											<td></td>
-											<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>
-											<th style="text-align:center;">N°</th>
-											<td></td>
-											<td colspan="2"></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-
-									<tr>
-										<td style="text-align:center;">2do</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-
-										<tr>
-											<td></td>
-											<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>
-											<th style="text-align:center;">N°</th>
-											<td></td>
-											<td colspan="2"></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-
-										<tr>
-											<td></td>
-											<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>
-											<th style="text-align:center;">N°</th>
-											<td></td>
-											<td colspan="2"></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-	
-
-										
-								</tbody>
-							</table>
-
-						</div><!-- end panel ncodigod-->
-
+					</div><!-- END PANEL PRINCIPAL-->
 
 						<div class="panel panel-info"><!-- PANEL SECCION B N PREDIOS-->
 							<div class="panel-heading">

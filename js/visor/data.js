@@ -17,8 +17,6 @@ function get_Depa(code){
 		
 	});
 	
-	
-
 }
 
 function get_Prov(depa,prov){
@@ -204,6 +202,275 @@ function get_PCar_C_1N(cod_local){
 		});
 
 		$('#eva_solu1').html(html);
+
+	})
+}
+
+
+//=============================CAPITULO I===========================================
+
+function get_P1_A(cod_local){
+	
+	$.getJSON('visor/visor/get_P1_A/'+cod_local, {}, function(data, textStatus) {
+
+		$.each(data, function(index, val) {
+			$('#nie2').val(val.P1_A_1_Cant_IE);
+		})
+
+	})
+}
+
+function get_P1_A_2N(cod_local){
+	
+	$.getJSON('visor/visor/get_P1_A_2N/'+cod_local, {}, function(data, textStatus) {
+
+		var html="";
+
+		$.each(data, function(index, val) {
+
+			/*$('#ie_num2').val();
+			$('#nom_ie2').val(val.);
+			$('#nya_dir2').val(val.);
+				//P1_A_2_3_DocTip
+			$('#dni_dir2').val(val.);
+			$('#carnet_dir2').val(val.);
+			
+			$('#telf_ie2').val(val. );
+			$('#telef_dir2').val(val. );
+			$('#mail_ie2').val(val.);
+			$('#mail_dir2').val(val.);
+			$('#ayn_info2').val(val.);
+			$('#cargo_info2').val(val.);
+			$('#ncod_mod2').val(val.);*/
+
+			
+			html+='<table class="table table-bordered">'+
+				'<thead>'+
+					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" id="ie_num2" style="width:20px;" type="text" class="form-control"></span></th>'+
+				'</thead>'+
+				'<tbody>'+
+					'<tr>'+
+						'<td>'+
+							'<strong>2.1.¿Cuál es el nombre de la institución educativa?</strong>'+
+						'</td>'+
+						'<td><input value="'+val.P1_A_2_1_NomIE+'" id="nom_ie2" style="width:350px;" type="text" class="form-control"></td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td>'+
+							'<strong>2.2.¿Cuáles son los apellidos y nombres del director?</strong>'+
+						'</td>'+
+						'<td><input value="'+val.P1_A_2_2_Direc+'" id="nya_dir2" style="width:350px;" type="text" class="form-control"></td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td>'+
+							'<strong>2.3.¿Cuál es el numero número de DNI o Carnet de Extranjería del Director?</strong>'+
+						'</td>'+
+						'<td>'+
+							'<div class="panel">'+
+								'<label>D.N.I.</label>'+
+								'<input value="'+val.P1_A_2_3_DocNro+'" id="dni_dir2" style="width:200px;" type="text" class="form-control">'+
+							'</div>'+
+							'<div class="panel">'+
+								'<label>Carnet del Extrangero</label>'+
+								'<input value="'+val.P1_A_2_3_DocNro+'" id="carnet_dir2" style="width:200px;" type="text" class="form-control">'+
+							'</div>'+
+						'</td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td><strong>2.4.¿Cuál es el numero de teléfono de (L) ?</strong></td>'+
+						'<td>'+
+							'<div class="panel">'+
+								'<label>La Institucion Educativa?</label>'+
+								'<input value="'+val.P1_A_2_4_TelfIE+'" id="telf_ie2" style="width:200px;" type="text" class="form-control">'+
+							'</div>'+
+							'<div class="panel">'+
+								'<label>Director?</label>'+
+								'<input value="'+val.P1_A_2_4_TelfDir+'" id="telef_dir2" style="width:200px;" type="text" class="form-control">'+
+							'</div>'+
+						'</td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td><strong>2.5.¿Cuál es el correo electronico de (L)?</strong></td>'+
+						'<td>'+
+							'<div class="panel">'+
+								'<label>La Institucion Educativa?</label>'+
+								'<input value="'+val.P1_A_2_5_EmailIE+'" id="mail_ie2" style="width:400px;" type="text" class="form-control">'+
+							'</div>'+
+							'<div class="panel">'+
+								'<label>Director?</label>'+
+								'<input value="'+val.P1_A_2_5_EmailDir+'" id="mail_dir2" style="width:400px;" type="text" class="form-control">'+
+							'</div>'+
+						'</td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td><strong>2.6.¿Apellidos y Nombres del informante?</strong></td>'+
+						'<td><input value="'+val.P1_A_2_6_Informant+'" id="ayn_info2" style="width:400px;" type="text" class="form-control"></td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td><strong>2.7.¿Cargo del informante?</strong></td>'+
+						'<td><input value="'+val.P1_A_2_7_InformantCarg+'" id="cargo_info2" style="width:400px;" type="text" class="form-control"></td>'+
+					'</tr>'+
+					'<tr>'+
+						'<td><strong>2.8.¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>'+
+						'<td>'+
+							'<div class="panel">'+
+								'<label>N° de Códigos Modulares</label>'+
+								'<input value="'+val.P1_A_2_8_Can_CMod_IE+'" id="ncod_mod2" style="width:200px;" type="text" class="form-control">'+
+							'</div>'+
+						'</td>'+
+					'</tr>'+
+				'</tbody>'+
+								
+			'</table>'+
+							
+						
+
+			'<div class="panel"><!-- N CODIGOS -->'+
+							'<label>2.9 Códigos modulares asignados a la institución educativa:</label>'+
+							
+							'<table class="table table-bordered">'+
+								'<thead>'+
+									'<tr>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo Modular</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo local escolar</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Nivel o Modalidad</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Caracteristica</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Numero de anexo</th>'+
+										'<th rowspan="2" style="text-align:center;vertical-align:middle;">¿Cuantos ANexos tiene?</th>'+
+										'<th colspan="2" style="text-align:center; border:1px solid #333;">1er. Turno</th>'+
+										'<th colspan="2" style="text-align:center; border:1px solid #333;">2do. Turno</th>'+
+										'<th colspan="2" style="text-align:center; border:1px solid #333;">3er. Turno</th>'+
+									'</tr>'+
+									'<tr>'+
+										'<th style="text-align:center;">Total Alumnos</th>'+
+										'<th style="text-align:center;">Total Aulas</th>'+
+										'<th style="text-align:center;">Total Alumnos</th>'+
+										'<th style="text-align:center;">Total Aulas</th>'+
+										'<th style="text-align:center;">Total Alumnos</th>'+
+										'<th style="text-align:center;">Total Aulas</th>'+
+									'</tr>'+
+									'<tr>'+
+										'<th></th>'+
+										'<th style="text-align:center;">(a)</th>'+
+										'<th style="text-align:center;">(b)</th>'+
+										'<th style="text-align:center;">(c)</th>'+
+										'<th style="text-align:center;">(d)</th>'+
+										'<th style="text-align:center;">(e)</th>'+
+										'<th style="text-align:center;">(f)</th>'+
+										'<th style="text-align:center;">(g)</th>'+
+										'<th style="text-align:center;">(h)</th>'+
+										'<th style="text-align:center;">(i)</th>'+
+										'<th style="text-align:center;">(j)</th>'+
+										'<th style="text-align:center;">(k)</th>'+
+										'<th style="text-align:center;">(l)</th>'+
+									'</tr>'+
+								'</thead>'+
+								'<tbody>'+
+
+									'<tr>'+
+										'<td style="text-align:center;">1er</td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+									'</tr>'+
+
+										'<tr>'+
+											'<td></td>'+
+											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
+											'<th style="text-align:center;">N°</th>'+
+											'<td></td>'+
+											'<td colspan="2"></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+										'</tr>'+
+
+										'<tr>'+
+											'<td></td>'+
+											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
+											'<th style="text-align:center;">N°</th>'+
+											'<td></td>'+
+											'<td colspan="2"></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+										'</tr>'+
+
+									'<tr>'+
+										'<td style="text-align:center;">2do</td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+										'<td></td>'+
+									'</tr>'+
+
+										'<tr>'+
+											'<td></td>'+
+											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
+											'<th style="text-align:center;">N°</th>'+
+											'<td></td>'+
+											'<td colspan="2"></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+										'</tr>'+
+
+										'<tr>'+
+											'<td></td>'+
+											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
+											'<th style="text-align:center;">N°</th>'+
+											'<td></td>'+
+											'<td colspan="2"></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+											'<td></td>'+
+										'</tr>'+
+	
+
+										
+								'</tbody>'+
+							'</table>'+
+
+							'<div class="panel">'+
+									'<label>Observaciones:</label>'+
+									'<textarea style="width:870px; height:100px;"></textarea>'+
+							'</div>'+
+
+			'</div><!-- end panel ncodigod-->';
+
+		})
+		
+		$('#inst_educa').html(html);
 
 	})
 }
