@@ -649,7 +649,7 @@
 							</table>
 
 							<div id="inst_educa">
-
+								<!--AJAX-->
 							</div>
 
 					</div><!-- END PANEL PRINCIPAL-->

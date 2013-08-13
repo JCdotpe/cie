@@ -69,18 +69,21 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
-    function Data_P1_A_2_8N($codigo_de_local){
+    function Data_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE){
         $this->db->select('*');
         $this->db->from('P1_A_2_8N');
         $this->db->where('codigo_de_local',$codigo_de_local);
+        $this->db->where('P1_A_2_NroIE',$P1_A_2_NroIE);
         $q = $this->db->get();
         return $q;
     }
 
-    function Data_P1_A_2_9N($codigo_de_local){
+    function Data_P1_A_2_9N($codigo_de_local,$P1_A_2_NroIE,$P1_A_2_9_NroCMod){
         $this->db->select('*');
         $this->db->from('P1_A_2_9N');
         $this->db->where('codigo_de_local',$codigo_de_local);
+        $this->db->where('P1_A_2_NroIE',$P1_A_2_NroIE);
+        $this->db->where('P1_A_2_9_NroCMod',$P1_A_2_9_NroCMod);
         $q = $this->db->get();
         return $q;
     }

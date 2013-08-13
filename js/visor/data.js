@@ -233,7 +233,7 @@ function get_P1_A_2N(cod_local){
 			
 			html+='<table class="table table-bordered">'+
 				'<thead>'+
-					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" id="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>'+
+					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" class="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>'+
 				'</thead>'+
 				'<tbody>'+
 					'<tr>'+
@@ -310,156 +310,135 @@ function get_P1_A_2N(cod_local){
 								
 			'</table>'+
 							
-						
+			
 
-			'<div class="panel"><!-- N CODIGOS -->'+
-							'<label>2.9 Códigos modulares asignados a la institución educativa:</label>'+
-							
-							'<table class="table table-bordered">'+
-								'<thead>'+
-									'<tr>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo Modular</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo local escolar</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Nivel o Modalidad</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Caracteristica</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">Numero de anexo</th>'+
-										'<th rowspan="2" style="text-align:center;vertical-align:middle;">¿Cuantos ANexos tiene?</th>'+
-										'<th colspan="2" style="text-align:center; border:1px solid #333;">1er. Turno</th>'+
-										'<th colspan="2" style="text-align:center; border:1px solid #333;">2do. Turno</th>'+
-										'<th colspan="2" style="text-align:center; border:1px solid #333;">3er. Turno</th>'+
-									'</tr>'+
-									'<tr>'+
-										'<th style="text-align:center;">Total Alumnos</th>'+
-										'<th style="text-align:center;">Total Aulas</th>'+
-										'<th style="text-align:center;">Total Alumnos</th>'+
-										'<th style="text-align:center;">Total Aulas</th>'+
-										'<th style="text-align:center;">Total Alumnos</th>'+
-										'<th style="text-align:center;">Total Aulas</th>'+
-									'</tr>'+
-									'<tr>'+
-										'<th></th>'+
-										'<th style="text-align:center;">(a)</th>'+
-										'<th style="text-align:center;">(b)</th>'+
-										'<th style="text-align:center;">(c)</th>'+
-										'<th style="text-align:center;">(d)</th>'+
-										'<th style="text-align:center;">(e)</th>'+
-										'<th style="text-align:center;">(f)</th>'+
-										'<th style="text-align:center;">(g)</th>'+
-										'<th style="text-align:center;">(h)</th>'+
-										'<th style="text-align:center;">(i)</th>'+
-										'<th style="text-align:center;">(j)</th>'+
-										'<th style="text-align:center;">(k)</th>'+
-										'<th style="text-align:center;">(l)</th>'+
-									'</tr>'+
-								'</thead>'+
-								'<tbody>'+
+					'<div class="panel"><!-- N CODIGOS -->'+
+									'<label>2.9 Códigos modulares asignados a la institución educativa:</label>'+
+									
+									'<table class="table table-bordered">'+
+										'<thead>'+
+											'<tr>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo Modular</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo local escolar</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">Nivel o Modalidad</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">Caracteristica</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">Numero de anexo</th>'+
+												'<th rowspan="2" style="text-align:center;vertical-align:middle;">¿Cuantos ANexos tiene?</th>'+
+												'<th colspan="2" style="text-align:center; border:1px solid #333;">1er. Turno</th>'+
+												'<th colspan="2" style="text-align:center; border:1px solid #333;">2do. Turno</th>'+
+												'<th colspan="2" style="text-align:center; border:1px solid #333;">3er. Turno</th>'+
+											'</tr>'+
+											'<tr>'+
+												'<th style="text-align:center;">Total Alumnos</th>'+
+												'<th style="text-align:center;">Total Aulas</th>'+
+												'<th style="text-align:center;">Total Alumnos</th>'+
+												'<th style="text-align:center;">Total Aulas</th>'+
+												'<th style="text-align:center;">Total Alumnos</th>'+
+												'<th style="text-align:center;">Total Aulas</th>'+
+											'</tr>'+
+											'<tr>'+
+												'<th></th>'+
+												'<th style="text-align:center;">(a)</th>'+
+												'<th style="text-align:center;">(b)</th>'+
+												'<th style="text-align:center;">(c)</th>'+
+												'<th style="text-align:center;">(d)</th>'+
+												'<th style="text-align:center;">(e)</th>'+
+												'<th style="text-align:center;">(f)</th>'+
+												'<th style="text-align:center;">(g)</th>'+
+												'<th style="text-align:center;">(h)</th>'+
+												'<th style="text-align:center;">(i)</th>'+
+												'<th style="text-align:center;">(j)</th>'+
+												'<th style="text-align:center;">(k)</th>'+
+												'<th style="text-align:center;">(l)</th>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="'+cod_local+val.P1_A_2_NroIE+'">'+
+											
+										'</tbody>'+
 
-									'<tr>'+
-										'<td style="text-align:center;">1er</td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-									'</tr>'+
+									'</table>'+
 
-										'<tr>'+
-											'<td></td>'+
-											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
-											'<th style="text-align:center;">N°</th>'+
-											'<td></td>'+
-											'<td colspan="2"></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-										'</tr>'+
+									'<div class="panel">'+
+											'<label>Observaciones:</label>'+
+											'<textarea style="width:800px; height:100px;"></textarea>'+
+									'</div>'+
 
-										'<tr>'+
-											'<td></td>'+
-											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
-											'<th style="text-align:center;">N°</th>'+
-											'<td></td>'+
-											'<td colspan="2"></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-										'</tr>'+
+					'</div><!-- end panel ncodigod-->';
 
-									'<tr>'+
-										'<td style="text-align:center;">2do</td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-										'<td></td>'+
-									'</tr>'+
+				
 
-										'<tr>'+
-											'<td></td>'+
-											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
-											'<th style="text-align:center;">N°</th>'+
-											'<td></td>'+
-											'<td colspan="2"></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-										'</tr>'+
 
-										'<tr>'+
-											'<td></td>'+
-											'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
-											'<th style="text-align:center;">N°</th>'+
-											'<td></td>'+
-											'<td colspan="2"></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-											'<td></td>'+
-										'</tr>'+
-	
 
-										
-								'</tbody>'+
-							'</table>'+
 
-							'<div class="panel">'+
-									'<label>Observaciones:</label>'+
-									'<textarea style="width:870px; height:100px;"></textarea>'+
-							'</div>'+
-
-			'</div><!-- end panel ncodigod-->';
 
 		})
 		
 		$('#inst_educa').html(html);
 
+		each_get_P1_A_2_8N(cod_local);
+
 	})
 }
+
+function each_get_P1_A_2_8N(cod_local){
+	$('.P1_A_2_NroIE').each(function() {
+//		alert($(this).attr('value'));
+		get_P1_A_2_8N(cod_local,$(this).attr('value'));
+	});
+}
+
+function get_P1_A_2_8N(cod_local,nro_IE){
+
+	var html="";
+	
+	$.getJSON('visor/visor/get_P1_A_2_8N/'+cod_local+'/'+nro_IE, {}, function(data, textStatus) {
+
+									
+		$.each(data, function(index, val) {
+									
+			html+='<tr>'+
+				'<td style="text-align:center;" class="P1_A_2_9_NroCMod">'+val.P1_A_2_9_NroCMod+'</td>'+
+				'<td>'+val.P1_A_2_9A_CMod+'</td>'+
+				'<td>'+val.P1_A_2_9B_CodLocal+'</td>'+
+				'<td>'+val.P1_A_2_9C_Nivel+'</td>'+
+				'<td>'+val.P1_A_2_9D_Car+'</td>'+
+				'<td>'+val.P1_A_2_9E_NroAnex+'</td>'+
+				'<td>'+val.P1_A_2_9F_CantAnex+'</td>'+
+				'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
+				'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
+				'<td>'+val.P1_A_2_9I_T2_Talu+'</td>'+
+				'<td>'+val.P1_A_2_9J_T2_Taul+'</td>'+
+				'<td>'+val.P1_A_2_9K_T3_Talu+'</td>'+
+				'<td>'+val.P1_A_2_9L_T3_Taul+'</td>'+
+				'</tr>';
+				//alert(val.anexos)
+				$.each(val.anexos, function(index, val) {
+
+					html+='<tr>'+
+							'<td></td>'+
+							'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
+							'<th style="text-align:center;">N°</th>'+
+							'<td>'+val.P1_A_2_9_AnexNro+'</td>'+
+							'<td colspan="2">'+val.P1_A_2_9_AnexNomb+'</td>'+
+							'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
+							'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
+							'<td>'+val.P1_A_2_9I_T2_Talu+'</td>'+
+							'<td>'+val.P1_A_2_9J_T2_Taul+'</td>'+
+							'<td>'+val.P1_A_2_9K_T3_Talu+'</td>'+
+							'<td>'+val.P1_A_2_9L_T3_Taul+'</td>'+
+						'</tr>';
+
+				});
+
+		});
+
+		$('#'+cod_local+nro_IE).html(html);
+											
+	});
+
+}
+
+
 
 
