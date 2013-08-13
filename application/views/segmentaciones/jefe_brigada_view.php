@@ -11,12 +11,20 @@
     {
       $sedeArray[$filas->cod_sede_operativa]=utf8_encode(strtoupper($filas->sede_operativa));
     }
-    
 
     $provArray = array(-1 => '');
     $jefeArray = array(-1 => '');
-    $rutaArray = array(-1 => '');
-    $localArray = array(-1 => '');
+    
+$txtcodigolocal = array(
+	'name'	=> 'codigolocal',
+	'id'	=> 'codigolocal',
+	'value' => set_value('codigolocal'),
+	'maxlength'	=> 6,
+	'style' => 'width: 120px;',
+	'tabindex' => '1',
+	'onkeypress' => 'return validar_numeros(event)',
+	'onpaste' => 'return false;'
+);
 
 $txtECodLocal =array( 
 	'name'	=> 'ecodlocal',	
@@ -58,13 +66,24 @@ $centro_poblado =array(
 	'style' => 'width: 120px;'
 );
 
+$periodo =array(
+	'name'	=> 'periodo',
+	'id'	=> 'periodo',
+	'value'	=> set_value('periodo'),
+	'maxlength'	=> 2,
+	'style' => 'width: 70px;',
+	'tabindex' => '3',
+	'onblur' => 'valida_periodo_jb(this)',
+	'onkeypress' => 'return validar_numeros(event)'
+);
+
 $fecha_inicio =array(
 	'name'	=> 'fxinicio',
 	'id'	=> 'fxinicio',
 	'value'	=> set_value('fxinicio'),
 	'maxlength'	=> 10,
 	'style' => 'width: 70px;',
-	'tabindex' => '5',
+	'tabindex' => '4',
 	'onblur' => 'validaFechaDDMMAAAA(this.value)',
 	'onkeypress' => 'return validar_fechas(event)'
 );
@@ -75,7 +94,7 @@ $fecha_final =array(
 	'value'	=> set_value('fxfinal'),
 	'maxlength'	=> 10,
 	'style' => 'width: 70px;',
-	'tabindex' => '6',
+	'tabindex' => '5',
 	'onblur' => 'validaFechaDDMMAAAA(this.value)',
 	'onkeypress' => 'return validar_fechas(event)'
 );
@@ -84,22 +103,22 @@ $traslado =array(
 	'name'	=> 'traslado',
 	'id'	=> 'traslado',
 	'value'	=> set_value('traslado'),
-	'maxlength'	=> 3,
+	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '7',
-	'onblur' => 'valida_traslado(this)',
-	'onkeypress' => 'return validar_decimales(event)'
+	'tabindex' => '6',
+	'onblur' => 'valida_traslado_jb(this)',
+	'onkeypress' => 'return validar_numeros(event)'
 );
 
 $trabajo_supervisor =array(
 	'name'	=> 'trabajo_supervisor',
 	'id'	=> 'trabajo_supervisor',
 	'value'	=> set_value('trabajo_supervisor'),
-	'maxlength'	=> 3,
+	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '8',
-	'onblur' => 'valida_trabajo(this)',
-	'onkeypress' => 'return validar_decimales(event)'
+	'tabindex' => '7',
+	'onblur' => 'valida_trabajo_jb(this)',
+	'onkeypress' => 'return validar_numeros(event)'
 );
 
 $retorno_sede =array(
@@ -108,7 +127,7 @@ $retorno_sede =array(
 	'value'	=> set_value('retornosede'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '10',
+	'tabindex' => '8',
 	'onkeypress' => 'return valida_retorno(event)',
 	'onblur' => 'calculo_general()'
 );
@@ -119,7 +138,7 @@ $gabinete =array(
 	'value'	=> set_value('gabinete'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '11',
+	'tabindex' => '9',
 	'onkeypress' => 'return valida_recugabidesc(event)',
 	'onblur' => 'calcula_totaldias()'
 );
@@ -130,7 +149,7 @@ $descanso =array(
 	'value'	=> set_value('descanso'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '12',
+	'tabindex' => '10',
 	'onkeypress' => 'return valida_recugabidesc(event)',
 	'onblur' => 'calcula_totaldias()'
 );
@@ -149,7 +168,7 @@ $movlocal_ma =array(
 	'value'	=> set_value('movilocal_ma'),
 	'maxlength'	=> 2,
 	'style' => 'width: 60px;',
-	'tabindex' => '13',
+	'tabindex' => '11',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'validar_movi_ma(this.value)'
 );
@@ -160,7 +179,7 @@ $gastoperativo_ma =array(
 	'value'	=> set_value('gastooperativo_ma'),
 	'maxlength'	=> 10,
 	'style' => 'width: 60px;',
-	'tabindex' => '14',
+	'tabindex' => '12',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'validar_gasto_ma(this.value)'
 );
@@ -187,7 +206,7 @@ $pasaje =array(
 	'value'	=> set_value('pasaje'),
 	'maxlength'	=> 6,
 	'style' => 'width: 60px;',
-	'tabindex' => '15',
+	'tabindex' => '13',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'calcula_totalaf()'
 );
@@ -207,9 +226,19 @@ $observaciones =array(
 	'value'	=> set_value('observaciones'),
 	'maxlength'	=> 200,
 	'style' => 'width: 350px;',
-	'tabindex' => '16',
+	'tabindex' => '14',
 	'rows' => '4',
 	'cols' => '6'
+);
+
+$btnconsultar = array(
+    'name' => 'consulta',
+    'id' => 'consulta',
+    'type' => 'button',
+    'class' => 'btn btn-primary pull-left',
+    'style' => 'margin-top:20px',
+    'tabindex' => '2',
+    'onclick' => 'cargar_info_jefebrigada()'
 );
 
 $txtBuscarCodigo = array(
@@ -222,23 +251,13 @@ $txtBuscarCodigo = array(
 	'onpaste' => 'return false;'
 );
 
-$btnconsultar = array(
-    'name' => 'consulta',
-    'id' => 'consulta',
-    'type' => 'button',
-    'class' => 'btn btn-primary pull-left',
-    'style' => 'margin-top:20px',
-    'tabindex' => '2',
-    'onclick' => 'buscar_local()'
-);
-
 $btnagregar = array(
     'name' => 'agregar',
     'id' => 'agregar',
-    'onclick' => 'Form_Validar()',
+    'onclick' => 'Form_Validar_JB()',
     'type' => 'button',
-    'content' => 'Agregar',
-    'tabindex' => '17',
+    'content' => 'Registrar Datos',
+    'tabindex' => '15',
     'class' => 'btn btn-primary pull-left'
 );
 
@@ -249,15 +268,6 @@ $btnBuscarCodigoLocal = array(
 	'onclick' => 'BuscarCodigoLocal()',
     'content' => 'Buscar Código de Local',
     'class' => 'btn btn-primary pull-right'
-);
-
-$btnRecargar = array(
-    'name' => 'recargar',
-    'id' => 'recargar',    
-    'type' => 'button',
-    'content' => 'Recargar',
-    'onclick' => 'mostrar();',
-    'class' => 'btn btn-inverse pull-left'
 );
 
 $btneliminar = array(
@@ -275,7 +285,7 @@ $attr = array('id' => 'frm_registro');
 	<div class="span12">
 		<div id="ap-content" class="span12">
 			<div class="row-fluid well top-conv">
-				<div class="span2">
+				<div class="span3">
 					<div class="control-group">
 							<?php echo form_label('Sede Operativa', 'sede'); ?>
 						<div class="controls">
@@ -283,7 +293,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span3">
 					<div class="control-group">
 							<?php echo form_label('Provincia Operativa', 'provincia'); ?>
 						<div class="controls">
@@ -295,28 +305,20 @@ $attr = array('id' => 'frm_registro');
 					<div class="control-group">
 							<?php echo form_label('Jefe de Brigada', 'jefe'); ?>
 						<div class="controls">
-							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada" onChange="cargar_rutas_JB();" style="width:100%"'); ?>
+							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada" onChange="mostrar_grilla_jb();" style="width:100%"'); ?>
 						</div>
 					</div>
 				</div>
 				<div class="span2">
 					<div class="control-group">
-							<?php echo form_label('Código de Ruta', 'ruta'); ?>
+							<?php echo form_label('Código de Local Educativo', 'local'); ?>
 						<div class="controls">
-							<?php echo form_dropdown('codigoruta', $rutaArray, '#', 'id="codigoruta" onChange="cargar_colegios_JB();" style="width:100%"'); ?>
-						</div>
-					</div>
-				</div>
-				<div class="span2">
-					<div class="control-group">
-							<?php echo form_label('Código de Colegio', 'colegio'); ?>
-						<div class="controls">
-							<?php echo form_dropdown('codigocolegio', $localArray, '#', 'id="codigocolegio" onChange="mostrar_ubigeo_colegio();" style="width:100%"'); ?>
+							<?php echo form_input($txtcodigolocal); ?>	
 						</div>
 					</div>
 				</div>
 				<div class="span1">
-					<?php echo form_button($btnconsultar, 'Consulta'); ?>	
+					<?php echo form_button($btnconsultar, 'Consulta'); ?>
 				</div>
 			</div>
 		</div>
@@ -330,6 +332,7 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Provincia', 'lblProvincia'); ?></td>
 					<td><?php echo form_label('Distrito', 'lblDistrito'); ?></td>
 					<td><?php echo form_label('Centro Poblado', 'lblCentroPoblado'); ?></td>
+					<td><?php echo form_label('Periodo', 'lblPeriodo'); ?></td>
 					<td><?php echo form_label('Fecha Inicio', 'lblFechaInicio'); ?></td>
 					<td><?php echo form_label('Fecha Final', 'lblFechaFinal'); ?></td>
 					<td><?php echo form_label('Traslado', 'lblTraslado'); ?></td>
@@ -341,6 +344,7 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($provincia); ?></td>
 					<td><?php echo form_input($distrito); ?></td>
 					<td><?php echo form_input($centro_poblado); ?></td>
+					<td><?php echo form_input($periodo); ?></td>
 					<td><?php echo form_input($fecha_inicio); ?></td>
 					<td><?php echo form_input($fecha_final); ?></td>
 					<td><?php echo form_input($traslado); ?></td>
@@ -356,6 +360,7 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Movi. Local AF', 'lblMovLocalAF'); ?></td>
 					<td><?php echo form_label('Gasto Ope. AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
+					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
 				</tr>
 				<tr align="center">
 					<td><?php echo form_input($retorno_sede); ?></td>
@@ -367,16 +372,15 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($movlocal_af); ?></td>
 					<td><?php echo form_input($gastoperativo_af); ?></td>
 					<td><?php echo form_input($pasaje); ?></td>
+					<td><?php echo form_input($total_af); ?></td>
 				</tr>
-				<tr>					
-					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
+				<tr>		
 					<td colspan="4"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
 					<td colspan="4"></td>
 				</tr>
-				<tr>					
-					<td valign="top"><?php echo form_input($total_af); ?></td>
+				<tr>				
 					<td colspan="4"><?php echo form_textarea($observaciones); ?></td>
-					<td colspan="4">
+					<td colspan="5">
 						<?php echo form_button($btnagregar); ?>
 						<input type="hidden" id="rangofechas" name="rangofechas" value="">
 					</td>
@@ -384,7 +388,6 @@ $attr = array('id' => 'frm_registro');
 			</tbody>
 		</table>
 		</div>
-		<input type="hidden" name="existe" value="" id="existe" />
 		<?php echo form_close(); ?>
 	</div>
 </div>
@@ -397,7 +400,6 @@ $attr = array('id' => 'frm_registro');
 		<table id="list2"></table>
 		<div id="pager2"></div>
 		<div class="span2 pull-right">
-			<?php echo form_button($btnRecargar); ?>
 			<?php echo form_button($btneliminar); ?>
 		</div>
 	</div>
@@ -408,63 +410,51 @@ $attr = array('id' => 'frm_registro');
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 		   	type:"POST",
-		   	url:'registro_rutas/ver_datos',
+		   	url:'registro_jefe_brigada/ver_datos',
 			datatype: "json",
 			height: 255,
-		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
+		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
 		   	colModel:[		   		
 		   		{name:'centroPoblado',index:'centroPoblado', width:100, align:"center"},
 		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel', width:100, align:"center"},
-		   		{name:'codlocal',index:'codlocal', width:100},		   		
-		   		{name:'fxinicio',index:'convert(datetime,fxinicio)', width:80, align:"center"},
-		   		{name:'fxfinal',index:'convert(datetime,fxfinal)', width:80,},
-		   		{name:'traslado',index:'traslado', width:80, align:"center"},
-		   		{name:'trabajo_supervisor',index:'trabajo_supervisor', width:80,},
-		   		{name:'recuperacion',index:'recuperacion', width:80,},
-		   		{name:'retornosede',index:'retornosede', width:80,},
-		   		{name:'gabinete',index:'gabinete', width:80,},
-		   		{name:'descanso',index:'descanso', width:80,},
-		   		{name:'totaldias',index:'totaldias', width:80,},
-		   		{name:'movilocal_ma',index:'movilocal_ma', width:80,},
-		   		{name:'gastooperativo_ma',index:'gastooperativo_ma', width:80,},
-		   		{name:'movilocal_af',index:'movilocal_af', width:80,},
-		   		{name:'gastooperativo_af',index:'gastooperativo_af', width:80,},
-		   		{name:'pasaje',index:'pasaje', width:80,},
-		   		{name:'total_af',index:'total_af', width:80,},
-		   		{name:'observaciones',index:'observaciones', width:150,},
+		   		{name:'codigo_de_local',index:'codigo_de_local', width:100},
+		   		{name:'periodo_jb',index:'periodo_jb', width:80},
+		   		{name:'fxinicio_jb',index:'convert(datetime,fxinicio_jb,103)', width:80, align:"center"},
+		   		{name:'fxfinal_jb',index:'convert(datetime,fxfinal_jb,103)', width:80,},
+		   		{name:'traslado_jb',index:'traslado_jb', width:80, align:"center"},
+		   		{name:'trabajo_supervisor_jb',index:'trabajo_supervisor_jb', width:80,},
+		   		{name:'retornosede_jb',index:'retornosede_jb', width:80,},
+		   		{name:'gabinete_jb',index:'gabinete_jb', width:80,},
+		   		{name:'descanso_jb',index:'descanso_jb', width:80,},
+		   		{name:'totaldias_jb',index:'totaldias_jb', width:80,},
+		   		{name:'movilocal_ma_jb',index:'movilocal_ma_jb', width:80,},
+		   		{name:'gastooperativo_ma_jb',index:'gastooperativo_ma_jb', width:80,},
+		   		{name:'movilocal_af_jb',index:'movilocal_af_jb', width:80,},
+		   		{name:'gastooperativo_af_jb',index:'gastooperativo_af_jb', width:80,},
+		   		{name:'pasaje_jb',index:'pasaje_jb', width:80,},
+		   		{name:'total_af_jb',index:'total_af_jb', width:80,},
+		   		{name:'observaciones_jb',index:'observaciones_jb', width:150,},
 		   		{name:'idruta',index:'idruta', width:90},
 		   	],
 		   	pager: '#pager2',
 		   	rowNum:10,
 		   	rowList:[10,20,30],
-		   	sortname: 'convert(datetime,fxinicio,103), prov_operativa_ugel',
+		   	sortname: 'convert(datetime,fxinicio_jb,103), prov_operativa_ugel',
 		    viewrecords: true,
 		    sortorder: "asc",
-		    caption:"Lista de Rutas",
-		    editurl:"registro_rutas/eliminar"
+		    editurl:"registro_jefe_brigada/eliminar",
+		    caption:"Lista de Rutas de Jefe de Brigada"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
 	});
 
-$("#eliminar").click(function(){
-	var gr = jQuery("#list2").jqGrid('getGridParam','selrow');
-	if( gr != null ) jQuery("#list2").jqGrid('delGridRow',gr,{reloadAfterSubmit:true});
-	else alert("Por Favor Seleccionar la Fila a ELiminar!");
-});
-
-	function mostrar()
-	{
-		var codsede = $("#sedeoperativa").val();
-		var codprov = $("#provoperativa").val();
-		
-		if (codsede == -1 || codprov == -1 )
-		{ alert("Debe Seleccionar una Sede y Provincia Operativa");
-		}else{
-			jQuery("#list2").jqGrid('setGridParam',{url:"registro_rutas/ver_datos?codsede="+codsede+"&codprov="+codprov,page:1}).trigger("reloadGrid");
-		}
-	}
-
+	$("#eliminar").click(function(){
+		var gr = jQuery("#list2").jqGrid('getGridParam','selrow');
+		if( gr != null ) jQuery("#list2").jqGrid('delGridRow',gr,{reloadAfterSubmit:true});
+		else alert("Por Favor Seleccionar la Fila a ELiminar!");
+	});
+	
 	function BuscarCodigoLocal()
 	{
     	var codigolocal = $("#BuscarCodigo").val();
@@ -473,7 +463,7 @@ $("#eliminar").click(function(){
     	{
     		alert("Ingrese un Código de Local a Buscar");
     	}else{
-    		jQuery("#list2").jqGrid('setGridParam',{url:"registro_rutas/Buscar_Grilla?codigolocal="+codigolocal,page:1}).trigger("reloadGrid");
+    		jQuery("#list2").jqGrid('setGridParam',{url:"registro_jefe_brigada/Buscar_Grilla_JB?codigolocal="+codigolocal,page:1}).trigger("reloadGrid");
     		$("#BuscarCodigo").val('');
     	}
 	}

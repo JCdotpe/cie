@@ -58,51 +58,13 @@ class Registro_Jefe_Brigada extends CI_Controller {
 		echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada"');		
 	}
 
-	public function cargar_rutas_jefebrigada()
-	{	
-		$lista_rutas = $this->operativa_model->get_rutas_jefe_brigada($_POST['sedeope'],$_POST['provope'],$_POST['codjb']);
-		$rutaArray = array();
-		foreach($lista_rutas->result() as $filas)
-		{
-			$rutaArray[$filas->idruta]=$filas->idruta;
-		}
-		echo form_dropdown('codigoruta', $rutaArray, '#', 'id="codigoruta"');		
-	}
-
-	public function cargar_locales_jefebrigada()
-	{	
-		$lista_locales = $this->operativa_model->get_locales_jefe_brigada($_POST['sedeope'],$_POST['provope'],$_POST['codjb'],$_POST['codruta']);
-		$localArray = array();
-		foreach($lista_locales->result() as $filas)
-		{
-			$localArray[$filas->codlocal]=$filas->codlocal;
-		}
-		echo form_dropdown('codigocolegio', $localArray, '#', 'id="codigocolegio"');		
-	}
-
-	public function validar_local()
-	{
-		$local = $this->input->post('codlocal');
-		
-		$resultado = $this->rutas_model->get_local($local);
-		
-		foreach ($resultado->result() as $row)
-		{
-			$data['Cantidad'] = $row->Cantidad;			
-		}
-
-		$jsonData = json_encode($data);
-		echo $jsonData;
-	}
-
-	public function consulta_ubicacion()
+	public function consulta_datos()
 	{
 		$codigo = $this->input->post('local');
-		$sede = $this->input->post('sede');
-		$provope = $this->input->post('provope');
+		$jb = $this->input->post('jefe');
+		$resultado = $this->rutas_model->get_info_jefebrigada($codigo, $jb);
 		
-		$resultado = $this->rutas_model->get_direccion_local($codigo, $sede, $provope);
-		if($resultado->num_rows() > 0)
+		if ($resultado->num_rows() > 0)
 		{
 			foreach ($resultado->result() as $row)
 			{
@@ -111,24 +73,25 @@ class Registro_Jefe_Brigada extends CI_Controller {
 				$data['nombre_provincia'] = utf8_encode($row->nombre_provincia);
 				$data['nombre_distrito'] = utf8_encode($row->nombre_distrito);
 				$data['centro_poblado'] = utf8_encode($row->centropoblado);
-			}
+				$data['fxinicio_jb'] = trim($row->fxinicio_jb);
+				$data['fxfinal_jb'] = trim($row->fxfinal_jb);
+				$data['traslado'] = trim($row->traslado_jb);
+				$data['trabajo_supervisor_jb'] = trim($row->trabajo_supervisor_jb);
+				$data['retornosede_jb'] = trim($row->retornosede_jb);
+				$data['gabinete_jb'] = trim($row->gabinete_jb);
+				$data['descanso_jb'] = trim($row->descanso_jb);
+				$data['totaldias_jb'] = trim($row->totaldias_jb);
+				$data['movilocal_ma_jb'] = trim($row->movilocal_ma_jb);
+				$data['gastooperativo_ma_jb'] = trim($row->gastooperativo_ma_jb);
+				$data['movilocal_af_jb'] = trim($row->movilocal_af_jb);
+				$data['gastooperativo_af_jb'] = trim($row->gastooperativo_af_jb);
+				$data['pasaje_jb'] = trim($row->pasaje_jb);
+				$data['total_af_jb'] = trim($row->total_af_jb);
+				$data['observaciones_jb'] = trim($row->observaciones_jb);
+				$data['cantidad'] = 1;
+			}	
 		}else{
-			$data['codigo_de_local'] = "";
-			$data['nombre_dpto'] = "";
-			$data['nombre_provincia'] = "";
-			$data['nombre_distrito'] = "";
-			$data['centro_poblado'] = "";
-		}
-
-		$resulta = $this->rutas_model->get_local($codigo);
-		if($resulta->num_rows() > 0)
-		{
-			foreach ($resulta->result() as $fila)
-			{
-				$data['cantidad'] = $fila->idtabla;
-			}
-		}else{
-			$data['cantidad'] = "0";
+			$data['cantidad'] = 0;
 		}
 
 		$jsonData = json_encode($data);
@@ -138,15 +101,13 @@ class Registro_Jefe_Brigada extends CI_Controller {
 
 	public function registro()
 	{
-		$c_data = array(
-				//'jefebrigada'=> $this->input->post('jefebrigada'),
-				'idruta'=> $this->input->post('codruta'),
+		$jb_data = array(
 				'codlocal'=> $this->input->post('ecodlocal'),
+				'periodo'=> $this->input->post('periodo'),
 				'fxinicio'=> $this->input->post('fxinicio'),
 				'fxfinal'=> $this->input->post('fxfinal'),
 				'traslado'=> $this->input->post('traslado'),
 				'trabajo_supervisor'=> $this->input->post('trabajo_supervisor'),
-				'recuperacion'=> $this->input->post('recuperacion'),
 				'retornosede'=> $this->input->post('retornosede'),
 				'gabinete'=> $this->input->post('gabinete'),
 				'descanso'=> $this->input->post('descanso'),
@@ -160,14 +121,7 @@ class Registro_Jefe_Brigada extends CI_Controller {
 				'observaciones'=> utf8_decode($this->input->post('observaciones'))
 			);
 
-		$jb_data = array(
-			'idruta'=> $this->input->post('codruta'),	
-			'codlocal'=> $this->input->post('ecodlocal'),
-			'cod_jefebrigada' => $this->input->post('jefebrigada')
-			);
-		
-		$flag = $this->rutas_model->insert_reg($c_data);
-		$flag = $this->rutas_model->insert_reg_jb($jb_data);
+		$flag = $this->rutas_model->update_reg_jb($jb_data);
 
 		if(!$flag)
 		{
@@ -180,10 +134,10 @@ class Registro_Jefe_Brigada extends CI_Controller {
 	public function ver_datos()
 	{		
 
-		$page = $this->input->get('page',TRUE);  // Almacena el numero de pagina actual
-		$limit = $this->input->get('rows',TRUE); // Almacena el numero de filas que se van a mostrar por pagina
-		$sidx = $this->input->get('sidx',TRUE);  // Almacena el indice por el cual se hará la ordenación de los datos
-		$sord = $this->input->get('sord',TRUE);  // Almacena el modo de ordenación
+		$page = $this->input->get('page',TRUE);
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
 
 
 		if(isset($_GET['codsede'])) { 
@@ -196,10 +150,15 @@ class Registro_Jefe_Brigada extends CI_Controller {
 		}else{ $provope = "-1"; }
 		$cond2 = "cod_prov_operativa = '$provope'";
 
-		$where = "WHERE ".$cond1." AND ".$cond2;
+		if(isset($_GET['codjb'])) { 
+			$jefeb = $this->input->get('codjb');			
+		}else{ $jefeb = ""; }
+		$cond3 = "cod_jefebrigada = '$jefeb'";
+
+		$where = "WHERE fxinicio_jb is not null AND ".$cond1." AND ".$cond2." AND ".$cond3;
 
 		if(!$sidx) $sidx =1;
-		$count = $this->rutas_model->contar_datos($where);
+		$count = $this->rutas_model->contar_datos_jb($where);
 		
 		 //En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -212,7 +171,7 @@ class Registro_Jefe_Brigada extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->rutas_model->mostrar_datos($sidx, $sord, $row_inicio, $row_final, $where);
+		$resultado = $this->rutas_model->mostrar_datos_jb($sidx, $sord, $row_inicio, $row_final, $where);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
@@ -220,55 +179,8 @@ class Registro_Jefe_Brigada extends CI_Controller {
 		$i=0;
 		foreach ($resultado->result() as $fila )
 		{
-			$respuesta->rows[$i]['id'] = $fila->id;
-			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
-			$i++;
-		}
-
-		$jsonData = json_encode($respuesta);
-		echo $jsonData;
-	}
-
-
-	public function Buscar_Grilla()
-	{		
-
-		$page = $this->input->get('page',TRUE);
-		$limit = $this->input->get('rows',TRUE);
-		$sidx = $this->input->get('sidx',TRUE);
-		$sord = $this->input->get('sord',TRUE);
-
-		if(isset($_GET['codigolocal'])) { 
-			$codlocal = $this->input->get('codigolocal');			
-		}else{ $codlocal = ""; }
-		$cond1 = "codlocal = '$codlocal'";
-
-		$where = "WHERE ".$cond1;
-
-		if(!$sidx) $sidx =1;
-		$count = $this->rutas_model->contar_datos($where);
-		
-		 //En base al numero de registros se obtiene el numero de paginas
-		if( $count > 0 ) {
-			$total_pages = ceil($count/$limit);
-		} else {
-			$total_pages = 0;
-		}
-		if ($page > $total_pages) $page=$total_pages;
-
-		$row_final = $page * $limit;
-		$row_inicio = $row_final - $limit;
-
-		$resultado = $this->rutas_model->mostrar_datos($sidx, $sord, $row_inicio, $row_final, $where);
-
-		$respuesta->page = $page;
-		$respuesta->total = $total_pages;
-		$respuesta->records = $count;
-		$i=0;
-		foreach ($resultado->result() as $fila )
-		{
-			$respuesta->rows[$i]['id'] = $fila->id;
-			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
+			$respuesta->rows[$i]['id'] = $fila->idtabla;
+			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codigo_de_local,$fila->periodo_jb,$fila->fxinicio_jb,$fila->fxfinal_jb,$fila->traslado_jb,$fila->trabajo_supervisor_jb,$fila->retornosede_jb,$fila->gabinete_jb,$fila->descanso_jb,$fila->totaldias_jb,$fila->movilocal_ma_jb,$fila->gastooperativo_ma_jb,$fila->movilocal_af_jb,$fila->gastooperativo_af_jb,$fila->pasaje_jb,$fila->total_af_jb,utf8_encode($fila->observaciones_jb),$fila->idruta);
 			$i++;
 		}
 
@@ -279,8 +191,7 @@ class Registro_Jefe_Brigada extends CI_Controller {
 	public function eliminar()
 	{
 		$codigo = $this->input->post('id');
-		
-		$flag = $this->rutas_model->delete_reg($codigo);
+		$flag = $this->rutas_model->delete_reg_jb($codigo);
 		if (!$flag)
 		{
 			$show = 'Error al Eliminar. Recargue la Pagina y Vuelva a Intentarlo';
@@ -293,5 +204,51 @@ class Registro_Jefe_Brigada extends CI_Controller {
 		$jsonData = json_encode($data);
 		echo $jsonData;
 	}
-}
 
+
+	public function Buscar_Grilla_JB()
+	{		
+
+		$page = $this->input->get('page',TRUE);
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
+
+		if(isset($_GET['codigolocal'])) { 
+			$codlocal = $this->input->get('codigolocal');			
+		}else{ $codlocal = ""; }
+		$cond1 = "codigo_de_local = '$codlocal'";
+
+		$where = "WHERE ".$cond1;
+
+		if(!$sidx) $sidx =1;
+		$count = $this->rutas_model->contar_datos_jb($where);
+		
+		 //En base al numero de registros se obtiene el numero de paginas
+		if( $count > 0 ) {
+			$total_pages = ceil($count/$limit);
+		} else {
+			$total_pages = 0;
+		}
+		if ($page > $total_pages) $page=$total_pages;
+
+		$row_final = $page * $limit;
+		$row_inicio = $row_final - $limit;
+
+		$resultado = $this->rutas_model->mostrar_datos_jb($sidx, $sord, $row_inicio, $row_final, $where);
+
+		$respuesta->page = $page;
+		$respuesta->total = $total_pages;
+		$respuesta->records = $count;
+		$i=0;
+		foreach ($resultado->result() as $fila )
+		{
+			$respuesta->rows[$i]['id'] = $fila->idtabla;
+			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codigo_de_local,$fila->fxinicio_jb,$fila->fxfinal_jb,$fila->traslado_jb,$fila->trabajo_supervisor_jb,$fila->retornosede_jb,$fila->gabinete_jb,$fila->descanso_jb,$fila->totaldias_jb,$fila->movilocal_ma_jb,$fila->gastooperativo_ma_jb,$fila->movilocal_af_jb,$fila->gastooperativo_af_jb,$fila->pasaje_jb,$fila->total_af_jb,utf8_encode($fila->observaciones_jb),$fila->idruta);
+			$i++;
+		}
+
+		$jsonData = json_encode($respuesta);
+		echo $jsonData;
+	}
+}

@@ -9,10 +9,10 @@ class Csvexport extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->helper('form');
-		//$this->load->library('PHPExcel');
+		$this->load->library('PHPExcel');
 	}
 
-/*
+
 	public function ExportacionRutasProvOperativa()
 	{
 		$this->load->model('segmentaciones/rutas_model');
@@ -164,9 +164,11 @@ class Csvexport extends CI_Controller {
 					$sheet->mergeCells('B9:C9');
 					$sheet->setCellValue('B10','PROVINCIA OPERATIVA:');
 					$sheet->mergeCells('B10:C10');
-					$sheet->setCellValue('B11','CODIGO DE RUTA:');
+					$sheet->setCellValue('B11','JEFE BRIGADA:');
 					$sheet->mergeCells('B11:C11');
-					$sheet->getStyle('B9:C11')->getFont()->setname('Arial')->setSize(11)->setBold(true);
+					$sheet->setCellValue('B12','RUTA:');
+					$sheet->mergeCells('B12:C12');
+					$sheet->getStyle('B9:C12')->getFont()->setname('Arial')->setSize(11)->setBold(true);
 					//$sheet->setCellValue('B12','RUTA - EMPADRONADOR:');
 					//$sheet->mergeCells('B12:C12');
 
@@ -177,36 +179,38 @@ class Csvexport extends CI_Controller {
 						$sheet->mergeCells('D9:E9');
 						$sheet->setCellValue('D10',$row->prov_operativa_ugel);
 						$sheet->mergeCells('D10:E10');
-						$sheet->setCellValue('D11',$row->idruta);
+						$sheet->setCellValue('D11','');
 						$sheet->mergeCells('D11:E11');
+						$sheet->setCellValue('D12',$row->idruta);
+						$sheet->mergeCells('D12:E12');
 					}
 
-					$sheet->getStyle("D9:E11")->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+					$sheet->getStyle("D9:E12")->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
 			     	//$sheet->getStyle("B9:C12")->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('#FF9900');
-			     	$sheet->getStyle("B9:C11")->applyFromArray($color_celda_cabeceras);
-			     	$sheet->getStyle("D9:E11")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
-					$sheet->getStyle("B9:C11")->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+			     	$sheet->getStyle("B9:C12")->applyFromArray($color_celda_cabeceras);
+			     	$sheet->getStyle("D9:E12")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+					$sheet->getStyle("B9:C12")->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 
-					$sheet->getStyle("B9:E11")->applyFromArray(array(
+					$sheet->getStyle("B9:E12")->applyFromArray(array(
 					'borders' => array(
 								'allborders' => array(
 												'style' => PHPExcel_Style_Border::BORDER_THIN)
 							)
 					));
 					
-					// $sheet->setCellValue('I10','NOMBRES Y APELLIDOS DEL COORDINADOR');
-					// $sheet->mergeCells('I10:S10');
-			  //    	$sheet->getStyle('I10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-					// $sheet->getStyle('I10')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);	
-					// $sheet->getStyle("I10")->applyFromArray($color_celda_cabeceras);	
+					$sheet->setCellValue('I10','NOMBRES Y APELLIDOS DEL EVALUADOR');
+					$sheet->mergeCells('I10:S10');
+			  		$sheet->getStyle('I10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+					$sheet->getStyle('I10')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);	
+					$sheet->getStyle("I10")->applyFromArray($color_celda_cabeceras);	
 													
-					// $sheet->mergeCells('I11:S11');
-					// $sheet->getStyle("I10:S11")->applyFromArray(array(
-					// 'borders' => array(
-					// 			'allborders' => array(
-					// 							'style' => PHPExcel_Style_Border::BORDER_THIN)
-					// 		)
-					// ));
+					$sheet->mergeCells('I11:S11');
+					$sheet->getStyle("I10:S11")->applyFromArray(array(
+					'borders' => array(
+								'allborders' => array(
+												'style' => PHPExcel_Style_Border::BORDER_THIN)
+							)
+					));
 
 					// $sheet->setCellValue('U10','NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA');
 					// $sheet->mergeCells('U10:AG10');
@@ -334,6 +338,8 @@ class Csvexport extends CI_Controller {
 				$sheet->getStyle("B".$cab.":W".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 				$sheet->getStyle("B".$cab.":W".($cab+2))->getFont()->setname('Arial')->setSize(9);
 
+
+
 		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":W".($cab+2));
 		        //$headStyle->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('#FF9900');
 				$headStyle->applyFromArray($color_celda_cabeceras);
@@ -350,8 +356,10 @@ class Csvexport extends CI_Controller {
 
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+2);
-			$numberStyle1 = $this->phpexcel->getActiveSheet(0)->getStyle('Q'.($cab+3).':V'.$total);
-			$numberStyle1->getNumberFormat()->setFormatCode('0.00');
+			//$numberStyle1 = $this->phpexcel->getActiveSheet(0)->getStyle('Q'.($cab+3).':V'.$total);
+			//$numberStyle1->getNumberFormat()->setFormatCode('0.00');
+
+			//$sheet->getActiveSheet(0)->getCell("G")->setValueExplicit('25',PHPExcel_Cell_DataType::TYPE_STRING);
 
 			$sheet->getStyle("A".($cab+3).":W".$total)->getFont()->setname('Arial Narrow')->setSize(9);
 
@@ -380,22 +388,22 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->NomProv);
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->NomDist);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->centroPoblado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->codlocal);
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValueExplicit($filas->codlocal,PHPExcel_Cell_DataType::TYPE_STRING);
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->fxinicio);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->fxfinal);
-			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->traslado);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->trabajo_supervisor);
-			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->recuperacion);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->retornosede);
-			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->gabinete);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->descanso);
-			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->totaldias);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->movilocal_ma);
-			  		$sheet->getCellByColumnAndRow(17, $row)->setValue($filas->gastooperativo_ma);
-			  		$sheet->getCellByColumnAndRow(18, $row)->setValue($filas->movilocal_af);
-			  		$sheet->getCellByColumnAndRow(19, $row)->setValue($filas->gastooperativo_af);
-			  		$sheet->getCellByColumnAndRow(20, $row)->setValue($filas->pasaje);
-			  		$sheet->getCellByColumnAndRow(21, $row)->setValue($filas->total_af);
+			  		$sheet->getCellByColumnAndRow(9, $row)->setValueExplicit($filas->traslado,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValueExplicit($filas->trabajo_supervisor,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(11, $row)->setValueExplicit($filas->recuperacion,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValueExplicit($filas->retornosede,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(13, $row)->setValueExplicit($filas->gabinete,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(14, $row)->setValueExplicit($filas->descanso,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(15, $row)->setValueExplicit($filas->totaldias,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(16, $row)->setValueExplicit($filas->movilocal_ma,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(17, $row)->setValueExplicit($filas->gastooperativo_ma,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(18, $row)->setValueExplicit($filas->movilocal_af,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(19, $row)->setValueExplicit($filas->gastooperativo_af,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(20, $row)->setValueExplicit($filas->pasaje,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(21, $row)->setValueExplicit($filas->total_af,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(22, $row)->setValue($filas->observaciones);
 				//}
 				 $col = 2;
@@ -421,29 +429,29 @@ class Csvexport extends CI_Controller {
 		// PIE TOTALES
 			$celda_s = $total+1 ; // inicio de pie de resumenes
 			$sheet->setCellValue('B'.$celda_s,'TOTAL' );
-			$sheet->mergeCells('B'.$celda_s.':K'.$celda_s);
-
+			$sheet->mergeCells('B'.$celda_s.':I'.$celda_s);
 			
 			$inicio_s = $cab+3 ; // inicio suma  de resumenes	
 			$fin_s = $total ; // fin suma de resumenes	
 
-			// $sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
-			// $sheet->setCellValue('M'. $celda_s ,'=SUM(M'.$inicio_s.':M'.$fin_s.')');
-			// $sheet->setCellValue('N'. $celda_s ,'=SUM(N'.$inicio_s.':N'.$fin_s.')');
-			// $sheet->setCellValue('O'. $celda_s ,'=SUM(O'.$inicio_s.':O'.$fin_s.')');
-			// $sheet->setCellValue('P'. $celda_s ,'=SUM(P'.$inicio_s.':P'.$fin_s.')');
-			// $sheet->setCellValue('T'. $celda_s ,'=SUM(T'.$inicio_s.':T'.$fin_s.')');
-			// $sheet->setCellValue('U'. $celda_s ,'=SUM(U'.$inicio_s.':U'.$fin_s.')');
-			// $sheet->setCellValue('V'. $celda_s ,'=SUM(V'.$inicio_s.':V'.$fin_s.')');
-			// $sheet->setCellValue('W'. $celda_s ,'=SUM(W'.$inicio_s.':W'.$fin_s.')');
-			// $sheet->setCellValue('X'. $celda_s ,'=SUM(X'.$inicio_s.':X'.$fin_s.')');
+			$sheet->setCellValue('J'. $celda_s ,'=SUM(J'.$inicio_s.':J'.$fin_s.')');
+			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
+			$sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
+			$sheet->setCellValue('M'. $celda_s ,'=SUM(M'.$inicio_s.':M'.$fin_s.')');
+			$sheet->setCellValue('N'. $celda_s ,'=SUM(N'.$inicio_s.':N'.$fin_s.')');
+			$sheet->setCellValue('O'. $celda_s ,'=SUM(O'.$inicio_s.':O'.$fin_s.')');
+			$sheet->setCellValue('P'. $celda_s ,'=SUM(P'.$inicio_s.':P'.$fin_s.')');
+			$sheet->setCellValue('S'. $celda_s ,'=SUM(S'.$inicio_s.':S'.$fin_s.')');
+			$sheet->setCellValue('T'. $celda_s ,'=SUM(T'.$inicio_s.':T'.$fin_s.')');
+			$sheet->setCellValue('U'. $celda_s ,'=SUM(U'.$inicio_s.':U'.$fin_s.')');
+			$sheet->setCellValue('V'. $celda_s ,'=SUM(V'.$inicio_s.':V'.$fin_s.')');
 
 			// $sheet->mergeCells('Q'.$celda_s.':S'.$celda_s);
 			// $sheet->mergeCells('Y'.$celda_s.':X'.$celda_s);
 
 	     	$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
 	     	$sheet->getStyle('Q'.$celda_s)->applyFromArray($color_celda_cabeceras);
-	     	$sheet->getStyle('Y'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('R'.$celda_s)->applyFromArray($color_celda_cabeceras);
 	     	$sheet->getStyle('B'.$celda_s.':W'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
 			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 
@@ -454,9 +462,9 @@ class Csvexport extends CI_Controller {
 					)
 			));
 
-			$numberStyle2 = $this->phpexcel->getActiveSheet(0)->getStyle('T'.$celda_s.':W'.$celda_s);
-			$numberStyle2->getNumberFormat()->setFormatCode('0.00');
-			$sheet->getStyle('T'.($total+2).':W'.($total+2))->getFont()->setname('Arial Narrow')->setSize(10);
+			//$numberStyle2 = $this->phpexcel->getActiveSheet(0)->getStyle('S'.$celda_s.':V'.$celda_s);
+			//$numberStyle2->getNumberFormat()->setFormatCode('0.00');
+			//$sheet->getStyle('T'.($total+2).':W'.($total+2))->getFont()->setname('Arial Narrow')->setSize(10);
 
 			//fecha
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );
@@ -497,7 +505,7 @@ class Csvexport extends CI_Controller {
 			exit;
 		// SALIDA EXCEL
 	}
-*/
+/*
 
 	public function ExportacionRutasProvOperativa()
 	{
@@ -552,7 +560,7 @@ class Csvexport extends CI_Controller {
 
 		$this->load->view('excel/rutaprovoperativa_xls', $data);
 	}
-
+*/
 	public function ExportacionListadoRutas()
 	{
 		$this->load->helper('form');

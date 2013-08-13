@@ -50,6 +50,15 @@ function consultabd()
         return false;
 }
 
+function valida_periodo_jb(campo)
+{
+  if (campo.value != '')
+  {
+    if (campo.value < 1 || campo.value > 14)
+      { alert("Periodo fuera de Rango"); return false; }
+  }
+}
+
 function valida_traslado(campo)
 {
   nro=campo.value;
@@ -62,6 +71,18 @@ function valida_traslado(campo)
   calculo_general();
 }
 
+function valida_traslado_jb(campo)
+{
+  nro=campo.value;
+  if (nro!=0)
+  {
+    error = formato_decimales(nro);
+    if (error==false){ alert("Nro Incorrecto"); campo.focus(); return false; }
+    if(nro<1 || nro> 4) { alert('Dias de Traslado Incorrecto'); campo.focus(); return false; }
+  }
+  calculo_general();
+}
+
 function valida_trabajo(campo)
 {
   nro=campo.value;
@@ -70,6 +91,18 @@ function valida_trabajo(campo)
     error = formato_decimales(nro);
     if (error==false){ alert("Nro Incorrecto"); campo.focus(); return false; }
     if(nro<0.5 || nro> 1) { alert('Dias de Trabajo Incorrecto'); campo.focus(); return false; }  
+  } 
+  calculo_general();
+}
+
+function valida_trabajo_jb(campo)
+{
+  nro=campo.value;
+  if (nro!=0)
+  {
+    error = formato_decimales(nro);
+    if (error==false){ alert("Nro Incorrecto"); campo.focus(); return false; }
+    if(nro<1 || nro> 4) { alert('Dias de Trabajo Incorrecto'); campo.focus(); return false; }  
   } 
   calculo_general();
 }
@@ -336,7 +369,6 @@ function calcula_totaldias()
     var total = suma_uno();
     total+= parseFloat(gabinete);
     total+= parseFloat(descanso);
-
    
     document.getElementById("totaldias").value=total;
 }
@@ -366,7 +398,12 @@ function suma_uno()
 {
     var traslado=$('#traslado').val();
     var trabajo_supervisor=$('#trabajo_supervisor').val();
-    var recuperacion=$('#recuperacion').val();
+    if (document.forms[0].recuperacion)
+    {
+      var recuperacion=$('#recuperacion').val();  
+    }else{
+      var recuperacion='';
+    }    
     var retornosede=$('#retornosede').val();
 
     if (traslado==''){ traslado = 0 }
@@ -512,39 +549,159 @@ function cargar_JB()
     });
 }
 
-function cargar_rutas_JB()
+function cargar_info_jefebrigada()
 {
-    var doLoginMethodUrl = CI.base_url + 'index.php/segmentaciones/registro_jefe_brigada/cargar_rutas_jefebrigada';
-    var id_sedeope = $("#sedeoperativa").val();
-    var id_provope = $("#provoperativa").val();
-    var id_jb = $("#jefebrigada").val();
+  var sedeope = $("#sedeoperativa").val();
+  var provope = $("#provoperativa").val();
+  var jb = $("#jefebrigada").val();
+  var local = $("#codigolocal").val();
+  
+  if (sedeope == -1 || provope == -1 || jb == -1 || local == '')
+  {
+    alert("Faltan Datos para realizar la Consulta.");
+  }else{
+    consultabd_JB();
+  }
+}
+
+function consultabd_JB()
+{
+      var codigo = $("#codigolocal").val();
+      var jb = $("#jefebrigada").val();
+        var doLoginMethodUrl = 'registro_jefe_brigada/consulta_datos';
+        $.ajax({
+          type: "POST",
+          url: doLoginMethodUrl,
+          dataType: "json",
+          data: "local="+codigo+"&jefe="+jb,
+          cache: false,
+          success: function(data){
+            $("#frm_registro :input").val('');
+            if (data.cantidad > 0)
+            {
+                $("#ecodlocal").val(data.codigo_de_local);
+                $("#depa").val(data.nombre_dpto);
+                $("#prov").val(data.nombre_provincia);
+                $("#dist").val(data.nombre_distrito);
+                $("#cent_pob").val(data.centro_poblado);
+                $("#fxinicio").val(data.fxinicio_jb);
+                $("#fxfinal").val(data.fxfinal_jb);
+                $("#traslado").val(data.traslado_jb);
+                $("#trabajo_supervisor").val(data.trabajo_supervisor_jb);
+                $("#retornosede").val(data.retornosede_jb);
+                $("#gabinete").val(data.gabinete_jb);
+                $("#descanso").val(data.descanso_jb);
+                $("#totaldias").val(data.totaldias_jb);
+                $("#movilocal_ma").val(data.movilocal_ma_jb);
+                $("#gastooperativo_ma").val(data.gastooperativo_ma_jb);
+                $("#movilocal_af").val(data.movilocal_af_jb);
+                $("#gastooperativo_af").val(data.gastooperativo_af_jb);
+                $("#pasaje").val(data.pasaje_jb);
+                $("#total_af").val(data.total_af_jb);
+                $("#observaciones").val(data.observaciones_jb);
+            }else{
+              alert("Código Consultado no Pertenece a Jefe de Brigada");
+            }
+          }
+        });
+        return false;
+}
+
+
+function Form_Validar_JB()
+{
+  var codlocal=document.getElementById("ecodlocal");
+  var periodo=document.getElementById("periodo");
+  var fxinicio=document.getElementById("fxinicio");
+  var fxfinal=document.getElementById("fxfinal");
+  var traslado=document.getElementById("traslado");
+  var trabajo_supervisor=document.getElementById("trabajo_supervisor");
+  var retornosede=document.getElementById("retornosede");
+  var gabinete=document.getElementById("gabinete");
+  var descanso=document.getElementById("descanso");
+  var totaldias=document.getElementById("totaldias");
+  var movilocal_ma=document.getElementById("movilocal_ma");
+  var gastooperativo_ma=document.getElementById("gastooperativo_ma");
+  var movilocal_af=document.getElementById("movilocal_af");
+  var gastooperativo_af=document.getElementById("gastooperativo_af");
+  var pasaje=document.getElementById("pasaje");
+  var total_af=document.getElementById("total_af");
+
+  if(codlocal.value == '' || (codlocal.value) == 0){ alert("Consulte un Local"); codigolocal.focus(); return false; }
+  
+  if (periodo.value != '')
+  {
+    if (periodo.value < 1 || periodo.value > 14){ alert("Periodo fuera de Rango"); periodo.focus(); return false; }
+  }
+
+  if (fxinicio.value !='')
+  {
+    if (fxfinal.value != '')
+    {
+      
+      if (!validaFechaDDMMAAAA(fxinicio.value)){ fxinicio.focus(); return false; }
+      if (!validaFechaDDMMAAAA(fxfinal.value)){ fxfinal.focus(); return false; }
+
+      rango_de_fechas();
+
+    }else{ alert("Debe Ingresar una Fecha Final"); fxfinal.focus(); return false; }
+  }else{ alert("Debe Ingresar una Fecha de Inicio"); fxinicio.focus(); return false; }
+
+  if( (movilocal_ma.value == 0 || movilocal_ma.value == '') && (gastooperativo_ma.value == 0 || gastooperativo_ma.value == '') ){ alert("Falta Asignar Montos"); movilocal_ma.focus(); return false; }
+
+  
+  if (movilocal_ma.value == '' || movilocal_ma.value == 0 || movilocal_ma.value == 20)
+  {
+    if (movilocal_ma.value == 20 && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
+  }else{ alert("Monto de Movilidad Local MA Incorrecto"); movilocal_ma.focus(); return false; }
+
+  if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 50 || gastooperativo_ma.value == 100)
+  {
+    if (gastooperativo_ma.value == 50 && pasaje.value > 0){ alert("Ud. Asigno Gasto Operativo MA, revise el campo Pasaje"); pasaje.focus(); return false; }
+  }else{ alert("Monto de Gasto Operativo MA Incorrecto"); gastooperativo_ma.focus(); return false; }
+
+  if ((movilocal_ma.value == 20 || gastooperativo_ma.value == 50) && (traslado.value > 0 || retornosede.value > 0)) { alert("Revise los campos de Traslado y Retorno a Sede"); traslado.focus(); return false; }
+  
+  if(total_af.value == '' || total_af.value == 0){ alert("Faltan Datos para Calcular la Asignación de Fondos"); total_af.focus(); return false; }
+  
+  if(isFloat(totaldias.value)) { alert("Alerta. Revisar los Dias de Operacion en Campo"); $('#totaldias').focus(); return false; }
+
+  rango_fechas = parseFloat(document.getElementById("rangofechas").value) + 1;
+    
+  if (rango_fechas == totaldias.value){}else{ alert("El Rango de Fechas No Coincide con los Dias de Operacion en Campo"); return false; }
+
+  jefebrigada_form();
+}
+
+function jefebrigada_form()
+{
+    var bsub = $( ":submit" );
+    var form_data = $('#frm_registro').serializeArray();
+      
+    form_data.push(
+      {name: 'ajax',value:1}
+    );
+    form_data = $.param(form_data);
+    
     $.ajax({
-      type: "POST",
-      url: doLoginMethodUrl,
-      data: "sedeope="+id_sedeope+"&provope="+id_provope+"&codjb="+id_jb,
-      success: function(rutasResponse){
-        console.log(rutasResponse);
-        $("#codigoruta").empty().append($(rutasResponse).find("option"));
-        $("#codigoruta").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-      }
+        type: "POST", 
+        url: "registro_jefe_brigada/registro",   
+        data: form_data,
+        
+        success: function(response){
+         
+          $("#frm_registro :input").val('');
+          $("#list2").trigger("reloadGrid");
+          alert("Datos Guardados Satisfactoriamente");
+        }
     });
 }
 
-function cargar_colegios_JB()
+function mostrar_grilla_jb()
 {
-    var doLoginMethodUrl = CI.base_url + 'index.php/segmentaciones/registro_jefe_brigada/cargar_locales_jefebrigada';
-    var id_sedeope = $("#sedeoperativa").val();
-    var id_provope = $("#provoperativa").val();
-    var id_jb = $("#jefebrigada").val();
-    var id_ruta = $("#codigoruta").val();
-    $.ajax({
-      type: "POST",
-      url: doLoginMethodUrl,
-      data: "sedeope="+id_sedeope+"&provope="+id_provope+"&codjb="+id_jb+"&codruta="+id_ruta,
-      success: function(localesResponse){
-        console.log(localesResponse);
-        $("#codigocolegio").empty().append($(localesResponse).find("option"));
-        $("#codigocolegio").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-      }
-    });
+  var codsede = $("#sedeoperativa").val();
+  var codprov = $("#provoperativa").val();
+  var codjb = $("#jefebrigada").val();
+  
+  jQuery("#list2").jqGrid('setGridParam',{url:"registro_jefe_brigada/ver_datos?codsede="+codsede+"&codprov="+codprov+"&codjb="+codjb,page:1}).trigger("reloadGrid");
 }
