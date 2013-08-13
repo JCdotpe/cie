@@ -146,6 +146,29 @@ class Visor extends CI_Controller {
 
 		echo $jsonData;
 	}
+
+	public function get_P1_A_2_8N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_A_2_8N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P1_A_2_9N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_A_2_9N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+
+	
+
+	
 	
 }
 

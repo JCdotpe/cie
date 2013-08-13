@@ -83,49 +83,49 @@ function get_PCar(cod_local){
 
 			$.each(data, function(index, val) {
 	
-				$('.centro_poblado').val(val.PC_A_1_CentroP);
-				$('.nucleo_urbano').val(val.PC_A_5_NucleoUrb);
-				$('#via1').html(val.PC_A_7Dir_2_Nomb);
-				$('#puerta1').html(val.PC_A_7Dir_3_Nro);
-				$('#piso1').html(val.PC_A_7Dir_4_Piso);
-				$('#mz1').html(val.PC_A_7Dir_5_Mz);
-				$('#lote1').html(val.PC_A_7Dir_6_Lt);
-				$('#sector1').html(val.PC_A_7Dir_7_Sect);
-				$('#zona1').html(val.PC_A_7Dir_8_Zona);
-				$('#etapa1').html(val.PC_A_7Dir_9_Et);
-				$('#km1').html(val.PC_A_7Dir_10_Km);
+				$('.PC_A_1_CentroP').val(val.PC_A_1_CentroP);
+				$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
+				$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
+				$('#PC_A_7Dir_3_Nro').html(val.PC_A_7Dir_3_Nro);
+				$('#PC_A_7Dir_4_Piso').html(val.PC_A_7Dir_4_Piso);
+				$('#PC_A_7Dir_5_Mz').html(val.PC_A_7Dir_5_Mz);
+				$('#PC_A_7Dir_6_Lt').html(val.PC_A_7Dir_6_Lt);
+				$('#PC_A_7Dir_7_Sect').html(val.PC_A_7Dir_7_Sect);
+				$('#PC_A_7Dir_8_Zona').html(val.PC_A_7Dir_8_Zona);
+				$('#PC_A_7Dir_9_Et').html(val.PC_A_7Dir_9_Et);
+				$('#PC_A_7Dir_10_Km').html(val.PC_A_7Dir_10_Km);
 
 				get_type_Address(val.PC_A_7Dir_1_Tvia);
 				get_dir_Verif(val.PC_A_8_DirVerif);
 
-				$('#referencia_local1').val(val.PC_A_9_RefDir);
-				$('#tr_cod_local1').val(val.PC_B_1_CodLocal); 
-				$('#cnt_cod_env1').val(val.PC_B_2_CantEv); 
+				$('#PC_A_9_RefDir').val(val.PC_A_9_RefDir);
+				$('#PC_B_1_CodLocal').val(val.PC_B_1_CodLocal); 
+				$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv); 
 
 				cod_loc=val.codigo_de_local;//<--
 
-				$('#resf_f1').html(val.PC_C_2_Rfinal_fecha); 
-				$('#resf_res1').html(val.PC_C_2_Rfinal_resul); 
-				$('#resf_otro1').html(val.PC_C_2_Rfinal_resul_O);
-				$('#etdni1').html(val.PC_D_EvT_dni);
-				$('#etnombres1').html(val.PC_D_EvT_Nomb);
-				$('#jbdni1').html(val.PC_D_JBri_dni);
-				$('#jbnombres1').html(val.PC_D_JBri_Nomb);
-				$('#cpdni1').html(val.PC_D_CProv_dni);
-				$('#cpnombres1').html(val.PC_D_CProv_Nomb);
-				$('#cddni1').html(val.PC_D_CDep_dni);
-				$('#cdnombres1').html(val.PC_D_CDep_Nomb);
-				$('#sndni1').html(val.PC_D_SupN_dni);
-				$('#snnombres1').html(val.PC_D_SupN_Nomb);
+				$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha); 
+				$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul); 
+				$('#PC_C_2_Rfinal_resul_O').html(val.PC_C_2_Rfinal_resul_O);
+				$('#PC_D_EvT_dni').html(val.PC_D_EvT_dni);
+				$('#PC_D_EvT_Nomb').html(val.PC_D_EvT_Nomb);
+				$('#PC_D_JBri_dni').html(val.PC_D_JBri_dni);
+				$('#PC_D_JBri_Nomb').html(val.PC_D_JBri_Nomb);
+				$('#PC_D_CProv_dni').html(val.PC_D_CProv_dni);
+				$('#PC_D_CProv_Nomb').html(val.PC_D_CProv_Nomb);
+				$('#PC_D_CDep_dni').html(val.PC_D_CDep_dni);
+				$('#PC_D_CDep_Nomb').html(val.PC_D_CDep_Nomb);
+				$('#PC_D_SupN_dni').html(val.PC_D_SupN_dni);
+				$('#PC_D_SupN_Nomb').html(val.PC_D_SupN_Nomb);
 
-				$('#tpr1').html(val.PC_E_1_TPred);
-				$('#tpn2').html(val.PC_E_2_TPred_NoCol);
-				$('#ted1').html(val.PC_E_3_TEdif);
-				$('#tpa1').html(val.PC_E_4_TPat);
-				$('#tld1').html(val.PC_E_5_TLosa);
-				$('#tct1').html(val.PC_E_6_TCist);
-				$('#tmc1').html(val.PC_E_7_TMurCon);
-				$('#n_predio1').html(val.PC_F_1);
+				$('#PC_E_1_TPred').html(val.PC_E_1_TPred);
+				$('#PC_E_2_TPred_NoCol').html(val.PC_E_2_TPred_NoCol);
+				$('#PC_E_3_TEdif').html(val.PC_E_3_TEdif);
+				$('#PC_E_4_TPat').html(val.PC_E_4_TPat);
+				$('#PC_E_5_TLosa').html(val.PC_E_5_TLosa);
+				$('#PC_E_6_TCist').html(val.PC_E_6_TCist);
+				$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
+				$('#PC_F_1').html(val.PC_F_1);
 
 			})
 			
@@ -228,38 +228,25 @@ function get_P1_A_2N(cod_local){
 
 		$.each(data, function(index, val) {
 
-			/*$('#ie_num2').val();
-			$('#nom_ie2').val(val.);
-			$('#nya_dir2').val(val.);
-				//P1_A_2_3_DocTip
-			$('#dni_dir2').val(val.);
-			$('#carnet_dir2').val(val.);
-			
-			$('#telf_ie2').val(val. );
-			$('#telef_dir2').val(val. );
-			$('#mail_ie2').val(val.);
-			$('#mail_dir2').val(val.);
-			$('#ayn_info2').val(val.);
-			$('#cargo_info2').val(val.);
-			$('#ncod_mod2').val(val.);*/
+
 
 			
 			html+='<table class="table table-bordered">'+
 				'<thead>'+
-					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" id="ie_num2" style="width:20px;" type="text" class="form-control"></span></th>'+
+					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" id="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>'+
 				'</thead>'+
 				'<tbody>'+
 					'<tr>'+
 						'<td>'+
 							'<strong>2.1.¿Cuál es el nombre de la institución educativa?</strong>'+
 						'</td>'+
-						'<td><input value="'+val.P1_A_2_1_NomIE+'" id="nom_ie2" style="width:350px;" type="text" class="form-control"></td>'+
+						'<td><input value="'+val.P1_A_2_1_NomIE+'" id="P1_A_2_1_NomIE" style="width:350px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td>'+
 							'<strong>2.2.¿Cuáles son los apellidos y nombres del director?</strong>'+
 						'</td>'+
-						'<td><input value="'+val.P1_A_2_2_Direc+'" id="nya_dir2" style="width:350px;" type="text" class="form-control"></td>'+
+						'<td><input value="'+val.P1_A_2_2_Direc+'" id="P1_A_2_2_Direc" style="width:350px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td>'+
@@ -268,11 +255,11 @@ function get_P1_A_2N(cod_local){
 						'<td>'+
 							'<div class="panel">'+
 								'<label>D.N.I.</label>'+
-								'<input value="'+val.P1_A_2_3_DocNro+'" id="dni_dir2" style="width:200px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_3_DocNro+'" id="P1_A_2_3_DocNro" style="width:200px;" type="text" class="form-control">'+
 							'</div>'+
 							'<div class="panel">'+
 								'<label>Carnet del Extrangero</label>'+
-								'<input value="'+val.P1_A_2_3_DocNro+'" id="carnet_dir2" style="width:200px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_3_DocNro+'" id="P1_A_2_3_DocNro" style="width:200px;" type="text" class="form-control">'+
 							'</div>'+
 						'</td>'+
 					'</tr>'+
@@ -281,11 +268,11 @@ function get_P1_A_2N(cod_local){
 						'<td>'+
 							'<div class="panel">'+
 								'<label>La Institucion Educativa?</label>'+
-								'<input value="'+val.P1_A_2_4_TelfIE+'" id="telf_ie2" style="width:200px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_4_TelfIE+'" id="P1_A_2_4_TelfIE" style="width:200px;" type="text" class="form-control">'+
 							'</div>'+
 							'<div class="panel">'+
 								'<label>Director?</label>'+
-								'<input value="'+val.P1_A_2_4_TelfDir+'" id="telef_dir2" style="width:200px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_4_TelfDir+'" id="P1_A_2_4_TelfDir" style="width:200px;" type="text" class="form-control">'+
 							'</div>'+
 						'</td>'+
 					'</tr>'+
@@ -294,28 +281,28 @@ function get_P1_A_2N(cod_local){
 						'<td>'+
 							'<div class="panel">'+
 								'<label>La Institucion Educativa?</label>'+
-								'<input value="'+val.P1_A_2_5_EmailIE+'" id="mail_ie2" style="width:400px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_5_EmailIE+'" id="P1_A_2_5_EmailIE" style="width:400px;" type="text" class="form-control">'+
 							'</div>'+
 							'<div class="panel">'+
 								'<label>Director?</label>'+
-								'<input value="'+val.P1_A_2_5_EmailDir+'" id="mail_dir2" style="width:400px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_5_EmailDir+'" id="P1_A_2_5_EmailDir" style="width:400px;" type="text" class="form-control">'+
 							'</div>'+
 						'</td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td><strong>2.6.¿Apellidos y Nombres del informante?</strong></td>'+
-						'<td><input value="'+val.P1_A_2_6_Informant+'" id="ayn_info2" style="width:400px;" type="text" class="form-control"></td>'+
+						'<td><input value="'+val.P1_A_2_6_Informant+'" id="P1_A_2_6_Informant" style="width:400px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td><strong>2.7.¿Cargo del informante?</strong></td>'+
-						'<td><input value="'+val.P1_A_2_7_InformantCarg+'" id="cargo_info2" style="width:400px;" type="text" class="form-control"></td>'+
+						'<td><input value="'+val.P1_A_2_7_InformantCarg+'" id="P1_A_2_7_InformantCarg" style="width:400px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td><strong>2.8.¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>'+
 						'<td>'+
 							'<div class="panel">'+
 								'<label>N° de Códigos Modulares</label>'+
-								'<input value="'+val.P1_A_2_8_Can_CMod_IE+'" id="ncod_mod2" style="width:200px;" type="text" class="form-control">'+
+								'<input value="'+val.P1_A_2_8_Can_CMod_IE+'" id="P1_A_2_8_Can_CMod_IE" style="width:200px;" type="text" class="form-control">'+
 							'</div>'+
 						'</td>'+
 					'</tr>'+

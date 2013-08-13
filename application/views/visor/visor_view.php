@@ -334,8 +334,8 @@
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control departamento"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control distrito"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control centro_poblado"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control nucleo_urbano"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control PC_A_1_CentroP"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control PC_A_5_NucleoUrb"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control ugel"></li>
 								</ul>
 
@@ -393,15 +393,15 @@
 							<tbody>
 							
 								<tr>
-									<td id="via1"></td>
-									<td id="puerta1"></td>
-									<td id="piso1"></td>
-									<td id="mz1"></td>
-									<td id="lote1"></td>
-									<td id="sector1"></td>
-									<td id="zona1"></td>
-									<td id="etapa1"></td>
-									<td id="km1"></td>
+									<td id="PC_A_7Dir_2_Nomb"></td>
+									<td id="PC_A_7Dir_3_Nro"></td>
+									<td id="PC_A_7Dir_4_Piso"></td>
+									<td id="PC_A_7Dir_5_Mz"></td>
+									<td id="PC_A_7Dir_6_Lt"></td>
+									<td id="PC_A_7Dir_7_Sect"></td>
+									<td id="PC_A_7Dir_8_Zona"></td>
+									<td id="PC_A_7Dir_9_Et"></td>
+									<td id="PC_A_7Dir_10_Km"></td>
 								</tr>
 							
 							</tbody>
@@ -419,7 +419,7 @@
 							</li>
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
-								<input type="text" id="referencia_local1" class="form-control">
+								<input type="text" id="PC_A_9_RefDir" class="form-control">
 							</li>
 						</ul>
 
@@ -431,8 +431,8 @@
 							<h6>Evaluador Tecnico</h6>
 
 							<ul class="list-group">
-								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" id="tr_cod_local1" class="form-control"></li>
-								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal <input id="cnt_cod_env1" type="text" class="form-control"></li>
+								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" id="PC_B_1_CodLocal" class="form-control"></li>
+								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal <input id="PC_B_2_CantEv" type="text" class="form-control"></li>
 							</ul>
 
 						</div>
@@ -499,11 +499,11 @@
 								<tbody>
 									<tr>
 										<td>Fecha: </td>
-										<td id="resf_f1"></td>
+										<td id="PC_C_2_Rfinal_fecha"></td>
 									</tr>
 									<tr>
 										<td>Resultado: </td>
-										<td id="resf_res1"></td>
+										<td id="PC_C_2_Rfinal_resul"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -523,7 +523,7 @@
 											<li>4.Local cerrado/desocupado</li>
 										</ul>
 									</td>
-									<td>5.Otro <textarea id="resf_otro1" class="form-control" rows="3"></textarea></td>
+									<td>5.Otro <textarea id="PC_C_2_Rfinal_resul_O" class="form-control" rows="3"></textarea></td>
 								</tbody>
 							</table>
 
@@ -545,32 +545,32 @@
 								<tbody>
 									<tr>
 										<td>Evaluador Técnico</td>
-										<td id="etdni1"></td>
-										<td id="etnombres1"></td>
+										<td id="PC_D_EvT_dni"></td>
+										<td id="PC_D_EvT_Nomb"></td>
 									</tr>
 
 									<tr>
 										<td>Jefe de Brigada</td>
-										<td id="jbdni1"></td>
-										<td id="jbnombres1"></td>
+										<td id="PC_D_JBri_dni"></td>
+										<td id="PC_D_JBri_Nomb"></td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Provincial</td>
-										<td id="cpdni1"></td>
-										<td id="cpnombres1"></td>
+										<td id="PC_D_CProv_dni"></td>
+										<td id="PC_D_CProv_Nomb"></td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Departamental</td>
-										<td id="cddni1"></td>
-										<td id="cdnombres1"></td>
+										<td id="PC_D_CDep_dni"></td>
+										<td id="PC_D_CDep_Nomb"></td>
 									</tr>
 
 									<tr>
 										<td>Supervisor Nacional</td>
-										<td id="sndni1"></td>
-										<td id="snnombres1"></td>
+										<td id="PC_D_SupN_dni"></td>
+										<td id="PC_D_SupN_Nomb"></td>
 									</tr>
 									
 								</tbody>
@@ -597,13 +597,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td id="tpr1"></td>
-										<td id="tpn2"></td>
-										<td id="ted1"></td>
-										<td id="tpa1"></td>
-										<td id="tld1"></td>
-										<td id="tct1"></td>
-										<td id="tmc1"></td>
+										<td id="PC_E_1_TPred"></td>
+										<td id="PC_E_2_TPred_NoCol"></td>
+										<td id="PC_E_3_TEdif"></td>
+										<td id="PC_E_4_TPat"></td>
+										<td id="PC_E_5_TLosa"></td>
+										<td id="PC_E_6_TCist"></td>
+										<td id="PC_E_7_TMurCon"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -621,7 +621,7 @@
 									<th>N° de Predio</th>
 								</tr>
 								<tr>
-									<td id="n_predio1"></td>
+									<td id="PC_F_1"></td>
 								</tr>
 							</table>
 

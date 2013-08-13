@@ -69,6 +69,24 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
+    function Data_P1_A_2_8N($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P1_A_2_8N');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_P1_A_2_9N($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P1_A_2_9N');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    
+
 /*    
 
 select  idruta from rutas where codlocal in (select codigo_de_local from padlocal where cod_dpto='01' and cod_prov='01')
