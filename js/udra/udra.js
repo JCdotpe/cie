@@ -8,10 +8,7 @@
 
 function reportar_udra()
 {
-   /*$('#waiting1').waiting({
-        elements: 10,
-        auto: true
-    });*/
+
     var id_activo = $("#comboactivo").val();
 
     jQuery("#list2").jqGrid('setGridParam',{url:"udra/udra/get_datatables?id_activo="+id_activo ,page:1}).trigger("reloadGrid");
@@ -326,8 +323,6 @@ $(function(){
                     if (data==1) {
 
                       $("#alerta").show("slow");
-                      //$("#alerta").alert();
-                      //$(".alert").alert()
 
                     }else{
                       var form_data= new Array();
@@ -386,9 +381,41 @@ $(function(){
                     $("#NOM_PP_f").append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
                 });
                 $("#NOM_PP_f  option[value=" + sele + "]").attr('selected', 'selected');
+                $("#NOM_PP_f").change();
             }
         });
       });
+
+    $("#NOM_PP_f").change(function(event) {
+         var sel = null;
+         var dep = null;
+         var selname = null;
+         var val = null;
+         sel = $("#distrito2");
+         dep = $("#NOM_DD_f");
+         selname = "#distrito2";
+         val = $("#distrito2").val();
+
+        var form_data1 = {
+            provincia: $(this).val(),
+            departamento: dep.val(),
+            ajax:1
+        };
+        $.ajax({
+            url: CI.base_url + "index.php/convocatoria/registro/get_ajax/" + $(this).val() + "/" + dep.val(),
+            type:'POST',
+            data:form_data1,
+            dataType:'json',
+            success:function(json_data){
+                sel.empty();
+                $.each(json_data, function(i, data){
+                    sel.append('<option value="' + data.CCDI + '">' + data.Nombre + '</option>');
+                });
+                $(selname + " option[value=" + val + "]").attr('selected', 'selected');
+            }
+        });
+    }).change();
+
 
 
     function reg_form(){
@@ -609,5 +636,133 @@ $(function(){
 
               }
           }).change();
+
+   /* Modulo festividades */
+    function reg_form_festividades(){
+
+        var form_data1= new Array();
+
+
+        form_data1.push(
+            {name: 'ajax',value:1},
+            {name: 'cod_pto',value:$( "#NOM_DD_f" ).val()},
+            {name: 'cod_prov',value:$( "#NOM_PP_f" ).val()},
+            {name: 'cod_dist',value:$( "#distrito2" ).val()},
+            {name: 'fecha_festivo',value:$( "#fecha_festivo" ).val()},
+            {name: 'fecha_festivo_fin',value:$( "#fecha_festivo_fin" ).val()},
+            {name: 'descrip',value:$( "#festividad" ).val()}
+
+        );
+        form_data1 = $.param(form_data1);
+        $.ajax({
+                type: "POST",
+                url: CI.base_url + "index.php/udra/festividad",
+                data: form_data1,
+                success: function(data){
+                  $('#listfestivos').trigger( 'reloadGrid' );
+                  alert("Registrado");
+                },
+                error: function(error) {
+                       alert("Se perdio la conexión, revise su conexión a internet.");
+                }
+
+               });
+
+    }
+
+    $("#form_festividad").validate({
+                rules: {
+                  NOM_DD_f: {
+                    required:true,
+                    valueNotEquals: -1,
+                  },
+                  NOM_PP_f: {
+                    required:true,
+                    valueNotEquals: -1,
+                  },
+                  distrito2: {
+                    required:true,
+                    valueNotEquals: -1,
+                  },
+                  fecha_festivo: {
+                    required:true,
+                  },
+                  fecha_festivo_fin:{
+                    required:true,
+                  },
+                  festividad: {
+                    required:true,
+                    validName2: true,
+                  },
+                },
+                messages: {
+
+                   NOM_DD_f: {
+                        required: "Ingrese un Departamento",
+                        validName2: "caracteres inválidos",
+                    },
+                    NOM_PP_f: {
+                        required: "Ingrese una Provincia",
+
+                    },
+                    distrito2: {
+                        required: "Ingrese un distrito",
+                    },
+                    fecha_festivo: {
+                        required: "Ingrese una fecha",
+                    },
+                    fecha_festivo_fin:{
+                        required: "Ingrese una fecha",
+                    },
+                    festividad: {
+                      required:"Ingrese una festividad",
+                      validName2: "caracteres inválidos",
+                    },
+                },
+                errorPlacement: function(error, element) {
+                    $(element).next().after(error);
+                },
+                invalidHandler: function(form, validator) {
+                  var errors = validator.numberOfInvalids();
+                  if (errors) {
+                    var message = errors == 1
+                      ? 'Por favor corrige estos errores:\n'
+                      : 'Por favor corrige los ' + errors + ' errores.\n';
+                    var errors = "";
+                    if (validator.errorList.length > 0) {
+                        for (x=0;x<validator.errorList.length;x++) {
+                            errors += "\n\u25CF " + validator.errorList[x].message;
+                        }
+                    }
+                    alert(message + errors);
+                  }
+                  validator.focusInvalid();
+                },
+                submitHandler: function(form) {
+                  var fech=$('#fecha_festivo').val();
+                  var day_festivo=fech.substr(0,2);
+                  var month_festivo=fech.substr(3,2);
+
+                  var fech2=$('#fecha_festivo_fin').val();
+                  var day_festivo_fin=fech2.substr(0,2);
+                  var month_festivo_fin=fech2.substr(3,2);
+                  var verdad=true;
+                  if (month_festivo>month_festivo_fin) {
+                    verdad=false;
+                  };
+                  if ((day_festivo>day_festivo_fin) && ( month_festivo>=month_festivo_fin) ){
+                    verdad=false;
+                  };
+
+                  if (verdad){
+                    reg_form_festividades();
+                    $('#form_festividad')[0].reset();
+                  }else{
+                    alert("La fecha fin no debe ser mayor a la de festivo");
+                  }
+
+
+              }
+      });
 
 });
