@@ -157,7 +157,6 @@ class Registro extends CI_Controller {
 				array_push($return_arr['datos'],$data);
 			}
 			$this->load->view('backend/json/json_view', $return_arr);
-
 	}
 
 	public function get_ajax_direccion_odei($c){
@@ -166,12 +165,14 @@ class Registro extends CI_Controller {
 		$data['datos'] = $this->Odei_model->Get_odei_combo($departamento,$provincia)->result();
 		$this->load->view('backend/json/json_view', $data);
 	}
+
 	public function get_ajax_direccion_odei2($departamento,$provincia){
 
 		$data['datos'] = $this->Odei_model->Get_odei_combo($departamento,$provincia)->result();
 		$this->load->view('backend/json/json_view', $data);
 
 	}
+
 	public function get_ajax_dist($c){
 
 		$this->output->cache(9999999999);
@@ -196,7 +197,7 @@ class Registro extends CI_Controller {
 	}
 
 
-	public function hola($code,$is_ajax){
+	public function test($code,$is_ajax){
 
 
 		if($is_ajax){
