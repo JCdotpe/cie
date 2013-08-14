@@ -42,16 +42,13 @@
 											<h5>1.5.	Cantidad requerida: <?php echo utf8_encode($filas->peaConvocatoria); ?></h5>
 											<h5>1.6.	Modalidad de contratación </h5>
 											<p><?php echo utf8_encode($filas->modalidad); ?></p>
-
 										</div>
 			              			</div>
 	              				</div>
 	              			 </div>
 	              			 </div>
 	              			 </div>
-              	 		<? }else{
-              	 				echo '<h4>Por el momento no existen convocatorias vigentes. Gracias.</h4>';
-              	 			}
+              	 		<? }
 
               	 		} ?>
               	 		<?php if ($cierre>0) { ?>
@@ -70,7 +67,9 @@
 
 				# code...
 				echo form_button('redr', 'inscripciones','class="btn btn-inverse pull-right" id="redr"');
-			}
+			}else{
+              	echo '<h5 align=center>Por el momento no existen convocatorias vigentes. Gracias.</h5>';
+            }
 
 
 			?>
