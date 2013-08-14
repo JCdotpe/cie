@@ -88,6 +88,59 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
+    function Data_P1_B($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P1_B');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_P1_B_2A_N($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P1_B_2A_N');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_P1_B_3N($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P1_B_3N');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    //STOREDS PROCEDURES
+    
+
+    function Data_SP_CAP01_B_3($codigo_de_local,$predio,$npredio){
+        /*$q=$this->db->query("EXEC CAP01_B_3 '"+$codigo_de_local+"','"+$predio+"','"+$npredio+"'");
+        return $q;
+        */
+        $q=$this->db->query("CAP01_B_3 ?,  ?, ?", array($codigo_de_local,$predio,$npredio)); 
+        return $q;
+    }
+
+
+//=======CAP II===========
+
+    function Data_P2_A($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P2_A');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function Data_P2_B($codigo_de_local){
+        $this->db->select('*');
+        $this->db->from('P2_B');
+        $this->db->where('codigo_de_local',$codigo_de_local);
+        $q = $this->db->get();
+        return $q;
+    }
     
 
 /*    

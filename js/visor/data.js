@@ -226,31 +226,32 @@ function get_P1_A_2N(cod_local){
 
 		var html="";
 
+		var i=1;
+
 		$.each(data, function(index, val) {
 
-
-
+			i++;
 			
 			html+='<table class="table table-bordered">'+
 				'<thead>'+
-					'<th colspan="2">2. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" class="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>'+
+					'<th colspan="2">'+i+'. Institución educativa N° <span><input value="'+val.P1_A_2_NroIE+'" class="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>'+
 				'</thead>'+
 				'<tbody>'+
 					'<tr>'+
 						'<td>'+
-							'<strong>2.1.¿Cuál es el nombre de la institución educativa?</strong>'+
+							'<strong>'+i+'.1¿Cuál es el nombre de la institución educativa?</strong>'+
 						'</td>'+
 						'<td><input value="'+val.P1_A_2_1_NomIE+'" id="P1_A_2_1_NomIE" style="width:350px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td>'+
-							'<strong>2.2.¿Cuáles son los apellidos y nombres del director?</strong>'+
+							'<strong>'+i+'.2¿Cuáles son los apellidos y nombres del director?</strong>'+
 						'</td>'+
 						'<td><input value="'+val.P1_A_2_2_Direc+'" id="P1_A_2_2_Direc" style="width:350px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
 						'<td>'+
-							'<strong>2.3.¿Cuál es el numero número de DNI o Carnet de Extranjería del Director?</strong>'+
+							'<strong>'+i+'.3¿Cuál es el numero número de DNI o Carnet de Extranjería del Director?</strong>'+
 						'</td>'+
 						'<td>'+
 							'<div class="panel">'+
@@ -264,7 +265,7 @@ function get_P1_A_2N(cod_local){
 						'</td>'+
 					'</tr>'+
 					'<tr>'+
-						'<td><strong>2.4.¿Cuál es el numero de teléfono de (L) ?</strong></td>'+
+						'<td><strong>'+i+'.4¿Cuál es el numero de teléfono de (L) ?</strong></td>'+
 						'<td>'+
 							'<div class="panel">'+
 								'<label>La Institucion Educativa?</label>'+
@@ -277,7 +278,7 @@ function get_P1_A_2N(cod_local){
 						'</td>'+
 					'</tr>'+
 					'<tr>'+
-						'<td><strong>2.5.¿Cuál es el correo electronico de (L)?</strong></td>'+
+						'<td><strong>'+i+'.5¿Cuál es el correo electronico de (L)?</strong></td>'+
 						'<td>'+
 							'<div class="panel">'+
 								'<label>La Institucion Educativa?</label>'+
@@ -290,15 +291,15 @@ function get_P1_A_2N(cod_local){
 						'</td>'+
 					'</tr>'+
 					'<tr>'+
-						'<td><strong>2.6.¿Apellidos y Nombres del informante?</strong></td>'+
+						'<td><strong>'+i+'.6¿Apellidos y Nombres del informante?</strong></td>'+
 						'<td><input value="'+val.P1_A_2_6_Informant+'" id="P1_A_2_6_Informant" style="width:400px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
-						'<td><strong>2.7.¿Cargo del informante?</strong></td>'+
+						'<td><strong>'+i+'.7¿Cargo del informante?</strong></td>'+
 						'<td><input value="'+val.P1_A_2_7_InformantCarg+'" id="P1_A_2_7_InformantCarg" style="width:400px;" type="text" class="form-control"></td>'+
 					'</tr>'+
 					'<tr>'+
-						'<td><strong>2.8.¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>'+
+						'<td><strong>'+i+'.8¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>'+
 						'<td>'+
 							'<div class="panel">'+
 								'<label>N° de Códigos Modulares</label>'+
@@ -313,7 +314,7 @@ function get_P1_A_2N(cod_local){
 			
 
 					'<div class="panel"><!-- N CODIGOS -->'+
-									'<label>2.9 Códigos modulares asignados a la institución educativa:</label>'+
+									'<label>'+i+'.9 Códigos modulares asignados a la institución educativa:</label>'+
 									
 									'<table class="table table-bordered">'+
 										'<thead>'+
@@ -361,7 +362,7 @@ function get_P1_A_2N(cod_local){
 
 									'<div class="panel">'+
 											'<label>Observaciones:</label>'+
-											'<textarea style="width:800px; height:100px;"></textarea>'+
+											'<textarea style="width:800px; height:100px;">'+val.P1_A_2_Obs+'</textarea>'+
 									'</div>'+
 
 					'</div><!-- end panel ncodigod-->';
@@ -439,6 +440,194 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 }
 
+function get_P1_B(cod_local){
+	
+		$.getJSON('visor/visor/get_P1_B/'+cod_local, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+				
+				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
+			 	get_P1_B_2_PredCol_Verif(val.P1_B_2_PredCol);
+
+			});
+			
+		});
+}
+
+function get_P1_B_2_PredCol_Verif(type){
+	switch(type){
+		case 1:
+			document.getElementById("P1_B_2_PredCol1").checked=true; 
+		break;
+		case 2:
+			document.getElementById("P1_B_2_PredCol2").checked=true; 
+		break;
+	}
+}
 
 
+
+function get_P1_B_2A_N(cod_local){
+	
+		$.getJSON('visor/visor/get_P1_B_2A_N/'+cod_local, {}, function(data, textStatus) {
+			var i=0;
+			var cod="";
+			$.each(data, function(index, val) {
+				if(i>0){cod+","}
+				
+				cod+=val.P1_B_2A_PredNoCol_Nro;
+
+			});
+
+			$('#P1_B_2A_PredNoCol_Nro').val(cod);
+
+		 	//get_P1_B_2_PredCol_Verif(val.P1_B_2_PredCol);
+
+			
+		});
+}
+
+function get_P1_B_3N(cod_local){
+	
+		$.getJSON('visor/visor/get_P1_B_3N/'+cod_local, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+				
+				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
+
+			 	//get_P1_B_2_PredCol_Verif(val.P1_B_2_PredCol);
+
+			});
+			
+		});
+}
+
+
+/*function get_Verif(type){
+	switch(type){
+		case 1:
+			document.getElementById("P1_B_2_PredCol1").checked=true; 
+		break;
+		case 2:
+			document.getElementById("P1_B_2_PredCol2").checked=true; 
+		break;
+	}
+}*/
+
+
+//-----PENDIENTE DE STOREDS
+
+	/*function get_SP_CAP01_B_3(cod_local,predio,npredio){
+
+		$.getJSON('visor/visor/SP_CAP01_B_3/'+cod_local+'/'+predio+'/'+npredio, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+				
+				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
+				
+				"codigo_de_local"
+				"Predio N"
+				"P1_B_3_Obs"
+				"P1_B_3_InmCod"
+				"P1_B_3_InmTip"
+				"P1_B_3_1_Prop"
+				"P1_B_3_4_Tipo_TProp_O"
+				"P1_B_3_2_AntReg_Cod"
+				"P1_B_3_3_AntReg_Nro"
+				"P1_B_3_4_Tipo_TProp"
+				"P1_B_3_5_FecTit"
+				"P1_B_3_6_DocPos"
+				"P1_B_3_6_DocPos_O"
+				"P1_B_3_7_DocPos_Fech"
+				"P1_B_3_8_At_Pred"
+				"P1_B_3_9_At_Local"
+				"P1_B_3_10_Comp"
+				"P1_B_3_11_CompCan"
+				"P1_B_3_12_NombComp"
+
+
+			 	get_P2_A_Verif(val.P1_B_2_PredCol);
+
+			});
+			
+		});
+
+	}*/
+
+
+//===============================CAPITULO II=============================================
+
+function get_P2_A(cod_local){
+	
+		$.getJSON('visor/visor/get_P2_A/'+cod_local, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+
+			 	get_Radio_Verif(val.P2_A_1_Clima,"P2_A_1_Clima");
+			 	get_Radio_Verif(val.P2_A_2_Lluv,"P2_A_2_Lluv");
+			 	$("#P2_A_2A_Lluv_Mini").val(val.P2_A_2A_Lluv_Mini);
+			 	$("#P2_A_2A_Lluv_Mfin").val(val.P2_A_2A_Lluv_Mfin);
+			 	get_Radio_Verif(val.P2_A_3_Hel,"P2_A_3_Hel");
+			 	$("#P2_A_3A_Hel_Mini").val(val.P2_A_3A_Hel_Mini);
+			 	$("#P2_A_3A_Hel_Mfin").val(val.P2_A_3A_Hel_Mfin);
+			 	get_Radio_Verif(val.P2_A_4_Gra,"P2_A_4_Gra");
+			 	$("#P2_A_4A_Gra_Mini").val(val.P2_A_4A_Gra_Mini);
+			 	$("#P2_A_4A_Gra_Mfin").val(val.P2_A_4A_Gra_Mfin);
+			 	get_Radio_Verif(val.P2_A_5_Vend,"P2_A_5_Vend");
+			 	get_Radio_Verif(val.P2_A_5A_Vend_Tip,"P2_A_5A_Vend_Tip");
+			 	$("#P2_A_5B_Vend_Mini").val(val.P2_A_5B_Vend_Mini);
+			 	$("#P2_A_5B_Vend_Mfin").val(val.P2_A_5B_Vend_Mfin);
+			 	
+			 
+			 });
+			 		
+			
+		});
+}
+
+function get_P2_B(cod_local){
+	
+		$.getJSON('visor/visor/get_P2_B/'+cod_local, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+			 	
+			 	get_Radio_Verif(val.P2_A_5A_Vend_Tip,"P2_A_5A_Vend_Tip");
+			 	$("#P2_A_5B_Vend_Mini").val(val.P2_A_5B_Vend_Mini);
+			 	$("#P2_A_5B_Vend_Mfin").val(val.P2_A_5B_Vend_Mfin);
+
+			 	$("P2_B_1_Topo").val(val.)
+			 	$("P2_B_2_Suelo").val(val.)
+			 	$("P2_B_2_Suelo_O").val(val.)
+			 	$("P2_B_3_Prof").val(val.)
+			 	$("P2_B_4_CapAcc").val(val.)
+			 	$("P2_B_5_Mtran").val(val.)
+			 	$("P2_B_5A_Uso").val(val.)
+			 	$("P2_B_5B_Tvia_uso").val(val.)
+			 	$("P2_B_6_Trec_H").val(val.)
+		 		$("P2_B_6_Trec_M").val(val.)
+		 		$("P2_B_7_Ttramo_H").val(val.)
+		 		$("P2_B_7_Ttramo_M").val(val.)
+		 		$("P2_B_8_Pelig").val(val.)
+	
+			 });
+			 				
+		});
+}
+
+
+function get_Radio_Verif(type,field){
+	
+	switch(type){
+		case 1:
+			document.getElementById(field+type).checked=true; 
+		break;
+		case 2:
+			document.getElementById(field+type).checked=true; 
+		break;
+		case 3:
+			document.getElementById(field+type).checked=true; 
+		break;
+	}
+
+}
 
