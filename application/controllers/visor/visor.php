@@ -151,8 +151,7 @@ class Visor extends CI_Controller {
 		
 		$data = $this->visor_model->Data_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE);
 
-		/*$jsonData = @json_encode($data->result());
-*/		$i=0;
+		$i=0;
 		echo "[";
 
 		foreach ($data->result() as $fila ){
@@ -192,17 +191,66 @@ class Visor extends CI_Controller {
 
 
 		return $data->result();
+	
+	}
 
-		/*$jsonData = @json_encode($data->result());
+	public function get_P1_B($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_B($codigo_de_local);
 
-		echo $jsonData;*/
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P1_B_2A_N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_B_2A_N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P1_B_3N($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P1_B_3N($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P2_A($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P2_A($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	public function get_P2_B($codigo_de_local){
+		
+		$data = $this->visor_model->Data_P2_B($codigo_de_local);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
+	}
+
+	//============SP
+
+	public function get_SP_CAP01_B_3($codigo_de_local,$predio,$npredio){
+		
+		$data = $this->visor_model->Data_SP_CAP01_B_3($codigo_de_local,$predio,$npredio);
+
+		$jsonData = @json_encode($data->result());
+
+		echo $jsonData;
 	}
 
 
 	
-
-	
-	
 }
-
 ?>

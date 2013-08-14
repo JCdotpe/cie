@@ -15,7 +15,7 @@
 |
 */
 
-	$config['base_url']	= 'http://suck.sytes.net/mrvixio/prueba_miguel/cie/';
+	$config['base_url']	= 'http://localhost/cie/';
 
 /*
 |--------------------------------------------------------------------------

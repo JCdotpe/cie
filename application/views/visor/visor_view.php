@@ -177,6 +177,8 @@
 
 		//==================================================================
 
+		
+
 		$('.view').live('click', function(event) {
 			
 			$('#myModal').modal('show');
@@ -187,9 +189,16 @@
 		});
 
 		$('#c1').click(function(event) {
-			code=$('.codigo_local').val();
+			var code=$('.codigo_local').val();
 			get_P1_A(code);
 			get_P1_A_2N(code);
+			get_P1_B(code);
+			get_P1_B_2A_N(code);
+		});
+
+		$('#c2').click(function(event) {
+			var code=$('.codigo_local').val();
+			get_P2_A(code)
 		});
 
 		//$('#pop').popover('show');
@@ -282,7 +291,7 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li>
-							<a data-toggle="tab" id="g2" href="#g2">Datos Generales</a>
+							<a data-toggle="tab" id="g2" href="#general2">Datos Generales</a>
 						</li>
 						<li>
 							<a data-toggle="tab" id="c4" href="#cap4">Capitulo IV</a>
@@ -299,7 +308,7 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li>
-							<a data-toggle="tab" id="g3" href="#g3">Datos Generales</a>
+							<a data-toggle="tab" id="g3" href="#general3">Datos Generales</a>
 						</li>
 						<li>
 							<a data-toggle="tab" id="c6" href="#cap6">Capitulo VI</a>
@@ -654,7 +663,10 @@
 
 					</div><!-- END PANEL PRINCIPAL-->
 
-						<div class="panel panel-info"><!-- PANEL SECCION B N PREDIOS-->
+						<div class="panel panel-info">
+
+							<!-- PANEL SECCION B N PREDIOS-->
+														
 							<div class="panel-heading">
 								<h5 class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
 							</div>
@@ -666,7 +678,7 @@
 										<td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
 										<td>
 											<label>N° de predios</label>
-											<input style="width:300px;" type="text" class="form-control">
+											<input style="width:300px;" id="P1_B_1_TPred" type="text" class="form-control">
 										</td>
 									</tr>
 									<tr>
@@ -674,11 +686,11 @@
 										<td><strong>¿Los predios son colindantes?</strong></td>
 										<td>
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si
+												<input type="radio" id="P1_B_2_PredCol1" name="check" value="option1"> 1. Si
 											</label>
 									
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No
+												<input type="radio" id="P1_B_2_PredCol2" name="check" value="option2"> 2. No
 											</label>
 										</td>
 									</tr>
@@ -692,6 +704,22 @@
 									</tr>
 								</tbody>
 							</table>
+
+							<div class="panel">
+								Visualizar Predios
+								<div class="btn-toolbar">
+									 <div class="btn-group">
+									    <a class="btn" href="#"><i class="icon-fast-backward"></i></a>
+									    <a class="btn" href="#"><i class="icon-backward"></i></a>
+									    <a class="btn" href="#"><i class="icon-th"></i>Total: <span id="tpredio">5</span></a>
+									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="apredio">5</span></a>
+									    icon-time
+									    <a class="btn" href="#"><i class="icon-forward"></i></a>
+									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>									    
+									  </div>
+								</div>
+								
+							</div>
 
 							<table class="table table-bordered">
 								<thead>
@@ -996,6 +1024,20 @@
 
 							<div class="panel">
 								Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos 
+							</div>
+
+							<div class="panel">
+								Visualizar Anexos
+								<div class="btn-toolbar">
+									 <div class="btn-group">
+									    <a class="btn" href="#"><i class="icon-fast-backward"></i></a>
+									    <a class="btn" href="#"><i class="icon-backward"></i></a>
+									    <a class="btn" href="#"><i class="icon-th"></i>Total: <span id="tanexo">5</span></a>
+									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="aanexo">1</span></a>
+									    <a class="btn" href="#"><i class="icon-forward"></i></a>
+									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>									    
+									  </div>
+								</div>
 							</div>
 
 							<div class="panel" style="height:100px;">
@@ -1378,15 +1420,15 @@
 											</td>
 											<td>
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Cálido?
+													<input type="radio" id="P2_A_1_Clima1" name="check" value="option1"> 1. Cálido?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Templado?
+													<input type="radio" id="P2_A_1_Clima2" name="check" value="option2"> 2. Templado?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox3" name="check" value="option3"> 3. Frio?
+													<input type="radio" id="P2_A_1_Clima3" name="check" value="option3"> 3. Frio?
 												</label>
 											</td>
 										</tr>
@@ -1397,15 +1439,15 @@
 											</td>
 											<td>
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Minima?
+													<input type="radio" id="P2_A_2_Lluv1" name="check1" value="option1"> 1. Minima?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Moderada?
+													<input type="radio" id="P2_A_2_Lluv2" name="check1" value="option2"> 2. Moderada?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox3" name="check" value="option3"> 3. Torrencial?
+													<input type="radio" id="P2_A_2_Lluv3" name="check1" value="option3"> 3. Torrencial?
 												</label>
 											</td>
 										</tr>
@@ -1416,9 +1458,9 @@
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input style="width:200px;" type="text" class="form-control">
+												<input style="width:200px;" id="P2_A_2A_Lluv_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_2A_Lluv_Mfin" type="text" class="form-control">	
 											</td>
 										</tr>
 										<tr>
@@ -1428,11 +1470,11 @@
 											</td>
 											<td>
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si?
+													<input type="radio" id="P2_A_3_Hel1" name="check2" value="option1"> 1. Si?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No?
+													<input type="radio" id="P2_A_3_Hel2" name="check2" value="option2"> 2. No?
 												</label>
 											</td>
 										</tr>
@@ -1443,9 +1485,9 @@
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input style="width:200px;" type="text" class="form-control">
+												<input style="width:200px;" id="P2_A_3A_Hel_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_3A_Hel_Mfin" type="text" class="form-control">	
 											</td>
 										</tr>
 										<tr>
@@ -1455,11 +1497,11 @@
 											</td>
 											<td>
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si?
+													<input type="radio" id="P2_A_4_Gra1" name="check3" value="option1"> 1. Si?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No?
+													<input type="radio" id="P2_A_4_Gra2" name="check3" value="option2"> 2. No?
 												</label>
 											</td>
 										</tr>
@@ -1470,9 +1512,9 @@
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input style="width:200px;" type="text" class="form-control">
+												<input style="width:200px;" id="P2_A_4A_Gra_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_4A_Gra_Mfin" type="text" class="form-control">	
 											</td>
 										</tr>
 										<tr>
@@ -1482,11 +1524,11 @@
 											</td>
 											<td>
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si?
+													<input type="radio" id="P2_A_5_Vend1" name="check4" value="option1"> 1. Si?
 												</label>
 												
 												<label class="checkbox-inline">
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No?
+													<input type="radio" id="P2_A_5_Vend2" name="check4" value="option2"> 2. No?
 												</label>
 											</td>
 										</tr>
@@ -1498,11 +1540,11 @@
 											</td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Moderados?
+													<input type="radio" id="P2_A_5A_Vend_Tip1" name="check5" value="option1"> 1. Moderados?
 												</label>
 												
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Fuertes (Que afecten la infraestructura de la localidad)?
+													<input type="radio" id="P2_A_5A_Vend_Tip2" name="check5" value="option2"> 2. Fuertes (Que afecten la infraestructura de la localidad)?
 												</label>
 											</td>
 										</tr>
@@ -1513,9 +1555,9 @@
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input style="width:200px;" type="text" class="form-control">
+												<input style="width:200px;" id="P2_A_5B_Vend_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_5B_Vend_Mfin" type="text" class="form-control">	
 											</td>
 										</tr>
 									</tbody>
@@ -1525,7 +1567,7 @@
 									<thead>
 										<tr>
 											<th colspan="3">
-												<h6>Sección A: Caracteristica climatica local</h6>
+												<h6>Sección B: Condición del terreno y acceso</h6>
 											</th>
 										</tr>
 									</thead>
@@ -2136,11 +2178,6 @@
 								</tbody>
 							</table>
 
-
-
-
-
-
 							<table class="table table-bordered">
 								<thead>
 									<tr>
@@ -2655,7 +2692,7 @@
 	  	    	</div><!-- END CAPITULO 3-->
 
 	  	    	<!-- CAPITULO G2-->
-	  	    	<div class="tab-pane" id="g2">
+	  	    	<div class="tab-pane" id="general2">
 	  	    		<div class="content" id="content5">
 	  	    			<div class="panel panel-info">
 							
@@ -3044,7 +3081,7 @@
 	  	    	</div><!-- END CAPITULO 5-->
 
 	  	    	<!-- CAPITULO G3-->
-	  	    	<div class="tab-pane" id="g3">
+	  	    	<div class="tab-pane" id="general3">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
 							
