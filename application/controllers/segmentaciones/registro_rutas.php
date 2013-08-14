@@ -22,7 +22,7 @@ class Registro_Rutas extends CI_Controller {
 		$roles = $this->tank_auth->get_roles();
 		$flag = FALSE;
 		foreach ($roles as $role) {
-			if($role->role_id == 9){
+			if($role->role_id == 3){
 				$flag = TRUE;
 				break;
 			}

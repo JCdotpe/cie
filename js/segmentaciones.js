@@ -518,7 +518,7 @@ function rutas_form()
 
 function cargarProvOpe()
 {
-    var doLoginMethodUrl = CI.base_url + 'index.php/informes_segmentacion/rutasporprovincia/obtenerprovoperativa';
+    var doLoginMethodUrl = CI.base_url + 'index.php/segmentaciones/rutas_por_provincia/obtenerprovoperativa';
     var id_sede = $("#sedeoperativa").val();
     $.ajax({
       type: "POST",

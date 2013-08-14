@@ -18,7 +18,7 @@ class Menu_Consultas extends CI_Controller {
 		$roles = $this->tank_auth->get_roles();
 		$flag = FALSE;
 		foreach ($roles as $role) {
-			if($role->role_id == 11){
+			if($role->role_id == 3){
 				$flag = TRUE;
 				break;
 			}
