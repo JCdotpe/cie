@@ -12,7 +12,6 @@ class Rutas_Model extends CI_Model {
 	public function get_direccion_local($codigo,$sede,$provope)
 	{
 		$sql = "SELECT pl.codigo_de_local, dp.Nombre as nombre_dpto, pr.Nombre as nombre_provincia, ds.Nombre as  nombre_distrito, pl.centropoblado FROM Padlocal pl inner join DPTO dp on pl.cod_dpto = dp.CCDD inner join PROV pr on pl.cod_dpto = pr.CCDD and pl.cod_prov = pr.CCPP inner join DIST ds on pl.cod_dpto = ds.CCDD and pl.cod_prov = ds.CCPP and pl.cod_dist = ds.CCDI inner join Codigo_territorial ct on pl.cod_ubigeo = ct.UBIGEO inner join Operativa_Sede os on ct.COD_SEDE_OPERATIVA = os.cod_sede_operativa inner join Operativa_Prov op on ct.COD_SEDE_OPERATIVA = op.cod_sede_operativa and ct.COD_PROV_OPERATIVA = op.cod_prov_operativa WHERE pl.codigo_de_local = '$codigo' and os.cod_sede_operativa = '$sede' and op.cod_prov_operativa = '$provope'";
-        //echo $sql;
         $q = $this->db->query($sql);
         return $q;
 	}
@@ -38,7 +37,6 @@ class Rutas_Model extends CI_Model {
 	function update_reg_jb($data)
 	{
 		$sql = "UPDATE rutas_jb SET periodo_jb = '".$data['periodo']."', fxinicio_jb = '".$data['fxinicio']."', fxfinal_jb = '".$data['fxfinal']."', traslado_jb = '".$data['traslado']."', trabajo_supervisor_jb = '".$data['trabajo_supervisor']."', retornosede_jb = '".$data['retornosede']."', gabinete_jb = '".$data['gabinete']."', descanso_jb = '".$data['descanso']."', totaldias_jb = '".$data['totaldias']."',movilocal_ma_jb = '".$data['movilocal_ma']."', gastooperativo_ma_jb = '".$data['gastooperativo_ma']."', movilocal_af_jb = '".$data['movilocal_af']."', gastooperativo_af_jb = '".$data['gastooperativo_af']."', pasaje_jb = '".$data['pasaje']."', total_af_jb = '".$data['total_af']."', observaciones_jb = '".$data['observaciones']."' WHERE codlocal = '".$data['codlocal']."'";
-		//echo $sql;
 		$this->db->query($sql);
 		return $this->db->affected_rows() > 0;	
 	}
@@ -102,14 +100,14 @@ class Rutas_Model extends CI_Model {
 	
 	function report_rutasprovincia($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT NomDept, NomProv, NomDist, centroPoblado, codlocal, sede_operativa, prov_operativa_ugel, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT NomDept, NomProv, NomDist, centroPoblado, codlocal, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);
 		return $q;
 	}	    
 
 	function listado_rutas($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT idruta, codlocal, NomDept, NomProv, NomDist, centroPoblado, sede_operativa, prov_operativa_ugel, direccion, Nivel_Educativo, ugel, area FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales_nivelE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT idruta, codlocal, cod_jefebrigada, NomDept, NomProv, NomDist, centroPoblado, sede_operativa, prov_operativa_ugel, direccion, Nivel_Educativo, ugel, area FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales_nivelE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);		
 		return $q;
 	}

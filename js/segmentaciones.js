@@ -472,7 +472,7 @@ function Form_Validar()
     if (movilocal_ma.value == 15 && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Movilidad Local MA Incorrecto"); movilocal_ma.focus(); return false; }
 
-  if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 50 || gastooperativo_ma.value == 100)
+  if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 50 || gastooperativo_ma.value == 120)
   {
     if (gastooperativo_ma.value == 50 && pasaje.value > 0){ alert("Ud. Asigno Gasto Operativo MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Gasto Operativo MA Incorrecto"); gastooperativo_ma.focus(); return false; }
@@ -655,7 +655,7 @@ function Form_Validar_JB()
     if (movilocal_ma.value == 20 && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Movilidad Local MA Incorrecto"); movilocal_ma.focus(); return false; }
 
-  if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 50 || gastooperativo_ma.value == 100)
+  if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 50 || gastooperativo_ma.value == 120)
   {
     if (gastooperativo_ma.value == 50 && pasaje.value > 0){ alert("Ud. Asigno Gasto Operativo MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Gasto Operativo MA Incorrecto"); gastooperativo_ma.focus(); return false; }
