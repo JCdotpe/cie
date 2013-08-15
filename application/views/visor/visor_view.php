@@ -3171,7 +3171,7 @@
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO 5-->
 
-	  	    	 <?php $this->load->view('udra/visor_view_cap6.php');?>
+	  	    	 <?php $this->load->view('visor/visor_view_cap6.php');?>
 			</div><!--END TAB CONTENTS-->
 
         </div>
