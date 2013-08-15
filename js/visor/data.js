@@ -575,7 +575,6 @@ function get_P1_B_3N(cod_local){
 
 //===============================FIN CAPITULO1=============================================
 
-
 //===============================CAPITULO2=============================================
 
 function get_P2_A(cod_local){
@@ -687,7 +686,7 @@ function get_P2_C(cod_local){
 			$.each(data, function(index, val) {
 
 					
-					/*get_Radio_Verif(val.P2_C_1Locl_1_Energ,"P2_C_1Locl_1_Energ");
+					get_Radio_Verif(val.P2_C_1Locl_1_Energ,"P2_C_1Locl_1_Energ");
 					
 					get_Radio_Verif(val.P2_C_1Locl_2_Agua,"P2_C_1Locl_2_Agua");
 					
@@ -701,7 +700,7 @@ function get_P2_C(cod_local){
 					get_Radio_Verif(val.P2_C_2LocE_3_Alc,"P2_C_2LocE_3_Alc");
 					get_Radio_Verif(val.P2_C_2LocE_4_Tfija,"P2_C_2LocE_4_Tfija");
 					get_Radio_Verif(val.P2_C_2LocE_5_Tmov,"P2_C_2LocE_5_Tmov");
-					get_Radio_Verif(val.P2_C_2LocE_6_Int,"P2_C_2LocE_6_Int");*/
+					get_Radio_Verif(val.P2_C_2LocE_6_Int,"P2_C_2LocE_6_Int");
 					
 			
 			});
