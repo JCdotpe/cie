@@ -528,7 +528,7 @@
 							<h6>Evaluador Tecnico</h6>
 
 							<ul class="list-group">
-								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" id="PC_B_1_CodLocal" class="form-control"></li>
+								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 <input type="text" class="PC_B_1_CodLocal" class="form-control"></li>
 								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal <input id="PC_B_2_CantEv" type="text" class="form-control"></li>
 							</ul>
 

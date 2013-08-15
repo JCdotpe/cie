@@ -1,5 +1,7 @@
 <?php 
 
+//========================GENERAL1========================================
+
 class Visor_model extends CI_MODEL{
 
     function Get_Resultados($cod_dpto,$cod_prov){
@@ -53,6 +55,11 @@ class Visor_model extends CI_MODEL{
         $q = $this->db->get();
         return $q;
     }
+
+//========================FIN GENERAL1========================================
+
+//========================CAPITULO1========================================
+
 
     function Data_P1_A($codigo_de_local){
         $this->db->select('*');
@@ -125,7 +132,7 @@ class Visor_model extends CI_MODEL{
     }
 
 
-//=======CAP II===========
+//========================CAPITULO2========================================
 
     function Data_P2_A($codigo_de_local){
         $this->db->select('*');
@@ -186,7 +193,7 @@ class Visor_model extends CI_MODEL{
     }
     
 
-//========================MIGUEL========================================
+
 
 
 
