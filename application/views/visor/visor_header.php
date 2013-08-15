@@ -6,6 +6,7 @@
 <script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/urlRoot.js'); ?>"></script>
+<script src="<?php echo base_url('js/basic.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cedulas.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cie01.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cie01a.js'); ?>"></script>
