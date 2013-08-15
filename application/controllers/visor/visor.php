@@ -34,6 +34,8 @@ class Visor extends CI_Controller {
 
 	}
 
+//=====================BASICAS==============================
+
 
 	public function get_data(){
 			
@@ -104,8 +106,72 @@ class Visor extends CI_Controller {
 		echo form_dropdown('region', $provArray, '#', 'id="region"');
 	}
 
+//===============UTILS====================
 
-	//----------------------------------CEDULA---------------------------------------------------
+public function header_json(){
+	header('Content-type: text/json');
+	header('Content-type: application/json');
+}
+
+/*Estefano: USar esta funcion para tabular json en php menor a 5.4*/
+public function prettyPrint( $json ){
+
+    $result = '';
+    $level = 0;
+    $prev_char = '';
+    $in_quotes = false;
+    $ends_line_level = NULL;
+    $json_length = strlen( $json );
+
+    for( $i = 0; $i < $json_length; $i++ ) {
+        $char = $json[$i];
+        $new_line_level = NULL;
+        $post = "";
+        if( $ends_line_level !== NULL ) {
+            $new_line_level = $ends_line_level;
+            $ends_line_level = NULL;
+        }
+        if( $char === '"' && $prev_char != '\\' ) {
+            $in_quotes = !$in_quotes;
+        } else if( ! $in_quotes ) {
+            switch( $char ) {
+                case '}': case ']':
+                    $level--;
+                    $ends_line_level = NULL;
+                    $new_line_level = $level;
+                    break;
+
+                case '{': case '[':
+                    $level++;
+                case ',':
+                    $ends_line_level = $level;
+                    break;
+
+                case ':':
+                    $post = " ";
+                    break;
+
+                case " ": case "\t": case "\n": case "\r":
+                    $char = "";
+                    $ends_line_level = $new_line_level;
+                    $new_line_level = NULL;
+                    break;
+            }
+        }
+        if( $new_line_level !== NULL ) {
+            $result .= "\n".str_repeat( "\t", $new_line_level );
+        }
+        $result .= $char.$post;
+        $prev_char = $char;
+    }
+
+    echo $result;
+
+}
+
+//CIE01
+//=====================GENERAL1==============================
+
 
 	public function get_PadLocal($codigo_de_local){
 
@@ -140,6 +206,9 @@ class Visor extends CI_Controller {
 
 		$this->prettyPrint($jsonData);
 	}
+
+//=====================CAPITULO1==============================
+
 
 	public function get_P1_A($codigo_de_local){
 
@@ -246,6 +315,8 @@ class Visor extends CI_Controller {
 
 		$this->prettyPrint($jsonData);
 	}
+
+//========================CAPITULO2========================================
 
 	public function get_P2_A($codigo_de_local){
 
@@ -368,71 +439,21 @@ class Visor extends CI_Controller {
 	}
 
 
-//========================MIGUEL========================================
+//========================CAPITULO3========================================
+
+//CIE01A
+
+//========================GENERAL2========================================
+//========================CAPITULO4========================================
+//========================CAPITULO5========================================
 
 
-	//===============UTILS====================
+//CIE01B
 
-public function header_json(){
-	header('Content-type: text/json');
-	header('Content-type: application/json');
-}
-
-/*Estefano: USar esta funcion para tabular json en php menor a 5.4*/
-public function prettyPrint( $json ){
-
-    $result = '';
-    $level = 0;
-    $prev_char = '';
-    $in_quotes = false;
-    $ends_line_level = NULL;
-    $json_length = strlen( $json );
-
-    for( $i = 0; $i < $json_length; $i++ ) {
-        $char = $json[$i];
-        $new_line_level = NULL;
-        $post = "";
-        if( $ends_line_level !== NULL ) {
-            $new_line_level = $ends_line_level;
-            $ends_line_level = NULL;
-        }
-        if( $char === '"' && $prev_char != '\\' ) {
-            $in_quotes = !$in_quotes;
-        } else if( ! $in_quotes ) {
-            switch( $char ) {
-                case '}': case ']':
-                    $level--;
-                    $ends_line_level = NULL;
-                    $new_line_level = $level;
-                    break;
-
-                case '{': case '[':
-                    $level++;
-                case ',':
-                    $ends_line_level = $level;
-                    break;
-
-                case ':':
-                    $post = " ";
-                    break;
-
-                case " ": case "\t": case "\n": case "\r":
-                    $char = "";
-                    $ends_line_level = $new_line_level;
-                    $new_line_level = NULL;
-                    break;
-            }
-        }
-        if( $new_line_level !== NULL ) {
-            $result .= "\n".str_repeat( "\t", $new_line_level );
-        }
-        $result .= $char.$post;
-        $prev_char = $char;
-    }
-
-    echo $result;
-
-}
+//========================GENERAL3========================================
+//========================CAPITULO6========================================
+//========================CAPITULO7========================================
+//========================CAPITULO8========================================
 	
 }
 ?>

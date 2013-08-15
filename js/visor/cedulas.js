@@ -20,7 +20,7 @@ jQuery("#list2").jqGrid({
   sortname: 'id,cp,dc,dg,foto',
   viewrecords: true,
   sortorder: "desc",
-  caption:"Seguimiento de Cedulas",
+  caption:"Seguimiento de Cedulas ",
   width: 1000,
   height: 350
 });
