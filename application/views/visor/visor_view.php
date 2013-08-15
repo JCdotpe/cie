@@ -3195,7 +3195,8 @@
 							</thead>
 							<tbody>
 								<td><strong>1. Transcriba el código del local escolar del DOC.CIE.03.06</strong></td>
-								<td><input style="width:400px;" type="text" class="form-control" ></td>
+								<!--<td><input style="width:400px;" type="text" class="form-control" ></td>-->
+								<td><input style="width:400px;" type="text" class="form-control PC_B_1_CodLocal" ></td>
 							</tbody>
 						</table>
 
