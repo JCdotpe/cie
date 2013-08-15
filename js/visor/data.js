@@ -1,5 +1,7 @@
 //================================BASICAS=============================================
 
+
+//CARGA NOMBRE DE DEPARTAMENTO POR CODIGO
 function get_Depa(code){
 
 	$.ajax({
@@ -19,6 +21,7 @@ function get_Depa(code){
 	
 }
 
+//CARGA NOMBRE DE PROVINCIA POR CODIGOS
 function get_Prov(depa,prov){
 
 	$.ajax({
@@ -38,6 +41,7 @@ function get_Prov(depa,prov){
 
 }
 
+//CARGA NOMBRE DE DISTRITO POR CODIGOS
 function get_Dist(depa,prov,dist){
 
 	$.ajax({
@@ -56,6 +60,21 @@ function get_Dist(depa,prov,dist){
 	});
 
 }
+
+//VERIFICA Y CHECKA LOS CHECKS Y RADIOBUTTONS 
+
+function get_Radio_Verif(type,field){
+
+	alert(field+type)
+
+	document.getElementById(field+type).checked=true; 
+}
+
+
+//==============================FIN=BASICAS=============================================
+
+
+//CIE01
 
 //=============================GENERAL1=========================================
 
@@ -554,6 +573,8 @@ function get_P1_B_3N(cod_local){
 
 	}*/
 
+//===============================FIN CAPITULO I=============================================
+
 
 //===============================CAPITULO II=============================================
 
@@ -689,25 +710,6 @@ function get_P2_C(cod_local){
 }
 
 
-function get_Radio_Verif(type,field){
-
-	alert(field+type)
-
-	document.getElementById(field+type).checked=true; 
-	
-	/*switch(type){
-		case 1:
-			document.getElementById(field+type).checked=true; 
-		break;
-		case 2:
-			document.getElementById(field+type).checked=true; 
-		break;
-		case 3:
-			document.getElementById(field+type).checked=true; 
-		break;
-	}*/
-
-}
-
+//==============================FIN CAPITULO II=================================
 
 
