@@ -4,7 +4,7 @@
 	  	    			<div class="panel panel-info">
 
 							<div class="panel-heading">
-								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolar</h4>
+								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolars</h4>
 							</div>
 
 								<ul class="list-group">
