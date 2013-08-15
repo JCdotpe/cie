@@ -196,7 +196,7 @@
 
 		});
 
-		$('#ruta').change(function(){
+		/*$('#ruta').change(function(){
 
 			if($(this).val()>0){
 
@@ -212,7 +212,7 @@
 
 			}
 
-		})
+		})*/
 
 		$('#ver').click(function(){
 			get_data();
