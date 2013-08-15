@@ -2247,16 +2247,16 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 1. Red pública?
+												<input type="checkbox" id="P2_D_1_Nro1" name="P2_D_1_Nro" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Generador o motor?
+												<input type="checkbox" id="P2_D_1_Nro2" name="P2_D_1_Nro" value=""> 2. Generador o motor?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 3. Panel solar?
+												<input type="checkbox" id="P2_D_1_Nro3" name="P2_D_1_Nro" value=""> 3. Panel solar?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Otro?
+												<input type="checkbox" id="P2_D_1_Nro4" name="P2_D_1_Nro" value=""> 4. Otro?
 											</label>
 											<label>(Especifique)</label>
 											<input style="width:400px;" type="text" class="form-control">
