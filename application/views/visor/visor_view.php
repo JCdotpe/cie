@@ -1,6 +1,6 @@
 
-<?php 
-	
+<?php
+
 	$label_class =  array('class' => 'control-label');
 
 	$depaArray = array(-1 => 'Seleccione...');
@@ -8,7 +8,7 @@
 	$provArray = array(-1 => '');
 
 	$regArray = array(-1 => '');
-    
+
     foreach($depa->result() as $filas)
     {
       $depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Nombre));
@@ -74,41 +74,41 @@
 	   	});
 
 	    function cargarProv(){
-	    	
+
 		    var doLoginMethodUrl = urlRoot()+'seleccion/aprobacioncv/obtenerprovincia';
 		    var id_depa = $("#departamento").val();
 
-		   	
+
 		   	$("#provincia").empty().attr({
 		   		disabled: true,
 		   	});
 		   	$("#provincia").html("<option value='0' selected='true'>Cargando...</value>");
-			
+
 			$("#ruta").empty().attr({
 		   		disabled: true,
 		   	});
 
 		   	$("#ver").attr({
 				disabled: true,
-			});	
-		   	
+			});
+
 		   	$.ajax({
 		      type: "POST",
 		      url: doLoginMethodUrl,
 		      data: "id_depa="+id_depa,
 		      success: function(provinciaResponse){
-		      	
+
 		      	console.log(provinciaResponse);
 		        $("#provincia").empty().append($(provinciaResponse).find("option")).attr({
 		   			disabled: false,
 		   		});
-		    
+
 		        $("#provincia").prepend("<option value='0' selected='true'>Seleccione...</value>");
-		      
+
 		      }
-		    
+
 		    });
-			
+
 		}
 
 		/*function cargarRuta(){
@@ -119,14 +119,14 @@
 
 	    	$("#ver").attr({
 				disabled: true,
-			});	
+			});
 
 		    $("#ruta").html("<option value='0' selected='true'>Cargando...</value>")
 
 		    var doLoginMethodUrl = urlRoot()+'visor/visor/obtenerregion';
 		    var cod_dpto = $("#departamento").val();
 		    var cod_prov = $("#provincia").val();
-		   	
+
 		   	$.ajax({
 		      type: "POST",
 		      url: doLoginMethodUrl,
@@ -138,11 +138,11 @@
 		   		});
 
 		        $("#ruta").prepend("<option value='0' selected='true'>Seleccione...</value>");
-		      
+
 		      }
-		    
+
 		    });
-			
+
 		}*/
 
 		//======================COMBOS=======================
@@ -151,17 +151,17 @@
 			cargarProv();
 
 			if($(this).val()>0){
-			
+
 				$('#cod_local').attr({
 					disabled: false,
 				});
-			
+
 			}else{
-			
+
 				$("#cod_local").attr({
 					disabled: true,
-				});	
-			
+				});
+
 			}
 
 		});
@@ -169,17 +169,17 @@
 		$('#provincia').change(function(){
 
 			if($(this).val()>0){
-			
+
 				$("#ver").attr({
 					disabled: false,
 				});
-			
+
 			}else{
-			
+
 				$("#ver").attr({
 					disabled: true,
-				});	
-			
+				});
+
 			}
 
 			/*cargarRuta();*/
@@ -187,7 +187,7 @@
 
 //===============CONSULTA POR CODIGO DE LOCAL================
 		$('#cod_local').keyup(function(event) {
-			
+
 			if($(this).val()==""){
 
 			}else{
@@ -197,21 +197,21 @@
 		});
 
 		/*$('#ruta').change(function(){
-			
+
 			if($(this).val()>0){
-			
+
 				$("#ver").attr({
 					disabled: false,
 				});
-			
+
 			}else{
-			
+
 				$("#ver").attr({
 					disabled: true,
-				});	
-			
+				});
+
 			}
-		
+
 		})*/
 
 		$('#ver').click(function(){
@@ -220,10 +220,10 @@
 
 		//=========================EVENTOS=========================================
 
-		
+
 
 		$('.view').live('click', function(event) {
-			
+
 			$('#myModal').modal('show');
 			$('.codigo_local').val($(this).attr('id'));
 			get_PadLocal($(this).attr('id'));
@@ -240,6 +240,12 @@
 		});
 
 		$('#c2').click(function(event) {
+			var code=$('.codigo_local').val();
+			/*get_P2_A(code);
+			get_P2_B(code);*/
+			get_P2_C(code);
+		});
+		$('#c6').click(function(event) {
 			var code=$('.codigo_local').val();
 			/*get_P2_A(code);
 			get_P2_B(code);*/
@@ -310,7 +316,7 @@
           <h5 class="modal-title">Seguimiento de Cedulas</h5>
         </div>
         <div class="modal-body">
-         
+
         	<ul class="nav nav-tabs">
   				<li class="dropdown active">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -371,21 +377,21 @@
 			</ul>
 
 			<div class="tab-content">
-				
+
 				<div class="tab-pane active" id="general">
 					<div class="content" id="content1">
-						
+
 						<div class="panel">
 							<label>Codigo de Local Escolar</label>
 							<input style="width:300px;" type="text" class="form-control codigo_local">
 						</div>
-						
+
 						<div class="panel panel-info">
 							<div class="panel-heading">
 								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolar</h4>
 							</div>
-							
-							
+
+
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control departamento"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
@@ -399,15 +405,15 @@
 
 						<div class="panel">
 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
-								  	
+
 								  	<label class="checkbox-inline">
 										<input type="radio" name="check" id="avenida1" value="option1"> 1. Avenida
 									</label>
-									
+
 									<label class="checkbox-inline">
 										<input type="radio" name="check" id="jiron1" value="option2"> 2. Jiron
 									</label>
-									
+
 									<label class="checkbox-inline">
 										<input type="radio" name="check" id="calle1" value="option3"> 3. Calle
 									</label>
@@ -432,7 +438,7 @@
 
 						<table class="table table-bordered">
 							<thead>
-							
+
 								<tr>
 									<th>Nombre de la via</th>
 									<th>N° de Puerta</th>
@@ -444,10 +450,10 @@
 									<th>Etapa</th>
 									<th>Km</th>
 								</tr>
-							
+
 							</thead>
 							<tbody>
-							
+
 								<tr>
 									<td id="PC_A_7Dir_2_Nomb"></td>
 									<td id="PC_A_7Dir_3_Nro"></td>
@@ -459,10 +465,10 @@
 									<td id="PC_A_7Dir_9_Et"></td>
 									<td id="PC_A_7Dir_10_Km"></td>
 								</tr>
-							
+
 							</tbody>
 						</table>
-					
+
 						<ul class="list-group">
 							<li class="list-group-item">
 								8. La dirección del colegio del local escolar del DOC.CIE.03.06
@@ -471,7 +477,7 @@
 								</label>
 								<label class="checkbox-inline">
 									<input type="radio" id="verif2" name="radio" value="option2"> 2. No
-								</label> 
+								</label>
 							</li>
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
@@ -502,10 +508,10 @@
 
 							<table class="table table-bordered">
 								<thead>
-								
+
 									<tr>
 										<th rowspan="3" style="text-align:center;vertical-align:middle;">Visitas</th>
-										
+
 										<th colspan="6" style="text-align:center;">Evaluador Técnico</th>
 										<!-- <th>Piso</th> -->
 										<!-- <th>Mz.</th>
@@ -515,7 +521,7 @@
 										<th colspan="4" style="text-align:center;">Jefe de Brigada</th>
 									</tr>
 									<tr>
-										
+
 										<th rowspan="2" style="text-align:center;vertical-align:middle;">Fecha</th>
 										<th colspan="2" style="text-align:center;">Hora</th>
 										<th colspan="2" style="text-align:center;">Próxima Visita</th>
@@ -523,7 +529,7 @@
 										<th rowspan="2" style="text-align:center;vertical-align:middle;">Fecha</th>
 										<th colspan="2" style="text-align:center;">Hora</th>
 										<th rowspan="2" style="text-align:center;vertical-align:middle;">Resultado de la visita (*)</th>
-									
+
 
 									</tr>
 
@@ -537,12 +543,12 @@
 										<th style="text-align:center;">A</th>
 
 									</tr>
-								
+
 								</thead>
 								<tbody id="eva_solu1">
-								
+
 									<!--AJAX-->
-								
+
 								</tbody>
 							</table>
 
@@ -628,7 +634,7 @@
 										<td id="PC_D_SupN_dni"></td>
 										<td id="PC_D_SupN_Nomb"></td>
 									</tr>
-									
+
 								</tbody>
 							</table>
 
@@ -688,7 +694,7 @@
 
 				<div class="tab-pane" id="cap1">
 					<div class="content" id="content2">
-						
+
 						<div class="panel panel-info">
 							<div class="panel-heading">
 								<h5 class="panel-title">Capitulo I Identificación de las instituciones eductivas, predios y anexos del local escolar</h5>
@@ -713,12 +719,12 @@
 						<div class="panel panel-info">
 
 							<!-- PANEL SECCION B N PREDIOS-->
-														
+
 							<div class="panel-heading">
 								<h5 class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
 							</div>
 
-							<table class="table table-bordered">	
+							<table class="table table-bordered">
 								<tbody>
 									<tr>
 										<td style="text-align:center;">1.</td>
@@ -735,7 +741,7 @@
 											<label class="checkbox-inline">
 												<input type="radio" id="P1_B_2_PredCol1" name="check" value="option1"> 1. Si
 											</label>
-									
+
 											<label class="checkbox-inline">
 												<input type="radio" id="P1_B_2_PredCol2" name="check" value="option2"> 2. No
 											</label>
@@ -762,10 +768,10 @@
 									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="apredio">5</span></a>
 									    icon-time
 									    <a class="btn" href="#"><i class="icon-forward"></i></a>
-									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>									    
+									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>
 									  </div>
 								</div>
-								
+
 							</div>
 
 							<table class="table table-bordered">
@@ -791,7 +797,7 @@
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. No tiene constancia
 											</label>
-											
+
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No sabe
 											</label>
@@ -815,13 +821,13 @@
 											</label>
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option4">
-												4. Otro sector del estado 
+												4. Otro sector del estado
 											</label>
 											<label>
 												<input style="float:left; width:300px;" type="text" class="form-control">
 												(Especifique)
 											</label>
-											
+
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5">
 												5. Propiedad de terceros
@@ -830,7 +836,7 @@
 												<input style="float:left; width:300px;" type="text" class="form-control">
 												(Especifique)
 											</label>
-											 
+
 										</td>
 									</tr>
 									<tr>
@@ -850,7 +856,7 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Ficha?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4"> 4. Tomo/Foja/Asiento? 
+												<input type="radio" id="Checkbox1" name="check" value="option4"> 4. Tomo/Foja/Asiento?
 											</label>
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5"> 5. Ninguno?
@@ -885,32 +891,32 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Minuta de donación?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Minuta de cesión? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Minuta de cesión?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Minuta de permuta? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Minuta de permuta?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Aporte reglamentario? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Aporte reglamentario?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Resolución emitida por  entidad del estado? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Resolución emitida por  entidad del estado?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Acta de donación de CC/CN? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Acta de donación de CC/CN?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
 											</label>
-											
+
 											<label>
 												<input style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
 											</label>
-											
+
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
 											</label>
-											
+
 										</td>
 									</tr>
 									<tr>
@@ -941,28 +947,28 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Resolución municipal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Resolución de afectación en uso? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Resolución de afectación en uso?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Convenio con entidad estatal? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Convenio con entidad estatal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Convenio con particulares? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Convenio con particulares?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Contrato de arrendamiento? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Contrato de arrendamiento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Contrato de servidumbre? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Contrato de servidumbre?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
 											</label>
-											
+
 											<label>
 												<input style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
 											</label>
-											
+
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
 											</label>
@@ -1028,7 +1034,7 @@
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si
 											</label>
-									
+
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No
 											</label>
@@ -1054,7 +1060,7 @@
 											<textarea style="width:300px; height:100px;"></textarea>
 										</td>
 									</tr>
-								</tbody>								
+								</tbody>
 							</table>
 
 							<div class="panel">
@@ -1070,7 +1076,7 @@
 							</div>
 
 							<div class="panel">
-								Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos 
+								Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
 							</div>
 
 							<div class="panel">
@@ -1082,7 +1088,7 @@
 									    <a class="btn" href="#"><i class="icon-th"></i>Total: <span id="tanexo">5</span></a>
 									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="aanexo">1</span></a>
 									    <a class="btn" href="#"><i class="icon-forward"></i></a>
-									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>									    
+									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>
 									  </div>
 								</div>
 							</div>
@@ -1090,17 +1096,17 @@
 							<div class="panel" style="height:100px;">
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Número de Anexo</label>
-									<input style="float:left; width:200px;" type="text" class="form-control">						
+									<input style="float:left; width:200px;" type="text" class="form-control">
 								</div>
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Codigo Modular</label>
-									<input style="float:left; width:200px;" type="text" class="form-control">						
+									<input style="float:left; width:200px;" type="text" class="form-control">
 								</div>
 							</div>
 
 							<div class="panel">
 								<div class="panel">
-									<strong>1. ¿Cuál es el código del local escolar del anexo? </strong> 
+									<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
 									<input style="width:200px;" type="text" class="form-control">
 								</div>
 
@@ -1111,13 +1117,13 @@
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;"><strong>5. Nucleo Urbano</strong> </div> <input style="width:300px;" type="text" class="form-control"></li>
 									<li class="list-group-item" style="height:100px;">
 										<div style=" width:120px; margin-left:10px; margin-right:10px; float:left;"><strong>6. Dirección del local escolar</strong><br /> (Para tipo de via circule sólo un código)</div>
-											
+
 											<div style="width:680px; margin-left:10px; margin-right:10px; float:left;">
-												
+
 												<label class="checkbox-inline"><strong>Tipo de Via: </strong></label>
-												
+
 												<div class="panel">
-													
+
 													<label class="checkbox-inline">
 														<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Avenida
 													</label>
@@ -1138,11 +1144,11 @@
 													</label>
 													<label class="checkbox-inline">
 														<input type="radio" id="Checkbox2" name="check" value="option2"> 7. Otro
-													</label> 
+													</label>
 												</div>
-												
+
 											<div>
-									
+
 									</li>
 								</ul>
 
@@ -1192,7 +1198,7 @@
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. No tiene constancia
 											</label>
-											
+
 											<label class="checkbox-inline">
 												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No sabe
 											</label>
@@ -1215,19 +1221,19 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Estado?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Otro sector del estado? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Otro sector del estado?
 											</label>
 											<label>
 												<input style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5.Propiedad de terceros? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5.Propiedad de terceros?
 											</label>
 											<label>
 												<input style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
 											</label>
-											
-											
+
+
 									</td>
 								</tr>
 								<tr>
@@ -1247,10 +1253,10 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Ficha?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Tomo/Foja/Asiento? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Tomo/Foja/Asiento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Ninguno? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Ninguno?
 											</label>
 									</td>
 								</tr>
@@ -1282,25 +1288,25 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 4. Minuta de cesión?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Minuta de permuta? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Minuta de permuta?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Aporte de reglamento? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Aporte de reglamento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Resolución emitida por entidad del estado? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Resolución emitida por entidad del estado?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Acta de donación de CC/CN? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Acta de donación de CC/CN?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
 											</label>
-											
+
 											<label>
 												<input style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
 											</label>
-											
+
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
 											</label>
@@ -1331,28 +1337,28 @@
 												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Resolución municipal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Resolución de afectación en uso? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Resolución de afectación en uso?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Convenio con entidad estatal? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Convenio con entidad estatal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Convenio con particulares? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Convenio con particulares?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Contrato de arrendamiento? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Contrato de arrendamiento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Contrato de servidumbre? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Contrato de servidumbre?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro? 
+												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
 											</label>
-											
+
 											<label>
 												<input style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
 											</label>
-											
+
 											<label>
 												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
 											</label>
@@ -1409,7 +1415,7 @@
 										</label>
 										<label class="checkbox-inline">
 											<input type="radio" id="Checkbox2" name="radio" value="option2"> 2. No
-										</label> 
+										</label>
 									</td>
 								</tr>
 								<tr>
@@ -1438,12 +1444,12 @@
 							</div>
 
 						</div><!-- END SECCIOM C -->
-						
+
 
 					</div>
 				</div>
-				
-				
+
+
 	  	    	<div class="tab-pane" id="cap2">
 	  	    		<div class="content" id="content3">
 	  	    			<div class="panel panel-info">
@@ -1469,11 +1475,11 @@
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_1_Clima1" name="check" value="option1"> 1. Cálido?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_1_Clima2" name="check" value="option2"> 2. Templado?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_1_Clima3" name="check" value="option3"> 3. Frio?
 												</label>
@@ -1488,11 +1494,11 @@
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_2_Lluv1" name="check1" value="option1"> 1. Minima?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_2_Lluv2" name="check1" value="option2"> 2. Moderada?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_2_Lluv3" name="check1" value="option3"> 3. Torrencial?
 												</label>
@@ -1507,7 +1513,7 @@
 												<label>Mes de inicio</label>
 												<input style="width:200px;" id="P2_A_2A_Lluv_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" id="P2_A_2A_Lluv_Mfin" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_2A_Lluv_Mfin" type="text" class="form-control">
 											</td>
 										</tr>
 										<tr>
@@ -1519,7 +1525,7 @@
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_3_Hel1" name="check2" value="option1"> 1. Si?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_3_Hel2" name="check2" value="option2"> 2. No?
 												</label>
@@ -1534,7 +1540,7 @@
 												<label>Mes de inicio</label>
 												<input style="width:200px;" id="P2_A_3A_Hel_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" id="P2_A_3A_Hel_Mfin" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_3A_Hel_Mfin" type="text" class="form-control">
 											</td>
 										</tr>
 										<tr>
@@ -1546,7 +1552,7 @@
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_4_Gra1" name="check3" value="option1"> 1. Si?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_4_Gra2" name="check3" value="option2"> 2. No?
 												</label>
@@ -1561,7 +1567,7 @@
 												<label>Mes de inicio</label>
 												<input style="width:200px;" id="P2_A_4A_Gra_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" id="P2_A_4A_Gra_Mfin" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_4A_Gra_Mfin" type="text" class="form-control">
 											</td>
 										</tr>
 										<tr>
@@ -1573,7 +1579,7 @@
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_5_Vend1" name="check4" value="option1"> 1. Si?
 												</label>
-												
+
 												<label class="checkbox-inline">
 													<input type="radio" id="P2_A_5_Vend2" name="check4" value="option2"> 2. No?
 												</label>
@@ -1589,7 +1595,7 @@
 												<label>
 													<input type="radio" id="P2_A_5A_Vend_Tip1" name="check5" value="option1"> 1. Moderados?
 												</label>
-												
+
 												<label>
 													<input type="radio" id="P2_A_5A_Vend_Tip2" name="check5" value="option2"> 2. Fuertes (Que afecten la infraestructura de la localidad)?
 												</label>
@@ -1604,7 +1610,7 @@
 												<label>Mes de inicio</label>
 												<input style="width:200px;" id="P2_A_5B_Vend_Mini" type="text" class="form-control">
 												<label>Mes de término</label>
-												<input style="width:200px;" id="P2_A_5B_Vend_Mfin" type="text" class="form-control">	
+												<input style="width:200px;" id="P2_A_5B_Vend_Mfin" type="text" class="form-control">
 											</td>
 										</tr>
 									</tbody>
@@ -1629,7 +1635,7 @@
 												<label>
 													<input type="radio" id="P2_B_1_Topo1" name="check6" value="option1"> 1. Llano
 												</label>
-												
+
 												<label>
 													<input type="radio" id="P2_B_1_Topo2" name="check6" value="option2"> 2. Inclinado
 												</label>
@@ -1651,7 +1657,7 @@
 												<label>
 													<input type="radio" id="P2_B_2_Suelo1" name="check7" value="option1"> 1. Arcilloso
 												</label>
-												
+
 												<label>
 													<input type="radio" id="P2_B_2_Suelo2" name="check7" value="option2"> 2. Rocoso
 												</label>
@@ -1679,7 +1685,7 @@
 												<label>
 													<input type="radio" id="P2_B_3_Prof1" name="check8" value="option1"> 1. A menos de 1.50 m
 												</label>
-												
+
 												<label>
 													<input type="radio" id="P2_B_3_Prof2" name="check8" value="option2"> 2. A mas de 1.50 m
 												</label>
@@ -1698,7 +1704,7 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_5_Mtran_11" name="check9" value="option1"> 1. Terrestre 
+													<input type="checkbox" id="P2_B_5_Mtran_11" name="check9" value="option1"> 1. Terrestre
 												</label>
 												<label>
 													<input type="checkbox" id="P2_B_5_Mtran_22" name="check9" value="option2"> 2. Fluvial/lacustre/maritimo
@@ -1728,7 +1734,7 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_5B_Tvia_uso_11" name="check11" value="option1"> 1. Camino de herradura 
+													<input type="checkbox" id="P2_B_5B_Tvia_uso_11" name="check11" value="option1"> 1. Camino de herradura
 												</label>
 												<label>
 													<input type="checkbox" id="P2_B_5B_Tvia_uso_22" name="check11" value="option2"> 2. Trocha carrozable
@@ -1942,7 +1948,7 @@
 										<td>1.</td>
 										<td><strong>¿En esta localidad cuentan con servicio de:</strong></td>
 										<td>
-											
+
 											<table class="table table-bordered" style="width:250px;height:200px;">
 												<thead>
 													<tr>
@@ -1956,13 +1962,13 @@
 														<td>1.	Energía eléctrica?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_1_Energ1" name="P2_C_1Locl_1_Energ1" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_1_Energ1" name="P2_C_1Locl_1_Energ1" value="">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_1_Energ2" name="P2_C_1Locl_1_Energ2" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_1_Energ2" name="P2_C_1Locl_1_Energ2" value="">
 																 2
 															</label>
 														</td>
@@ -1971,13 +1977,13 @@
 														<td>2.	Agua potable?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_2_Agua1" name="P2_C_1Locl_2_Agua1" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_2_Agua1" name="P2_C_1Locl_2_Agua1" value="">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_2_Agua2" name="P2_C_1Locl_2_Agua2" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_2_Agua2" name="P2_C_1Locl_2_Agua2" value="">
 																 2
 															</label>
 														</td>
@@ -1986,20 +1992,20 @@
 														<td>3.	Alcantarillado?	</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_3_Alc1" name="P2_C_1Locl_3_Alc11" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_3_Alc1" name="P2_C_1Locl_3_Alc11" value="">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_3_Alc12" name="P2_C_1Locl_3_Alc12" value=""> 
+																<input type="checkbox" id="P2_C_1Locl_3_Alc12" name="P2_C_1Locl_3_Alc12" value="">
 																 2
 															</label>
 														</td>
 													</tr>
 												</tbody>
 											</table>
-											
+
 										</td>
 										<td>
 											<table class="table table-bordered" style="width:250px;height:200px;">
@@ -2058,14 +2064,14 @@
 													</tr>
 												</tbody>
 											</table>
-											
+
 										</td>
 									</tr>
 									<tr>
 										<td>2.</td>
 										<td><strong>¿En este local escolar cuentan con servicio de:</strong></td>
 										<td>
-											
+
 											<table class="table table-bordered" style="width:250px;height:200px;">
 												<thead>
 													<tr>
@@ -2079,13 +2085,13 @@
 														<td>1.	Energía eléctrica?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_1_Energ1" name="P2_C_2LocE_1_Energ1" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_1_Energ1" name="P2_C_2LocE_1_Energ1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_1_Energ2" name="P2_C_2LocE_1_Energ2" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_1_Energ2" name="P2_C_2LocE_1_Energ2" value="option2">
 																 2
 															</label>
 														</td>
@@ -2094,13 +2100,13 @@
 														<td>2.	Agua potable?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_2_Agua1" name="P2_C_2LocE_2_Agua1" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_2_Agua1" name="P2_C_2LocE_2_Agua1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_2_Agua2" name="P2_C_2LocE_2_Agua2" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_2_Agua2" name="P2_C_2LocE_2_Agua2" value="option2">
 																 2
 															</label>
 														</td>
@@ -2109,19 +2115,19 @@
 														<td>3.	Alcantarillado?	</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_3_Alc1" name="P2_C_2LocE_3_Alc1" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_3_Alc1" name="P2_C_2LocE_3_Alc1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_2LocE_3_Alc2" name="P2_C_2LocE_3_Alc2" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_3_Alc2" name="P2_C_2LocE_3_Alc2" value="option2">
 																 2
 															</label>
 														</td>
 													</tr>
 												</tbody>
-											</table>										
+											</table>
 
 										</td>
 										<td>
@@ -2182,7 +2188,7 @@
 													</tr>
 												</tbody>
 											</table>
-											
+
 										</td>
 									</tr>
 								</tbody>
@@ -2742,11 +2748,11 @@
 	  	    	<div class="tab-pane" id="general2">
 	  	    		<div class="content" id="content5">
 	  	    			<div class="panel panel-info">
-							
+
 							<div class="panel-heading">
 								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolar</h4>
 							</div>
-														
+
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control"></li>
@@ -2779,7 +2785,7 @@
 									</td>
 								</tr>
 							</tbody>
-						</table>						
+						</table>
 
 	  	    		</div><!--END CONTENT-->
 	  	    	</div><!-- END CAPITULO G2-->
@@ -3062,14 +3068,14 @@
 		  	    			</table>
 
 	  	    			</div>
-	  	    			
+
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO 4-->
 
 	  	    	<!-- CAPITULO 5-->
 	  	    	<div class="tab-pane" id="cap5">
 	  	    		<div class="content" id="content7">
-	  	    			
+
 	  	    			<div class="panel panel-info">
 	  	    				<div class="panel-heading">Capitulo V: Esquema de distribución de las edificaciones con ambientes</div>
 
@@ -3131,11 +3137,11 @@
 	  	    	<div class="tab-pane" id="general3">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
-							
+
 							<div class="panel-heading">
 								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolar</h4>
 							</div>
-														
+
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control"></li>
@@ -3175,7 +3181,7 @@
 									</td>
 								</tr>
 							</tbody>
-						</table>					
+						</table>
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO G3-->
 
@@ -3489,19 +3495,19 @@
 											</label>
 											<label class="checkbox-inline">
 												<input type="checkbox" id="inlineCheckbox1" value="option1"> 2. No
-											</label>	
+											</label>
 		  	    						</strong>
 		  	    					</td>
 		  	    					<td>
 
-		  	    						
+
 		  	    					</td>
 		  	    				</tbody>
 		  	    				<tbody>
 		  	    					<td>4.</td>
 		  	    					<td>
 		  	    						<strong>
-		  	    							Nivel, modalidad y turno del ambiente / espacio educativo	
+		  	    							Nivel, modalidad y turno del ambiente / espacio educativo
 		  	    						</strong>
 		  	    						<br />
 		  	    						<label>(acepte uno o más códigos)</label>
@@ -4133,7 +4139,7 @@
 											</label>
 											<label class="checkbox">
 												<input type="checkbox" id="inlineCheckbox3" value="option3"> 7. Otro
-											</label>			
+											</label>
 											<label>
 												<input style="float:left; width:300px;" type="text" class="form-control">
 												(Especifique)
@@ -4862,7 +4868,7 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-		  	    			
+
 		  	    			<div class="panel">
 								<label>Observaciones:</label>
 								<textarea style="width:870px; height:100px;"></textarea>
