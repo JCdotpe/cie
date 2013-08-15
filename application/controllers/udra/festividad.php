@@ -68,7 +68,7 @@ class Festividad extends CI_Controller {
 						'DESCRIP'	=> strtoupper(trim(utf8_decode($this->input->post('descrip')))),
 						'FECHA_FESTIVO'	=> strtoupper(trim(utf8_decode($this->input->post('fecha_festivo')))),
 						'FECHA_FIN'	=> strtoupper(trim(utf8_decode($this->input->post('fecha_festivo_fin')))),
-						'FECHA' => date('Y-m-d h:i:s'),
+						'OBS'	=> strtoupper(trim(utf8_decode($this->input->post('obs')))),
 						'ESTADO'	=> 1
 						);
 
@@ -199,7 +199,7 @@ class Festividad extends CI_Controller {
 			foreach ($resultado->result() as $fila )
 			{
 				$respuesta->rows[$i]['id'] = $fila->COD_FESTIVIDAD;
-				$respuesta->rows[$i]['cell'] = array($fila->COD_FESTIVIDAD,trim($fila->Departamento),utf8_encode($fila->Provincia),utf8_encode($fila->Distrito),utf8_encode($fila->DESCRIP),trim(substr($fila->FECHA_FESTIVO,0,2))." de ".$this->letrasmeses(trim(substr($fila->FECHA_FESTIVO,3,2))),trim(substr($fila->FECHA_FIN,0,2))." de ".$this->letrasmeses(trim(substr($fila->FECHA_FIN,3,2))));
+				$respuesta->rows[$i]['cell'] = array($fila->COD_FESTIVIDAD,trim($fila->Departamento),utf8_encode($fila->Provincia),utf8_encode($fila->Distrito),utf8_encode($fila->DESCRIP),trim(substr($fila->FECHA_FESTIVO,0,2))." de ".$this->letrasmeses(trim(substr($fila->FECHA_FESTIVO,3,2))),trim(substr($fila->FECHA_FIN,0,2))." de ".$this->letrasmeses(trim(substr($fila->FECHA_FIN,3,2))),trim($fila->OBS));
 				//$respuesta->rows[$i]['cell'] = array($fila->COD_FESTIVIDAD,trim($fila->Departamento),utf8_encode($fila->Provincia),utf8_encode($fila->Distrito),utf8_encode($fila->DESCRIP),trim(substr($fila->FECHA_FESTIVO,3,2)));
 				$i++;
 

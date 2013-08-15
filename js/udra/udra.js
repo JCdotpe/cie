@@ -650,6 +650,7 @@ $(function(){
             {name: 'cod_dist',value:$( "#distrito2" ).val()},
             {name: 'fecha_festivo',value:$( "#fecha_festivo" ).val()},
             {name: 'fecha_festivo_fin',value:$( "#fecha_festivo_fin" ).val()},
+            {name: 'obs',value:$( "#obs" ).val()},
             {name: 'descrip',value:$( "#festividad" ).val()}
 
         );

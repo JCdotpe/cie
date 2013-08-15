@@ -96,6 +96,14 @@ $festividad =array(
   'maxlength' => 80,
   'class' => $span_class,
 );
+
+$obs =array(
+  'name'  => 'obs',
+  'id'  => 'obs',
+  'value' => set_value('obs'),
+  'maxlength' => 80,
+  'class' => $span_class,
+);
 // CARGAR COMBOS
 
     $depaArray=array(-1 => '-');
@@ -214,7 +222,7 @@ echo form_open($this->uri->uri_string(),$attr);
             echo '</div>';
 
 
-             echo '<div class="control-group grupos span5">';
+            echo '<div class="control-group grupos span5">';
                     echo form_label('Nombre de festividad', 'festividad', $label_class);
                     echo '<fieldset>';
                       echo '<div class="controls">';
@@ -225,12 +233,24 @@ echo form_open($this->uri->uri_string(),$attr);
                    echo '</fieldset>';
             echo '</div>';
 
-             echo '<div class="span1">';
-                    echo form_submit('send', 'Registrar','class="btn btn-inverse" style="margin-top:20px" ');
-              echo '</div>';
         echo '</div>';
 
+        echo '<div class="row-fluid span11">';
+            echo '<div class="control-group grupos span5">';
+                    echo form_label('Observación', 'observacion', $label_class);
+                    echo '<fieldset>';
+                      echo '<div class="controls">';
+                        echo form_input($obs);
+                        echo '<span class="help-inline">*</span>';
+                        echo '<div class="help-block error">' . form_error('obs') . '</div>';
+                      echo '</div>';
+                   echo '</fieldset>';
+            echo '</div>';
 
+            echo '<div class="span1">';
+                    echo form_submit('send', 'Registrar','class="btn btn-inverse" style="margin-top:20px" ');
+            echo '</div>';
+        echo '</div>';
 
 		echo '</div>';
 
@@ -261,7 +281,7 @@ jQuery("#listfestivos").jqGrid({
               url:'udra/festividad/get_datatables',
               datatype: "json",
               height: 255,
-              colNames:['Num','Departamento','Provincia','Distrito','Festividad ','FECHA FESTIVIDAD','FECHA FIN'],
+              colNames:['Num','Departamento','Provincia','Distrito','Festividad ','FECHA FESTIVIDAD','FECHA FIN','Observación'],
               colModel:[
                 {name:'cod_festividad',index:'cod_festividad', width:5,editable:false, editoptions:{readonly:true}},
                 {name:'cod_dpto',index:'cod_dpto', width:10,editable:false},
@@ -270,6 +290,7 @@ jQuery("#listfestivos").jqGrid({
                 {name:'descrip',index:'descrip', width:10,editable:true},
                 {name:'fecha_festivo',index:'fecha_festivo', width:20,editable:false},
                 {name:'fecha_fin',index:'fecha_fin', width:20,editable:false},
+                {name:'obs',index:'obs', width:20,editable:false},
               ],
               rowNum:30,
               rowList:[10,20,30],
