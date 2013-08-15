@@ -3178,14 +3178,6 @@
 								<h4 class="panel-title">Sección A: Ubicación Geográfica del local escolar</h4>
 							</div>
 
-								<!--<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control"></li>
-								</ul>-->
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control departamento"></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
