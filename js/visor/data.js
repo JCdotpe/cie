@@ -703,6 +703,40 @@ function get_P2_C(cod_local){
 		});
 }
 
+function get_P2_D(cod_local){
+		
+	$.getJSON('visor/visor/get_P2_D/'+cod_local, {}, function(data, textStatus) {
+			
+		$.each(data, function(index, val) {
+
+			$("#P2_D_2_Energ_CantSum").val(val.P2_D_2_Energ_CantSum);
+			$("#P2_D_4_Energ_Emp").val(val.P2_D_4_Energ_Emp);
+			$("#P2_D_6_Agua_CantSum").val(val.P2_D_6_Agua_CantSum);
+			$("#P2_D_8_Agua_Emp").val(val.P2_D_8_Agua_Emp);
+			get_Radio_Verif(val.P2_D_9_Desag,"P2_D_9_Desag");
+
+		});
+
+	});
+}
+
+function get_P2_D_1N(cod_local){
+		
+	$.getJSON('visor/visor/get_P2_D_1N/'+cod_local, {}, function(data, textStatus) {
+			
+		$.each(data, function(index, val) {
+
+			get_Radio_Verif(val.P2_D_1_Nro,"P2_D_1_Nro");
+			get_Radio_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
+			get_Radio_Verif(val.P2_D_1_EnergCod_O,"P2_D_1_EnergCod_O");
+			get_Radio_Verif(val.P2_D_1_Version,"P2_D_1_Version");
+			get_Radio_Verif(val.P2_D_1_Fenvio,"P2_D_1_Fenvio");
+			get_Radio_Verif(val.P2_D_1_Frecep,"P2_D_1_Frecep");
+
+		});
+
+	});
+}
 
 //==============================FIN CAPITULO 2=================================
 
