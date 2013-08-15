@@ -687,8 +687,8 @@ function get_P2_C(cod_local){
 
 					alert(val.P2_C_1Locl_1_Energ)
 					alert(val.P2_C_1Locl_2_Agua)
-					
-					get_Radio_Verif(val.P2_C_1Locl_1_Energ,"P2_C_1Locl_1_Energ");
+
+					get_Radio_Verif($.trim(val.P2_C_1Locl_1_Energ),"P2_C_1Locl_1_Energ");
 					
 					get_Radio_Verif(val.P2_C_1Locl_2_Agua,"P2_C_1Locl_2_Agua");
 					
