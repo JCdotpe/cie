@@ -8,7 +8,9 @@ class Estadoseleccion extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->library('security');
 		$this->load->library('tank_auth');
-		$this->lang->load('tank_auth');	
+		$this->lang->load('tank_auth');
+		$this->load->library('session');
+
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -40,6 +42,7 @@ class Estadoseleccion extends CI_Controller {
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Estados de Selección';
 		$data['main_content'] = 'informes/estadoseleccion_view';
+		$data['user_id'] = $this->session->userdata('user_id');
 
 		$data['depa'] = $this->Dpto_model->Get_Dpto();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();

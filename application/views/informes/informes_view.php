@@ -7,7 +7,7 @@
 				$this->load->view('informes/includes/sidebar_view.php'); 	
 				break;
 	  		
-			case '11':
+			case '3':
 	  			$this->load->view('informes/includes/sidebar_segmentacion_view.php');
 			break;
 		}

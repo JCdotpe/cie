@@ -37,7 +37,7 @@ class Menu_Consultas extends CI_Controller {
 		$data['title'] = 'Informes';
 		$data['user_id']	= $this->tank_auth->get_user_id();
 		$data['username']	= $this->tank_auth->get_username();
-		$data['rol'] = 11;
+		$data['rol'] = 3;
 		$data['main_content'] = 'informes/informes_view';
 		$this->load->view('backend/includes/template', $data);
 	}
