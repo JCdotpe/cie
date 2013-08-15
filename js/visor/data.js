@@ -680,12 +680,12 @@ function get_P2_B(cod_local){
 }
 
 function get_P2_C(cod_local){
-	
+		
 		$.getJSON('visor/visor/get_P2_C/'+cod_local, {}, function(data, textStatus) {
 			
 			$.each(data, function(index, val) {
 
-					
+					alert(val.P2_C_1Locl_1_Energ)
 					get_Radio_Verif(val.P2_C_1Locl_1_Energ,"P2_C_1Locl_1_Energ");
 					
 					get_Radio_Verif(val.P2_C_1Locl_2_Agua,"P2_C_1Locl_2_Agua");
