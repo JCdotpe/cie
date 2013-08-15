@@ -220,8 +220,9 @@
 
 		//=========================EVENTOS=========================================
 
+		//CIE 01
 
-
+		//DATOS GENERALES 1
 		$('.view').live('click', function(event) {
 
 			$('#myModal').modal('show');
@@ -230,6 +231,7 @@
 			get_PCar($(this).attr('id'));
 
 		});
+
 
 		$('#c1').click(function(event) {
 			var code=$('.codigo_local').val();
@@ -245,6 +247,33 @@
 			get_P2_B(code);
 			get_P2_C(code);
 		});
+
+		$('#c3').click(function(event) {
+
+		});
+
+		//CIE01A
+
+		//DATOS GENERALES 2
+		$('#g2').click(function(event) {
+
+		});
+
+		$('#c4').click(function(event) {
+
+		});
+
+		$('#c5').click(function(event) {
+
+		});
+
+		//CIE01B
+
+		//DATOS GENERALES 3
+		$('#g3').click(function(event) {
+
+		});
+
 		$('#c6').click(function(event) {
 			var code=$('.codigo_local').val();
 			/*get_P2_A(code);
@@ -252,7 +281,13 @@
 			get_P2_C(code);
 		});
 
-		//$('#pop').popover('show');
+		$('#c7').click(function(event) {
+
+		});
+
+		$('#c8').click(function(event) {
+
+		});
 
 	});
 </script>
