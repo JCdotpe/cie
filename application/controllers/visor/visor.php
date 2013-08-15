@@ -12,6 +12,10 @@ class Visor extends CI_Controller {
 		//$this->load->model('convocatoria/Resultados_model');
 		$this->load->model('visor/visor_model');
 
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
+
 	}
 
 	public function index(){
@@ -32,7 +36,9 @@ class Visor extends CI_Controller {
 
 
 	public function get_data(){
-
+			
+			$this->header_json();
+			
 			$this->load->model('visor/visor_model');
 			
 			$this->load->helper('form');
@@ -42,7 +48,7 @@ class Visor extends CI_Controller {
 			$sidx = $this->input->get('sidx',TRUE);  // Almacena el indice por el cual se hará la ordenación de los datos
 			$sord = $this->input->get('sord',TRUE);  // Almacena el modo de
 				
-			$resultado = $this->visor_model->Get_Resultados($_REQUEST['cod_dpto'],$_REQUEST['cod_prov'],$_REQUEST['idruta']);
+			$resultado = $this->visor_model->Get_Resultados($_REQUEST['cod_dpto'],$_REQUEST['cod_prov']);
 
 			//var_dump($resultado);
 			$count = $resultado->num_rows();
@@ -59,7 +65,7 @@ class Visor extends CI_Controller {
 			$row_final = $page * $limit;
 			$row_inicio = $row_final - $limit;
 
-			$resultado = $this->visor_model->Get_Resultados($_REQUEST['cod_dpto'],$_REQUEST['cod_prov'],$_REQUEST['idruta']);
+			$resultado = $this->visor_model->Get_Resultados($_REQUEST['cod_dpto'],$_REQUEST['cod_prov']);
 
 			$respuesta->page = $page;
 			$respuesta->total = $total_pages;
@@ -80,7 +86,7 @@ class Visor extends CI_Controller {
 
 			$jsonData = json_encode($respuesta);
 
-			echo $jsonData;
+			$this->prettyPrint($jsonData);
 
 	}
 
@@ -103,51 +109,63 @@ class Visor extends CI_Controller {
 
 	public function get_PadLocal($codigo_de_local){
 
+		$this->header_json();
+
 		$data = $this->visor_model->Data_PadLocal($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 
 	}
 
 	public function get_PCar($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_PCar($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_PCar_C_1N($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_PCar_C_1N($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P1_A($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_A($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P1_A_2N($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_A_2N($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE);
 
@@ -156,7 +174,7 @@ class Visor extends CI_Controller {
 
 		foreach ($data->result() as $fila ){
 			
-				if($i>0){echo ",";}
+				if($i>0){echo",";}
 			
 				$x= array("P1_A_2_9_NroCMod" => $fila->P1_A_2_9_NroCMod,
 								"P1_A_2_9A_CMod" => $fila->P1_A_2_9A_CMod,
@@ -173,9 +191,9 @@ class Visor extends CI_Controller {
 								"P1_A_2_9L_T3_Taul" => $fila->P1_A_2_9L_T3_Taul,
 								"anexos" => $this->get_P1_A_2_9N($codigo_de_local,$P1_A_2_NroIE,$fila->P1_A_2_9_NroCMod));
 			
-				$jsonData = @json_encode($x);
+				$jsonData = json_encode($x);
 				
-				echo $jsonData;
+				$this->prettyPrint($jsonData);
 
 			$i++;
 
@@ -194,63 +212,227 @@ class Visor extends CI_Controller {
 	
 	}
 
+	//=====
+
 	public function get_P1_B($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_B($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P1_B_2A_N($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_B_2A_N($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P1_B_3N($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P1_B_3N($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P2_A($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P2_A($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
 	}
 
 	public function get_P2_B($codigo_de_local){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_P2_B($codigo_de_local);
 
-		$jsonData = @json_encode($data->result());
+		$i=0;
+		echo "[";
 
-		echo $jsonData;
+		foreach ($data->result() as $fila ){
+			
+				if($i>0){echo ",";}
+			
+				$x= array("P2_B_1_Topo"=> $fila->P2_B_1_Topo,
+								"P2_B_2_Suelo"=> $fila->P2_B_2_Suelo,
+								"P2_B_2_Suelo_O"=> $fila->P2_B_2_Suelo_O,
+								"P2_B_3_Prof"=> $fila->P2_B_3_Prof,
+								"P2_B_4_CapAcc"=> $fila->P2_B_4_CapAcc,
+								"P2_B_5_Mtran_1"=> $fila->P2_B_5_Mtran_1,
+								"P2_B_5_Mtran_2"=> $fila->P2_B_5_Mtran_2,
+								"P2_B_5_Mtran_3"=> $fila->P2_B_5_Mtran_3,
+								"P2_B_5A_Uso"=> $fila->P2_B_5A_Uso,
+								"P2_B_5B_Tvia_uso_1"=> $fila->P2_B_5B_Tvia_uso_1,
+								"P2_B_5B_Tvia_uso_2"=> $fila->P2_B_5B_Tvia_uso_2,
+								"P2_B_5B_Tvia_uso_3"=> $fila->P2_B_5B_Tvia_uso_3,
+								"P2_B_5B_Tvia_uso_4"=> $fila->P2_B_5B_Tvia_uso_4,
+								"P2_B_6_Trec_H"=> $fila->P2_B_6_Trec_H,
+								"P2_B_6_Trec_M"=> $fila->P2_B_6_Trec_M,
+								"P2_B_7_Ttramo_H"=> $fila->P2_B_7_Ttramo_H,
+								"P2_B_7_Ttramo_M"=> $fila->P2_B_7_Ttramo_M,
+								"P2_B_8_Pelig"=>trim($fila->P2_B_8_Pelig),
+								"peligros1"=>$this->get_P2_B_9N($fila->codigo_de_local),
+								"peligros2"=>$this->get_P2_B_10N($fila->codigo_de_local),
+								"peligros3"=>$this->get_P2_B_11N($fila->codigo_de_local),
+								"vulnerabilidades"=>$this->get_P2_B_12N($fila->codigo_de_local));
+			
+				$jsonData = json_encode($x);
+				
+				$this->prettyPrint($jsonData);
+
+			$i++;
+
+		}
+
+		echo "]";
+
 	}
 
-	//============SP
+		public function get_P2_B_9N($codigo_de_local){
+		
+			$data = $this->visor_model->Data_P2_B_9N($codigo_de_local);
+
+			return $data->result();
+
+		}
+
+		public function get_P2_B_10N($codigo_de_local){
+		
+			$data = $this->visor_model->Data_P2_B_10N($codigo_de_local);
+
+			return $data->result();
+			
+		}
+
+		public function get_P2_B_11N($codigo_de_local){
+		
+			$data = $this->visor_model->Data_P2_B_11N($codigo_de_local);
+
+			return $data->result();
+			
+		}
+
+		public function get_P2_B_12N($codigo_de_local){
+		
+			$data = $this->visor_model->Data_P2_B_12N($codigo_de_local);
+
+			return $data->result();
+			
+		}
+
+	//==============================================
+
+	public function get_P2_C($codigo_de_local){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_C($codigo_de_local);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	}
+
+
+
+	//============SP========================================================
 
 	public function get_SP_CAP01_B_3($codigo_de_local,$predio,$npredio){
+
+		$this->header_json();
 		
 		$data = $this->visor_model->Data_SP_CAP01_B_3($codigo_de_local,$predio,$npredio);
 
-		$jsonData = @json_encode($data->result());
+		$jsonData = json_encode($data->result());
 
-		echo $jsonData;
+		$this->prettyPrint($jsonData);
+	
 	}
 
 
+//========================MIGUEL========================================
+
+
+	//===============UTILS====================
+
+public function header_json(){
+	header('Content-type: text/json');
+	header('Content-type: application/json');
+}
+
+/*Estefano: USar esta funcion para tabular json en php menor a 5.4*/
+public function prettyPrint( $json ){
+
+    $result = '';
+    $level = 0;
+    $prev_char = '';
+    $in_quotes = false;
+    $ends_line_level = NULL;
+    $json_length = strlen( $json );
+
+    for( $i = 0; $i < $json_length; $i++ ) {
+        $char = $json[$i];
+        $new_line_level = NULL;
+        $post = "";
+        if( $ends_line_level !== NULL ) {
+            $new_line_level = $ends_line_level;
+            $ends_line_level = NULL;
+        }
+        if( $char === '"' && $prev_char != '\\' ) {
+            $in_quotes = !$in_quotes;
+        } else if( ! $in_quotes ) {
+            switch( $char ) {
+                case '}': case ']':
+                    $level--;
+                    $ends_line_level = NULL;
+                    $new_line_level = $level;
+                    break;
+
+                case '{': case '[':
+                    $level++;
+                case ',':
+                    $ends_line_level = $level;
+                    break;
+
+                case ':':
+                    $post = " ";
+                    break;
+
+                case " ": case "\t": case "\n": case "\r":
+                    $char = "";
+                    $ends_line_level = $new_line_level;
+                    $new_line_level = NULL;
+                    break;
+            }
+        }
+        if( $new_line_level !== NULL ) {
+            $result .= "\n".str_repeat( "\t", $new_line_level );
+        }
+        $result .= $char.$post;
+        $prev_char = $char;
+    }
+
+    echo $result;
+
+}
 	
 }
 ?>

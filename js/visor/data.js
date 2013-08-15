@@ -591,33 +591,111 @@ function get_P2_B(cod_local){
 			
 			$.each(data, function(index, val) {
 			 	
-			 	get_Radio_Verif(val.P2_A_5A_Vend_Tip,"P2_A_5A_Vend_Tip");
-			 	$("#P2_A_5B_Vend_Mini").val(val.P2_A_5B_Vend_Mini);
-			 	$("#P2_A_5B_Vend_Mfin").val(val.P2_A_5B_Vend_Mfin);
+			 	
+			 	get_Radio_Verif(val.P2_B_1_Topo,"P2_B_1_Topo")
 
-			 	$("P2_B_1_Topo").val(val.)
-			 	$("P2_B_2_Suelo").val(val.)
-			 	$("P2_B_2_Suelo_O").val(val.)
-			 	$("P2_B_3_Prof").val(val.)
-			 	$("P2_B_4_CapAcc").val(val.)
-			 	$("P2_B_5_Mtran").val(val.)
-			 	$("P2_B_5A_Uso").val(val.)
-			 	$("P2_B_5B_Tvia_uso").val(val.)
-			 	$("P2_B_6_Trec_H").val(val.)
-		 		$("P2_B_6_Trec_M").val(val.)
-		 		$("P2_B_7_Ttramo_H").val(val.)
-		 		$("P2_B_7_Ttramo_M").val(val.)
-		 		$("P2_B_8_Pelig").val(val.)
-	
+			 	get_Radio_Verif(val.P2_B_2_Suelo,"P2_B_2_Suelo")
+			 	$("#P2_B_2_Suelo_O").val(val.P2_B_2_Suelo_O)
+			 	
+			 	get_Radio_Verif(val.P2_B_3_Prof,"P2_B_3_Prof")
+			 	
+			 	$("#P2_B_4_CapAcc").val(val.P2_B_4_CapAcc)
+			 	
+			 	get_Radio_Verif(val.P2_B_5_Mtran_1,"P2_B_5_Mtran_1");
+			 	get_Radio_Verif(val.P2_B_5_Mtran_2,"P2_B_5_Mtran_2");
+			 	get_Radio_Verif(val.P2_B_5_Mtran_3,"P2_B_5_Mtran_3");
+
+			 	get_Radio_Verif(val.P2_B_5A_Uso,"P2_B_5A_Uso")
+			 	
+			 	get_Radio_Verif(val.P2_B_5B_Tvia_uso_1,"P2_B_5B_Tvia_uso_1");
+			 	get_Radio_Verif(val.P2_B_5B_Tvia_uso_2,"P2_B_5B_Tvia_uso_2");
+			 	get_Radio_Verif(val.P2_B_5B_Tvia_uso_3,"P2_B_5B_Tvia_uso_3");
+			 	get_Radio_Verif(val.P2_B_5B_Tvia_uso_4,"P2_B_5B_Tvia_uso_4");
+			 	
+			 	$("#P2_B_6_Trec_H").val(val.P2_B_6_Trec_H);
+		 		$("#P2_B_6_Trec_M").val(val.P2_B_6_Trec_M);
+		 		
+		 		$("#P2_B_7_Ttramo_H").val(val.P2_B_7_Ttramo_H);
+		 		$("#P2_B_7_Ttramo_M").val(val.P2_B_7_Ttramo_M);
+		 		
+		 		get_Radio_Verif(val.P2_B_8_Pelig,"P2_B_8_Pelig");
+
+			 		$.each(val.peligros1, function(index, val) {
+
+			 			
+						get_Radio_Verif(val.P2_B_9_Cod,"P2_B_9") 
+
+			 		});
+
+			 		$.each(val.peligros2, function(index, val) {
+			 			
+						get_Radio_Verif(val.P2_B_10_Cod,"P2_B_10") 
+			 			
+			 		});
+
+			 		$.each(val.peligros3, function(index, val) {
+			 			
+						get_Radio_Verif(val.P2_B_11_Cod,"P2_B_11") 
+						
+						if(val.P2_B_11_Cod==11){
+							$("#P2_B_11_Cod_O").val(val.P2_B_11_Cod_O);
+						}
+			 			
+			 		});
+			 		
+			 		$.each(val.vulnerabilidades, function(index, val) {
+
+			 			
+						get_Radio_Verif(val.P2_B_12_Cod,"P2_B_12")
+						
+						if(val.P2_B_12_Cod==6){
+							$("#P2_B_12_Cod_O").val(val.P2_B_12_Cod_O);
+						}
+			 			
+			 		});
+
 			 });
 			 				
 		});
 }
 
+function get_P2_C(cod_local){
+	
+		$.getJSON('visor/visor/get_P2_C/'+cod_local, {}, function(data, textStatus) {
+			
+			$.each(data, function(index, val) {
+
+					
+					/*get_Radio_Verif(val.P2_C_1Locl_1_Energ,"P2_C_1Locl_1_Energ");
+					
+					get_Radio_Verif(val.P2_C_1Locl_2_Agua,"P2_C_1Locl_2_Agua");
+					
+					get_Radio_Verif(val.P2_C_1Locl_3_Alc,"P2_C_1Locl_3_Alc");
+					
+					get_Radio_Verif(val.P2_C_1Locl_4_Tfija,"P2_C_1Locl_4_Tfija");
+					get_Radio_Verif(val.P2_C_1Locl_5_Tmov,"P2_C_1Locl_5_Tmov");
+					get_Radio_Verif(val.P2_C_1Locl_6_Int,"P2_C_1Locl_6_Int");
+					get_Radio_Verif(val.P2_C_2LocE_1_Energ,"P2_C_2LocE_1_Energ");
+					get_Radio_Verif(val.P2_C_2LocE_2_Agua,"P2_C_2LocE_2_Agua");
+					get_Radio_Verif(val.P2_C_2LocE_3_Alc,"P2_C_2LocE_3_Alc");
+					get_Radio_Verif(val.P2_C_2LocE_4_Tfija,"P2_C_2LocE_4_Tfija");
+					get_Radio_Verif(val.P2_C_2LocE_5_Tmov,"P2_C_2LocE_5_Tmov");
+					get_Radio_Verif(val.P2_C_2LocE_6_Int,"P2_C_2LocE_6_Int");*/
+					
+			
+			});
+		
+		});
+}
+
 
 function get_Radio_Verif(type,field){
+
+	alert(field+type)
+
+	document.getElementById(field+type).checked=true; 
 	
-	switch(type){
+	/*switch(type){
 		case 1:
 			document.getElementById(field+type).checked=true; 
 		break;
@@ -627,7 +705,9 @@ function get_Radio_Verif(type,field){
 		case 3:
 			document.getElementById(field+type).checked=true; 
 		break;
-	}
+	}*/
 
 }
+
+
 

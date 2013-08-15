@@ -111,7 +111,7 @@
 			
 		}
 
-		function cargarRuta(){
+		/*function cargarRuta(){
 
 	    	$("#ruta").empty().attr({
 		   		disabled: true,
@@ -143,17 +143,57 @@
 		    
 		    });
 			
-		}
+		}*/
 
 		$('#departamento').change(function(){
 			cargarProv();
+
+			if($(this).val()>0){
+			
+				$('#cod_local').attr({
+					disabled: false,
+				});
+			
+			}else{
+			
+				$("#cod_local").attr({
+					disabled: true,
+				});	
+			
+			}
+
 		});
 
 		$('#provincia').change(function(){
-			cargarRuta();
+
+			if($(this).val()>0){
+			
+				$("#ver").attr({
+					disabled: false,
+				});
+			
+			}else{
+			
+				$("#ver").attr({
+					disabled: true,
+				});	
+			
+			}
+
+			/*cargarRuta();*/
 		});
 
-		$('#ruta').change(function(){
+		$('#cod_local').keyup(function(event) {
+			
+			if($(this).val()==""){
+
+			}else{
+
+			}
+
+		});
+
+		/*$('#ruta').change(function(){
 			
 			if($(this).val()>0){
 			
@@ -169,7 +209,7 @@
 			
 			}
 		
-		})
+		})*/
 
 		$('#ver').click(function(){
 			get_data();
@@ -198,7 +238,9 @@
 
 		$('#c2').click(function(event) {
 			var code=$('.codigo_local').val();
-			get_P2_A(code)
+			/*get_P2_A(code);
+			get_P2_B(code);*/
+			get_P2_C(code);
 		});
 
 		//$('#pop').popover('show');
@@ -230,9 +272,11 @@
 
 			<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('Ruta', 'ruta', $label_class); ?>
+						<?php /*echo form_label('Ruta', 'ruta', $label_class);*/ ?>
+						<label>Codigo de Local</label>
 						<div class="controls">
-							<?php echo form_dropdown('ruta', $regArray, '#', 'id="ruta"'); ?>
+							<?php /*echo form_dropdown('ruta', $regArray, '#', 'id="ruta"');*/ ?>
+							<input id="cod_local" style="width:50px;float:left;" type="text" class="form-control">
 						</div>
 					</div>
 			</div>
@@ -532,7 +576,7 @@
 											<li>4.Local cerrado/desocupado</li>
 										</ul>
 									</td>
-									<td>5.Otro <textarea id="PC_C_2_Rfinal_resul_O" class="form-control" rows="3"></textarea></td>
+									<td>5.Otro <!-- <textarea id="PC_C_2_Rfinal_resul_O" class="form-control" rows="3"></textarea> --></td>
 								</tbody>
 							</table>
 
@@ -1580,17 +1624,17 @@
 											</td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Llano
+													<input type="radio" id="P2_B_1_Topo1" name="check6" value="option1"> 1. Llano
 												</label>
 												
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Inclinado
+													<input type="radio" id="P2_B_1_Topo2" name="check6" value="option2"> 2. Inclinado
 												</label>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 3. Muy inclinado
+													<input type="radio" id="P2_B_1_Topo1" name="check6" value="option1"> 3. Muy inclinado
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 4. Accidentado
+													<input type="radio" id="P2_B_1_Topo2" name="check6" value="option2"> 4. Accidentado
 												</label>
 											</td>
 										</tr>
@@ -1602,26 +1646,26 @@
 											</td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Arcilloso
+													<input type="radio" id="P2_B_2_Suelo1" name="check7" value="option1"> 1. Arcilloso
 												</label>
 												
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Rocoso
+													<input type="radio" id="P2_B_2_Suelo2" name="check7" value="option2"> 2. Rocoso
 												</label>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 3. Arenoso
+													<input type="radio" id="P2_B_2_Suelo3" name="check7" value="option1"> 3. Arenoso
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 4. Relleno
+													<input type="radio" id="P2_B_2_Suelo4" name="check7" value="option2"> 4. Relleno
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 5. Gravoso
+													<input type="radio" id="P2_B_2_Suelo5" name="check7" value="option2"> 5. Gravoso
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 6. Otro
+													<input type="radio" id="P2_B_2_Suelo6" name="check7" value="option2"> 6. Otro
 												</label>
 												<label>(Especifique)</label>
-												<input style="width:400px;" type="text" class="form-control">
+												<input id="P2_B_2_Suelo_O" style="width:400px;" type="text" class="form-control">
 
 											</td>
 										</tr>
@@ -1630,18 +1674,18 @@
 											<td><strong>¿A qué profundidad se encuentra la napa freatica del local escolar?</strong></td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. A menos de 1.50 m
+													<input type="radio" id="P2_B_3_Prof1" name="check8" value="option1"> 1. A menos de 1.50 m
 												</label>
 												
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. A mas de 1.50 m
+													<input type="radio" id="P2_B_3_Prof2" name="check8" value="option2"> 2. A mas de 1.50 m
 												</label>
 											</td>
 										</tr>
 										<tr>
 											<td>4.</td>
 											<td><strong>¿Cuál es la capital del distrito mas accesible al local escolar?</strong></td>
-											<td><input style="width:400px;" type="text" class="form-control"></td>
+											<td><input id="P2_B_4_CapAcc" style="width:400px;" type="text" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>5.</td>
@@ -1651,13 +1695,13 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Terrestre 
+													<input type="checkbox" id="P2_B_5_Mtran_11" name="check9" value="option1"> 1. Terrestre 
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Fluvial/lacustre/maritimo
+													<input type="checkbox" id="P2_B_5_Mtran_22" name="check9" value="option2"> 2. Fluvial/lacustre/maritimo
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 3. Aereo
+													<input type="checkbox" id="P2_B_5_Mtran_33" name="check9" value="option2"> 3. Aereo
 												</label>
 											</td>
 										</tr>
@@ -1666,10 +1710,10 @@
 											<td><strong>¿El uso mas frecuente es?</strong></td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Con motor
+													<input type="radio" id="P2_B_5A_Uso1" name="check10" value="option1"> 1. Con motor
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Sin motor
+													<input type="radio" id="P2_B_5A_Uso2" name="check10" value="option2"> 2. Sin motor
 												</label>
 											</td>
 										</tr>
@@ -1681,16 +1725,16 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Camino de herradura 
+													<input type="checkbox" id="P2_B_5B_Tvia_uso_11" name="check11" value="option1"> 1. Camino de herradura 
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Trocha carrozable
+													<input type="checkbox" id="P2_B_5B_Tvia_uso_22" name="check11" value="option2"> 2. Trocha carrozable
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. carretera afirmada
+													<input type="checkbox" id="P2_B_5B_Tvia_uso_33" name="check11" value="option1"> 3. carretera afirmada
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. vía asfaltada
+													<input type="checkbox" id="P2_B_5B_Tvia_uso_44" name="check11" value="option2"> 4. vía asfaltada
 												</label>
 											</td>
 										</tr>
@@ -1699,8 +1743,8 @@
 											<td><strong>¿Cuál es el tiempo total de recorrido de la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div class="panel" style="height:60px; width:130px; margin-left:130px;">
-													<input style="width:50px;float:left;" type="text" class="form-control">
-													<input style="width:50px;float:left;" type="text" class="form-control">
+													<input id="P2_B_6_Trec_H" style="width:50px;float:left;" type="text" class="form-control">
+													<input id="P2_B_6_Trec_M" style="width:50px;float:left;" type="text" class="form-control">
 													<br/><br/>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Hora</div>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Minuto</div>
@@ -1712,8 +1756,8 @@
 											<td><strong>¿Cuál es el tiempo del recorrido en el tramo mas dificultoso desde la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div class="panel" style="height:60px; width:130px; margin-left:130px;">
-													<input style="width:50px;float:left;" type="text" class="form-control">
-													<input style="width:50px;float:left;" type="text" class="form-control">
+													<input id="P2_B_7_Ttramo_H" style="width:50px;float:left;" type="text" class="form-control">
+													<input id="P2_B_7_Ttramo_M" style="width:50px;float:left;" type="text" class="form-control">
 													<br/><br/>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Hora</div>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Minuto</div>
@@ -1725,10 +1769,10 @@
 											<td><strong>¿Existen peligros asociados ala ubicación de esta localidad?</strong></td>
 											<td>
 												<label>
-													<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si
+													<input type="radio" id="P2_B_8_Pelig1" name="check12" value="option1"> 1. Si
 												</label>
 												<label>
-													<input type="radio" id="Checkbox2" name="check" value="option2"> 2. SNo
+													<input type="radio" id="P2_B_8_Pelig2" name="check12" value="option2"> 2. SNo
 												</label>
 											</td>
 										</tr>
@@ -1740,34 +1784,34 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Sismos?
+													<input type="checkbox" id="P2_B_91" name="check13" value="option1"> 1. Sismos?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Tsunami u oleaje anómalos?
+													<input type="checkbox" id="P2_B_92" name="check13" value="option2"> 2. Tsunami u oleaje anómalos?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Lluvias?
+													<input type="checkbox" id="P2_B_93" name="check13" value="option1"> 3. Lluvias?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Heladas?
+													<input type="checkbox" id="P2_B_94" name="check13" value="option2"> 4. Heladas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Sequías?
+													<input type="checkbox" id="P2_B_95" name="check13" value="option1"> 5. Sequías?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Granizadas?
+													<input type="checkbox" id="P2_B_96" name="check13" value="option2"> 6. Granizadas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 7. Nevadas?
+													<input type="checkbox" id="P2_B_97" name="check13" value="option1"> 7. Nevadas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 8. Vendavales?
+													<input type="checkbox" id="P2_B_98" name="check13" value="option2"> 8. Vendavales?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 9. Actividades volcánicas?
+													<input type="checkbox" id="P2_B_99" name="check13" value="option1"> 9. Actividades volcánicas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 10. Ninguno
+													<input type="checkbox" id="P2_B_910" name="check13" value="option2"> 10. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -1779,25 +1823,25 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Inundaciones?
+													<input type="checkbox" id="P2_B_101" name="check14" value="option1"> 1. Inundaciones?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Deslizamientos?
+													<input type="checkbox" id="P2_B_102" name="check14" value="option2"> 2. Deslizamientos?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Huaycos / Aluviones / Aludes?
+													<input type="checkbox" id="P2_B_103" name="check14" value="option1"> 3. Huaycos / Aluviones / Aludes?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Derrumbes?
+													<input type="checkbox" id="P2_B_104" name="check14" value="option2"> 4. Derrumbes?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Desertificaciones?
+													<input type="checkbox" id="P2_B_105" name="check14" value="option1"> 5. Desertificaciones?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Salinización de los suelos?
+													<input type="checkbox" id="P2_B_106" name="check14" value="option2"> 6. Salinización de los suelos?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 7. Ninguno?
+													<input type="checkbox" id="P2_B_10" name="check14" value="option1"> 7. Ninguno?
 												</label>
 											</td>
 										</tr>
@@ -1809,42 +1853,42 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Contaminación ambiental?
+													<input type="checkbox" id="P2_B_111" name="check15" value="option1"> 1. Contaminación ambiental?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Incendios, quemas?
+													<input type="checkbox" id="P2_B_112" name="check15" value="option2"> 2. Incendios, quemas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Explosiones?
+													<input type="checkbox" id="P2_B_113" name="check15" value="option1"> 3. Explosiones?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Derrame de sustancias tóxicas?
+													<input type="checkbox" id="P2_B_114" name="check15" value="option2"> 4. Derrame de sustancias tóxicas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Fuga de gases?
+													<input type="checkbox" id="P2_B_115" name="check15" value="option1"> 5. Fuga de gases?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Zonas aereoportuarias?
+													<input type="checkbox" id="P2_B_116" name="check15" value="option2"> 6. Zonas aereoportuarias?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 7. Zonas industriales?
+													<input type="checkbox" id="P2_B_117" name="check15" value="option1"> 7. Zonas industriales?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 8. Crianza de animales?
+													<input type="checkbox" id="P2_B_118" name="check15" value="option2"> 8. Crianza de animales?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 9. Subversiónes / conflictos?
+													<input type="checkbox" id="P2_B_119" name="check15" value="option1"> 9. Subversiónes / conflictos?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 10. Rellenos sanitarios?
+													<input type="checkbox" id="P2_B_1110" name="check15" value="option2"> 10. Rellenos sanitarios?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 11. Otro?
+													<input type="checkbox" id="P2_B_1111" name="check15" value="option1"> 11. Otro?
 												</label>
 												<label>(Especifique)</label>
-												<input style="width:400px;" type="text" class="form-control">
+												<input style="width:400px;" id="P2_B_11_Cod_O" type="text" class="form-control">
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 12. Ninguno
+													<input type="checkbox" id="P2_B_1112" name="check" value="option2"> 12. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -1856,28 +1900,28 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Cercanía lecho de río, quebrada?
+													<input type="checkbox" id="P2_B_121" name="check16" value="option1"> 1. Cercanía lecho de río, quebrada?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Cercanía a vía ferrea?
+													<input type="checkbox" id="P2_B_122" name="check16" value="option2"> 2. Cercanía a vía ferrea?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Cercanía a barranco o precipicio?
+													<input type="checkbox" id="P2_B_123" name="check16" value="option1"> 3. Cercanía a barranco o precipicio?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Cercanía a cuartel militar o policial?
+													<input type="checkbox" id="P2_B_124" name="check16" value="option2"> 4. Cercanía a cuartel militar o policial?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Erosión fluvial de laderas?
+													<input type="checkbox" id="P2_B_125" name="check16" value="option1"> 5. Erosión fluvial de laderas?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Otro?
+													<input type="checkbox" id="P2_B_126" name="check16" value="option2"> 6. Otro?
 												</label>
 												<label>(Especifique)</label>
-												<input style="width:400px;" type="text" class="form-control">
+												<input style="width:400px;" id="P2_B_12_Cod_O" type="text" class="form-control">
 												<label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 7. Ninguno
+													<input type="checkbox" id="P2_B_127" name="check16" value="option1"> 7. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -1909,13 +1953,13 @@
 														<td>1.	Energía eléctrica?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_1_Energ1" name="P2_C_1Locl_1_Energ1" value=""> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_1_Energ2" name="P2_C_1Locl_1_Energ2" value=""> 
 																 2
 															</label>
 														</td>
@@ -1924,13 +1968,13 @@
 														<td>2.	Agua potable?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_2_Agua1" name="P2_C_1Locl_2_Agua1" value=""> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_2_Agua2" name="P2_C_1Locl_2_Agua2" value=""> 
 																 2
 															</label>
 														</td>
@@ -1939,13 +1983,13 @@
 														<td>3.	Alcantarillado?	</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_3_Alc1" name="P2_C_1Locl_3_Alc11" value=""> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_1Locl_3_Alc12" name="P2_C_1Locl_3_Alc12" value=""> 
 																 2
 															</label>
 														</td>
@@ -1968,13 +2012,13 @@
 														<td>Telefonía fija?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_4_Tfija1" name="P2_C_1Locl_4_Tfija1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_4_Tfija1" name="P2_C_1Locl_4_Tfija2" value="option2">
 																 2
 															</label>
 														</td>
@@ -1983,13 +2027,13 @@
 														<td>Telefonía móvil?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_5_Tmov1" name="P2_C_1Locl_5_Tmov1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_5_Tmov2" name="P2_C_1Locl_5_Tmov2" value="option2">
 																 2
 															</label>
 														</td>
@@ -1998,13 +2042,13 @@
 														<td>Internet?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_6_Int1" name="P2_C_1Locl_6_Int1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_1Locl_6_Int2" name="P2_C_1Locl_6_Int2" value="option2">
 																 2
 															</label>
 														</td>
@@ -2032,13 +2076,13 @@
 														<td>1.	Energía eléctrica?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_1_Energ1" name="P2_C_2LocE_1_Energ1" value="option2"> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_1_Energ2" name="P2_C_2LocE_1_Energ2" value="option2"> 
 																 2
 															</label>
 														</td>
@@ -2047,13 +2091,13 @@
 														<td>2.	Agua potable?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_2_Agua1" name="P2_C_2LocE_2_Agua1" value="option2"> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_2_Agua2" name="P2_C_2LocE_2_Agua2" value="option2"> 
 																 2
 															</label>
 														</td>
@@ -2062,13 +2106,13 @@
 														<td>3.	Alcantarillado?	</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_3_Alc1" name="P2_C_2LocE_3_Alc1" value="option2"> 
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2"> 
+																<input type="checkbox" id="P2_C_2LocE_3_Alc2" name="P2_C_2LocE_3_Alc2" value="option2"> 
 																 2
 															</label>
 														</td>
@@ -2092,13 +2136,13 @@
 														<td>Telefonía fija?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_4_Tfija1" name="P2_C_2LocE_4_Tfija1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_4_Tfija2" name="P2_C_2LocE_4_Tfija2" value="option2">
 																 2
 															</label>
 														</td>
@@ -2107,13 +2151,13 @@
 														<td>Telefonía móvil?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_5_Tmov1" name="P2_C_2LocE_5_Tmov1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_5_Tmov2" name="P2_C_2LocE_5_Tmov2" value="option2">
 																 2
 															</label>
 														</td>
@@ -2122,13 +2166,13 @@
 														<td>Internet?</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_6_Int1" name="P2_C_2LocE_6_Int1" value="option2">
 																 1
 															</label>
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox2" name="check" value="option2">
+																<input type="checkbox" id="P2_C_2LocE_6_Int2" name="P2_C_2LocE_6_Int2" value="option2">
 																 2
 															</label>
 														</td>

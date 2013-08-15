@@ -2,7 +2,7 @@
 $(function(){
    
 jQuery("#list2").jqGrid({
-  url:'visor/visor/get_data?cod_dpto=01&cod_prov=01&idruta=01',
+  url:'visor/visor/get_data?cod_dpto=01&cod_prov=01',
   datatype: "json",
   colNames:['Codigo Local','Centro Poblado','Datos Cedula','Datos GPS','Fotos','Visualizar Ficha'],
   colModel:[
@@ -14,13 +14,13 @@ jQuery("#list2").jqGrid({
       {name:'ver',index:'ver', width:90,align:'center'}
   ],
 
- // rowNum:500,
-  //rowList:[10,20,30],
-  //pager: '#pager2',
+  rowNum:20,
+  rowList:[10,20,30],
+  pager: '#pager2',
   sortname: 'id,cp,dc,dg,foto',
   viewrecords: true,
   sortorder: "desc",
-  caption:"JSON Example",
+  caption:"Seguimiento de Cedulas",
   width: 1000,
   height: 350
 });
@@ -31,6 +31,7 @@ jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
 
 function get_data(){
 
-  jQuery("#list2").jqGrid('setGridParam',{url:'visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val()+'&idruta='+$("#ruta").val(),page:1}).trigger("reloadGrid");
+  jQuery("#list2").jqGrid('setGridParam',{url:'visor/visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val(),page:1}).trigger("reloadGrid");
 
+  prompt('','visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val())
 }
