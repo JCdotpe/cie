@@ -246,6 +246,8 @@
 			get_P2_A(code);
 			get_P2_B(code);
 			get_P2_C(code);
+			
+			get_P2_D_1N(code);
 		});
 
 		$('#c3').click(function(event) {
