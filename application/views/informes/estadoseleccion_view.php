@@ -15,13 +15,11 @@
 	
     foreach($depa->result() as $filas)
     {
-      $depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Departamento));
+      $depaArray[$filas->CCDD]=utf8_encode($filas->Departamento);
       $sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
     }
     $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
-
     $provArray = array(-1 => '');
-    $distArray = array(-1 => '');
 
     $estadosArray = array(-1 => 'Seleccione...', 1 => 'Inscritos', 2 => 'Desaprobado CV', 3 => 'Aprobados CV', 4 => 'Desaprobados Capacitación', 5 => 'Aprobados Capacitación', 6 => 'No Seleccionado', 7 => 'Suplente', 8 => 'Titular');
     $selected_estados = (set_value('estados')) ? set_value('estados') : '' ;
@@ -73,7 +71,7 @@
 						<?php echo form_label('Estados', 'lblestados', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('estados', $estadosArray, $selected_estados, '" id="estados"'); 								
+								echo form_dropdown('estados', $estadosArray, $selected_estados, '" id="estados"');
 							?>
 						</div>
 					</div>

@@ -54,7 +54,7 @@ function cargarProvBySede()
     $.ajax({
       type: "POST",
       url: doLoginMethodUrl,
-      data: "id_sede="+id_sede,
+      data: "id_sede="+id_sede+"&id_dpto="+id_dpto,
       success: function(provinciaResponse){
         console.log(provinciaResponse);
         $("#provincia").empty().append($(provinciaResponse).find("option"));

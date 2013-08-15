@@ -43,22 +43,9 @@ class Capacitacion extends CI_Controller {
 		$data['main_content'] = 'seleccion/capacitacion_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
+		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
-	}
-
-	public function obtenerprovincia()
-	{
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->helper('form');
-		$prov = $this->Provincia_model->get_provs($_POST['id_depa']);
-		$provArray = array();
-		foreach($prov->result() as $filas)
-		{
-			$provArray[$filas->CCPP]=utf8_encode(strtoupper($filas->Nombre));
-		}
-		echo form_dropdown('provincia', $provArray, '#', 'id="provincia"');
 	}
 
 	public function registrar_capacitados()

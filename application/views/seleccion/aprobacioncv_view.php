@@ -11,10 +11,14 @@
 <?php
 	$label_class =  array('class' => 'control-label');
 	$depaArray = array(-1 => 'Seleccione...');
+	$sedeArray = array(-1 => '-1');
+	
     foreach($depa->result() as $filas)
     {
-      $depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Nombre));
+		$depaArray[$filas->CCDD]=utf8_encode($filas->Departamento);
+		$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
     }
+    $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
     $provArray = array(-1 => '');
     
     $cargosArray = array(-1 => 'Seleccione...'); 
@@ -43,7 +47,10 @@
 					<div class="control-group">
 						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProv();"'); ?>
+							<?php 
+								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"');
+								echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
+							?>
 						</div>
 					</div>
 				</div>

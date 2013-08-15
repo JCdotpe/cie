@@ -44,22 +44,21 @@ class Aprobacioncv extends CI_Controller {
 		$data['main_content'] = 'seleccion/aprobacioncv_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
+		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function obtenerprovincia()
+	public function obtenerprovincia_by_sede()
 	{
 		$this->load->model('convocatoria/Provincia_model');
-		$this->load->helper('form');
-		$prov = $this->Provincia_model->get_provs($_POST['id_depa']);
+		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
 		$provArray = array();
-		foreach($prov->result() as $filas)
+		foreach($sedeope->result() as $filas)
 		{
-			$provArray[$filas->CCPP]=utf8_encode(strtoupper($filas->Nombre));
+			$provArray[$filas->CCPP]=utf8_encode(strtoupper($filas->Nombre_Provincia));
 		}
-		echo form_dropdown('provincia', $provArray, '#', 'id="provincia"');
+		echo form_dropdown('provincia', $provArray, '#', 'id="provincia"');	
 	}
 
 	public function registrar_aprobadoscv()

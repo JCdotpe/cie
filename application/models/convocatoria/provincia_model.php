@@ -43,9 +43,9 @@ class Provincia_model extends CI_MODEL{
         return $q;
     }
 
-    function Get_ProvbySedeOpe($sedeope)
+    function Get_ProvbySedeOpe($sedeope,$dpto)
     {
-        $query="SELECT distinct c.CCDD, c.CCPP, p.Nombre as Nombre_Provincia FROM codigo_territorial c inner join prov p on c.CCDD=p.CCDD and c.CCPP=p.CCPP WHERE COD_SEDE_OPERATIVA = '$sedeope'";
+        $query="SELECT distinct c.CCDD, c.CCPP, p.Nombre as Nombre_Provincia FROM codigo_territorial c inner join prov p on c.CCDD=p.CCDD and c.CCPP=p.CCPP WHERE c.COD_SEDE_OPERATIVA = '$sedeope' and c.CCDD = '$dpto'";
         $q = $this->db->query($query);
         return $q;
     }

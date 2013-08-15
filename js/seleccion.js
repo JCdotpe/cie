@@ -1,11 +1,15 @@
-function cargarProv()
+function cargarProvBySede()
 {
-    var doLoginMethodUrl = 'aprobacioncv/obtenerprovincia';
-    var id_depa = $("#departamento").val();
+    var doLoginMethodUrl = 'aprobacioncv/obtenerprovincia_by_sede';
+
+    var id_dpto = $("#departamento").val();
+    $("#sedeoperativa option[value="+id_dpto+"]").attr('selected','selected');
+    var id_sede = $("#sedeoperativa").find('option:selected').text();
+
     $.ajax({
       type: "POST",
       url: doLoginMethodUrl,
-      data: "id_depa="+id_depa,
+      data: "id_sede="+id_sede+"&id_dpto="+id_dpto,
       success: function(provinciaResponse){
         console.log(provinciaResponse);
         $("#provincia").empty().append($(provinciaResponse).find("option"));

@@ -52,7 +52,7 @@ class Estadoseleccion extends CI_Controller {
 	public function obtenerprovincia_by_sede()
 	{
 		$this->load->model('convocatoria/Provincia_model');
-		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede']);
+		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
 		$provArray = array();
 		foreach($sedeope->result() as $filas)
 		{
