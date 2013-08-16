@@ -653,6 +653,7 @@ function get_P2_D_1N(cod_local){
 			get_Radio_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
 
 			if(val.P2_D_1_EnergCod==4){
+				alert(val.P2_D_1_EnergCod)
 				$("#P2_D_1_EnergCod_O").val(val.P2_D_1_EnergCod_O);
 			}
 

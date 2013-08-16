@@ -60,11 +60,11 @@ function get_Dist(depa,prov,dist){
 
 //VERIFICA Y CHECKA LOS CHECKS Y RADIOBUTTONS 
 
-function get_Radio_Verif(type,field){
+function get_Radio_Verif(value,id){
 
-	alert(field+type)
+	//alert(field+type)
 
-	document.getElementById(field+type).checked=true; 
+	document.getElementById(id+value).checked=true; 
 }
 
 
