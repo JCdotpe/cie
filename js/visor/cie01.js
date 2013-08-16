@@ -651,9 +651,10 @@ function get_P2_D_1N(cod_local){
 		$.each(data, function(index, val) {
 
 			get_Radio_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
-			
-			get_Radio_Verif(val.P2_D_1_EnergCod_O,"P2_D_1_EnergCod_O");
-			
+
+			if(val.P2_D_1_EnergCod==4){
+				$("#P2_D_1_EnergCod_O").val(val.P2_D_1_EnergCod_O);
+			}
 
 		});
 
