@@ -221,18 +221,18 @@
 
 		$('#c1').click(function(event) {
 			var code=$('.codigo_local').val();
-			/*get_P1_A(code);
+			get_P1_A(code);
 			get_P1_A_2N(code);
 			get_P1_B(code);
-			get_P1_B_2A_N(code);*/
+			get_P1_B_2A_N(code);
 		});
 
 		$('#c2').click(function(event) {
 			var code=$('.codigo_local').val();
-		/*	get_P2_A(code);
+			get_P2_A(code);
 			get_P2_B(code);
 			get_P2_C(code);
-			get_P2_D_1N(code);*/
+			get_P2_D_1N(code);
 		});
 
 		$('#c3').click(function(event) {
