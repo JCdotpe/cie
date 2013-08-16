@@ -120,7 +120,7 @@ function get_dir_Verif(type){
 //====================SECCIÓN C:  ENTREVISTA Y SUPERVISIÓN==================================
 
 function get_PCar_C_1N(cod_local){
-	alert(cod_local)
+	//alert(cod_local)
 	$.post('visor/visor/get_PCar_C_1N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
@@ -659,7 +659,7 @@ function get_P2_D_1N(cod_local){
 			get_Radio_Check_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
 
 			if(val.P2_D_1_EnergCod==4){
-				alert(val.P2_D_1_EnergCod)
+				//alert(val.P2_D_1_EnergCod)
 				$("#P2_D_1_EnergCod_O").val(val.P2_D_1_EnergCod_O);
 			}
 
