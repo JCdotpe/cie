@@ -4,7 +4,7 @@ $(function(){
 jQuery("#list2").jqGrid({
   url:'visor/visor/get_data?cod_dpto=01&cod_prov=01',
   datatype: "json",
-  colNames:['Codigo Local','Centro Poblado','Datos Cedula','Datos GPS','Fotos','Visualizar Ficha'],
+  colNames:['Visualizar Ficha','Codigo Local','Centro Poblado','Datos Cedula','Datos GPS','Fotos'],
   colModel:[
       {name:'id',index:'id', width:55,align:'center'},
       {name:'cp',index:'cp', width:90},
