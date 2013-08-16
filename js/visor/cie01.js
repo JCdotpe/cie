@@ -47,7 +47,7 @@ function get_PCar(cod_local){
 				$('.PC_B_1_CodLocal').val(val.PC_B_1_CodLocal);
 				$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv);
 
-				var cod_loc=val.codigo_de_local;//<--
+				var cod_loc=val.PC_B_1_CodLocal;//<--
 
 				$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha);
 				$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);
@@ -121,7 +121,7 @@ function get_dir_Verif(type){
 //====================SECCIÓN C:  ENTREVISTA Y SUPERVISIÓN==================================
 
 function get_PCar_C_1N(cod_local){
-	
+	alert(cod_local)
 	$.post('visor/visor/get_PCar_C_1N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
