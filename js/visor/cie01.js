@@ -5,8 +5,7 @@
 function get_PadLocal(cod_local){
 
 		$.post('visor/visor/get_PadLocal/', {cod_local:cod_local}, function(data) {
-			alert('after')
-
+			
 			$.each(data, function(index, val) {
 
 				get_Depa(val.cod_dpto);
@@ -21,9 +20,11 @@ function get_PadLocal(cod_local){
 
 function get_PCar(cod_local){
 
-	$.getJSON('visor/visor/get_PCar/'+cod_local, {}, function(data, textStatus) {
+	var cod_loc="";
+	$.post('visor/visor/get_PCar/',{cod_local:cod_local}, function(data) {
+			
+			var cod_loc="";	
 
-			var cod_loc="";
 
 			$.each(data, function(index, val) {
 
@@ -46,7 +47,7 @@ function get_PCar(cod_local){
 				$('.PC_B_1_CodLocal').val(val.PC_B_1_CodLocal);
 				$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv);
 
-				cod_loc=val.codigo_de_local;//<--
+				var cod_loc=val.codigo_de_local;//<--
 
 				$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha);
 				$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);
@@ -120,8 +121,8 @@ function get_dir_Verif(type){
 //====================SECCIÓN C:  ENTREVISTA Y SUPERVISIÓN==================================
 
 function get_PCar_C_1N(cod_local){
-
-	$.getJSON('visor/visor/get_PCar_C_1N/'+cod_local, {}, function(data, textStatus) {
+	
+	$.post('visor/visor/get_PCar_C_1N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
 
@@ -153,8 +154,8 @@ function get_PCar_C_1N(cod_local){
 //=============================CAPITULO1===========================================
 
 function get_P1_A(cod_local){
-
-	$.getJSON('visor/visor/get_P1_A/'+cod_local, {}, function(data, textStatus) {
+	
+	$.post('visor/visor/get_P1_A/', {cod_local:cod_local}, function(data) {
 
 		$.each(data, function(index, val) {
 			$('#nie2').val(val.P1_A_1_Cant_IE);
@@ -164,8 +165,8 @@ function get_P1_A(cod_local){
 }
 
 function get_P1_A_2N(cod_local){
-
-	$.getJSON('visor/visor/get_P1_A_2N/'+cod_local, {}, function(data, textStatus) {
+	
+	$.post('visor/visor/get_P1_A_2N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
 
@@ -332,12 +333,9 @@ function each_get_P1_A_2_8N(cod_local){
 	});
 }
 
-function get_P1_A_2_8N(cod_local,nro_IE){
+function get_P1_A_2_8N(cod_local,NroIE){
 
-	var html="";
-
-	$.getJSON('visor/visor/get_P1_A_2_8N/'+cod_local+'/'+nro_IE, {}, function(data, textStatus) {
-
+	$.post('visor/visor/get_P1_A_2_8N/', {cod_local:cod_local,NroIE:NroIE}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -377,16 +375,17 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 		});
 
-		$('#'+cod_local+nro_IE).html(html);
 
-	}, "json");
+		$('#'+cod_local+NroIE).html(html);
+											
+	});
 
 }
 
 function get_P1_B(cod_local){
-
-		$.getJSON('visor/visor/get_P1_B/'+cod_local, {}, function(data, textStatus) {
-
+	
+		$.post('visor/visor/get_P1_B/', {cod_local:cod_local}, function(data) {
+			
 			$.each(data, function(index, val) {
 
 				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
@@ -411,8 +410,9 @@ function get_P1_B_2_PredCol_Verif(type){
 
 
 function get_P1_B_2A_N(cod_local){
+	
+		$.post('visor/visor/get_P1_B_2A_N/', {cod_local:cod_local}, function(data) {
 
-		$.getJSON('visor/visor/get_P1_B_2A_N/'+cod_local, {}, function(data, textStatus) {
 			var i=0;
 			var cod="";
 			$.each(data, function(index, val) {
@@ -431,9 +431,9 @@ function get_P1_B_2A_N(cod_local){
 }
 
 function get_P1_B_3N(cod_local){
-
-		$.getJSON('visor/visor/get_P1_B_3N/'+cod_local, {}, function(data, textStatus) {
-
+	
+		$.post('visor/visor/get_P1_B_3N/', {cod_local:cod_local}, function(data) {
+			
 			$.each(data, function(index, val) {
 
 				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
@@ -462,8 +462,13 @@ function get_P1_B_3N(cod_local){
 
 	/*function get_SP_CAP01_B_3(cod_local,predio,npredio){
 
+<<<<<<< HEAD
 		$.getJSON('visor/visor/SP_CAP01_B_3/'+cod_local+'/'+predio+'/'+npredio, {}, function(data, textStatus) {
 
+=======
+		$.getJSON('visor/visor/SP_CAP01_B_3/'+cod_local+'/'+predio+'/'+npredio, {}, function(data) {
+			
+>>>>>>> up
 			$.each(data, function(index, val) {
 
 				$('#P1_B_1_TPred').val(val.P1_B_1_TPred);
@@ -503,8 +508,8 @@ function get_P1_B_3N(cod_local){
 
 function get_P2_A(cod_local){
 
-		$.getJSON('visor/visor/get_P2_A/'+cod_local, {}, function(data, textStatus) {
-
+		$.post('visor/visor/get_P2_A/', {cod_local:cod_local}, function(data) {
+			
 			$.each(data, function(index, val) {
 
 			 	get_Radio_Verif(val.P2_A_1_Clima,"P2_A_1_Clima");
@@ -530,9 +535,9 @@ function get_P2_A(cod_local){
 }
 
 function get_P2_B(cod_local){
-
-		$.getJSON('visor/visor/get_P2_B/'+cod_local, {}, function(data, textStatus) {
-
+	
+		$.post('visor/visor/get_P2_B/', {cod_local:cod_local}, function(data) {
+			
 			$.each(data, function(index, val) {
 
 
@@ -604,9 +609,9 @@ function get_P2_B(cod_local){
 }
 
 function get_P2_C(cod_local){
-
-		$.getJSON('visor/visor/get_P2_C/'+cod_local, {}, function(data, textStatus) {
-
+		
+		$.post('visor/visor/get_P2_C/', {cod_local:cod_local}, function(data) {
+			
 			$.each(data, function(index, val) {
 
 					get_Radio_Verif($.trim(val.P2_C_1Locl_1_Energ),"P2_C_1Locl_1_Energ");
@@ -628,9 +633,9 @@ function get_P2_C(cod_local){
 }
 
 function get_P2_D(cod_local){
-
-	$.getJSON('visor/visor/get_P2_D/'+cod_local, {}, function(data, textStatus) {
-
+		
+	$.post('visor/visor/get_P2_D/', {cod_local:cod_local}, function(data) {
+			
 		$.each(data, function(index, val) {
 
 			$("#P2_D_2_Energ_CantSum").val(val.P2_D_2_Energ_CantSum);
@@ -645,9 +650,9 @@ function get_P2_D(cod_local){
 }
 
 function get_P2_D_1N(cod_local){
-
-	$.getJSON('visor/visor/get_P2_D_1N/'+cod_local, {}, function(data, textStatus) {
-
+		
+	$.post('visor/visor/get_P2_D_1N/', {cod_local:cod_local}, function(data) {
+			
 		$.each(data, function(index, val) {
 
 			get_Radio_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
