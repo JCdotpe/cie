@@ -4,13 +4,8 @@
 
 function get_PadLocal(cod_local){
 
-		alert('p')
 		$.post('visor/visor/get_PadLocal/', {cod_local:cod_local}, function(data) {
 			alert('after')
-
-	
-		$.getJSON('visor/visor/get_PadLocal/'+cod_local, {}, function(data, textStatus) {
-			
 
 			$.each(data, function(index, val) {
 				 
@@ -385,11 +380,7 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 		$('#'+cod_local+nro_IE).html(html);
 											
-<<<<<<< HEAD
 	}, "json");
-=======
-	});
->>>>>>> parent of 6c4a14c... update cie01
 
 }
 
