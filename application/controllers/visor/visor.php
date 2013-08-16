@@ -455,6 +455,28 @@ public function prettyPrint( $json ){
 		$this->prettyPrint($jsonData);
 	}
 
+	public function get_P2_D_5N($codigo_de_local){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_D_5N($codigo_de_local);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	}
+
+	public function get_P2_D_7N($codigo_de_local){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_D_7N($codigo_de_local);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	}
+
 
 	//============SP========================================================
 
