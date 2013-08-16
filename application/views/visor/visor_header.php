@@ -214,7 +214,7 @@
 			$('#myModal').modal('show');
 			$('.codigo_local').val($(this).attr('id'));
 			get_PadLocal($(this).attr('id'));
-			/*get_PCar($(this).attr('id'));*/
+			get_PCar($(this).attr('id'));
 
 		});
 
