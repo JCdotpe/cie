@@ -30,7 +30,7 @@ class P5 extends CI_Controller {
 
 	public function Find_Total_Edif($codigo){
 
-			//$codigo=$this->input->post('code');
+			$codigo=$this->input->post('cod_local');
 			//$codigo=$_REQUEST['code'];
 			$resultado = $this->P5_model->Get_Total_Edif($codigo);
 			$return_arr['datos']=  array();

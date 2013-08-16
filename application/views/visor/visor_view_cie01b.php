@@ -71,7 +71,7 @@
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Verificar Cap. V</label>
-		  	    							<input style="width:100px;" type="text" class="form-control">
+		  	    							<input style="width:100px;" type="text" class="form-control P5_TOT_E">
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
