@@ -3,15 +3,15 @@
 //=============================GENERAL1=========================================
 
 function get_PadLocal(cod_local){
-<<<<<<< HEAD
+
 		alert('p')
 		$.post('visor/visor/get_PadLocal/', {cod_local:cod_local}, function(data) {
 			alert('after')
-=======
+
 	
 		$.getJSON('visor/visor/get_PadLocal/'+cod_local, {}, function(data, textStatus) {
 			
->>>>>>> parent of 6c4a14c... update cie01
+
 			$.each(data, function(index, val) {
 				 
 				get_Depa(val.cod_dpto);
