@@ -668,6 +668,25 @@ function get_P2_D_1N(cod_local){
 	});
 }
 
+function get_P2_D_5N(cod_local){
+		
+	$.post('visor/visor/get_P2_D_5N/', {cod_local:cod_local}, function(data) {
+			
+		$.each(data, function(index, val) {
+			
+		});
+	});
+}
+
+function get_P2_D_7N(cod_local){
+		
+	$.post('visor/visor/get_P2_D_7N/', {cod_local:cod_local}, function(data) {
+			
+		$.each(data, function(index, val) {
+			
+		});
+	});
+}
 //==============================FIN CAPITULO 2=================================
 
 
