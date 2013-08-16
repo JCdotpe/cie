@@ -177,7 +177,7 @@ public function prettyPrint( $json ){
 
 		$this->header_json();
 
-		$data = $this->visor_model->Data_PadLocal($_REQUEST["codigo_local"]);
+		$data = $this->visor_model->Data_PadLocal($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
@@ -185,22 +185,22 @@ public function prettyPrint( $json ){
 
 	}
 
-	public function get_PCar($codigo_de_local){
+	public function get_PCar(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_PCar($codigo_de_local);
+		$data = $this->visor_model->Data_PCar($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_PCar_C_1N($codigo_de_local){
+	public function get_PCar_C_1N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_PCar_C_1N($codigo_de_local);
+		$data = $this->visor_model->Data_PCar_C_1N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
@@ -210,33 +210,33 @@ public function prettyPrint( $json ){
 //=====================CAPITULO1==============================
 
 
-	public function get_P1_A($codigo_de_local){
+	public function get_P1_A(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_A($codigo_de_local);
+		$data = $this->visor_model->Data_P1_A($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P1_A_2N($codigo_de_local){
+	public function get_P1_A_2N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_A_2N($codigo_de_local);
+		$data = $this->visor_model->Data_P1_A_2N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE){
+	public function get_P1_A_2_8N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_A_2_8N($codigo_de_local,$P1_A_2_NroIE);
+		$data = $this->visor_model->Data_P1_A_2_8N($_REQUEST["cod_local"],$_REQUEST["NroIE"]);
 
 		$i=0;
 		echo "[";
@@ -258,7 +258,7 @@ public function prettyPrint( $json ){
 								"P1_A_2_9J_T2_Taul" => $fila->P1_A_2_9J_T2_Taul,
 								"P1_A_2_9K_T3_Talu" => $fila->P1_A_2_9K_T3_Talu,
 								"P1_A_2_9L_T3_Taul" => $fila->P1_A_2_9L_T3_Taul,
-								"anexos" => $this->get_P1_A_2_9N($codigo_de_local,$P1_A_2_NroIE,$fila->P1_A_2_9_NroCMod));
+								"anexos" => $this->get_P1_A_2_9N($_REQUEST["cod_local"],$_REQUEST["NroIE"],$fila->P1_A_2_9_NroCMod));
 			
 				$jsonData = json_encode($x);
 				
@@ -272,9 +272,9 @@ public function prettyPrint( $json ){
 
 	}
 
-	public function get_P1_A_2_9N($codigo_de_local,$P1_A_2_NroIE,$P1_A_2_9_NroCMod){
+	public function get_P1_A_2_9N($cod_local,$NroIE,$NroCMod){
 		
-		$data = $this->visor_model->Data_P1_A_2_9N($codigo_de_local,$P1_A_2_NroIE,$P1_A_2_9_NroCMod);
+		$data = $this->visor_model->Data_P1_A_2_9N($cod_local,$NroIE,$NroCMod);
 
 
 		return $data->result();
@@ -283,33 +283,33 @@ public function prettyPrint( $json ){
 
 	//=====
 
-	public function get_P1_B($codigo_de_local){
+	public function get_P1_B(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_B($codigo_de_local);
+		$data = $this->visor_model->Data_P1_B($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P1_B_2A_N($codigo_de_local){
+	public function get_P1_B_2A_N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_B_2A_N($codigo_de_local);
+		$data = $this->visor_model->Data_P1_B_2A_N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P1_B_3N($codigo_de_local){
+	public function get_P1_B_3N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P1_B_3N($codigo_de_local);
+		$data = $this->visor_model->Data_P1_B_3N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
@@ -318,22 +318,22 @@ public function prettyPrint( $json ){
 
 //========================CAPITULO2========================================
 
-	public function get_P2_A($codigo_de_local){
+	public function get_P2_A(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_A($codigo_de_local);
+		$data = $this->visor_model->Data_P2_A($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_B($codigo_de_local){
+	public function get_P2_B(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_B($codigo_de_local);
+		$data = $this->visor_model->Data_P2_B($_REQUEST["cod_local"]);
 
 		$i=0;
 		echo "[";
@@ -377,33 +377,33 @@ public function prettyPrint( $json ){
 
 	}
 
-		public function get_P2_B_9N($codigo_de_local){
+		public function get_P2_B_9N(){
 		
-			$data = $this->visor_model->Data_P2_B_9N($codigo_de_local);
+			$data = $this->visor_model->Data_P2_B_9N($_REQUEST["cod_local"]);
 
 			return $data->result();
 
 		}
 
-		public function get_P2_B_10N($codigo_de_local){
+		public function get_P2_B_10N(){
 		
-			$data = $this->visor_model->Data_P2_B_10N($codigo_de_local);
-
-			return $data->result();
-			
-		}
-
-		public function get_P2_B_11N($codigo_de_local){
-		
-			$data = $this->visor_model->Data_P2_B_11N($codigo_de_local);
+			$data = $this->visor_model->Data_P2_B_10N($_REQUEST["cod_local"]);
 
 			return $data->result();
 			
 		}
 
-		public function get_P2_B_12N($codigo_de_local){
+		public function get_P2_B_11N(){
 		
-			$data = $this->visor_model->Data_P2_B_12N($codigo_de_local);
+			$data = $this->visor_model->Data_P2_B_11N($_REQUEST["cod_local"]);
+
+			return $data->result();
+			
+		}
+
+		public function get_P2_B_12N(){
+		
+			$data = $this->visor_model->Data_P2_B_12N($_REQUEST["cod_local"]);
 
 			return $data->result();
 			
@@ -411,66 +411,66 @@ public function prettyPrint( $json ){
 
 	//==============================================
 
-	public function get_P2_C($codigo_de_local){
+	public function get_P2_C(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_C($codigo_de_local);
+		$data = $this->visor_model->Data_P2_C($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_D($codigo_de_local){
+	public function get_P2_D(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_D($codigo_de_local);
+		$data = $this->visor_model->Data_P2_D($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_D_1N($codigo_de_local){
+	public function get_P2_D_1N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_D_1N($codigo_de_local);
+		$data = $this->visor_model->Data_P2_D_1N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_D_3N($codigo_de_local){
+	public function get_P2_D_3N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_D_3N($codigo_de_local);
+		$data = $this->visor_model->Data_P2_D_3N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_D_5N($codigo_de_local){
+	public function get_P2_D_5N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_D_5N($codigo_de_local);
+		$data = $this->visor_model->Data_P2_D_5N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
 	}
 
-	public function get_P2_D_7N($codigo_de_local){
+	public function get_P2_D_7N(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_P2_D_7N($codigo_de_local);
+		$data = $this->visor_model->Data_P2_D_7N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
@@ -480,11 +480,11 @@ public function prettyPrint( $json ){
 
 	//============SP========================================================
 
-	public function get_SP_CAP01_B_3($codigo_de_local,$predio,$npredio){
+	public function get_SP_CAP01_B_3(){
 
 		$this->header_json();
 		
-		$data = $this->visor_model->Data_SP_CAP01_B_3($codigo_de_local,$predio,$npredio);
+		$data = $this->visor_model->Data_SP_CAP01_B_3($_REQUEST["cod_local"],$_REQUEST["predio"],$_REQUEST["npredio"]);
 
 		$jsonData = json_encode($data->result());
 
