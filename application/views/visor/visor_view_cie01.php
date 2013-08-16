@@ -1864,7 +1864,7 @@
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input style="width:100px;" type="text" class="form-control">
+												<input style="width:100px;" id="P2_D_6_Agua_CantSum" type="text" class="form-control">
 											</div>
 										</td>
 									</tr>

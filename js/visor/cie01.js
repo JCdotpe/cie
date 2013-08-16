@@ -4,7 +4,7 @@
 
 function get_PadLocal(cod_local){
 	
-		$.getJSON('visor/visor/get_PadLocal/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_PadLocal/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 				 
@@ -15,12 +15,12 @@ function get_PadLocal(cod_local){
 
 			});
 			
-		});
+		}, "json");
 }
 
 function get_PCar(cod_local){
 
-	$.getJSON('visor/visor/get_PCar/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_PCar/', {cod_local:cod_local}, function(data) {
 			
 			var cod_loc="";	
 
@@ -73,7 +73,7 @@ function get_PCar(cod_local){
 			})
 			
 			get_PCar_C_1N(cod_loc);//<--
-	})
+	}, "json")
 }
 
 //=============VALID DATA GET_PCAR=================
@@ -121,7 +121,7 @@ function get_dir_Verif(type){
 
 function get_PCar_C_1N(cod_local){
 	
-	$.getJSON('visor/visor/get_PCar_C_1N/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_PCar_C_1N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
 
@@ -146,7 +146,7 @@ function get_PCar_C_1N(cod_local){
 
 		$('#eva_solu1').html(html);
 
-	})
+	}, "json")
 }
 //=============================FIN GENERAL1=====================================
 
@@ -154,18 +154,18 @@ function get_PCar_C_1N(cod_local){
 
 function get_P1_A(cod_local){
 	
-	$.getJSON('visor/visor/get_P1_A/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_P1_A/', {cod_local:cod_local}, function(data) {
 
 		$.each(data, function(index, val) {
 			$('#nie2').val(val.P1_A_1_Cant_IE);
 		})
 
-	})
+	}, "json")
 }
 
 function get_P1_A_2N(cod_local){
 	
-	$.getJSON('visor/visor/get_P1_A_2N/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_P1_A_2N/', {cod_local:cod_local}, function(data) {
 
 		var html="";
 
@@ -322,7 +322,7 @@ function get_P1_A_2N(cod_local){
 
 		each_get_P1_A_2_8N(cod_local);
 
-	})
+	}, "json")
 }
 
 function each_get_P1_A_2_8N(cod_local){
@@ -336,7 +336,7 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 	var html="";
 	
-	$.getJSON('visor/visor/get_P1_A_2_8N/'+cod_local+'/'+nro_IE, {}, function(data, textStatus) {
+	$.post('visor/visor/get_P1_A_2_8N/', {cod_local:cod_local , nro_IE:nro_IE}, function(data) {
 
 									
 		$.each(data, function(index, val) {
@@ -379,13 +379,13 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 		$('#'+cod_local+nro_IE).html(html);
 											
-	});
+	}, "json";
 
 }
 
 function get_P1_B(cod_local){
 	
-		$.getJSON('visor/visor/get_P1_B/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P1_B/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 				
@@ -394,7 +394,7 @@ function get_P1_B(cod_local){
 
 			});
 			
-		});
+		}, "json");
 }
 
 function get_P1_B_2_PredCol_Verif(type){
@@ -412,7 +412,7 @@ function get_P1_B_2_PredCol_Verif(type){
 
 function get_P1_B_2A_N(cod_local){
 	
-		$.getJSON('visor/visor/get_P1_B_2A_N/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P1_B_2A_N/', {cod_local:cod_local}, function(data) {
 			var i=0;
 			var cod="";
 			$.each(data, function(index, val) {
@@ -427,12 +427,12 @@ function get_P1_B_2A_N(cod_local){
 		 	//get_P1_B_2_PredCol_Verif(val.P1_B_2_PredCol);
 
 			
-		});
+		}, "json");
 }
 
 function get_P1_B_3N(cod_local){
 	
-		$.getJSON('visor/visor/get_P1_B_3N/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P1_B_3N/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 				
@@ -442,7 +442,7 @@ function get_P1_B_3N(cod_local){
 
 			});
 			
-		});
+		}, "json");
 }
 
 
@@ -462,7 +462,7 @@ function get_P1_B_3N(cod_local){
 
 	/*function get_SP_CAP01_B_3(cod_local,predio,npredio){
 
-		$.getJSON('visor/visor/SP_CAP01_B_3/'+cod_local+'/'+predio+'/'+npredio, {}, function(data, textStatus) {
+		$.post('visor/visor/SP_CAP01_B_3/'+cod_local+'/'+predio+'/'+npredio, {}, function(data) {
 			
 			$.each(data, function(index, val) {
 				
@@ -493,7 +493,7 @@ function get_P1_B_3N(cod_local){
 
 			});
 			
-		});
+		}, "json");
 
 	}*/
 
@@ -503,7 +503,7 @@ function get_P1_B_3N(cod_local){
 
 function get_P2_A(cod_local){
 	
-		$.getJSON('visor/visor/get_P2_A/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P2_A/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 
@@ -526,12 +526,12 @@ function get_P2_A(cod_local){
 			 });
 			 		
 			
-		});
+		}, "json");
 }
 
 function get_P2_B(cod_local){
 	
-		$.getJSON('visor/visor/get_P2_B/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P2_B/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 			 	
@@ -600,12 +600,12 @@ function get_P2_B(cod_local){
 
 			 });
 			 				
-		});
+		}, "json");
 }
 
 function get_P2_C(cod_local){
 		
-		$.getJSON('visor/visor/get_P2_C/'+cod_local, {}, function(data, textStatus) {
+		$.post('visor/visor/get_P2_C/', {cod_local:cod_local}, function(data) {
 			
 			$.each(data, function(index, val) {
 
@@ -624,12 +624,12 @@ function get_P2_C(cod_local){
 			
 			});
 		
-		});
+		}, "json");
 }
 
 function get_P2_D(cod_local){
 		
-	$.getJSON('visor/visor/get_P2_D/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_P2_D/', {cod_local:cod_local}, function(data) {
 			
 		$.each(data, function(index, val) {
 
@@ -641,12 +641,12 @@ function get_P2_D(cod_local){
 
 		});
 
-	});
+	}, "json");
 }
 
 function get_P2_D_1N(cod_local){
 		
-	$.getJSON('visor/visor/get_P2_D_1N/'+cod_local, {}, function(data, textStatus) {
+	$.post('visor/visor/get_P2_D_1N/', {cod_local:cod_local}, function(data) {
 			
 		$.each(data, function(index, val) {
 
@@ -659,7 +659,7 @@ function get_P2_D_1N(cod_local){
 
 		});
 
-	});
+	}, "json");
 }
 
 //==============================FIN CAPITULO 2=================================
