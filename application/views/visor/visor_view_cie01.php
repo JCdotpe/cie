@@ -1864,7 +1864,7 @@
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input style="width:100px;" id="P2_D_6_Agua_CantSum" type="text" class="form-control">
+												<input style="width:100px;" id="P2_D_2_Energ_CantSum" type="text" class="form-control">
 											</div>
 										</td>
 									</tr>
@@ -1902,7 +1902,7 @@
 									<tr>
 										<td>4.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio eléctrico?</strong></td>
-										<td><input style="width:400px;" type="text" class="form-control"></td>
+										<td><input style="width:400px;" id="P2_D_4_Energ_Emp" type="text" class="form-control"></td>
 									</tr>
 									<tr>
 										<td>5.</td>
@@ -1949,7 +1949,7 @@
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input style="width:100px;" type="text" class="form-control">
+												<input style="width:100px;" id="P2_D_6_Agua_CantSum" type="text" class="form-control">
 											</div>
 										</td>
 									</tr>
@@ -1987,7 +1987,7 @@
 									<tr>
 										<td>8.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio de agua?</strong></td>
-										<td><input style="width:400px;" type="text" class="form-control"></td>
+										<td><input style="width:400px;" id="P2_D_8_Agua_Emp" type="text" class="form-control"></td>
 									</tr>
 									<tr>
 										<td>9.</td>
@@ -1996,25 +1996,25 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Red pública?
+												<input type="checkbox" id="P2_D_9_Desag1" name="" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Tanque séptico y pozo percolador?
+												<input type="checkbox" id="P2_D_9_Desag2" name="" value=""> 2. Tanque séptico y pozo percolador?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Pozo con tratamiento (cal, ceniza y otro)?
+												<input type="checkbox" id="P2_D_9_Desag3" name="" value=""> 3. Pozo con tratamiento (cal, ceniza y otro)?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Pozo sin tratamiento alguno?
+												<input type="checkbox" id="P2_D_9_Desag4" name="" value=""> 4. Pozo sin tratamiento alguno?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Río, acequia, manantial o canal?
+												<input type="checkbox" id="P2_D_9_Desag5" name="" value=""> 5. Río, acequia, manantial o canal?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Zanja filtrante?
+												<input type="checkbox" id="P2_D_9_Desag6" name="" value=""> 6. Zanja filtrante?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 7. No tiene
+												<input type="checkbox" id="P2_D_9_Desag7" name="" value=""> 7. No tiene
 											</label>
 										</td>
 									</tr>
