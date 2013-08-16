@@ -173,11 +173,11 @@ public function prettyPrint( $json ){
 //=====================GENERAL1==============================
 
 
-	public function get_PadLocal($codigo_de_local){
+	public function get_PadLocal(){
 
 		$this->header_json();
 
-		$data = $this->visor_model->Data_PadLocal($codigo_de_local);
+		$data = $this->visor_model->Data_PadLocal($_REQUEST["codigo_local"]);
 
 		$jsonData = json_encode($data->result());
 

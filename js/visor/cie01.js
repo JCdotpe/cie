@@ -3,9 +3,9 @@
 //=============================GENERAL1=========================================
 
 function get_PadLocal(cod_local){
-	
+		alert('p')
 		$.post('visor/visor/get_PadLocal/', {cod_local:cod_local}, function(data) {
-			
+			alert('after')
 			$.each(data, function(index, val) {
 				 
 				get_Depa(val.cod_dpto);
@@ -379,7 +379,7 @@ function get_P1_A_2_8N(cod_local,nro_IE){
 
 		$('#'+cod_local+nro_IE).html(html);
 											
-	}, "json";
+	}, "json");
 
 }
 
