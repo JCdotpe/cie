@@ -4,34 +4,101 @@
 
 if ( ! function_exists('searchSubArray'))
 {
-	function searchSubArray(Array $array, $key, $value) {   
-        foreach ($array as $subarray){  
+	function searchSubArray(Array $array, $key, $value) {
+        foreach ($array as $subarray){
             if (isset($subarray[$key]) && $subarray[$key] == $value)
-              return $subarray;       
-        } 
+              return $subarray;
+        }
     }
 }
 
 
 if ( ! function_exists('count_searchSubArray'))
 {
-	function count_searchSubArray(Array $array, $key, $values) {  
-    	$num = 0; 
-        foreach ($array as $subarray){  
-            foreach ($values as $value){  
+	function count_searchSubArray(Array $array, $key, $values) {
+    	$num = 0;
+        foreach ($array as $subarray){
+            foreach ($values as $value){
             if (isset($subarray[$key]) && $subarray[$key] == $value)
-                 $num++; 
+                 $num++;
             }
-        } 
-    	return $num; 
+        }
+    	return $num;
     }
 }
 
 
+if ( ! function_exists('header_json'))
+{
+    function header_json(){
+        header('Content-type: text/json');
+        header('Content-type: application/json');
+    }
+}
+
+
+if ( ! function_exists('prettyPrint'))
+{
+    function prettyPrint( $json ){
+
+        $result = '';
+        $level = 0;
+        $prev_char = '';
+        $in_quotes = false;
+        $ends_line_level = NULL;
+        $json_length = strlen( $json );
+
+        for( $i = 0; $i < $json_length; $i++ ) {
+            $char = $json[$i];
+            $new_line_level = NULL;
+            $post = "";
+            if( $ends_line_level !== NULL ) {
+                $new_line_level = $ends_line_level;
+                $ends_line_level = NULL;
+            }
+            if( $char === '"' && $prev_char != '\\' ) {
+                $in_quotes = !$in_quotes;
+            } else if( ! $in_quotes ) {
+                switch( $char ) {
+                    case '}': case ']':
+                        $level--;
+                        $ends_line_level = NULL;
+                        $new_line_level = $level;
+                        break;
+
+                    case '{': case '[':
+                        $level++;
+                    case ',':
+                        $ends_line_level = $level;
+                        break;
+
+                    case ':':
+                        $post = " ";
+                        break;
+
+                    case " ": case "\t": case "\n": case "\r":
+                        $char = "";
+                        $ends_line_level = $new_line_level;
+                        $new_line_level = NULL;
+                        break;
+                }
+            }
+            if( $new_line_level !== NULL ) {
+                $result .= "\n".str_repeat( "\t", $new_line_level );
+            }
+            $result .= $char.$post;
+            $prev_char = $char;
+        }
+
+        echo $result;
+
+    }
+}
+
 if ( ! function_exists('b64'))
 {
     function b64($string, $decode = false)
-    {        
+    {
       return $decode ? base64_decode(strtr($string,'-_,','+/=')) : strtr(base64_encode($string), '+/=', '-_,');
     }
 }
@@ -66,7 +133,7 @@ if ( ! function_exists('givemethefuckingkml'))
 
             $restStyleNode->appendChild($PolyStyleNode);
             $restStyleNode->appendChild($LineStyleNode);
-            $docNode->appendChild($restStyleNode);  
+            $docNode->appendChild($restStyleNode);
 
 
 
@@ -100,12 +167,12 @@ if ( ! function_exists('givemethefuckingkml'))
             $outerNode->appendChild($linearNode);
             $polygonNode->appendChild($outerNode);
             $multiNode->appendChild($polygonNode);
-            $placeNode->appendChild($multiNode);   
+            $placeNode->appendChild($multiNode);
 
             // Creates a Point element.
             // $pointNode = $dom->createElement('Point');
             // $placeNode->appendChild($pointNode);
-               
+
             // // Creates a coordinates element and gives it the value of the lng and lat columns from the results.
             // $coorNode = $dom->createElement('coordinates', $reg->CENTRO);
             // $pointNode->appendChild($coorNode);
