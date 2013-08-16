@@ -1844,7 +1844,7 @@
 												<input type="checkbox" id="P2_D_1_EnergCod4" name="P2_D_1_EnergCod" value=""> 4. Otro?
 											</label>
 											<label>(Especifique)</label>
-											<input style="width:400px;" type="text" class="form-control">
+											<input style="width:400px;" id="P2_D_1_EnergCod_O" type="text" class="form-control">
 										</td>
 
 									</tr>

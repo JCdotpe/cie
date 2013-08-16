@@ -77,11 +77,11 @@ class Visor extends CI_Controller {
 			{
 				$respuesta->rows[$i]['id'] = $fila->codigo_de_local;
 				$respuesta->rows[$i]['cell'] = array($fila->codigo_de_local,
-												utf8_encode($fila->centroPoblado),
+												utf8_encode('<img class="view" id="'.$fila->codigo_de_local.'" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" />',
+												$fila->centroPoblado),
 												'(No Recepcionado)',
 												'(No Recepcionado)',
-												'(No Recepcionado)',
-												'<img class="view" id="'.$fila->codigo_de_local.'" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" />');
+												'(No Recepcionado)');
 
 				$i++;
 			}
