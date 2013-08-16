@@ -229,9 +229,9 @@
 
 		$('#c2').click(function(event) {
 			var code=$('.codigo_local').val();
-			get_P2_A(code);
+		/*	get_P2_A(code);
 			get_P2_B(code);
-			get_P2_C(code);
+			get_P2_C(code);*/
 
 			get_P2_D_1N(code);
 		});

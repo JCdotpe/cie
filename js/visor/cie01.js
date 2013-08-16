@@ -650,12 +650,10 @@ function get_P2_D_1N(cod_local){
 			
 		$.each(data, function(index, val) {
 
-			get_Radio_Verif(val.P2_D_1_Nro,"P2_D_1_Nro");
 			get_Radio_Verif(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
+			
 			get_Radio_Verif(val.P2_D_1_EnergCod_O,"P2_D_1_EnergCod_O");
-			get_Radio_Verif(val.P2_D_1_Version,"P2_D_1_Version");
-			get_Radio_Verif(val.P2_D_1_Fenvio,"P2_D_1_Fenvio");
-			get_Radio_Verif(val.P2_D_1_Frecep,"P2_D_1_Frecep");
+			
 
 		});
 
