@@ -14,6 +14,18 @@ function get_TotalEdif(cod_local){
 	});
 }
 
+
+function get_Edificacion(cod_local){
+	$.post('visor/p6/Find_All_by_local/', {cod_local:cod_local}, function(data) {
+		alert(data);
+				$.each(data, function(index, val) {
+
+					// $('.P5_TOT_E').val(val.P5_TOT_E);
+
+				});
+	});
+}
+
 //==============================FINCAPITULO 6=================================
 
 

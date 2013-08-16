@@ -1,7 +1,7 @@
 <?php
  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class p5 extends CI_Controller {
+class p6_n extends CI_Controller {
 
 	function __construct()
 	{
@@ -9,7 +9,7 @@ class p5 extends CI_Controller {
 
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
-		$this->load->model('visor/P5_model');
+		$this->load->model('visor/P6_n_model');
 		$this->load->model('visor/visor_model');
 		$this->load->helper('my');
 
@@ -28,19 +28,12 @@ class p5 extends CI_Controller {
 	        $this->load->view('backend/includes/template', $data);
 	}
 
-	public function Find_Total_Edif(){
+	public function Find_All_by_local(){
 
 			$codigo=$this->input->post('cod_local');
-			//$codigo=$_REQUEST['code'];
-			$resultado = $this->P5_model->Get_Total_Edif($codigo);
-			$return_arr['datos']=  array();
-			foreach ($resultado->result() as $fila) {
-				$data['P5_TOT_E'] = utf8_encode($fila->P5_TOT_E);
-				array_push($return_arr['datos'],$data);
-			}
-
+			$resultado = $this->P6_n_model->Get_All_by_local($codigo)->result();
 			header_json();
-			$jsonData = json_encode($return_arr['datos']);
+			$jsonData = json_encode($resultado);
 			prettyPrint($jsonData);
 	}
 

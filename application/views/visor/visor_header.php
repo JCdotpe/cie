@@ -267,6 +267,7 @@
 		$('#c6').click(function(event) {
 			var code=$('.codigo_local').val();
 			get_TotalEdif(code);
+			get_Edificacion(code);
 
 		});
 
