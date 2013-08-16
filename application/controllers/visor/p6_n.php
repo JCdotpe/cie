@@ -9,7 +9,7 @@ class p6_n extends CI_Controller {
 
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
-		$this->load->model('visor/P6_n_model');
+		$this->load->model('visor/p6_n_model');
 		$this->load->model('visor/visor_model');
 		$this->load->helper('my');
 
@@ -31,7 +31,7 @@ class p6_n extends CI_Controller {
 	public function Find_All_by_local(){
 
 			$codigo=$this->input->post('cod_local');
-			$resultado = $this->P6_n_model->Get_All_by_local($codigo)->result();
+			$resultado = $this->p6_n_model->Get_All_by_local($codigo)->result();
 			header_json();
 			$jsonData = json_encode($resultado);
 			prettyPrint($jsonData);

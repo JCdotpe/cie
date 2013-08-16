@@ -4,7 +4,7 @@
 capitulo 5
 
 */
-class P5_model extends CI_MODEL{
+class p5_model extends CI_MODEL{
 
     /*
         return: todos.

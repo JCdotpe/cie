@@ -9,7 +9,7 @@ class p5 extends CI_Controller {
 
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
-		$this->load->model('visor/P5_model');
+		$this->load->model('visor/p5_model');
 		$this->load->model('visor/visor_model');
 		$this->load->helper('my');
 
@@ -32,7 +32,7 @@ class p5 extends CI_Controller {
 
 			$codigo=$this->input->post('cod_local');
 			//$codigo=$_REQUEST['code'];
-			$resultado = $this->P5_model->Get_Total_Edif($codigo);
+			$resultado = $this->p5_model->Get_Total_Edif($codigo);
 			$return_arr['datos']=  array();
 			foreach ($resultado->result() as $fila) {
 				$data['P5_TOT_E'] = utf8_encode($fila->P5_TOT_E);
