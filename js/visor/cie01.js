@@ -668,6 +668,20 @@ function get_P2_D_1N(cod_local){
 	});
 }
 
+function get_P2_D_3N(cod_local){
+		
+	$.post('visor/visor/get_P2_D_3N/', {cod_local:cod_local}, function(data) {
+			
+		$.each(data, function(index, val) {
+
+			$("#P2_D_3_Nro").html(val.P2_D_3_Nro);
+			$("#P2_D_3_SumNro").val(val.P2_D_3_SumNro);
+			
+			
+		});
+	});
+}
+
 function get_P2_D_5N(cod_local){
 		
 	$.post('visor/visor/get_P2_D_5N/', {cod_local:cod_local}, function(data) {
@@ -683,7 +697,7 @@ function get_P2_D_7N(cod_local){
 	$.post('visor/visor/get_P2_D_7N/', {cod_local:cod_local}, function(data) {
 			
 		$.each(data, function(index, val) {
-			
+
 		});
 	});
 }

@@ -701,7 +701,7 @@
 
 							<div class="panel">
 								Visualizar Anexos
-								<div class="btn-toolbar">
+								<!-- <div class="btn-toolbar">
 									 <div class="btn-group">
 									    <a class="btn" href="#"><i class="icon-fast-backward"></i></a>
 									    <a class="btn" href="#"><i class="icon-backward"></i></a>
@@ -710,7 +710,29 @@
 									    <a class="btn" href="#"><i class="icon-forward"></i></a>
 									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>
 									  </div>
-								</div>
+								</div> -->
+								    <table class="table table-hover" style="width:400px;height:200px; overflow:auto;">
+
+								    	<table>
+								    		<thead>
+								    			<tr>
+								    				<th>Nro.</th>
+								    				<th>Anexo</th>
+								    				<th>Modulo</th>
+								    				<th>Inst. Educativa</th>
+								    			</tr>
+								    		</thead>
+								    		<tbody>
+								    			<tr>
+								    				<td>1</td>
+								    				<td>001</td>
+								    				<td>015</td>
+								    				<td>IE 1174</td>
+								    			</tr>
+								    		</tbody>
+								    	</table>
+   
+								    </table>
 							</div>
 
 							<div class="panel" style="height:100px;">
