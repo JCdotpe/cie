@@ -23,6 +23,7 @@
 	$distArray = array(-1 => '');
 	$centropArray = array(-1 => '');
 	$rutasArray = array(-1 => '');
+	$periodoArray = array(-1 => '');
 ?>
 
 <div class="row-fluid">
@@ -70,16 +71,16 @@
 					<div class="control-group">
 						<?php echo form_label('Código de Ruta', 'rutas', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;"');
+							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;" onChange="cargarPeriodo();"');
 							?>
 						</div>
 					</div>
 				</div>
 				<div class="span2">
 					<div class="control-group">
-						<?php echo form_label('Código de Ruta', 'rutas', $label_class); ?>
+						<?php echo form_label('Periodo de Trabajo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;"');
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:180px;"');
 							?>
 						</div>
 					</div>

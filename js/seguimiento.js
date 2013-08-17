@@ -17,6 +17,7 @@ function cargarProvBySede()
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 			/*$.ajax({
 				type: "POST",
 				url: "seguimiento/seguimiento/obtenerdistrito",
@@ -48,6 +49,7 @@ function cargarDist()
 
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 		}
 	});
 }
@@ -68,6 +70,7 @@ function cargarCentroPoblado()
 			$("#centropoblado").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 		}
 	});
 }
@@ -84,6 +87,25 @@ function cargarRutas()
 			console.log(rutasResponse);
 			$("#rutas").empty().append($(rutasResponse).find("option"));
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+
+			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+		}
+	});
+}
+
+function cargarPeriodo()
+{
+	var doLoginMethodUrl = 'seguimiento/seguimiento/obtenerperiodo';
+	var id_cp = $("#centropoblado").val();
+	var id_ruta = $("#rutas").val();
+	$.ajax({
+		type: "POST",
+		url: doLoginMethodUrl,
+		data: "id_cp="+id_cp+"&id_ruta="+id_ruta,
+		success: function(periodoResponse){
+			console.log(periodoResponse);
+			$("#periodo").empty().append($(periodoResponse).find("option"));
+			$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 		}
 	});
 }

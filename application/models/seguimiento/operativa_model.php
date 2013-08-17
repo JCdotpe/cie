@@ -9,9 +9,17 @@ class Operativa_Model extends CI_Model {
 		return $q;
 	}
 
-	public function get_rutas($ruta)
+	public function get_rutas($centrop)
 	{
-		$sql = "SELECT DISTINCT r.idruta FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$ruta' ORDER BY r.idruta";
+		$sql = "SELECT DISTINCT r.idruta FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' ORDER BY r.idruta";
+		$q = $this->db->query($sql);
+		return $q;
+	}
+
+	public function get_periodo($centrop, $ruta)
+	{
+		$sql = "SELECT distinct r.periodo FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' and r.idruta = '$ruta' order by r.periodo";
+		echo $sql;
 		$q = $this->db->query($sql);
 		return $q;
 	}

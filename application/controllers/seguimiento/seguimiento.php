@@ -94,6 +94,18 @@ class Seguimiento extends CI_Controller {
 		echo form_dropdown('rutas', $rutasArray, '', 'id="rutas"');
 	}
 
+	public function obtenerperiodo()
+	{
+		$this->load->model('Seguimiento/operativa_model');
+		$periodo = $this->operativa_model->get_periodo($_POST['id_cp'], $_POST['id_ruta']);
+		$periodoArray = array();
+		foreach($periodo->result() as $filas)
+		{
+			$periodoArray[$filas->periodo]=$filas->periodo;
+		}
+		echo form_dropdown('periodo', $periodoArray, '', 'id="periodo"');
+	}
+
 	public function obtenreporte()
 	{
 		$this->load->helper('form');
