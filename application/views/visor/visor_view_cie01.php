@@ -700,11 +700,13 @@
 							</div>
 
 							<div class="panel">
-								
 								<div>Visualizar Anexos</div>
+							</div>
 								
-								   <table class="table table-hover" style="width:400px;height:200px; overflow:auto;">
-							    		<thead>
+								
+
+									<table class="table table-hover" style="width:400px;">
+										<thead>
 							    			<tr>
 							    				<th>Nro.</th>
 							    				<th>Anexo</th>
@@ -712,7 +714,48 @@
 							    				<th>Inst. Educativa</th>
 							    			</tr>
 							    		</thead>
+							    	</table>
+
+								<div style="width:400px; height:200px; overflow:auto;">
+									
+								   <table class="table table-hover" style="width:400px; height:200px; overflow:auto;">
 							    		<tbody>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
 							    			<tr>
 							    				<td>1</td>
 							    				<td>001</td>
@@ -733,7 +776,10 @@
 								    		</tr>
 								    	</tbody>
 								    </table>
-							</div>
+
+								</div>
+
+							
 
 							<div class="panel" style="height:100px;">
 								<div class="panel" style="float:left; margin-left:150px;">
