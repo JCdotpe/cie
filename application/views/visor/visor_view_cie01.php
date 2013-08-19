@@ -433,7 +433,7 @@
 							    				<td>015</td>
 							    				<td>IE 1174</td>
 								    		</tr>
-							    			
+
 								    	</tbody>
 								    </table>
 
@@ -748,8 +748,8 @@
 							<div class="panel">
 								<div>Visualizar Anexos</div>
 							</div>
-								
-								
+
+
 
 									<table class="table table-hover" style="width:900px;">
 										<thead>
@@ -825,7 +825,7 @@
 
 								</div>
 
-							
+
 
 							<div class="panel" style="height:100px;">
 								<div class="panel" style="float:left; margin-left:150px;">
@@ -2056,7 +2056,7 @@
 											<br />(diligencie, según respuesta en pregunta 6)
 										</td>
 										<td>
-											
+
 											<div id="suministros_agua">
 												<!-- AJAX -->
 											</div>

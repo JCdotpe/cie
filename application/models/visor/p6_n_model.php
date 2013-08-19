@@ -23,11 +23,8 @@ class p6_n_model extends CI_MODEL{
     /*store procedure*/
     function Get_Cap06($local,$predio){
 
-        //$result=$this->db->query("exec CAP06_A_Lista_E @codigo_local=".$local.",@predio=".$predio );
-        $q=$this->db->query("CAP06_A_Lista_E ?,  ?", array($local,$predio));
-       // $out_param_query =$this->db->query('select @return_value as out_param;');
 
-       //return $result;
+        $q=$this->db->query("CAP06_A_Lista_E ?,  ?", array($local,$predio));
         return $q;
     }
 

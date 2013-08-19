@@ -76,7 +76,19 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-		  	    			<div id="pag_seccion_a">
+
+
+		  	    			<table class="table table-hover" style="width:900px;">
+										<thead>
+							    			<tr>
+							    				<th>Nro.</th>
+							    				<th>Anexo</th>
+							    				<th>Modulo</th>
+							    				<th>Inst. Educativa</th>
+							    			</tr>
+							    		</thead>
+							</table>
+		  	    			<div id="pag_seccion_a" style="width:900px; height:150px; overflow:auto;">
 		  	    				<!--AJAX-->
 		  	    			</div>
 

@@ -36,6 +36,7 @@ class p6_n extends CI_Controller {
 			$jsonData = json_encode($resultado);
 			prettyPrint($jsonData);
 	}
+
 	/*store procedure*/
 
 	public function Find_Cap06_pag(){
