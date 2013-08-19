@@ -106,102 +106,45 @@ class Seguimiento extends CI_Controller {
 		echo form_dropdown('periodo', $periodoArray, '', 'id="periodo"');
 	}
 
-	public function obtenreporte()
+	public function ver_datos()
 	{
 		$this->load->helper('form');
-		$this->load->model('procesoseleccion/estadoseleccion_model');
+		$this->load->model('Seguimiento/operativa_model');
 
-		$page = $this->input->get('page',TRUE);  // Almacena el numero de pagina actual
-		$limit = $this->input->get('rows',TRUE); // Almacena el numero de filas que se van a mostrar por pagina
-		$sidx = $this->input->get('sidx',TRUE);  // Almacena el indice por el cual se hará la ordenación de los datos
-		$sord = $this->input->get('sord',TRUE);  // Almacena el modo de ordenación
-
-		$cond1 = "";
-		$cond11 = "";
-		$cond2 = "";
-		$cond22 = "";
-		$cond3 = "";
-		$cond33 = "";
-		$cond4 = "";
-		$cond44 = "";
-		$cond5 = "";
-		$cond55 = "";
-		$cond6 = "";
-		$cond66 = "";
+		$page = $this->input->get('page',TRUE); 
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
 
 		if(isset($_GET['coddepa'])) { 
 			$depa = $this->input->get('coddepa');
-			if ($depa != -1) {
-				$cond1 = "cod_dep = '$depa' AND "; 
-				$cond11 = "cod_dep = '$depa'";	
-			}
-		}else{ $depa = ""; }
-
-		if(isset($_GET['codadm'])) { 
-			$adm = $this->input->get('codadm');
-			if ($adm != -1) { 
-				$cond2 = "codigo_adm = '$adm' AND "; 
-				$cond22 = "codigo_adm = '$adm'";
-			}
-		}else{ $adm = ""; }
-		
-		if(isset($_GET['codconvo'])) { 
-			$convo = $this->input->get('codconvo');
-			if ($convo != -1) { 
-				$cond3 = "codigo_convocatoria = '$convo' AND ";
-				$cond33 = "codigo_convocatoria = '$convo'";
-			}
-		}else{ $convo = ""; }
-
-		if(isset($_GET['codpresu'])) { 
-			$presu = $this->input->get('codpresu');
-			if ($presu != -1) { 
-				$cond4 = "codigo_credpresupuestario = '$presu' AND "; 
-				$cond44 = "codigo_credpresupuestario = '$presu'"; 
-			}
-		}else{ $presu = ""; }
+		}else{ $depa = "-1"; }
 
 		if(isset($_GET['codprov'])) { 
 			$prov = $this->input->get('codprov');
-			if ($prov != -1) { 
-				$cond5 = "cod_prov = '$prov' AND "; 
-				$cond55 = "cod_prov = '$prov'";
-			}
-		}else{ $prov = ""; }
-
-		if(isset($_GET['codestado'])) { 
-			$estadoselec = $this->input->get('codestado');
-			if ($estadoselec != -1) { 
-				$cond6 = "estado >= '$estadoselec' AND "; 
-				$cond66 = "estado >= '$estadoselec'";
-			}
-		}else{ $cond6 = "estado = '-1' AND "; 
-				$cond66 = "estado = '-1'"; }
-
-		$where1 = "";
-		if ($cond11 != "") { $where1 = "WHERE ".$cond11; }
+		}else{ $prov = "-1"; }
 		
-		if ($cond22 != "" && $where1 != "") { $where1 = $where1." AND ".$cond22; }
-		elseif ($cond22 != "" && $where1 == "") { $where1 = "WHERE ".$cond22; }
-		
-		if ($cond33 != "" && $where1 != "") { $where1 = $where1." AND ".$cond33; }
-		elseif ($cond33 != "" && $where1 == "") { $where1 = "WHERE ".$cond33; }
+		if(isset($_GET['coddist'])) { 
+			$dist = $this->input->get('coddist');
+		}else{ $dist = "-1"; }
 
-		if ($cond44 != "" && $where1 != "") { $where1 = $where1." AND ".$cond44; }
-		elseif ($cond44 != "" && $where1 == "") { $where1 = "WHERE ".$cond44; }
+		if(isset($_GET['codcentrop'])) { 
+			$centrop = $this->input->get('codcentrop');
+		}else{ $centrop = "-1"; }
 
-		if ($cond55 != "" && $where1 != "") { $where1 = $where1." AND ".$cond55; }
-		elseif ($cond55 != "" && $where1 == "") { $where1 = "WHERE ".$cond55; }
+		if(isset($_GET['codruta'])) { 
+			$ruta = $this->input->get('codruta');
+		}else{ $ruta = "-1"; }
 
-		if ($cond66 != "" && $where1 != "") { $where1 = $where1." AND ".$cond66; }
-		elseif ($cond66 != "" && $where1 == "") { $where1 = "WHERE ".$cond66; }
+		if(isset($_GET['nroperiodo'])) { 
+			$periodo = $this->input->get('nroperiodo');
+		}else{ $periodo = "-1"; }
 
-		$where2 = $cond1.$cond2.$cond3.$cond4.$cond5.$cond6;
+		$where1 = "WHERE CCDD='$depa' and CCPP='$prov' and CCDI='$dist' and codccpp='$centrop' and idruta = '$ruta' and periodo = '$periodo'";
 
 		if(!$sidx) $sidx =1;
 
-		$resultado = $this->estadoseleccion_model->contar_datos($where1);
-		$count = $resultado->num_rows();
+		$count = $this->operativa_model->nro_locales_for_seguimiento($where1);
 
  		//En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -214,18 +157,23 @@ class Seguimiento extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->estadoseleccion_model->mostrar_datos($sidx, $sord, $row_inicio, $row_final, $where1, $where2);
+		$resultado = $this->operativa_model->get_locales_for_seguimiento($sidx, $sord, $row_inicio, $row_final, $where1);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
 		$respuesta->records = $count;
 		$i=0;
 		$nro_fila = $row_inicio;
-		foreach ($resultado->result() as $fila )
+		foreach ($resultado->result() as $fila)
 		{
 			$nro_fila++;
-			$respuesta->rows[$i]['id'] = $i;			
-			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->departamento),utf8_encode($fila->provincia),utf8_encode($fila->distrito),utf8_encode($fila->cargofuncional),utf8_encode($fila->nombrecompleto),$fila->dni,$fila->ruc,$fila->nro_tel,$fila->nro_cel,$fila->email,$fila->nivel,$fila->fecharegistro,utf8_encode($fila->nestado));
+			$estado="";
+			$entrada_info="";
+			$gps="";
+			$fotos="";
+			$entrevista="";
+			$respuesta->rows[$i]['id'] = $fila->codigo_de_local;			
+			$respuesta->rows[$i]['cell'] = array($nro_fila,$fila->codigo_de_local, $estado, $entrada_info, $gps, $fotos, $entrevista);
 			$i++;			
 		}
 

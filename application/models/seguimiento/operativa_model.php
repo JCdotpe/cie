@@ -23,6 +23,24 @@ class Operativa_Model extends CI_Model {
 		$q = $this->db->query($sql);
 		return $q;
 	}
+
+	public function nro_locales_for_seguimiento($condicion1)
+	{
+		$sql = "SELECT count(codigo_de_local) as NroRegistros FROM v_Seg_rutas_Local $condicion1";
+    	$q = $this->db->query($sql);
+    	foreach ($q->result() as $row)
+		{
+			$NroRegistros = $row->NroRegistros;			
+		}
+		return $NroRegistros;
+	}
+
+	public function get_locales_for_seguimiento($ord, $ascdesc, $inicio, $final, $condicion1)
+	{
+		$sql="SELECT codigo_de_local FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seg_rutas_Local $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$q=$this->db->query($sql);
+		return $q;
+	}
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
