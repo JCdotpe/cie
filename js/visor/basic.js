@@ -62,9 +62,11 @@ function get_Dist(depa,prov,dist){
 
 function get_Radio_Check_Verif(value,id){
 
-	//alert(field+type)
-
-	document.getElementById(id+value).checked=true; 
+//	alert(id+value)
+	if(value!=null){
+		alert(id+value)
+		document.getElementById(id+value).checked=true; 
+	}
 }
 
 

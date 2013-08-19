@@ -2116,10 +2116,10 @@
 										<td><strong>¿El local escolar, cuenta con pararrayos?</strong></td>
 										<td>
 											<label>
-												<input type="radio" id="P2_E_1_Prayo1" name="check" value="option1"> 1. Si?
+												<input type="radio" id="P2_E_1_Prayo1" name="prayo" value=""> 1. Si?
 											</label>
 											<label>
-												<input type="radio" id="P2_E_1_Prayo2" name="check" value="option2"> 2. No?
+												<input type="radio" id="P2_E_1_Prayo2" name="prayo" value=""> 2. No?
 											</label>
 										</td>
 									</tr>
