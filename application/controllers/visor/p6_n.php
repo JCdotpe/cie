@@ -36,6 +36,18 @@ class p6_n extends CI_Controller {
 			$jsonData = json_encode($resultado);
 			prettyPrint($jsonData);
 	}
+	/*store procedure*/
+
+	public function Find_Cap06_pag(){
+
+		$local=$this->input->post('cod_local');
+		$predio=$this->input->post('cod_predio');
+
+		$resultado = $this->p6_n_model->Get_Cap06($local,$predio)->result();
+		header_json();
+		$jsonData = json_encode($resultado);
+		prettyPrint($jsonData);
+	}
 
 }
 ?>

@@ -266,9 +266,11 @@
 		});
 
 		$('#c6').click(function(event) {
+			var predio= $('#PC_F_1').html();
 			var code=$('.codigo_local').val();
 			get_TotalEdif(code);
 			get_Edificacion(code);
+			Get_Cap06(code,predio);
 
 		});
 

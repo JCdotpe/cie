@@ -76,6 +76,9 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
+		  	    			<div id="pag_seccion_a">
+		  	    				<!--AJAX-->
+		  	    			</div>
 
 		  	    			<div id="seccion_a">
 								<!--AJAX-->
