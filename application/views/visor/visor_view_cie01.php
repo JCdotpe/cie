@@ -700,38 +700,38 @@
 							</div>
 
 							<div class="panel">
-								Visualizar Anexos
-								<!-- <div class="btn-toolbar">
-									 <div class="btn-group">
-									    <a class="btn" href="#"><i class="icon-fast-backward"></i></a>
-									    <a class="btn" href="#"><i class="icon-backward"></i></a>
-									    <a class="btn" href="#"><i class="icon-th"></i>Total: <span id="tanexo">5</span></a>
-									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="aanexo">1</span></a>
-									    <a class="btn" href="#"><i class="icon-forward"></i></a>
-									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>
-									  </div>
-								</div> -->
-								    <table class="table table-hover" style="width:400px;height:200px; overflow:auto;">
-
-								    	<table>
-								    		<thead>
-								    			<tr>
-								    				<th>Nro.</th>
-								    				<th>Anexo</th>
-								    				<th>Modulo</th>
-								    				<th>Inst. Educativa</th>
-								    			</tr>
-								    		</thead>
-								    		<tbody>
-								    			<tr>
-								    				<td>1</td>
-								    				<td>001</td>
-								    				<td>015</td>
-								    				<td>IE 1174</td>
-								    			</tr>
-								    		</tbody>
-								    	</table>
-   
+								
+								<div>Visualizar Anexos</div>
+								
+								   <table class="table table-hover" style="width:400px;height:200px; overflow:auto;">
+							    		<thead>
+							    			<tr>
+							    				<th>Nro.</th>
+							    				<th>Anexo</th>
+							    				<th>Modulo</th>
+							    				<th>Inst. Educativa</th>
+							    			</tr>
+							    		</thead>
+							    		<tbody>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+								    	</tbody>
 								    </table>
 							</div>
 
@@ -1896,26 +1896,9 @@
 											<br />(diligencie, según respuesta en pregunta 2)
 										</td>
 										<td>
-											<table class="table table-bordered">
-												<tr>
-													<td style="text-align:center"><strong>Suministro N°</strong></td>
-												</tr>
-												<tr>
-													<th style="text-align:center">1</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">1</td>
-												</tr>
-												<tr>
-													<th style="text-align:center">2</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">2</td>
-												</tr>
-												<tr>
-													<th style="text-align:center">3</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">3</td>
-												</tr>
-											</table>
+											<div id="suministros">
+												<!-- AJAX -->
+											</div>
 											<div class="panel" style="text-align:center">
 												(1) No tiene documento de referencia
 											</div>
