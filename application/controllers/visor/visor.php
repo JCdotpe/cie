@@ -492,6 +492,53 @@ public function prettyPrint( $json ){
 	
 	}
 
+	public function get_P2_E(){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_E($_REQUEST["cod_local"]);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	
+	}
+
+	public function get_P2_F(){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_F($_REQUEST["cod_local"]);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	
+	}
+
+	public function get_P2_G(){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_G($_REQUEST["cod_local"]);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	
+	}
+
+	public function get_P2_G_2N(){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P2_G_2N($_REQUEST["cod_local"]);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	
+	}
 
 //========================CAPITULO3========================================
 

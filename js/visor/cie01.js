@@ -672,13 +672,26 @@ function get_P2_D_3N(cod_local){
 		
 	$.post('visor/visor/get_P2_D_3N/', {cod_local:cod_local}, function(data) {
 			
+
+			html='<table class="table table-bordered">'+
+				'<tr>'+
+					'<td colspan="3" style="text-align:center"><strong>Suministro N°</strong></td>'+
+				'</tr>';
+
+
 		$.each(data, function(index, val) {
 
-			$("#P2_D_3_Nro").html(val.P2_D_3_Nro);
-			$("#P2_D_3_SumNro").val(val.P2_D_3_SumNro);
-			
+				html+='<tr>'+
+					'<th style="text-align:center">'+val.P2_D_3_Nro+'</th>'+
+					'<td><input style="width:250px;" type="text" value="'+val.P2_D_3_SumNro+'" class="form-control"></td>'+
+					'<td style="text-align:center">'+val.P2_D_3_1DocRef+'</td>'+
+				'</tr>';
 			
 		});
+
+			html+='</table>';
+			$('#suministros_electricos').html(html)
+
 	});
 }
 
@@ -687,6 +700,13 @@ function get_P2_D_5N(cod_local){
 	$.post('visor/visor/get_P2_D_5N/', {cod_local:cod_local}, function(data) {
 			
 		$.each(data, function(index, val) {
+
+			get_Radio_Check_Verif(val.P2_D_5_AbastAgCod,"P2_D_5_AbastAgCod");
+
+			if(val.P2_D_5_AbastAgCod==6){
+				//alert(val.P2_D_1_EnergCod)
+				$("#P2_D_5_AbastAgCod_O").val(val.P2_D_5_AbastAgCod_O);
+			}
 			
 		});
 	});
@@ -696,14 +716,79 @@ function get_P2_D_7N(cod_local){
 		
 	$.post('visor/visor/get_P2_D_7N/', {cod_local:cod_local}, function(data) {
 			
+			html='<table class="table table-bordered">'+
+				'<tr>'+
+					'<td colspan="3" style="text-align:center"><strong>Suministro N°</strong></td>'+
+			'</tr>';
+
+
 		$.each(data, function(index, val) {
 
+				html+='<tr>'+
+					'<th style="text-align:center">'+val.P2_D_7_Nro+'</th>'+
+					'<td><input style="width:250px;" type="text" value="'+val.P2_D_7_SumNro+'" class="form-control"></td>'+
+					'<td style="text-align:center">'+val.P2_D_7_1DocRef+'</td>'+
+				'</tr>';
+			
 		});
+
+			html+='</table>';
+			$('#suministros_agua').html(html)
 	});
 }
 //==============================FIN CAPITULO 2=================================
 
+function get_P2_E(cod_local){
+		
+	$.post('visor/visor/get_P2_E/', {cod_local:cod_local}, function(data) {
 
+		$.each(data, function(index, val) {
+
+			get_Radio_Check_Verif(val.P2_E_1_Prayo,"P2_E_1_Prayo");
+			$("#P2_E_2_Ptierra").val(val.P2_E_2_Ptierra);
+			$("#P2_E_3_Ano").val(val.P2_E_3_Ano);
+			$("#P2_E_Obs").val(val.P2_E_Obs);
+
+		})
+
+
+	});
+}
+
+function get_P2_F(cod_local){
+		
+	$.post('visor/visor/get_P2_E/', {cod_local:cod_local}, function(data) {
+
+		$.each(data, function(index, val) {
+
+			get_Radio_Check_Verif(val.P2_F_1_ElimBas,"P2_F_1_ElimBas");
+
+			if(val.P2_F_1_ElimBas==10){
+				$("#P2_F_1_ElimBas_O").val(val.P2_F_1_ElimBas_O);
+			}
+			
+		})
+
+
+	});
+}
+
+function get_P2_G(cod_local){
+		
+	$.post('visor/visor/get_P2_E/', {cod_local:cod_local}, function(data) {
+
+		$.each(data, function(index, val) {
+
+			get_Radio_Check_Verif(val.P2_E_1_Prayo,"P2_E_1_Prayo");
+			$("#P2_E_2_Ptierra").val(val.P2_E_2_Ptierra);
+			$("#P2_E_3_Ano").val(val.P2_E_3_Ano);
+			$("#P2_E_Obs").val(val.P2_E_Obs);
+
+		})
+
+
+	});
+}
 
 //==============================CAPITULO 3=================================
 

@@ -234,6 +234,11 @@
 			get_P2_C(code);
 			get_P2_D(code);
 			get_P2_D_1N(code);
+			get_P2_D_3N(code);
+			get_P2_D_5N(code);
+			get_P2_D_7N(code);
+			get_P2_E(code);
+			get_P2_F(code);
 		});
 
 		$('#c3').click(function(event) {

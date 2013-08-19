@@ -380,19 +380,65 @@
 
 							<div class="panel">
 								Visualizar Predios
-								<div class="btn-toolbar">
-									 <div class="btn-group">
-									    <a class="btn" href="#"><i class="icon-fast-backward"></i></a>
-									    <a class="btn" href="#"><i class="icon-backward"></i></a>
-									    <a class="btn" href="#"><i class="icon-th"></i>Total: <span id="tpredio">5</span></a>
-									    <a class="btn" href="#"><i class="icon-time"></i>Actual: <span id="apredio">5</span></a>
-									    icon-time
-									    <a class="btn" href="#"><i class="icon-forward"></i></a>
-									    <a class="btn" href="#"><i class="icon-fast-forward"></i></a>
-									  </div>
+							</div>
+
+							<table class="table table-hover" style="width:900px;">
+										<thead>
+							    			<tr>
+							    				<th>Nro.</th>
+							    				<th>Anexo</th>
+							    				<th>Modulo</th>
+							    				<th>Inst. Educativa</th>
+							    			</tr>
+							    		</thead>
+							    	</table>
+
+								<div style="width:900px; height:150px; overflow:auto;">
+
+								   <table class="table table-hover" style="width:900px; height:150px; overflow:auto;">
+							    		<tbody>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			<tr>
+							    				<td>1</td>
+							    				<td>001</td>
+							    				<td>015</td>
+							    				<td>IE 1174</td>
+								    		</tr>
+							    			
+								    	</tbody>
+								    </table>
+
 								</div>
 
-							</div>
 
 							<table class="table table-bordered">
 								<thead>
@@ -705,7 +751,7 @@
 								
 								
 
-									<table class="table table-hover" style="width:400px;">
+									<table class="table table-hover" style="width:900px;">
 										<thead>
 							    			<tr>
 							    				<th>Nro.</th>
@@ -716,9 +762,9 @@
 							    		</thead>
 							    	</table>
 
-								<div style="width:400px; height:200px; overflow:auto;">
-									
-								   <table class="table table-hover" style="width:400px; height:200px; overflow:auto;">
+								<div style="width:900px; height:150px; overflow:auto;">
+
+								   <table class="table table-hover" style="width:900px; height:150px; overflow:auto;">
 							    		<tbody>
 							    			<tr>
 							    				<td>1</td>
@@ -1942,7 +1988,7 @@
 											<br />(diligencie, según respuesta en pregunta 2)
 										</td>
 										<td>
-											<div id="suministros">
+											<div id="suministros_electricos">
 												<!-- AJAX -->
 											</div>
 											<div class="panel" style="text-align:center">
@@ -1962,25 +2008,25 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Red pública?
+												<input type="checkbox" id="P2_D_5_AbastAgCod1" name="" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Pilón de uso público (agua potable)?
+												<input type="checkbox" id="P2_D_5_AbastAgCod2" name="" value=""> 2. Pilón de uso público (agua potable)?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Camión cisterna u otro similar?
+												<input type="checkbox" id="P2_D_5_AbastAgCod3" name="" value=""> 3. Camión cisterna u otro similar?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Pozo?
+												<input type="checkbox" id="P2_D_5_AbastAgCod4" name="" value=""> 4. Pozo?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Río, acequia, manantial o similar?
+												<input type="checkbox" id="P2_D_5_AbastAgCod5" name="" value=""> 5. Río, acequia, manantial o similar?
 											</label>
 											<label>
-												<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Otro?
+												<input type="checkbox" id="P2_D_5_AbastAgCod6" name="" value=""> 6. Otro?
 											</label>
 											<label>(Especifique)</label>
-											<input style="width:400px;" type="text" class="form-control">
+											<input id="P2_D_5_AbastAgCod_O" style="width:400px;" type="text" class="form-control">
 										</td>
 									</tr>
 
@@ -2010,26 +2056,11 @@
 											<br />(diligencie, según respuesta en pregunta 6)
 										</td>
 										<td>
-											<table class="table table-bordered">
-												<tr>
-													<td style="text-align:center"><strong>Suministro N°</strong></td>
-												</tr>
-												<tr>
-													<th style="text-align:center">1</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">1</td>
-												</tr>
-												<tr>
-													<th style="text-align:center">2</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">2</td>
-												</tr>
-												<tr>
-													<th style="text-align:center">3</th>
-													<td><input style="width:250px;" type="text" class="form-control"></td>
-													<td style="text-align:center">3</td>
-												</tr>
-											</table>
+											
+											<div id="suministros_agua">
+												<!-- AJAX -->
+											</div>
+
 											<div class="panel" style="text-align:center">
 												(1) No tiene documento de referencia
 											</div>
@@ -2085,10 +2116,10 @@
 										<td><strong>¿El local escolar, cuenta con pararrayos?</strong></td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si?
+												<input type="radio" id="P2_E_1_Prayo1" name="check" value="option1"> 1. Si?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No?
+												<input type="radio" id="P2_E_1_Prayo2" name="check" value="option2"> 2. No?
 											</label>
 										</td>
 									</tr>
@@ -2098,7 +2129,7 @@
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input style="width:100px;" type="text" class="form-control">
+												<input id="P2_E_2_Ptierra" style="width:100px;" type="text" class="form-control">
 											</div>
 										</td>
 									</tr>
@@ -2108,7 +2139,7 @@
 										<td>
 											<div class="panel">
 												<label>Año</label>
-												<input style="width:100px;" type="text" class="form-control">
+												<input id="P2_E_3_Ano" style="width:100px;" type="text" class="form-control">
 											</div>
 										</td>
 									</tr>
@@ -2116,10 +2147,16 @@
 								</tbody>
 							</table>
 
+							<div class="panel">
+								<label>Observaciones:</label>
+								<textarea id="P2_E_Obs" style="width:870px; height:100px;"></textarea>
+							</div>
+
+
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>Sección F:  Eliminación de basura</th>
+										<th colspan="3">Sección F:  Eliminación de basura</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -2131,37 +2168,37 @@
 										</td>
 										<td>
 											<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1. Arrojada al camión/triciclo municipal?
+													<input type="checkbox" id="P2_F_1_ElimBas1" name="" value=""> 1. Arrojada al camión/triciclo municipal?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 2. Arrojada al camión/informal?
+													<input type="checkbox" id="P2_F_1_ElimBas2" name="" value=""> 2. Arrojada al camión/informal?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 3. Depositada en contenedor?
+													<input type="checkbox" id="P2_F_1_ElimBas3" name="" value=""> 3. Depositada en contenedor?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 4. Acumulada en calles/campo abierto?
+													<input type="checkbox" id="P2_F_1_ElimBas4" name="" value=""> 4. Acumulada en calles/campo abierto?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 5. Reciclada?
+													<input type="checkbox" id="P2_F_1_ElimBas5" name="" value=""> 5. Reciclada?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 6. Quemada?
+													<input type="checkbox" id="P2_F_1_ElimBas6" name="" value=""> 6. Quemada?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 7. Enterrada?
+													<input type="checkbox" id="P2_F_1_ElimBas7" name="" value=""> 7. Enterrada?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox2" name="check" value="option2"> 8. Usada como alimento para animales?
+													<input type="checkbox" id="P2_F_1_ElimBas8" name="" value=""> 8. Usada como alimento para animales?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 9. Separada para el compost?
+													<input type="checkbox" id="P2_F_1_ElimBas9" name="" value=""> 9. Separada para el compost?
 												</label>
 												<label>
-													<input type="checkbox" id="Checkbox1" name="check" value="option1"> 10. Otra forma?
+													<input type="checkbox" id="P2_F_1_ElimBas10" name="" value=""> 10. Otra forma?
 												</label>
 												<label>(Especifique)</label>
-												<input style="width:400px;" type="text" class="form-control">
+												<input id="P2_F_1_ElimBas_O" style="width:400px;" type="text" class="form-control">
 										</td>
 									</tr>
 								</tbody>
@@ -2170,7 +2207,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>Sección G:  Nuevas intervenciones en el local escolar</th>
+										<th colspan="3">Sección G:  Nuevas intervenciones en el local escolar</th>
 									</tr>
 								</thead>
 								<tbody>
