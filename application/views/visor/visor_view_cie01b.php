@@ -82,9 +82,9 @@
 										<thead>
 							    			<tr>
 							    				<th>Nro.</th>
-							    				<th>Anexo</th>
-							    				<th>Modulo</th>
-							    				<th>Inst. Educativa</th>
+							    				<th>CÓDIGO DE LA EDIFICACIÓN</th>
+							    				<th>AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
+							    				<th>PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
 							    			</tr>
 							    		</thead>
 							</table>

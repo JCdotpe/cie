@@ -1,7 +1,3 @@
-//CIE01B
-
-
-
 //==============================CAPITULO 6=================================
 function get_TotalEdif(cod_local){
 	$.post('visor/p5/Find_Total_Edif/', {cod_local:cod_local}, function(data) {
@@ -16,31 +12,23 @@ function get_TotalEdif(cod_local){
 
 function Get_Cap06(cod_local,predio){
 	$.post('visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:predio}, function(data) {
+
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
 					html+='<table class="table table-hover" style="width:900px; height:150px; overflow:auto;"> '+
 		  	    			'<tbody>'+
 		  	    				'<tr>'+
-		  	    					'<td>'+i+'.</td>'+
-		  	    					'<td>'+
-		  	    						'<strong>'+
-		  	    						'</strong>'+
-		  	    					'</td>'+
-		  	    					'<td>'+
-		  	    						'<span style="float:left;padding:8px;margin-right:10px; font-size:16px;" class="label label-default">E</span>'+
-		  	    						'<input style="width:100px;float:left;" type="text" class="form-control">'+
-		  	    					'<td>'+
-		  	    				'</tr>'+
-		  	    				'<tr>'+
-		  	    					'<td>'+i+'.</td>'+
-		  	    					'<td>'+
+		  	    					'<td>'+ i +'.</td>'+
+		  	    					'<td>'+ val.P6_1N_2_Cod_E +'</td>'+
+		  	    					'<td>'+ val.P6_1N_3 +'</td>'+
+		  	    					'<td>'+ val.P6_1N_4 +'</td>'+
 		  	    				'</tr>'+
 		  	    			'</tbody></table>';
+		  	    	i++;
 				});
 				$('#pag_seccion_a').html(html);
 	});
-
 }
 //=========================================================================
 
