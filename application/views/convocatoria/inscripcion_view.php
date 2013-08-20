@@ -48,7 +48,7 @@
 	              			 </div>
 	              			 </div>
 	              			 </div>
-              	 		<? }
+              	 		<?php }
 
               	 		} ?>
               	 		<?php if ($cierre>0) { ?>

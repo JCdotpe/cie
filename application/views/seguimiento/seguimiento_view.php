@@ -103,6 +103,78 @@
 	</div>
 </div>
 
+<?php
+	$estadoArray = array(-1 => 'Seleccione...', 1 => 'Completa', 2 => 'Incompleta', 3 => 'Local Cerrado / Desocupado', 4 => 'Otro');
+
+	$txtFechaAvance = array(
+	'name'	=> 'fecha_avance',
+	'id'	=> 'fecha_avance',
+	'value' => set_value('fecha_avance'),
+	'maxlength'	=> 10,
+	'class' => 'span1'
+	);
+
+	$txtEspecifique = array(
+	'name'	=> 'especifique',
+	'id'	=> 'especifique',
+	'value' => set_value('especifique'),
+	'maxlength'	=> 50,
+	'class' => 'span1',
+	'style' => 'width:120px',
+	'disabled' => 'disabled'
+	);
+
+
+	$attr = array('class' => 'form-val','id' => 'frm_avance', 'style' => 'overflow: auto;');
+	echo form_open('', $attr);
+?>
+<!-- Modal save patrimonio-->
+	<div id="add-detalle-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Registro de Avance</h3>
+		</div>
+ 
+		<div class="modal-body">
+			<div class="span2">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>FECHA</th>
+							<th>ESTADO</th>
+							<th>ESPECIFIQUE</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="success">
+							<td><?php echo form_input($txtFechaAvance); ?></td>
+							<td><?php echo form_dropdown('estado', $estadoArray, '#', 'id="estado" onChange="activar_especifique();"'); ?></td>
+							<td><?php echo form_input($txtEspecifique); ?></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="control-group">
+					<div id="grid_content_detail" class="span4">
+						<table id="list3"></table>
+						<div id="pager3" class="span4"></div>
+					</div>
+				</div>
+			</div>
+			<div class="span4" id="alerta" style="display: none">
+				<div class="alert alert-danger">
+				<!--  <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+					<strong>Alerta!</strong> Ya existe la fecha.
+				</div>
+			</div>
+		</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+		<button id="save_patrimonio" class="btn btn-primary">Guardar</button>
+	</div>
+</div>
+<?php echo form_close(); ?>
+
 <script type="text/javascript">
 
 	$(document).ready(function() {
@@ -119,13 +191,21 @@
 				{name:'entrada_info',index:'entrada_info', align:"center"},
 				{name:'gps',index:'gps', align:"center"},
 				{name:'fotos',index:'fotos', align:"center"},
-				{name:'entrevista',index:'entrevista', align:"center"}
+				{name:'detalle',index:'detalle', align:"center"}
 			],
 			pager: '#pager2',
 			rowNum:20,
 			rowList:[10,20,30],
 			sortname: 'codigo_de_local',
 			viewrecords: true,
+			gridComplete: function(){
+				var ids = jQuery("#list2").jqGrid('getDataIDs');
+				for(var i=0;i < ids.length;i++){
+					var cl = ids[i];
+					be = "<input type='button' value='Registrar Detalle' onclick=savedetalle('"+cl+"') />";
+					jQuery("#list2").jqGrid('setRowData',ids[i],{detalle:be});
+				}
+			},			
 			sortorder: "asc",
 			caption:"Lista de Locales",
 			//editurl:"registro_rutas/eliminar"
@@ -145,5 +225,55 @@ function verdatos()
 
 	jQuery("#list2").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo,page:1}).trigger("reloadGrid");
 }
+
+
+function savedetalle(values)
+{
+        $("#alerta").hide();
+        $('#inputpatrimonio').val('');
+        $("#add-detalle-modal").modal('show');
+        $('#codigo_udra').val(values);
+}
+
+function activar_especifique() 
+{
+	$("#especifique").val('');
+	var codigo = $("#estado").val();
+	if (codigo == 4)
+	{
+		if ($("#especifique").attr('disabled'))
+		{
+			$("#especifique").removeAttr('disabled');
+		}
+	}else{
+		$("#especifique").attr({'disabled':'disabled'});
+	}
+}
+
+	$(document).ready(function() {
+		jQuery("#list3").jqGrid({
+			type:"POST",
+			url:'seguimiento/seguimiento/ver_datos',
+			datatype: "json",
+			height: 200,
+			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
+			colModel:[
+				{name:'nro_fila',index:'nro_fila', align:"center"},
+				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
+				{name:'estado',index:'estado', align:"center"},
+				{name:'entrada_info',index:'entrada_info', align:"center"}
+			],
+			pager: '#pager3',
+			rowNum:10,
+			rowList:[10,15,20],
+			sortname: 'codigo_de_local',
+			viewrecords: true,
+			sortorder: "asc",
+			caption:"Lista de Visitas"
+			//editurl:"registro_rutas/eliminar"
+		});
+		jQuery("#list3").jqGrid('navGrid','#pager3',{edit:false,add:false,del:false,search:false});
+		$("#list3").setGridWidth($('#grid_content_detail').width(), true);
+	});
 
 </script>
