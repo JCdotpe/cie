@@ -124,10 +124,25 @@
 	'disabled' => 'disabled'
 	);
 
+	$btnAgregar = array(
+		'name' => 'agregar',
+		'id' => 'agregar',
+		'onclick' => 'frm_ValidarAvance()',
+		'type' => 'button',
+		'content' => 'Agregar',		
+		'class' => 'btn btn-primary'
+	);
+
 
 	$attr = array('class' => 'form-val','id' => 'frm_avance', 'style' => 'overflow: auto;');
 	echo form_open('', $attr);
 ?>
+<style type="text/css">
+	body .modal {
+		width: 900px;
+		margin-left: -480px;
+	}
+</style>
 <!-- Modal save patrimonio-->
 	<div id="add-detalle-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -137,13 +152,14 @@
 		</div>
  
 		<div class="modal-body">
-			<div class="span2">
+			<div class="span8">
 				<table class="table table-condensed">
 					<thead>
 						<tr>
 							<th>FECHA</th>
 							<th>ESTADO</th>
 							<th>ESPECIFIQUE</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -151,26 +167,25 @@
 							<td><?php echo form_input($txtFechaAvance); ?></td>
 							<td><?php echo form_dropdown('estado', $estadoArray, '#', 'id="estado" onChange="activar_especifique();"'); ?></td>
 							<td><?php echo form_input($txtEspecifique); ?></td>
+							<td><?php echo form_button($btnAgregar); ?></td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="control-group">
-					<div id="grid_content_detail" class="span4">
+				<div class="controls">
+					<div id="grid_content_detail" class="span8">
 						<table id="list3"></table>
-						<div id="pager3" class="span4"></div>
+						<div id="pager3"></div>
 					</div>
 				</div>
 			</div>
 			<div class="span4" id="alerta" style="display: none">
 				<div class="alert alert-danger">
-				<!--  <button type="button" class="close" data-dismiss="alert">&times;</button> -->
 					<strong>Alerta!</strong> Ya existe la fecha.
 				</div>
 			</div>
 		</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-		<button id="save_patrimonio" class="btn btn-primary">Guardar</button>
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>		
 	</div>
 </div>
 <?php echo form_close(); ?>
@@ -275,5 +290,29 @@ function activar_especifique()
 		jQuery("#list3").jqGrid('navGrid','#pager3',{edit:false,add:false,del:false,search:false});
 		$("#list3").setGridWidth($('#grid_content_detail').width(), true);
 	});
+
+	function frm_ValidarAvance()
+	{
+		var bsub = $( ":submit" );
+		var form_data = $('#frm_avance').serializeArray();
+
+		form_data.push(
+			{name: 'ajax',value:1}
+		);
+		form_data = $.param(form_data);
+
+		$.ajax({
+			type: "POST", 
+			url: "seguimiento/seguimiento/registro_avance",   
+			data: form_data,
+
+			success: function(response){
+
+			$("#frm_avance :input").val('');
+			$("#list3").trigger("reloadGrid");
+			alert("Local Asignado a Ruta Satisfactoriamente"); 
+			}
+		});
+	}
 
 </script>

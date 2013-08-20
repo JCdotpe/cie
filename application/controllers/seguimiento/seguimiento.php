@@ -181,6 +181,28 @@ class Seguimiento extends CI_Controller {
 		echo $jsonData;
 	}
 
+	public function registro_avance()
+	{
+		$c_data = array(
+				//'jefebrigada'=> $this->input->post('jefebrigada'),
+				'fecha_visita'=> $this->input->post('fecha_avance'),
+				'estado'=> $this->input->post('estado'),
+				'especifique'=> $this->input->post('especifique'),
+				
+				'total_af'=> $this->input->post('total_af'),
+				'observaciones'=> utf8_decode($this->input->post('observaciones'))
+			);
+		$flag = $this->rutas_model->insert_reg($c_data);
+		$flag = $this->rutas_model->insert_reg_jb($jb_data);
+
+		if(!$flag)
+		{
+			$show = 'Error al Grabar. Recargue la Pagina y Vuelva a Intentarlo.';
+		}else{
+			$show = 'Datos Grabados Satisfactoriamente.';
+		}
+	}
+
 }
 
 /* End of file welcome.php */
