@@ -775,14 +775,32 @@ function get_P2_F(cod_local){
 
 function get_P2_G(cod_local){
 		
-	$.post('visor/visor/get_P2_E/', {cod_local:cod_local}, function(data) {
+	$.post('visor/visor/get_P2_G/', {cod_local:cod_local}, function(data) {
 
 		$.each(data, function(index, val) {
 
-			get_Radio_Check_Verif(val.P2_E_1_Prayo,"P2_E_1_Prayo");
-			$("#P2_E_2_Ptierra").val(val.P2_E_2_Ptierra);
-			$("#P2_E_3_Ano").val(val.P2_E_3_Ano);
-			$("#P2_E_Obs").val(val.P2_E_Obs);
+			get_Radio_Check_Verif(val.P2_G_1_ObEjec,"P2_G_1_ObEjec");
+
+		})
+
+	});
+}
+
+function get_P2_G_2N(cod_local){
+		
+	$.post('visor/visor/get_P2_G_2N/', {cod_local:cod_local}, function(data) {
+		var i=0;
+		$.each(data, function(index, val) {
+
+			i++;
+
+			get_Radio_Check_Verif(val.P2_G_2_Cod,"P2_G_2_Cod");
+			//get_Radio_Check_Verif(val.P2_G_2A_EstPre,"P2_G_2A_EstPre"+i);
+			$('#P2_G_2B_snip'+val.P2_G_2_Cod).val(val.P2_G_2B_snip)
+
+			/*if(val.P2_G_2_Cod==7){
+				$("#P2_G_2_Otro").val(val.P2_G_2_Otro);
+			}*/			
 
 		})
 

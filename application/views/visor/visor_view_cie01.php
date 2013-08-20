@@ -2218,10 +2218,10 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si?
+												<input type="radio" id="P2_G_1_ObEjec1" name="P2_G_1_ObEjec" value=""> 1. Si?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No?
+												<input type="radio" id="P2_G_1_ObEjec2" name="P2_G_1_ObEjec" value=""> 2. No?
 											</label>
 										</td>
 									</tr>
@@ -2246,95 +2246,111 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td>Gobierno nacional / proyectos especiales</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod1" name="" value="">
+															1.Gobierno nacional / proyectos especiales</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre11" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre12" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip1" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Gobierno regional / local</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod2" name="" value="">
+															2.Gobierno regional / local</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre21" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre22" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip2" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Apafa / autoconstrucción</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod3" name="" value="">
+															3.Apafa / autoconstrucción</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre31" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre32" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip3" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Entidades cooperantes</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod4" name="" value="">
+															4.Entidades cooperantes</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre41" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre42" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip4" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Organismos sin fines de lucro</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod5" name="" value="">
+															5.Organismos sin fines de lucro</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre51" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre52" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip5" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Empresa privada</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod6" name="" value="">
+															6.Empresa privada</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre61" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre62" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip6" type="text" class="form-control"></td>
 													</tr>
 													<tr>
-														<td>Otro</td>
+														<td>
+															<input type="checkbox" id="P2_G_2_Cod7" name="" value="">
+															<label>7.Otro (Especifique)</label>
+															<input id="P2_F_1_ElimBas_O" style="width:300px;" type="text" class="form-control">
+														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 1
+																<input type="checkbox" id="P2_G_2A_EstPre71" name="" value=""> 1
 															</label>
 														</td>
 														<td><label>
-																<input type="checkbox" id="Checkbox1" name="check" value="option1"> 2
+																<input type="checkbox" id="P2_G_2A_EstPre72" name="" value=""> 2
 															</label>
 														</td>
-														<td><input style="width:250px;" type="text" class="form-control"></td>
+														<td><input style="width:250px;" id="P2_G_2B_snip7" type="text" class="form-control"></td>
 													</tr>
 												</tbody>
 											</table>
