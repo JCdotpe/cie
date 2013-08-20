@@ -64,7 +64,7 @@ function get_Radio_Check_Verif(value,id){
 
 //	alert(id+value)
 	if(value!=null){
-		alert(id+value)
+		//alert(id+value)
 		document.getElementById(id+value).checked=true; 
 	}
 }

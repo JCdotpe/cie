@@ -757,7 +757,7 @@ function get_P2_E(cod_local){
 
 function get_P2_F(cod_local){
 		
-	$.post('visor/visor/get_P2_E/', {cod_local:cod_local}, function(data) {
+	$.post('visor/visor/get_P2_F/', {cod_local:cod_local}, function(data) {
 
 		$.each(data, function(index, val) {
 
