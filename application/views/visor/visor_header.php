@@ -240,7 +240,7 @@
 			get_P2_E(code);
 			get_P2_F(code);
 			get_P2_G(code);
-			get_P2_G_2N(code);
+			/*get_P2_G_2N(code);*/
 		});
 
 		$('#c3').click(function(event) {
