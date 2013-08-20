@@ -28,7 +28,7 @@ function get_PCar(cod_local){
 
 			$.each(data, function(index, val) {
 
-				$('.PC_A_1_CentroP').val(val.PC_A_1_CentroP);
+				$('.PC_A_4_CentroP').val(val.PC_A_1_CentroP);
 				$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
 				$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
 				$('#PC_A_7Dir_3_Nro').html(val.PC_A_7Dir_3_Nro);
@@ -794,9 +794,9 @@ function get_P2_G_2N(cod_local){
 
 			i++;
 
-			get_Radio_Check_Verif(val.P2_G_2_Cod,"P2_G_2_Cod");
+			//get_Radio_Check_Verif(val.P2_G_2_Cod,"P2_G_2_Cod");
 			//get_Radio_Check_Verif(val.P2_G_2A_EstPre,"P2_G_2A_EstPre"+i);
-			$('#P2_G_2B_snip'+val.P2_G_2_Cod).val(val.P2_G_2B_snip)
+			$('#P2_G_2B_snip'+val.P2_G_2_Cod).val(val.P2_G_2B_snip);
 
 			/*if(val.P2_G_2_Cod==7){
 				$("#P2_G_2_Otro").val(val.P2_G_2_Otro);
