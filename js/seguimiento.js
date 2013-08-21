@@ -18,6 +18,8 @@ function cargarProvBySede()
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+
+			verdatos(0);
 			/*$.ajax({
 				type: "POST",
 				url: "seguimiento/seguimiento/obtenerdistrito",
@@ -50,6 +52,8 @@ function cargarDist()
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+
+			verdatos(1);
 		}
 	});
 }
@@ -71,6 +75,8 @@ function cargarCentroPoblado()
 			
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+
+			verdatos(2);
 		}
 	});
 }
@@ -89,6 +95,8 @@ function cargarRutas()
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+
+			verdatos(3);
 		}
 	});
 }
@@ -106,6 +114,43 @@ function cargarPeriodo()
 			console.log(periodoResponse);
 			$("#periodo").empty().append($(periodoResponse).find("option"));
 			$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+
+			verdatos(4);
 		}
 	});
+}
+
+function verdatos(intervalo)
+{
+	var coddepa = $("#departamento").val();
+	var codprov = $("#provincia").val();
+	var coddist = $("#distrito").val();
+	var codcentrop = $("#centropoblado").val();
+	var codruta = $("#rutas").val();
+	var nroperiodo = $("#periodo").val();
+
+	var condicion;
+
+	switch(intervalo)
+	{
+		case 0: condicion = "seguimiento/seguimiento/ver_datos";
+			break;
+
+		case 1: condicion = "seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov;
+			break;
+
+		case 2:	condicion = "seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist;
+			break;
+
+		case 3: condicion = "seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
+			break;
+
+		case 4: condicion = "seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
+			break;
+
+		case 5: condicion = "seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+			break;
+	}
+
+	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }

@@ -80,7 +80,7 @@
 					<div class="control-group">
 						<?php echo form_label('Periodo de Trabajo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;" onChange="verdatos();"');
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;" onChange="verdatos(5);"');
 							?>
 						</div>
 					</div>
@@ -91,7 +91,8 @@
 				</div>
 				-->
 			</div>
-			<input type="hidden" name="user" id="user" value="<?php echo $user_id; ?>" />
+			<!--
+			<input type="hidden" name="user" id="user" value="<?php #echo $user_id; ?>" />-->
 			<?php echo form_close(); ?>
 		</div>
 		<div class="row-fluid">
@@ -110,8 +111,9 @@
 	'name'	=> 'fecha_avance',
 	'id'	=> 'fecha_avance',
 	'value' => set_value('fecha_avance'),
+	'onKeyUp' => 'javascript:this.value=formateafecha(this.value);',
 	'maxlength'	=> 10,
-	'class' => 'span1'
+	'style' => 'width:100px'
 	);
 
 	$txtEspecifique = array(
@@ -119,7 +121,6 @@
 	'id'	=> 'especifique',
 	'value' => set_value('especifique'),
 	'maxlength'	=> 50,
-	'class' => 'span1',
 	'style' => 'width:120px',
 	'disabled' => 'disabled'
 	);
@@ -156,6 +157,7 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
+							<th>CODIGO DE LOCAL</th>
 							<th>FECHA</th>
 							<th>ESTADO</th>
 							<th>ESPECIFIQUE</th>
@@ -164,10 +166,16 @@
 					</thead>
 					<tbody>
 						<tr class="success">
+							<td>
+								<input type="text" id="codigo" name="codigo" value="" readonly="true" class="span1">
+							</td>
 							<td><?php echo form_input($txtFechaAvance); ?></td>
 							<td><?php echo form_dropdown('estado', $estadoArray, '#', 'id="estado" onChange="activar_especifique();"'); ?></td>
 							<td><?php echo form_input($txtEspecifique); ?></td>
-							<td><?php echo form_button($btnAgregar); ?></td>
+							<td>
+								<?php echo form_button($btnAgregar); ?>		
+								<input type="hidden" id="usuario" name="usuario" value="<?php echo $user_id; ?>">
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -178,11 +186,12 @@
 					</div>
 				</div>
 			</div>
+			<!--
 			<div class="span4" id="alerta" style="display: none">
 				<div class="alert alert-danger">
 					<strong>Alerta!</strong> Ya existe la fecha.
 				</div>
-			</div>
+			</div>-->
 		</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>		
@@ -203,8 +212,8 @@
 				{name:'nro_fila',index:'nro_fila', align:"center"},
 				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
 				{name:'estado',index:'estado', align:"center"},
-				{name:'entrada_info',index:'entrada_info', align:"center"},
-				{name:'gps',index:'gps', align:"center"},
+				{name:'entrada_informacion',index:'entrada_informacion', align:"center"},
+				{name:'datos_gps',index:'datos_gps', align:"center"},
 				{name:'fotos',index:'fotos', align:"center"},
 				{name:'detalle',index:'detalle', align:"center"}
 			],
@@ -222,39 +231,52 @@
 				}
 			},			
 			sortorder: "asc",
-			caption:"Lista de Locales",
+			caption:"Lista de Locales"
 			//editurl:"registro_rutas/eliminar"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
 	});
 
-function verdatos()
-{
-	var coddepa = $("#departamento").val();
-	var codprov = $("#provincia").val();
-	var coddist = $("#distrito").val();
-	var codcentrop = $("#centropoblado").val();
-	var codruta = $("#rutas").val();
-	var nroperiodo = $("#periodo").val();
-
-	jQuery("#list2").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo,page:1}).trigger("reloadGrid");
-}
-
-
 function savedetalle(values)
 {
-        $("#alerta").hide();
-        $('#inputpatrimonio').val('');
+        //$("#alerta").hide();
+        $('#codigo').val(values);
+        ver_detalle_avance(values);
         $("#add-detalle-modal").modal('show');
-        $('#codigo_udra').val(values);
 }
+
+	$(document).ready(function() {
+		jQuery("#list3").jqGrid({
+			type:"POST",
+			url:'seguimiento/seguimiento/ver_datos_avance',
+			datatype: "json",
+			height: 200,
+			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
+			colModel:[
+				{name:'nro_fila',index:'nro_fila', align:"center"},
+				{name:'codlocal',index:'codlocal', align:"center"},
+				{name:'NEstado',index:'estado', align:"center"},
+				{name:'fecha_visita',index:'fecha_visita', align:"center"}
+			],
+			pager: '#pager3',
+			rowNum:10,
+			rowList:[10,15,20],
+			sortname: 'codlocal',
+			viewrecords: true,
+			sortorder: "asc",
+			caption:"Lista de Visitas"
+			//editurl:"registro_rutas/eliminar"
+		});
+		jQuery("#list3").jqGrid('navGrid','#pager3',{edit:false,add:false,del:false,search:false});
+		$("#list3").setGridWidth($('#grid_content_detail').width(), true);
+	});
 
 function activar_especifique() 
 {
 	$("#especifique").val('');
-	var codigo = $("#estado").val();
-	if (codigo == 4)
+	var codestado = $("#estado").val();
+	if (codestado == 4)
 	{
 		if ($("#especifique").attr('disabled'))
 		{
@@ -265,33 +287,29 @@ function activar_especifique()
 	}
 }
 
-	$(document).ready(function() {
-		jQuery("#list3").jqGrid({
-			type:"POST",
-			url:'seguimiento/seguimiento/ver_datos',
-			datatype: "json",
-			height: 200,
-			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
-			colModel:[
-				{name:'nro_fila',index:'nro_fila', align:"center"},
-				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
-				{name:'estado',index:'estado', align:"center"},
-				{name:'entrada_info',index:'entrada_info', align:"center"}
-			],
-			pager: '#pager3',
-			rowNum:10,
-			rowList:[10,15,20],
-			sortname: 'codigo_de_local',
-			viewrecords: true,
-			sortorder: "asc",
-			caption:"Lista de Visitas"
-			//editurl:"registro_rutas/eliminar"
-		});
-		jQuery("#list3").jqGrid('navGrid','#pager3',{edit:false,add:false,del:false,search:false});
-		$("#list3").setGridWidth($('#grid_content_detail').width(), true);
-	});
+function ver_detalle_avance(codigo)
+{
+	jQuery("#list3").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
+}
 
 	function frm_ValidarAvance()
+	{
+		var fecha = $("#fecha_avance").val();
+		var estado = $("#estado").val();
+		var codigo = $("#codigo").val();
+		
+		if (estado == -1 || fecha == "")
+		{
+			alert("Cuidado, Faltan Datos!");
+			return false;
+		}
+
+		if (fecha.length<10){ alert("Fecha Incompleta"); return false; }
+
+		registrar_avance();
+	}
+	
+	function registrar_avance()
 	{
 		var bsub = $( ":submit" );
 		var form_data = $('#frm_avance').serializeArray();
@@ -302,17 +320,78 @@ function activar_especifique()
 		form_data = $.param(form_data);
 
 		$.ajax({
-			type: "POST", 
-			url: "seguimiento/seguimiento/registro_avance",   
+			type: "POST",
+			url: "seguimiento/seguimiento/registro_avance",
 			data: form_data,
 
-			success: function(response){
-
-			$("#frm_avance :input").val('');
-			$("#list3").trigger("reloadGrid");
-			alert("Local Asignado a Ruta Satisfactoriamente"); 
+			success: function(data){
+				if (data==0)
+				{
+					$("#fecha_avance").val('');
+					$("#estado").val('');
+					$("#especifique").val('');
+					$("#list3").trigger("reloadGrid");
+					$("#list2").trigger("reloadGrid");
+					alert("Registro de Avance guardado!");
+				}else{
+					alert("Error, Fecha ya Registrada!");
+				}
 			}
 		});
+	}
+
+//*******************************************************
+	function IsNumeric(valor) 
+	{ 
+		var log=valor.length; var sw="S"; 
+		for (x=0; x<log; x++) 
+		{ v1=valor.substr(x,1); 
+		v2 = parseInt(v1); 
+		//Compruebo si es un valor numérico 
+		if (isNaN(v2)) { sw= "N";} 
+		} 
+		if (sw=="S") {return true;} else {return false; } 
+	} 
+	var primerslap=false; 
+	var segundoslap=false; 
+
+	function formateafecha(fecha) 
+	{ 
+		var long = fecha.length; 
+		var dia; 
+		var mes; 
+		var ano; 
+		if ((long>=2) && (primerslap==false)) { dia=fecha.substr(0,2); 
+		if ((IsNumeric(dia)==true) && (dia<=31) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
+		else { fecha=""; primerslap=false;} 
+		} 
+		else 
+		{ dia=fecha.substr(0,1); 
+		if (IsNumeric(dia)==false) 
+		{fecha="";} 
+		if ((long<=2) && (primerslap=true)) {fecha=fecha.substr(0,1); primerslap=false; } 
+		} 
+		if ((long>=5) && (segundoslap==false)) 
+		{ mes=fecha.substr(3,2); 
+		if ((IsNumeric(mes)==true) &&(mes<=12) && (mes!="00")) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
+		else { fecha=fecha.substr(0,3);; segundoslap=false;} 
+		} 
+		else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
+		if (long>=7) 
+		{ ano=fecha.substr(6,4); 
+		if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
+		else { if (long==10){ if ((ano==0) || (ano<1900) || (ano>2100)) { fecha=fecha.substr(0,6); } } } 
+		} 
+		if (long>=10) 
+		{ 
+		fecha=fecha.substr(0,10); 
+		dia=fecha.substr(0,2); 
+		mes=fecha.substr(3,2); 
+		ano=fecha.substr(6,4); 
+		// Año no viciesto y es febrero y el dia es mayor a 28 
+		if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
+		} 
+		return (fecha); 
 	}
 
 </script>
