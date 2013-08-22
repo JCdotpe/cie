@@ -87,7 +87,7 @@
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 		   	type:"POST",
-		   	url:'rutas_por_provincia/obtenreporte',
+		   	url:'reporte_evaluador/obtenreporte',
 			datatype: "json",
 			height: 255,			
 		   	colNames:['Nro', 'Departamento', 'Provincia', 'Distrito', 'Centro Poblado', 'Codigo de Local', 'Sede Operativa', 'Provincia Operativa', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones','Ruta'],
@@ -144,7 +144,7 @@
 			$("#cod_prov").val(codprov);
 			$("#cod_ruta").val(codruta);
 
-			jQuery("#list2").jqGrid('setGridParam',{url:"rutas_por_provincia/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta,page:1}).trigger("reloadGrid");	
+			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_evaluador/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta,page:1}).trigger("reloadGrid");	
 		}
 	}
 

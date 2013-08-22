@@ -121,7 +121,8 @@ class Registro_Rutas extends CI_Controller {
 				'gastooperativo_af'=> $this->input->post('gastooperativo_af'),
 				'pasaje'=> $this->input->post('pasaje'),
 				'total_af'=> $this->input->post('total_af'),
-				'observaciones'=> utf8_decode($this->input->post('observaciones'))
+				'observaciones'=> utf8_decode($this->input->post('observaciones')),
+				'periodo'=>$this->input->post('periodo')
 			);
 
 		$jb_data = array(
@@ -185,7 +186,7 @@ class Registro_Rutas extends CI_Controller {
 		foreach ($resultado->result() as $fila )
 		{
 			$respuesta->rows[$i]['id'] = $fila->id;
-			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
+			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->periodo,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
 			$i++;
 		}
 

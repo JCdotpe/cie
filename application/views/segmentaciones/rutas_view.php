@@ -87,13 +87,24 @@ $centro_poblado =array(
 	'style' => 'width: 120px;'
 );
 
+$periodo =array(
+	'name'	=> 'periodo',
+	'id'	=> 'periodo',
+	'value'	=> set_value('periodo'),
+	'maxlength'	=> 2,
+	'style' => 'width: 70px;',
+	'tabindex' => '5',
+	'onblur' => 'valida_periodo_jb(this)',
+	'onkeypress' => 'return validar_numeros(event)'
+);
+
 $fecha_inicio =array(
 	'name'	=> 'fxinicio',
 	'id'	=> 'fxinicio',
 	'value'	=> set_value('fxinicio'),
 	'maxlength'	=> 10,
 	'style' => 'width: 70px;',
-	'tabindex' => '5',
+	'tabindex' => '6',
 	'onblur' => 'validaFechaDDMMAAAA(this.value)',
 	'onkeypress' => 'return validar_fechas(event)'
 );
@@ -104,7 +115,7 @@ $fecha_final =array(
 	'value'	=> set_value('fxfinal'),
 	'maxlength'	=> 10,
 	'style' => 'width: 70px;',
-	'tabindex' => '6',
+	'tabindex' => '7',
 	'onblur' => 'validaFechaDDMMAAAA(this.value)',
 	'onkeypress' => 'return validar_fechas(event)'
 );
@@ -115,7 +126,7 @@ $traslado =array(
 	'value'	=> set_value('traslado'),
 	'maxlength'	=> 3,
 	'style' => 'width: 60px;',
-	'tabindex' => '7',
+	'tabindex' => '8',
 	'onblur' => 'valida_traslado(this)',
 	'onkeypress' => 'return validar_decimales(event)'
 );
@@ -126,7 +137,7 @@ $trabajo_supervisor =array(
 	'value'	=> set_value('trabajo_supervisor'),
 	'maxlength'	=> 3,
 	'style' => 'width: 60px;',
-	'tabindex' => '8',
+	'tabindex' => '9',
 	'onblur' => 'valida_trabajo(this)',
 	'onkeypress' => 'return validar_decimales(event)'
 );
@@ -137,7 +148,7 @@ $recuperacion =array(
 	'value'	=> set_value('recuperacion'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '9',
+	'tabindex' => '10',
 	'onkeypress' => 'return valida_recuperacion(event)',
 	'onblur' => 'calculo_general()'
 );
@@ -148,7 +159,7 @@ $retorno_sede =array(
 	'value'	=> set_value('retornosede'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '10',
+	'tabindex' => '11',
 	'onkeypress' => 'return valida_retorno(event)',
 	'onblur' => 'calculo_general()'
 );
@@ -159,7 +170,7 @@ $gabinete =array(
 	'value'	=> set_value('gabinete'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '11',
+	'tabindex' => '12',
 	'onkeypress' => 'return valida_recugabidesc(event)',
 	'onblur' => 'calcula_totaldias()'
 );
@@ -170,7 +181,7 @@ $descanso =array(
 	'value'	=> set_value('descanso'),
 	'maxlength'	=> 1,
 	'style' => 'width: 60px;',
-	'tabindex' => '12',
+	'tabindex' => '13',
 	'onkeypress' => 'return valida_recugabidesc(event)',
 	'onblur' => 'calcula_totaldias()'
 );
@@ -189,7 +200,7 @@ $movlocal_ma =array(
 	'value'	=> set_value('movilocal_ma'),
 	'maxlength'	=> 2,
 	'style' => 'width: 60px;',
-	'tabindex' => '13',
+	'tabindex' => '14',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'validar_movi_ma(this.value)'
 );
@@ -200,7 +211,7 @@ $gastoperativo_ma =array(
 	'value'	=> set_value('gastooperativo_ma'),
 	'maxlength'	=> 10,
 	'style' => 'width: 60px;',
-	'tabindex' => '14',
+	'tabindex' => '15',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'validar_gasto_ma(this.value)'
 );
@@ -227,7 +238,7 @@ $pasaje =array(
 	'value'	=> set_value('pasaje'),
 	'maxlength'	=> 6,
 	'style' => 'width: 60px;',
-	'tabindex' => '15',
+	'tabindex' => '16',
 	'onkeypress' => 'return validar_decimales(event)',
 	'onblur' => 'calcula_totalaf()'
 );
@@ -247,7 +258,7 @@ $observaciones =array(
 	'value'	=> set_value('observaciones'),
 	'maxlength'	=> 200,
 	'style' => 'width: 350px;',
-	'tabindex' => '16',
+	'tabindex' => '17',
 	'rows' => '4',
 	'cols' => '6'
 );
@@ -278,7 +289,7 @@ $btnagregar = array(
     'onclick' => 'Form_Validar()',
     'type' => 'button',
     'content' => 'Agregar',
-    'tabindex' => '17',
+    'tabindex' => '18',
     'class' => 'btn btn-primary pull-left'
 );
 
@@ -361,9 +372,9 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Provincia', 'lblProvincia'); ?></td>
 					<td><?php echo form_label('Distrito', 'lblDistrito'); ?></td>
 					<td><?php echo form_label('Centro Poblado', 'lblCentroPoblado'); ?></td>
+					<td><?php echo form_label('Periodo', 'lblPeriodo'); ?></td>
 					<td><?php echo form_label('Fecha Inicio', 'lblFechaInicio'); ?></td>
-					<td><?php echo form_label('Fecha Final', 'lblFechaFinal'); ?></td>
-					<td><?php echo form_label('Traslado', 'lblTraslado'); ?></td>					
+					<td><?php echo form_label('Fecha Final', 'lblFechaFinal'); ?></td>					
 				</tr>
 				<tr>
 					<td><?php echo form_input($txtJefeBrigada); ?></td>
@@ -373,14 +384,15 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($provincia); ?></td>
 					<td><?php echo form_input($distrito); ?></td>
 					<td><?php echo form_input($centro_poblado); ?></td>
+					<td><?php echo form_input($periodo); ?></td>
 					<td><?php echo form_input($fecha_inicio); ?></td>
 					<td><?php echo form_input($fecha_final); ?></td>
-					<td><?php echo form_input($traslado); ?></td>
 				</tr>
 				<tr>
 					<td colspan="10"><div id="aviso" style="font-color: red"></div></td>
 				</tr>
 				<tr>
+					<td><?php echo form_label('Traslado', 'lblTraslado'); ?></td>
 					<td><?php echo form_label('Trabajo', 'lblTrabajo'); ?></td>
 					<td><?php echo form_label('Recuperación', 'lblRecuperacion'); ?></td>
 					<td><?php echo form_label('Retorno a Sede', 'lblRetornoSede'); ?></td>
@@ -389,10 +401,10 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Total de Dias', 'lblTotalDias'); ?></td>
 					<td><?php echo form_label('Movilidad Local MA', 'lblMovLocalMA'); ?></td>
 					<td><?php echo form_label('Gasto Operativo MA', 'lblGastoOpeMA'); ?></td>
-					<td><?php echo form_label('Movilidad Local AF', 'lblMovLocalAF'); ?></td>
-					<td><?php echo form_label('Gasto Operativo AF', 'lblGastoOpeAF'); ?></td>
+					<td><?php echo form_label('Movilidad Local AF', 'lblMovLocalAF'); ?></td>					
 				</tr>
 				<tr>
+					<td><?php echo form_input($traslado); ?></td>
 					<td><?php echo form_input($trabajo_supervisor); ?></td>
 					<td><?php echo form_input($recuperacion); ?></td>
 					<td><?php echo form_input($retorno_sede); ?></td>
@@ -402,19 +414,20 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($movlocal_ma); ?></td>
 					<td><?php echo form_input($gastoperativo_ma); ?></td>
 					<td><?php echo form_input($movlocal_af); ?></td>
-					<td><?php echo form_input($gastoperativo_af); ?></td>
 				</tr>
 				<tr>
+					<td><?php echo form_label('Gasto Operativo AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
 					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
 					<td colspan="4"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
 					<td colspan="4"></td>
 				</tr>
 				<tr>
+					<td valign="top"><?php echo form_input($gastoperativo_af); ?></td>
 					<td valign="top"><?php echo form_input($pasaje); ?></td>
 					<td valign="top"><?php echo form_input($total_af); ?></td>
-					<td colspan="4"><?php echo form_textarea($observaciones); ?></td>
-					<td colspan="4">
+					<td colspan="3"><?php echo form_textarea($observaciones); ?></td>
+					<td colspan="3">
 						<?php echo form_button($btnagregar); ?>
 						<input type="hidden" id="rangofechas" name="rangofechas" value="">
 					</td>
@@ -449,11 +462,12 @@ $attr = array('id' => 'frm_registro');
 		   	url:'registro_rutas/ver_datos',
 			datatype: "json",
 			height: 255,
-		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
+		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
 		   	colModel:[		   		
 		   		{name:'centroPoblado',index:'centroPoblado', width:100, align:"center"},
 		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel', width:100, align:"center"},
-		   		{name:'codlocal',index:'codlocal', width:100},		   		
+		   		{name:'codlocal',index:'codlocal', width:90},
+		   		{name:'periodo',index:'periodo', width:60},
 		   		{name:'fxinicio',index:'convert(datetime,fxinicio)', width:80, align:"center"},
 		   		{name:'fxfinal',index:'convert(datetime,fxfinal)', width:80,},
 		   		{name:'traslado',index:'traslado', width:80, align:"center"},

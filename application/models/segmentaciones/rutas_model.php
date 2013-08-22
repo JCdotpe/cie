@@ -84,7 +84,7 @@ class Rutas_Model extends CI_Model {
 
     function mostrar_datos($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT idtabla as id, idruta, codlocal, centroPoblado, prov_operativa_ugel, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT idtabla as id, idruta, codlocal, centroPoblado, prov_operativa_ugel, periodo, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	//echo $sql;
     	$q = $this->db->query($sql);		
 		return $q;
@@ -101,6 +101,13 @@ class Rutas_Model extends CI_Model {
 	function report_rutasprovincia($ord, $ascdesc, $inicio, $final, $condicion1)
     {
     	$sql = "SELECT NomDept, NomProv, NomDist, centroPoblado, codlocal, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$q = $this->db->query($sql);
+		return $q;
+	}	    
+
+	function report_jefebrigada($ord, $ascdesc, $inicio, $final, $condicion1)
+    {
+    	$sql = "SELECT nombre_dpto, nombre_provincia, nombre_distrito, centroPoblado, codigo_de_local, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo_jb, fxinicio_jb, fxfinal_jb, traslado_jb, trabajo_supervisor_jb, retornosede_jb, gabinete_jb, descanso_jb, totaldias_jb, movilocal_ma_jb, gastooperativo_ma_jb, movilocal_af_jb, gastooperativo_af_jb, pasaje_jb, total_af_jb, observaciones_jb, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_info_jefebrigada $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);
 		return $q;
 	}	    

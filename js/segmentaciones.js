@@ -447,6 +447,13 @@ function Form_Validar()
 
   if (codruta.value.length != 2){ alert("El Codigo de Ruta debe ser de 2 digitos"); codigolocal.focus(); return false; }
 
+  if (periodo.value == '')
+  {
+    alert("Periodo fuera de Rango"); periodo.focus(); return false;
+  }else{
+    if (periodo.value < 1 || periodo.value > 14){ alert("Periodo fuera de Rango"); periodo.focus(); return false; }
+  }
+
   
   nroLocales = document.getElementById("existe").value;
   if(nroLocales > 0){ alert("Local ya fue Asignado a una Ruta"); codigolocal.focus(); return false; }
@@ -518,7 +525,7 @@ function rutas_form()
 
 function cargarProvOpe()
 {
-    var doLoginMethodUrl = CI.base_url + 'index.php/segmentaciones/rutas_por_provincia/obtenerprovoperativa';
+    var doLoginMethodUrl = CI.base_url + 'index.php/segmentaciones/registro_rutas/obtenerprovoperativa';
     var id_sede = $("#sedeoperativa").val();
     $.ajax({
       type: "POST",
@@ -528,6 +535,8 @@ function cargarProvOpe()
         console.log(provinciaResponse);
         $("#provoperativa").empty().append($(provinciaResponse).find("option"));
         $("#provoperativa").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+
+        $("#jefebrigada").empty().append("<option value='-1' selected='true'></value>");
       }
     });
 }
@@ -629,8 +638,10 @@ function Form_Validar_JB()
 
   if(codlocal.value == '' || (codlocal.value) == 0){ alert("Consulte un Local"); codigolocal.focus(); return false; }
   
-  if (periodo.value != '')
+  if (periodo.value == '')
   {
+    alert("Periodo fuera de Rango"); periodo.focus(); return false;
+  }else{
     if (periodo.value < 1 || periodo.value > 14){ alert("Periodo fuera de Rango"); periodo.focus(); return false; }
   }
 

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Rutas_por_provincia extends CI_Controller {
+class Reporte_evaluador extends CI_Controller {
 
 	function __construct()
 	{
@@ -40,25 +40,11 @@ class Rutas_por_provincia extends CI_Controller {
 		$data['option'] = 2;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Rutas por Provincia Operativa';
-		$data['main_content'] = 'informes/rutasprovincia_view';
+		$data['main_content'] = 'informes/reporte_evaluador_view';
 
 		$data['sedeoperativa'] = $this->operativa_model->get_sede_operativa();		
 		$this->load->view('backend/includes/template', $data);
 	}
-
-	public function obtenerprovoperativa()
-	{
-		$this->load->model('segmentaciones/operativa_model');
-		$this->load->helper('form');
-		$provope = $this->operativa_model->get_provincia_operativa($_POST['codsede']);
-		$provArray = array();
-		foreach($provope->result() as $filas)
-		{
-			$provArray[$filas->cod_prov_operativa]=utf8_encode(strtoupper($filas->prov_operativa_ugel));
-		}
-		echo form_dropdown('provoperativa', $provArray, '#', 'id="provoperativa"');		
-	}
-
 
 	public function obtenreporte()
 	{

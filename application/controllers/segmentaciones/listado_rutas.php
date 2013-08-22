@@ -38,7 +38,7 @@ class Listado_rutas extends CI_Controller {
 		$this->load->model('segmentaciones/operativa_model');
 		$this->load->model('segmentaciones/rutas_model');
 		
-		$data['option'] = 3;
+		$data['option'] = 4;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Listado de Rutas por Provincia Operativa';
 		$data['main_content'] = 'informes/listarutas_view';
@@ -46,20 +46,6 @@ class Listado_rutas extends CI_Controller {
 		$data['sedeoperativa'] = $this->operativa_model->get_sede_operativa();		
 		$this->load->view('backend/includes/template', $data);
 	}
-
-	public function obtenerprovoperativa()
-	{
-		$this->load->model('segmentaciones/operativa_model');
-		$this->load->helper('form');
-		$provope = $this->operativa_model->get_provincia_operativa($_POST['codsede']);
-		$provArray = array();
-		foreach($provope->result() as $filas)
-		{
-			$provArray[$filas->cod_prov_operativa]=utf8_encode(strtoupper($filas->prov_operativa_ugel));
-		}
-		echo form_dropdown('provoperativa', $provArray, '#', 'id="provoperativa"');		
-	}
-
 
 	public function obtenreporte()
 	{
