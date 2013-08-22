@@ -63,7 +63,7 @@ class Csvexport extends CI_Controller {
 		$count = $this->rutas_model->contar_datos($where1);
 
 		//$data['cantidad'] = $count;
-		$query = $this->rutas_model->report_rutasprovincia($sidx, 'asc', '0', $count, $where1);
+		$query = $this->rutas_model->report_evaluador($sidx, 'asc', '0', $count, $where1);
 		//$data['consulta'] = $query;
 
 
@@ -402,6 +402,20 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->periodo,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->fxinicio);
 			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->fxfinal);
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->traslado);
+			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->trabajo_supervisor);
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->recuperacion);
+			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->retornosede);
+			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->gabinete);
+			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->descanso);
+			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->totaldias);
+			  		$sheet->getCellByColumnAndRow(17, $row)->setValue($filas->movilocal_ma);
+			  		$sheet->getCellByColumnAndRow(18, $row)->setValue($filas->gastooperativo_ma);
+			  		$sheet->getCellByColumnAndRow(19, $row)->setValue($filas->movilocal_af);
+			  		$sheet->getCellByColumnAndRow(20, $row)->setValue($filas->gastooperativo_af);
+			  		$sheet->getCellByColumnAndRow(21, $row)->setValue($filas->pasaje);
+			  		$sheet->getCellByColumnAndRow(22, $row)->setValue($filas->total_af);
+			  		/*
 			  		$sheet->getCellByColumnAndRow(10, $row)->setValueExplicit($filas->traslado,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(11, $row)->setValueExplicit($filas->trabajo_supervisor,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(12, $row)->setValueExplicit($filas->recuperacion,PHPExcel_Cell_DataType::TYPE_NUMERIC);
@@ -415,6 +429,7 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(20, $row)->setValueExplicit($filas->gastooperativo_af,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(21, $row)->setValueExplicit($filas->pasaje,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(22, $row)->setValueExplicit($filas->total_af,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		*/
 			  		$sheet->getCellByColumnAndRow(23, $row)->setValue(utf8_encode($filas->observaciones));
 
 				//}
@@ -448,18 +463,19 @@ class Csvexport extends CI_Controller {
 
 			$sheet->getStyle('X'.$inicio_s.':X'.$fin_s)->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
 
-			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
-			$sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
-			$sheet->setCellValue('M'. $celda_s ,'=SUM(M'.$inicio_s.':M'.$fin_s.')');
-			$sheet->setCellValue('N'. $celda_s ,'=SUM(N'.$inicio_s.':N'.$fin_s.')');
-			$sheet->setCellValue('O'. $celda_s ,'=SUM(O'.$inicio_s.':O'.$fin_s.')');
-			$sheet->setCellValue('P'. $celda_s ,'=SUM(P'.$inicio_s.':P'.$fin_s.')');
-			$sheet->setCellValue('Q'. $celda_s ,'=SUM(Q'.$inicio_s.':Q'.$fin_s.')');
-			$sheet->setCellValue('T'. $celda_s ,'=SUM(T'.$inicio_s.':T'.$fin_s.')');
-			$sheet->setCellValue('U'. $celda_s ,'=SUM(U'.$inicio_s.':U'.$fin_s.')');
-			$sheet->setCellValue('V'. $celda_s ,'=SUM(V'.$inicio_s.':V'.$fin_s.')');
-			$sheet->setCellValue('W'. $celda_s ,'=SUM(W'.$inicio_s.':W'.$fin_s.')');
 
+			$sheet->setCellValue('K'. $celda_s ,'=IF(SUM(K'.$inicio_s.':K'.$fin_s.')>0,SUM(K'.$inicio_s.':K'.$fin_s.')," ")');
+
+			$sheet->setCellValue('L'. $celda_s ,'=IF(SUM(L'.$inicio_s.':L'.$fin_s.')>0,SUM(L'.$inicio_s.':L'.$fin_s.')," ")');
+			$sheet->setCellValue('M'. $celda_s ,'=IF(SUM(M'.$inicio_s.':M'.$fin_s.')>0,SUM(M'.$inicio_s.':M'.$fin_s.')," ")');
+			$sheet->setCellValue('N'. $celda_s ,'=IF(SUM(N'.$inicio_s.':N'.$fin_s.')>0,SUM(N'.$inicio_s.':N'.$fin_s.')," ")');
+			$sheet->setCellValue('O'. $celda_s ,'=IF(SUM(O'.$inicio_s.':O'.$fin_s.')>0,SUM(O'.$inicio_s.':O'.$fin_s.')," ")');
+			$sheet->setCellValue('P'. $celda_s ,'=IF(SUM(P'.$inicio_s.':P'.$fin_s.')>0,SUM(P'.$inicio_s.':P'.$fin_s.')," ")');
+			$sheet->setCellValue('Q'. $celda_s ,'=IF(SUM(Q'.$inicio_s.':Q'.$fin_s.')>0,SUM(Q'.$inicio_s.':Q'.$fin_s.')," ")');
+			$sheet->setCellValue('T'. $celda_s ,'=IF(SUM(T'.$inicio_s.':T'.$fin_s.')>0,SUM(T'.$inicio_s.':T'.$fin_s.')," ")');
+			$sheet->setCellValue('U'. $celda_s ,'=IF(SUM(U'.$inicio_s.':U'.$fin_s.')>0,SUM(U'.$inicio_s.':U'.$fin_s.')," ")');
+			$sheet->setCellValue('V'. $celda_s ,'=IF(SUM(V'.$inicio_s.':V'.$fin_s.')>0,SUM(V'.$inicio_s.':V'.$fin_s.')," ")');
+			$sheet->setCellValue('W'. $celda_s ,'=IF(SUM(W'.$inicio_s.':W'.$fin_s.')>0,SUM(W'.$inicio_s.':W'.$fin_s.')," ")');
 			// $sheet->mergeCells('Q'.$celda_s.':S'.$celda_s);
 			// $sheet->mergeCells('Y'.$celda_s.':X'.$celda_s);
 
@@ -859,18 +875,18 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->periodo_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->fxinicio_jb);
 			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->fxfinal_jb);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValueExplicit($filas->traslado_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(11, $row)->setValueExplicit($filas->trabajo_supervisor_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValueExplicit($filas->retornosede_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(13, $row)->setValueExplicit($filas->gabinete_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValueExplicit($filas->descanso_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(15, $row)->setValueExplicit($filas->totaldias_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValueExplicit($filas->movilocal_ma_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(17, $row)->setValueExplicit($filas->gastooperativo_ma_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(18, $row)->setValueExplicit($filas->movilocal_af_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(19, $row)->setValueExplicit($filas->gastooperativo_af_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(20, $row)->setValueExplicit($filas->pasaje_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
-			  		$sheet->getCellByColumnAndRow(21, $row)->setValueExplicit($filas->total_af_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->traslado_jb);
+			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->trabajo_supervisor_jb);
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->retornosede_jb);
+			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->gabinete_jb);
+			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->descanso_jb);
+			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->totaldias_jb);
+			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->movilocal_ma_jb);
+			  		$sheet->getCellByColumnAndRow(17, $row)->setValue($filas->gastooperativo_ma_jb);
+			  		$sheet->getCellByColumnAndRow(18, $row)->setValue($filas->movilocal_af_jb);
+			  		$sheet->getCellByColumnAndRow(19, $row)->setValue($filas->gastooperativo_af_jb);
+			  		$sheet->getCellByColumnAndRow(20, $row)->setValue($filas->pasaje_jb);
+			  		$sheet->getCellByColumnAndRow(21, $row)->setValue($filas->total_af_jb);
 			  		$sheet->getCellByColumnAndRow(22, $row)->setValue(utf8_encode($filas->observaciones_jb));
 				//}
 				 $col = 2;
@@ -903,16 +919,16 @@ class Csvexport extends CI_Controller {
 
 			$sheet->getStyle('W'.$inicio_s.':W'.$fin_s)->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
 
-			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
-			$sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
-			$sheet->setCellValue('M'. $celda_s ,'=SUM(M'.$inicio_s.':M'.$fin_s.')');
-			$sheet->setCellValue('N'. $celda_s ,'=SUM(N'.$inicio_s.':N'.$fin_s.')');
-			$sheet->setCellValue('O'. $celda_s ,'=SUM(O'.$inicio_s.':O'.$fin_s.')');
-			$sheet->setCellValue('P'. $celda_s ,'=SUM(P'.$inicio_s.':P'.$fin_s.')');
-			$sheet->setCellValue('S'. $celda_s ,'=SUM(S'.$inicio_s.':S'.$fin_s.')');
-			$sheet->setCellValue('T'. $celda_s ,'=SUM(T'.$inicio_s.':T'.$fin_s.')');
-			$sheet->setCellValue('U'. $celda_s ,'=SUM(U'.$inicio_s.':U'.$fin_s.')');
-			$sheet->setCellValue('V'. $celda_s ,'=SUM(V'.$inicio_s.':V'.$fin_s.')');
+			$sheet->setCellValue('K'. $celda_s ,'=IF(SUM(K'.$inicio_s.':K'.$fin_s.')>0,SUM(K'.$inicio_s.':K'.$fin_s.')," ")');
+			$sheet->setCellValue('L'. $celda_s ,'=IF(SUM(L'.$inicio_s.':L'.$fin_s.')>0,SUM(L'.$inicio_s.':L'.$fin_s.')," ")');
+			$sheet->setCellValue('M'. $celda_s ,'=IF(SUM(M'.$inicio_s.':M'.$fin_s.')>0,SUM(M'.$inicio_s.':M'.$fin_s.')," ")');
+			$sheet->setCellValue('N'. $celda_s ,'=IF(SUM(N'.$inicio_s.':N'.$fin_s.')>0,SUM(N'.$inicio_s.':N'.$fin_s.')," ")');
+			$sheet->setCellValue('O'. $celda_s ,'=IF(SUM(O'.$inicio_s.':O'.$fin_s.')>0,SUM(O'.$inicio_s.':O'.$fin_s.')," ")');
+			$sheet->setCellValue('P'. $celda_s ,'=IF(SUM(P'.$inicio_s.':P'.$fin_s.')>0,SUM(P'.$inicio_s.':P'.$fin_s.')," ")');
+			$sheet->setCellValue('S'. $celda_s ,'=IF(SUM(S'.$inicio_s.':S'.$fin_s.')>0,SUM(S'.$inicio_s.':S'.$fin_s.')," ")');
+			$sheet->setCellValue('T'. $celda_s ,'=IF(SUM(T'.$inicio_s.':T'.$fin_s.')>0,SUM(T'.$inicio_s.':T'.$fin_s.')," ")');
+			$sheet->setCellValue('U'. $celda_s ,'=IF(SUM(U'.$inicio_s.':U'.$fin_s.')>0,SUM(U'.$inicio_s.':U'.$fin_s.')," ")');
+			$sheet->setCellValue('V'. $celda_s ,'=IF(SUM(V'.$inicio_s.':V'.$fin_s.')>0,SUM(V'.$inicio_s.':V'.$fin_s.')," ")');
 
 
 	     	$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);

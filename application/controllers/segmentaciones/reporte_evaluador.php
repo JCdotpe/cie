@@ -100,7 +100,7 @@ class Reporte_evaluador extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->rutas_model->report_rutasprovincia($sidx, $sord, $row_inicio, $row_final, $where1);
+		$resultado = $this->rutas_model->report_evaluador($sidx, $sord, $row_inicio, $row_final, $where1);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;

@@ -98,16 +98,16 @@ class Rutas_Model extends CI_Model {
 		return $q;
     }
 	
-	function report_rutasprovincia($ord, $ascdesc, $inicio, $final, $condicion1)
+	function report_evaluador($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT NomDept, NomProv, NomDist, centroPoblado, codlocal, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo, fxinicio, fxfinal, traslado, trabajo_supervisor, recuperacion, retornosede, gabinete, descanso, totaldias, movilocal_ma, gastooperativo_ma, movilocal_af, gastooperativo_af, pasaje, total_af, observaciones, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT NomDept, NomProv, NomDist, centroPoblado, codlocal, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo, fxinicio, fxfinal, rtrim(traslado) as traslado, rtrim(trabajo_supervisor) as trabajo_supervisor, rtrim(recuperacion) as recuperacion, rtrim(retornosede) as retornosede, rtrim(gabinete) as gabinete, rtrim(descanso) as descanso, rtrim(totaldias) as totaldias, rtrim(movilocal_ma) as movilocal_ma, rtrim(gastooperativo_ma) as gastooperativo_ma, rtrim(movilocal_af) as movilocal_af, rtrim(gastooperativo_af) as gastooperativo_af, rtrim(pasaje) as pasaje, rtrim(total_af) as total_af, observaciones, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);
 		return $q;
 	}	    
 
 	function report_jefebrigada($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT nombre_dpto, nombre_provincia, nombre_distrito, centroPoblado, codigo_de_local, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo_jb, fxinicio_jb, fxfinal_jb, traslado_jb, trabajo_supervisor_jb, retornosede_jb, gabinete_jb, descanso_jb, totaldias_jb, movilocal_ma_jb, gastooperativo_ma_jb, movilocal_af_jb, gastooperativo_af_jb, pasaje_jb, total_af_jb, observaciones_jb, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_info_jefebrigada $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT nombre_dpto, nombre_provincia, nombre_distrito, centroPoblado, codigo_de_local, sede_operativa, prov_operativa_ugel, cod_jefebrigada, periodo_jb, fxinicio_jb, fxfinal_jb, rtrim(traslado_jb) as traslado_jb, rtrim(trabajo_supervisor_jb) as trabajo_supervisor_jb, rtrim(retornosede_jb) as retornosede_jb, rtrim(gabinete_jb) as gabinete_jb, rtrim(descanso_jb) as descanso_jb, rtrim(totaldias_jb) as totaldias_jb, rtrim(movilocal_ma_jb) as movilocal_ma_jb, rtrim(gastooperativo_ma_jb) as gastooperativo_ma_jb, rtrim(movilocal_af_jb) as movilocal_af_jb, rtrim(gastooperativo_af_jb) as gastooperativo_af_jb, rtrim(pasaje_jb) as pasaje_jb, rtrim(total_af_jb) as total_af_jb, observaciones_jb, idruta FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_info_jefebrigada $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);
 		return $q;
 	}	    
