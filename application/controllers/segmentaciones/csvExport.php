@@ -13,7 +13,7 @@ class Csvexport extends CI_Controller {
 	}
 
 
-	public function ExportacionRutasProvOperativa()
+	public function ExportacionEvaluador()
 	{
 		$this->load->model('segmentaciones/rutas_model');
 		//colores
@@ -33,7 +33,7 @@ class Csvexport extends CI_Controller {
 
 		$where1 = "";
 
-		$sidx = "convert(datetime,fxinicio), prov_operativa_ugel";
+		$sidx = "convert(datetime,fxinicio,103), prov_operativa_ugel";
 		
 		if(isset($_GET['codsede'])) { 
 			$sede = $this->input->get('codsede');
@@ -606,7 +606,7 @@ class Csvexport extends CI_Controller {
 				    );
     	//colores
 
-		$sidx = "convert(datetime,fxinicio_jb), prov_operativa_ugel";
+		$sidx = "convert(datetime,fxinicio_jb,103), prov_operativa_ugel";
 		
 		if(isset($_GET['codsede'])) { 
 			$sede = $this->input->get('codsede');			

@@ -159,7 +159,7 @@
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 	        document.forms[0].method='POST';
-	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionRutasProvOperativa?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta;
+	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionEvaluador?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta;
 	        document.forms[0].target='_blank';
 	        document.forms[0].submit();
     	}

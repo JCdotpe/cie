@@ -74,9 +74,23 @@ class Operativa_Model extends CI_Model {
 	{
 		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
+		return $q; 
+	}
+/*
+	public function get_avance($data)
+	{
+		$sql="SELECT nro_visita, convert(char,fecha_visita,103) as fecha_visita, estado, especifique FROM avance WHERE codlocal = '".$data['codlocal']."' and nro_visita = ".$data['nro_visita']."";
+		$q = $this->db->query($sql);
 		return $q;
 	}
 
+	public function del_avance($data)
+	{
+		$sql="DELETE FROM avance WHERE codlocal = '".$data['codlocal']."' and nro_visita = ".$data['nro_visita']."";
+		$this->db->query($sql);
+		return $this->db->affected_rows();
+	}
+*/
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

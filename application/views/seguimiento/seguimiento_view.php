@@ -85,14 +85,7 @@
 						</div>
 					</div>
 				</div>
-				<!--
-				<div class="span1">
-					<?php #echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
-				</div>
-				-->
 			</div>
-			<!--
-			<input type="hidden" name="user" id="user" value="<?php #echo $user_id; ?>" />-->
 			<?php echo form_close(); ?>
 		</div>
 		<div class="row-fluid">
@@ -186,12 +179,6 @@
 					</div>
 				</div>
 			</div>
-			<!--
-			<div class="span4" id="alerta" style="display: none">
-				<div class="alert alert-danger">
-					<strong>Alerta!</strong> Ya existe la fecha.
-				</div>
-			</div>-->
 		</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>		
@@ -232,19 +219,17 @@
 			},			
 			sortorder: "asc",
 			caption:"Lista de Locales"
-			//editurl:"registro_rutas/eliminar"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
 	});
 
-function savedetalle(values)
-{
-        //$("#alerta").hide();
-        $('#codigo').val(values);
-        ver_detalle_avance(values);
-        $("#add-detalle-modal").modal('show');
-}
+	function savedetalle(values)
+	{
+			$('#codigo').val(values);
+			ver_detalle_avance(values);
+			$("#add-detalle-modal").modal('show');
+	}
 
 	$(document).ready(function() {
 		jQuery("#list3").jqGrid({
@@ -258,39 +243,51 @@ function savedetalle(values)
 				{name:'codlocal',index:'codlocal', align:"center"},
 				{name:'NEstado',index:'estado', align:"center"},
 				{name:'fecha_visita',index:'fecha_visita', align:"center"}
+				//{name:'modificar',index:'modificar', align:"center"},
+				//{name:'eliminar',index:'eliminar', align:"center"}
 			],
 			pager: '#pager3',
 			rowNum:10,
 			rowList:[10,15,20],
-			sortname: 'codlocal',
+			sortname: 'fecha_visita',
 			viewrecords: true,
+			/*gridComplete: function(){
+				var ids = jQuery("#list3").jqGrid('getDataIDs');
+				for(var i=0;i < ids.length;i++){
+					var cl = ids[i];
+					//bi = "<input type='button' value='Modificar' onclick=modificar_avance('"+cl+"') />";
+					//be = "<input type='button' value='Eliminar' onclick=eliminar_avance('"+cl+"') />";
+
+					//jQuery("#list3").jqGrid('setRowData',ids[i],{modificar:bi});
+					//jQuery("#list3").jqGrid('setRowData',ids[i],{eliminar:be});
+				}
+			},*/
 			sortorder: "asc",
-			caption:"Lista de Visitas"
-			//editurl:"registro_rutas/eliminar"
+			caption:"Lista de Avances"
 		});
 		jQuery("#list3").jqGrid('navGrid','#pager3',{edit:false,add:false,del:false,search:false});
 		$("#list3").setGridWidth($('#grid_content_detail').width(), true);
 	});
 
-function activar_especifique() 
-{
-	$("#especifique").val('');
-	var codestado = $("#estado").val();
-	if (codestado == 4)
+	function activar_especifique() 
 	{
-		if ($("#especifique").attr('disabled'))
+		$("#especifique").val('');
+		var codestado = $("#estado").val();
+		if (codestado == 4)
 		{
-			$("#especifique").removeAttr('disabled');
+			if ($("#especifique").attr('disabled'))
+			{
+				$("#especifique").removeAttr('disabled');
+			}
+		}else{
+			$("#especifique").attr({'disabled':'disabled'});
 		}
-	}else{
-		$("#especifique").attr({'disabled':'disabled'});
 	}
-}
 
-function ver_detalle_avance(codigo)
-{
-	jQuery("#list3").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
-}
+	function ver_detalle_avance(codigo)
+	{
+		jQuery("#list3").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
+	}
 
 	function frm_ValidarAvance()
 	{
@@ -325,20 +322,59 @@ function ver_detalle_avance(codigo)
 			data: form_data,
 
 			success: function(data){
-				if (data==0)
-				{
-					$("#fecha_avance").val('');
-					$("#estado").val('');
-					$("#especifique").val('');
-					$("#list3").trigger("reloadGrid");
-					$("#list2").trigger("reloadGrid");
-					alert("Registro de Avance guardado!");
-				}else{
-					alert("Error, Fecha ya Registrada!");
-				}
+				$("#fecha_avance").val('');
+				$("#estado").val('');
+				$("#especifique").val('');
+				$("#list3").trigger("reloadGrid");
+				$("#list2").trigger("reloadGrid");
+				alert("Avance Guardado!");
 			}
 		});
 	}
+/*
+	function modificar_avance(values)
+	{
+		var codigo = $('#codigo').val();
+		var id = values;
+
+		$.ajax({
+			type: "POST",
+			url: "seguimiento/seguimiento/Modificar_Avance",
+			datatype: "json",
+			data: "codigo="+codigo+"&id="+id,
+			cache: false,
+			success: function(data){
+				//if (data.cantidad>0)
+				//{
+					$("#fecha_avance").val(data.fecha_visita);
+					//$("#fecha_avance").attr({'disabled':'disabled'});
+					$("#especifique").val(data.especifique);
+				//}				
+			}
+		});
+		return false;
+	}
+
+	function eliminar_avance(values)
+	{
+		var codigo = $('#codigo').val();
+		var id = values;
+
+		$.ajax({
+			type: "POST",
+			url: "seguimiento/seguimiento/Eliminar_Avance",
+			datatype: "json",
+			data: "codigo="+codigo+"&id="+id,
+			cache: false,
+			success: function(data){
+				if (data>0)
+				{
+					$("#list3").trigger("reloadGrid");
+					alert("Avance eliminado!");
+				}
+			}
+		});
+	}*/
 
 //*******************************************************
 	function IsNumeric(valor) 

@@ -517,6 +517,7 @@ function rutas_form()
           $("#frm_registro :input").val('');
           $("#list2").trigger("reloadGrid");
           alert("Local Asignado a Ruta Satisfactoriamente"); 
+          $("#codigolocal").focus();
           //$("#t_regs2").dataTable().fnDraw();
         }
     });
@@ -704,6 +705,7 @@ function jefebrigada_form()
           $("#frm_registro :input").val('');
           $("#list2").trigger("reloadGrid");
           alert("Datos Guardados Satisfactoriamente");
+          $("#codigolocal").focus();
         }
     });
 }

@@ -186,9 +186,9 @@ class Seguimiento extends CI_Controller {
 		$fecha_visita=$this->input->post('fecha_avance');
 		$especifique=$this->input->post('especifique');
 
-		$repite = $this->operativa_model->repite_fecha_avance($codlocal,$fecha_visita);
-		if ($repite == 0)
-		{
+		//$repite = $this->operativa_model->repite_fecha_avance($codlocal,$fecha_visita);
+		//if ($repite == 0)
+		//{
 			$c_data = array(
 				'codlocal'=>$codlocal,
 				'nro_visita'=>$nro_visitas,
@@ -198,7 +198,7 @@ class Seguimiento extends CI_Controller {
 				'usu_registra'=> $this->input->post('usuario')
 			);
 			$this->operativa_model->insert_avance($c_data);
-		}
+		//}
 		
 		$jsonData = json_encode($repite);
 		echo $jsonData;
@@ -252,6 +252,46 @@ class Seguimiento extends CI_Controller {
 		$jsonData = json_encode($respuesta);
 		echo $jsonData;
 	}
+	/*
+	public function Modificar_Avance()
+	{
+		$c_data = array(
+			'codlocal' => $this->input->post('codigo'),
+			'nro_visita' => $this->input->post('id')
+		);
+		
+		$resultado=$this->operativa_model->get_avance($c_data);
+		
+		if ($resultado->num_rows() > 0)
+		{
+			foreach ($resultado->result() as $fila)
+			{
+				$data['cantidad'] = 1;
+				$data['nro_visita'] = $fila->nro_visita;
+				$data['fecha_visita'] = $fila->fecha_visita;
+				$data['estado'] = $fila->estado;
+				$data['especifique'] = $fila->especifique;
+			}
+		}else{
+			$data['cantidad'] = 0;
+		}
+
+		$jsonData = json_encode($data);
+		echo $jsonData;
+	}
+
+	public function Eliminar_Avance()
+	{
+		$c_data = array(
+			'codlocal' => $this->input->post('codigo'),
+			'nro_visita' => $this->input->post('id')
+		);
+		
+		$listo=$this->operativa_model->del_avance($c_data);
+		
+		$jsonData = json_encode($listo);
+		echo $jsonData;
+	}*/
 
 }
 
