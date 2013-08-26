@@ -16,13 +16,13 @@ function Get_Cap06(cod_local,predio){
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
-					html+='<table class="table table-hover" style="width:900px; height:20px; overflow:auto;"> '+
+					html+='<table class="table table-hover" style="width:900px; height:150px; overflow:auto;"> '+
 		  	    			'<tbody>'+
 		  	    				'<tr>'+
-		  	    					'<td style="text-align:center">'+ i +'.</td>'+
-		  	    					'<td style="text-align:center">'+ val.P6_1N_2_Cod_E +'</td>'+
-		  	    					'<td style="text-align:center">'+ val.P6_1N_3 +'</td>'+
-		  	    					'<td style="text-align:center">'+ val.P6_1N_4 +'</td>'+
+		  	    					'<td>'+ i +'.</td>'+
+		  	    					'<td>'+ val.P6_1N_2_Cod_E +'</td>'+
+		  	    					'<td>'+ val.P6_1N_3 +'</td>'+
+		  	    					'<td>'+ val.P6_1N_4 +'</td>'+
 		  	    				'</tr>'+
 		  	    			'</tbody></table>';
 		  	    	i++;
