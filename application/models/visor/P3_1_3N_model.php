@@ -4,7 +4,7 @@
 capitulo 5
 
 */
-class P3_1_N_model extends CI_MODEL{
+class P3_1_3N_model extends CI_MODEL{
 
     /*
         iNSERT.

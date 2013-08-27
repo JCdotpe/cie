@@ -16,8 +16,16 @@
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
 require APPPATH.'/libraries/REST_Controller.php';
 
+
+
 class cap3 extends REST_Controller
 {
+    function __construct(){
+        parent::__construct();
+        $this->load->model('visor/P3_1_3N_model');
+        $this->load->model('visor/P3_1_model');
+        $this->load->model('visor/m_tablet_model');
+    }
 	function user_get()
     {
         if(!$this->get('id'))
@@ -54,6 +62,7 @@ class cap3 extends REST_Controller
 
         $this->response($message, 200); // 200 being the HTTP response code
     }
+
 
     function user_delete()
     {
@@ -92,6 +101,9 @@ class cap3 extends REST_Controller
 
 	public function send_put()
 	{
-		var_dump($this->put('foo'));
+		//var_dump($this->put('foo'));
+            $data=array('codigo_IMEI' => 1, 'estado' => 1, 'observacion' => 'hola');
+            $flag = $this->m_tablet_model->insert($data);
+
 	}
 }

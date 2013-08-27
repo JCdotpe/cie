@@ -40,6 +40,7 @@
 $autoload['packages'] = array();
 
 
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Libraries
@@ -53,7 +54,7 @@ $autoload['packages'] = array();
 */
 
 $autoload['libraries'] = array('database', 'session','user_agent');
-
+$autoload['libraries'] = array('rest');
 
 /*
 | -------------------------------------------------------------------
