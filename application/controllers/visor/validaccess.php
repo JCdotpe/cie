@@ -24,20 +24,38 @@ class validaccess extends REST_Controller
     function __construct(){
         parent::__construct();        
         $this->load->model('visor/m_tablet_model');
+        $this->load->library('tank_auth');
+        $this->lang->load('tank_auth');
+    }
+	    
+	public function access_get($imei)
+	{
+        /*$bool=false;
+        $response="";
+        if ($this->tank_auth->is_logged_in()) {            
+
+            $bool=true;
+            $response='[{"status":1,"comment":"valido"}]';
+
+        }else{
+*/
+            //$data=$this->m_tablet_model->count($this->get('imei'));
+            $data=$this->m_tablet_model->count($imei);
+            var_dump($data);
+
+  //      }
+
+	}
+
+    public function verified_auth(){
+
+        $bool=false;
+
+        if ($this->tank_auth->is_logged_in()) {            
+            $bool=true;
+        }
+        
+
     }
 
-	    
-	public function send_post()
-	{
-		var_dump($this->request->body);
-	}
-
-
-	public function send_put()
-	{
-		//var_dump($this->put('foo'));
-            $data=array('codigo_IMEI' => 1, 'estado' => 1, 'observacion' => 'hola');
-            $flag = $this->m_tablet_model->insert($data);
-
-	}
 }
