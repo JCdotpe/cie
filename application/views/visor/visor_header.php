@@ -61,7 +61,7 @@
 
 	    function cargarProv(){
 
-		    var doLoginMethodUrl = urlRoot()+'seleccion/aprobacioncv/obtenerprovincia';
+		    var doLoginMethodUrl = urlRoot()+'informes/coberturapea/obtenerprovincia';
 		    var id_depa = $("#departamento").val();
 
 
@@ -82,13 +82,15 @@
 		      type: "POST",
 		      url: doLoginMethodUrl,
 		      data: "id_depa="+id_depa,
-		      success: function(provinciaResponse){
+		      dataType:'json',
+		      success: function(json_data){
 
-		      	console.log(provinciaResponse);
-		        $("#provincia").empty().append($(provinciaResponse).find("option")).attr({
+		        $("#provincia").empty().attr({
 		   			disabled: false,
 		   		});
-
+				$.each(json_data, function(i, data){
+					$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+				});
 		        $("#provincia").prepend("<option value='0' selected='true'>Seleccione...</value>");
 
 		      }

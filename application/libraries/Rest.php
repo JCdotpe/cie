@@ -47,8 +47,8 @@ class REST
 
     function __construct($config = array())
     {
-        $this->_ci =& get_instance();
-        log_message('debug', 'REST Class Initialized');
+		$this->_ci =& get_instance();
+		log_message('debug', 'REST Class Initialized');
 
 		/* Not using Sparks? You bloody well should be.
 		| If you are going to be a stick in the mud then do it the old fashioned way

@@ -9,9 +9,12 @@ function cargarProvBySede()
 		type: "POST",
 		url: doLoginMethodUrl,
 		data: "id_sede="+id_sede+"&id_dpto="+id_dpto,
-		success: function(provinciaResponse){
-			console.log(provinciaResponse);
-			$("#provincia").empty().append($(provinciaResponse).find("option"));
+		dataType:'json',
+		success: function(json_data){
+			$("#provincia").empty();
+			$.each(json_data, function(i, data){
+          		$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+        	});
 			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 		}
 	});

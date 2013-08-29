@@ -532,13 +532,15 @@ function cargarProvOpe()
       type: "POST",
       url: doLoginMethodUrl,
       data: "codsede="+id_sede,
-      success: function(provinciaResponse){
-        console.log(provinciaResponse);
-        $("#provoperativa").empty().append($(provinciaResponse).find("option"));
+      dataType:'json',
+      success:function(json_data){
+        $("#provoperativa").empty();
+        $.each(json_data, function(i, data){
+          $("#provoperativa").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+        });
         $("#provoperativa").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-
         $("#jefebrigada").empty().append("<option value='-1' selected='true'></value>");
-      }
+      }      
     });
 }
 
@@ -551,9 +553,12 @@ function cargar_JB()
       type: "POST",
       url: doLoginMethodUrl,
       data: "sedeope="+id_sedeope+"&provope="+id_provope,
-      success: function(jefebrigadaResponse){
-        console.log(jefebrigadaResponse);
-        $("#jefebrigada").empty().append($(jefebrigadaResponse).find("option"));
+      dataType:'json',
+      success: function(json_data){
+        $("#jefebrigada").empty();
+        $.each(json_data, function(i, data){
+          $("#jefebrigada").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+        });
         $("#jefebrigada").prepend("<option value='-1' selected='true'>Seleccione...</value>");
       }
     });

@@ -53,7 +53,7 @@
 					<div class="control-group">
 						<?php echo form_label('Provincia', 'provincia', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia" onChange="cargarDist();"'); ?>
+							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia"'); ?>
 						</div>
 					</div>
 				</div>				

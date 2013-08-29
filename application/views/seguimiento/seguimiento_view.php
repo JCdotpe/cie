@@ -191,7 +191,7 @@
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 			type:"POST",
-			url:'seguimiento/seguimiento/ver_datos',
+			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
 			colNames:['Nro', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Reentrevista'],
@@ -234,7 +234,7 @@
 	$(document).ready(function() {
 		jQuery("#list3").jqGrid({
 			type:"POST",
-			url:'seguimiento/seguimiento/ver_datos_avance',
+			url:'registro_seguimiento/ver_datos_avance',
 			datatype: "json",
 			height: 200,
 			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
@@ -286,7 +286,7 @@
 
 	function ver_detalle_avance(codigo)
 	{
-		jQuery("#list3").jqGrid('setGridParam',{url:"seguimiento/seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
+		jQuery("#list3").jqGrid('setGridParam',{url:"registro_seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
 	}
 
 	function frm_ValidarAvance()
@@ -318,7 +318,7 @@
 
 		$.ajax({
 			type: "POST",
-			url: "seguimiento/seguimiento/registro_avance",
+			url: "registro_seguimiento/registro_avance",
 			data: form_data,
 
 			success: function(data){
