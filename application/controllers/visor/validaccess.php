@@ -1,24 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Example
- *
- * This is an example of a few basic user interaction methods you could use
- * all done with a hardcoded array.
- *
- * @package		CodeIgniter
- * @subpackage	Rest Server
- * @category	Controller
- * @author		Phil Sturgeon
- * @link		http://philsturgeon.co.uk/code/
-*/
 
-// This can be removed if you use __autoload() in config.php OR use Modular Extensions
-require APPPATH.'/libraries/REST_Controller.php';
-
-
-
-class validaccess extends REST_Controller
+class validaccess extends CI_Controller
 {
 
     function __construct(){
@@ -28,34 +11,42 @@ class validaccess extends REST_Controller
         $this->lang->load('tank_auth');
     }
 	    
-	public function access_get($imei)
-	{
-        /*$bool=false;
+	
+    public function access_post($imei)
+    {
+        
+        $bool=false;
         $response="";
         if ($this->tank_auth->is_logged_in()) {            
 
             $bool=true;
             $response='[{"status":1,"comment":"valido"}]';
+            
 
         }else{
-*/
-            //$data=$this->m_tablet_model->count($this->get('imei'));
-            $data=$this->m_tablet_model->count($imei);
-            var_dump($data);
 
-  //      }
+            if($imei)  {  
+                $data=$this->m_tablet_model->count($imei);
+                foreach ($data->result() as $filas) {
 
-	}
+                    $total=$filas->total;
+                }
 
-    public function verified_auth(){
+                // valido que exista
+                if ($total>0){
+                    $response='[{"status":1,"comment":"valido"}]';
+                    $bool=true;
+                }else{
+                    $response='[{"status":2,"comment":"invalido"}]';
+                    $bool=false;
+                }
+            }else{
+                $bool=false;
+                $response='[{"status":3,"comment":"imei requerido"}]';
+            }            
 
-        $bool=false;
-
-        if ($this->tank_auth->is_logged_in()) {            
-            $bool=true;
         }
-        
-
-    }
+        return $bool;
+    }   
 
 }

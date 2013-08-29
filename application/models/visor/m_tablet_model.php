@@ -17,8 +17,9 @@ class m_tablet_model extends CI_MODEL{
 
     function count($codigo){
 
-    	$sql = "SELECT count(*) FROM m_tablet where codigo_IMEI=$codigo";
-
+    	$sql = "SELECT count(*) as total FROM m_tablet where codigo_IMEI=?";
+        $q=$this->db->query($sql,array($codigo));
+        return $q;
     }
 
 }
