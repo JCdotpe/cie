@@ -72,8 +72,7 @@ class cap3 extends REST_Controller
         $this->response($message, 200); // 200 being the HTTP response code
     }
 
-    function users_get()
-    {
+    function users_get(){
         //$users = $this->some_model->getSomething( $this->get('limit') );
         $users = array(
 			array('id' => 1, 'name' => 'Some Guy', 'email' => 'example1@example.com'),
