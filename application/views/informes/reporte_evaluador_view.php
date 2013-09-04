@@ -27,6 +27,26 @@
 		'onpaste' => 'return false;',	
 		'onkeypress' => 'return validar_numeros(event)'
 	);
+
+	$txtPeriodo_Uno =array(
+		'name'	=> 'periodo_uno',
+		'id'	=> 'periodo_uno',
+		'value'	=> set_value('periodo_uno'),
+		'maxlength'	=> 2,	
+		'style' => 'width: 30px;',	
+		'onpaste' => 'return false;',	
+		'onkeypress' => 'return validar_numeros(event)'
+	);
+
+	$txtPeriodo_Dos =array(
+		'name'	=> 'periodo_dos',
+		'id'	=> 'periodo_dos',
+		'value'	=> set_value('periodo_dos'),
+		'maxlength'	=> 2,	
+		'style' => 'width: 30px;',	
+		'onpaste' => 'return false;',	
+		'onkeypress' => 'return validar_numeros(event)'
+	);
 ?>
 
 <div class="row-fluid">
@@ -60,7 +80,16 @@
 							<?php echo form_input($txtCodRuta); ?>			
 						</div>
 					</div>
-				</div>				
+				</div>
+				<div class="span2">
+					<div class="control-group">
+						<?php echo form_label('Periodos', 'periodos', $label_class); ?>
+						<div class="controls">
+							<?php echo form_input($txtPeriodo_Uno); ?> -
+							<?php echo form_input($txtPeriodo_Dos); ?>
+						</div>
+					</div>
+				</div>
 				<div class="span1">
 					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>
@@ -68,7 +97,9 @@
 			<input type="hidden" name="cod_sede" id="cod_sede" value="" />
 			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
 			<input type="hidden" name="cod_ruta" id="cod_ruta" value="" />
-			<?php echo form_close(); ?>			
+			<input type="hidden" name="periodo_1" id="periodo_1" value="" />
+			<input type="hidden" name="periodo_2" id="periodo_2" value="" />
+			<?php echo form_close(); ?>
 		</div>
 		<div id="grid_content" class="span12">
 			<div class="span6">
@@ -136,15 +167,19 @@
 		var codsede = $("#sedeoperativa").val();
 		var codprov = $("#provoperativa").val();
 		var codruta = $("#codruta").val();
+		var periodo_1 = $("#periodo_uno").val();
+		var periodo_2 = $("#periodo_dos").val();
 
-		if (codsede == -1 || codprov == -1 || codruta == "" )
-		{ alert("Debe Seleccionar una Sede y Provincia Operativa, y Codigo de Ruta"); 
+		if (codsede == -1 || codprov == -1 || codruta == "" || periodo_uno == "" || periodo_dos == "")
+		{ alert("Faltan Datos para Realizar la Busqueda!");
 		}else{
 			$("#cod_sede").val(codsede);
 			$("#cod_prov").val(codprov);
 			$("#cod_ruta").val(codruta);
+			$("#periodo_1").val(periodo_1);
+			$("#periodo_2").val(periodo_2);
 
-			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_evaluador/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta,page:1}).trigger("reloadGrid");	
+			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_evaluador/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta+"&per_uno="+periodo_1+"&per_dos="+periodo_2,page:1}).trigger("reloadGrid");
 		}
 	}
 
@@ -153,13 +188,15 @@
         var codsede = $("#cod_sede").val();
 		var codprov = $("#cod_prov").val();
 		var codruta = $("#cod_ruta").val();
+		var periodo_1 = $("#periodo_1").val();
+		var periodo_2 = $("#periodo_2").val();
 
-		if (codsede == "" || codprov == "" || codruta == "" )
+		if (codsede == "" || codprov == "" || codruta == "" || periodo_1 == "" || periodo_2 == "")
 		{ 
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 	        document.forms[0].method='POST';
-	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionEvaluador?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta;
+	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionEvaluador?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta+"&per_uno="+periodo_1+"&per_dos="+periodo_2;
 	        document.forms[0].target='_blank';
 	        document.forms[0].submit();
     	}

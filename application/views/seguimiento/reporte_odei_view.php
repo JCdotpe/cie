@@ -39,7 +39,7 @@
 					<div class="control-group">
 						<?php echo form_label('Periodo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo"'); ?>
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" onChange="reportar();"'); ?>
 						</div>
 					</div>
 				</div>
@@ -48,8 +48,8 @@
 					<?php #echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>-->
 			</div>
-			<input type="hidden" name="cod_sede" id="cod_sede" value="" />
-			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
+			<input type="hidden" name="cod_odei" id="cod_odei" value="" />
+			<input type="hidden" name="cod_per" id="cod_per" value="" />
 			<?php echo form_close(); ?>
 		</div>
 		<div id="grid_content" class="span12">
@@ -72,22 +72,28 @@
 		   	url:'reporte_odei/obtenreporte',
 			datatype: "json",
 			height: 255,			
-		   	colNames:['Nro', 'Departamento', 'Provincia', 'Distrito', 'Centro Poblado', 'Codigo de Local', 'Sede Operativa', 'Provincia Operativa',  'Dirección'],
+		   	colNames:['Nro', 'ODEI', 'Total de Locales Escolares', 'Total Colegio Censados (Abs)', 'Total Colegio Censados (%)', 'Completa (Abs)', 'Completa (%)', 'Incompleta (Abs)',  'Incompleta (%)', 'Rechazo (Abs)',  'Rechazo (%)', 'Desocupada (Abs)',  'Desocupada (%)', 'Otro (Abs)',  'Otro (%)'],
 		   	colModel:[
 		   		{name:'nro_fila',sortable:false,width:25,align:"center"},
-		   		{name:'NomDept',index:'NomDept',align:"center"},
-		   		{name:'NomProv',index:'NomProv',align:"center"},
-		   		{name:'NomDist',index:'NomDist',align:"center"},
-		   		{name:'centroPoblado',index:'centroPoblado',align:"center"},
-		   		{name:'codigo_de_local',index:'codigo_de_local',align:"center"},
-		   		{name:'sede_operativa',index:'sede_operativa',align:"center"},
-		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel',align:"center"},
-		   		{name:'direccion',index:'direccion',align:"center"}
+		   		{name:'detadepen',index:'detadepen',align:"center"},
+		   		{name:'LocEscolares',index:'LocEscolares',align:"center"},
+		   		{name:'LocEscolar_Censado',index:'LocEscolar_Censado',align:"center"},
+		   		{name:'LocEscolar_Censado_Porc',index:'LocEscolar_Censado_Porc',align:"center"},
+		   		{name:'Completa',index:'Completa',align:"center"},
+		   		{name:'Completa_Porc',index:'Completa_Porc',align:"center"},
+		   		{name:'Incompleta',index:'Incompleta',align:"center"},
+		   		{name:'Incompleta_Porc',index:'Incompleta_Porc',align:"center"},
+		   		{name:'Rechazo',index:'Rechazo',align:"center"},
+		   		{name:'Rechazo_Porc',index:'Rechazo_Porc',align:"center"},
+		   		{name:'Desocupada',index:'Desocupada',align:"center"},
+		   		{name:'Desocupada_Porc',index:'Desocupada_Porc',align:"center"},
+		   		{name:'Otro',index:'Otro',align:"center"},
+		   		{name:'Otro_Porc',index:'Otro_Porc',align:"center"}
 		   	],
 		   	rowNum:10,
 		   	rowList:[10,20,30],
 		   	pager: '#pager2',
-		   	sortname: 'prov_operativa_ugel,codigo_de_local',
+		   	sortname: 'detadepen',
 		    viewrecords: true,
 		    sortorder: "asc",
 		    caption:"Datos del Reporte"		    
@@ -99,17 +105,17 @@
 
 	function reportar()
 	{
-		var codsede = $("#sedeoperativa").val();
-		var codprov = $("#provoperativa").val();
+		var cododei = $("#odei").val();
+		var codper = $("#periodo").val();
 		
-		if (codsede == -1 || codprov == -1)
+		if (cododei == -1 || codper == -1)
 		{ 
-			alert("Debe Seleccionar una Sede y Provincia Operativa"); 
+			alert("Debe Seleccionar ODEI y Periodo"); 
 		}else{
-			$("#cod_sede").val(codsede);
-			$("#cod_prov").val(codprov);
+			$("#cod_odei").val(cododei);
+			$("#cod_per").val(codper);
 
-			jQuery("#list2").jqGrid('setGridParam',{url:"local_sin_ruta/obtenreporte?codsede="+codsede+"&codprov="+codprov,page:1}).trigger("reloadGrid");	
+			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_odei/obtenreporte?odei="+cododei+"&periodo="+codper,page:1}).trigger("reloadGrid");
 		}
 	}
 

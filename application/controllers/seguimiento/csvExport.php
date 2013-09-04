@@ -10,12 +10,11 @@ class Csvexport extends CI_Controller {
 		$this->lang->load('tank_auth');
 		$this->load->helper('form');
 		$this->load->library('PHPExcel');
+		$this->load->model('seguimiento/operativa_model');
 	}
 
-
-	public function ExportacionEvaluador()
+	public function ExportacionODEI()
 	{
-		$this->load->model('segmentaciones/rutas_model');
 		//colores
 			//$color_celda_cabeceras = '27408B';
 
@@ -29,48 +28,34 @@ class Csvexport extends CI_Controller {
 
 		$cond1 = "";
 		$cond2 = "";
-		$cond3 = "";
 
 		$where1 = "";
 
-		$sidx = "convert(datetime,fxinicio,103), prov_operativa_ugel";
+		$sidx = "detadepen";
 		
-		if(isset($_GET['codsede'])) { 
-			$sede = $this->input->get('codsede');
-			if ($sede != -1) { 
-				$cond1 = "cod_sede_operativa = '$sede'";
+		if(isset($_GET['odei'])) { 
+			$odei = $this->input->get('odei');
+			if ($odei != -1) { 
+				$cond1 = "coddepe = '$odei'";
 			}
-		}else{ $sede = ""; 
-			$cond1 = "cod_sede_operativa = '-1'"; }
+		}else{ $odei = ""; 
+			$cond1 = "coddepe = '-1'"; }
 
-		if(isset($_GET['codprov'])) { 
-			$prov = $this->input->get('codprov');
-			if ($prov != -1) { 
-				$cond2 = "cod_prov_operativa = '$prov'";
+		if(isset($_GET['periodo'])) { 
+			$periodo = $this->input->get('periodo');
+			if ($periodo != -1) { 
+				$cond2 = "Periodo = '$periodo'";
 			}
-		}else{ $prov = ""; 
-			$cond2 = "cod_prov_operativa = '-1'"; }
-		
-		if(isset($_GET['codruta'])) { 
-			$ruta = $this->input->get('codruta');
-			$cond3 = "idruta = '$ruta'";
-		}else{ $ruta = ""; 
-			$cond3 = "idruta = ''";}
-
-		if(isset($_GET['per_uno']) || isset($_GET['per_dos'])) { 
-			$per_uno = $this->input->get('per_uno');
-			$per_dos = $this->input->get('per_dos');
-			$cond4 = "(periodo between $per_uno and $per_dos)";
-		}else{ $ruta = ""; 
-			$cond4 = "periodo = ''";}
+		}else{ $periodo = ""; 
+			$cond2 = "Periodo = '-1'"; }
 
 		if(!$sidx) $sidx =1;
 
-		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
-		$count = $this->rutas_model->contar_datos($where1);
+		$where1 =  "WHERE ".$cond1." AND ".$cond2;
+		$count = $this->operativa_model->get_cantidad_for_odei($where1);
 
 		//$data['cantidad'] = $count;
-		$query = $this->rutas_model->report_evaluador($sidx, 'asc', '0', $count, $where1);
+		$query = $this->operativa_model->get_seguimiento_for_odei($sidx, 'asc', '0', $count, $where1);
 		//$data['consulta'] = $query;
 
 

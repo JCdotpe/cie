@@ -76,7 +76,7 @@ class Operativa_Model extends CI_Model {
 		return $q; 
 	}
 
-	public function get_odei($data)
+	public function get_odei()
 	{
 		$sql="SELECT DISTINCT coddepe, detadepen FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI ORDER BY coddepe, detadepen";
 		$q = $this->db->query($sql);
@@ -92,7 +92,7 @@ class Operativa_Model extends CI_Model {
 
 	public function get_cantidad_for_odei($condicion1)
 	{
-		$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1'";
+		$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1";
     	$q = $this->db->query($sql);
     	$row = $q->first_row();
 		return $row->Cantidad_Registros;

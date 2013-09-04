@@ -706,6 +706,7 @@ function jefebrigada_form()
           $("#frm_registro :input").val('');
           $("#list2").trigger("reloadGrid");
           alert("Datos Guardados Satisfactoriamente");
+          $("#codigolocal").val('');
           $("#codigolocal").focus();
         }
     });

@@ -45,7 +45,6 @@ class Reporte_odei extends CI_Controller {
 
 	public function obtenreporte()
 	{
-		//$this->load->helper('form');
 		$page = $this->input->get('page',TRUE);
 		$limit = $this->input->get('rows',TRUE);
 		$sidx = $this->input->get('sidx',TRUE);
