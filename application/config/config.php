@@ -8,14 +8,14 @@
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|	
+|
 |
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
 |
 */
 
-	$config['base_url']	= 'http://localhost/cie/';
+	$config['base_url']	= 'http://localhost/INEI/cie/';
 
 /*
 |--------------------------------------------------------------------------
@@ -136,19 +136,19 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 |--------------------------------------------------------------------------
 |
 | By default CodeIgniter uses search-engine friendly segment based URLs:
-| 
+|
 |
 | By default CodeIgniter enables access to the $_GET array.  If for some
 | reason you would like to disable it, set 'allow_get_array' to FALSE.
 |
 | You can optionally enable standard query string based URLs:
-| 
+|
 |
 | Options are: TRUE or FALSE (boolean)
 |
 | The other items let you set the query string 'words' that will
 | invoke your controllers and its functions:
-| 
+|
 |
 | Please note that some of the helpers won't work as expected when
 | this feature is enabled, since CodeIgniter is designed primarily to
@@ -382,10 +382,10 @@ $config['c_ecivil'] = array(
 
 $config['c_nivel']=array(
 				-1 => '-',
-				 
+
 				 5 => 'SUPERIOR NO UNIVERSITARIA',
 				 4 => 'SUPERIOR UNIVERSITARIA');
-				 
+
 
 $config['c_grado']= array(
 				-1 => '-',
@@ -423,7 +423,7 @@ $config['c_tvia']=array(
 				'99' => 'OTROS');
 
 $config['c_tzona']=array(
-				-1 => '-', 
+				-1 => '-',
 				'05' => 'ASENTAMIENTO HUMANO',
 				'10' => 'CASERIO',
 				'04' => 'CONJUNTO HABITACIONAL',
@@ -438,16 +438,16 @@ $config['c_tzona']=array(
 				'08' => 'ZONA INDUSTRIAL');
 
 $config['c_sino']=array(
-				-1 => '-', 
+				-1 => '-',
 				 1 => 'SI',
 				 2 => 'NO');
 
 $config['c_periodo']=array(
-				 -1 => '-', 
+				 -1 => '-',
 				'01' => 'CICLO',
 				'02' => 'MES',
 				'03' => 'AÑO',
-				'04' => 'TRIMESTRE',			
+				'04' => 'TRIMESTRE',
 				'06' => 'SEMESTRE',
 				'07' => 'MODULO',
 				'08' => 'NIVEL');

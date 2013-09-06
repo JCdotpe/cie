@@ -48,7 +48,6 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-
 		$db['default']['hostname'] = '72.9.147.24';
 		$db['default']['username'] = 'mrvixio';
 		$db['default']['password'] = 'mrvixio';
@@ -64,6 +63,6 @@ $active_record = TRUE;
 		$db['default']['dbcollat'] = 'utf8';
 		$db['default']['swap_pre'] = '';
 		$db['default']['autoinit'] = TRUE;
-		$db['default']['stricton'] = FALSE;	
+		$db['default']['stricton'] = FALSE;
 /* End of file database.php */
 /* Location: ./application/config/database.php */
