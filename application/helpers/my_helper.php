@@ -31,18 +31,19 @@ if ( ! function_exists('count_searchSubArray'))
 if ( ! function_exists('validtoken_get'))
 {
 
-    function validtoken_get($token= NULL, $session=NULL){
+    function validtoken_get($token= NULL){
 
-        if (!$session)
+        if (!$session){
             return false;
+        }else{
 
-         $response="";
-         $CI = get_instance();
-         $CI->load->model('visor/Personal_Patrimonio_model');
+            $response="";
+            $CI = get_instance();
+            $CI->load->model('visor/Personal_Patrimonio_model');
 
             if(!$token)
             {
-                echo "error";
+               return false;
             }
             //$data=$this->Personal_Patrimonio_model->count($this->get('imei'));
             $resulttoken=$CI->Personal_Patrimonio_model->get_token($token);
@@ -52,7 +53,7 @@ if ( ! function_exists('validtoken_get'))
                 $msg=  array('message' => "token valido",
                                'value'=> true);
 
-                echo "correcto";
+                //  echo "correcto";
                 return true;
 
             }else{
@@ -61,15 +62,14 @@ if ( ! function_exists('validtoken_get'))
                 $msg=  array('message' => "token invalido",
                                'value'=> false);
 
-                echo "invalido";
+               // echo "invalido";
 
 
                 return false;
             }
-
         }
 
-
+    }
 }
 
 
