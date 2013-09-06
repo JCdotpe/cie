@@ -2,34 +2,48 @@
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
 class P313N extends REST_Controller{
-	
+
   function __construct()
   {
     parent::__construct();
-    
+
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P313N_model');    
+    $this->load->model('visor/P313N_model');
     //$this->load->model('udra/Udra_registro_model');
+    $this->load->helper('my');
 
   }
 
 	public function send_post(){
-  
-        
+
+
         $message = $this->post('datos');
-        $array= json_decode($message,1);        
-        $flag = $this->P313N_model->insertBatch($array);
-        if ($flag) {
-         
-          $msg='{"message":"Puntos GPS insertados","value":true}';
-     
+        $result=validtoken_get($this->post('token'));
+        if (!$result) {
+          # code...
+          $msg= array('message' => 'token invalido',
+                      'value'=> false);
         }else{
 
-          $msg='{"message":"Error de insercion","value":false}';
+            $array= json_decode($message,1);
+            $flag = $this->P313N_model->insertBatch($array);
+            if ($flag) {
+
+              $msg='{"message":"Puntos GPS insertados","value":true}';
+
+              $msg= array('message' => 'Puntos GPS insertados',
+                      'value'=> true);
+
+            }else{
+
+              $msg= array('message' => 'Error al guardar',
+                      'value'=> false);
+
+            }
 
         }
-        //$res=$this->Peien_model->insert_reg($array);
+
         $this->response($msg, 200);
     }
 
@@ -59,7 +73,7 @@ class P313N extends REST_Controller{
                           'P3_1_3_Lat' =>1,
                           'P3_1_3_Alt' =>1
                        );
-        $flag = $this->Peien_model->insert_batch($array);        
+        $flag = $this->Peien_model->insert_batch($array);
         //$res=$this->Peien_model->insert_reg($data);
         if ($res) {
             # code...
@@ -70,7 +84,7 @@ class P313N extends REST_Controller{
     }
 
     public function l_query(){
-      $this->Peien_model->last_query();  
+      $this->Peien_model->last_query();
 
     }
 

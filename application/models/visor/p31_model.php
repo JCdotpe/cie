@@ -17,7 +17,7 @@ class P31_model extends CI_MODEL{
     function Data_P3_1($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P3_1');
-        $this->db->where('codigo_de_local',$codigo_de_local);
+        $this->db->where('id_local',$codigo_de_local);
         $q = $this->db->get();
         return $q;
     }

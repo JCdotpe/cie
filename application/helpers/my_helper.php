@@ -28,6 +28,51 @@ if ( ! function_exists('count_searchSubArray'))
 }
 
 
+if ( ! function_exists('validtoken_get'))
+{
+
+    function validtoken_get($token= NULL){
+
+        if (!$session){
+            return false;
+        }else{
+
+            $response="";
+            $CI = get_instance();
+            $CI->load->model('visor/Personal_Patrimonio_model');
+
+            if(!$token)
+            {
+               return false;
+            }
+            //$data=$this->Personal_Patrimonio_model->count($this->get('imei'));
+            $resulttoken=$CI->Personal_Patrimonio_model->get_token($token);
+            if ($resulttoken->num_rows() > 0){
+
+
+                $msg=  array('message' => "token valido",
+                               'value'=> true);
+
+                //  echo "correcto";
+                return true;
+
+            }else{
+
+
+                $msg=  array('message' => "token invalido",
+                               'value'=> false);
+
+               // echo "invalido";
+
+
+                return false;
+            }
+        }
+
+    }
+}
+
+
 if ( ! function_exists('header_json'))
 {
     function header_json(){

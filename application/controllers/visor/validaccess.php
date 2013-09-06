@@ -30,14 +30,14 @@ class validaccess extends REST_Controller
         $this->lang->load('tank_auth');
     }
 
-	public function validtoken_get()
+	public function validtoken_get($token)
 	{
         $response="";
         if ($this->tank_auth->is_logged_in()) {
 
 
             $msg=  array('message' => "ingreso valido",
-                               'value'=> true);
+                         'value'=> true);
 
             $this->response($msg, 200);
 
@@ -45,12 +45,13 @@ class validaccess extends REST_Controller
 
         }else{
 
-            if(!$this->post('token'))
+           /* if(!$this->post('token'))
             {
                 $this->response(NULL, 400);
-            }
+            }*/
             //$data=$this->Personal_Patrimonio_model->count($this->get('imei'));
-            $resulttoken=$this->Personal_Patrimonio_model->get_token($this->post('token'));
+            $resulttoken=$this->Personal_Patrimonio_model->get_token($token));
+            //$resulttoken=$this->Personal_Patrimonio_model->get_token($this->get('token'));
             if ($resulttoken->num_rows() > 0){
 
 
@@ -160,7 +161,7 @@ class validaccess extends REST_Controller
                           'dni'=> $this->post('dni'),
                           'cod_pat' => $this->post('cod_pat'),
                           'token' => $token,
-                          'fecha_reg'=>$this->post('fecha_reg'));
+                          'fecha_reg'=>date('Y-m-d')." ".date("H:i:s"));
             //____($array);
             $flag = $this->Personal_Patrimonio_model->insert_reg($array);
             // comprueba insercion
