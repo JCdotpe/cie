@@ -15,17 +15,6 @@ class Csvexport extends CI_Controller {
 
 	public function ExportacionODEI()
 	{
-		//colores
-			//$color_celda_cabeceras = '27408B';
-
-			$color_celda_cabeceras =   array(
-				        'fill' => array(
-				            'type' => PHPExcel_Style_Fill::FILL_SOLID,
-				            'color' => array('rgb' => '27408B')
-				        )
-				    );
-    	//colores
-
 		//$cond1 = "";
 		$cond2 = "";
 
@@ -62,29 +51,26 @@ class Csvexport extends CI_Controller {
 		//$data['cantidad'] = $count;
 		$query = $this->operativa_model->get_seguimiento_for_odei($sidx, 'asc', '0', $count, $where1);
 		//$data['consulta'] = $query;
-
-
-		//$filtros = $this->segmentacion_model->get_empadronador($sede, $dep, $equi, $ruta);    	
-		//$registros = $this->segmentacion_model->get_all_empadronador($sede, $dep, $equi, $ruta);    	
-		
-		// if ($registros->num_rows() === 0 ){
-		// 	$this->session->set_flashdata('msgbox',1);
-		// 	redirect('/segmentacion/consulta/index/1');			
-		// } 
 		  
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
+
+		//colores
+			$color_celda_cabeceras =   array(
+				'fill' => array(
+					'type' => PHPExcel_Style_Fill::FILL_SOLID,
+					'color' => array('rgb' => '27408B')
+				)
+			);
+		//colores
 		
 		// formato de la hoja
 			// Set Orientation, size and scaling
-			//$objPHPExcel->setActiveSheetIndex(0);
 			$sheet->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);// horizontal
-			//$sheet->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT); // vertical
-			$sheet->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A3);
+			$sheet->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
 			$sheet->getPageSetup()->setFitToPage(false); // ajustar pagina
 			$sheet->getPageSetup()->setFitToWidth(1);
 			$sheet->getPageSetup()->setFitToHeight(0);		
-			$sheet->setShowGridlines(false);// oculta lineas de cuadricula		
 		// formato de la hoja
 
 		// ANCHO Y ALTURA DE COLUMNAS DEL FILE
@@ -109,7 +95,6 @@ class Csvexport extends CI_Controller {
 
 			$sheet->getRowDimension(4)->setRowHeight(2);
 			$sheet->getRowDimension(6)->setRowHeight(2);
-			//$sheet->getRowDimension(17)->setRowHeight(40);
 		// ANCHO Y ALTURA DE COLUMNAS DEL FILE
 
 		// TITULOS
@@ -125,7 +110,6 @@ class Csvexport extends CI_Controller {
 			$sheet->getStyle('D5:P7')->getFont()->setname('Arial')->setSize(16);
 
 			// LOGO
-			
 	          $objDrawing = new PHPExcel_Worksheet_Drawing();
 	          $objDrawing->setWorksheet($sheet);
 	          $objDrawing->setName("inei");
@@ -135,130 +119,37 @@ class Csvexport extends CI_Controller {
 	          $objDrawing->setHeight(80);
 	          $objDrawing->setOffsetX(1);
 	          $objDrawing->setOffsetY(5);
-			
-	          
-	          // $objDrawing2 = new PHPExcel_Worksheet_Drawing();
-	          // $objDrawing2->setWorksheet($sheet);
-	          // $objDrawing2->setName("CIE");
-	          // $objDrawing2->setDescription("CIE");
-	          // $objDrawing2->setPath("img/cenpesco.jpg");
-	          // $objDrawing2->setCoordinates('AQ2');
-	          // $objDrawing2->setHeight(100);
-	          // $objDrawing2->setWidth(100);
-	          // $objDrawing2->setOffsetX(1);
-	          // $objDrawing2->setOffsetY(10);
 	          
 		// TITULOS
 
 		// CABECERA ESPECIAL
-					
 					$sheet->setCellValue('B9','PERIODO:');
 					$sheet->mergeCells('B9:C9');
-					/*
-					$sheet->setCellValue('B10','PROVINCIA OPERATIVA:');
-					$sheet->mergeCells('B10:C10');
-					$sheet->setCellValue('B11','JEFE BRIGADA:');
-					$sheet->mergeCells('B11:C11');
-					$sheet->setCellValue('B12','RUTA:');
-					$sheet->mergeCells('B12:C12');
-					$sheet->getStyle('B9:C12')->getFont()->setname('Arial')->setSize(11)->setBold(true);
-					*/
-					//$sheet->setCellValue('B12','RUTA - EMPADRONADOR:');
-					//$sheet->mergeCells('B12:C12');
 
-					
-					
+					if ($periodo==99){ $periodo = "Todos"; }
+
+					$sheet->setCellValue('D9',$periodo);
+					$sheet->mergeCells('D9:E9');
+
 					$sheet->getStyle('D9:C9')->getFont()->setname('Arial')->setSize(12);
 					$sheet->getStyle("D9:C9")->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
-					
-			     	//$sheet->getStyle("B9:C12")->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('#FF9900');
-			     	/*
-			     	$sheet->getStyle("B9:C12")->applyFromArray($color_celda_cabeceras);
-			     	$sheet->getStyle("D9:E12")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
-					$sheet->getStyle("B9:C12")->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 
-					$sheet->getStyle("B9:E12")->applyFromArray(array(
+			     	$sheet->getStyle("B9:C9")->applyFromArray($color_celda_cabeceras);
+
+			     	$sheet->getStyle("B9:E9")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+					$sheet->getStyle("B9:C9")->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+
+					$sheet->getStyle("B9:E9")->applyFromArray(array(
 					'borders' => array(
 								'allborders' => array(
 												'style' => PHPExcel_Style_Border::BORDER_THIN)
 							)
 					));
-					*/
-					/*
-					$sheet->setCellValue('J10','NOMBRES Y APELLIDOS DEL EVALUADOR');
-					$sheet->mergeCells('J10:T10');
-			  		$sheet->getStyle('J10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-					$sheet->getStyle('J10')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);	
-					$sheet->getStyle("J10")->applyFromArray($color_celda_cabeceras);	
-													
-					$sheet->mergeCells('J11:T11');
-					$sheet->getStyle("J10:T11")->applyFromArray(array(
-					'borders' => array(
-								'allborders' => array(
-												'style' => PHPExcel_Style_Border::BORDER_THIN)
-							)
-					));
-					*/
-
-					//$sheet->setCellValue('X15','DOC.CIE03.01');
-					//$sheet->mergeCells('X15:X15');
-
-					// $sheet->setCellValue('U10','NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA');
-					// $sheet->mergeCells('U10:AG10');
-			  //    	$sheet->getStyle('U10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-					// $sheet->getStyle('U10')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);	
-					// $sheet->getStyle("U10")->applyFromArray($color_celda_cabeceras);
-
-					// $sheet->mergeCells('U11:AG11');
-					// $sheet->getStyle("U10:AG11")->applyFromArray(array(
-					// 'borders' => array(
-					// 			'allborders' => array(
-					// 							'style' => PHPExcel_Style_Border::BORDER_THIN)
-					// 		)
-					// ));
-
-					// $sheet->setCellValue('AI10','NOMBRE Y APELLIDOS DEL EMPADRONADOR');
-					// $sheet->mergeCells('AI10:AU10');
-					// $sheet->setCellValue('AI11',$filtros->row('NOMBRE_Y_APELLIDOS_DEL_EMPADRONADOR'));
-					// $sheet->mergeCells('AI11:AU11');
-					
-			  //    	//$sheet->getStyle("Y10:AU10")->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('#FF9900');
-			  //    	$sheet->getStyle("AI10:AU10")->applyFromArray($color_celda_cabeceras);
-			     	
-			  //    	$sheet->getStyle("AI10:AU10")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-					// $sheet->getStyle("AI10:AU10")->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-
-					// $sheet->getStyle("AI10:AU11")->applyFromArray(array(
-					// 'borders' => array(
-					// 			'allborders' => array(
-					// 							'style' => PHPExcel_Style_Border::BORDER_THIN)
-					// 		)
-					// ));
-
-
-					// $sheet->setCellValue('AQ13','FECHA BD');
-					// $sheet->mergeCells('AQ13:AU13');
-					// $sheet->getStyle('AQ13')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);	
-					// $sheet->getStyle("AQ13")->applyFromArray($color_celda_cabeceras);
-
-					// $sheet->setCellValue('AQ14', $filtros->row('FECHA_UPDATE') );
-					// $sheet->getStyle('AQ14')->getNumberFormat()->setFormatCode('dd/mm/yyyy hh:mm:ss'); 
-					// $sheet->mergeCells('AQ14:AU14');
-			  //    	$sheet->getStyle('AQ13:AQ14')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);					
-					// $sheet->getStyle("AQ13:AU14")->applyFromArray(array(
-					// 'borders' => array(
-					// 			'allborders' => array(
-					// 							'style' => PHPExcel_Style_Border::BORDER_THIN)
-					// 		)
-					// ));
-					
-					//$sheet->getStyle('D9:P11')->getFont()->setname('Arial')->setSize(12);	// TAMAÑO FUENTE CABECERAS
-					//$sheet->getStyle('B11:B12')->getFont()->setname('Arial')->setSize(10);	// TAMAÑO FUENTE  SOLO CABECERAS
 		// CABECERA ESPECIAL
 
 		// CABECERA
 			// INICIO DE LA  cabecera
-			$cab = 10;	
+			$cab = 11;	
 				
 			// NOMBRE CABECERAS
 	
@@ -322,7 +213,6 @@ class Csvexport extends CI_Controller {
 
 
 		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":P".($cab+2));
-		        //$headStyle->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('#FF9900');
 				$headStyle->applyFromArray($color_celda_cabeceras);
 
 				$sheet->getStyle("B".$cab.":P".($cab+2))->applyFromArray(array(
@@ -337,11 +227,7 @@ class Csvexport extends CI_Controller {
 
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+2);
-			//$numberStyle1 = $this->phpexcel->getActiveSheet(0)->getStyle('Q'.($cab+3).':V'.$total);
-			//$numberStyle1->getNumberFormat()->setFormatCode('0.00');
-
-			//$sheet->getActiveSheet(0)->getCell("G")->setValueExplicit('25',PHPExcel_Cell_DataType::TYPE_STRING);
-
+			
 			$sheet->getStyle("A".($cab+3).":P".$total)->getFont()->setname('Arial Narrow')->setSize(9);
 
 			//bordes cuerpo
@@ -395,6 +281,8 @@ class Csvexport extends CI_Controller {
 				
 			}
 
+			$sheet->getStyle('D'.($cab+2).':P'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
  		// CUERPO
 
 		// PIE TOTALES
@@ -403,8 +291,8 @@ class Csvexport extends CI_Controller {
 			//fecha
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );
 			$sheet->mergeCells('B'.($celda_s +2).':C'.($celda_s +2));
-	     	$sheet->getStyle('B'.($celda_s + 2))->applyFromArray($color_celda_cabeceras);
-	     	$sheet->getStyle('B'.($celda_s + 2).':E'.($celda_s +2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+	     	$sheet->getStyle('B'.($celda_s + 2))->applyFromArray($color_celda_cabeceras)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+	     		
 			$sheet->getStyle('B'.($celda_s + 2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 
 			$sheet->setCellValue('D'.($celda_s +2), date('d/m/Y H:i:s') );

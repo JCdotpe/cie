@@ -114,7 +114,7 @@ class Rutas_Model extends CI_Model {
 
 	function listado_rutas($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-    	$sql = "SELECT idruta, codlocal, cod_jefebrigada, NomDept, NomProv, NomDist, centroPoblado, periodo, sede_operativa, prov_operativa_ugel, direccion, Nivel_Educativo, ugel, area FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales_nivelE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+    	$sql = "SELECT idruta, codlocal, cod_jefebrigada, NomDept, NomProv, NomDist, centroPoblado, nombres_IIEE, sede_operativa, prov_operativa_ugel, direccion, niveles_educativos, ugel, periodo, area FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_rutas_locales_nivelE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
     	$q = $this->db->query($sql);		
 		return $q;
 	}

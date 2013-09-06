@@ -474,15 +474,15 @@ function Form_Validar()
   if( (movilocal_ma.value == 0 || movilocal_ma.value == '') && (gastooperativo_ma.value == 0 || gastooperativo_ma.value == '') ){ alert("Falta Asignar Montos"); movilocal_ma.focus(); return false; }
 
   
-  if (movilocal_ma.value == '' || movilocal_ma.value == 0 || movilocal_ma.value == 15 || movilocal_ma.value == 50)
+  if (movilocal_ma.value == '' || movilocal_ma.value == 0 || movilocal_ma.value == 20)
   {
-    if ((movilocal_ma.value == 15 || movilocal_ma.value == 50) && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
+    if ((movilocal_ma.value == 20) && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Movilidad Local MA Incorrecto"); movilocal_ma.focus(); return false; }
 
   if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 120)
   { }else{ alert("Monto de Gasto Operativo MA Incorrecto"); gastooperativo_ma.focus(); return false; }
 
-  if ((movilocal_ma.value == 15 || movilocal_ma.value == 50) && (traslado.value > 0 || retornosede.value > 0)) { alert("Revise los campos de Traslado y Retorno a Sede"); traslado.focus(); return false; }
+  if ((movilocal_ma.value == 20) && (traslado.value > 0 || retornosede.value > 0)) { alert("Revise los campos de Traslado y Retorno a Sede"); traslado.focus(); return false; }
   
   if(total_af.value == '' || total_af.value == 0){ alert("Faltan Datos para Calcular la Asignación de Fondos"); total_af.focus(); return false; }
   
@@ -665,15 +665,15 @@ function Form_Validar_JB()
   if( (movilocal_ma.value == 0 || movilocal_ma.value == '') && (gastooperativo_ma.value == 0 || gastooperativo_ma.value == '') ){ alert("Falta Asignar Montos"); movilocal_ma.focus(); return false; }
 
   
-  if (movilocal_ma.value == '' || movilocal_ma.value == 0 || movilocal_ma.value == 20 || movilocal_ma.value == 50)
+  if (movilocal_ma.value == '' || movilocal_ma.value == 0 || movilocal_ma.value == 20)
   {
-    if ((movilocal_ma.value == 20 || movilocal_ma.value == 50) && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
+    if ((movilocal_ma.value == 20) && pasaje.value > 0){ alert("Ud. Asigno Movilidad Local MA, revise el campo Pasaje"); pasaje.focus(); return false; }
   }else{ alert("Monto de Movilidad Local MA Incorrecto"); movilocal_ma.focus(); return false; }
 
   if (gastooperativo_ma.value == '' || gastooperativo_ma.value == 0 || gastooperativo_ma.value == 120)
   { }else{ alert("Monto de Gasto Operativo MA Incorrecto"); gastooperativo_ma.focus(); return false; }
 
-  if ((movilocal_ma.value == 20 || movilocal_ma.value == 50) && (traslado.value > 0 || retornosede.value > 0)) { alert("Revise los campos de Traslado y Retorno a Sede"); traslado.focus(); return false; }
+  if ((movilocal_ma.value == 20) && (traslado.value > 0 || retornosede.value > 0)) { alert("Revise los campos de Traslado y Retorno a Sede"); traslado.focus(); return false; }
   
   if(total_af.value == '' || total_af.value == 0){ alert("Faltan Datos para Calcular la Asignación de Fondos"); total_af.focus(); return false; }
   

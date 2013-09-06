@@ -1065,16 +1065,17 @@ class Csvexport extends CI_Controller {
 		// ANCHO Y ALTURA DE COLUMNAS DEL FILE
 			$sheet->getColumnDimension('A')->setWidth(1);
 			$sheet->getColumnDimension('B')->setWidth(5);
-			$sheet->getColumnDimension('C')->setWidth(18);
+			$sheet->getColumnDimension('C')->setWidth(22);
 			$sheet->getColumnDimension('D')->setWidth(18);
 			$sheet->getColumnDimension('E')->setWidth(25);
 			$sheet->getColumnDimension('F')->setWidth(25);
-			$sheet->getColumnDimension('G')->setWidth(10);
+			$sheet->getColumnDimension('G')->setWidth(25);
 			$sheet->getColumnDimension('H')->setWidth(18);
 			$sheet->getColumnDimension('I')->setWidth(37);
 			$sheet->getColumnDimension('J')->setWidth(37);
 			$sheet->getColumnDimension('K')->setWidth(20);
-			$sheet->getColumnDimension('L')->setWidth(8);
+			$sheet->getColumnDimension('L')->setWidth(10);
+			$sheet->getColumnDimension('M')->setWidth(8);
 
 			$sheet->getRowDimension(4)->setRowHeight(2);
 			$sheet->getRowDimension(6)->setRowHeight(2);
@@ -1082,15 +1083,15 @@ class Csvexport extends CI_Controller {
 
 		// TITULOS
 			$sheet->setCellValue('A3','INSTITUTO NACIONAL DE ESTADÍSTICA E INFORMATICA');
-			$sheet->mergeCells('A3:L3');
+			$sheet->mergeCells('A3:M3');
 			$sheet->setCellValue('A5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
-			$sheet->mergeCells('A5:L5');
+			$sheet->mergeCells('A5:M5');
 			$sheet->setCellValue('A7','LISTADO DE LOCALES ESCOLARES POR RUTA DE TRABAJO DEL EVALUADOR TECNICO');
-			$sheet->mergeCells('A7:L7');
-			$sheet->getStyle('A3:L7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			$sheet->getStyle('A3:L7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
-			$sheet->getStyle('A3:L3')->getFont()->setname('Arial black')->setSize(18);
-			$sheet->getStyle('A5:L7')->getFont()->setname('Arial')->setSize(18);
+			$sheet->mergeCells('A7:M7');
+			$sheet->getStyle('A3:M7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('A3:M7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
+			$sheet->getStyle('A3:M3')->getFont()->setname('Arial black')->setSize(18);
+			$sheet->getStyle('A5:M7')->getFont()->setname('Arial')->setSize(18);
 
 			// LOGO
 			
@@ -1156,10 +1157,10 @@ class Csvexport extends CI_Controller {
 							)
 					));
 
-					$sheet->setCellValue('K15','DOC.CIE03.06');
-					$sheet->mergeCells('K15:L15');
+					$sheet->setCellValue('L15','DOC.CIE03.06');
+					$sheet->mergeCells('L15:M15');
 
-					$sheet->getStyle('D9:L11')->getFont()->setname('Arial')->setSize(12);	// TAMAÑO FUENTE CABECERAS
+					$sheet->getStyle('D9:M12')->getFont()->setname('Arial')->setSize(12);	// TAMAÑO FUENTE CABECERAS
 		// CABECERA ESPECIAL
 
 		// CABECERA
@@ -1178,7 +1179,7 @@ class Csvexport extends CI_Controller {
 					$sheet->mergeCells('E'.$cab.':E'.($cab+2));
 					$sheet->setCellValue('F'.$cab,'Centro Poblado' );
 					$sheet->mergeCells('F'.$cab.':F'.($cab+2));
-					$sheet->setCellValue('G'.$cab, 'Periodo');
+					$sheet->setCellValue('G'.$cab, 'Nombre de las IEs');
 					$sheet->mergeCells('G'.$cab.':G'.($cab+2));	
 					$sheet->setCellValue('H'.$cab, 'Codigo de Local');
 					$sheet->mergeCells('H'.$cab.':H'.($cab+2));	
@@ -1188,21 +1189,23 @@ class Csvexport extends CI_Controller {
 					$sheet->mergeCells('J'.$cab.':J'.($cab+2));
 					$sheet->setCellValue('K'.$cab,'UGEL');
 					$sheet->mergeCells('K'.$cab.':K'.($cab+2));
-					$sheet->setCellValue('L'.$cab,'Area');
+					$sheet->setCellValue('L'.$cab,'Periodo');
 					$sheet->mergeCells('L'.$cab.':L'.($cab+2));
+					$sheet->setCellValue('M'.$cab,'Area');
+					$sheet->mergeCells('M'.$cab.':M'.($cab+2));
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
-				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
-				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
-				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
-				$sheet->getStyle("B".$cab.":L".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-				$sheet->getStyle("B".$cab.":L".($cab+2))->getFont()->setname('Arial')->setSize(12)->setBold(true);
+				$sheet->getStyle("B".$cab.":M".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+				$sheet->getStyle("B".$cab.":M".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
+				$sheet->getStyle("B".$cab.":M".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
+				$sheet->getStyle("B".$cab.":M".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+				$sheet->getStyle("B".$cab.":M".($cab+2))->getFont()->setname('Arial')->setSize(12)->setBold(true);
 
-		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":L".($cab+2));
+		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":M".($cab+2));
 				$headStyle->applyFromArray($color_celda_cabeceras);
 
-				$sheet->getStyle("B".$cab.":L".($cab+2))->applyFromArray(array(
+				$sheet->getStyle("B".$cab.":M".($cab+2))->applyFromArray(array(
 				'borders' => array(
 							'allborders' => array(
 											'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1214,10 +1217,10 @@ class Csvexport extends CI_Controller {
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+2);
 			
-			$sheet->getStyle("A".($cab+3).":L".$total)->getFont()->setname('Arial Narrow')->setSize(9);
+			$sheet->getStyle("A".($cab+3).":M".$total)->getFont()->setname('Arial Narrow')->setSize(9);
 
 			//bordes cuerpo
-			$sheet->getStyle("B".($cab+3).":L".$total)->applyFromArray(array(
+			$sheet->getStyle("B".($cab+3).":M".$total)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1238,19 +1241,20 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode($filas->NomProv));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue(utf8_encode($filas->NomDist));
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue(utf8_encode($filas->centroPoblado));
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->periodo);			  		
-			  		$sheet->getStyle("G".$row.":G".$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);			
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue(utf8_encode($filas->nombres_IIEE));
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->codlocal,PHPExcel_Cell_DataType::TYPE_STRING);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue(utf8_encode($filas->direccion));
-			  		$sheet->getCellByColumnAndRow(9, $row)->setValue(utf8_encode($filas->Nivel_Educativo));
+			  		$sheet->getCellByColumnAndRow(9, $row)->setValue(utf8_encode($filas->niveles_educativos));
 			  		$sheet->getCellByColumnAndRow(10, $row)->setValue(utf8_encode($filas->ugel));
-			  		$sheet->getCellByColumnAndRow(11, $row)->setValue(utf8_encode($filas->area));
+			  		$sheet->getCellByColumnAndRow(11, $row)->setValue(utf8_encode($filas->periodo));
+			  		$sheet->getStyle("L".$row.":L".$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);			
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValue(utf8_encode($filas->area));
 
 
 				 $col = 2;
 				 //dar formato de color intercalado a cada fila
 				 if($cambio){
-			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":L".$row);
+			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":M".$row);
 					$fila_color->applyFromArray(
 					    array(
 					        'fill' => array(
@@ -1269,6 +1273,9 @@ class Csvexport extends CI_Controller {
 		// PIE TOTALES
 			$celda_s = $total+1 ; // inicio de pie de resumenes
 			//fecha
+
+			$sheet->getStyle('G'.($cab+2).':G'.$total)->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );
 			$sheet->mergeCells('B'.($celda_s +2).':C'.($celda_s +2));
 	     	$sheet->getStyle('B'.($celda_s + 2))->applyFromArray($color_celda_cabeceras);

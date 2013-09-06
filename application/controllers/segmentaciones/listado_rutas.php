@@ -118,7 +118,7 @@ class Listado_rutas extends CI_Controller {
 		{
 			$nro_fila++;
 			$respuesta->rows[$i]['id'] = $i;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->NomDept),utf8_encode($fila->NomProv),utf8_encode($fila->NomDist),utf8_encode($fila->centroPoblado),$fila->periodo,$fila->codlocal,utf8_encode($fila->direccion),$fila->Nivel_Educativo,$fila->ugel,$fila->area,$fila->idruta);
+			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->NomDept),utf8_encode($fila->NomProv),utf8_encode($fila->NomDist),utf8_encode($fila->centroPoblado),utf8_encode($fila->nombres_IIEE),$fila->codlocal,utf8_encode($fila->direccion),$fila->niveles_educativos,$fila->ugel,$fila->periodo,$fila->area,$fila->idruta);
 			$i++;
 		}
 
