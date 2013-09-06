@@ -15,7 +15,7 @@
 |
 */
 
-	$config['base_url']	= 'http://localhost/INEI/cie/';
+	$config['base_url']	= 'http://localhost/cie/';
 
 /*
 |--------------------------------------------------------------------------
