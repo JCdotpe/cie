@@ -31,7 +31,11 @@ if ( ! function_exists('count_searchSubArray'))
 if ( ! function_exists('validtoken_get'))
 {
 
-    function validtoken_get($token){
+    function validtoken_get($token= NULL, $session=NULL){
+
+        if (!$session)
+            return false;
+
          $response="";
          $CI = get_instance();
          $CI->load->model('visor/Personal_Patrimonio_model');
