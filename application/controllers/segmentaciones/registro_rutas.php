@@ -51,15 +51,12 @@ class Registro_Rutas extends CI_Controller {
 	public function obtenerprovoperativa()
 	{	
 		$provope = $this->operativa_model->get_provincia_operativa($_POST['codsede']);
-		
-		$return_arr['datos']=array();
+		$provArray = array();
 		foreach($provope->result() as $filas)
 		{
-			$data['CODIGO'] = $filas->cod_prov_operativa;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->prov_operativa_ugel));
-			array_push($return_arr['datos'], $data);
+			$provArray[$filas->cod_prov_operativa]=utf8_encode(strtoupper($filas->prov_operativa_ugel));
 		}
-		$this->load->view('backend/json/json_view', $return_arr);
+		echo form_dropdown('provoperativa', $provArray, '#', 'id="provoperativa"');		
 	}
 
 	public function consulta_ubicacion()
@@ -236,7 +233,7 @@ class Registro_Rutas extends CI_Controller {
 		foreach ($resultado->result() as $fila )
 		{
 			$respuesta->rows[$i]['id'] = $fila->id;
-			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->periodo,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
+			$respuesta->rows[$i]['cell'] = array(utf8_encode($fila->centroPoblado),utf8_encode($fila->prov_operativa_ugel),$fila->codlocal,$fila->fxinicio,$fila->fxfinal,$fila->traslado,$fila->trabajo_supervisor,$fila->recuperacion,$fila->retornosede,$fila->gabinete,$fila->descanso,$fila->totaldias,$fila->movilocal_ma,$fila->gastooperativo_ma,$fila->movilocal_af,$fila->gastooperativo_af,$fila->pasaje,$fila->total_af,utf8_encode($fila->observaciones),$fila->idruta);
 			$i++;
 		}
 

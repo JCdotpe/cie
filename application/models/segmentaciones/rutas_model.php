@@ -36,9 +36,9 @@ class Rutas_Model extends CI_Model {
 
 	function update_reg_jb($data)
 	{
-		$sql = "UPDATE rutas_jb SET periodo_jb = '".$data['periodo']."', fxinicio_jb = '".$data['fxinicio']."', fxfinal_jb = '".$data['fxfinal']."', traslado_jb = '".$data['traslado']."', trabajo_supervisor_jb = '".$data['trabajo_supervisor']."', retornosede_jb = '".$data['retornosede']."', gabinete_jb = '".$data['gabinete']."', descanso_jb = '".$data['descanso']."', totaldias_jb = '".$data['totaldias']."',movilocal_ma_jb = '".$data['movilocal_ma']."', gastooperativo_ma_jb = '".$data['gastooperativo_ma']."', movilocal_af_jb = '".$data['movilocal_af']."', gastooperativo_af_jb = '".$data['gastooperativo_af']."', pasaje_jb = '".$data['pasaje']."', total_af_jb = '".$data['total_af']."', observaciones_jb = '".str_replace("'", "''", $data['observaciones'])."' WHERE codlocal = '".$data['codlocal']."'";
+		$sql = "UPDATE rutas_jb SET periodo_jb = '".$data['periodo']."', fxinicio_jb = '".$data['fxinicio']."', fxfinal_jb = '".$data['fxfinal']."', traslado_jb = '".$data['traslado']."', trabajo_supervisor_jb = '".$data['trabajo_supervisor']."', retornosede_jb = '".$data['retornosede']."', gabinete_jb = '".$data['gabinete']."', descanso_jb = '".$data['descanso']."', totaldias_jb = '".$data['totaldias']."',movilocal_ma_jb = '".$data['movilocal_ma']."', gastooperativo_ma_jb = '".$data['gastooperativo_ma']."', movilocal_af_jb = '".$data['movilocal_af']."', gastooperativo_af_jb = '".$data['gastooperativo_af']."', pasaje_jb = '".$data['pasaje']."', total_af_jb = '".$data['total_af']."', observaciones_jb = '".$data['observaciones']."' WHERE codlocal = '".$data['codlocal']."'";
 		$this->db->query($sql);
-		return $this->db->affected_rows() > 0;			
+		return $this->db->affected_rows() > 0;	
 	}
 
 	function delete_reg($codigo)

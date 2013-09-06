@@ -50,14 +50,12 @@ class Registro_Jefe_Brigada extends CI_Controller {
 	public function cargar_jefe_brigada()
 	{	
 		$jefebrigada = $this->operativa_model->get_jefe_brigada($_POST['sedeope'],$_POST['provope']);
-		$return_arr['datos']=array();
+		$jefeArray = array();
 		foreach($jefebrigada->result() as $filas)
 		{
-			$data['CODIGO'] = $filas->cod_jefebrigada;
-			$data['NOMBRE'] = $filas->cod_jefebrigada;
-			array_push($return_arr['datos'], $data);
+			$jefeArray[$filas->cod_jefebrigada]=$filas->cod_jefebrigada;
 		}
-		$this->load->view('backend/json/json_view', $return_arr);
+		echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada"');		
 	}
 
 	public function consulta_datos()

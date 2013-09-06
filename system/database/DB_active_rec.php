@@ -131,6 +131,14 @@ class CI_DB_active_record extends CI_DB_driver {
 		return $this->_max_min_avg_sum($select, $alias, 'MIN');
 	}
 
+	public function getTable($table) {
+		$table = str_replace($this->db["dbPfx"], "", $table);
+
+		$this->table($table);
+		
+		return $this->db["dbPfx"] . $table; 	
+	}
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -1043,25 +1051,26 @@ class CI_DB_active_record extends CI_DB_driver {
 	 * @param	array	an associative array of insert values
 	 * @return	object
 	 */
-	public function insert_batch($table = '', $set = NULL)
-	{
-		if ( ! is_null($set))
-		{
+	public function insert_batch($table = '', $set = NULL){
+
+		if (!is_null($set)){
+
 			$this->set_insert_batch($set);
+		
 		}
 
-		if (count($this->ar_set) == 0)
-		{
+		if (count($this->ar_set) == 0){
+
 			if ($this->db_debug)
 			{
-				//No valid data array.  Folds in cases where keys and values did not match up
 				return $this->display_error('db_must_use_set');
 			}
 			return FALSE;
+		
 		}
 
-		if ($table == '')
-		{
+		if ($table == ''){
+
 			if ( ! isset($this->ar_from[0]))
 			{
 				if ($this->db_debug)
@@ -1074,22 +1083,73 @@ class CI_DB_active_record extends CI_DB_driver {
 			$table = $this->ar_from[0];
 		}
 
-		// Batch this baby
-		for ($i = 0, $total = count($this->ar_set); $i < $total; $i = $i + 100)
-		{
+		for ($i = 0, $total = count($this->ar_set); $i < $total; $i = $i + 100){
 
 			$sql = $this->_insert_batch($this->_protect_identifiers($table, TRUE, NULL, FALSE), $this->ar_keys, array_slice($this->ar_set, $i, 100));
-
-			//echo $sql;
-
+			
 			$this->query($sql);
 		}
 
 		$this->_reset_write();
 
-
 		return TRUE;
 	}
+
+	public function sql_batch($table, $data){
+    
+        if(!$table or !$data){
+            return FALSE;
+        }
+
+        if(isset($data[0])) {
+            $count   = count($data) - 1;
+            $values  = NULL;
+            $_fields = NULL;
+            $_values = NULL;
+            $query   = NULL;
+            $i       = 0;
+            $j       = 0;
+
+            foreach($data as $insert) {
+                $total = count($data[$i]) - 1;
+                
+                foreach($insert as $field => $value) {
+                    if($j === $total) {
+                        $_fields .= "$field";
+                        $_values .= "'$value'";
+                    } else {
+                        $_fields .= "$field, ";
+                        $_values .= "'$value', ";   
+                    }
+                            
+                    $j++;   
+                }
+                
+                $values .= ($i === $count) ? "($_values)" : "($_values), ";
+                
+                $fields  = $_fields;
+                $_fields = NULL;
+                $_values = NULL;
+                
+                $i++;
+                $j = 0;
+            }
+
+            $query .= "INSERT INTO $table ($fields) VALUES $values;";            
+        	
+        }else{
+            return FALSE;
+        }
+        
+        $res=$this->query($query);
+
+        if($res){
+        	return TRUE;
+        }
+
+        return FALSE;
+		 
+    }
 
 	// --------------------------------------------------------------------
 
@@ -1117,7 +1177,6 @@ class CI_DB_active_record extends CI_DB_driver {
 		{
 			if (count(array_diff($keys, array_keys($row))) > 0 OR count(array_diff(array_keys($row), $keys)) > 0)
 			{
-				// batch function above returns an error on an empty array
 				$this->ar_set[] = array();
 				return;
 			}
@@ -1191,7 +1250,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		}
 
 		$sql = $this->_insert($this->_protect_identifiers($table, TRUE, NULL, FALSE), array_keys($this->ar_set), array_values($this->ar_set));
-
+		
 		$this->_reset_write();
 		return $this->query($sql);
 	}
@@ -1388,7 +1447,7 @@ class CI_DB_active_record extends CI_DB_driver {
 
 		if ( ! is_array($key))
 		{
-			// @todo error
+			// @todocbb error
 		}
 
 		foreach ($key as $k => $v)

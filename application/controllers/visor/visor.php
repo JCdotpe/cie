@@ -540,6 +540,18 @@ public function prettyPrint( $json ){
 	
 	}
 
+	public function get_P3_1(){
+
+		$this->header_json();
+		
+		$data = $this->visor_model->Data_P3_1($_REQUEST["cod_local"]);
+
+		$jsonData = json_encode($data->result());
+
+		$this->prettyPrint($jsonData);
+	
+	}
+
 //========================CAPITULO3========================================
 
 //CIE01A

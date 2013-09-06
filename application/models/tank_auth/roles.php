@@ -16,7 +16,6 @@ class Roles extends CI_Model
 		$this->db->join('roles r', 'r.id = ur.role_id','inner');
 		$this->db->where('ur.user_id', $user_id);
 		$this->db->where('ur.active', 1);
-		$this->db->where('r.active', 1);
 
 		$query = $this->db->get();
 		return $query->result();

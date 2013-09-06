@@ -10,7 +10,7 @@ class Aprobacioncv extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
-		$this->load->model('convocatoria/Provincia_model');
+
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -50,16 +50,15 @@ class Aprobacioncv extends CI_Controller {
 	}
 
 	public function obtenerprovincia_by_sede()
-	{		
+	{
+		$this->load->model('convocatoria/Provincia_model');
 		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
-		$return_arr['datos']=array();
+		$provArray = array();
 		foreach($sedeope->result() as $filas)
 		{
-			$data['CODIGO'] = $filas->CCPP;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre_Provincia));
-			array_push($return_arr['datos'], $data);
+			$provArray[$filas->CCPP]=utf8_encode(strtoupper($filas->Nombre_Provincia));
 		}
-		$this->load->view('backend/json/json_view', $return_arr);
+		echo form_dropdown('provincia', $provArray, '#', 'id="provincia"');	
 	}
 
 	public function registrar_aprobadoscv()

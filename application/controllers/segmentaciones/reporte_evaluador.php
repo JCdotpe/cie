@@ -83,16 +83,10 @@ class Reporte_evaluador extends CI_Controller {
 			$cond3 = "idruta = '$ruta'";
 		}else{ $ruta = ""; 
 			$cond3 = "idruta = ''";}
-
-		if(isset($_GET['per_uno']) && isset($_GET['per_dos'])) { 
-			$per_uno = $this->input->get('per_uno');
-			$per_dos = $this->input->get('per_dos');
-			$cond4 = "(periodo between $per_uno and $per_dos)";
-		}else{ $cond4 = "periodo = ''"; }
 		
 		if(!$sidx) $sidx =1;
 
-		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
+		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3;
 		$count = $this->rutas_model->contar_datos($where1);
 
  		//En base al numero de registros se obtiene el numero de paginas
