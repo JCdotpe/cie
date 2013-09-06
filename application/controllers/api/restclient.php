@@ -2,6 +2,42 @@
 
  class restclient extends CI_Controller {
 
+ 	public function token(){
+
+		function __construct() {
+			parent::__construct();
+			
+		}
+
+		//$return_arr['datos']=  array();
+		//for ($i=2; $i <10 ; $i++) { 
+
+			
+						
+		//	array_push($return_arr['datos'],$data);		
+		//}
+		
+		//$json= json_encode($return_arr['datos']);
+		$curl_handle = curl_init();  
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/validaccess/verify/format/json');  
+		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json'); 
+		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);  
+		curl_setopt($curl_handle, CURLOPT_POST, 1);  
+		//curl_setopt($curl_handle, CURLOPT_POSTFIELDS,$array);   
+		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array( 
+		    'imei' => '6',
+			'dni' => '40660637',
+			'cod_pat' => '4646'));		   
+		
+		
+		$buffer = curl_exec($curl_handle);  
+		curl_close($curl_handle);  
+		  
+		$result = json_decode($buffer); 
+		echo $buffer;
+
+	}
+
 	public function ci_curl3(){
 
 		function __construct() {
@@ -25,7 +61,7 @@
 		
 		$json= json_encode($return_arr['datos']);
 		$curl_handle = curl_init();  
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/INEI/cie/index.php/visor/p31/send/format/json');  
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p31/send/format/json');  
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json'); 
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);  
 		curl_setopt($curl_handle, CURLOPT_POST, 1);  
@@ -73,7 +109,7 @@
 		//$array= json_encode(array('datos' => 'migue'));
 		$json= json_encode($return_arr['datos']);
 		$curl_handle = curl_init();  
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/INEI/cie/index.php/visor/p313N/send/format/json');  
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p313N/send/format/json');  
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json'); 
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);  
 		curl_setopt($curl_handle, CURLOPT_POST, 1);  
