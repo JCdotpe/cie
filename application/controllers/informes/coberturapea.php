@@ -9,10 +9,11 @@ class Coberturapea extends CI_Controller {
 		$this->load->library('security');
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');	
+		$this->load->helper('form');
+		$this->load->model('convocatoria/Provincia_model');
+		$this->load->model('convocatoria/Dist_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
-			// redirect('/auth/login/');
-			//No loging enviar a bienvenida cenpesco
 			redirect();
 		}
 
@@ -50,28 +51,15 @@ class Coberturapea extends CI_Controller {
 
 	public function obtenerprovincia()
 	{
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->helper('form');
 		$prov = $this->Provincia_model->get_provs($_POST['id_depa']);
-		$provArray = array();
+		$return_arr['datos']=array();
 		foreach($prov->result() as $filas)
 		{
-			$provArray[$filas->CCPP]=utf8_encode(strtoupper($filas->Nombre));
+			$data['CODIGO'] = $filas->CCPP;
+			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
+			array_push($return_arr['datos'], $data);
 		}
-		echo form_dropdown('provincia', $provArray, '#', 'id="provincia"');	
-	}
-
-	public function obtenerdistrito()
-	{
-		$this->load->model('convocatoria/Dist_model');
-		$this->load->helper('form');
-		$dist = $this->Dist_model->Get_Dist_combo($_POST['id_depa'],$_POST['id_prov']);
-		$distArray = array();
-		foreach($dist->result() as $filas)
-		{
-			$distArray[$filas->CCDI]=utf8_encode(strtoupper($filas->Nombre));
-		}
-		echo form_dropdown('distrito', $distArray, '', 'id="distrito"');
+		$this->load->view('backend/json/json_view', $return_arr);
 	}
 
 	public function obtenreporte()

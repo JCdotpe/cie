@@ -19,7 +19,6 @@ class Operativa_Model extends CI_Model {
 	public function get_periodo($centrop, $ruta)
 	{
 		$sql = "SELECT distinct r.periodo FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' and r.idruta = '$ruta' order by r.periodo";
-		echo $sql;
 		$q = $this->db->query($sql);
 		return $q;
 	}
@@ -76,21 +75,30 @@ class Operativa_Model extends CI_Model {
 		$q=$this->db->query($sql);
 		return $q; 
 	}
-/*
-	public function get_avance($data)
+
+	public function get_odei()
 	{
-		$sql="SELECT nro_visita, convert(char,fecha_visita,103) as fecha_visita, estado, especifique FROM avance WHERE codlocal = '".$data['codlocal']."' and nro_visita = ".$data['nro_visita']."";
+		$sql="SELECT DISTINCT coddepe, detadepen FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI ORDER BY coddepe, detadepen";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	public function del_avance($data)
+	public function get_seguimiento_for_odei($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
-		$sql="DELETE FROM avance WHERE codlocal = '".$data['codlocal']."' and nro_visita = ".$data['nro_visita']."";
-		$this->db->query($sql);
-		return $this->db->affected_rows();
+		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		//echo $sql;
+		$q = $this->db->query($sql);
+		return $q;
 	}
-*/
+
+	public function get_cantidad_for_odei($condicion1)
+	{
+		$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1";
+    	$q = $this->db->query($sql);
+    	$row = $q->first_row();
+		return $row->Cantidad_Registros;
+	}
+
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

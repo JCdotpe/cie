@@ -152,7 +152,7 @@
 		   	rowNum:10,
 		   	rowList:[10,20,30],		   	
 		   	pager: '#pager2',
-		   	sortname: 'convert(datetime,fxinicio,103), prov_operativa_ugel',
+		   	sortname: 'convert(datetime,fxinicio,103), periodo, prov_operativa_ugel',
 		    viewrecords: true,
 		    sortorder: "asc",
 		    caption:"Datos del Reporte"		    
@@ -170,7 +170,7 @@
 		var periodo_1 = $("#periodo_uno").val();
 		var periodo_2 = $("#periodo_dos").val();
 
-		if (codsede == -1 || codprov == -1 || codruta == "" || periodo_uno == "" || periodo_dos == "")
+		if (codsede == -1 || codprov == -1 || codruta == "" || periodo_1 == "" || periodo_2 == "")
 		{ alert("Faltan Datos para Realizar la Busqueda!");
 		}else{
 			$("#cod_sede").val(codsede);

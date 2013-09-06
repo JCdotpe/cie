@@ -33,7 +33,7 @@ class Csvexport extends CI_Controller {
 
 		$where1 = "";
 
-		$sidx = "convert(datetime,fxinicio,103), prov_operativa_ugel";
+		$sidx = "convert(datetime,fxinicio,103), periodo, prov_operativa_ugel";
 		
 		if(isset($_GET['codsede'])) { 
 			$sede = $this->input->get('codsede');
@@ -57,9 +57,16 @@ class Csvexport extends CI_Controller {
 		}else{ $ruta = ""; 
 			$cond3 = "idruta = ''";}
 
+		if(isset($_GET['per_uno']) || isset($_GET['per_dos'])) { 
+			$per_uno = $this->input->get('per_uno');
+			$per_dos = $this->input->get('per_dos');
+			$cond4 = "(periodo between $per_uno and $per_dos)";
+		}else{ $ruta = ""; 
+			$cond4 = "periodo = ''";}
+
 		if(!$sidx) $sidx =1;
 
-		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3;
+		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
 		$count = $this->rutas_model->contar_datos($where1);
 
 		//$data['cantidad'] = $count;
@@ -176,9 +183,9 @@ class Csvexport extends CI_Controller {
 					if ($query->num_rows() > 0)
 					{
 						$row = $query->row();
-						$sheet->setCellValue('D9',$row->sede_operativa);
+						$sheet->setCellValue('D9',utf8_encode($row->sede_operativa));
 						$sheet->mergeCells('D9:E9');
-						$sheet->setCellValue('D10',$row->prov_operativa_ugel);
+						$sheet->setCellValue('D10',utf8_encode($row->prov_operativa_ugel));
 						$sheet->mergeCells('D10:E10');
 						$sheet->getCellByColumnAndRow(3, 11)->setValueExplicit($row->cod_jefebrigada,PHPExcel_Cell_DataType::TYPE_STRING);
 						$sheet->mergeCells('D11:E11');
@@ -394,10 +401,10 @@ class Csvexport extends CI_Controller {
 					
 			  		//$sheet->getCellByColumnAndRow($col++, $row)->setValue($cols);
 			  		
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue($filas->NomDept);
-			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->NomProv);
-			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->NomDist);
-			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->centroPoblado);
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode($filas->NomDept));
+			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode($filas->NomProv));
+			  		$sheet->getCellByColumnAndRow(4, $row)->setValue(utf8_encode($filas->NomDist));
+			  		$sheet->getCellByColumnAndRow(5, $row)->setValue(utf8_encode($filas->centroPoblado));
 			  		$sheet->getCellByColumnAndRow(6, $row)->setValueExplicit($filas->codlocal,PHPExcel_Cell_DataType::TYPE_STRING);
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->periodo,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->fxinicio);
@@ -606,7 +613,7 @@ class Csvexport extends CI_Controller {
 				    );
     	//colores
 
-		$sidx = "convert(datetime,fxinicio_jb,103), prov_operativa_ugel";
+		$sidx = "convert(datetime,fxinicio_jb,103), periodo_jb, prov_operativa_ugel";
 		
 		if(isset($_GET['codsede'])) { 
 			$sede = $this->input->get('codsede');			
@@ -623,7 +630,13 @@ class Csvexport extends CI_Controller {
 		}else{ $jefeb = ""; }
 		$cond3 = "cod_jefebrigada = '$jefeb'";
 
-		$where = "WHERE fxinicio_jb is not null AND ".$cond1." AND ".$cond2." AND ".$cond3;
+		if(isset($_GET['perjb_uno']) && isset($_GET['perjb_dos'])) { 
+			$perjb_uno = $this->input->get('perjb_uno');
+			$perjb_dos = $this->input->get('perjb_dos');
+			$cond4 = "(periodo_jb between $perjb_uno and $perjb_dos)";
+		}else{ $cond4 = "periodo_jb = ''"; }
+
+		$where = "WHERE fxinicio_jb is not null AND ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
 		$count = $this->rutas_model->contar_datos_jb($where);
 		
 		$query = $this->rutas_model->report_jefebrigada($sidx, 'asc', '0', $count, $where);
@@ -712,9 +725,9 @@ class Csvexport extends CI_Controller {
 					if ($query->num_rows() > 0)
 					{
 						$row = $query->row();
-						$sheet->setCellValue('D9',$row->sede_operativa);
+						$sheet->setCellValue('D9',utf8_encode($row->sede_operativa));
 						$sheet->mergeCells('D9:E9');
-						$sheet->setCellValue('D10',$row->prov_operativa_ugel);
+						$sheet->setCellValue('D10',utf8_encode($row->prov_operativa_ugel));
 						$sheet->mergeCells('D10:E10');
 						$sheet->getCellByColumnAndRow(3, 11)->setValueExplicit($row->cod_jefebrigada,PHPExcel_Cell_DataType::TYPE_STRING);
 						$sheet->mergeCells('D11:E11');
@@ -867,10 +880,10 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue($filas->nombre_dpto);
-			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->nombre_provincia);
-			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->nombre_distrito);
-			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->centroPoblado);
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode($filas->nombre_dpto));
+			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode($filas->nombre_provincia));
+			  		$sheet->getCellByColumnAndRow(4, $row)->setValue(utf8_encode($filas->nombre_distrito));
+			  		$sheet->getCellByColumnAndRow(5, $row)->setValue(utf8_encode($filas->centroPoblado));
 			  		$sheet->getCellByColumnAndRow(6, $row)->setValueExplicit($filas->codigo_de_local,PHPExcel_Cell_DataType::TYPE_STRING);
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->periodo_jb,PHPExcel_Cell_DataType::TYPE_NUMERIC);
 			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->fxinicio_jb);
@@ -995,7 +1008,7 @@ class Csvexport extends CI_Controller {
 
 		$where1 = "";
 
-		$sidx = "convert(datetime,fxinicio,103),prov_operativa_ugel";
+		$sidx = "convert(datetime,fxinicio,103), periodo, prov_operativa_ugel";
 		
 		if(isset($_GET['codsede'])) { 
 			$sede = $this->input->get('codsede');
@@ -1019,8 +1032,14 @@ class Csvexport extends CI_Controller {
 		}else{ $ruta = ""; 
 			$cond3 = "idruta = ''";}
 
+		if(isset($_GET['per_uno']) && isset($_GET['per_dos'])) { 
+			$per_uno = $this->input->get('per_uno');
+			$per_dos = $this->input->get('per_dos');
+			$cond4 = "(periodo between $per_uno and $per_dos)";
+		}else{ $cond4 = "periodo = ''"; }
+
 		if(!$sidx) $sidx =1;
-		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3;
+		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
 		$count = $this->rutas_model->contar_datos($where1);
 		$query = $this->rutas_model->listado_rutas($sidx, 'asc', '0', $count, $where1);
 		
@@ -1050,11 +1069,12 @@ class Csvexport extends CI_Controller {
 			$sheet->getColumnDimension('D')->setWidth(18);
 			$sheet->getColumnDimension('E')->setWidth(25);
 			$sheet->getColumnDimension('F')->setWidth(25);
-			$sheet->getColumnDimension('G')->setWidth(18);
-			$sheet->getColumnDimension('H')->setWidth(37);
+			$sheet->getColumnDimension('G')->setWidth(10);
+			$sheet->getColumnDimension('H')->setWidth(18);
 			$sheet->getColumnDimension('I')->setWidth(37);
-			$sheet->getColumnDimension('J')->setWidth(20);
-			$sheet->getColumnDimension('K')->setWidth(8);
+			$sheet->getColumnDimension('J')->setWidth(37);
+			$sheet->getColumnDimension('K')->setWidth(20);
+			$sheet->getColumnDimension('L')->setWidth(8);
 
 			$sheet->getRowDimension(4)->setRowHeight(2);
 			$sheet->getRowDimension(6)->setRowHeight(2);
@@ -1062,15 +1082,15 @@ class Csvexport extends CI_Controller {
 
 		// TITULOS
 			$sheet->setCellValue('A3','INSTITUTO NACIONAL DE ESTADÍSTICA E INFORMATICA');
-			$sheet->mergeCells('A3:K3');
+			$sheet->mergeCells('A3:L3');
 			$sheet->setCellValue('A5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
-			$sheet->mergeCells('A5:K5');
+			$sheet->mergeCells('A5:L5');
 			$sheet->setCellValue('A7','LISTADO DE LOCALES ESCOLARES POR RUTA DE TRABAJO DEL EVALUADOR TECNICO');
-			$sheet->mergeCells('A7:K7');
-			$sheet->getStyle('A3:K7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			$sheet->getStyle('A3:K7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
-			$sheet->getStyle('A3:K3')->getFont()->setname('Arial black')->setSize(18);
-			$sheet->getStyle('A5:K7')->getFont()->setname('Arial')->setSize(18);
+			$sheet->mergeCells('A7:L7');
+			$sheet->getStyle('A3:L7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('A3:L7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
+			$sheet->getStyle('A3:L3')->getFont()->setname('Arial black')->setSize(18);
+			$sheet->getStyle('A5:L7')->getFont()->setname('Arial')->setSize(18);
 
 			// LOGO
 			
@@ -1100,14 +1120,14 @@ class Csvexport extends CI_Controller {
 					if ($query->num_rows() > 0)
 					{
 						$row = $query->row();
-						$sheet->setCellValue('D9',$row->sede_operativa);
+						$sheet->setCellValue('D9',utf8_encode($row->sede_operativa));
 						$sheet->mergeCells('D9:E9');
-						$sheet->setCellValue('D10',$row->prov_operativa_ugel);
+						$sheet->setCellValue('D10',utf8_encode($row->prov_operativa_ugel));
 						$sheet->mergeCells('D10:E10');
-						$sheet->setCellValue('D11',$row->cod_jefebrigada);
+						$sheet->getCellByColumnAndRow(3, 11)->setValueExplicit($row->cod_jefebrigada,PHPExcel_Cell_DataType::TYPE_STRING);
 						$sheet->mergeCells('D11:E11');
-						$sheet->setCellValue('D12',$row->idruta);
-						$sheet->mergeCells('D12:E12');
+						$sheet->getCellByColumnAndRow(3, 12)->setValueExplicit($row->idruta,PHPExcel_Cell_DataType::TYPE_STRING);
+						$sheet->mergeCells('D12:E12');						
 					}
 
 					$sheet->getStyle("D9:E12")->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
@@ -1136,10 +1156,10 @@ class Csvexport extends CI_Controller {
 							)
 					));
 
-					$sheet->setCellValue('J15','DOC.CIE03.06');
-					$sheet->mergeCells('J15:K15');
+					$sheet->setCellValue('K15','DOC.CIE03.06');
+					$sheet->mergeCells('K15:L15');
 
-					$sheet->getStyle('D9:K11')->getFont()->setname('Arial')->setSize(12);	// TAMAÑO FUENTE CABECERAS
+					$sheet->getStyle('D9:L11')->getFont()->setname('Arial')->setSize(12);	// TAMAÑO FUENTE CABECERAS
 		// CABECERA ESPECIAL
 
 		// CABECERA
@@ -1158,29 +1178,31 @@ class Csvexport extends CI_Controller {
 					$sheet->mergeCells('E'.$cab.':E'.($cab+2));
 					$sheet->setCellValue('F'.$cab,'Centro Poblado' );
 					$sheet->mergeCells('F'.$cab.':F'.($cab+2));
-					$sheet->setCellValue('G'.$cab, 'Codigo de Local');
+					$sheet->setCellValue('G'.$cab, 'Periodo');
 					$sheet->mergeCells('G'.$cab.':G'.($cab+2));	
-					$sheet->setCellValue('H'.$cab, 'Dirección');
-					$sheet->mergeCells('H'.$cab.':H'.($cab+2));
-					$sheet->setCellValue('I'.$cab,'Nivel Educativo');
+					$sheet->setCellValue('H'.$cab, 'Codigo de Local');
+					$sheet->mergeCells('H'.$cab.':H'.($cab+2));	
+					$sheet->setCellValue('I'.$cab, 'Dirección');
 					$sheet->mergeCells('I'.$cab.':I'.($cab+2));
-					$sheet->setCellValue('J'.$cab,'UGEL');
+					$sheet->setCellValue('J'.$cab,'Nivel Educativo');
 					$sheet->mergeCells('J'.$cab.':J'.($cab+2));
-					$sheet->setCellValue('K'.$cab,'Area');
+					$sheet->setCellValue('K'.$cab,'UGEL');
 					$sheet->mergeCells('K'.$cab.':K'.($cab+2));
+					$sheet->setCellValue('L'.$cab,'Area');
+					$sheet->mergeCells('L'.$cab.':L'.($cab+2));
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
-				$sheet->getStyle("B".$cab.":K".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
-				$sheet->getStyle("B".$cab.":K".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
-				$sheet->getStyle("B".$cab.":K".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
-				$sheet->getStyle("B".$cab.":K".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-				$sheet->getStyle("B".$cab.":K".($cab+2))->getFont()->setname('Arial')->setSize(12)->setBold(true);
+				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
+				$sheet->getStyle("B".$cab.":L".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
+				$sheet->getStyle("B".$cab.":L".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+				$sheet->getStyle("B".$cab.":L".($cab+2))->getFont()->setname('Arial')->setSize(12)->setBold(true);
 
-		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":K".($cab+2));
+		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":L".($cab+2));
 				$headStyle->applyFromArray($color_celda_cabeceras);
 
-				$sheet->getStyle("B".$cab.":K".($cab+2))->applyFromArray(array(
+				$sheet->getStyle("B".$cab.":L".($cab+2))->applyFromArray(array(
 				'borders' => array(
 							'allborders' => array(
 											'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1192,10 +1214,10 @@ class Csvexport extends CI_Controller {
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+2);
 			
-			$sheet->getStyle("A".($cab+3).":K".$total)->getFont()->setname('Arial Narrow')->setSize(9);
+			$sheet->getStyle("A".($cab+3).":L".$total)->getFont()->setname('Arial Narrow')->setSize(9);
 
 			//bordes cuerpo
-			$sheet->getStyle("B".($cab+3).":K".$total)->applyFromArray(array(
+			$sheet->getStyle("B".($cab+3).":L".$total)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1212,21 +1234,23 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue($filas->NomDept);
-			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->NomProv);
-			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->NomDist);
-			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->centroPoblado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValueExplicit($filas->codlocal,PHPExcel_Cell_DataType::TYPE_STRING);
-			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->direccion);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Nivel_Educativo);
-			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->ugel);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->area);
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode($filas->NomDept));
+			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode($filas->NomProv));
+			  		$sheet->getCellByColumnAndRow(4, $row)->setValue(utf8_encode($filas->NomDist));
+			  		$sheet->getCellByColumnAndRow(5, $row)->setValue(utf8_encode($filas->centroPoblado));
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->periodo);			  		
+			  		$sheet->getStyle("G".$row.":G".$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);			
+			  		$sheet->getCellByColumnAndRow(7, $row)->setValueExplicit($filas->codlocal,PHPExcel_Cell_DataType::TYPE_STRING);
+			  		$sheet->getCellByColumnAndRow(8, $row)->setValue(utf8_encode($filas->direccion));
+			  		$sheet->getCellByColumnAndRow(9, $row)->setValue(utf8_encode($filas->Nivel_Educativo));
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue(utf8_encode($filas->ugel));
+			  		$sheet->getCellByColumnAndRow(11, $row)->setValue(utf8_encode($filas->area));
 
 
 				 $col = 2;
 				 //dar formato de color intercalado a cada fila
 				 if($cambio){
-			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":K".$row);
+			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":L".$row);
 					$fila_color->applyFromArray(
 					    array(
 					        'fill' => array(

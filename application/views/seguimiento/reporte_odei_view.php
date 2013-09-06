@@ -10,13 +10,15 @@
 </style>
 <?php
 	$label_class =  array('class' => 'control-label');
+	/*
 	$odeiArray = array(-1 => 'Seleccione...');
     foreach($odei->result() as $filas)
     {
       $odeiArray[$filas->coddepe]=utf8_encode(strtoupper($filas->detadepen));
     }
-
-    $periodoArray = array(-1 => 'Seleccione...', 0 => '1', 1 => '2', 2 => '3', 3 => '4', 4 => '5', 5 => '6', 6 => '7', 7 => '8', 8 => '9', 9 => '10', 10 => '11', 11 => '12', 12 => '13', 13 => '14');
+	*/
+    
+    $periodoArray = array(-1 => 'Seleccione...', 0 => '1', 1 => '2', 2 => '3', 3 => '4', 4 => '5', 5 => '6', 6 => '7', 7 => '8', 8 => '9', 9 => '10', 10 => '11', 11 => '12', 12 => '13', 13 => '14', 99 => 'Todos');
 ?>
 
 <div class="row-fluid">
@@ -27,14 +29,16 @@
 		<div id="ap-content" class="span10">
 			<div class="row-fluid well top-conv">
 				<?php echo form_open('','id="frm_reporte"'); ?>
+				<!--
 				<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('ODEI', 'odei', $label_class); ?>
+						<?php #echo form_label('ODEI', 'odei', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('odei', $odeiArray, '#', 'id="odei"'); ?>
+							<?php #echo form_dropdown('odei', $odeiArray, '#', 'id="odei"'); ?>
 						</div>
 					</div>
 				</div>
+				-->
 				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Periodo', 'periodo', $label_class); ?>
@@ -48,7 +52,9 @@
 					<?php #echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>-->
 			</div>
+			<!--
 			<input type="hidden" name="cod_odei" id="cod_odei" value="" />
+			-->
 			<input type="hidden" name="cod_per" id="cod_per" value="" />
 			<?php echo form_close(); ?>
 		</div>
@@ -105,31 +111,31 @@
 
 	function reportar()
 	{
-		var cododei = $("#odei").val();
+		//var cododei = $("#odei").val();
 		var codper = $("#periodo").val();
 		
-		if (cododei == -1 || codper == -1)
+		if (codper == -1)
 		{ 
-			alert("Debe Seleccionar ODEI y Periodo"); 
+			alert("Debe Seleccionar Periodo"); 
 		}else{
-			$("#cod_odei").val(cododei);
+			//$("#cod_odei").val(cododei);
 			$("#cod_per").val(codper);
 
-			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_odei/obtenreporte?odei="+cododei+"&periodo="+codper,page:1}).trigger("reloadGrid");
+			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_odei/obtenreporte?periodo="+codper,page:1}).trigger("reloadGrid");
 		}
 	}
 
 	function exportExcel()
 	{
-        var codsede = $("#cod_sede").val();
-		var codprov = $("#cod_prov").val();
+        //var cododei = $("#odei").val();
+		var codper = $("#periodo").val();
 
-		if (codsede == "" || codprov == "")
+		if (codper == -1)
 		{ 
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 	        document.forms[0].method='POST';
-	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionLocalsinRuta?codsede="+codsede+"&codprov="+codprov;
+	        document.forms[0].action=CI.base_url+"index.php/seguimiento/csvExport/ExportacionODEI?periodo="+codper;
 	        document.forms[0].target='_blank';
 	        document.forms[0].submit();
     	}

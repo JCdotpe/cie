@@ -84,10 +84,16 @@ class Listado_rutas extends CI_Controller {
 			$cond3 = "idruta = '$ruta'";
 		}else{ $ruta = ""; 
 			$cond3 = "idruta = ''";}
+
+		if(isset($_GET['per_uno']) && isset($_GET['per_dos'])) { 
+			$per_uno = $this->input->get('per_uno');
+			$per_dos = $this->input->get('per_dos');
+			$cond4 = "(periodo between $per_uno and $per_dos)";
+		}else{ $cond4 = "periodo = ''"; }
 		
 		if(!$sidx) $sidx =1;
 
-		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3;
+		$where1 =  "WHERE ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
 		$count = $this->rutas_model->contar_datos($where1);
 
  		//En base al numero de registros se obtiene el numero de paginas
@@ -112,7 +118,7 @@ class Listado_rutas extends CI_Controller {
 		{
 			$nro_fila++;
 			$respuesta->rows[$i]['id'] = $i;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->NomDept),utf8_encode($fila->NomProv),utf8_encode($fila->NomDist),utf8_encode($fila->centroPoblado),$fila->codlocal,utf8_encode($fila->direccion),$fila->Nivel_Educativo,$fila->ugel,$fila->area,$fila->idruta);
+			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->NomDept),utf8_encode($fila->NomProv),utf8_encode($fila->NomDist),utf8_encode($fila->centroPoblado),$fila->periodo,$fila->codlocal,utf8_encode($fila->direccion),$fila->Nivel_Educativo,$fila->ugel,$fila->area,$fila->idruta);
 			$i++;
 		}
 

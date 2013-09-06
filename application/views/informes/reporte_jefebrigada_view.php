@@ -18,6 +18,26 @@
 
 	$provArray = array(-1 => '');
 	$jefeArray = array(-1 => '');
+
+	$txtPeriodojb_Uno =array(
+		'name'	=> 'periodojb_uno',
+		'id'	=> 'periodojb_uno',
+		'value'	=> set_value('periodojb_uno'),
+		'maxlength'	=> 2,	
+		'style' => 'width: 30px;',	
+		'onpaste' => 'return false;',	
+		'onkeypress' => 'return validar_numeros(event)'
+	);
+
+	$txtPeriodojb_Dos =array(
+		'name'	=> 'periodojb_dos',
+		'id'	=> 'periodojb_dos',
+		'value'	=> set_value('periodojb_dos'),
+		'maxlength'	=> 2,	
+		'style' => 'width: 30px;',	
+		'onpaste' => 'return false;',	
+		'onkeypress' => 'return validar_numeros(event)'
+	);
 ?>
 
 <div class="row-fluid">
@@ -48,14 +68,28 @@
 					<div class="control-group">
 							<?php echo form_label('Jefe de Brigada', 'jefe'); ?>
 						<div class="controls">
-							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada" onChange="reportar();" style="width:100%"'); ?>
+							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada"  style="width:100%"'); ?>
 						</div>
 					</div>
+				</div>
+				<div class="span2">
+					<div class="control-group">
+						<?php echo form_label('Periodos', 'periodos', $label_class); ?>
+						<div class="controls">
+							<?php echo form_input($txtPeriodojb_Uno); ?> -
+							<?php echo form_input($txtPeriodojb_Dos); ?>
+						</div>
+					</div>
+				</div>
+				<div class="span1">
+					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>
 			</div>
 			<input type="hidden" name="cod_sede" id="cod_sede" value="" />
 			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
 			<input type="hidden" name="cod_jb" id="cod_jb" value="" />
+			<input type="hidden" name="periodojb_1" id="periodojb_1" value="" />
+			<input type="hidden" name="periodojb_2" id="periodojb_2" value="" />
 			<?php echo form_close(); ?>			
 		</div>
 		<div id="grid_content" class="span12">
@@ -108,7 +142,7 @@
 		   	pager: '#pager2',
 		   	rowNum:10,
 		   	rowList:[10,20,30],
-		   	sortname: 'convert(datetime,fxinicio_jb,103), prov_operativa_ugel',
+		   	sortname: 'convert(datetime,fxinicio_jb,103), periodo_jb, prov_operativa_ugel',
 		    viewrecords: true,
 		    sortorder: "asc",
 		    caption:"Lista de Rutas de Jefe de Brigada"
@@ -122,12 +156,20 @@
 		var codsede = $("#sedeoperativa").val();
 		var codprov = $("#provoperativa").val();
 		var codjb = $("#jefebrigada").val();
+		var periodojb_1 = $("#periodojb_uno").val();
+		var periodojb_2 = $("#periodojb_dos").val();
 
-		$("#cod_sede").val(codsede);
-		$("#cod_prov").val(codprov);
-		$("#cod_jb").val(codjb);
+		if (codsede == -1 || codprov == -1 || codjb == -1 || periodojb_1 == "" || periodojb_2 == "")
+		{ alert("Faltan Datos para Realizar la Busqueda!");
+		}else{
+			$("#cod_sede").val(codsede);
+			$("#cod_prov").val(codprov);
+			$("#cod_jb").val(codjb);
+			$("#periodojb_1").val(periodojb_1);
+			$("#periodojb_2").val(periodojb_2);
 
-		jQuery("#list2").jqGrid('setGridParam',{url:"reporte_jefebrigada/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codjb="+codjb,page:1}).trigger("reloadGrid");
+			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_jefebrigada/obtenreporte?codsede="+codsede+"&codprov="+codprov+"&codjb="+codjb+"&perjb_uno="+periodojb_1+"&perjb_dos="+periodojb_2,page:1}).trigger("reloadGrid");
+		}
 	}
 
 	function exportExcel()
@@ -135,13 +177,15 @@
         var codsede = $("#cod_sede").val();
 		var codprov = $("#cod_prov").val();
 		var codjb = $("#cod_jb").val();
+		var periodojb_1 = $("#periodojb_1").val();
+		var periodojb_2 = $("#periodojb_2").val();
 
-		if (codsede == "" || codprov == "" || codjb == "" )
+		if (codsede == "" || codprov == "" || codjb == "" || periodojb_1 == "" || periodojb_2 == "")
 		{ 
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 	        document.forms[0].method='POST';
-	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionJefeBrigada?codsede="+codsede+"&codprov="+codprov+"&codjb="+codjb;
+	        document.forms[0].action=CI.base_url+"index.php/segmentaciones/csvExport/ExportacionJefeBrigada?codsede="+codsede+"&codprov="+codprov+"&codjb="+codjb+"&perjb_uno="+periodojb_1+"&perjb_dos="+periodojb_2;
 	        document.forms[0].target='_blank';
 	        document.forms[0].submit();
     	}

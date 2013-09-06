@@ -71,7 +71,13 @@ class Reporte_jefebrigada extends CI_Controller {
 		}else{ $jefeb = ""; }
 		$cond3 = "cod_jefebrigada = '$jefeb'";
 
-		$where = "WHERE fxinicio_jb is not null AND ".$cond1." AND ".$cond2." AND ".$cond3;
+		if(isset($_GET['perjb_uno']) && isset($_GET['perjb_dos'])) { 
+			$perjb_uno = $this->input->get('perjb_uno');
+			$perjb_dos = $this->input->get('perjb_dos');
+			$cond4 = "(periodo_jb between $perjb_uno and $perjb_dos)";
+		}else{ $cond4 = "periodo_jb = ''"; }
+
+		$where = "WHERE fxinicio_jb is not null AND ".$cond1." AND ".$cond2." AND ".$cond3." AND ".$cond4;
 		
 		if(!$sidx) $sidx =1;
 		$count = $this->rutas_model->contar_datos_jb($where);

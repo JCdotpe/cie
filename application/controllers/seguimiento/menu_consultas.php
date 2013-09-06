@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Seguimiento extends CI_Controller {
+class Menu_Consultas extends CI_Controller {
 
 	function __construct()
 	{
@@ -8,10 +8,7 @@ class Seguimiento extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->library('security');
 		$this->load->library('tank_auth');
-		$this->lang->load('tank_auth');
-		$this->load->library('session');
-		$this->load->model('Seguimiento/operativa_model');
-
+		$this->lang->load('tank_auth');	
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -34,11 +31,14 @@ class Seguimiento extends CI_Controller {
 		}
 	}
 
-	public function index()
-	{
+	public function index(){
+		$data['option'] = 1;
 		$data['nav'] = TRUE;
-		$data['title'] = 'Seguimiento';
-		$data['main_content'] = 'seguimiento/index_view';
+		$data['title'] = 'Reportes';
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['rol'] = 11;
+		$data['main_content'] = 'seguimiento/informes_view';
 		$this->load->view('backend/includes/template', $data);
 	}
 
