@@ -4,7 +4,7 @@
 
 class Visor_model extends CI_MODEL{
 
-    function Get_Resultados($cod_dpto,$cod_prov){
+    public function Get_Resultados($cod_dpto,$cod_prov){
 
         $this->db->select('*');
         $this->db->from('Padlocal');
@@ -23,7 +23,7 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
-    function Get_Ruta($cod_dpto,$cod_prov){
+    public function Get_Ruta($cod_dpto,$cod_prov){
         $q=$this->db->query("select idruta from rutas where codlocal in (select codigo_de_local from padlocal where cod_dpto='".$cod_dpto."' and cod_prov='".$cod_prov."') group by idruta");
         return $q;
     }
@@ -32,7 +32,7 @@ class Visor_model extends CI_MODEL{
     //===================================================================
 
 
-    function Data_PadLocal($codigo_de_local){
+    public function Data_PadLocal($codigo_de_local){
         $this->db->select('*');
         $this->db->from('Padlocal');
         $this->db->where('codigo_de_local',$codigo_de_local);
@@ -40,7 +40,7 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
-    function Data_PCar($codigo_de_local){
+    public function Data_PCar($codigo_de_local){
         $this->db->select('*');
         $this->db->from('PCar');
         $this->db->where('codigo_de_local',$codigo_de_local);
@@ -48,7 +48,7 @@ class Visor_model extends CI_MODEL{
         return $q;
     }
 
-    function Data_PCar_C_1N($codigo_de_local){
+    public function Data_PCar_C_1N($codigo_de_local){
         $this->db->select('*');
         $this->db->from('PCar_C_1N');
         $this->db->where('codigo_de_local',$codigo_de_local);
@@ -61,7 +61,7 @@ class Visor_model extends CI_MODEL{
 //========================CAPITULO1========================================
 
 
-    function Data_P1_A($codigo_de_local){
+    public function Data_P1_A($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P1_A');
         $this->db->where('codigo_de_local',$codigo_de_local);
