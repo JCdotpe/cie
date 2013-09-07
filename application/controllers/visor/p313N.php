@@ -10,7 +10,7 @@ class P313N extends REST_Controller{
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
     $this->load->model('visor/P313N_model');
-    //$this->load->model('udra/Udra_registro_model');
+    
     $this->load->helper('my');
 
   }
@@ -26,17 +26,21 @@ class P313N extends REST_Controller{
         $result=validtoken_get($this->post('token'));
 
         if (!$result) {
-          # code...
+          
           $msg= array('message' => 'token invalido',
                       'value'=> false);
         }else{
 
             $array= json_decode($message,1);
+           
             foreach ($array as $key => $value) {
-              # code...
+           
               $array[$key]['version']='99';
+           
             }            
+            
             $flag = $this->P313N_model->insertBatch($array);
+            
             if ($flag) {           
 
               $msg= array('message' => 'Puntos GPS insertados',
@@ -46,7 +50,9 @@ class P313N extends REST_Controller{
 
               $msg= array('message' => 'Error al guardar',
                       'value'=> false);
+
             }
+        
         }
 
         $this->response($msg, 200);

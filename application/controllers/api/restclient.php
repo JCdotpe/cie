@@ -19,7 +19,8 @@
 
 		//$json= json_encode($return_arr['datos']);
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/validaccess/verify/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://192.168.202.191/cie/index.php/visor/getToken/verify/format/json');
+		//http://192.168.202.191/cie/index.php/api/restclient/token
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);
