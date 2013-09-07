@@ -33,9 +33,6 @@ if ( ! function_exists('validtoken_get'))
 
     function validtoken_get($token= NULL){
 
-        if (!$session){
-            return false;
-        }else{
 
             $response="";
             $CI = get_instance();
@@ -53,7 +50,6 @@ if ( ! function_exists('validtoken_get'))
                 $msg=  array('message' => "token valido",
                                'value'=> true);
 
-                //  echo "correcto";
                 return true;
 
             }else{
@@ -62,13 +58,9 @@ if ( ! function_exists('validtoken_get'))
                 $msg=  array('message' => "token invalido",
                                'value'=> false);
 
-               // echo "invalido";
-
 
                 return false;
             }
-        }
-
     }
 }
 

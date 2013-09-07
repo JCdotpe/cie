@@ -32,6 +32,8 @@ class validaccess extends REST_Controller
 
 	public function validtoken_get($token)
 	{
+
+
         $response="";
         if ($this->tank_auth->is_logged_in()) {
 

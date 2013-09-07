@@ -19,7 +19,12 @@ class P313N extends REST_Controller{
 
 
         $message = $this->post('datos');
+        $session=false;
+        $token="";
+        $msg="";
+
         $result=validtoken_get($this->post('token'));
+
         if (!$result) {
           # code...
           $msg= array('message' => 'token invalido',

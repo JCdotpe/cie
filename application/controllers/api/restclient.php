@@ -89,15 +89,16 @@
 		// $url = 'http://twitter.com/statuses/update.json';
 		// Set up and execute the curl process
 		$return_arr['datos']=  array();
-		for ($i=40; $i <43 ; $i++) {
+		for ($i=5; $i <10 ; $i++) {
 			# code...
 
-			$data['codigo_de_local'] = '000118';
+			$data['id_local'] = '000118';
 			$data['PC_F_1'] = '1';
-			$data['P3_1_NroPto'] = $i;
-			$data['P3_1_3_Long'] = '1';
-			$data['P3_1_3_Lat'] = '1';
-			$data['P3_1_3_Alt'] = '1';
+			$data['version'] = '1';
+			$data['codigopuntogps'] = $i;
+			$data['longitudpunto'] = '123';
+			$data['latitudpunto'] = '1234';
+			$data['altitudpunto'] = '12345';
 
 			array_push($return_arr['datos'],$data);
 		}
@@ -108,6 +109,7 @@
 		//$this->curl->post($return_arr);
 		//$array= json_encode(array('datos' => 'migue'));
 		$json= json_encode($return_arr['datos']);
+
 		$curl_handle = curl_init();
 		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p313N/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
@@ -116,7 +118,7 @@
 		//curl_setopt($curl_handle, CURLOPT_POSTFIELDS,$array);
 		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
 		    'datos' => $json,
-		    'token'=>'f45bfb3df92b50f73b71e32830bb5788e0a263cc1'));
+		    'token'=> 'f45bfb3df92b50f73b71e32830bb5788e0a263cc12'));
 
 		$buffer = curl_exec($curl_handle);
 		curl_close($curl_handle);
