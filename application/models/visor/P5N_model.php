@@ -1,14 +1,11 @@
 <?php
 
 class P5N_model extends CI_MODEL{
-<<<<<<< HEAD
-=======
 
     public function __construct() {
             parent::__construct();
             $this->load->database();
     }
->>>>>>> supercommit models and getToken
   
     function insertBatch($data) {
             
@@ -17,8 +14,6 @@ class P5N_model extends CI_MODEL{
     
     }
 
-<<<<<<< HEAD
-=======
     function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P5_N');
@@ -27,6 +22,5 @@ class P5N_model extends CI_MODEL{
         return $q;
     }
 
->>>>>>> supercommit models and getToken
 }
 

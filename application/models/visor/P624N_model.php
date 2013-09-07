@@ -1,7 +1,6 @@
 <?php
 
 class P624N_model extends CI_MODEL{
-
   
     function insertBatch($data) {
             
@@ -10,8 +9,6 @@ class P624N_model extends CI_MODEL{
     
     }
 
-<<<<<<< HEAD
-=======
     function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P6_2_4N');
@@ -19,7 +16,6 @@ class P624N_model extends CI_MODEL{
         $q = $this->db->get();
         return $q;
     }
->>>>>>> supercommit models and getToken
 
 }
 

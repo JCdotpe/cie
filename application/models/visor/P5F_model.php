@@ -10,8 +10,6 @@ class P5F_model extends CI_MODEL{
     
     }
 
-<<<<<<< HEAD
-=======
     function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P5_F');
@@ -20,6 +18,5 @@ class P5F_model extends CI_MODEL{
         return $q;
     }
 
->>>>>>> supercommit models and getToken
 }
 

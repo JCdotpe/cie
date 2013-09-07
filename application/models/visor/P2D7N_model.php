@@ -1,7 +1,6 @@
 <?php
 
 class P2D7N_model extends CI_MODEL{
-
   
     function insertBatch($data) {
             
@@ -10,8 +9,6 @@ class P2D7N_model extends CI_MODEL{
     
     }
 
-<<<<<<< HEAD
-=======
     function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P2_D_7N');
@@ -20,6 +17,5 @@ class P2D7N_model extends CI_MODEL{
         return $q;
     }
 
->>>>>>> supercommit models and getToken
 }
 
