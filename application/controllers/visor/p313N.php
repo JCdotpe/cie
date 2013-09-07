@@ -32,10 +32,12 @@ class P313N extends REST_Controller{
         }else{
 
             $array= json_decode($message,1);
+            foreach ($array as $key => $value) {
+              # code...
+              $array[$key]['version']='99';
+            }            
             $flag = $this->P313N_model->insertBatch($array);
-            if ($flag) {
-
-              $msg='{"message":"Puntos GPS insertados","value":true}';
+            if ($flag) {           
 
               $msg= array('message' => 'Puntos GPS insertados',
                       'value'=> true);
