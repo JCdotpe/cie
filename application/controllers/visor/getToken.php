@@ -154,27 +154,31 @@ class getToken extends REST_Controller
             }
         }
 
-        // si no hay errores
         if ($next) {
-            # code...
+            
             $token = sha1(microtime());
-            // array a insertar
+            
             $array= array('imei' => $this->post('imei'),
                           'dni'=> $this->post('dni'),
                           'cod_pat' => $this->post('cod_pat'),
                           'token' => $token,
                           'fecha_reg'=>date('Y-m-d')." ".date("H:i:s"));
-            //____($array);
+
+            
             $flag = $this->Personal_Patrimonio_model->insert_reg($array);
-            // comprueba insercion
+            
             if ($flag){
                 $msg=  array('token' => $token,
                                'value'=> true);
             }else{
+
                 $code=3;
                 $this->handling_errors($code);
+            
             }
+
         }
+
         $this->response($msg, 200);
 
     }
