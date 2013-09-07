@@ -90,16 +90,15 @@
 		// $url = 'http://twitter.com/statuses/update.json';
 		// Set up and execute the curl process
 		$return_arr['datos']=  array();
-		for ($i=5; $i <10 ; $i++) {
+		for ($i=1; $i <10 ; $i++) {
 			# code...
 
 			$data['id_local'] = '000118';
 			$data['PC_F_1'] = '1';
-			$data['version'] = '1';
-			$data['codigopuntogps'] = $i;
-			$data['longitudpunto'] = '123';
-			$data['latitudpunto'] = '1234';
-			$data['altitudpunto'] = '12345';
+			$data['CodigoPuntoGPS'] = $i;
+			$data['LongitudPunto'] = '123';
+			$data['LatitudPunto'] = '1234';
+			$data['AltitudPunto'] = '12345';
 
 			array_push($return_arr['datos'],$data);
 		}
@@ -107,7 +106,7 @@
 		$json= json_encode($return_arr['datos']);
 
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/visor/p313N/send/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p313N/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);

@@ -22,7 +22,7 @@ class P313N extends REST_Controller{
 
         if (!$result) {
           
-          $msg= array('message' => 'token key invalido',
+          $msg= array('message' => 'Token key invalid',
                       'value'=> false);
         }else{
 
@@ -30,7 +30,7 @@ class P313N extends REST_Controller{
            
             foreach ($array as $key => $value) {
            
-              $array[$key]['version']='99';
+              $array[$key]['version']='1';// poner 99 mas adelante
            
             }            
             
@@ -38,12 +38,12 @@ class P313N extends REST_Controller{
             
             if ($flag) {           
 
-              $msg= array('message' => 'Puntos GPS insertados',
+              $msg= array('message' => 'Saved Successfull',
                       'value'=> true);
 
             }else{
 
-              $msg= array('message' => 'Error al guardar',
+              $msg= array('message' => 'Error to Save',
                       'value'=> false);
 
             }
@@ -55,26 +55,27 @@ class P313N extends REST_Controller{
 
     public function Data_get(){
 
-         $result=validtoken_get($this->post('token'));
-
+         $result=validtoken_get($this->get('token'));
+    
         if (!$result) {
           
-          $msg= array('message' => 'token invalido',
+          $msg= array('message' => 'Token Key Invalid',
                       'value'=> false);
+          prettyPrint(json_encode($msg));
 
         }else{
 
             header_json();
             
-            $data = $this->P313N_model->getData($this->post('id_local'));
+            $data = $this->P313N_model->getData($this->get('id_local'));
 
             $jsonData = json_encode($data->result());
 
             prettyPrint($jsonData);
-            
+
         }
 
-        prettyPrint(json_encode($msg));
+        
             
     }
 
