@@ -52,7 +52,7 @@ class validaccess extends REST_Controller
                 $this->response(NULL, 400);
             }*/
             //$data=$this->Personal_Patrimonio_model->count($this->get('imei'));
-            $resulttoken=$this->Personal_Patrimonio_model->get_token($token));
+            $resulttoken=$this->Personal_Patrimonio_model->get_token($token);
             //$resulttoken=$this->Personal_Patrimonio_model->get_token($this->get('token'));
             if ($resulttoken->num_rows() > 0){
 
