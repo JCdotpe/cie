@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class P313N extends REST_Controller{
+class P5N extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P313N_model');
+    $this->load->model('visor/P5N_model');
     $this->load->helper('my');
 
   }
@@ -34,7 +34,7 @@ class P313N extends REST_Controller{
 
             }
 
-            $flag = $this->P313N_model->insertBatch($array);
+            $flag = $this->P5N_model->insertBatch($array);
 
             if ($flag) {
 
@@ -67,7 +67,7 @@ class P313N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P313N_model->getData($this->get('id_local'));
+            $data = $this->P5N_model->getData($this->get('id_local'));
 
             $jsonData = json_encode($data->result());
 
