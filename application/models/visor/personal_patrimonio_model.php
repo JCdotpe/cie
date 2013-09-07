@@ -2,6 +2,10 @@
 
 class Personal_Patrimonio_model extends CI_MODEL{
 
+	public function __construct() {
+            parent::__construct();
+            $this->load->database();
+    }
 
 	public function get_imei($codigo){
 		$q=$this->db->query("select imei from Personal_Patrimonio where imei=?", array($codigo));

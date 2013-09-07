@@ -4,6 +4,11 @@
 
 class Visor_model extends CI_MODEL{
 
+    public function __construct() {
+            parent::__construct();
+            $this->load->database();
+    }
+
     public function Get_Resultados($cod_dpto,$cod_prov){
 
         $this->db->select('*');
