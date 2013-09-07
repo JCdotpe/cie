@@ -9,12 +9,12 @@ class P31_model extends CI_MODEL{
   
     function insertBatch($data) {
             
-        $q = $this->db->sql_batch('p3_1',$data);
+        $q = $this->db->sql_batch('P3_1',$data);
         return ($q);
     
     }
 
-    function Data_P3_1($codigo_de_local){
+    function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P3_1');
         $this->db->where('id_local',$codigo_de_local);

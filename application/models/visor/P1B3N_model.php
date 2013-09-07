@@ -1,6 +1,6 @@
 <?php
 
-class P31_model extends CI_MODEL{
+class P1B3N_model extends CI_MODEL{
 
     public function __construct() {
             parent::__construct();
@@ -9,14 +9,14 @@ class P31_model extends CI_MODEL{
   
     function insertBatch($data) {
             
-        $q = $this->db->sql_batch('p3_1',$data);
+        $q = $this->db->sql_batch('P1_B_3N',$data);
         return ($q);
     
     }
 
-    function Data_P3_1($codigo_de_local){
+    function getData($codigo_de_local){
         $this->db->select('*');
-        $this->db->from('P3_1');
+        $this->db->from('P1_B_3N');
         $this->db->where('id_local',$codigo_de_local);
         $q = $this->db->get();
         return $q;

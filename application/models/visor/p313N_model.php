@@ -4,12 +4,12 @@ class P313N_model extends CI_MODEL{
     
     function insert_reg($req){
 
-        $this->db->insert('p3_1_3n', $req );
+        $this->db->insert('P3_1_3N', $req );
         return $this->db->insert_id();
     }
     function insert_batch($req){
 
-        $this->db->insert_batch('p3_1_3n', $req );
+        $this->db->insert_batch('P3_1_3N', $req );
         return $this->db->insert_id();
     }
     function lt_query(){        
@@ -18,7 +18,7 @@ class P313N_model extends CI_MODEL{
 
     function insertBatch($data) {
             
-        $q = $this->db->sql_batch('p3_1_3n',$data);
+        $q = $this->db->sql_batch('P3_1_3N',$data);
         
         return ($q);
     }

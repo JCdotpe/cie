@@ -14,7 +14,7 @@ class P1B_model extends CI_MODEL{
     
     }
 
-    function Data_P1_B($codigo_de_local){
+    function getData($codigo_de_local){
         $this->db->select('*');
         $this->db->from('P1_B');
         $this->db->where('id_local',$codigo_de_local);
