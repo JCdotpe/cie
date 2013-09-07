@@ -22,7 +22,7 @@ class P313N extends REST_Controller{
 
         if (!$result) {
           
-          $msg= array('message' => 'token invalido',
+          $msg= array('message' => 'token key invalido',
                       'value'=> false);
         }else{
 
@@ -61,58 +61,20 @@ class P313N extends REST_Controller{
           
           $msg= array('message' => 'token invalido',
                       'value'=> false);
+          
         }else{
 
             header_json();
             
-            $data = $this->P313N_model->Data_P3_1($_REQUEST["cod_local"]);
+            $data = $this->P313N_model->getData($this->post('id_local'));
 
             $jsonData = json_encode($data->result());
 
             prettyPrint($jsonData);
         }
 
+        prettyPrint(json_encode($msg));
+            
     }
-
-   /* public function save_patrimonio2(){
-      $data = array(
-                       array(
-                          'codigo_de_local' => '000118',
-                          'PC_F_1' => 1,
-                          'P3_1_NroPto' => 1,
-                          'P3_1_3_Long' =>1,
-                          'P3_1_3_Lat' =>1,
-                          'P3_1_3_Alt' =>1
-                       ),
-                       array(
-                          'codigo_de_local' => '000118',
-                          'PC_F_1' => 1,
-                          'P3_1_NroPto' => 1,
-                          'P3_1_3_Long' =>1,
-                          'P3_1_3_Lat' =>1,
-                          'P3_1_3_Alt' =>1
-                       )
-                );
-      $array[] = array('codigo_de_local' => '000118',
-                          'PC_F_1' => 1,
-                          'P3_1_NroPto' => 10,
-                          'P3_1_3_Long' =>1,
-                          'P3_1_3_Lat' =>1,
-                          'P3_1_3_Alt' =>1
-                       );
-        $flag = $this->Peien_model->insert_batch($array);
-        //$res=$this->Peien_model->insert_reg($data);
-        if ($res) {
-            # code...
-            echo "se inserto";
-        }else{
-            echo "no se inserto";
-        }
-    }
-
-    public function l_query(){
-      $this->Peien_model->last_query();
-
-    }*/
 
 }
