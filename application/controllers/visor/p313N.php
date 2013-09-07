@@ -44,9 +44,7 @@ class P313N extends REST_Controller{
 
               $msg= array('message' => 'Error al guardar',
                       'value'=> false);
-
             }
-
         }
 
         $this->response($msg, 200);

@@ -103,11 +103,6 @@
 			array_push($return_arr['datos'],$data);
 		}
 
-
-
-		// var_dump($return_arr['datos']);
-		//$this->curl->post($return_arr);
-		//$array= json_encode(array('datos' => 'migue'));
 		$json= json_encode($return_arr['datos']);
 
 		$curl_handle = curl_init();
