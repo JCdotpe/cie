@@ -168,7 +168,7 @@ class getToken extends REST_Controller
             $flag = $this->Personal_Patrimonio_model->insert_reg($array);
             // comprueba insercion
             if ($flag){
-                $msg=  array('message' => $token,
+                $msg=  array('token' => $token,
                                'value'=> true);
             }else{
                 $code=3;

@@ -27,8 +27,8 @@
 		//curl_setopt($curl_handle, CURLOPT_POSTFIELDS,$array);
 		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
 		    'imei' => '6',
-			'dni' => '40660637',
-			'cod_pat' => '4646'));
+			'dni' => '00039083',
+			'cod_pat' => '12345'));
 
 
 		$buffer = curl_exec($curl_handle);

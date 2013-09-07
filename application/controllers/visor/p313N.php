@@ -61,7 +61,7 @@ class P313N extends REST_Controller{
           
           $msg= array('message' => 'token invalido',
                       'value'=> false);
-          
+
         }else{
 
             header_json();
@@ -71,6 +71,7 @@ class P313N extends REST_Controller{
             $jsonData = json_encode($data->result());
 
             prettyPrint($jsonData);
+            
         }
 
         prettyPrint(json_encode($msg));
