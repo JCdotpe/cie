@@ -25,15 +25,25 @@
 			<div class="tab-content">
 
 				<!--  SECCION CIE01-->
-					<?php $this->load->view('visor/visor_view_cie01.php');?>
+          <?php $this->load->view('visor/caratula1.php');?>
+					<?php $this->load->view('visor/cap1.php');?>
+          <?php $this->load->view('visor/cap2.php');?>
+          <?php $this->load->view('visor/cap3.php');?>
+
 	  	    	<!--END SECCION CIE01-->
 
 	  	    	<!--  SECCION CIE01A-->
-					<?php $this->load->view('visor/visor_view_cie01a.php');?>
+					<?php $this->load->view('visor/caratula2.php');?>
+          <?php $this->load->view('visor/cap4.php');?>
+          <?php $this->load->view('visor/cap5.php');?>
+          <?php $this->load->view('visor/cap6.php');?>
+
 	  	    	<!--END SECCION CIE01A-->
 
 	  	    	<!--  SECCION  CIE01B-->
-	  	    	 	<?php $this->load->view('visor/visor_view_cie01b.php');?>
+	  	    <?php $this->load->view('visor/caratula3.php');?>
+          <?php $this->load->view('visor/cap7.php');?>
+          <?php $this->load->view('visor/cap8.php');?>
 	  	    	 <!-- END SECCION CIE01B-->
 
 

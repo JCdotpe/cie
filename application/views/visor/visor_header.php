@@ -275,11 +275,16 @@
 		});
 
 		$('#c6').click(function(event) {
+			var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
 			var predio= $('#PC_F_1').html();
-			var code=$('.codigo_local').val();
-			get_TotalEdif(code);
-			get_Edificacion(code);
-			Get_Cap06(code,predio);
+			var cod_local=$('.codigo_local').val();
+			//get_TotalEdif(code);
+			//get_Edificacion(code);
+			//Get_Cap06(code,predio);
+			//token,cod_local,predio,nro_edif
+			Get_Tot_Edif_Cap05(token,cod_local);
+			Get_List_Edif_Cap06(token,cod_local);
+			Get_Edif_Cap06(token,cod_local,1,1);
 
 		});
 
