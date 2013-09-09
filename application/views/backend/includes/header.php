@@ -51,8 +51,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url('img/ico/apple-touch-icon-72x72-precomposed.png'); ?>">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url('img/ico/apple-touch-icon-144x144-precomposed.png'); ?>">
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('img/ico/apple-touch-icon-57-precomposed.png'); ?>">
-
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBRWqVZ3W4STXTofBB1i7BvCKmhPfA4GM8&sensor=false"></script>
+    
     </head>
     
-    <body>
+    <body >
 
