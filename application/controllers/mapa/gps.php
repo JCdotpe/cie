@@ -10,16 +10,17 @@ class Gps extends CI_Controller {
 		//$this->load->model('convocatoria/Resultados_model');
 		//$this->load->model('visor/visor_model');
 
-		if (!$this->tank_auth->is_logged_in()) {
-			redirect('/auth/login/');
-		}
-
-		$this->load->view('mapa/gps.php');
-
 	}
 
+	public function index(){
+		
+		
+		
+		$this->load->view('mapa/gps.php');
+		
+	}
 
 }
 
- ?>
+ 
 
