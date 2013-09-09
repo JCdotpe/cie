@@ -2457,7 +2457,7 @@
 									</tr>
 								</tbody>
 							</table>
-
+							
 							<div class="panel">
 								<label>Observaciones:</label>
 								<textarea style="width:870px; height:100px;"></textarea>
