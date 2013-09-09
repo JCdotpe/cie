@@ -10,15 +10,15 @@
 </style>
 <?php
 	$label_class =  array('class' => 'control-label');
-	$depaArray = array(-1 => 'Seleccione...');
-	$sedeArray = array(-1 => '-1');
+	//$depaArray = array(-1 => 'Seleccione...');
+	$sedeArray = array(-1 => 'Seleccione...');
 	
     foreach($depa->result() as $filas)
     {
-		$depaArray[$filas->CCDD]=utf8_encode($filas->Departamento);
-		$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
+		//$depaArray[$filas->CCDD]=utf8_encode($filas->Departamento);
+		$sedeArray[$filas->cod_sede_operativa] = utf8_encode(strtoupper($filas->sede_operativa));
     }
-    $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
+    //$selected_sede = (set_value('departamento')) ? set_value('departamento') : '' ;
 	$provArray = array(-1 => '');
 	$distArray = array(-1 => '');
 	$centropArray = array(-1 => '');
@@ -33,20 +33,20 @@
 				<?php echo form_open('','id="frm_seguimiento"'); ?>
 				<div class="span2">
 					<div class="control-group">
-						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
+						<?php echo form_label('Sede Operativa', 'sedeoperativa', $label_class); ?>
 						<div class="controls">
 							<?php 
-								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" style="width:180px;" onChange="cargarProvBySede();"');
-								echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
+								echo form_dropdown('sedeoperativa', $sedeArray, '#', 'id="sedeoperativa" style="width:180px;" onChange="cargarProvBySede();"');
+								#echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
 							?>
 						</div>
 					</div>
 				</div>
 				<div class="span2">
 					<div class="control-group">
-						<?php echo form_label('Provincia', 'provincia', $label_class); ?>
+						<?php echo form_label('Provincia Operativa', 'provincia_ope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia" style="width:180px;" onChange="cargarDist();"'); ?>
+							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" style="width:180px;" onChange="cargarDist();"'); ?>
 						</div>
 					</div>
 				</div>
@@ -137,7 +137,7 @@
 		margin-left: -480px;
 	}
 </style>
-<!-- Modal save patrimonio-->
+<!-- Modal save patrimonio -->
 	<div id="add-detalle-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 		<div class="modal-header">

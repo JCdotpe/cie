@@ -10,9 +10,9 @@ class Registro_Seguimiento extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
-		$this->load->model('Seguimiento/operativa_model');
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->model('convocatoria/Dist_model');
+		$this->load->model('seguimiento/operativa_model');
+		$this->load->model('seguimiento/seguimiento_model');
+		
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -37,25 +37,23 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Dpto_model');
-
 		$data['nav'] = TRUE;
 		$data['title'] = 'Seguimiento';
 		$data['main_content'] = 'Seguimiento/seguimiento_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
+		$data['depa'] = $this->operativa_model->Get_DptobyUser($data['user_id']);
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenerprovincia_by_sede()
 	{
-		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
+		$sedeope = $this->operativa_model->Get_ProvbySedeOpe($_POST['id_sede']);
 		$return_arr['datos']=array();
 		foreach($sedeope->result() as $filas)
 		{
-			$data['CODIGO'] = $filas->CCPP;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre_Provincia));
+			$data['CODIGO'] = $filas->cod_prov_operativa;
+			$data['NOMBRE'] = utf8_encode(strtoupper($filas->prov_operativa_ugel));
 			array_push($return_arr['datos'], $data);
 		}
 		$this->load->view('backend/json/json_view', $return_arr);		
@@ -63,7 +61,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function obtenerdistrito()
 	{
-		$dist = $this->Dist_model->Get_Dist_combo($_POST['id_depa'],$_POST['id_prov']);
+		$dist = $this->operativa_model->Get_DistbySedeProv_Ope($_POST['id_sede'],$_POST['id_prov']);
 		$return_arr['datos']=array();
 		foreach($dist->result() as $filas)
 		{
@@ -76,7 +74,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function obtenercentropoblado()
 	{
-		$centrop = $this->operativa_model->get_centro_poblado($_POST['id_depa'],$_POST['id_prov'],$_POST['id_dist']);
+		$centrop = $this->operativa_model->get_centro_poblado($_POST['id_sede'],$_POST['id_prov'],$_POST['id_dist']);
 		$return_arr['datos']=array();
 		foreach($centrop->result() as $filas)
 		{
@@ -123,41 +121,41 @@ class Registro_Seguimiento extends CI_Controller {
 		$sidx = $this->input->get('sidx',TRUE);
 		$sord = $this->input->get('sord',TRUE);
 
-		$where1="WHERE cod_dept=-1";
+		$where1="WHERE COD_SEDE_OPERATIVA='-1'";
 
-		if(isset($_GET['coddepa'])) { 
-			$depa = $this->input->get('coddepa');
+		if(isset($_GET['codsede'])) { 
+			$sede = $this->input->get('codsede');
 		}
 
 		if(isset($_GET['codprov'])) { 
 			$prov = $this->input->get('codprov');
-			$where1 = "WHERE cod_dept='$depa' and cod_prov='$prov'";
+			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov'";
 		}
 		
 		if(isset($_GET['coddist'])) { 
 			$dist = $this->input->get('coddist');
-			$where1 = "WHERE cod_dept='$depa' and cod_prov='$prov' and cod_dist='$dist'";
+			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist'";
 		}
 
 		if(isset($_GET['codcentrop'])) { 
 			$centrop = $this->input->get('codcentrop');
-			$where1 = "WHERE cod_dept='$depa' and cod_prov='$prov' and cod_dist='$dist' and cod_ccpp='$centrop'";
+			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop'";
 		}
 
 		if(isset($_GET['codruta'])) { 
 			$ruta = $this->input->get('codruta');
-			$where1 = "WHERE cod_dept='$depa' and cod_prov='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta'";
+			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta'";
 		}
 
 		if(isset($_GET['nroperiodo'])) { 
 			$periodo = $this->input->get('nroperiodo');
-			$where1 = "WHERE cod_dept='$depa' and cod_prov='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta' and periodo = '$periodo'";
+			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta' and periodo = '$periodo'";
 		}
 
 
 		if(!$sidx) $sidx =1;
 
-		$count = $this->operativa_model->nro_locales_for_seguimiento($where1);
+		$count = $this->seguimiento_model->nro_locales_for_seguimiento($where1);
 
  		//En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -170,7 +168,7 @@ class Registro_Seguimiento extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->operativa_model->get_locales_for_seguimiento($sidx, $sord, $row_inicio, $row_final, $where1);
+		$resultado = $this->seguimiento_model->get_locales_for_seguimiento($sidx, $sord, $row_inicio, $row_final, $where1);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
@@ -192,11 +190,11 @@ class Registro_Seguimiento extends CI_Controller {
 	public function registro_avance()
 	{
 		$codlocal = $this->input->post('codigo');
-		$nro_visitas=$this->operativa_model->get_nro_visitas($codlocal);
+		$nro_visitas=$this->seguimiento_model->get_nro_visitas($codlocal);
 		$fecha_visita=$this->input->post('fecha_avance');
 		$especifique=$this->input->post('especifique');
 
-		//$repite = $this->operativa_model->repite_fecha_avance($codlocal,$fecha_visita);
+		//$repite = $this->seguimiento_model->repite_fecha_avance($codlocal,$fecha_visita);
 		//if ($repite == 0)
 		//{
 			$c_data = array(
@@ -207,7 +205,7 @@ class Registro_Seguimiento extends CI_Controller {
 				'especifique'=> $especifique,
 				'usu_registra'=> $this->input->post('usuario')
 			);
-			$this->operativa_model->insert_avance($c_data);
+			$this->seguimiento_model->insert_avance($c_data);
 		//}
 		
 		$jsonData = json_encode($repite);
@@ -231,7 +229,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 		if(!$sidx) $sidx =1;
 
-		$count = $this->operativa_model->cantidad_avances($where1);
+		$count = $this->seguimiento_model->cantidad_avances($where1);
 
  		//En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -244,7 +242,7 @@ class Registro_Seguimiento extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->operativa_model->get_locales_for_avance($sidx, $sord, $row_inicio, $row_final, $where1);
+		$resultado = $this->seguimiento_model->get_locales_for_avance($sidx, $sord, $row_inicio, $row_final, $where1);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
@@ -270,7 +268,7 @@ class Registro_Seguimiento extends CI_Controller {
 			'nro_visita' => $this->input->post('id')
 		);
 		
-		$resultado=$this->operativa_model->get_avance($c_data);
+		$resultado=$this->seguimiento_model->get_avance($c_data);
 		
 		if ($resultado->num_rows() > 0)
 		{
@@ -297,7 +295,7 @@ class Registro_Seguimiento extends CI_Controller {
 			'nro_visita' => $this->input->post('id')
 		);
 		
-		$listo=$this->operativa_model->del_avance($c_data);
+		$listo=$this->seguimiento_model->del_avance($c_data);
 		
 		$jsonData = json_encode($listo);
 		echo $jsonData;

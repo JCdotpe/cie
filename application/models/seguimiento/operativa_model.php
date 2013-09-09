@@ -2,101 +2,53 @@
 
 class Operativa_Model extends CI_Model {
 
-	public function get_centro_poblado($depa, $prov, $dist)
+	function Get_DptobyUser($user_id)
 	{
-		$sql = "SELECT cp.codccpp, cp.nomccpp FROM CCPP_CIE cp WHERE cp.ccdd='$depa' and cp.ccpp='$prov' and cp.ccdi='$dist' ORDER BY cp.nomccpp";
+		$query="SELECT os.cod_sede_operativa, os.sede_operativa FROM user_ubigeo u left join operativa_sede os on u.cod_sede_operativa = os.cod_sede_operativa WHERE u.id = $user_id ORDER BY os.sede_operativa";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function Get_ProvbySedeOpe($codsede_ope)
+	{
+		$query="SELECT cod_prov_operativa, prov_operativa_ugel FROM operativa_prov WHERE cod_sede_operativa = '$codsede_ope'";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function Get_DistbySedeProv_Ope($codsede_ope,$codprov_ope)
+	{
+		$query="SELECT d.CCDI, d.Nombre FROM codigo_territorial ct left join DIST d on ct.CCDD=d.CCDD and ct.CCPP=d.CCPP and ct.CCDI=d.CCDI where cod_sede_operativa = '$codsede_ope' and cod_prov_operativa = '$codprov_ope'";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function get_centro_poblado($codsede_ope, $codprov_ope, $coddist)
+	{
+		$sql = "SELECT cp.codccpp, cp.nomccpp FROM CCPP_CIE cp inner join codigo_territorial ct on cp.ccdd=ct.CCDD and cp.ccpp=ct.CCPP and cp.ccdi=ct.CCDI WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and cp.ccdi='$coddist' ORDER BY cp.nomccpp";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	public function get_rutas($centrop)
+	function get_rutas($centrop)
 	{
 		$sql = "SELECT DISTINCT r.idruta FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' ORDER BY r.idruta";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	public function get_periodo($centrop, $ruta)
+	function get_periodo($centrop, $ruta)
 	{
 		$sql = "SELECT distinct r.periodo FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' and r.idruta = '$ruta' order by r.periodo";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	public function nro_locales_for_seguimiento($condicion1)
-	{
-		$sql = "SELECT count(codigo_de_local) as NroRegistros FROM v_Seguimiento_avance_CIE $condicion1";
-    	$q = $this->db->query($sql);
-		$row = $q->first_row();
-		return $row->NroRegistros;
-	}
-
-	public function get_locales_for_seguimiento($ord, $ascdesc, $inicio, $final, $condicion1)
-	{
-		$sql="SELECT codigo_de_local, estado, entrada_informacion, datos_gps, fotos FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_avance_CIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
-		$q=$this->db->query($sql);
-		return $q;
-	}
-
-	public function get_nro_visitas($codlocal)
-	{
-		$sql="SELECT isnull(max(nro_visita),0) + 1 as nro_visita FROM avance WHERE codlocal = '$codlocal'";
-		$q=$this->db->query($sql);
-		$row = $q->first_row();
-		return $row->nro_visita;
-	}
-
-	public function insert_avance($data)
-	{
-		$sql="INSERT INTO avance (codlocal, nro_visita, fecha_visita, estado, especifique, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['fecha_visita']."', '".$data['estado']."', '".$data['especifique']."', '".$data['usu_registra']."', getdate())";
-		$this->db->query($sql);
-		return $this->db->affected_rows() > 0;
-	}
-
-	public function cantidad_avances($condicion1)
-	{
-		$sql = "SELECT count(codlocal) as NroRegistros FROM v_avance $condicion1";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->NroRegistros;
-	}
-
-	public function repite_fecha_avance($local, $fecha_visita)
-	{
-		$sql = "SELECT COUNT(codlocal) as Cantidad_Registros FROM v_avance WHERE codlocal = '$local' and fecha_visita = '$fecha_visita'";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->Cantidad_Registros;
-	}	
-
-	public function get_locales_for_avance($ord, $ascdesc, $inicio, $final, $condicion1)
-	{
-		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
-		$q=$this->db->query($sql);
-		return $q; 
-	}
-
-	public function get_odei()
+	function get_odei()
 	{
 		$sql="SELECT DISTINCT coddepe, detadepen FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI ORDER BY coddepe, detadepen";
 		$q = $this->db->query($sql);
 		return $q;
-	}
-
-	public function get_seguimiento_for_odei($ord, $ascdesc, $inicio, $final, $condicion1)
-	{
-		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1) a WHERE a.row > $inicio and a.row <= $final";
-		//echo $sql;
-		$q = $this->db->query($sql);
-		return $q;
-	}
-
-	public function get_cantidad_for_odei($condicion1)
-	{
-		$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->Cantidad_Registros;
 	}
 
 }

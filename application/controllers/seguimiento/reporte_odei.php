@@ -9,7 +9,7 @@ class Reporte_odei extends CI_Controller {
 		$this->load->library('security');
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');	
-		$this->load->model('seguimiento/operativa_model');
+		$this->load->model('seguimiento/seguimiento_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -34,6 +34,7 @@ class Reporte_odei extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model('seguimiento/operativa_model');
 		$data['option'] = 2;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Seguimiento por ODEI';
@@ -54,6 +55,7 @@ class Reporte_odei extends CI_Controller {
 		$cond2 = "";
 		
 		$where1 = "";
+		$todos = "";
 
 		/*
 		if(isset($_GET['odei'])) { 
@@ -72,7 +74,7 @@ class Reporte_odei extends CI_Controller {
 				{
 					$cond2 = "Periodo = '$periodo'";
 				}else{
-					$cond2 = "Periodo < '15'";
+					$todos = "SI";
 				}
 			}
 		}else{ $periodo = ""; 
@@ -81,7 +83,7 @@ class Reporte_odei extends CI_Controller {
 		if(!$sidx) $sidx =1;
 
 		$where1 =  "WHERE ".$cond2;
-		$count = $this->operativa_model->get_cantidad_for_odei($where1);
+		$count = $this->seguimiento_model->get_cantidad_for_odei($where1,$todos);
 
  		//En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -94,7 +96,7 @@ class Reporte_odei extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->operativa_model->get_seguimiento_for_odei($sidx, $sord, $row_inicio, $row_final, $where1);
+		$resultado = $this->seguimiento_model->get_seguimiento_for_odei($sidx, $sord, $row_inicio, $row_final, $where1, $todos);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;

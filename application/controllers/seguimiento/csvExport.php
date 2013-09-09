@@ -10,7 +10,7 @@ class Csvexport extends CI_Controller {
 		$this->lang->load('tank_auth');
 		$this->load->helper('form');
 		$this->load->library('PHPExcel');
-		$this->load->model('seguimiento/operativa_model');
+		$this->load->model('seguimiento/seguimiento_model');
 	}
 
 	public function ExportacionODEI()
@@ -19,6 +19,7 @@ class Csvexport extends CI_Controller {
 		$cond2 = "";
 
 		$where1 = "";
+		$todos = "";
 
 		$sidx = "detadepen";
 		/*
@@ -37,7 +38,7 @@ class Csvexport extends CI_Controller {
 				{
 					$cond2 = "Periodo = '$periodo'";
 				}else{
-					$cond2 = "Periodo < '15'";
+					$todos = "SI";
 				}
 			}
 		}else{ $periodo = ""; 
@@ -46,10 +47,10 @@ class Csvexport extends CI_Controller {
 		if(!$sidx) $sidx =1;
 
 		$where1 =  "WHERE ".$cond2;
-		$count = $this->operativa_model->get_cantidad_for_odei($where1);
+		$count = $this->seguimiento_model->get_cantidad_for_odei($where1,$todos);
 
 		//$data['cantidad'] = $count;
-		$query = $this->operativa_model->get_seguimiento_for_odei($sidx, 'asc', '0', $count, $where1);
+		$query = $this->seguimiento_model->get_seguimiento_for_odei($sidx, 'asc', '0', $count, $where1, $todos);
 		//$data['consulta'] = $query;
 		  
 		// pestaña
@@ -248,7 +249,7 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode($filas->detadepen));
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->detadepen)));
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->LocEscolares);
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocEscolar_Censado);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->LocEscolar_Censado_Porc);
@@ -280,6 +281,8 @@ class Csvexport extends CI_Controller {
 				 }else{	$cambio = TRUE; }
 				
 			}
+
+			$sheet->getStyle('B'.($cab+2).':P'.$total)->getAlignment()->setWrapText(true)->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 
 			$sheet->getStyle('D'.($cab+2).':P'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 

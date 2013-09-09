@@ -1,22 +1,23 @@
 function cargarProvBySede()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerprovincia_by_sede';
-	var id_dpto = $("#departamento").val();
-	$("#sedeoperativa option[value="+id_dpto+"]").attr('selected','selected');
-	var id_sede = $("#sedeoperativa").find('option:selected').text();
+	//var id_dpto = $("#departamento").val();
+	//$("#sedeoperativa option[value="+id_dpto+"]").attr('selected','selected');
+	//var id_sede = $("#sedeoperativa").find('option:selected').text();
+	var id_sede = $("#sedeoperativa").val();
 
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_sede="+id_sede+"&id_dpto="+id_dpto,
+		data: "id_sede="+id_sede,
 		dataType:'json',
 		success: function(json_data){
-			$("#provincia").empty();
+			$("#provincia_ope").empty();
 			$.each(json_data, function(i, data){
-				$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+				$("#provincia_ope").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
 			
-			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
@@ -30,12 +31,12 @@ function cargarProvBySede()
 function cargarDist()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerdistrito';
-	var id_depa = $("#departamento").val();
-	var id_prov = $("#provincia").val();
+	var id_sede = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_depa="+id_depa+"&id_prov="+id_prov,
+		data: "id_sede="+id_sede+"&id_prov="+id_prov,
 		dataType:'json',
 		success: function(json_data){
 			$("#distrito").empty();
@@ -56,13 +57,13 @@ function cargarDist()
 function cargarCentroPoblado()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenercentropoblado';
-	var id_depa = $("#departamento").val();
-	var id_prov = $("#provincia").val();
+	var id_depa = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
 	var id_dist = $("#distrito").val();
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_depa="+id_depa+"&id_prov="+id_prov+"&id_dist="+id_dist,
+		data: "id_sede="+id_depa+"&id_prov="+id_prov+"&id_dist="+id_dist,
 		dataType:'json',
 		success: function(json_data){
 			$("#centropoblado").empty();
@@ -74,7 +75,7 @@ function cargarCentroPoblado()
 			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			verdatos(2);
+			if (id_dist=='-1'){ verdatos(1); }else{ verdatos(2); }
 		}
 	});
 }
@@ -97,7 +98,7 @@ function cargarRutas()
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			verdatos(3);
+			if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
 		}
 	});
 }
@@ -120,19 +121,21 @@ function cargarPeriodo()
 			
 			$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 
-			verdatos(4);
+			if (id_ruta=='-1'){ verdatos(3); }else{ verdatos(4); }
 		}
 	});
 }
 
 function verdatos(intervalo)
 {
-	var coddepa = $("#departamento").val();
-	var codprov = $("#provincia").val();
+	var codsede = $("#sedeoperativa").val();
+	var codprov = $("#provincia_ope").val();
 	var coddist = $("#distrito").val();
 	var codcentrop = $("#centropoblado").val();
 	var codruta = $("#rutas").val();
 	var nroperiodo = $("#periodo").val();
+
+	if (nroperiodo=='-1' && intervalo == 5){ intervalo=4; }
 
 	var condicion;
 
@@ -141,19 +144,19 @@ function verdatos(intervalo)
 		case 0: condicion = "registro_seguimiento/ver_datos";
 			break;
 
-		case 1: condicion = "registro_seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov;
+		case 1: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov;
 			break;
 
-		case 2:	condicion = "registro_seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist;
+		case 2:	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist;
 			break;
 
-		case 3: condicion = "registro_seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
+		case 3: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
 			break;
 
-		case 4: condicion = "registro_seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
+		case 4: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
 			break;
 
-		case 5: condicion = "registro_seguimiento/ver_datos?coddepa="+coddepa+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+		case 5: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
 			break;
 	}
 
