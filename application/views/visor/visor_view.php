@@ -22,32 +22,7 @@
         	<!-- NAVS-->
         		<?php $this->load->view('visor/nav_view.php');?>
         	<!-- END NAVS-->
-			<div class="tab-content">
 
-				<!--  SECCION CIE01-->
-          <?php $this->load->view('visor/caratula1_view.php');?>
-					<?php $this->load->view('visor/capitulo1_view.php');?>
-          <?php $this->load->view('visor/capitulo2_view.php');?>
-          <?php $this->load->view('visor/capitulo3_view.php');?>
-
-	  	    	<!--END SECCION CIE01-->
-
-	  	    	<!--  SECCION CIE01A-->
-					<?php $this->load->view('visor/caratula2_view.php');?>
-          <?php $this->load->view('visor/capitulo4_view.php');?>
-          <?php $this->load->view('visor/capitulo5_view.php');?>
-          <?php $this->load->view('visor/capitulo6_view.php');?>
-
-	  	    	<!--END SECCION CIE01A-->
-
-	  	    	<!--  SECCION  CIE01B-->
-	  	    <?php $this->load->view('visor/caratula3_view.php');?>
-          <?php $this->load->view('visor/capitulo7_view.php');?>
-          <?php $this->load->view('visor/capitulo8_view.php');?>
-	  	    	 <!-- END SECCION CIE01B-->
-
-
-			</div><!--END TAB CONTENTS-->
 
         </div>
 
