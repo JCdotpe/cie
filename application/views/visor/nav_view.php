@@ -5,22 +5,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li class="active">
-							<a data-toggle="tab" id="g1" href="#general">Sección A</a>
+							<a data-toggle="tab" id="g1" href="index.php/caratula1">Caratula</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c1" href="#cap1">Sección B</a>
+							<a data-toggle="tab" id="c1" href="index.php/capitulo1">Capitulo I</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="#cap2">Sección C</a>
+							<a data-toggle="tab" id="c2" href="index.php/capitulo2">Capitulo II</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="#cap2">Sección D</a>
-						</li>
-						<li>
-							<a data-toggle="tab" id="c2" href="#cap2">Sección E</a>
-						</li>
-						<li>
-							<a data-toggle="tab" id="c2" href="#cap2">Sección F</a>
+							<a data-toggle="tab" id="c2" href="index.php/capitulo3">Capitulo III</a>
 						</li>
 					</ul>
   				</li>
