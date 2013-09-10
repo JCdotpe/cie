@@ -1,6 +1,6 @@
 function urlRoot(){
 	pos_array=0;
-	var delimiter="index.php/";
+	var delimiter="cie/";
 	var loc = document.location.href;
 	var url = loc.split(delimiter);
 
@@ -24,7 +24,7 @@ function urlRoot(){
                 }
 
             if (found == false) {
-                $("head").append('<script type="text/javascript" src="' + script + '"></script>');
+                $("head").append('<script type="text/javascript" src="' + urlRoot() + script + '"></script>');
                 imported.push(script);
             }
         }
