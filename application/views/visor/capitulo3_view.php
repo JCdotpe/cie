@@ -1,7 +1,7 @@
 <!-- CAPITULO 3 -->
 <script type="text/javascript">
 
-
+	$.import('js/visor/index.js');
 
 </script>
 

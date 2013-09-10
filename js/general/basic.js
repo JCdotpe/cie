@@ -8,19 +8,27 @@ function urlRoot(){
 				
 }
 
-function loadScript(url, callback)
-{
-    // adding the script tag to the head as suggested before
-   var head = document.getElementsByTagName('head')[0];
-   var script = document.createElement('script');
-   script.type = 'text/javascript';
-   script.src = url;
+(function($){
 
-   // then bind the event to the callback function 
-   // there are several events for cross browser compatibility
-   script.onreadystatechange = callback;
-   script.onload = callback;
+    var imported = [];
 
-   // fire the loading
-   head.appendChild(script);
-}
+    $.extend(true,
+    {
+        import : function(script)
+        {
+            var found = false;
+            for (var i = 0; i < imported.length; i++)
+                if (imported[i] == script) {
+                    found = true;
+                    break;
+                }
+
+            if (found == false) {
+                $("head").append('<script type="text/javascript" src="' + script + '"></script>');
+                imported.push(script);
+            }
+        }
+        
+    });
+
+})(jQuery);

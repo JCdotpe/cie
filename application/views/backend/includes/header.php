@@ -41,6 +41,7 @@
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>-->    
     <script src="<?php echo base_url('js/general/jquery-1.10.2.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/general/basic.js'); ?>"></script>
 
     <script src="<?php echo base_url('js/general/jquery.validate.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/jquery.cookie.js'); ?>"></script>
