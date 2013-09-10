@@ -27,6 +27,39 @@ if ( ! function_exists('count_searchSubArray'))
     }
 }
 
+if ( ! function_exists('ofuscate'))
+{
+
+    function ofuscate($string) {
+       $key='+-o.0123456789#abc';  
+       $result = '';
+       for($i=0; $i<strlen($string); $i++) {
+          $char = substr($string, $i, 1);
+          $keychar = substr($key, ($i % strlen($key))-1, 1);
+          $char = chr(ord($char)+ord($keychar));
+          $result.=$char;
+       }
+       return base64_encode($result);
+    }
+
+}
+
+if ( ! function_exists('noofuscate'))
+{    
+    function noofuscate($string) {
+       $key='+-o.0123456789#abc'; 
+       $result = '';
+       $string = base64_decode($string);
+       for($i=0; $i<strlen($string); $i++) {
+          $char = substr($string, $i, 1);
+          $keychar = substr($key, ($i % strlen($key))-1, 1);
+          $char = chr(ord($char)-ord($keychar));
+          $result.=$char;
+       }
+       return $result;
+    }
+}
+
 
 if ( ! function_exists('validtoken_get'))
 {

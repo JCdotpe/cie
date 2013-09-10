@@ -17,11 +17,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="<?php echo base_url('css/smoothness/jquery-ui-1.10.2.custom.min.css'); ?>">
+    
+
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.spacelab.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>">
     <!--<link rel="stylesheet" href="--><?php //echo base_url('css/jquery.dataTables.css'); ?><!--">-->
+    
+    <link rel="stylesheet" href="<?php echo base_url('css/jquery-ui-1.10.3.custom.min.css') ?>">
     
     <link rel="stylesheet" href="<?php echo base_url('css/TableTools.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/ui.jqgrid.css') ?>">
@@ -35,9 +38,10 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('img/ico/apple-touch-icon-57-precomposed.png'); ?>">
     
     
-        
-    <script src="<?php echo base_url('js/general/jquery-1.9.1.min.js'); ?>"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>    
+   <!--<script src="--><?php //echo base_url('js/general/jquery-1.10.2.min.js'); ?><!--"></script>-->
     <script src="<?php echo base_url('js/general/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
+
     <script src="<?php echo base_url('js/general/jquery.validate.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/jquery.cookie.js'); ?>"></script>
     <script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>

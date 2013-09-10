@@ -1,11 +1,5 @@
 
-<link rel="stylesheet" href="<?php echo base_url('css/smoothness/jquery-ui-1.10.2.custom.min.css'); ?>">
-<script src="<?php echo base_url('js/general/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url('css/jquery-ui-1.10.3.custom.min.css') ?>">
-<link rel="stylesheet" href="<?php echo base_url('css/ui.jqgrid.css') ?>">
-<script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>
-<script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/urlRoot.js'); ?>"></script>
+
 <script src="<?php echo base_url('js/visor/basic.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cedulas.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cie01.js'); ?>"></script>
