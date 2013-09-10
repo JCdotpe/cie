@@ -20,7 +20,7 @@ class Capitulo7 extends CI_Controller {
 	public function index(){
 
 			$data['option'] = 1;
-			$data['nav'] = TRUE;
+			$data['nav'] = FALSE;
 			$data['title'] = 'Capitulo 7';
 			$code="-1";
 			$data['main_content'] = 'visor/capitulo7_view';

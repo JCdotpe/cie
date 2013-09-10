@@ -21,7 +21,7 @@ class Caratula2 extends CI_Controller {
 	public function index(){
 
 			$data['option'] = 1;
-			$data['nav'] = TRUE;
+			$data['nav'] = FALSE;
 			$data['title'] = 'Caratula 2';
 			$code="-1";
 			$data['main_content'] = 'visor/caratula2_view';

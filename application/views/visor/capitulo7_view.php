@@ -1,4 +1,5 @@
-	  	    	<!-- CAPITULO 7-->
+
+<?php $this->load->view('visor/nav_view.php'); ?>	  	    	<!-- CAPITULO 7-->
 	  	    	<div class="tab-pane" id="cap7">
 	  	    		<div class="content" id="content8">
 	  	    			<table class="table table-bordered">

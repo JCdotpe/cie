@@ -1,3 +1,4 @@
+<?php $this->load->view('visor/nav_view.php'); ?>
 <!-- CAPITULO 4-->
 	  	    	<div class="tab-pane" id="cap4">
 	  	    		<div class="content" id="content6">

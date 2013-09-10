@@ -53,7 +53,9 @@ $route['seleccion'] = "seleccion/menu";
 $route['menu_udra'] = "udra/menu_udra";
 $route['udra_reporte'] = "udra/udra_reporte";
 $route['visor_de_cedulas'] = "visor/visor";
-$route['visor'] = "visor/visor";
+$route['caratula1'] = "visor/caratula1";
+$route['capitulo1'] = "visor/capitulo1";
+
 
 
 $route['404_override'] = '';
