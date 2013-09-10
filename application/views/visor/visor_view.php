@@ -19,9 +19,6 @@
 
         <div class="modal-body">
 
-        	<!-- NAVS-->
-        		<?php $this->load->view('visor/nav_view.php');?>
-        	<!-- END NAVS-->
 
 
         </div>
