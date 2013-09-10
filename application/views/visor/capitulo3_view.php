@@ -1,4 +1,10 @@
 <!-- CAPITULO 3 -->
+<script type="text/javascript">
+
+
+
+</script>
+
 <div class="tab-pane" id="cap3">
 	  	    		<div class="content" id="content4">
 	  	    			<div class="panel panel-info">
