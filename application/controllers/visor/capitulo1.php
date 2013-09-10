@@ -15,7 +15,6 @@ class Capitulo1 extends CI_Controller {
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
-
 	}
 
 	public function index(){
@@ -24,8 +23,11 @@ class Capitulo1 extends CI_Controller {
 			$data['nav'] = TRUE;
 			$data['title'] = 'Capitulo 1';
 			$code="-1";
-			$data['main_content'] = 'visor/cap1_view';
+			$data['main_content'] = 'visor/capitulo1_view';
 	        $this->load->view('backend/includes/template', $data);
+	}
+	public function valor($id){
+		echo $id;
 	}
 
 //=====================BASICAS==============================

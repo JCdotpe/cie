@@ -23,7 +23,7 @@ class Capitulo7 extends CI_Controller {
 			$data['nav'] = TRUE;
 			$data['title'] = 'Capitulo 7';
 			$code="-1";
-			$data['main_content'] = 'visor/cap7_view';
+			$data['main_content'] = 'visor/capitulo7_view';
 	        $this->load->view('backend/includes/template', $data);
 	}
 
