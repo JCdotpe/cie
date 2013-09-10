@@ -5,16 +5,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li class="active">
-							<a data-toggle="tab" id="g1" href="caratula1">Caratula</a>
+							<a id="g1" href="<?php echo base_url('caratula1/?le=').$_REQUEST['le']; ?>">Caratula</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c1" href="capitulo1">Capitulo I</a>
+							<a id="c1" href="capitulo1">Capitulo I</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="capitulo2">Capitulo II</a>
+							<a id="c2" href="capitulo2">Capitulo II</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="capitulo3">Capitulo III</a>
+							<a id="c2" href="capitulo3">Capitulo III</a>
 						</li>
 					</ul>
   				</li>
