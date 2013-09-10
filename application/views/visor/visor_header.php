@@ -205,14 +205,14 @@
 		//CIE 01
 
 		//DATOS GENERALES 1
-		$('.view').live('click', function(event) {
+		/*$('.view').live('click', function(event) {
 
 			$('#myModal').modal('show');
 			$('.codigo_local').val($(this).attr('id'));
 			get_PadLocal($(this).attr('id'));
 			get_PCar($(this).attr('id'));
 
-		});
+		});*/
 
 
 		$('#c1').click(function(event) {

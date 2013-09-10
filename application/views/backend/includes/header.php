@@ -47,7 +47,7 @@
     <script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>
     <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 
-    <!--<script src="--><?php //echo base_url('js/general/jquery-migrate-1.0.0.js'); ?><!--"></script>-->
+    <script src="<?php echo base_url('js/general/jquery-migrate-1.0.0.js'); ?>"></script>
         
     <script src="<?php echo base_url('js/general/bootstrap.min.js'); ?>"></script>
         

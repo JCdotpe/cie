@@ -30,7 +30,7 @@ if ( ! function_exists('count_searchSubArray'))
 if ( ! function_exists('ofuscate'))
 {
 
-    function ofuscate($string) {
+    function obfuscate($string) {
        $key='+-o.0123456789#abc';  
        $result = '';
        for($i=0; $i<strlen($string); $i++) {
@@ -46,7 +46,7 @@ if ( ! function_exists('ofuscate'))
 
 if ( ! function_exists('noofuscate'))
 {    
-    function noofuscate($string) {
+    function no_obfuscate($string) {
        $key='+-o.0123456789#abc'; 
        $result = '';
        $string = base64_decode($string);
