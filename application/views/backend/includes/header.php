@@ -38,8 +38,8 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('img/ico/apple-touch-icon-57-precomposed.png'); ?>">
     
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>    
-   <!--<script src="--><?php //echo base_url('js/general/jquery-1.10.2.min.js'); ?><!--"></script>-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>-->    
+    <script src="<?php echo base_url('js/general/jquery-1.10.2.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
 
     <script src="<?php echo base_url('js/general/jquery.validate.min.js'); ?>"></script>
