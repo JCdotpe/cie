@@ -5,16 +5,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li class="active">
-							<a data-toggle="tab" id="g1" href="http://localhost/cie/index.php/visor/caratula1/?le=qltdn19p">Caratula</a>
+							<a data-toggle="tab" id="g1" href="caratula1">Caratula</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c1" href="http://localhost/cie/index.php/visor/capitulo1/?le=qltdn19p">Capitulo I</a>
+							<a data-toggle="tab" id="c1" href="capitulo1">Capitulo I</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="http://localhost/cie/index.php/visor/capitulo2/?le=qltdn19p">Capitulo II</a>
+							<a data-toggle="tab" id="c2" href="capitulo2">Capitulo II</a>
 						</li>
 						<li>
-							<a data-toggle="tab" id="c2" href="http://localhost/cie/index.php/visor/capitulo3/?le=qltdn19p">Capitulo III</a>
+							<a data-toggle="tab" id="c2" href="capitulo3">Capitulo III</a>
 						</li>
 					</ul>
   				</li>
