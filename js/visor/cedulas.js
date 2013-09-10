@@ -33,5 +33,5 @@ function get_data(){
 
   jQuery("#list2").jqGrid('setGridParam',{url:'visor/visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val(),page:1}).trigger("reloadGrid");
 
-  prompt('','visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val())
+ // prompt('','visor/get_data?cod_dpto='+$("#departamento").val()+'&cod_prov='+$("#provincia").val())
 }
