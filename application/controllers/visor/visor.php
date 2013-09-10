@@ -27,29 +27,27 @@ class Visor extends CI_Controller {
 
 			$this->load->model('convocatoria/Dpto_model');
 			$data['depa'] = $this->Dpto_model->Get_Dpto();
-			
+
 			$data['main_content'] = 'visor/visor_view';
 	        $this->load->view('backend/includes/template', $data);
-
-
 	}
 
 //=====================BASICAS==============================
 
 
 	public function get_data(){
-			
+
 			$this->header_json();
-			
+
 			$this->load->model('visor/visor_model');
-			
+
 			$this->load->helper('form');
 
 			$page = $this->input->get('page',TRUE);  // Almacena el numero de pagina actual
 			$limit = $this->input->get('rows',TRUE); // Almacena el numero de filas que se van a mostrar por pagina
 			$sidx = $this->input->get('sidx',TRUE);  // Almacena el indice por el cual se hará la ordenación de los datos
 			$sord = $this->input->get('sord',TRUE);  // Almacena el modo de
-				
+
 			$resultado = $this->visor_model->Get_Resultados($_REQUEST['cod_dpto'],$_REQUEST['cod_prov']);
 
 			//var_dump($resultado);
@@ -188,7 +186,7 @@ public function prettyPrint( $json ){
 	public function get_PCar(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_PCar($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -199,7 +197,7 @@ public function prettyPrint( $json ){
 	public function get_PCar_C_1N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_PCar_C_1N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -213,7 +211,7 @@ public function prettyPrint( $json ){
 	public function get_P1_A(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_A($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -224,7 +222,7 @@ public function prettyPrint( $json ){
 	public function get_P1_A_2N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_A_2N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -235,16 +233,16 @@ public function prettyPrint( $json ){
 	public function get_P1_A_2_8N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_A_2_8N($_REQUEST["cod_local"],$_REQUEST["NroIE"]);
 
 		$i=0;
 		echo "[";
 
 		foreach ($data->result() as $fila ){
-			
+
 				if($i>0){echo",";}
-			
+
 				$x= array("P1_A_2_9_NroCMod" => $fila->P1_A_2_9_NroCMod,
 								"P1_A_2_9A_CMod" => $fila->P1_A_2_9A_CMod,
 								"P1_A_2_9B_CodLocal" => $fila->P1_A_2_9B_CodLocal,
@@ -259,9 +257,9 @@ public function prettyPrint( $json ){
 								"P1_A_2_9K_T3_Talu" => $fila->P1_A_2_9K_T3_Talu,
 								"P1_A_2_9L_T3_Taul" => $fila->P1_A_2_9L_T3_Taul,
 								"anexos" => $this->get_P1_A_2_9N($_REQUEST["cod_local"],$_REQUEST["NroIE"],$fila->P1_A_2_9_NroCMod));
-			
+
 				$jsonData = json_encode($x);
-				
+
 				$this->prettyPrint($jsonData);
 
 			$i++;
@@ -273,12 +271,12 @@ public function prettyPrint( $json ){
 	}
 
 	public function get_P1_A_2_9N($cod_local,$NroIE,$NroCMod){
-		
+
 		$data = $this->visor_model->Data_P1_A_2_9N($cod_local,$NroIE,$NroCMod);
 
 
 		return $data->result();
-	
+
 	}
 
 	//=====
@@ -286,7 +284,7 @@ public function prettyPrint( $json ){
 	public function get_P1_B(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_B($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -297,7 +295,7 @@ public function prettyPrint( $json ){
 	public function get_P1_B_2A_N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_B_2A_N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -308,7 +306,7 @@ public function prettyPrint( $json ){
 	public function get_P1_B_3N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P1_B_3N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -321,7 +319,7 @@ public function prettyPrint( $json ){
 	public function get_P2_A(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_A($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -332,16 +330,16 @@ public function prettyPrint( $json ){
 	public function get_P2_B(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_B($_REQUEST["cod_local"]);
 
 		$i=0;
 		echo "[";
 
 		foreach ($data->result() as $fila ){
-			
+
 				if($i>0){echo ",";}
-			
+
 				$x= array("P2_B_1_Topo"=> $fila->P2_B_1_Topo,
 								"P2_B_2_Suelo"=> $fila->P2_B_2_Suelo,
 								"P2_B_2_Suelo_O"=> $fila->P2_B_2_Suelo_O,
@@ -364,9 +362,9 @@ public function prettyPrint( $json ){
 								"peligros2"=>$this->get_P2_B_10N($fila->codigo_de_local),
 								"peligros3"=>$this->get_P2_B_11N($fila->codigo_de_local),
 								"vulnerabilidades"=>$this->get_P2_B_12N($fila->codigo_de_local));
-			
+
 				$jsonData = json_encode($x);
-				
+
 				$this->prettyPrint($jsonData);
 
 			$i++;
@@ -378,7 +376,7 @@ public function prettyPrint( $json ){
 	}
 
 		public function get_P2_B_9N(){
-		
+
 			$data = $this->visor_model->Data_P2_B_9N($_REQUEST["cod_local"]);
 
 			return $data->result();
@@ -386,27 +384,27 @@ public function prettyPrint( $json ){
 		}
 
 		public function get_P2_B_10N(){
-		
+
 			$data = $this->visor_model->Data_P2_B_10N($_REQUEST["cod_local"]);
 
 			return $data->result();
-			
+
 		}
 
 		public function get_P2_B_11N(){
-		
+
 			$data = $this->visor_model->Data_P2_B_11N($_REQUEST["cod_local"]);
 
 			return $data->result();
-			
+
 		}
 
 		public function get_P2_B_12N(){
-		
+
 			$data = $this->visor_model->Data_P2_B_12N($_REQUEST["cod_local"]);
 
 			return $data->result();
-			
+
 		}
 
 	//==============================================
@@ -414,7 +412,7 @@ public function prettyPrint( $json ){
 	public function get_P2_C(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_C($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -425,7 +423,7 @@ public function prettyPrint( $json ){
 	public function get_P2_D(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_D($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -436,7 +434,7 @@ public function prettyPrint( $json ){
 	public function get_P2_D_1N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_D_1N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -447,7 +445,7 @@ public function prettyPrint( $json ){
 	public function get_P2_D_3N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_D_3N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -458,7 +456,7 @@ public function prettyPrint( $json ){
 	public function get_P2_D_5N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_D_5N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -469,7 +467,7 @@ public function prettyPrint( $json ){
 	public function get_P2_D_7N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_D_7N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
@@ -483,73 +481,73 @@ public function prettyPrint( $json ){
 	public function get_SP_CAP01_B_3(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_SP_CAP01_B_3($_REQUEST["cod_local"],$_REQUEST["predio"],$_REQUEST["npredio"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 	public function get_P2_E(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_E($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 	public function get_P2_F(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_F($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 	public function get_P2_G(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_G($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 	public function get_P2_G_2N(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P2_G_2N($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 	public function get_P3_1(){
 
 		$this->header_json();
-		
+
 		$data = $this->visor_model->Data_P3_1($_REQUEST["cod_local"]);
 
 		$jsonData = json_encode($data->result());
 
 		$this->prettyPrint($jsonData);
-	
+
 	}
 
 //========================CAPITULO3========================================
@@ -567,6 +565,6 @@ public function prettyPrint( $json ){
 //========================CAPITULO6========================================
 //========================CAPITULO7========================================
 //========================CAPITULO8========================================
-	
+
 }
 ?>
