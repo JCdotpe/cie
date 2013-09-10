@@ -464,6 +464,7 @@ label{
 
 .breadcrumbs {
     margin-top: 110px;
+    margin-bottom: 10px;
 }
 
 
@@ -527,7 +528,7 @@ text-shadow: none;
 
 .navbar-inverse .navbar-inner {
     background-color: #fff !important;
-    background: url(../img/bannerinei.png) no-repeat right 0 #eff7fa !important;
+    background: url(../img/bannerinei.jpg) no-repeat right 0 #eff7fa !important;
     border-bottom: 1px solid #CBCBCB;
 }
 

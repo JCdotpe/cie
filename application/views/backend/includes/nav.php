@@ -5,7 +5,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="span12 text-center">
-                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 2.5px;" src="<?php echo base_url('img/brand.png'); ?>"/></a>
+                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 2.5px;" src="<?php echo base_url('img/brand.jpg'); ?>"/></a>
                     </div>
                   </div>
 
