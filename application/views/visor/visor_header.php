@@ -1,43 +1,4 @@
-
-
-<script src="<?php echo base_url('js/visor/basic.js'); ?>"></script>
 <script src="<?php echo base_url('js/visor/cedulas.js'); ?>"></script>
-<script src="<?php echo base_url('js/visor/cie01.js'); ?>"></script>
-<script src="<?php echo base_url('js/visor/cie01a.js'); ?>"></script>
-<script src="<?php echo base_url('js/visor/cie01b.js'); ?>"></script>
-<style type="text/css">
-
-	.modal{
-		width: 1000px;
-		height: 700px;
-		margin-left: -510px;
-		margin-top: -50px;
-		display: none;
-	}
-
-	.modal-body{
-		max-height: 600px;
-	}
-
-	.content{
-		position: relative;
-		width: 965px;
-		height: 540px;
-		overflow: auto;
-		/*border: 1px solid #CCC;*/
-	}
-
-	.list-title-left{
-		position: relative;
-		float: left;
-		width: 400px;
-	}
-
-	th{
-		background: #EEE;
-	}
-
-</style>
 <script type="text/javascript">
 	$(document).ready(function(){
 
