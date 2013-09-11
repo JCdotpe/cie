@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$.import('img/map.png','image','map');
+
 	P31();
 	P313N();
 
@@ -7,16 +9,12 @@ $(document).ready(function(){
 		disabled : true,
 	});
 
-	$.import('img/map.png','image','map');
-
-//alert(localE());
-
 });
 
 
 function P31(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P31/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: 'qltdoF9o',predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P31/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -34,19 +32,36 @@ function P31(){
 
 function P313N(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P313N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: 'qltdoF9o',predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P313N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
 
 		var i=0;
-
+		var urlfinal="";
+		var url10="";
+		
 		$.each(data, function(index, val) {
 
 			i++;
+
+			if(i==1){
+			
+				url10+="?lat"+i+"="+val.LatitudPunto+"&long"+i+"="+val.LongitudPunto;
+			
+			}else{
+
+				url10+="&lat"+i+"="+val.LatitudPunto+"&long"+i+"="+val.LongitudPunto;
+			
+			}
+
+			
 
 			if(i==1){
 				$('#punto_inicial').html(val.CodigoPuntoGPS);
 			}
 
 			if(i==10){
+
+				urlfinal+="?lat1="+val.LatitudPunto+"&long1="+val.LongitudPunto;
+			
 				$('#punto_final').html(val.CodigoPuntoGPS);
 				$('#LongitudPunto').html(val.LongitudPunto);
 				$('#LatitudPunto').html(val.LatitudPunto);
@@ -54,6 +69,9 @@ function P313N(){
 			}
 
 		});
+
+		$('#map1').attr('href',urlRoot('index.php')+'/mapa/gps/diez/'+url10);
+		$('#map2').attr('href',urlRoot('index.php')+'/mapa/gps/'+urlfinal);
 
 	});
 

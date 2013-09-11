@@ -6,7 +6,6 @@
 	
 </script>
 
-<!-- CAPITULO 3 -->
 <div class="tab-pane" id="cap3">
 	  	    		<div class="content" id="content4">
 	  	    			<div class="panel panel-info">
@@ -41,7 +40,7 @@
 											<strong>Rango de puntos</strong>
 										</td>
 										<td>
-											<table class="table table-bordered" style="width:150px;">
+											<table class="table table-bordered" style="width:250px;">
 												<tr>
 													<td>Punto Inicial</td>
 													<td id="punto_inicial" style="text-align:center;"></td>
@@ -55,7 +54,7 @@
 														<strong>Ver 10 puntos en el Mapa</strong>
 													</td>
 													<td style="text-align:center;">
-														<a href="" class="map"></a>
+														<a id="map1" target="_blank" href="" class="map"></a>
 													</td>
 												</tr>
 											</table>
@@ -84,7 +83,7 @@
 													<td id="LatitudPunto" style="text-align:center;"></td>
 													<td id="AltitudPunto" style="text-align:center;"></td>
 													<td style="text-align:center;">
-														<a href="" class="map"></a>
+														<a id="map2" target="_blank" href="" class="map"></a>
 													</td>
 												</tr>
 											</table>

@@ -176,7 +176,7 @@ public function prettyPrint( $json ){
 
 		$this->header_json();
 
-		$data = $this->visor_model->Data_PadLocal($_REQUEST["cod_local"]);
+		$data = $this->visor_model->Data_PadLocal(no_obfuscate($_REQUEST["cod_local"]));
 
 		$jsonData = json_encode($data->result());
 
@@ -184,7 +184,7 @@ public function prettyPrint( $json ){
 
 	}
 
-	public function get_PCar(){
+	/*public function get_PCar(){
 
 		$this->header_json();
 
@@ -549,7 +549,7 @@ public function prettyPrint( $json ){
 
 		$this->prettyPrint($jsonData);
 
-	}
+	}*/
 
 //========================CAPITULO3========================================
 

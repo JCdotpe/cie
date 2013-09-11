@@ -21,10 +21,9 @@ function localE(){
 
 function check_Radio(value,id){
 
-
     if(value!=null){
-        
-        document.getElementById(id+value).checked=true; 
+             
+       document.getElementById(id+value).checked=true; 
     
     }
 }

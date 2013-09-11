@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class PCar_C_1N extends REST_Controller{
+class PCarC1N extends REST_Controller{
 
   function __construct(){
 
@@ -67,7 +67,7 @@ class PCar_C_1N extends REST_Controller{
 
             header_json();
 
-            $data = $this->PCar_C_1N_model->getData($this->get('id_local'));
+            $data = $this->PCar_C_1N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 

@@ -8,7 +8,7 @@
 							<a id="g1" href="<?php echo base_url('index.php/visor/caratula1/?le=').$_REQUEST['le']; ?>">Caratula</a>
 						</li>
 						<li>
-							<a id="c1" href="<?php echo base_url('index.php/capitulo1/?le=').$_REQUEST['le']; ?>">Capitulo I</a>
+							<a id="c1" href="<?php echo base_url('index.php/visor/capitulo1/?le=').$_REQUEST['le']; ?>">Capitulo I</a>
 						</li>
 						<li>
 							<a id="c2" href="<?php echo base_url('index.php/visor/capitulo2/?le=').$_REQUEST['le']; ?>">Capitulo II</a>
