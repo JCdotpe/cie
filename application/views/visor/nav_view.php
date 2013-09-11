@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs">
   				<li class="dropdown active">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  						CARATULA <b class="caret"></b>
+  						CIE01 <b class="caret"></b>
   					</a>
   					<ul class="dropdown-menu">
   						<li class="active">
@@ -21,7 +21,7 @@
 
   				<li class="dropdown">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  						CAPITULOS <b class="caret"></b>
+  						CIE01A <b class="caret"></b>
   					</a>
   					<ul class="dropdown-menu">
   						<li>

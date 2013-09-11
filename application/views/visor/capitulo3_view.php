@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-	$.import('js/visor/capitulo3/index.js');
+	$.import('js/visor/capitulo3/index.js','js');
 	
 </script>
 
@@ -41,14 +41,22 @@
 											<strong>Rango de puntos</strong>
 										</td>
 										<td>
-											<table class="table table-bordered">
+											<table class="table table-bordered" style="width:150px;">
 												<tr>
 													<td>Punto Inicial</td>
-													<td></td>
+													<td id="punto_inicial" style="text-align:center;"></td>
 												</tr>
 												<tr>
 													<td>Punto Final</td>
-													<td></td>
+													<td id="punto_final" style="text-align:center;"></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>Ver 10 puntos en el Mapa</strong>
+													</td>
+													<td style="text-align:center;">
+														<a href="" class="map"></a>
+													</td>
 												</tr>
 											</table>
 										</td>
@@ -66,12 +74,18 @@
 													<th style="text-align:center;">Longitud</th>
 													<th style="text-align:center;">Latitud</th>
 													<th style="text-align:center;">Altitud (msnm)</th>
+													<th style="text-align:center;">
+														<strong>Ver punto final en el Mapa</strong>
+													</th>
 												</tr>
 												<tr>
 													<td>Punto Final</td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="LongitudPunto" style="text-align:center;"></td>
+													<td id="LatitudPunto" style="text-align:center;"></td>
+													<td id="AltitudPunto" style="text-align:center;"></td>
+													<td style="text-align:center;">
+														<a href="" class="map"></a>
+													</td>
 												</tr>
 											</table>
 										</td>
@@ -84,21 +98,21 @@
 											</strong>
 											<br />(sólo si utilizó equipo gps)
 										</td>
-										<td><input style="width:400px;" type="text" class="form-control"></td>
+										<td><input id="P3_1_4_ArchGPS" style="width:400px;" type="text" class="form-control"></td>
 									</tr>
 									<tr>
 										<td>5.</td>
 										<td>
 											<strong>Código de la fotografía del local escolar</strong>
 										</td>
-										<td><input style="width:400px;" type="text" class="form-control"></td>
+										<td><input id="RutaFoto" style="width:400px;" type="text" class="form-control"></td>
 									</tr>
 								</tbody>
 							</table>
 
 							<div class="panel">
 								<label>Observaciones:</label>
-								<textarea style="width:870px; height:100px;"></textarea>
+								<textarea id="Observaciones" style="width:870px; height:100px;"></textarea>
 							</div>
 
 

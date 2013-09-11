@@ -21,10 +21,11 @@ function localE(){
 
 function check_Radio(value,id){
 
-//  alert(id+value)
+
     if(value!=null){
-        //alert(id+value)
+        
         document.getElementById(id+value).checked=true; 
+    
     }
 }
 
@@ -35,18 +36,39 @@ function check_Radio(value,id){
 
     $.extend(true,
     {
-        import : function(script)
+        import : function(url,type,clase)
         {
             var found = false;
             for (var i = 0; i < imported.length; i++)
-                if (imported[i] == script) {
+                if (imported[i] == url) {
                     found = true;
                     break;
                 }
 
+            if(clase==null || clase==undefined || clase==''){
+                clase="head";                
+            }else{
+                clase='.'+clase;
+            }
+
             if (found == false) {
-                $("head").append('<script type="text/javascript" src="' + urlRoot("cie/") + script + '"></script>');
-                imported.push(script);
+
+                switch(type){
+                    case 'js':
+                    $(clase).append('<script type="text/javascript" src="' + urlRoot("cie/") + url + '"></script>');
+                    break;
+                    case 'css':
+                    $(clase).append('<link rel="stylesheet" href="' + urlRoot("cie/") + url + '"/>');
+                    break;
+                    case 'image':
+                    $(clase).html('<img src="' + urlRoot("cie/") + url + '" alt="" />');
+                    break;
+
+                }
+                
+                
+
+                imported.push(url);
             }
         }
         
