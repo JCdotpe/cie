@@ -67,7 +67,7 @@ class P618N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P618N_model->getData($this->get('id_local'));
+            $data = $this->P618N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('Nro_Ed'));
 
             $jsonData = json_encode($data->result());
 

@@ -67,15 +67,33 @@ class P6N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P6N_model->getData($this->get('id_local'));
+            $data = $this->P6N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 
             prettyPrint($jsonData);
-
         }
+    }
+    public function DataNroEdif_get(){
 
+        $result=validtoken_get($this->get('token'));
 
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->P6N_model->getDataNroEdif(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
+
+            $jsonData = json_encode($data->result());
+
+            prettyPrint($jsonData);
+        }
 
     }
 

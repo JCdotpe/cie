@@ -1,6 +1,22 @@
+$(document).ready(function(){
+
+	//alert(localE());
+
+	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
+	var predio= $('#PC_F_1').html();
+	var cod_local=localE();
+			//get_TotalEdif(code);
+			//get_Edificacion(code);
+			//Get_Cap06(code,predio);
+			//token,cod_local,predio,nro_edif
+	Get_Tot_Edif_Cap05(token,cod_local);
+	Get_List_Edif_Cap06(token,cod_local);
+	Get_Edif_Cap06(token,cod_local,1,1);
+
+});
 
 function Get_Cap06(cod_local,predio){
-	$.post('visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:predio}, function(data) {
+	$.post(CI.base_url+'index.php/visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:predio}, function(data) {
 
 				var html="";
 				var i=1;
@@ -24,7 +40,7 @@ function Get_Cap06(cod_local,predio){
 // vevuelve total de edificaciones del capitulo 5
 function Get_Tot_Edif_Cap05(token,cod_local){
 
-	$.getJSON('visor/P5/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P5/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
@@ -41,7 +57,7 @@ function Get_List_Edif_Cap06(token,cod_local){
 	var html="";
 	var i=1;
 
-	$.getJSON('visor/P6N/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P6N/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
 
 				$.each(data, function(index, val) {
 
@@ -62,7 +78,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var html="";
 	var i=1;
 
-	$.getJSON('visor/P6N/DataNroEdif/?token='+token+'&id_local='+cod_local+'&PC_F_1='+predio+'&NRO_ED='+nro_edif+'', function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P6N/DataNroEdif/?token='+token+'&id_local='+cod_local+'&PC_F_1='+predio+'&NRO_ED='+nro_edif+'', function(data) {
 
 
 				$.each(data, function(index, val) {
@@ -73,7 +89,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    			'<td><strong>2.</strong></td>'+
 				  	    			'<td><strong>Código de la edificación </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed">'+
+				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed1"  value="'+val.Nro_Ed+'">'+
 				  	    			'</td>'+
 				  	    			//'<td style="text-align:center">'+val.Nro_Ed+'</td>'+
 			  	    			'</tr>'+
@@ -95,7 +111,14 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>5.</strong></td>'+
 			  	    				'<td><strong>Esta edificación es parte del patrimonio cultural inmueble reconocido por el ministerio de cultura? </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_5">'+
+				  	    				//'<input style="width:100px;" type="text" class="form-control P6_1_5">'+
+				  	    				'<label class="checkbox-inline">'+
+												'<input type="radio" id="P1_B_2_PredCol1" name="check" value="option1"> 1. Si'+
+											'</label>'+
+
+											'<label class="checkbox-inline">'+
+												'<input type="radio" id="P1_B_2_PredCol2" name="check" value="option2"> 2. No'+
+										'</label>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
 				  	    		'<tr>'+
