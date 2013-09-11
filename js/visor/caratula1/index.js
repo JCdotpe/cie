@@ -85,7 +85,7 @@ function get_PCar(cod_local){
 
 function get_PCar_C_1N(cod_local){
 	//alert(cod_local)
-	$.getJSON(urlRoot('index.php')+'/visor/PCar_C_1N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/PCarC1N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
 	
 		var html="";
 
