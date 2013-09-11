@@ -3,7 +3,7 @@
 <script type="text/javascript">
 
 	$.import('js/visor/capitulo3/index.js');
-
+	
 </script>
 
 <!-- CAPITULO 3 -->

@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-	P31();
+	/*P31();
 	P313N();
-
-	
+*/
+	alert(localE());	
 
 });
 
