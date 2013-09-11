@@ -27,11 +27,11 @@ if ( ! function_exists('count_searchSubArray'))
     }
 }
 
-if ( ! function_exists('ofuscate'))
+if ( ! function_exists('obfuscate'))
 {
 
     function obfuscate($string) {
-       $key='+-o.0123456789#abcdefghijklmnopqrstuvwxyz';  
+       $key='+-o.0123456789#abcdefghijklmnopqrstuvwxyz';
        $result = '';
        for($i=0; $i<strlen($string); $i++) {
           $char = substr($string, $i, 1);
@@ -44,10 +44,10 @@ if ( ! function_exists('ofuscate'))
 
 }
 
-if ( ! function_exists('noofuscate'))
-{    
+if ( ! function_exists('no_obfuscate'))
+{
     function no_obfuscate($string) {
-       $key='+-o.0123456789#abcdefghijklmnopqrstuvwxyz'; 
+       $key='+-o.0123456789#abcdefghijklmnopqrstuvwxyz';
        $result = '';
        $string = base64_decode($string);
        for($i=0; $i<strlen($string); $i++) {
