@@ -19,6 +19,15 @@ function localE(){
                 
 }
 
+function check_Radio(value,id){
+
+//  alert(id+value)
+    if(value!=null){
+        //alert(id+value)
+        document.getElementById(id+value).checked=true; 
+    }
+}
+
 
 (function($){
 

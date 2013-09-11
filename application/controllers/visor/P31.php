@@ -67,7 +67,7 @@ class P31 extends REST_Controller{
 
             header_json();
 
-            $data = $this->P31_model->getData(no_obfuscate($this->get('id_local'));
+            $data = $this->P31_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 
