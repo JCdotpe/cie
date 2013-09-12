@@ -67,7 +67,7 @@ class P1A29N extends REST_Controller{
 
             header_json();
             
-            $data = $this->P1A29N_model->getData($this->get('id_local'));
+            $data = $this->P1A29N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 

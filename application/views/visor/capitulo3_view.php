@@ -27,10 +27,10 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="codigoLugarReferenciacion1" name="check" value="option1"> 1. Patio Central
+												<input type="radio" id="P3_1_1_LugGeoref1" name="check" value="option1"> 1. Patio Central
 											</label>
 											<label>
-												<input type="radio" id="codigoLugarReferenciacion2" name="check" value="option2"> 2. Frente al local
+												<input type="radio" id="P3_1_1_LugGeoref2" name="check" value="option2"> 2. Frente al local
 											</label>
 										</td>
 									</tr>

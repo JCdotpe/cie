@@ -4,6 +4,10 @@ $(document).ready(function() {
 		get_PadLocal(localE());
 		get_PCar(localE());
 
+		$('input').attr({
+			disabled : true,
+		});
+
 });
 
 function get_PadLocal(cod_local){
@@ -19,6 +23,11 @@ function get_PadLocal(cod_local){
 
 			});
 
+		}).fail(function( jqxhr, textStatus, error ) {
+	
+			var err = textStatus + ', ' + error;
+			console.log( "Request Failed: " + err);
+	
 		});
 }
 
@@ -33,6 +42,7 @@ function get_PCar(cod_local){
 
 			$.each(data, function(index, val) {
 				
+				$('.id_local').val(val.id_local);
 				$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);
 				$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
 				$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
@@ -55,8 +65,19 @@ function get_PCar(cod_local){
 				get_PCar_C_1N(val.PC_B_1_CodLocal)
 
 				$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha);
-				$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);
-				$('#PC_C_2_Rfinal_resul_O').html(val.PC_C_2_Rfinal_resul_O);
+				
+				if(val.PC_C_2_Rfinal_resul==5){
+				
+					$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul+" - "+val.PC_C_2_Rfinal_resul_O);
+				
+				}else{
+				
+					$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);		
+				
+				}
+				
+
+
 				$('#PC_D_EvT_dni').html(val.PC_D_EvT_dni);
 				$('#PC_D_EvT_Nomb').html(val.PC_D_EvT_Nomb);
 				$('#PC_D_JBri_dni').html(val.PC_D_JBri_dni);
@@ -80,7 +101,12 @@ function get_PCar(cod_local){
 			})
 		
 			//})
-	})
+	}).fail(function( jqxhr, textStatus, error ) {
+	
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+	
+	});
 }
 
 function get_PCar_C_1N(cod_local){
@@ -91,6 +117,17 @@ function get_PCar_C_1N(cod_local){
 
 		$.each(data, function(index, val) {
 
+			resET=val.PC_C_1_Et_Res;
+
+			if(val.PC_C_1_Et_Res==5){
+				resET=val.PC_C_1_Et_Res+" - "+val.PC_C_1_Et_Res_O;
+			}
+
+			resJB=val.PC_C_1_Jb_Res;
+			
+			if(val.PC_C_1_Jb_Res==5){
+				resJB=val.PC_C_1_Jb_Res+" - "+val.PC_C_1_Jb_Res_O;
+			}
 
  			html+='<tr>'+
 				'<td style="text-align:center;">'+val.PC_C_1_NroVis+'°</td>'+
@@ -99,18 +136,24 @@ function get_PCar_C_1N(cod_local){
 				'<td>'+val.PC_C_1_Et_Hfin+'</td>'+
 				'<td>'+val.PC_C_1_Et_Fecha_Prox+'</td>'+
 				'<td>'+val.PC_C_1_Et_Hora_Prox+'</td>'+
-				'<td>'+val.PC_C_1_Et_Res+'</td>'+
+				'<td>'+resET+'</td>'+
+
 				'<td>'+val.PC_C_1_Jb_Fecha+'</td>'+
 				'<td>'+val.PC_C_1_Jb_Hini+'</td>'+
 				'<td>'+val.PC_C_1_Jb_Hfin+'</td>'+
-				'<td>'+val.PC_C_1_Jb_Res+'</td>'+
+				'<td>'+resJB+'</td>'+
 			'</tr>';
 
 		});
 
 		$('#eva_solu1').html(html);
 
-	})
+	}).fail(function( jqxhr, textStatus, error ) {
+		
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+	
+	});
 }
 
 //=============VALID DATA GET_PCAR=================

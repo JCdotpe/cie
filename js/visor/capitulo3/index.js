@@ -18,7 +18,7 @@ function P31(){
 		
 		$.each(data, function(index, val) {
 
-			check_Radio(val.codigoLugarReferenciacion,'codigoLugarReferenciacion');
+			check_Radio(val.P3_1_1_LugGeoref,'P3_1_1_LugGeoref');
 			$('#P3_1_4_ArchGPS').val(val.P3_1_4_ArchGPS);
 			$('#RutaFoto').val(val.RutaFoto);
 			$('#Observaciones').val(val.Observaciones);
@@ -26,6 +26,11 @@ function P31(){
 		});
 
 
+	}).fail(function( jqxhr, textStatus, error ) {
+	
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+	
 	});
 			
 }
@@ -73,6 +78,11 @@ function P313N(){
 		$('#map1').attr('href',urlRoot('index.php')+'/mapa/gps/diez/'+url10);
 		$('#map2').attr('href',urlRoot('index.php')+'/mapa/gps/'+urlfinal);
 
+	}).fail(function( jqxhr, textStatus, error ) {
+  	
+  		var err = textStatus + ', ' + error;
+  		console.log( "Request Failed: " + err);
+	
 	});
 
 }

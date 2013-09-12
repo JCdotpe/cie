@@ -11,7 +11,7 @@
 
 						<div class="panel">
 							<label>Codigo de Local Escolar</label>
-							<input style="width:300px;" type="text" class="form-control codigo_local">
+							<input style="width:300px;" type="text" class="form-control id_local">
 						</div>
 
 						<div class="panel panel-info">
@@ -127,7 +127,7 @@
 
 						</div>
 
-						<div class="panel panel-info" style="height:500px;">
+						<div class="panel panel-info" >
 							<div class="panel-heading">
 								<h5 class="panel-title">Sección C: Entrevista y Supervision</h5>
 							</div>
@@ -180,16 +180,26 @@
 								</tbody>
 							</table>
 
-							<table class="table table-bordered" style="width:300px; float:left;">
+							<table class="table table-bordered" >
 								<thead>
 									<tr>
 										<th colspan="2">2.Resultado final de la evaluacion tecnica</th>
-									</tr>
+										<th style="text-align:center;">(*) Codigos de Resultado</th>
+									</tr>								
 								</thead>
 								<tbody>
 									<tr>
 										<td>Fecha: </td>
 										<td id="PC_C_2_Rfinal_fecha"></td>
+										<td rowspan="2">
+											<ul>
+												<li>1.Completa</li>
+												<li>2.Rechazo</li>
+												<li>3.Incompleta</li>
+												<li>4.Local cerrado/desocupado</li>
+												<li>5.Otro (Especifique)</li>
+											</ul>
+										</td>
 									</tr>
 									<tr>
 										<td>Resultado: </td>
@@ -198,7 +208,7 @@
 								</tbody>
 							</table>
 
-							<table class="table table-bordered" style="width:600px; margin-left:10px; float:left;">
+							<!-- <table class="table table-bordered" style="width:600px;">
 								<thead>
 									<tr>
 										<th colspan="2" style="text-align:center;">(*) Codigos de Resultado</th>
@@ -211,11 +221,12 @@
 											<li>2.Rechazo</li>
 											<li>3.Incompleta</li>
 											<li>4.Local cerrado/desocupado</li>
+											<li>5.Otro</li>
 										</ul>
 									</td>
-									<td>5.Otro <!-- <textarea id="PC_C_2_Rfinal_resul_O" class="form-control" rows="3"></textarea> --></td>
+									<td>5.Otro <textarea id="PC_C_2_Rfinal_resul_O" class="form-control" rows="3"></textarea></td>
 								</tbody>
-							</table>
+							</table> -->
 
 						</div>
 

@@ -31,21 +31,12 @@ class P1A2N extends REST_Controller{
             foreach ($array as $key => $value) {
 
               $array[$key]['version']='1';// poner 99 mas adelante
-<<<<<<< HEAD:application/controllers/visor/p313N.php
 
             }
-
-            $flag = $this->P313N_model->insertBatch($array);
-
-            if ($flag) {
-=======
-           
-            }            
             
             $flag = $this->P1A2N_model->insertBatch($array);
             
             if ($flag) {           
->>>>>>> supercommit 2:application/controllers/visor/P1A2N.php
 
               $msg= array('message' => 'Saved Successfull',
                       'value'=> true);
