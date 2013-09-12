@@ -173,13 +173,11 @@ class Registro_Seguimiento extends CI_Controller {
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
 		$respuesta->records = $count;
-		$i=0;
-		$nro_fila = $row_inicio;
+		$i=0;		
 		foreach ($resultado->result() as $fila)
 		{
-			$nro_fila++;
 			$respuesta->rows[$i]['id'] = $fila->codigo_de_local;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,$fila->codigo_de_local, $fila->estado, $fila->entrada_informacion, $fila->datos_gps, $fila->fotos);
+			$respuesta->rows[$i]['cell'] = array($fila->periodo,$fila->codigo_de_local, $fila->estado, $fila->entrada_informacion, $fila->datos_gps, $fila->fotos);
 			$i++;			
 		}
 

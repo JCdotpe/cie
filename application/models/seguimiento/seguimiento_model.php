@@ -12,7 +12,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function get_locales_for_seguimiento($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
-		$sql="SELECT codigo_de_local, estado, entrada_informacion, datos_gps, fotos FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_avance_CIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$sql="SELECT periodo, codigo_de_local, estado, entrada_informacion, datos_gps, fotos FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_avance_CIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
 		return $q;
 	}

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Preguntas extends CI_Controller {
+class Banco extends CI_Controller {
 
 	function __construct()
 	{
@@ -10,15 +10,13 @@ class Preguntas extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->model('convocatoria/Dist_model');
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
 	}
 
 	public function index()
 	{
+		$this->load->model('convocatoria/Dpto_model');
 		$this->load->model('convocatoria/Cargo_funcional_vista');
 
 		$data['nav'] = TRUE;

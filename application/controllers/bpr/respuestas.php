@@ -11,9 +11,6 @@ class Respuestas extends CI_Controller {
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
 
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->model('convocatoria/Dist_model');
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
 		/*
@@ -42,6 +39,7 @@ class Respuestas extends CI_Controller {
 
 	public function index()
 	{		
+		$this->load->model('convocatoria/Dpto_model');
 		$this->load->model('convocatoria/Cargo_funcional_vista');
 
 		$data['nav'] = TRUE;

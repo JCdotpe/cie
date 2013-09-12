@@ -194,9 +194,9 @@
 			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
-			colNames:['Nro', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Reentrevista'],
+			colNames:['Periodo', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Reentrevista'],
 			colModel:[
-				{name:'nro_fila',index:'nro_fila', align:"center"},
+				{name:'periodo',index:'periodo', align:"center"},
 				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
 				{name:'estado',index:'estado', align:"center"},
 				{name:'entrada_informacion',index:'entrada_informacion', align:"center"},
