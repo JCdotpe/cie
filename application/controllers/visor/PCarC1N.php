@@ -8,7 +8,7 @@ class PCarC1N extends REST_Controller{
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/PCar_C_1N_model');
+    $this->load->model('visor/PCarC1N_model');
     $this->load->helper('my');
 
   }
@@ -34,7 +34,7 @@ class PCarC1N extends REST_Controller{
 
             }
 
-            $flag = $this->PCar_C_1N_model->insertBatch($array);
+            $flag = $this->PCarC1N_model->insertBatch($array);
 
             if ($flag) {
 
@@ -67,7 +67,7 @@ class PCarC1N extends REST_Controller{
 
             header_json();
 
-            $data = $this->PCar_C_1N_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->PCarC1N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 

@@ -27,13 +27,13 @@ function get_PCar(cod_local){
 	var cod_loc="";
 	$.getJSON(urlRoot('index.php')+'/visor/PCar/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
 		
-		$.each(data, function(index, val) {		
+		//$.each(data, function(index, val) {		
 			var cod_loc="";	
 
 
 			$.each(data, function(index, val) {
-
-				$('.PC_A_4_CentroP').val(val.PC_A_1_CentroP);
+				
+				$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);
 				$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
 				$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
 				$('#PC_A_7Dir_3_Nro').html(val.PC_A_7Dir_3_Nro);
@@ -77,9 +77,9 @@ function get_PCar(cod_local){
 				$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
 				$('#PC_F_1').html(val.PC_F_1);
 
-				})
-		
 			})
+		
+			//})
 	})
 }
 
