@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class PCar extends REST_Controller{
+class Procedure extends REST_Controller{
 
   function __construct(){
 
@@ -28,7 +28,7 @@ class PCar extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->getData(no_obfuscate($this->get('id_local')),'1');
+            $data = $this->Procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),'1');
 
             $jsonData = json_encode($data->result());
 

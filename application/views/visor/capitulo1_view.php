@@ -42,14 +42,14 @@
 								   <table class="table table-hover" style="width:583px; height:150px;">
 							    		
 							    		<tbody id="list_ie">
-							    			<!-- AJAX -->
-								    	</tbody>
+							    			<!-- AJAX-->
+							    		</tbody>
 								    
 								    </table>
 
 								</div>
 
-							<div id="inst_educa">
+							<div id="ie_educa">
 								<!--AJAX-->
 							</div>
 

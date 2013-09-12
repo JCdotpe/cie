@@ -2,9 +2,17 @@ $(document).ready(function(){
 
 	P1A();
 	/*P1A2N();*/
+	lista_ie();
 	
-	$('input, textarea').attr({
+	$('input').attr({
 		disabled : true,
+	});
+	
+	$('#list_ie').on('click','.ie',function(event){
+		
+		//alert($(this).attr('id'));
+		P1A2N($(this).attr('id'));	
+
 	});
 
 });
@@ -30,9 +38,31 @@ function P1A(){
 			
 }
 
-function P1A2N(){
+function lista_ie(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	
+		var html="";
+		var ie="";
+
+		$.each(data, function(index, val) {
+			
+			ie+='<tr class="ie" id="'+val.P1_A_2_NroIE+'">'+
+				'<td style="text-align:center;">'+val.P1_A_2_NroIE+'</td>'+
+				'<td style="text-align:center;">'+val.P1_A_2_1_NomIE+'</td>'+							    			
+			'</tr>';
+
+		});
+
+		$("#list_ie").html(ie);
+
+	});
+
+}
+
+function P1A2N(ie){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56', id_local: localE(), predio: '1', nroie: ie}, function(data, textStatus) {
 		
 		var html="";
 
