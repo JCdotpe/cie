@@ -94,6 +94,19 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var html="";
 	var i=1;
 
+	var pisos = {
+			  1: '8A. El primer ',
+			  2: '8B. El segundo ',
+			  3: '8C. El tercer ',
+			  4: '8D. El cuarto ',
+			  5: '8E. El quinto ',
+			  6: '8F. El sexto ',
+			  7: '8G. El séptimo ',
+			  8: '8H. El octavo ',
+			  9: '8I. El noveno ',
+			  10: '8J. El décimo '
+			};
+	var x=1;
 	$.getJSON(CI.base_url+'index.php/visor/P6N/DataNroEdif/?token='+token+'&id_local='+cod_local+'&PC_F_1='+predio+'&NRO_ED='+nro_edif+'', function(data) {
 
 
@@ -182,7 +195,32 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_8+'">'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
-		  	    			'</tbody></table>';
+				  	    		'</tbody></table>';
+
+			  	    			$.getJSON(CI.base_url+'index.php/visor/P618N/Data/?token='+token+'&id_local='+cod_local+'&PC_F_1='+predio+'&Nro_Ed='+nro_edif+'', function(data) {
+
+											$.each(data, function(index, val){
+													html+='<table class="table">'+
+														'<tr>'+
+				  	    									//'<td><strong>8.</strong></td>'+
+									  	    				'<td><strong>'+pisos[x]+'Nro de pisos de esta edificación </strong></td>'+
+										  	    			'<td>'+
+										  	    					'<label class="checkbox-inline">'+
+																		'<input type="radio" id="P6_1_61" name="check" value="option1" checked> 1. Si'+
+																	'</label>'+
+																	'<label class="checkbox-inline">'+
+																		'<input type="radio" id="P6_1_62" name="check" value="option2" > 2. No'+
+																	'</label>'+
+										  	    			'</td>'+
+										  	    		'</tr>'+
+										  	    		'</tbody></table>';
+										  	    		//alert(pisos[x]);
+										  	    		x++;
+												/*i++;
+									  	    	alert(i);*/
+											});
+								});
+
 					});
 				alert(html);
 				check_Radio();
