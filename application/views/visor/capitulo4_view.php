@@ -1,11 +1,18 @@
 <?php $this->load->view('visor/nav_view.php'); ?>
+
+<script type="text/javascript">
+
+	$.import('js/visor/capitulo4/index.js','js');
+	
+</script>
+
 <!-- CAPITULO 4-->
 	  	    	<div class="tab-pane" id="cap4">
 	  	    		<div class="content" id="content6">
 
 	  	    			<div class="panel panel-info">
 	  	    				<div class="panel-heading">
-	  	    					<h5>Capitulo VI. Localización del predio y caracteristicas de sus linderos</h5>
+	  	    					<h5>Capitulo IV. Localización del predio y caracteristicas de sus linderos</h5>
 	  	    				</div>
 
 	  	    				<table class="table table-bordered">
