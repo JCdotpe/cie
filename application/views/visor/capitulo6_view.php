@@ -58,9 +58,169 @@
 								<!--AJAX-->
 							</div>
 
-		  	    			<!--<table class="table table-bordered"> aqui  loop
+							<div id="seccion_a_p10" class="content7">
+								<!--AJAX-->
+								<table class="table table-bordered">
+		  	    				<tbody>
+		  	    					<td>10.</td>
+		  	    					<td>
+		  	    						<strong>
+		  	    							¿ Los niveles o modalidades que hacen uso de esta edificación son :
+		  	    						</strong>
+		  	    						<br />
+		  	    						<label>(Acepte uno o más códigos)</label>
+		  	    					</td>
+		  	    					<td>
+		  	    						<table class="table table-bordered">
 
-		  	    			</table>-->
+		  	    							<tbody>
+		  	    								<tr>
+		  	    									<td>
+			  	    									1. Inicial cuna?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e1" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									2. Inicial jardín?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e2" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									3. Inicial cuna jardín?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e3" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									4. Primaria?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e4" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									5. Secundaria?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e5" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									6. Educación básica alternativa (EBA)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e6" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									7. Educación básica especial (EBE)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e7" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									8. Educación superior de formación artistica (ESFA)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e8" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									9. Instituto superior tecnológico (IST)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e9" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									10. Instituto superior pedagógico (IST)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e10" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									11. Centro de educación técnico productivo (CETPRO)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e11" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									12. Programa no escolarizado de educación inicial (PRONOEI)?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e12" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									13. Sala de educación temprana?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e13" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    								<tr>
+		  	    									<td>
+			  	    									14. Ludoteca?
+			  	    								</td>
+			  	    								<td>
+			  	    									<label class="checkbox">
+															<input type="checkbox" id="P6_1_10_e14" value="option3">
+														</label>
+			  	    								</td>
+		  	    								</tr>
+		  	    							</tbody>
+		  	    						</table>
+
+		  	    					</td>
+		  	    				</tbody>
+		  	    				</table>
+							</div>
 
 		  	    			<div class="panel">
 								<label>Observaciones:</label>
@@ -111,7 +271,7 @@
 		  	    							Nivel, modalidad y turno del ambiente / espacio educativo
 		  	    						</strong>
 		  	    						<br />
-		  	    						<label>(acepte uno o más códigos)</label>
+		  	    						<label>(Acepte uno o más códigos)</label>
 		  	    					</td>
 		  	    					<td>
 		  	    						<table class="table table-bordered">
@@ -229,7 +389,7 @@
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
-			  	    									6. Educación básica alternativa (eba)
+			  	    									6. Educación básica alternativa (EBA)
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
@@ -249,7 +409,7 @@
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
-			  	    									7. Educación básica especial (ebe)
+			  	    									7. Educación básica especial (EBE)
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
@@ -419,7 +579,7 @@
 		  	    							¿cuál es la función del espacio educativo?
 		  	    						</strong>
 		  	    						<br />
-		  	    						<label>(acepte uno o más códigos)</label>
+		  	    						<label>(Acepte uno o más códigos)</label>
 		  	    					</td>
 		  	    					<td>
 		  	    						<label class="checkbox">
@@ -454,7 +614,7 @@
 			  	    					<td>6.</td>
 			  	    					<td>
 			  	    						<strong>Tipo de espacio educativo</strong>
-			  	    						<br />(acepte sólo un código)
+			  	    						<br />(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
 			  	    						<label class="checkbox">
@@ -484,7 +644,7 @@
 			  	    					<td>7.</td>
 			  	    					<td>
 			  	    						<strong>Tipo de aula especial</strong>
-			  	    						<br />(acepte sólo un código)
+			  	    						<br />(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
 			  	    						<label class="checkbox">
@@ -518,7 +678,7 @@
 			  	    					<td>8.</td>
 			  	    					<td>
 			  	    						<strong>Tipo de laboratorio</strong>
-			  	    						<br />(acepte sólo un código)
+			  	    						<br />(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
 			  	    						<label class="checkbox">
@@ -549,7 +709,7 @@
 			  	    					<td>9.</td>
 			  	    					<td>
 			  	    						<strong>Tipo de taller ligero</strong>
-			  	    						<br />(acepte sólo un código)
+			  	    						<br />(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
 			  	    						<label class="checkbox">
@@ -613,7 +773,7 @@
 			  	    					<td>10.</td>
 			  	    					<td>
 			  	    						<strong>Tipo de taller semi-pesado</strong>
-			  	    						<br />(acepte sólo un código)
+			  	    						<br />(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
 			  	    						<label class="checkbox">
@@ -1481,7 +1641,7 @@
 										<th colspan="3">Sección C:  instalaciones eléctricas interiores de la edificación</th>
 									</tr>
 									<tr>
-										<th colspan="3">Evaluador: esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero deberá preguntar y luego verificar.</th>
+										<th colspan="3">Evaluador: esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero dEBErá preguntar y luego verificar.</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -1511,7 +1671,7 @@
 										</td>
 										<td>
 											<strong>Indique el tipo de instalación de los circuitos eléctricos</strong>
-											<br />(acepte sólo un código)
+											<br />(Acepte sólo un código)
 										</td>
 										<td>
 											<div class="radio">
@@ -1812,7 +1972,7 @@
 										</td>
 										<td>
 											<strong>Cuál es el estado de conservación:</strong>
-											<br />(acepte sólo un código)
+											<br />(Acepte sólo un código)
 										</td>
 										<td>
 											<div class="radio">

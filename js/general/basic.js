@@ -5,8 +5,8 @@ function urlRoot(delimiter){
 	var loc = document.location.href;
 	var url = loc.split(delimiter);
 
-	return url[pos_array]+delimiter;	
-				
+	return url[pos_array]+delimiter;
+
 }
 
 function localE(){
@@ -15,18 +15,22 @@ function localE(){
     var loc = document.location.href;
     var url = loc.split(delimiter);
 
-    return url[pos_array];    
-                
+    return url[pos_array];
+
 }
 
 function check_Radio(value,id){
 
     if(value!=null){
-             
-       document.getElementById(id+value).checked=true; 
-    
+
+       document.getElementById(id+value).checked=true;
+
     }
 }
+
+
+
+
 
 
 (function($){
@@ -45,7 +49,7 @@ function check_Radio(value,id){
                 }
 
             if(clase==null || clase==undefined || clase==''){
-                clase="head";                
+                clase="head";
             }else{
                 clase='.'+clase;
             }
@@ -64,13 +68,13 @@ function check_Radio(value,id){
                     break;
 
                 }
-                
-                
+
+
 
                 imported.push(url);
             }
         }
-        
+
     });
 
 })(jQuery);

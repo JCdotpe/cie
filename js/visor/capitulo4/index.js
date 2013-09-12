@@ -15,7 +15,7 @@ $(document).ready(function(){
 function P4(){
 
 	$.getJSON(urlRoot('index.php')+'/visor/P4/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
-		
+
 		$.each(data, function(index, val) {
 
 			$('#P4_1_Foto').val(val.P4_1_Foto);
@@ -29,12 +29,12 @@ function P4(){
 
 
 	}).fail(function( jqxhr, textStatus, error ) {
-	
+
 		var err = textStatus + ', ' + error;
 		console.log( "Request Failed: " + err);
-	
+
 	});
-			
+
 }
 
 function P42N(){
@@ -51,16 +51,16 @@ function P42N(){
 		$('#P4_2_1E_EstCons').val(val.P4_2_1E_EstCons);
 		$('#P4_2_1F_Opin').val(val.P4_2_1F_Opin);
 
-		
+
 		$.each(data, function(index, val) {
 
 		});
 
 	}).fail(function( jqxhr, textStatus, error ) {
-  	
+
   		var err = textStatus + ', ' + error;
   		console.log( "Request Failed: " + err);
-	
+
 	});
 
 }
