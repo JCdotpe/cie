@@ -3,7 +3,7 @@ $(document).ready(function(){
 	P1A();
 	/*P1A2N();*/
 	
-	$('input').attr({
+	$('input, textarea').attr({
 		disabled : true,
 	});
 

@@ -7,7 +7,7 @@ class Procedure_model extends CI_MODEL{
             $this->load->database();
     }
 
-     function CAP01_Lista_IE($codigo_de_local,$predio,$npredio){
+     function Lista_IE($codigo_de_local,$predio){
         /*$q=$this->db->query("EXEC CAP01_B_3 '"+$codigo_de_local+"','"+$predio+"','"+$npredio+"'");
         return $q;
         */

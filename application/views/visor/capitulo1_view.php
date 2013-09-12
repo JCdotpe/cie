@@ -24,6 +24,31 @@
 								</tbody>
 							</table>
 
+								<div class="panel">
+									<strong>Lista de Instituciones Educativas</strong>
+								</div>
+
+								<table class="table table-hover" style="width:900px;">
+										<thead>
+							    			<tr>
+							    				<th><strong>Nro.</strong></th>
+							    				<th><strong>Nombre de I.E.</strong></th>
+							    			</tr>
+							    		</thead>
+							    </table>
+
+								<div style="width:600px; height:150px; overflow:auto;">
+
+								   <table class="table table-hover" style="width:583px; height:150px;">
+							    		
+							    		<tbody id="list_ie">
+							    			<!-- AJAX -->
+								    	</tbody>
+								    
+								    </table>
+
+								</div>
+
 							<div id="inst_educa">
 								<!--AJAX-->
 							</div>
@@ -72,11 +97,11 @@
 								</tbody>
 							</table>
 
-							<div class="panel">
-								Visualizar Predios
-							</div>
+								<div class="panel">
+									Visualizar Predios
+								</div>
 
-							<table class="table table-hover" style="width:900px;">
+								<table class="table table-hover" style="width:900px;">
 										<thead>
 							    			<tr>
 							    				<th>Nro.</th>
@@ -85,7 +110,7 @@
 							    				<th>Inst. Educativa</th>
 							    			</tr>
 							    		</thead>
-							    	</table>
+							    </table>
 
 								<div style="width:900px; height:150px; overflow:auto;">
 
@@ -103,31 +128,7 @@
 							    				<td>015</td>
 							    				<td>IE 1174</td>
 								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-
+							    			
 								    	</tbody>
 								    </table>
 
