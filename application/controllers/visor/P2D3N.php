@@ -67,7 +67,7 @@ class P2D3N extends REST_Controller{
 
             header_json();
             
-            $data = $this->P2D3N_model->getData($this->get('id_local'));
+            $data = $this->P2D3N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 

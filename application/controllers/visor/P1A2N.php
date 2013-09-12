@@ -66,13 +66,8 @@ class P1A2N extends REST_Controller{
         }else{
 
             header_json();
-<<<<<<< HEAD:application/controllers/visor/p313N.php
 
-            $data = $this->P313N_model->getData($this->get('id_local'));
-=======
-            
-            $data = $this->P1A2N_model->getData($this->get('id_local'));
->>>>>>> supercommit 2:application/controllers/visor/P1A2N.php
+            $data = $this->P1A2N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 
