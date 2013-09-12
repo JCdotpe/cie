@@ -55,9 +55,22 @@ class Preguntas extends CI_Controller {
 		$this->load->view('backend/json/json_view', $return_arr);	
 	}
 
+	public function obtenercedula()
+	{
+		$ced = $this->operativa_model->Get_Cedula();
+		$return_arr['datos']=array();
+		foreach($ced->result() as $filas)
+		{
+			$data['CODIGO'] = $filas->cedula;
+			$data['NOMBRE'] = $filas->cedula;
+			array_push($return_arr['datos'], $data);
+		}
+		$this->load->view('backend/json/json_view', $return_arr);
+	}
+
 	public function obtenercapitulo()
 	{
-		$cap = $this->operativa_model->Get_Capitulo();
+		$cap = $this->operativa_model->Get_Capitulo($_POST['id_cedula']);
 		$return_arr['datos']=array();
 		foreach($cap->result() as $filas)
 		{
@@ -97,6 +110,8 @@ class Preguntas extends CI_Controller {
 	public function registro()
 	{
 		$c_data = array(
+				'id_cuestionario'=> $this->bpr_model->get_nro_pregunta(),
+				'cedula'=> $this->input->post('cedula'),
 				'cod_cap'=> $this->input->post('capitulo'),
 				'cod_sec'=> $this->input->post('seccion'),
 				'cod_preg'=> $this->input->post('pregunta'),

@@ -56,13 +56,41 @@ function cargarDatosbyDistrito()
 	}
 }
 
-function cargarCapitulo()
+function cargarCedula()
 {
-	var doLoginMethodUrl = 'preguntas/obtenercapitulo';
+	var doLoginMethodUrl = 'preguntas/obtenercedula';
 	var id_cargo = document.getElementById("cargo").value;
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
+		dataType:'json',
+		success: function(json_data){
+			$("#cedula").empty();
+			$.each(json_data, function(i, data){
+				$("#cedula").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+			});
+			
+			$("#cedula").prepend("<option value='-1' selected='true'>Seleccione...</value>");	
+			$("#capitulo").empty().append("<option value='-1' selected='true'></value>");
+			$("#seccion").empty().append("<option value='-1' selected='true'></value>");
+			$("#pregunta").empty().append("<option value='-1' selected='true'></value>");
+
+			if ($("#list2").length)
+			{
+				if (id_cargo=='-1'){ verdatos(2); }else{ verdatos(3); }	
+			}
+		}
+	});
+}
+
+function cargarCapitulo()
+{
+	var doLoginMethodUrl = 'preguntas/obtenercapitulo';
+	var id_cedula = $("#cedula").val();
+	$.ajax({
+		type: "POST",
+		url: doLoginMethodUrl,
+		data: "id_cedula="+id_cedula,
 		dataType:'json',
 		success: function(json_data){
 			$("#capitulo").empty();
@@ -76,7 +104,7 @@ function cargarCapitulo()
 
 			if ($("#list2").length)
 			{
-				if (id_cargo=='-1'){ verdatos(2); }else{ verdatos(3); }	
+				if (id_cedula=='-1'){ verdatos(3); }else{ verdatos(4); }	
 			}
 		}
 	});
@@ -102,7 +130,7 @@ function cargarSeccion()
 
 			if ($("#list2").length)
 			{
-				if (id_cap=='-1'){ verdatos(3); }else{ verdatos(4); }	
+				if (id_cap=='-1'){ verdatos(4); }else{ verdatos(5); }	
 			}
 		}
 	});
@@ -128,8 +156,8 @@ function cargarPreguntas()
 
 			if ($("#list2").length)
 			{
-				if (id_sec=='-1'){ verdatos(4); }else{ verdatos(5); }	
-			}		
+				if (id_sec=='-1'){ verdatos(5); }else{ verdatos(6); }	
+			}
 		}
 	});
 }
@@ -140,7 +168,7 @@ function cargarDatosbyPregunta()
 
 	if ($("#list2").length)
 	{
-		if (id_pre=='-1'){ verdatos(5); }else{ verdatos(6); }	
+		if (id_pre=='-1'){ verdatos(6); }else{ verdatos(7); }	
 	}
 }
 
@@ -160,6 +188,7 @@ function Form_Validar()
 	id_prov = $("#provincia").val();
 	id_dist = $("#distrito").val();
 	id_cargo = document.getElementById("cargo").value;
+	id_cedula = $("#cedula").val();
 	id_cap = $("#capitulo").val();
 	id_sec = $("#seccion").val();
 	id_pre = $("#pregunta").val();
@@ -167,7 +196,7 @@ function Form_Validar()
 	cons = $("#consulta").val();
 	nombre = $("#nombrecompleto").val();
 
-	if (id_depa == -1 || id_prov == -1 || id_dist == -1 || id_cargo == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1)
+	if (id_depa == -1 || id_prov == -1 || id_dist == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1)
 	{
 		alert("Faltan Seleccionar Datos!");
 		return false;
@@ -207,11 +236,12 @@ function verdatos(intervalo)
 	var id_prov = $("#provincia").val();
 	var id_dist = $("#distrito").val();
 	var cargo = document.getElementById("cargo").value;
+	var id_cedula = $("#cedula").val();
 	var id_cap = $("#capitulo").val();
 	var id_sec = $("#seccion").val();
 	var id_pre = $("#pregunta").val();
 
-	if (id_pre=='-1' && intervalo == 6){ intervalo=5; }
+	if (id_pre=='-1' && intervalo == 7){ intervalo=6; }
 
 	var condicion;
 
@@ -226,16 +256,19 @@ function verdatos(intervalo)
 		case 2:	condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist;
 			break;
 
-		case 3: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo;
+		case 3:	condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo;
 			break;
 
-		case 4: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codcap="+id_cap;
+		case 4: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula;
 			break;
 
-		case 5: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codcap="+id_cap+"&codsec="+id_sec;
+		case 5: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap;
 			break;
 
-		case 6: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
+		case 6: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec;
+			break;
+
+		case 7: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
 			break;
 	}
 

@@ -2,9 +2,16 @@
 
 class Operativa_Model extends CI_Model {
 
-	function Get_Capitulo()
+	function Get_Cedula()
 	{
-		$query="SELECT cod_cap, descripcion FROM BPR_Capitulo ORDER BY cod_cap";
+		$query="SELECT DISTINCT cedula FROM BPR_Capitulo ORDER BY cedula";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function Get_Capitulo($codced)
+	{
+		$query="SELECT cod_cap, descripcion FROM BPR_Capitulo WHERE cedula = '$codced' ORDER BY cod_cap";
 		$q = $this->db->query($query);
 		return $q;
 	}

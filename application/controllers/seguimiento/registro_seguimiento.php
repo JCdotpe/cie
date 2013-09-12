@@ -39,7 +39,7 @@ class Registro_Seguimiento extends CI_Controller {
 	{
 		$data['nav'] = TRUE;
 		$data['title'] = 'Seguimiento';
-		$data['main_content'] = 'Seguimiento/seguimiento_view';
+		$data['main_content'] = 'seguimiento/seguimiento_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
 		$data['depa'] = $this->operativa_model->Get_DptobyUser($data['user_id']);

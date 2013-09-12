@@ -10,7 +10,7 @@ class Seguimiento extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
-		$this->load->model('Seguimiento/seguimiento_model');
+		$this->load->model('seguimiento/seguimiento_model');
 
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {

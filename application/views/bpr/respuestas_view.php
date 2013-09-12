@@ -31,6 +31,7 @@
 
 	$selected_cargo = (set_value('cargo')) ? set_value('cargo') : '' ;
 
+	$cedulaArray = array(-1 => '');
 	$capArray = array(-1 => '');
     $secArray = array(-1 => '');
     $preArray = array(-1 => '');
@@ -107,42 +108,56 @@
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"  onChange="cargarCapitulo();"'); 
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"  onChange="cargarCedula();"'); 
 								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
 								echo form_dropdown('cargo', $cargosadm, $selected_cargo, 'id="cargo_adm" style="display:none"');
 							?>
 						</div>
 					</div>
 				</div>
-				<div class="span3">
-					<div class="control-group">
-						<?php echo form_label('Capítulo', 'capitulo', $label_class); ?>
-						<div class="controls">
-							<?php echo form_dropdown('capitulo', $capArray, '#', 'id="capitulo" onChange="cargarSeccion();"'); ?>
+				<div>
+					<div class="span3">
+						<div class="control-group">
+							<?php echo form_label('Cédula', 'cedula', $label_class); ?>
+							<div class="controls">
+								<?php echo form_dropdown('cedula', $cedulaArray, '#', 'id="cedula" onChange="cargarCapitulo();"'); ?>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="span3">
-					<div class="control-group">
-						<?php echo form_label('Sección', 'seccion', $label_class); ?>
-						<div class="controls">
-							<?php echo form_dropdown('seccion', $secArray, '#', 'id="seccion" onChange="cargarPreguntas();"'); ?>
+					<div class="span3">
+						<div class="control-group">
+							<?php echo form_label('Capítulo', 'capitulo', $label_class); ?>
+							<div class="controls">
+								<?php echo form_dropdown('capitulo', $capArray, '#', 'id="capitulo" onChange="cargarSeccion();"'); ?>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="span3">
-					<div class="control-group">
-						<?php echo form_label('Pregunta', 'pregunta', $label_class); ?>
-						<div class="controls">
-							<?php echo form_dropdown('pregunta', $preArray, '#', 'id="pregunta" onChange="cargarDatosbyPregunta();"'); ?>
+					<div class="span3">
+						<div class="control-group">
+							<?php echo form_label('Sección', 'seccion', $label_class); ?>
+							<div class="controls">
+								<?php echo form_dropdown('seccion', $secArray, '#', 'id="seccion" onChange="cargarPreguntas();"'); ?>
+							</div>
+						</div>
+					</div>
+					<div class="span3">
+						<div class="control-group">
+							<?php echo form_label('Pregunta', 'pregunta', $label_class); ?>
+							<div class="controls">
+								<?php echo form_dropdown('pregunta', $preArray, '#', 'id="pregunta" onChange="cargarDatosbyPregunta();"'); ?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<?php echo form_close(); ?>			
 		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="row-fluid">
 		<div id="grid_content" class="span12">
-			<div class="span6">
+			<div class="span12">
 				<table id="list2"></table>
 				<div id="pager2"></div>
 			</div>

@@ -53,76 +53,16 @@ class Respuestas extends CI_Controller {
 		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function obtenerprovincia()
-	{
-		$prov = $this->Provincia_model->get_provs($_POST['id_dpto']);
-		$return_arr['datos']=array();
-		foreach($prov->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->CCPP;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);
-	}
-
-	public function obtenerdistrito()
-	{
-		$dist = $this->Dist_model->Get_Dist_combo($_POST['id_depa'],$_POST['id_prov']);
-		$return_arr['datos']=array();
-		foreach($dist->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->CCDI;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-
-	public function obtenercapitulo()
-	{
-		$cap = $this->operativa_model->Get_Capitulo();
-		$return_arr['datos']=array();
-		foreach($cap->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->cod_cap;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->descripcion));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-
-	public function obtenerseccion()
-	{
-		$sec = $this->operativa_model->Get_Seccion($_POST['id_cap']);
-		$return_arr['datos']=array();
-		foreach($sec->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->cod_sec;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->descripcion));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-
-	public function obtenerpregunta()
-	{
-		$pre = $this->operativa_model->Get_Pregunta($_POST['id_cap'],$_POST['id_sec']);
-		$return_arr['datos']=array();
-		foreach($pre->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->cod_preg;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->descripcion));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-
 	public function registro()
 	{
+		$codigo = $this->input->post('codigo');
+		$pos = strpos($codigo,'.');
+		$id_cuestionario = substr($codigo,0,$pos);
+		$id_nro = substr($codigo,$pos+1);
+
 		$c_data = array(
-				'id_cuestionario'=> $this->input->post('codigo'),
-				'id_respuesta'=> $this->bpr_model->get_nro_respuesta(),
+				'id_cuestionario' => $id_cuestionario,
+				'id_nro'=> $id_nro,
 				'id_usuario'=> $this->input->post('usuario'),
 				'respuesta'=> utf8_decode($this->input->post('respuesta'))
 			);
@@ -168,19 +108,24 @@ class Respuestas extends CI_Controller {
 			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cargo='$cargo'";
 		}
 
+		if(isset($_GET['codced'])) { 
+			$ced = $this->input->get('codced');
+			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced'";
+		}
+
 		if(isset($_GET['codcap'])) { 
 			$cap = $this->input->get('codcap');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cargo='$cargo' AND cod_cap='$cap'";
+			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap'";
 		}
 
 		if(isset($_GET['codsec'])) { 
 			$sec = $this->input->get('codsec');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec'";
+			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec'";
 		}
 
 		if(isset($_GET['codpre'])) { 
 			$preg = $this->input->get('codpre');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec' AND cod_preg='$preg'";
+			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec' AND cod_preg='$preg'";
 		}
 
 		if(!$sidx) $sidx =1;
@@ -218,7 +163,11 @@ class Respuestas extends CI_Controller {
 
 	public function buscardetalle()
 	{
-		$resultado = $this->bpr_model->get_detalle_pregunta($_POST['codigo']);
+		$codigo = $_POST['codigo'];
+		$pos = strpos($codigo,'.');
+		$id_cuestionario = substr($codigo,0,$pos);
+		$id_nro = substr($codigo,$pos+1);
+		$resultado = $this->bpr_model->get_detalle_pregunta($id_cuestionario, $id_nro);
 		$return_arr['datos']=array();
 		foreach($resultado->result() as $filas)
 		{
