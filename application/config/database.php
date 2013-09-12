@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-		$db['default']['hostname'] = '192.168.201.43';
+		$db['default']['hostname'] = 'SRVDB-DESA';
 		$db['default']['username'] = 'yechevarria';
-		$db['default']['password'] = 'inei2106';
+		$db['default']['password'] = 'INEI1209';
 
 		$db['default']['database'] = 'CIE2013';		
 		$db['default']['dbdriver'] = 'mssql';
