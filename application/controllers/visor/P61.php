@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class P6N extends REST_Controller{
+class P61 extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P6N_model');
+    $this->load->model('visor/P61_model');
     $this->load->model('visor/P618N_model');
     $this->load->model('visor/P6110N_model');
     $this->load->helper('my');
@@ -36,7 +36,7 @@ class P6N extends REST_Controller{
 
             }
 
-            $flag = $this->P6N_model->insertBatch($array);
+            $flag = $this->P61_model->insertBatch($array);
 
             if ($flag) {
 
@@ -69,7 +69,7 @@ class P6N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P6N_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->P61_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 
@@ -90,14 +90,14 @@ class P6N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P6N_model->getDataNroEdif(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
-            $p618n = $this->P618N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
-            $p6110n = $this->P6110N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
+            $data = $this->P61_model->getDataNroEdif(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('NRO_ED'));
+            $p618n = $this->P618N_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('NRO_ED'));
+            $p6110n = $this->P6110N_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('NRO_ED'));
 
             foreach ($data->result() as $fila) {
               # code...
               $x=array("id_local" => $fila->id_local,
-                "PC_F_1" => $fila->PC_F_1,
+                "Nro_Pred" => $fila->Nro_Pred,
                 "Nro_Ed" => $fila->Nro_Ed,
                 "P6_1_3" => $fila->P6_1_3,
                 "P6_1_4" => $fila->P6_1_4,
@@ -114,7 +114,6 @@ class P6N extends REST_Controller{
 
             prettyPrint($jsonData);
         }
-
     }
 
 }

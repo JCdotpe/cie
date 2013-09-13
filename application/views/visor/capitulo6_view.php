@@ -221,7 +221,25 @@
 		  	    				</tbody>
 		  	    				</table>
 							</div>
-		  	    			
+
+							<div id="pag_seccion_b" style="width:920px; height:200px; overflow:auto;"  >
+			  	    				<!--AJAX-->
+			  	    				<table class="table table-hover" style="width:920px;" class="content8">
+											<thead>
+											<tr align="center">
+												<th colspan="3" style="text-align:center; vertical-align:middle;">LISTADO DE AMBIENTES</th>
+											</tr>
+								    			<tr>
+								    				<th  style="text-align:center;">NRO DE AMBIENTE</th>
+								    				<th style="text-align:center;">NRO DE PISO</th>
+								    			</tr>
+								    		</thead>
+								    		<tbody id="seccion_b">
+
+								    		</tbody>
+									</table>
+			  	    		</div>
+
 							<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -232,11 +250,11 @@
 		  	    					<tr>
 		  	    						<td>
 		  	    							<label>1. Ambiente Nº</label>
-		  	    							<input style="width:100px;float:left;" type="text" class="form-control">
+		  	    							<input style="width:100px;float:left;" type="text" class="form-control" id="P6_2_1">
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>2. Piso N°</label>
-		  	    							<input style="width:100px;float:left;" type="text" class="form-control">
+		  	    							<input style="width:100px;float:left;" type="text" class="form-control" id="P5_NroPiso">
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -247,10 +265,10 @@
 		  	    					<td>
 		  	    						<strong>
 		  	    							<label class="checkbox-inline">
-												<input type="checkbox" id="inlineCheckbox1" value="option1"> 1. Si
+												<input type="checkbox" id="P6_2_31" value="option1"> 1. Si
 											</label>
 											<label class="checkbox-inline">
-												<input type="checkbox" id="inlineCheckbox1" value="option1"> 2. No
+												<input type="checkbox" id="P6_2_32" value="option1"> 2. No
 											</label>
 		  	    						</strong>
 		  	    					</td>
@@ -288,17 +306,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="1P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="1P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="1P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -308,17 +326,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="2P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="2P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="2P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -328,17 +346,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="3P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="3P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="3P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -348,17 +366,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="4P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="4P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="4P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -368,17 +386,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="5P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="5P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="5P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -388,17 +406,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="6P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="6P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="6P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -408,17 +426,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="7P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="7P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="7P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -428,17 +446,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="8P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="8P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="8P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -448,17 +466,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="9P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="9P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="9P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -468,17 +486,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="10P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="10P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="10P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -488,17 +506,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="11P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="11P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="11P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -508,17 +526,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="12P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="12P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="12P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -528,17 +546,17 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="13P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="13P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="13P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -548,23 +566,22 @@
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
+															<input type="checkbox" id="14P6_2_4Turno_M1" value="option3"> 1
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
+															<input type="checkbox" id="14P6_2_4Turno_T2" value="option3"> 2
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+															<input type="checkbox" id="14P6_2_4Turno_N3" value="option3"> 3
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    							</tbody>
 		  	    						</table>
-
 		  	    					</td>
 		  	    				</tbody>
 		  	    				<tbody>
@@ -577,24 +594,28 @@
 		  	    						<label>(Acepte uno o más códigos)</label>
 		  	    					</td>
 		  	    					<td>
-		  	    						<label class="checkbox">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 1. Aula común
+		  	    						<label class="radio">
+											<input type="radio" id="P6_2_51" name="radio5" value="option3"> 1. Aula común
 										</label>
-		  	    						<label class="checkbox">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 2. Pedagógico
+		  	    						<label class="radio">
+											<input type="radio" id="P6_2_52" name="radio5" value="option3"> 2. Pedagógico
 										</label>
-		  	    						<label class="checkbox">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 3. Administrativo
+		  	    						<label class="radio">
+											<input type="radio" id="P6_2_53"  name="radio5" value="option3"> 3. Administrativo
 										</label>
-		  	    						<label class="checkbox">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 4. Complementario
+		  	    						<label class="radio">
+											<input type="radio" id="P6_2_54" name="radio5" value="option3"> 4. Complementario
 										</label>
-		  	    						<label class="checkbox">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 5. Servicios
+		  	    						<label class="radio">
+											<input type="radio" id="P6_2_55" name="radio5" value="option3"> 5. Servicios
 										</label>
 		  	    					</td>
 		  	    				</tbody>
 		  	    			</table>
+
+		  	    			<div id="funcion_educativa">
+		  	    				<!-- Load secciones-->
+		  	    			</div>
 
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
@@ -1074,556 +1095,9 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-		  	    			<table class="table table-bordered">
-		  	    				<thead>
-		  	    					<tr>
-		  	    						<th style="text-align:center;" colspan="3">Evaluación del estado de conservación:</th>
-		  	    					</tr>
-		  	    				</thead>
-		  	    				<tbody>
-		  	    					<tr>
-		  	    						<td>15.</td>
-		  	    						<td>
-		  	    							<strong>
-		  	    								Material predominante del piso
-		  	    							</strong>
-		  	    						</td>
-		  	    						<td>
-			  	    						<table class="table table-bordered">
-			  	    							<thead>
-			  	    								<tr>
-			  	    									<td rowspan="2" style="text-align:center;">Material predominante en los pisos</td>
-				  	    								<td colspan="3" style="text-align:center;">15A. Estado de conservación</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td style="text-align:center;">Bueno</td>
-				  	    								<td style="text-align:center;">Regular</td>
-				  	    								<td style="text-align:center;">Malo</td>
-			  	    								</tr>
-			  	    							</thead>
-			  	    							<tbody>
-			  	    								<tr>
-			  	    									<td>
-				  	    									1. Parquet o madera pulida
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									2. Láminas asfálticas, vinílicos o similares
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									3. Losetas, terrazos o similares
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</tTipo de puertad>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									4. Madera (entablados)
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									5. Cemento
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									6. Tierra
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									<label>
-				  	    										7. Otro material
-				  	    									</label>
-				  	    									<label>
-																<input style="float:left; width:300px;" type="text" class="form-control">
-																(Especifique)
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    							</tbody>
-			  	    						</table>
-		  	    						</td>
-		  	    					</tr>
-		  	    					<tr>
-		  	    						<td>16.</td>
-		  	    						<td>
-		  	    							<strong>
-		  	    								Tipo de puerta
-		  	    							</strong>
-		  	    						</td>
-		  	    						<td>
-		  	    							<table class="table table-bordered">
-			  	    							<thead>
-			  	    								<tr>
-			  	    									<td rowspan="2" style="text-align:center;">Tipo de puerta</td>
-				  	    								<td colspan="3" style="text-align:center;">16A. Estado de conservación</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td style="text-align:center;">Bueno</td>
-				  	    								<td style="text-align:center;">Regular</td>
-				  	    								<td style="text-align:center;">Malo</td>
-			  	    								</tr>
-			  	    							</thead>
-			  	    							<tbody>
-			  	    								<tr>
-			  	    									<td>
-				  	    									1. Metalica
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									2. Metálica con vidrio
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									3. Madera
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									4. Madera con vidrio
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-			  	    										<label>
-				  	    										5. Otro material
-				  	    									</label>
-				  	    									<label>
-																<input style="float:left; width:300px;" type="text" class="form-control">
-																(Especifique)
-															</label>
-			  	    									</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									6. No tiene
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    							</tbody>
-			  	    						</table>
-		  	    						</td>
-		  	    					</tr>
-		  	    					<tr>
-		  	    						<td>17.</td>
-		  	    						<td>
-		  	    							<strong>
-		  	    								Estado de conservación de la chapa o cerradura de la puerta
-		  	    							</strong>
-		  	    						</td>
-		  	    						<td>
-		  	    							<table class="table table-bordered">
-		  	    								<thead>
-		  	    									<tr>
-		  	    										<td></td>
-		  	    										<th style="text-align:center;">Total</th>
-		  	    									</tr>
-		  	    								</thead>
-		  	    								<tbody>
-		  	    									<tr>
-			  	    									<td>1. Buen estado</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    									<tr>
-			  	    									<td>2. Oxidado</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    									<tr>
-			  	    									<td>3. Deteriorado</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    									<tr>
-			  	    									<td>3. No tiene</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    								</tbody>
-		  	    							</table>
-		  	    						</td>
-		  	    					</tr>
-		  	    					<tr>
-		  	    						<td>18.</td>
-		  	    						<td>
-		  	    							<strong>
-		  	    								Tipo de ventana
-		  	    							</strong>
-		  	    						</td>
-		  	    						<td>
-		  	    							<table class="table table-bordered">
-			  	    							<thead>
-			  	    								<tr>
-			  	    									<td rowspan="2" style="text-align:center;">Tipo de puerta</td>
-				  	    								<td colspan="3" style="text-align:center;">16A. Estado de conservación</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td style="text-align:center;">Bueno</td>
-				  	    								<td style="text-align:center;">Regular</td>
-				  	    								<td style="text-align:center;">Malo</td>
-			  	    								</tr>
-			  	    							</thead>
-			  	    							<tbody>
-			  	    								<tr>
-			  	    									<td>
-				  	    									1. Metalica
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									2. Madera
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									3. Aluminio
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									4. Malla
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-			  	    										<label>
-				  	    										5. Otro material
-				  	    									</label>
-				  	    									<label>
-																<input style="float:left; width:300px;" type="text" class="form-control">
-																(Especifique)
-															</label>
-			  	    									</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									6. No tiene
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>
-				  	    								</td>
-			  	    								</tr>
-			  	    							</tbody>
-			  	    						</table>
-		  	    						</td>
-		  	    					</tr>
-		  	    					<tr>
-		  	    						<td>19.</td>
-		  	    						<td>
-		  	    							<strong>
-		  	    								Estado de conservación de los vidrios
-		  	    							</strong>
-		  	    						</td>
-		  	    						<td>
-		  	    							<table class="table table-bordered">
-		  	    								<thead>
-		  	    									<tr>
-		  	    										<td></td>
-		  	    										<th style="text-align:center;">Total</th>
-		  	    									</tr>
-		  	    								</thead>
-		  	    								<tbody>
-		  	    									<tr>
-			  	    									<td>1. Completos</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    									<tr>
-			  	    									<td>2. Con roturas</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    									<tr>
-			  	    									<td>3. Sin vidrios</td>
-			  	    									<td><input style="float:left; width:100px;" type="text" class="form-control"></td>
-		  	    									</tr>
-		  	    								</tbody>
-		  	    							</table>
-		  	    						</td>
-		  	    					</tr>
-		  	    				</tbody>
-		  	    			</table>
+
+
+
 
 		  	    			<div class="panel">
 								<label>Observaciones:</label>

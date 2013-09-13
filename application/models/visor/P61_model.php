@@ -1,6 +1,6 @@
 <?php
 
-class P6N_model extends CI_MODEL{
+class P61_model extends CI_MODEL{
 
     public function __construct() {
             parent::__construct();
@@ -9,7 +9,7 @@ class P6N_model extends CI_MODEL{
 
     public function insertBatch($data) {
 
-        $q = $this->db->sql_batch('P6_N',$data);
+        $q = $this->db->sql_batch('P6_1',$data);
         return ($q);
 
     }
@@ -17,7 +17,7 @@ class P6N_model extends CI_MODEL{
     public function getData($codigo_de_local){
 
         $this->db->select('*');
-        $this->db->from('P6_N');
+        $this->db->from('P6_1');
         $this->db->where('id_local',$codigo_de_local);
         $q = $this->db->get();
         return $q;
@@ -25,10 +25,10 @@ class P6N_model extends CI_MODEL{
     }
    function getDataNroEdif($codigo_de_local,$pc_f_1,$nro_ed){
         $this->db->select('*');
-        $this->db->from('P6_N');
+        $this->db->from('P6_1');
         $this->db->where('id_local',$codigo_de_local);
-        $this->db->where('PC_F_1',$pc_f_1);
-        $this->db->where('NRO_ED',$nro_ed);
+        $this->db->where('Nro_Pred',$pc_f_1);
+        $this->db->where('Nro_Ed',$nro_ed);
         $q = $this->db->get();
         return $q;
 

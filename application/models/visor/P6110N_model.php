@@ -19,7 +19,7 @@ class P6110N_model extends CI_MODEL{
         $this->db->select('*');
         $this->db->from('P6_1_10N');
         $this->db->where('id_local',$codigo_de_local);
-        $this->db->where('PC_F_1', $predio);
+        $this->db->where('Nro_Pred', $predio);
         $this->db->where('Nro_Ed', $edififacion);
         $q = $this->db->get();
         return $q;
