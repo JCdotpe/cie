@@ -67,7 +67,7 @@ class P624N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P624N_model->getData($this->get('id_local'));
+            $data = $this->P624N_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('Nro_Ed'),$this->get('P5_NroPiso'));
 
             $jsonData = json_encode($data->result());
 
