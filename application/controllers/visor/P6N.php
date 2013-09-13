@@ -9,6 +9,8 @@ class P6N extends REST_Controller{
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
     $this->load->model('visor/P6N_model');
+    $this->load->model('visor/P618N_model');
+    $this->load->model('visor/P6110N_model');
     $this->load->helper('my');
 
   }
@@ -89,8 +91,26 @@ class P6N extends REST_Controller{
             header_json();
 
             $data = $this->P6N_model->getDataNroEdif(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
+            $p618n = $this->P618N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
+            $p6110n = $this->P6110N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('NRO_ED'));
 
-            $jsonData = json_encode($data->result());
+            foreach ($data->result() as $fila) {
+              # code...
+              $x=array("id_local" => $fila->id_local,
+                "PC_F_1" => $fila->PC_F_1,
+                "Nro_Ed" => $fila->Nro_Ed,
+                "P6_1_3" => $fila->P6_1_3,
+                "P6_1_4" => $fila->P6_1_4,
+                "P6_1_5" => $fila->P6_1_5,
+                "P6_1_6" => $fila->P6_1_6,
+                "P6_1_7" => $fila->P6_1_7,
+                "P6_1_8" => $fila->P6_1_8,
+                "P6_1_8_N" => $p618n->result(),
+                "P6_1_9" => $fila->P6_1_9,
+                "P6_1_10_e" => $p6110n->result()
+                );
+            }
+            $jsonData = json_encode(array($x));
 
             prettyPrint($jsonData);
         }

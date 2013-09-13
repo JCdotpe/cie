@@ -221,12 +221,7 @@
 		  	    				</tbody>
 		  	    				</table>
 							</div>
-
-		  	    			<div class="panel">
-								<label>Observaciones:</label>
-								<textarea style="width:870px; height:100px;"></textarea>
-							</div>
-
+		  	    			
 							<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
