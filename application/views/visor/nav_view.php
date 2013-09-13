@@ -3,8 +3,11 @@
 	$.import('js/visor/nav.js','js');
 	
 </script>
-
 <div id="predios_Combo" style="width:300px;margin:10px;">
+
+</div>
+
+<div id="selected_Combo">
 
 </div>
 
@@ -15,16 +18,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li id="caratula1">
-							<a href="<?php echo base_url('index.php/visor/caratula1/?le=').$_REQUEST['le']; ?>">Caratula</a>
+							<a href="<?php echo base_url('index.php/visor/caratula1/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Caratula</a>
 						</li>
 						<li id="capitulo1">
-							<a href="<?php echo base_url('index.php/visor/capitulo1/?le=').$_REQUEST['le']; ?>">Capitulo I</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo1/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo I</a>
 						</li>
 						<li id="capitulo2">
-							<a href="<?php echo base_url('index.php/visor/capitulo2/?le=').$_REQUEST['le']; ?>">Capitulo II</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo2/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo II</a>
 						</li>
 						<li id="capitulo3">
-							<a href="<?php echo base_url('index.php/visor/capitulo3/?le=').$_REQUEST['le']; ?>">Capitulo III</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo3/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo III</a>
 						</li>
 					</ul>
   				</li>
@@ -35,13 +38,13 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li id="caratula2">
-							<a href="<?php echo base_url('index.php/visor/caratula2/?le=').$_REQUEST['le']; ?>">Datos Generales</a>
+							<a href="<?php echo base_url('index.php/visor/caratula2/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Datos Generales</a>
 						</li>
 						<li id="capitulo4">
-							<a href="<?php echo base_url('index.php/visor/capitulo4/?le=').$_REQUEST['le']; ?>">Capítulo IV</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo4/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capítulo IV</a>
 						</li>
 						<li id="capitulo5">
-							<a href="<?php echo base_url('index.php/visor/capitulo5/?le=').$_REQUEST['le']; ?>">Capítulo V</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo5/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capítulo V</a>
 						</li>
 					</ul>
   				</li>
@@ -52,16 +55,16 @@
   					</a>
   					<ul class="dropdown-menu">
   						<li id="caratula3">
-							<a href="<?php echo base_url('index.php/visor/caratula3/?le=').$_REQUEST['le']; ?>">Datos Generales</a>
+							<a href="<?php echo base_url('index.php/visor/caratula3/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Datos Generales</a>
 						</li>
 						<li id="capitulo6">
-							<a href="<?php echo base_url('index.php/visor/capitulo6/?le=').$_REQUEST['le']; ?>">Capitulo VI</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo6/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo VI</a>
 						</li>
 						<li id="capitulo7">
-							<a href="<?php echo base_url('index.php/visor/capitulo7/?le=').$_REQUEST['le']; ?>">Capitulo VII</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo7/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo VII</a>
 						</li>
 						<li id="capitulo8">
-							<a href="<?php echo base_url('index.php/visor/capitulo8/?le=').$_REQUEST['le']; ?>">Capitulo VIII</a>
+							<a href="<?php echo base_url('index.php/visor/capitulo8/?le=').$_REQUEST['le'].'&pr='.$_REQUEST['pr']; ?>">Capitulo VIII</a>
 						</li>
 					</ul>
   				</li>
