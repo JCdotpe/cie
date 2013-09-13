@@ -216,7 +216,7 @@
 					be = "<input type='button' value='Registrar Detalle' onclick=savedetalle('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{detalle:be});
 				}
-			},			
+			},
 			sortorder: "asc",
 			caption:"Lista de Locales"
 		});
@@ -396,7 +396,9 @@
 		var long = fecha.length; 
 		var dia; 
 		var mes; 
-		var ano; 
+		var ano;
+		var d = new Date();
+		var anoactual = d.getFullYear();
 		if ((long>=2) && (primerslap==false)) { dia=fecha.substr(0,2); 
 		if ((IsNumeric(dia)==true) && (dia<=31) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
 		else { fecha=""; primerslap=false;} 
@@ -416,8 +418,17 @@
 		if (long>=7) 
 		{ ano=fecha.substr(6,4); 
 		if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
-		else { if (long==10){ if ((ano==0) || (ano<1900) || (ano>2100)) { fecha=fecha.substr(0,6); } } } 
-		} 
+		else { if (long==10){ if ((ano==0) || (ano<2013) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
+		}
+		if (long==10)
+		{ 
+			dia=fecha.substr(0,2); 
+			mes=fecha.substr(3,2); 
+			if ((ano==2013) && (mes<=9) && (dia<9))
+			{
+				fecha="";
+			}
+		}
 		if (long>=10) 
 		{ 
 		fecha=fecha.substr(0,10); 

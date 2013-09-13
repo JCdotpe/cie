@@ -83,11 +83,14 @@ function cargarCentroPoblado()
 function cargarRutas()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerrutas';
+	var id_depa = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
+	var id_dist = $("#distrito").val();
 	var id_cp = $("#centropoblado").val();
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_cp="+id_cp,
+		data: "id_sede="+id_depa+"&id_prov="+id_prov+"&id_dist="+id_dist+"&id_cp="+id_cp,
 		dataType:'json',
 		success: function(json_data){
 			$("#rutas").empty();
@@ -106,12 +109,15 @@ function cargarRutas()
 function cargarPeriodo()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerperiodo';
+	var id_depa = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
+	var id_dist = $("#distrito").val();
 	var id_cp = $("#centropoblado").val();
 	var id_ruta = $("#rutas").val();
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_cp="+id_cp+"&id_ruta="+id_ruta,
+		data: "id_sede="+id_depa+"&id_prov="+id_prov+"&id_dist="+id_dist+"&id_cp="+id_cp+"&id_ruta="+id_ruta,
 		dataType:'json',
 		success: function(json_data){
 			$("#periodo").empty();

@@ -42,7 +42,7 @@ class Registro_Seguimiento extends CI_Controller {
 		$data['main_content'] = 'seguimiento/seguimiento_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->operativa_model->Get_DptobyUser($data['user_id']);
+		$data['depa'] = $this->operativa_model->Get_SedebyUser($data['user_id']);
 		$this->load->view('backend/includes/template', $data);
 	}
 
@@ -87,7 +87,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function obtenerrutas()
 	{
-		$rutas = $this->operativa_model->get_rutas($_POST['id_cp']);
+		$rutas = $this->operativa_model->get_rutas($_POST['id_sede'],$_POST['id_prov'],$_POST['id_dist'],$_POST['id_cp']);
 		$return_arr['datos']=array();
 		foreach($rutas->result() as $filas)
 		{
@@ -100,7 +100,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function obtenerperiodo()
 	{
-		$periodo = $this->operativa_model->get_periodo($_POST['id_cp'], $_POST['id_ruta']);
+		$periodo = $this->operativa_model->get_periodo($_POST['id_sede'],$_POST['id_prov'],$_POST['id_dist'],$_POST['id_cp'], $_POST['id_ruta']);
 		$return_arr['datos']=array();
 		foreach($periodo->result() as $filas)
 		{

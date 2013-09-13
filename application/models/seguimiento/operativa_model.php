@@ -2,7 +2,7 @@
 
 class Operativa_Model extends CI_Model {
 
-	function Get_DptobyUser($user_id)
+	function Get_SedebyUser($user_id)
 	{
 		$query="SELECT os.cod_sede_operativa, os.sede_operativa FROM user_ubigeo u left join operativa_sede os on u.cod_sede_operativa = os.cod_sede_operativa WHERE u.id = $user_id ORDER BY os.sede_operativa";
 		$q = $this->db->query($query);
@@ -25,21 +25,21 @@ class Operativa_Model extends CI_Model {
 
 	function get_centro_poblado($codsede_ope, $codprov_ope, $coddist)
 	{
-		$sql = "SELECT cp.codccpp, cp.nomccpp FROM CCPP_CIE cp inner join codigo_territorial ct on cp.ccdd=ct.CCDD and cp.ccpp=ct.CCPP and cp.ccdi=ct.CCDI WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and cp.ccdi='$coddist' ORDER BY cp.nomccpp";
+		$sql = "SELECT cp.codccpp, cp.nomccpp FROM CCPP_CIE cp left join codigo_territorial ct on cp.ccdd=ct.CCDD and cp.ccpp=ct.CCPP and cp.ccdi=ct.CCDI WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and ct.ccdi='$coddist' ORDER BY cp.nomccpp";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	function get_rutas($centrop)
+	function get_rutas($codsede_ope, $codprov_ope, $coddist, $centrop)
 	{
-		$sql = "SELECT DISTINCT r.idruta FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' ORDER BY r.idruta";
+		$sql = "SELECT DISTINCT r.idruta FROM rutas r left join Padlocal pl on r.codlocal=pl.codigo_de_local left join codigo_territorial ct on pl.cod_ubigeo=ct.ubigeo WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and ct.ccdi='$coddist' and pl.ccpp_cie = '$centrop' ORDER BY r.idruta";
 		$q = $this->db->query($sql);
 		return $q;
 	}
 
-	function get_periodo($centrop, $ruta)
+	function get_periodo($codsede_ope, $codprov_ope, $coddist, $centrop, $ruta)
 	{
-		$sql = "SELECT distinct r.periodo FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local inner join CCPP_CIE cp on pl.CCPP_CIE=cp.codccpp WHERE cp.codccpp = '$centrop' and r.idruta = '$ruta' order by r.periodo";
+		$sql = "SELECT distinct r.periodo FROM rutas r inner join Padlocal pl on r.codlocal=pl.codigo_de_local left join codigo_territorial ct on pl.cod_ubigeo=ct.ubigeo WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and ct.ccdi='$coddist' and pl.ccpp_cie = '$centrop' and r.idruta = '$ruta' ORDER BY r.periodo";
 		$q = $this->db->query($sql);
 		return $q;
 	}
