@@ -151,6 +151,32 @@
 				</div>
 			</div>
 			<div class="row-fluid well top-conv">
+				<div class="row-fluid">
+					<div class="span8">
+						<a href="">EL CIE no cuenta con correo electrónico, qué hago??</a>
+					</div>
+					<div class="span3">
+						12/03/2013
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span10">
+						Primera Respuestaaaaaaaaaaaaaa!!!  xD
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span8">
+						<a href="">algunas preguntas sobre el capitulo I</a>
+					</div>
+					<div class="span3">
+						11/03/2013
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span10">
+						Segundaaaaaa Respuestaaaaaaaaaaaaaa!!!  xD
+					</div>
+				</div>
 			</div>
 			<?php echo form_close(); ?>			
 		</div>
