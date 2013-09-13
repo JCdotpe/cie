@@ -75,7 +75,7 @@ class Visor extends CI_Controller {
 			foreach ($resultado->result() as $fila )
 			{
 				$respuesta->rows[$i]['id'] = $fila->codigo_de_local;
-				$respuesta->rows[$i]['cell'] = array('<a href="visor/caratula1/?le='.obfuscate($fila->codigo_de_local).'" target="_blank"><img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>',
+				$respuesta->rows[$i]['cell'] = array('<a href="visor/caratula1/?le='.obfuscate($fila->codigo_de_local).'&pr=1" target="_blank"><img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>',
 												$fila->codigo_de_local,
 												utf8_encode($fila->centroPoblado),
 												'(No Recepcionado)',
