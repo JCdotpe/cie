@@ -3,6 +3,11 @@
 	$.import('js/visor/nav.js','js');
 	
 </script>
+
+<div id="predios_Combo" style="width:300px;margin:10px;">
+
+</div>
+
 <ul class="nav nav-tabs">
   				<li id="tab1" class="dropdown">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown">

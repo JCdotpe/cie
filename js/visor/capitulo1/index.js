@@ -9,9 +9,8 @@ $(document).ready(function(){
 	});
 	
 	$('#list_ie').on('click','.ie',function(event){
-		
-		//alert($(this).attr('id'));
-		P1A2N($(this).attr('id'));	
+
+		P1A2N($(this).attr('id'));
 
 	});
 
@@ -71,6 +70,8 @@ function P1A2N(ie){
 		$.each(data, function(index, val) {
 
 			i++;
+
+
 
 			html+='<table class="table table-bordered">'+
 				'<thead>'+
@@ -194,7 +195,7 @@ function P1A2N(ie){
 												'<th style="text-align:center;">(l)</th>'+
 											'</tr>'+
 										'</thead>'+
-										'<tbody id="'+cod_local+val.P1_A_2_NroIE+'">'+
+										'<tbody id="'+val.P1_A_2_NroIE+'">'+
 
 										'</tbody>'+
 
@@ -207,6 +208,7 @@ function P1A2N(ie){
 
 					'</div><!-- end panel ncodigod-->';
 		});
+		
 
 		$('#inst_educa').html(html);
 		/*each_get_P1_A_2_8N(cod_local);*/

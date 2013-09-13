@@ -28,7 +28,33 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),'1');
+            $data = $this->Procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),$this->get('predio'));
+
+            $jsonData = json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+
+
+    }
+
+    public function Lista_Predio_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->Lista_Predio(no_obfuscate($this->get('id_local')));
 
             $jsonData = json_encode($data->result());
 

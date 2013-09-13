@@ -8,11 +8,17 @@ class Procedure_model extends CI_MODEL{
     }
 
      function Lista_IE($codigo_de_local,$predio){
-        /*$q=$this->db->query("EXEC CAP01_B_3 '"+$codigo_de_local+"','"+$predio+"','"+$npredio+"'");
-        return $q;
-        */
+       
         $q=$this->db->query("CAP01_Lista_IE ?,  ?", array($codigo_de_local,$predio)); 
         return $q;
+    
+    }
+
+    function Lista_Predio($codigo_de_local){
+       
+        $q=$this->db->query("CAP01_Lista_Predio ?", array($codigo_de_local)); 
+        return $q;
+    
     }
 
 }

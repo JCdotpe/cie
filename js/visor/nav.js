@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
-	nav_Active()
+	nav_Active();
+	comboPredios();
 
 	function nav_Active(){
 
@@ -28,6 +29,47 @@ $(document).ready(function() {
 
 	    }
 	                
+	}
+
+	function comboPredios(){
+
+		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: localE()}, function(data, textStatus) {
+
+			var combo='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
+							'Seleccione un Predio '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
+			$.each(data, function(index, val) {
+
+				if(val.Nro_Pred==1){
+					tipo="Predio Principal";
+				}else{
+					tipo=tipoPredio(val.Colindante);
+				}
+
+				if(val.Inmueble_Cod==null || val.Inmueble_Cod==undefined || val.Inmueble_Cod==''){
+					inmueble=inmueble_Predio(val.Inmueble_Tip);
+				}else{
+					inmueble=val.Inmueble_Cod;
+				}
+
+				combo+='<li>'+
+							'<a href="'+urlCombo(6)+'&pr='+val.Nro_Pred+'">Predio Nro:'+val.Nro_Pred+' ('+tipo+') - Propietario: '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' - Inmueble: '+inmueble+'</a>'+
+						'</li>';
+
+			});
+
+			combo+='</ul>'+
+					'</div>';
+
+			$('#predios_Combo').html(combo)
+
+		});
+	
+
 	}
 
 });

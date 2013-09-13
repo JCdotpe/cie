@@ -13,9 +13,6 @@
 
 //=============================CAPITULO1===========================================
 
-
-
-
 function each_get_P1_A_2_8N(cod_local){
 	$('.P1_A_2_NroIE').each(function() {
 //		alert($(this).attr('value'));

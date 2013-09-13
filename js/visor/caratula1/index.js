@@ -96,7 +96,7 @@ function get_PCar(cod_local){
 				$('#PC_E_5_TLosa').html(val.PC_E_5_TLosa);
 				$('#PC_E_6_TCist').html(val.PC_E_6_TCist);
 				$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
-				$('#PC_F_1').html(val.PC_F_1);
+				$('#Nro_Pred').html(val.Nro_Pred);
 
 			})
 		
