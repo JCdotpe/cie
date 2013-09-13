@@ -57,7 +57,7 @@ $(document).ready(function() {
 				}
 
 				combo+='<li>'+
-							'<a href="'+urlCombo(6)+'&pr='+val.Nro_Pred+'">Predio Nro:'+val.Nro_Pred+' ('+tipo+') - Propietario: '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' - Inmueble: '+inmueble+'</a>'+
+							'<a href="'+urlCombo()+'?le='+localE()+'&pr='+val.Nro_Pred+'">Predio Nro:'+val.Nro_Pred+' ('+tipo+') - Propietario: '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' - Inmueble: '+inmueble+'</a>'+
 						'</li>';
 
 			});

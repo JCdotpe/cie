@@ -6,23 +6,22 @@ function urlRoot(delimiter){
 	var loc = document.location.href;
 	var url = loc.split(delimiter);
 
-    return url[pos_array]+delimiter;	
-	
-}
-
-function urlCombo(delimiter){
-
-    pos_array=0;
-    var delimiter;
-    var loc = document.location.href;
-    var url = loc.split(delimiter);
-    
     if(delimiter=='.'){
         return loc;
     }else{
-       return url[pos_array]; 
-    }       
+        return url[pos_array]+delimiter;
+    }   	
+	
+}
 
+function urlCombo(){
+
+    pos_array=0;
+    var delimiter="?";
+    var loc = document.location.href;
+    var url = loc.split(delimiter);
+   
+    return url[pos_array]; 
 }
 
 function localE(){
@@ -31,9 +30,9 @@ function localE(){
     var delimiter="?le=";
     var loc = document.location.href;
     var url = loc.split(delimiter);
-
-    return url[pos_array];    
-                
+    code=url[pos_array].substring(0, 8);
+    
+    return code;            
 }
 
 function nroPredio(){
