@@ -9,6 +9,10 @@ $(document).ready(function(){
 	Get_Edif_Pisos_Cap06(token,cod_local,1,1);
 	Get_Edif_Pisos_Ambiente(token,cod_local,1,1,1);
 
+	$('input').attr({
+		disabled : true,
+	});
+
 });
 
 function Get_Cap06(cod_local,predio){
@@ -85,7 +89,6 @@ function Get_Edif_Pisos_Cap06(token,cod_local,predio,nro_edif){
 				$('#seccion_b').html(html);
 	});
 }
-
 // devuelve los ambientes y pisos
 function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
 
@@ -111,355 +114,227 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
 					check_Radio(val.P6_2_5,'P6_2_5');
 					switch(val.P6_2_5){
 						case 1 :
-							radiop15=val.P6_2_15;
-							radiop15a=val.P6_2_15a;
-							html+='<table class="table table-bordered">'+
-		  	    				'<thead>'+
-		  	    					'<tr>'+
-		  	    						'<th style="text-align:center;" colspan="3">Evaluación del estado de conservación:</th>'+
-		  	    					'</tr>'+
-		  	    				'</thead>'+
-		  	    				'<tbody>'+
-		  	    					'<tr>'+
-		  	    						'<td>15.</td>'+
-		  	    						'<td>'+
-		  	    							'<strong>'+
-		  	    								'Material predominante del piso'+
-		  	    							'</strong>'+
-		  	    						'</td>'+
-		  	    						'<td>'+
-			  	    						'<table class="table table-bordered">'+
-			  	    							'<thead>'+
-			  	    								'<tr>'+
-			  	    									'<td rowspan="2" style="text-align:center;">Material predominante en los pisos</td>'+
-				  	    								'<td colspan="3" style="text-align:center;">15A. Estado de conservación</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td style="text-align:center;">Bueno</td>'+
-				  	    								'<td style="text-align:center;">Regular</td>'+
-				  	    								'<td style="text-align:center;">Malo</td>'+
-			  	    								'</tr>'+
-			  	    							'</thead>'+
-			  	    							'<tbody>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'1. Parquet o madera pulida'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="1P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="1P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="1P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'2. Láminas asfálticas, vinílicos o similares'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="2P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="2P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="2P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'3. Losetas, terrazos o similares'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="3P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</tTipo de puertad>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="3P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="3P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'4. Madera (entablados)'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="4P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="4P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="4P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'5. Cemento'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="5P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="5P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="5P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'6. Tierra'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="6P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="6P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="6P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'<label>'+
-				  	    										'7. Otro material'+
-				  	    									'</label>'+
-				  	    									'<label>'+
-																'<input style="float:left; width:300px;" type="text" class="form-control" value="'+val.P6_2_15_O+'">'+
-																'(Especifique)'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="7P6_2_15a1" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="7P6_2_15a2" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="7P6_2_15a3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    							'</tbody>'+
-			  	    						'</table>'+
-		  	    						'</td>'+
-		  	    					'</tr>'+
-		  	    					'<tr>'+
-		  	    						'<td>16.</td>'+
-		  	    						'<td>'+
-		  	    							'<strong>'+
-		  	    								'Tipo de puerta'+
-		  	    							'</strong>'+
-		  	    						'</td>'+
-		  	    						'<td>'+
-		  	    							'<table class="table table-bordered">'+
-			  	    							'<thead>'+
-			  	    								'<tr>'+
-			  	    									'<td rowspan="2" style="text-align:center;">Tipo de puerta</td>'+
-				  	    								'<td colspan="3" style="text-align:center;">16A. Estado de conservación</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td style="text-align:center;">Bueno</td>'+
-				  	    								'<td style="text-align:center;">Regular</td>'+
-				  	    								'<td style="text-align:center;">Malo</td>'+
-			  	    								'</tr>'+
-			  	    							'</thead>'+
-			  	    							'<tbody>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'1. Metalica'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'2. Metálica con vidrio'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'3. Madera'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'4. Madera con vidrio'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-			  	    										'<label>'+
-				  	    										'5. Otro material'+
-				  	    									'</label>'+
-				  	    									'<label>'+
-																'<input style="float:left; width:300px;" type="text" class="form-control">'+
-																'(Especifique)'+
-															'</label>'+
-			  	    									'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    								'<tr>'+
-			  	    									'<td>'+
-				  	    									'6. No tiene'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 1'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineradio3" value="option3"> 2'+
-															'</label>'+
-				  	    								'</td>'+
-				  	    								'<td>'+
-				  	    									'<label class="radio">'+
-																'<input type="radio" id="inlineCheckbox3" value="option3"> 3'+
-															'</label>'+
-				  	    								'</td>'+
-			  	    								'</tr>'+
-			  	    							'</tbody>'+
-			  	    						'</table>'+
-		  	    						'</td>'+
-		  	    					'</tr></tbody></table>';
-							alert('1');
+  									$("#aulacomun").show();
+  									$("#espaciopedagogico").hide();
+  									$("#administrativo").hide();
+  									$("#complementario").hide();
+  									$("#servicios").hide();
+  									$("#sshh").hide();
+  									$("#evasshhh").hide();  									  								
 							break;
-						case 2 :
-							alert('2');
+						case 2 :							
+									
+  									$("#espaciopedagogico").show();
+  									$("#aulacomun").hide();
+  									$("#administrativo").hide();
+  									$("#complementario").hide();
+  									$("#servicios").hide();
+  									$("#sshh").hide();
+  									$("#evasshhh").hide();
+  									check_Radio(val.P6_2_6,'P6_2_6');
+
+  									switch(val.P6_2_6){
+  										case 4:
+
+  											$("#P6caso5").hide();
+  											$("#P6caso6").hide();
+  											$("#P6caso7").hide();
+  										  	$("#aulacomun").show();									
+
+  											alert('7');
+  											break;
+  										case 5:
+  											$("#P6caso4").hide();
+  											$("#P6caso6").hide();
+  											$("#P6caso7").hide();
+  											$("#aulacomun").show();
+  											
+  											alert('8');
+  											break;
+  										case 6:
+  											$("#P6caso4").hide();
+  											$("#P6caso5").hide();
+  											$("#P6caso7").hide();
+  											$("#aulacomun").show();
+  											
+  											alert('9');
+  											break;
+  										case 7:
+  											$("#P6caso4").hide();
+  											$("#P6caso5").hide();  											
+  											$("#P6caso6").hide();
+  											$("#aulacomun").show();
+  											alert('10');
+  											break;
+  										default :
+  											$("#P6caso4").hide();
+  											$("#P6caso5").hide();  											
+  											$("#P6caso6").hide();
+  											$("#P6caso7").hide();
+  											$("#aulacomun").show();
+  											alert('1,2,3');
+  									}
 							break;
 						case 3 :
-							alert('3');
+						
+							$("#espaciopedagogico").hide();
+							$("#P6caso4").hide();
+  							$("#P6caso5").hide();  											
+  							$("#P6caso6").hide();
+  							$("#P6caso7").hide();
+  							$("#complementario").hide();
+  							$("#sshh").hide();
+  							$("#evasshhh").hide();
+  							$("#servicios").hide();
+							$("#administrativo").show();
+							$("#aulacomun").show();
 							break;
 						case 4 :
-							alert('4');
+
+							$("#espaciopedagogico").hide();
+							$("#P6caso4").hide();
+  							$("#P6caso5").hide();  											
+  							$("#P6caso6").hide();
+  							$("#P6caso7").hide();  							
+  							$("#sshh").hide();
+  							$("#evasshhh").hide();
+  							$("#servicios").hide();
+							$("#administrativo").hide();							
+							$("#complementario").show();
+							if (val.P6_2_12==8){
+								$("#sshh").show();
+  								$("#evasshhh").show();
+  								$("#aulacomun").show();
+							}else{
+								$("#aulacomun").show();
+							}
+
 							break;
 						case 5 :
-							alert('5');
+
+  									$("#espaciopedagogico").hide();
+  									$("#administrativo").hide();
+  									$("#complementario").hide();  									
+  									$("#sshh").hide();
+  									$("#evasshhh").hide();
+  									$("#servicios").show();
+  									$("#aulacomun").show();
+  									if (val.P6_2_13==1 || val.P6_2_13==2) {
+  										$("#sshh").show();
+  										$("#evasshhh").show();
+  									};
 							break;
 					}
-					alert(html);
+					// if general pregunta 15
+					if (val.P6_2_16f==6) {
+  										$("#caso5p17").hide();
+  										$("#caso5p18").show();
+  					};
+
+  					if (val.P6_2_18f==6) {
+  										$("#caso5p19").hide();  										
+  					};
+
+					//PREGUNTA 7
+									check_Radio(val.P6_2_7,'P6_2_7');
+									$("#P6_2_7_O").val(val.P6_2_7_O);
+					// PREGUNTA 8
+									check_Radio(val.P6_2_8,'P6_2_8');
+									$("#P6_2_8_O").val(val.P6_2_8_O);
+					//PREGUNTA 9
+									check_Radio(val.P6_2_9,'P6_2_9');
+									$("#P6_2_9_O").val(val.P6_2_9_O);
+					// PREGUNTA 10
+									check_Radio(val.P6_2_10,'P6_2_10');
+									$("#P6_2_10_O").val(val.P6_2_10_O);
+					// PREGUNTA 11
+									check_Radio(val.P6_2_11,'P6_2_11');
+									$("#P6_2_11_O").val(val.P6_2_11_O);
+					// PREGUNTA 12
+									check_Radio(val.P6_2_12,'P6_2_12');
+									$("#P6_2_12_O").val(val.P6_2_12_O);
+					// PREGUNTA 13
+									check_Radio(val.P6_2_13,'P6_2_13');
+									$("#P6_2_13_O").val(val.P6_2_13_O);
+					// PREGUNTA 14
+									$("#P6_2_14_1").val(val.P6_2_14_1);	
+									$("#P6_2_14_2").val(val.P6_2_14_2);	
+									$("#P6_2_14_3").val(val.P6_2_14_3);	
+									$("#P6_2_14_4").val(val.P6_2_14_4);	
+									$("#P6_2_14_5").val(val.P6_2_14_5);	
+									$("#P6_2_14_6").val(val.P6_2_14_6);	
+					// PREGUNTA 14A
+									$("#P6_2_14a").val(val.P6_2_14a);
+					// PREGUNTA 14B	
+									$("#P6_2_14b_1").val(val.P6_2_14b_1);
+									$("#P6_2_14b_2").val(val.P6_2_14b_2);
+
+					//PREGUNTA 15
+
+									check_Radio(val.P6_2_15a,val.P6_2_15+'P6_2_15a');
+
+  									$("#P6_2_15_O").val(val.P6_2_15_O);
+
+
+  									$("#P6_2_16a_b").val(val.P6_2_16a_b);
+  									$("#P6_2_16a_r").val(val.P6_2_16a_r);
+  									$("#P6_2_16a_m").val(val.P6_2_16a_m);
+  									$("#P6_2_16b_b").val(val.P6_2_16b_b);
+  									$("#P6_2_16b_r").val(val.P6_2_16b_r);
+  									$("#P6_2_16b_m").val(val.P6_2_16b_m);
+  									$("#P6_2_16c_b").val(val.P6_2_16c_b);
+  									$("#P6_2_16c_r").val(val.P6_2_16c_r);
+  									$("#P6_2_16c_m").val(val.P6_2_16c_m);
+  									$("#P6_2_16d_b").val(val.P6_2_16d_b);
+  									$("#P6_2_16d_r").val(val.P6_2_16d_r);
+  									$("#P6_2_16d_m").val(val.P6_2_16d_m);
+  									$("#P6_2_16e_O").val(val.P6_2_16e_O);
+  									$("#P6_2_16e_b").val(val.P6_2_16e_b);
+  									$("#P6_2_16e_r").val(val.P6_2_16e_r);
+  									$("#P6_2_16e_m").val(val.P6_2_16e_m);
+  									$("#P6_2_16f_b").val(val.P6_2_16f_b);
+  									$("#P6_2_16f_r").val(val.P6_2_16f_r);
+  									$("#P6_2_16f_m").val(val.P6_2_16f_m);
+
+
+
+  									check_Radio(val.P6_2_16f,'P6_2_16f');
+
+
+  									$("#P6_2_17a").val(val.P6_2_17a);
+  									$("#P6_2_17b").val(val.P6_2_17b);
+  									$("#P6_2_17c").val(val.P6_2_17c);
+  									$("#P6_2_17d").val(val.P6_2_17d);
+
+  									$("#P6_2_18a_b").val(val.P6_2_18a_b);
+  									$("#P6_2_18a_r").val(val.P6_2_18a_r);
+  									$("#P6_2_18a_m").val(val.P6_2_18a_m);
+  									$("#P6_2_18b_b").val(val.P6_2_18b_b);
+  									$("#P6_2_18b_r").val(val.P6_2_18b_r);
+  									$("#P6_2_18b_m").val(val.P6_2_18b_m);
+  									$("#P6_2_18c_b").val(val.P6_2_18c_b);
+  									$("#P6_2_18c_r").val(val.P6_2_18c_r);
+  									$("#P6_2_18c_m").val(val.P6_2_18c_m);
+  									$("#P6_2_18d_b").val(val.P6_2_18d_b);
+  									$("#P6_2_18d_r").val(val.P6_2_18d_r);
+  									$("#P6_2_18d_m").val(val.P6_2_18d_m);
+  									$("#P6_2_18e_O").val(val.P6_2_18e_O);
+  									$("#P6_2_18e_b").val(val.P6_2_18e_b);
+  									$("#P6_2_18e_r").val(val.P6_2_18e_r);
+  									$("#P6_2_18e_m").val(val.P6_2_18e_m);  									
+  									$("#P6_2_18f_b").val(val.P6_2_18f_b);
+  									$("#P6_2_18f_r").val(val.P6_2_18f_r);
+  									$("#P6_2_18f_m").val(val.P6_2_18f_m);
+  									check_Radio(val.P6_2_18f,'P6_2_18f');
+
+  									$("#P6_2_19a").val(val.P6_2_19a);
+  									$("#P6_2_19b").val(val.P6_2_19b);
+  									$("#P6_2_19c").val(val.P6_2_19c);
+
+  									$("#P6_2_20Obs").val(val.P6_2_20Obs);
+					/*alert(html);
 					$('#funcion_educativa').html(html);
-					check_Radio(radiop15a,radiop15+'P6_2_15a');
+					check_Radio(radiop15a,radiop15+'P6_2_15a');*/
 				});
 	});
 }
@@ -536,6 +411,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var x=0;
 	var arraychecked;
 	var arraycheckpisos=[];
+	var arr="";	
 
 	$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/?token='+token+'&id_local='+cod_local+'&Nro_Pred='+predio+'&NRO_ED='+nro_edif+'', function(data) {
 
@@ -547,6 +423,8 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 									  2: 'P6_1_7'+val.P6_1_7
 									};
 					i++;
+					arr = val.P6_1_3.split(".");
+					
 					//console.log(arraychecked);
 		  	    	html+='<table class="table table-bordered">'+
 		  	    			'<tbody>'+
@@ -570,8 +448,8 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 													'<th style="text-align:center;">Decimales</th>'+
 												'</tr>'+
 												'<tr>'+
-													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3" value="'+val.P6_1_3+'"> </td>'+
-													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3_D" value="'+val.P6_1_3+'"> </td>'+
+													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3" value="'+arr[0]+'"> </td>'+
+													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3_D" value="'+arr[1]+'"> </td>'+
 												'</tr>'+
 											'</table>'+
 				  	    			'</td>'+
@@ -587,8 +465,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    		'<tr>'+
 			  	    				'<td><strong>5.</strong></td>'+
 			  	    				'<td><strong>Esta edificación es parte del patrimonio cultural inmueble reconocido por el ministerio de cultura? </strong></td>'+
-				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_5" value="'+val.P6_1_5+'">'+
+				  	    			'<td>'+				  	    				
 				  	    					'<label class="checkbox-inline">'+
 												'<input type="radio" id="P6_1_51" name="P6_1_5" value="option1" > 1. Si'+
 											'</label>'+
@@ -600,8 +477,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    		'<tr>'+
 			  	    				'<td><strong>6.</strong></td>'+
 			  	    				'<td><strong>¿La edificación  fue inspeccionada por defensa civil? </strong></td>'+
-				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_6" value="'+val.P6_1_6+'">'+
+				  	    			'<td>'+				  	    				
 				  	    					'<label class="checkbox-inline">'+
 												'<input type="radio" id="P6_1_61" name="P6_1_6" value="option1" checked> 1. Si'+
 											'</label>'+
@@ -613,8 +489,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    		'<tr>'+
 			  	    				'<td><strong>7.</strong></td>'+
 			  	    				'<td><strong>¿La edificación  se encuentra declarada inhabitable (alto riesgo) ? </strong></td>'+
-				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_7" value="'+val.P6_1_7+'">'+
+				  	    			'<td>'+				  	    				
 				  	    				'<label class="checkbox-inline">'+
 												'<input type="radio" id="P6_1_71" name="P6_1_7" value="option1" checked> 1. Si'+
 											'</label>'+
