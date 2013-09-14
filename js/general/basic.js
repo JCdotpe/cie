@@ -1,4 +1,3 @@
-
 function urlRoot(delimiter){
 
 	pos_array=0;
@@ -24,7 +23,7 @@ function urlCombo(){
     return url[pos_array]; 
 }
 
-function localE(){
+function getLocal(){
    
     pos_array=1;
     var delimiter="?le=";
@@ -35,7 +34,7 @@ function localE(){
     return code;            
 }
 
-function nroPredio(){
+function getPredio(){
 
     pos_array=1;
     var delimiter="&pr=";
