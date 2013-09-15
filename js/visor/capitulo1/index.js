@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 function P1A(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P1A/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 

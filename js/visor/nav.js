@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 	function comboPredios(){
 
-		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: localE()}, function(data, textStatus) {
+		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: getLocal()}, function(data, textStatus) {
 
 			var combo='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
@@ -71,7 +71,7 @@ $(document).ready(function() {
 				}
 
 				combo+='<li class="combo_predio" id="p'+val.Nro_Pred+'">'+
-							'<a href="'+urlCombo()+'?le='+localE()+'&pr='+val.Nro_Pred+'">Predio Nro:'+val.Nro_Pred+' ('+tipo+') - Propietario: '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' - Inmueble: '+inmueble+'</a>'+
+							'<a href="'+urlCombo()+'?le='+getLocal()+'&pr='+val.Nro_Pred+'">Predio Nro:'+val.Nro_Pred+' ('+tipo+') - Propietario: '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' - Inmueble: '+inmueble+'</a>'+
 						'</li>';
 
 			});

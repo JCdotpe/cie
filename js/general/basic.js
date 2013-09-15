@@ -113,6 +113,15 @@ function check_Radio(value,id){
 function tipoPredio(codigo){
 
     switch(codigo){
+        case null:
+            return 'No Ingresado';
+        break;
+        case undefined:
+            return 'No Ingresado';
+        break;
+        case '':
+            return 'No Ingresado';
+        break;
         case 0:
             return 'No Colindante';
         break;
@@ -126,6 +135,15 @@ function tipoPredio(codigo){
 function prop_Predio(codigo,otro){
 
     switch(codigo){
+        case null:
+            return 'No Ingresado';
+        break;
+        case undefined:
+            return 'No Ingresado';
+        break;
+        case '':
+            return 'No Ingresado';
+        break;
         case 1:
             return 'Ministerio de Educación';
         break;
@@ -147,6 +165,15 @@ function prop_Predio(codigo,otro){
 
 function inmueble_Predio(codigo){
     switch(codigo){
+        case null:
+            return 'No Ingresado';
+        break;
+        case undefined:
+            return 'No Ingresado';
+        break;
+        case '':
+            return 'No Ingresado';
+        break;
         case 1:
             return 'No tiene Constancia';
         break;
