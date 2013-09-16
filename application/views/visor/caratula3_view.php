@@ -1,4 +1,9 @@
 <?php $this->load->view('visor/nav_view.php'); ?>
+<script type="text/javascript">
+
+	$.import('js/visor/caratula1/index.js','js');
+
+</script>
 <!-- CAPITULO G3-->
 	  	    	<div class="tab-pane" id="general3">
 	  	    		<div class="content" id="content8">

@@ -1,4 +1,8 @@
+<script type="text/javascript">
 
+	$.import('js/visor/capitulo8/index.js','js');
+
+</script>
 
 <?php $this->load->view('visor/nav_view.php'); ?>
 
@@ -6,15 +10,15 @@
 	  	    	<div class="tab-pane" id="cap8">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
-	  	    				<div class="panel-heading">Capitulo VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>	  	    					  	    				
+	  	    				<div class="panel-heading">Capitulo VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>
 
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
 			  	    					<th colspan="3">Sección A: IDENTIFICACIÓN DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</th>
 		  	    					</tr>
-		  	    				</thead>		  	    				
-		  	    			</table>		  	    			
+		  	    				</thead>
+		  	    			</table>
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -34,7 +38,12 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
+		  	    			<div>
+		  	    				<label>Listado de Patios</label>
+			  	    			<select id="combopatios">
+			  	    			</select>
 
+		  	    			</div>
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -48,8 +57,8 @@
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							
-		  	    							<input style="width:100px;" type="text" class="form-control P8_2_Nro">
+
+		  	    							<input style="width:100px;" type="text" class="form-control P8_2_NroP" id="P8_2_NroP">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -57,7 +66,7 @@
 		  	    						<td>
 		  	    							<strong>Area de la losa deportiva</strong>
 		  	    						</td>
-		  	    						<td>		  	    							
+		  	    						<td>
 											<label>Area en m2</label>
 											<table class="table table-bordered">
 												<tr>
@@ -65,10 +74,12 @@
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td id="P8_area"></td>
-													<td id="P8_area_decimal"></td>
+													<tr>
+														<td> <input style="width:100px;" type="text" class="form-control P8_areaP" id="P8_areaP"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalP" id="P8_area_decimalP"> </td>
+													</tr>
 												</tr>
-											</table>										
+											</table>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -77,7 +88,7 @@
 		  	    							<strong>Predio en el que ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<input style="width:100px;" type="text" class="form-control Nro_Pred" id="Nro_Pred">
+		  	    							<input style="width:100px;" type="text" class="form-control Nro_PredP" id="Nro_PredP">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -89,37 +100,37 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O1" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP1" value="option1" >
 													    1. Gobierno Nacional / Poryecto especial
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O2" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP2" value="option1" >
 													    2. Gobierno Regional / Local
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O3" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP3" value="option1" >
 													    3. APAFA / Autoconstrucción
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O4" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP4" value="option1" >
 													    4. Entidades cooperantes
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O5" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP5" value="option1" >
 													    5. Organismos sin fines de lucro
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O6" value="option1" >
+													<input type="radio" name="P8_ejecutoP" id="P8_ejecutoP6" value="option1" >
 													    6. Empresa privada
 													</label>
 											</div>
@@ -134,28 +145,28 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E1" value="option1" >
+													<input type="radio" name="P8_Est_EP" id="P8_Est_EP1" value="option1" >
 													    1. Sin daños
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E2" value="option1" >
+													<input type="radio" name="P8_Est_EP" id="P8_Est_EP2" value="option1" >
 													    2. Fisuras leves
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E3" value="option1" >
+													<input type="radio" name="P8_Est_EP" id="P8_Est_EP3" value="option1" >
 													    3. Fisuras moderadas / ataques por sales
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E4" value="option1" >
+													<input type="radio" name="P8_Est_EP" id="P8_Est_EP4" value="option1" >
 													    4. Agrietamiento / colapso
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -167,22 +178,22 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant1" value="option1" >
+													<input type="radio" name="P8_AntP" id="P8_AntP1" value="option1" >
 													    1. Antes y durante 1977
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant2" value="option1" >
+													<input type="radio" name="P8_AntP" id="P8_AntP2" value="option1" >
 													    2. Entre 1978 y 1998
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant3" value="option1" >
+													<input type="radio" name="P8_AntP" id="P8_AntP3" value="option1" >
 													    3. Después de 1998
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -194,22 +205,22 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec1" value="option1" >
+													<input type="radio" name="P8_RecTecP" id="P8_RecTecP1" value="option1" >
 													    1. Mantenimiento
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec2" value="option1" >
+													<input type="radio" name="P8_RecTecP" id="P8_RecTecP2" value="option1" >
 													    2. Rehabilitación
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec3" value="option1" >
+													<input type="radio" name="P8_RecTecP" id="P8_RecTecP3" value="option1" >
 													    3. Sustitución
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -235,6 +246,13 @@
 		  	    				</tbody>
 		  	    			</table>
 
+		  	    			<div>
+		  	    				<label>Listado Losas deportivas</label>
+			  	    			<select id="losasdeportivas">
+			  	    			</select>
+
+		  	    			</div>
+
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -248,8 +266,8 @@
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							
-		  	    							<input style="width:100px;" type="text" class="form-control P8_2_Nro">
+
+		  	    							<input style="width:100px;" type="text" class="form-control P8_2_NroLD" id="P8_2_NroLD">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -257,7 +275,7 @@
 		  	    						<td>
 		  	    							<strong>Area de la losa deportiva</strong>
 		  	    						</td>
-		  	    						<td>		  	    							
+		  	    						<td>
 											<label>Area en m2</label>
 											<table class="table table-bordered">
 												<tr>
@@ -265,10 +283,10 @@
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td id="P8_area"></td>
-													<td id="P8_area_decimal"></td>
+													<td> <input style="width:100px;" type="text" class="form-control P8_areaLD" id="P8_areaLD"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalLD" id="P8_area_decimalLD"> </td>
 												</tr>
-											</table>										
+											</table>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -277,7 +295,7 @@
 		  	    							<strong>Predio en el que ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<input style="width:100px;" type="text" class="form-control Nro_Pred" id="Nro_Pred">
+		  	    							<input style="width:100px;" type="text" class="form-control Nro_PredLD" id="Nro_PredLD">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -289,37 +307,37 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O1" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD1" value="option1" >
 													    1. Gobierno Nacional / Poryecto especial
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O2" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD2" value="option1" >
 													    2. Gobierno Regional / Local
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O3" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD3" value="option1" >
 													    3. APAFA / Autoconstrucción
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O4" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD4" value="option1" >
 													    4. Entidades cooperantes
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O5" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD5" value="option1" >
 													    5. Organismos sin fines de lucro
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_ejecuto_O" id="P8_ejecuto_O6" value="option1" >
+													<input type="radio" name="P8_ejecutoLD" id="P8_ejecutoLD6" value="option1" >
 													    6. Empresa privada
 													</label>
 											</div>
@@ -334,28 +352,28 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E1" value="option1" >
+													<input type="radio" name="P8_Est_ELD" id="P8_Est_ELD1" value="option1" >
 													    1. Sin daños
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E2" value="option1" >
+													<input type="radio" name="P8_Est_ELD" id="P8_Est_ELD2" value="option1" >
 													    2. Fisuras leves
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E3" value="option1" >
+													<input type="radio" name="P8_Est_ELD" id="P8_Est_ELD3" value="option1" >
 													    3. Fisuras moderadas / ataques por sales
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Est_E" id="P8_Est_E4" value="option1" >
+													<input type="radio" name="P8_Est_ELD" id="P8_Est_ELD4" value="option1" >
 													    4. Agrietamiento / colapso
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -367,22 +385,22 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant1" value="option1" >
+													<input type="radio" name="P8_AntLD" id="P8_AntLD1" value="option1" >
 													    1. Antes y durante 1977
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant2" value="option1" >
+													<input type="radio" name="P8_AntLD" id="P8_AntLD2" value="option1" >
 													    2. Entre 1978 y 1998
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_Ant" id="P8_Ant3" value="option1" >
+													<input type="radio" name="P8_AntLD" id="P8_AntLD3" value="option1" >
 													    3. Después de 1998
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -394,22 +412,22 @@
 		  	    						<td>
 		  	    							<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec1" value="option1" >
+													<input type="radio" name="P8_RecTecLD" id="P8_RecTecLD1" value="option1" >
 													    1. Mantenimiento
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec2" value="option1" >
+													<input type="radio" name="P8_RecTecLD" id="P8_RecTecLD2" value="option1" >
 													    2. Rehabilitación
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="P8_RecTec" id="P8_RecTec3" value="option1" >
+													<input type="radio" name="P8_RecTecLD" id="P8_RecTecLD3" value="option1" >
 													    3. Sustitución
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -435,6 +453,13 @@
 		  	    				</tbody>
 		  	    			</table>
 
+		  	    			<div>
+		  	    				<label>Listado de Cisternas - tanques</label>
+			  	    			<select id="cisterna">
+			  	    			</select>
+
+		  	    			</div>
+
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -448,8 +473,8 @@
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							
-		  	    							<input style="width:100px;" type="text" class="form-control P8_2_Nro">
+
+		  	    							<input style="width:100px;" type="text" class="form-control P8_2_NroCTE">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -457,7 +482,7 @@
 		  	    						<td>
 		  	    							<strong>Area construida de la edificación</strong>
 		  	    						</td>
-		  	    						<td>		  	    							
+		  	    						<td>
 											<label>Area en m2</label>
 											<table class="table table-bordered">
 												<tr>
@@ -465,10 +490,10 @@
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td id="P8_area"></td>
-													<td id="P8_area_decimal"></td>
+													    <td> <input style="width:100px;" type="text" class="form-control P8_areaCTE" id="P8_areaCTE"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalCTE" id="P8_area_decimalCTE"> </td>
 												</tr>
-											</table>										
+											</table>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -477,7 +502,7 @@
 		  	    							<strong>Predio en el que ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<input style="width:100px;" type="text" class="form-control Nro_Pred" id="Nro_Pred">
+		  	    							<input style="width:100px;" type="text" class="form-control Nro_PredCTE" id="Nro_PredCTE">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -561,7 +586,7 @@
 													<input type="radio" name="P8_Est_E" id="P8_Est_E4" value="option1" >
 													    4. Agrietamiento / colapso
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -588,7 +613,7 @@
 													<input type="radio" name="P8_Ant" id="P8_Ant3" value="option1" >
 													    3. Después de 1998
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -615,7 +640,7 @@
 													<input type="radio" name="P8_RecTec" id="P8_RecTec3" value="option1" >
 													    3. Sustitución
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -641,6 +666,13 @@
 		  	    				</tbody>
 		  	    			</table>
 
+		  	    			<div>
+		  	    				<label>Listado de muros de contención</label>
+			  	    			<select id="muros">
+			  	    			</select>
+
+		  	    			</div>
+
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -654,8 +686,8 @@
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							
-		  	    							<input style="width:100px;" type="text" class="form-control P8_2_Nro">
+
+		  	    							<input style="width:100px;" type="text" class="form-control P8_2_Nro" id="P8_2_Nro">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -663,9 +695,9 @@
 		  	    						<td>
 		  	    							<strong>Longitud del muro de contención</strong>
 		  	    						</td>
-		  	    						<td>		  	    							
+		  	    						<td>
 											<label>En metros</label>
-											
+
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -673,9 +705,9 @@
 		  	    						<td>
 		  	    							<strong>Altura del muro de contención</strong>
 		  	    						</td>
-		  	    						<td>		  	    							
+		  	    						<td>
 											<label>En metros</label>
-											
+
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -762,7 +794,7 @@
 													<input type="radio" name="P8_Est_E" id="P8_Est_E4" value="option1" >
 													    4. Agrietamiento / colapso
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -789,7 +821,7 @@
 													<input type="radio" name="P8_Ant" id="P8_Ant3" value="option1" >
 													    3. Después de 1998
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -816,7 +848,7 @@
 													<input type="radio" name="P8_RecTec" id="P8_RecTec3" value="option1" >
 													    3. Sustitución
 													</label>
-											</div>											
+											</div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>

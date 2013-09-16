@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class P8N extends REST_Controller{
+class P8 extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P8N_model');
+    $this->load->model('visor/P8_model');
     $this->load->helper('my');
 
   }
@@ -34,7 +34,7 @@ class P8N extends REST_Controller{
 
             }
 
-            $flag = $this->P8N_model->insertBatch($array);
+            $flag = $this->P8_model->insertBatch($array);
 
             if ($flag) {
 
@@ -67,16 +67,34 @@ class P8N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P8N_model->getData($this->get('id_local'));
+            $data = $this->P8_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
 
             $jsonData = json_encode($data->result());
 
             prettyPrint($jsonData);
-
         }
+    }
 
+    public function DataTipoEdif_get(){
 
+         $result=validtoken_get($this->get('token'));
 
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->P8_model->getDataTipoEdif(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P8_2_Tipo'),$this->get('P8_2_Nro'));
+
+            $jsonData = json_encode($data->result());
+
+            prettyPrint($jsonData);
+        }
     }
 
 }

@@ -35,7 +35,7 @@ class getToken extends REST_Controller
 
 
         $response="";
-        if ($this->tank_auth->is_logged_in()) {
+        /*if ($this->tank_auth->is_logged_in()) {
 
 
             $msg=  array('message' => "ingreso valido",
@@ -45,7 +45,7 @@ class getToken extends REST_Controller
 
             return true;
 
-        }else{
+        }else{*
 
            /* if(!$this->post('token'))
             {
@@ -73,7 +73,7 @@ class getToken extends REST_Controller
                 return false;
             }
 
-        }
+       // }
 	}
 
     public function handling_errors($code){
@@ -155,18 +155,18 @@ class getToken extends REST_Controller
         }
 
         if ($next) {
-            
+
             $token = sha1(microtime());
-            
+
             $array= array('imei' => $this->post('imei'),
                           'dni'=> $this->post('dni'),
                           'cod_pat' => $this->post('cod_pat'),
                           'token' => $token,
                           'fecha_reg'=>date('Y-m-d')." ".date("H:i:s"));
 
-            
+
             $flag = $this->Personal_Patrimonio_model->insert_reg($array);
-            
+
             if ($flag){
                 $msg=  array('token' => $token,
                                'value'=> true);
@@ -174,7 +174,7 @@ class getToken extends REST_Controller
 
                 $code=3;
                 $this->handling_errors($code);
-            
+
             }
 
         }
