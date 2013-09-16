@@ -67,9 +67,9 @@ class P1A2N extends REST_Controller{
 
             header_json();
 
-            $data = $this->P1A2N_model->getData(no_obfuscate($this->get('id_local'),'1',$this->get('nroIE')));
+            $data = $this->P1A2N_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

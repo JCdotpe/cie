@@ -39,7 +39,7 @@ function P1A(){
 
 function lista_ie(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 	
 		var html="";
 		var ie="";
@@ -61,7 +61,7 @@ function lista_ie(){
 
 function P1A2N(ie){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56', id_local: localE(), predio: '1', nroie: ie}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/format/json/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: ie}, function(data, textStatus) {
 		
 		var html="";
 
@@ -210,7 +210,7 @@ function P1A2N(ie){
 		});
 		
 
-		$('#inst_educa').html(html);
+		$('#ie_educa').html(html);
 		/*each_get_P1_A_2_8N(cod_local);*/
 
 	}).fail(function( jqxhr, textStatus, error ) {
