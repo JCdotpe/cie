@@ -24,11 +24,11 @@
 								</tbody>
 							</table>
 
-								<div class="panel">
-									<strong>Lista de Instituciones Educativas</strong>
-								</div>
-
 								<div id="ie-panel">
+
+									<div class="panel panel_title">
+										<strong>Lista de Instituciones Educativas</strong>
+									</div>
 
 									<table class="table table-hover" style="width:900px;">
 											<thead>
