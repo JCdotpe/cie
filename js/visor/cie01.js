@@ -13,63 +13,7 @@
 
 //=============================CAPITULO1===========================================
 
-function each_get_P1_A_2_8N(cod_local){
-	$('.P1_A_2_NroIE').each(function() {
-//		alert($(this).attr('value'));
-		get_P1_A_2_8N(cod_local,$(this).attr('value'));
-	});
-}
 
-function get_P1_A_2_8N(cod_local,NroIE){
-
-	$.post('visor/visor/get_P1_A_2_8N/', {cod_local:cod_local,NroIE:NroIE}, function(data) {
-
-		var html="";
-
-		$.each(data, function(index, val) {
-
-			html+='<tr>'+
-				'<td style="text-align:center;" class="P1_A_2_9_NroCMod">'+val.P1_A_2_9_NroCMod+'</td>'+
-				'<td>'+val.P1_A_2_9A_CMod+'</td>'+
-				'<td>'+val.P1_A_2_9B_CodLocal+'</td>'+
-				'<td>'+val.P1_A_2_9C_Nivel+'</td>'+
-				'<td>'+val.P1_A_2_9D_Car+'</td>'+
-				'<td>'+val.P1_A_2_9E_NroAnex+'</td>'+
-				'<td>'+val.P1_A_2_9F_CantAnex+'</td>'+
-				'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
-				'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
-				'<td>'+val.P1_A_2_9I_T2_Talu+'</td>'+
-				'<td>'+val.P1_A_2_9J_T2_Taul+'</td>'+
-				'<td>'+val.P1_A_2_9K_T3_Talu+'</td>'+
-				'<td>'+val.P1_A_2_9L_T3_Taul+'</td>'+
-				'</tr>';
-				//alert(val.anexos)
-				$.each(val.anexos, function(index, val) {
-
-					html+='<tr>'+
-							'<td></td>'+
-							'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
-							'<th style="text-align:center;">N°</th>'+
-							'<td>'+val.P1_A_2_9_AnexNro+'</td>'+
-							'<td colspan="2">'+val.P1_A_2_9_AnexNomb+'</td>'+
-							'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
-							'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
-							'<td>'+val.P1_A_2_9I_T2_Talu+'</td>'+
-							'<td>'+val.P1_A_2_9J_T2_Taul+'</td>'+
-							'<td>'+val.P1_A_2_9K_T3_Talu+'</td>'+
-							'<td>'+val.P1_A_2_9L_T3_Taul+'</td>'+
-						'</tr>';
-
-				});
-
-		});
-
-
-		$('#'+cod_local+NroIE).html(html);
-											
-	});
-
-}
 
 function get_P1_B(cod_local){
 	

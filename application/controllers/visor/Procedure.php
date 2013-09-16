@@ -30,7 +30,7 @@ class Procedure extends REST_Controller{
 
             $data = $this->Procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 
@@ -56,7 +56,7 @@ class Procedure extends REST_Controller{
 
             $data = $this->Procedure_model->Lista_Predio(no_obfuscate($this->get('id_local')));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 
