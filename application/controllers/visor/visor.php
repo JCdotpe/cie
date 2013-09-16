@@ -85,7 +85,7 @@ class Visor extends CI_Controller {
 				$i++;
 			}
 
-			$jsonData = my_json_encode($data->result());
+			$jsonData = json_encode($respuesta);
 
 			$this->prettyPrint($jsonData);
 
