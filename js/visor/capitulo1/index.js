@@ -68,6 +68,10 @@ function lista_ie(){
 
 		});
 
+		if(i==1){
+			$("#ie-panel").hide();
+		}
+
 		$("#list_ie").html(ie);
 		
 	});

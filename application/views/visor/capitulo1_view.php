@@ -28,24 +28,28 @@
 									<strong>Lista de Instituciones Educativas</strong>
 								</div>
 
-								<table class="table table-hover" style="width:900px;">
-										<thead>
-							    			<tr>
-							    				<th><strong>Nro.</strong></th>
-							    				<th><strong>Nombre de I.E.</strong></th>
-							    			</tr>
-							    		</thead>
-							    </table>
+								<div id="ie-panel">
 
-								<div style="width:600px; height:150px; overflow:auto;">
-
-								   <table class="table table-hover" style="width:583px; height:150px;">
-							    		
-							    		<tbody id="list_ie">
-							    			<!-- AJAX-->
-							    		</tbody>
-								    
+									<table class="table table-hover" style="width:900px;">
+											<thead>
+								    			<tr>
+								    				<th><strong>Nro.</strong></th>
+								    				<th><strong>Nombre de I.E.</strong></th>
+								    			</tr>
+								    		</thead>
 								    </table>
+
+									<div style="width:600px; height:150px; overflow:auto;">
+
+									   <table class="table table-hover" style="width:583px; height:120px;">
+								    		
+								    		<tbody id="list_ie">
+								    			<!-- AJAX-->
+								    		</tbody>
+									    
+									    </table>
+
+									</div>
 
 								</div>
 
