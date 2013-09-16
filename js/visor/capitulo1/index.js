@@ -12,9 +12,12 @@ $(document).ready(function(){
 		disabled : true,
 	});
 	
-	$('#list_ie').on('click','.ie',function(event){
+	$('#list_ie').on('click','.row',function(event){
 
 		P1A2N($(this).attr('id'));
+
+		$('.row').removeClass('row_active');
+		$(this).addClass('row_active');
 
 	});
 
@@ -51,9 +54,14 @@ function lista_ie(){
 		var first="";
 		$.each(data, function(index, val) {
 			i++;
-			if(i==1){P1A2N(val.P1_A_2_NroIE)}
+			if(i==1){
+				P1A2N(val.P1_A_2_NroIE);
+				cl="row_active";
+			}else{
+				cl="";
+			}
 				
-			ie+='<tr class="ie" id="ie'+val.P1_A_2_NroIE+'">'+
+			ie+='<tr class="row '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
 				'<td style="text-align:center;">'+val.P1_A_2_NroIE+'</td>'+
 				'<td style="text-align:center;">'+val.P1_A_2_1_NomIE+'</td>'+							    			
 			'</tr>';
@@ -61,7 +69,7 @@ function lista_ie(){
 		});
 
 		$("#list_ie").html(ie);
-		$('#ie1').addClass('tr_active')
+		
 	});
 
 }

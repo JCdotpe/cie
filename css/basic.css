@@ -1,4 +1,8 @@
-.tr_active{
+.row:hover{
+	background: #CFF4FC;
+}
+
+.row_active{
 	background: #CFF4FC;
 	color: #333;
 }
