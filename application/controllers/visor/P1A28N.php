@@ -83,7 +83,7 @@ class P1A28N extends REST_Controller{
 
     header_json();
 
-    $data = $this->P1A28N_model->Data_P1_A_2_8N($this->get("id_local"),$this->get("predio"),$this->get("nroie"));
+    $data = $this->P1A28N_model->Data_P1_A_2_8N(no_obfuscate($this->get('id_local')),$this->get("predio"),$this->get("nroie"));
 
     $i=0;
     echo "[";
@@ -105,9 +105,9 @@ class P1A28N extends REST_Controller{
                 "P1_A_2_9J_T2_Taul" => $fila->P1_A_2_9J_T2_Taul,
                 "P1_A_2_9K_T3_Talu" => $fila->P1_A_2_9K_T3_Talu,
                 "P1_A_2_9L_T3_Taul" => $fila->P1_A_2_9L_T3_Taul,
-                "anexos" => $this->get_P1_A_2_9N($_REQUEST["id_local"],$_REQUEST["predio"],$_REQUEST["nroie"],$fila->P1_A_2_9_NroCMod));
+                "anexos" => $this->get_P1_A_2_9N(no_obfuscate($this->get("id_local")),$this->get("predio"),$this->get("nroie"),$fila->P1_A_2_9_NroCMod));
 
-          $jsonData = my_json_encode($data->result());
+          $jsonData = my_json_encode($x);
 
           prettyPrint($jsonData);
 
@@ -120,9 +120,9 @@ class P1A28N extends REST_Controller{
 
   }
 
-  public function get_P1_A_2_9N($cod_local,$NroIE,$NroCMod){
+  public function get_P1_A_2_9N($id_local,$predio,$NroIE,$NroCMod){
 
-    $data = $this->P1A28N_model->Data_P1_A_2_9N($cod_local,$NroIE,$NroCMod);
+    $data = $this->P1A28N_model->Data_P1_A_2_9N($id_local,$predio,$NroIE,$NroCMod);
 
 
     return $data->result();

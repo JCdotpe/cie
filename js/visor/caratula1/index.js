@@ -31,15 +31,11 @@ function get_PadLocal(cod_local){
 		});
 }
 
-function get_PCar(cod_local){
+function get_PCar(){
 
 	var cod_loc="";
 	$.getJSON(urlRoot('index.php')+'/visor/PCar/Data/', {token:getToken() ,id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
-		//$.each(data, function(index, val) {		
-			var cod_loc="";	
-
-
 			$.each(data, function(index, val) {
 				
 				$('.id_local').val(val.id_local);
@@ -75,8 +71,6 @@ function get_PCar(cod_local){
 					$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);		
 				
 				}
-				
-
 
 				$('#PC_D_EvT_dni').html(val.PC_D_EvT_dni);
 				$('#PC_D_EvT_Nomb').html(val.PC_D_EvT_Nomb);
@@ -100,7 +94,6 @@ function get_PCar(cod_local){
 
 			})
 		
-			//})
 	}).fail(function( jqxhr, textStatus, error ) {
 	
 		var err = textStatus + ', ' + error;
@@ -111,7 +104,7 @@ function get_PCar(cod_local){
 
 function get_PCar_C_1N(cod_local){
 	//alert(cod_local)
-	$.getJSON(urlRoot('index.php')+'/visor/PCarC1N/Data/', {token: getToken(),id_local: getToken(), predio:getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/PCarC1N/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data, textStatus) {
 	
 		var html="";
 
@@ -161,25 +154,25 @@ function get_PCar_C_1N(cod_local){
 function get_type_Address(type){
 
 	switch(type){
-		case 1:
+		case "1":
 			document.getElementById("avenida1").checked=true;
 		break;
-		case 2:
+		case "2":
 			document.getElementById("jiron1").checked=true;
 		break;
-		case 3:
+		case "3":
 			document.getElementById("calle1").checked=true;
 		break;
-		case 4:
+		case "4":
 			document.getElementById("pasaje1").checked=true;
 		break;
-		case 5:
+		case "5":
 			document.getElementById("carretera1").checked=true;
 		break;
-		case 6:
+		case "6":
 			document.getElementById("autopista1").checked=true;
 		break;
-		case 7:
+		case "7":
 			document.getElementById("otro1").checked=true;
 		break;
 	}
