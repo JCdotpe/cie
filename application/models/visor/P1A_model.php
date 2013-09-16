@@ -14,11 +14,12 @@ class P1A_model extends CI_MODEL{
     
     }
 
-    public function getData($codigo_de_local){
+    public function getData($codigo_de_local,$Nro_Pred){
 
         $this->db->select('*');
         $this->db->from('P1_A');
         $this->db->where('id_local',$codigo_de_local);
+        $this->db->where('Nro_Pred',$Nro_Pred);
         $q = $this->db->get();
         return $q;
         

@@ -14,12 +14,12 @@ $(document).ready(function(){
 
 	
 	
-	$('#list_ie').on('click','.row',function(event){
+	$('#list_ie').on('click','.raw',function(event){
 
 		P1A2N($(this).attr('id'));
 
-		$('.row').removeClass('row_active');
-		$(this).addClass('row_active');
+		$('.raw').removeClass('raw_active');
+		$(this).addClass('raw_active');
 
 	});
 
@@ -58,17 +58,23 @@ function lista_ie(){
 			i++;
 			if(i==1){
 				P1A2N(val.P1_A_2_NroIE);
-				cl="row_active";
+				cl="raw_active";
 			}else{
 				cl="";
 			}
 				
-			ie+='<tr class="row '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
+			ie+='<tr class="raw '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
 				'<td style="text-align:center;">'+val.P1_A_2_NroIE+'</td>'+
 				'<td style="text-align:center;">'+val.P1_A_2_1_NomIE+'</td>'+							    			
 			'</tr>';
 
 		});
+
+		if(i==0){
+			ie+='<tr id="">'+
+				'<td colspan="2" style="text-align:center;">No Existen I.E. en el Predio '+getPredio()+' </td>'+							    			
+				'</tr>';
+		}
 
 		if(i==1){
 			$("#ie-panel").hide();
@@ -164,6 +170,16 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 		$('#table_ies').html(html);
 											
 	});
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1B/Tabla/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
+
+		$.each(data, function(index, val) {
+			 
+			
+
+		});
+
+	})
 
 }
 

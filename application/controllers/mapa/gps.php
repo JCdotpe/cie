@@ -7,7 +7,7 @@ class Gps extends CI_Controller {
 
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
-		//$this->load->model('convocatoria/Resultados_model');
+		$this->load->helper('my');
 		//$this->load->model('visor/visor_model');
 
 	}
@@ -21,6 +21,12 @@ class Gps extends CI_Controller {
 	public function diez(){
 
 		$this->load->view('mapa/gps_diez.php');
+	
+	}
+
+	public function last(){
+
+		$this->load->view('mapa/puntos_gps.php');
 	
 	}
 }
