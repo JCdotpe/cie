@@ -79,4 +79,54 @@ class P1A28N extends REST_Controller{
             
     }
 
+    public function Tabla_get(){
+
+    header_json();
+
+    $data = $this->P1A28N_model->Data_P1_A_2_8N($this->get("id_local"),$this->get("predio"),$this->get("nroie"));
+
+    $i=0;
+    echo "[";
+
+    foreach ($data->result() as $fila ){
+
+        if($i>0){echo",";}
+
+        $x= array("P1_A_2_9_NroCMod" => $fila->P1_A_2_9_NroCMod,
+                "P1_A_2_9A_CMod" => $fila->P1_A_2_9A_CMod,
+                "P1_A_2_9B_CodLocal" => $fila->P1_A_2_9B_CodLocal,
+                "P1_A_2_9C_Nivel" => $fila->P1_A_2_9C_Nivel,
+                "P1_A_2_9D_Car" => $fila->P1_A_2_9D_Car,
+                "P1_A_2_9E_NroAnex" => $fila->P1_A_2_9E_NroAnex,
+                "P1_A_2_9F_CantAnex" => $fila->P1_A_2_9F_CantAnex,
+                "P1_A_2_9G_T1_Talu" => $fila->P1_A_2_9G_T1_Talu,
+                "P1_A_2_9H_T1_Taul" => $fila->P1_A_2_9H_T1_Taul,
+                "P1_A_2_9I_T2_Talu" => $fila->P1_A_2_9I_T2_Talu,
+                "P1_A_2_9J_T2_Taul" => $fila->P1_A_2_9J_T2_Taul,
+                "P1_A_2_9K_T3_Talu" => $fila->P1_A_2_9K_T3_Talu,
+                "P1_A_2_9L_T3_Taul" => $fila->P1_A_2_9L_T3_Taul,
+                "anexos" => $this->get_P1_A_2_9N($_REQUEST["id_local"],$_REQUEST["predio"],$_REQUEST["nroie"],$fila->P1_A_2_9_NroCMod));
+
+          $jsonData = my_json_encode($data->result());
+
+          prettyPrint($jsonData);
+
+
+      $i++;
+
+    }
+
+    echo "]";
+
+  }
+
+  public function get_P1_A_2_9N($cod_local,$NroIE,$NroCMod){
+
+    $data = $this->P1A28N_model->Data_P1_A_2_9N($cod_local,$NroIE,$NroCMod);
+
+
+    return $data->result();
+
+  }
+
 }

@@ -8,9 +8,11 @@ $(document).ready(function(){
 	/*P1A2N();*/
 	lista_ie();
 	
-	$('input').attr({
+	$('input,textarea').attr({
 		disabled : true,
 	});
+
+	
 	
 	$('#list_ie').on('click','.row',function(event){
 
@@ -99,11 +101,11 @@ function P1A2N(ie){
 			$("#P1_A_2_7_InformantCarg").val(val.P1_A_2_7_InformantCarg);
 			$("#P1_A_2_8_Can_CMod_IE").val(val.P1_A_2_8_Can_CMod_IE);
 			$("#P1_A_2_Obs").val(val.P1_A_2_Obs);
-			
+			get_P1_A_2_8N(getLocal(),getPredio(),val.P1_A_2_NroIE)
 		});
 		
 
-		/*each_get_P1_A_2_8N(cod_local);*/
+		
 
 	}).fail(function( jqxhr, textStatus, error ) {
 	
@@ -114,15 +116,9 @@ function P1A2N(ie){
 			
 }
 
-function each_get_P1_A_2_8N(cod_local){
-	$('.P1_A_2_NroIE').each(function() {
-		get_P1_A_2_8N(cod_local,$(this).attr('value'));
-	});
-}
+function get_P1_A_2_8N(cod_local,predio,nroie){
 
-function get_P1_A_2_8N(cod_local,NroIE){
-
-	$.post('visor/visor/get_P1_A_2_8N/', {cod_local:cod_local,NroIE:NroIE}, function(data) {
+	$.getJSON(urlRoot('index.php')+'/visor/P1A28N/Tabla/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
 
 		var html="";
 
@@ -165,7 +161,7 @@ function get_P1_A_2_8N(cod_local,NroIE){
 		});
 
 
-		$('#'+cod_local+NroIE).html(html);
+		$('#table_ies').html(html);
 											
 	});
 
