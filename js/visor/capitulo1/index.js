@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$('#ie_educa').hide();
+
 	P1A();
 	/*P1A2N();*/
 	lista_ie();
@@ -62,16 +64,12 @@ function lista_ie(){
 function P1A2N(ie){
 
 	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/format/json/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: ie}, function(data, textStatus) {
+
+		$('#ie_educa').show();
 		
-		var html="";
-
-		var i=1;
-
 		$.each(data, function(index, val) {
 
-			
 			$("#P1_A_2_NroIE").val(val.P1_A_2_NroIE);
-
 			$("#P1_A_2_1_NomIE").val(val.P1_A_2_1_NomIE);
 			$("#P1_A_2_2_Direc").val(val.P1_A_2_2_Direc);
 			$("#P1_A_2_3_DocNro").val(val.P1_A_2_3_DocNro);
@@ -84,14 +82,10 @@ function P1A2N(ie){
 			$("#P1_A_2_7_InformantCarg").val(val.P1_A_2_7_InformantCarg);
 			$("#P1_A_2_8_Can_CMod_IE").val(val.P1_A_2_8_Can_CMod_IE);
 			$("#P1_A_2_Obs").val(val.P1_A_2_Obs);
-
-
-
 			
 		});
 		
 
-		//$('#ie_educa').html(html);
 		/*each_get_P1_A_2_8N(cod_local);*/
 
 	}).fail(function( jqxhr, textStatus, error ) {
