@@ -1,22 +1,33 @@
 $(document).ready(function(){
-
+	
 	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
-	var predio= $('#Nro_Pred').html();
-	var cod_local=localE();
-	Get_Tot_Edif_Cap05(token,cod_local);
-	Get_List_Edif_Cap06(token,cod_local);
-	Get_Edif_Cap06(token,cod_local,1,1);
-	Get_Edif_Pisos_Cap06(token,cod_local,1,1);
-	Get_Edif_Pisos_Ambiente(token,cod_local,1,1,1);
+	var predio= getPredio();
+	var nro_edif="";
+	var nro_ambiente="";
+	var cod_local=getLocal();
+	Get_Tot_Edif_Cap05();
+	Get_List_Edif_Cap06();
+	$('#seccion_m').on('click','.ie',function(event){
+		
+		nro_edif=$(this).attr('id');		
+		Get_Edif_Cap06(token,cod_local,predio,nro_edif);
+		Get_Edif_Pisos_Cap06(nro_edif);
+	});
+	$('#seccion_b').on('click','.ie',function(event){		
+		nro_ambiente=$(this).attr('id');		
+		Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);			
+	});
 
+	
 	$('input').attr({
 		disabled : true,
 	});
 
+
 });
 
-function Get_Cap06(cod_local,predio){
-	$.post(CI.base_url+'index.php/visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:predio}, function(data) {
+function Get_Cap06(cod_local){
+	$.post(CI.base_url+'index.php/visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:getPredio()}, function(data) {
 
 				var html="";
 				var i=1;
@@ -36,11 +47,11 @@ function Get_Cap06(cod_local,predio){
 				$('#pag_seccion_a').html(html);
 	});
 }
-
+ 
 // vevuelve total de edificaciones del capitulo 5
-function Get_Tot_Edif_Cap05(token,cod_local){
+function Get_Tot_Edif_Cap05(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P5/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P5/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
@@ -51,16 +62,17 @@ function Get_Tot_Edif_Cap05(token,cod_local){
 }
 
 //devuelve el listado de eficiaciones
-function Get_List_Edif_Cap06(token,cod_local){
+function Get_List_Edif_Cap06(){
 
 	var html="";
 	var i=1;
 
-	$.getJSON(CI.base_url+'index.php/visor/P61/Data/?token='+token+'&id_local='+cod_local+'', function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 
 				$.each(data, function(index, val) {
+					// aqui me quede seccion c
 
-		  	    	html+='<tr>'+
+		  	    	html+='<tr class="ie" id="'+val.Nro_Ed+'">'+
 		  	    					'<td style="text-align:center"> Edificación Nro. '+val.Nro_Ed+'.</td>'+
 		  	    					'<td style="text-align:center">'+val.P6_1_3+'.</td>'+
 		  	    					'<td style="text-align:center">'+val.P6_1_4+'.</td>'+
@@ -68,29 +80,34 @@ function Get_List_Edif_Cap06(token,cod_local){
 				});
 
 				$('#seccion_m').html(html);
+				$('#edificaciones').html(html);
+
 	});
 }
 
 // devuelve los ambientes y pisos
-function Get_Edif_Pisos_Cap06(token,cod_local,predio,nro_edif){
+function Get_Edif_Pisos_Cap06(nro_edif){
 
 	var html="";
 	var i=1;
 
-	$.getJSON(CI.base_url+'index.php/visor/P62/Data/?token='+token+'&id_local='+cod_local+'&Nro_Pred='+predio+'&P5_Ed_Nro='+nro_edif+'', function(data) {
+	
+	$.getJSON(CI.base_url+'index.php/visor/P62/Data/', {token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
 
-				$.each(data, function(index, val){
-					html+='<tr>'+
+				$.each(data, function(index, val){					
+
+					html+='<tr class="ie" id="'+val.P6_2_1+'">'+
 		  	    					'<td style="text-align:center"> Ambiente N° : '+val.P6_2_1+'.</td>'+
 		  	    					'<td style="text-align:center">Piso :'+val.P5_NroPiso+'.</td>'+
 		  	    				'</tr>';
 
 				});
+
 				$('#seccion_b').html(html);
 	});
 }
 // devuelve los ambientes y pisos
-function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
+function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 
 	var html="";
 	var i=1;
@@ -98,13 +115,14 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
 	var radiop15a="";
 	var arraychecked16="";
 
-	$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/?token='+token+'&id_local='+cod_local+'&Nro_Pred='+predio+'&P5_Ed_Nro='+nro_edif+'&P6_2_1='+nro_ambiente+'', function(data) {
+	
+		$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif,P6_2_1:nro_ambiente}, function(data) {
 
 				$.each(data, function(index, val){
 					$("#P6_2_1").val(val.P6_2_1);
 					$("#P5_NroPiso").val(val.P5_NroPiso);
 					check_Radio(val.P6_2_3,'P6_2_3');
-					//console.log(val.P6_2_4ID);
+					
 					$.each(val.P6_2_4ID, function(index, val){
 						check_Radio(val.P6_2_4Turno_M,val.P6_2_4Mod+'P6_2_4Turno_M');
 						check_Radio(val.P6_2_4Turno_T,val.P6_2_4Mod+'P6_2_4Turno_T');
@@ -141,7 +159,7 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
   											$("#P6caso7").hide();
   										  	$("#aulacomun").show();									
 
-  											alert('7');
+  											
   											break;
   										case 5:
   											$("#P6caso4").hide();
@@ -149,7 +167,7 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
   											$("#P6caso7").hide();
   											$("#aulacomun").show();
   											
-  											alert('8');
+  											
   											break;
   										case 6:
   											$("#P6caso4").hide();
@@ -157,14 +175,14 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
   											$("#P6caso7").hide();
   											$("#aulacomun").show();
   											
-  											alert('9');
+  											
   											break;
   										case 7:
   											$("#P6caso4").hide();
   											$("#P6caso5").hide();  											
   											$("#P6caso6").hide();
   											$("#aulacomun").show();
-  											alert('10');
+  											
   											break;
   										default :
   											$("#P6caso4").hide();
@@ -172,7 +190,7 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
   											$("#P6caso6").hide();
   											$("#P6caso7").hide();
   											$("#aulacomun").show();
-  											alert('1,2,3');
+  											
   									}
 							break;
 						case 3 :
@@ -331,10 +349,7 @@ function Get_Edif_Pisos_Ambiente(token,cod_local,predio,nro_edif,nro_ambiente){
   									$("#P6_2_19b").val(val.P6_2_19b);
   									$("#P6_2_19c").val(val.P6_2_19c);
 
-  									$("#P6_2_20Obs").val(val.P6_2_20Obs);
-					/*alert(html);
-					$('#funcion_educativa').html(html);
-					check_Radio(radiop15a,radiop15+'P6_2_15a');*/
+  									$("#P6_2_20Obs").val(val.P6_2_20Obs);					
 				});
 	});
 }
@@ -413,7 +428,8 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var arraycheckpisos=[];
 	var arr="";	
 
-	$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/?token='+token+'&id_local='+cod_local+'&Nro_Pred='+predio+'&NRO_ED='+nro_edif+'', function(data) {
+	
+		$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(), NRO_ED:nro_edif}, function(data) {
 
 
 				$.each(data, function(index, val) {
@@ -425,14 +441,51 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 					i++;
 					arr = val.P6_1_3.split(".");
 					
-					//console.log(arraychecked);
+					check_Radio(val.P6_3_1,'P6_3_1');
+					check_Radio(val.P6_3_1A,'P6_3_1A');
+					check_Radio(val.P6_3_2,'P6_3_2');
+					check_Radio(val.P6_3_2A,'P6_3_2A');
+					check_Radio(val.P6_3_2B,'P6_3_2B');
+					check_Radio(val.P6_3_2C,'P6_3_2C');
+					check_Radio(val.P6_3_2D,'P6_3_2D');
+					check_Radio(val.P6_3_3,'P6_3_3');
+					$('#P6_3_3A').val(val.P6_3_3A);
+					check_Radio(val.P6_4_1,'P6_4_1');
+					check_Radio(val.P6_4_1A,'P6_4_1A');
+					check_Radio(val.P6_4_2,'P6_4_2');
+					check_Radio(val.P6_5_1,'P6_5_1');
+					check_Radio(val.P6_5_1A,'P6_5_1A');					
+					$('#P6_Obs').val(val.P6_Obs);
+					if (val.P6_3_1==2) {
+						$('#distribucion').hide();				
+					};
+					if (val.P6_3_2==2) {
+						$('#distribucionp2a').hide();
+						$('#distribucionp2b').hide();
+						$('#distribucionp2c').hide();
+						$('#distribucionp2d').hide();
+						$('#distribucionp3').hide();
+						$('#distribucionp3a').hide();
+					}else{
+
+						if (val.P6_3_3==2) {
+							$('#distribucionp3a').hide();	
+						};
+					};
+					if (val.P6_4_1==2) {
+						$('#secciondp1a').hide();
+					};
+					if (val.P6_5_1==2) {
+						$('#seccionep1a').hide();
+					};
+					
 		  	    	html+='<table class="table table-bordered">'+
 		  	    			'<tbody>'+
 			  	    			'<tr>'+
 				  	    			'<td><strong>2.</strong></td>'+
 				  	    			'<td><strong>Código de la edificación </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed"  value="'+val.Nro_Ed+'">'+
+				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed"  value="'+val.Nro_Ed+'" disabled>'+
 				  	    			'</td>'+
 			  	    			'</tr>'+
 			  	    			'<tr>'+
@@ -448,8 +501,8 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 													'<th style="text-align:center;">Decimales</th>'+
 												'</tr>'+
 												'<tr>'+
-													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3" value="'+arr[0]+'"> </td>'+
-													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3_D" value="'+arr[1]+'"> </td>'+
+													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3" value="'+arr[0]+'" disabled> </td>'+
+													'<td> <input style="width:100px;" type="text" class="form-control P6_1_3_D" value="'+arr[1]+'" disabled> </td>'+
 												'</tr>'+
 											'</table>'+
 				  	    			'</td>'+
@@ -459,7 +512,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>Predio en el que se ubica la edificación </strong></td>'+
 				  	    			'<td>'+
 				  	    				'<label>Predio N° </label>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_4" value="'+val.P6_1_4+'">'+
+				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_4" value="'+val.P6_1_4+'" disabled>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
 				  	    		'<tr>'+
@@ -467,10 +520,10 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>Esta edificación es parte del patrimonio cultural inmueble reconocido por el ministerio de cultura? </strong></td>'+
 				  	    			'<td>'+				  	    				
 				  	    					'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_51" name="P6_1_5" value="option1" > 1. Si'+
+												'<input type="radio" id="P6_1_51" name="P6_1_5" value="option1" disabled> 1. Si'+
 											'</label>'+
 											'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_52" name="P6_1_5" value="option2" > 2. No'+
+												'<input type="radio" id="P6_1_52" name="P6_1_5" value="option2" disabled> 2. No'+
 											'</label>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
@@ -479,10 +532,10 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>¿La edificación  fue inspeccionada por defensa civil? </strong></td>'+
 				  	    			'<td>'+				  	    				
 				  	    					'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_61" name="P6_1_6" value="option1" checked> 1. Si'+
+												'<input type="radio" id="P6_1_61" name="P6_1_6" value="option1" disabled> 1. Si'+
 											'</label>'+
 											'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_62" name="P6_1_6" value="option2" > 2. No'+
+												'<input type="radio" id="P6_1_62" name="P6_1_6" value="option2" disabled> 2. No'+
 											'</label>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
@@ -491,10 +544,10 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>¿La edificación  se encuentra declarada inhabitable (alto riesgo) ? </strong></td>'+
 				  	    			'<td>'+				  	    				
 				  	    				'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_71" name="P6_1_7" value="option1" checked> 1. Si'+
+												'<input type="radio" id="P6_1_71" name="P6_1_7" value="option1" disabled> 1. Si'+
 											'</label>'+
 											'<label class="checkbox-inline">'+
-												'<input type="radio" id="P6_1_72" name="P6_1_7" value="option2" > 2. No'+
+												'<input type="radio" id="P6_1_72" name="P6_1_7" value="option2" disabled> 2. No'+
 										'</label>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
@@ -502,7 +555,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>8.</strong></td>'+
 			  	    				'<td><strong>Nro de pisos de esta edificación </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_8+'">'+
+				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_8+'" disabled>'+
 				  	    			'</td>'+
 				  	    		'</tr>';
 
@@ -515,10 +568,10 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 
 										  	    			'<td>'+
 										  	    					'<label class="checkbox-inline">'+
-																		'<input type="radio" id="P6_1_8_Accesibilidad'+numero_pisos[x]+'1" name="check'+numero_pisos[x]+'" value="option1" > 1. Si'+
+																		'<input type="radio" id="P6_1_8_Accesibilidad'+numero_pisos[x]+'1" name="check'+numero_pisos[x]+'" value="option1" disabled> 1. Si'+
 																	'</label>'+
 																	'<label class="checkbox-inline">'+
-																		'<input type="radio" id="P6_1_8_Accesibilidad'+numero_pisos[x]+'2" name="check'+numero_pisos[x]+'" value="option2" > 2. No'+
+																		'<input type="radio" id="P6_1_8_Accesibilidad'+numero_pisos[x]+'2" name="check'+numero_pisos[x]+'" value="option2" disabled> 2. No'+
 																	'</label>'+
 															'</td>'+
 										  	    		'</tr>';
@@ -529,7 +582,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 						  	    				'<td><strong>9.</strong></td>'+
 						  	    				'<td><strong>¿ Cuántos  niveles o modalidades hacen uso de esta edificación? </strong></td>'+
 							  	    			'<td>'+
-							  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_9+'">'+
+							  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_9+'" disabled>'+
 							  	    			'</td>'+
 				  	    				  '</tr>';
 				  	    		$.each(val.P6_1_10_e, function(index, val) {

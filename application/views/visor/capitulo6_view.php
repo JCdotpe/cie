@@ -37,7 +37,7 @@
 
 		  	    			<div id="pag_seccion_a" style="width:920px; height:200px; overflow:auto;"  >
 		  	    				<!--AJAX-->
-		  	    				<table class="table table-hover" style="width:920px;" class="content8">
+		  	    				<table class="table table-hover" style="width:920px;" class="content8" >
 										<thead>
 										<tr align="center">
 											<th colspan="3" style="text-align:center; vertical-align:middle;">EDIFICACIONES</th>
@@ -1654,21 +1654,21 @@
 										</td>
 										<td><strong>Esta edificación tiene instalaciones eléctricas interiores</strong></td>
 										<td>
-											<div class="radio">
-												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+										<!--	<div class="radio">-->
+												<label class="radio">
+													<input type="radio" name="P6_3_1" id="P6_3_11" value="option1">
 													    1. Si
-													</label>
-											</div>
+												</label>
+											<!--</div>-->
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_1" id="P6_3_12" value="option1">
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="seccioncp1a">
 										<td>
 											1A.
 										</td>
@@ -1679,25 +1679,25 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_1A" id="P6_3_1A1" value="option1" >
 													    Circuito canalizado empotrado
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_1A" id="P6_3_1A2" value="option1" >
 													    Circuito canalizado expuesto
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_1A" id="P6_3_1A3" value="option1">
 													    Circuito sin canalizar
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_1A" id="P6_3_1A4" value="option1" >
 													    Con conductor inadecuado
 													</label>
 											</div>
@@ -1706,7 +1706,7 @@
 								</tbody>
 							</table>
 
-							<table class="table table-bordered">
+							<table class="table table-bordered" id="distribucion">
 								<thead>
 									<tr>
 										<th colspan="3">Tablero de distribución</th>
@@ -1724,19 +1724,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2" id="P6_3_21" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2" id="P6_3_22" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp2a">
 										<td>
 											2A.
 										</td>
@@ -1746,19 +1746,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2A" id="P6_3_2A1" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2A" id="P6_3_2A2" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp2b">
 										<td>
 											2B.
 										</td>
@@ -1768,19 +1768,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2B" id="P6_3_2B1" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2B" id="P6_3_2B2" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp2c">
 										<td>
 											2C.
 										</td>
@@ -1790,19 +1790,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2C" id="P6_3_2C1" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2C" id="P6_3_2C2" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp2d">
 										<td>
 											2D.
 										</td>
@@ -1812,19 +1812,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2D" id="P6_3_2D1" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_2D" id="P6_3_2D2" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp3">
 										<td>
 											3.
 										</td>
@@ -1835,19 +1835,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_3" id="P6_3_31" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_3_3" id="P6_3_32" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="distribucionp3a">
 										<td>
 											3A.
 										</td>
@@ -1856,13 +1856,13 @@
 										</td>
 										<td>
 											<label>Año</label>
-											<input style="width:100px;" type="text" class="form-control" placeholder="Text input">
+											<input style="width:100px;" type="text" class="form-control P6_3_3A" id="P6_3_3A">
 										</td>
 									</tr>
 								</tbody>
 							</table>
 
-							<table class="table table-bordered">
+							<table class="table table-bordered" id="secciond">
 								<thead>
 									<tr>
 										<th colspan="3">Sección D: Instalaciones sanitarias interiores de la edificación</th>
@@ -1880,19 +1880,19 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_1" id="P6_4_11" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_1" id="P6_4_12" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="secciondp1a">
 										<td>
 											1A.
 										</td>
@@ -1902,13 +1902,13 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_1A" id="P6_4_1A1" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_1A" id="P6_4_1A2" value="option1" >
 													    2. No
 													</label>
 											</div>
@@ -1924,13 +1924,13 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_2" id="P6_4_21" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_4_2" id="P6_4_22" value="option1" >
 													    2. No
 													</label>
 											</div>
@@ -1957,42 +1957,42 @@
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_5_1" id="P6_5_11" value="option1" >
 													    1. Si
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_5_1" id="P6_5_12" value="option1" >
 													    2. No
 													</label>
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr id="seccionep1a">
 										<td>
 											1A.
 										</td>
 										<td>
 											<strong>Cuál es el estado de conservación:</strong>
-											<br />(Acepte sólo un código)
+											<br/>(Acepte sólo un código)
 										</td>
 										<td>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_5_1A" id="P6_5_1A1" value="option1">
 													    1. Sin daños
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_5_1A" id="P6_5_1A2" value="option1">
 													    2. Deterioro parcial
 													</label>
 											</div>
 											<div class="radio">
 												<label>
-													<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+													<input type="radio" name="P6_5_1A" id="P6_5_1A3" value="option1">
 													    2. Colapso total
 													</label>
 											</div>
@@ -2003,7 +2003,7 @@
 
 							<div class="panel">
 								<label>Observaciones:</label>
-								<textarea style="width:870px; height:100px;"></textarea>
+								<textarea style="width:870px; height:100px;" id="P6_Obs"></textarea>
 							</div>
 
 		  	    		</div>
