@@ -24,7 +24,7 @@
       function initialize() {
           <?php echo "var myLatlng = new google.maps.LatLng(".$_REQUEST['lat1'].",".$_REQUEST['long1'].");"; ?>
             var mapOptions = {
-            zoom: 14,
+            zoom: 5,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }

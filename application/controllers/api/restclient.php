@@ -34,7 +34,7 @@
 
 		}
 
-		$return_arr['datos']=  array();
+		/*$return_arr['datos']=  array();
 		//for ($i=2; $i <10 ; $i++) {
 
 			$data["codigo_de_local"] = "000118";
@@ -48,7 +48,9 @@
 			array_push($return_arr['datos'],$data);
 		//}
 
-		$json= json_encode($return_arr['datos']);
+		$json= json_encode($return_arr['datos']);*/
+
+		$json='{{"RutaFoto":"ruta Foto","id_local":000142,"Nro_Pred":1,"token":"ee5fc378a104ac0581aef116e4adaf18d056b5e9","Observaciones":"obs 1","Fenvio":"2014-12-12","P3_1_1_LugGeoref":1,"Version":1,"FRegistro":"2014-12-12","Frecep":"2014-12-12"}]';
 		$curl_handle = curl_init();
 		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p31/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
