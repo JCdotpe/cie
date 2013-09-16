@@ -49,9 +49,143 @@
 
 								</div>
 
-							<div id="ie_educa">
-								<!--AJAX-->
-							</div>
+							<div id="ie_educa" style="margin-top:10px;">
+								
+								<table class="table table-bordered">
+									<thead>
+										<th colspan="2">2. Institución educativa N° <span><input value="" id="P1_A_2_NroIE" style="width:20px;" type="text" class="form-control"></span></th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<strong>2.1¿Cuál es el nombre de la institución educativa?</strong>
+											</td>
+											<td><input value="" id="P1_A_2_1_NomIE" style="width:350px;" type="text" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>
+												<strong>2.2¿Cuáles son los apellidos y nombres del director?</strong>
+											</td>
+											<td><input value="" id="P1_A_2_2_Direc" style="width:350px;" type="text" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>
+												<strong>2.3¿Cuál es el numero número de DNI o Carnet de Extranjería del Director?</strong>
+											</td>
+											<td>
+												<div class="panel">
+													<label>D.N.I.</label>
+													<input value="" id="P1_A_2_3_DocNro" style="width:200px;" type="text" class="form-control">
+												</div>
+												<div class="panel">
+													<label>Carnet del Extrangero</label>
+													<input value="" id="P1_A_2_3_DocNro" style="width:200px;" type="text" class="form-control">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>2.4¿Cuál es el numero de teléfono de (L) ?</strong></td>
+											<td>
+												<div class="panel">
+													<label>La Institucion Educativa?</label>
+													<input value="" id="P1_A_2_4_TelfIE" style="width:200px;" type="text" class="form-control">
+												</div>
+												<div class="panel">
+													<label>Director?</label>
+													<input value="" id="P1_A_2_4_TelfDir" style="width:200px;" type="text" class="form-control">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>2.5¿Cuál es el correo electronico de (L)?</strong></td>
+											<td>
+												<div class="panel">
+													<label>La Institucion Educativa?</label>
+													<input value="" id="P1_A_2_5_EmailIE" style="width:400px;" type="text" class="form-control">
+												</div>
+												<div class="panel">
+													<label>Director?</label>
+													<input value="" id="P1_A_2_5_EmailDir" style="width:400px;" type="text" class="form-control">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>2.6¿Apellidos y Nombres del informante?</strong></td>
+											<td><input value="" id="P1_A_2_6_Informant" style="width:400px;" type="text" class="form-control"></td>
+										</tr>
+										<tr>
+											<td><strong>2.7¿Cargo del informante?</strong></td>
+											<td><input value="" id="P1_A_2_7_InformantCarg" style="width:400px;" type="text" class="form-control"></td>
+										</tr>
+										<tr>
+											<td><strong>2.8¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>
+											<td>
+												<div class="panel">
+													<label>N° de Códigos Modulares</label>
+													<input value="" id="P1_A_2_8_Can_CMod_IE" style="width:200px;" type="text" class="form-control">
+												</div>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+
+
+
+										<div class="panel"><!-- N CODIGOS -->
+														<label>2.9 Códigos modulares asignados a la institución educativa:</label>
+
+														<table class="table table-bordered">
+															<thead>
+																<tr>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo Modular</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">Codigo local escolar</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">Nivel o Modalidad</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">Caracteristica</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">Numero de anexo</th>
+																	<th rowspan="2" style="text-align:center;vertical-align:middle;">¿Cuantos ANexos tiene?</th>
+																	<th colspan="2" style="text-align:center; border:1px solid #333;">1er. Turno</th>
+																	<th colspan="2" style="text-align:center; border:1px solid #333;">2do. Turno</th>
+																	<th colspan="2" style="text-align:center; border:1px solid #333;">3er. Turno</th>
+																</tr>
+																<tr>
+																	<th style="text-align:center;">Total Alumnos</th>
+																	<th style="text-align:center;">Total Aulas</th>
+																	<th style="text-align:center;">Total Alumnos</th>
+																	<th style="text-align:center;">Total Aulas</th>
+																	<th style="text-align:center;">Total Alumnos</th>
+																	<th style="text-align:center;">Total Aulas</th>
+																</tr>
+																<tr>
+																	<th></th>
+																	<th style="text-align:center;">(a)</th>
+																	<th style="text-align:center;">(b)</th>
+																	<th style="text-align:center;">(c)</th>
+																	<th style="text-align:center;">(d)</th>
+																	<th style="text-align:center;">(e)</th>
+																	<th style="text-align:center;">(f)</th>
+																	<th style="text-align:center;">(g)</th>
+																	<th style="text-align:center;">(h)</th>
+																	<th style="text-align:center;">(i)</th>
+																	<th style="text-align:center;">(j)</th>
+																	<th style="text-align:center;">(k)</th>
+																	<th style="text-align:center;">(l)</th>
+																</tr>
+															</thead>
+															<tbody id="table_ies">
+
+															</tbody>
+
+														</table>
+
+														<div class="panel">
+																<label>Observaciones:</label>
+																<textarea id="P1_A_2_Obs" style="width:800px; height:100px;"></textarea>
+														</div>
+
+										</div><!-- end panel ncodigod-->
+								</div><!-- END IE EDUCA -->
 
 					</div><!-- END PANEL PRINCIPAL-->
 
