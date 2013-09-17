@@ -74,9 +74,30 @@ class P5 extends REST_Controller{
             prettyPrint($jsonData);
 
         }
-
-
-
     }
+
+    public function DataPredio_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->P5_model->getDataPredio(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
+
+            $jsonData = json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+    }
+
 
 }

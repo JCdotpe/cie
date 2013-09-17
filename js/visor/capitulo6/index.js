@@ -51,7 +51,7 @@ function Get_Cap06(cod_local){
 // vevuelve total de edificaciones del capitulo 5
 function Get_Tot_Edif_Cap05(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P5/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio()}, function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
