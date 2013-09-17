@@ -287,7 +287,7 @@
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 		   	type:"POST",
-		   	url:'respuestas/lista_consultas',
+		   	url:urlRoot('index.php')+'/bpr/respuestas/lista_consultas',
 			datatype: "json",
 			height: 255,			
 		   	colNames:['Nro', 'Capitulo', 'Seccion', 'Pregunta', 'Consulta',''],

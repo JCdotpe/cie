@@ -134,6 +134,49 @@ class Preguntas extends CI_Controller {
 		}
 	}
 
+	public function re_pregunta()
+	{
+		$id_cuestionario = $this->input->post('id_cuestionario');
+
+		$resultado = $this->bpr_model->get_datos_pregunta($id_cuestionario);
+
+		foreach($resultado->result() as $filas)
+		{
+			$cedula = $filas->cedula;
+			$cod_cap = $filas->cod_cap;
+			$cod_sec = $filas->cod_sec;
+			$cod_preg = $filas->cod_preg;
+			$ccdd = $filas->ccdd;
+			$ccpp = $filas->ccpp;
+			$ccdi = $filas->ccdi;
+			$cargo = $filas->cargo;
+		}
+
+		$c_data = array(
+				'id_cuestionario'=> $id_cuestionario,
+				'cedula'=> $cedula,
+				'cod_cap'=> $cod_cap,
+				'cod_sec'=> $cod_sec,
+				'cod_preg'=> $cod_preg,
+				'CCDD'=> $ccdd,
+				'CCPP'=> $ccpp,
+				'CCDI'=> $ccdi,
+				'cargo'=> $cargo,
+				'nombre'=> utf8_decode($this->input->post('nombrecompleto')),
+				'dni'=> $this->input->post('nrodni'),
+				'consulta'=> utf8_decode($this->input->post('consulta'))
+			);
+
+		$flag = $this->bpr_model->insert_repregunta($c_data);
+		
+		if($flag==0)
+		{
+			$show = 'Error al Grabar. Recargue la Pagina y Vuelva a Intentarlo.';
+		}else{
+			$show = 'Datos Grabados Satisfactoriamente.';
+		}
+	}
+
 }
 
 /* End of file welcome.php */

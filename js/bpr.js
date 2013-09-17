@@ -1,6 +1,6 @@
 function cargarProv()
 {
-	var doLoginMethodUrl = 'preguntas/obtenerprovincia';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerprovincia';
 	var id_dpto = $("#departamento").val();
 	
 	$.ajax({
@@ -22,7 +22,7 @@ function cargarProv()
 
 function cargarDist()
 {
-	var doLoginMethodUrl = 'preguntas/obtenerdistrito';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerdistrito';
 	var id_depa = $("#departamento").val();
 	var id_prov = $("#provincia").val();
 	$.ajax({
@@ -58,7 +58,7 @@ function cargarDatosbyDistrito()
 
 function cargarCedula()
 {
-	var doLoginMethodUrl = 'preguntas/obtenercedula';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenercedula';
 	var id_cargo = document.getElementById("cargo").value;
 	$.ajax({
 		type: "POST",
@@ -85,7 +85,7 @@ function cargarCedula()
 
 function cargarCapitulo()
 {
-	var doLoginMethodUrl = 'preguntas/obtenercapitulo';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenercapitulo';
 	var id_cedula = $("#cedula").val();
 	$.ajax({
 		type: "POST",
@@ -112,7 +112,7 @@ function cargarCapitulo()
 
 function cargarSeccion()
 {
-	var doLoginMethodUrl = 'preguntas/obtenerseccion';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerseccion';
 	var id_cap = $("#capitulo").val();
 	$.ajax({
 		type: "POST",
@@ -138,7 +138,7 @@ function cargarSeccion()
 
 function cargarPreguntas()
 {
-	var doLoginMethodUrl = 'preguntas/obtenerpregunta';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerpregunta';
 	var id_cap = $("#capitulo").val();
 	var id_sec = $("#seccion").val();
 	$.ajax({
@@ -221,7 +221,7 @@ function preguntas_form(cargo)
 
 	$.ajax({
 		type: "POST", 
-		url: "preguntas/registro",
+		url: urlRoot('index.php')+"/bpr/preguntas/registro",
 		data: form_data,
 		success: function(response){
 			$("#frm_preguntas :input").val('');
@@ -247,28 +247,28 @@ function verdatos(intervalo)
 
 	switch(intervalo)
 	{
-		case 0: condicion = "respuestas/lista_consultas";
+		case 0: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas";
 			break;
 
-		case 1: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov;
+		case 1: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov;
 			break;
 
-		case 2:	condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist;
+		case 2:	condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist;
 			break;
 
-		case 3:	condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo;
+		case 3:	condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo;
 			break;
 
-		case 4: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula;
+		case 4: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula;
 			break;
 
-		case 5: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap;
+		case 5: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap;
 			break;
 
-		case 6: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec;
+		case 6: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec;
 			break;
 
-		case 7: condicion = "respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
+		case 7: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
 			break;
 	}
 
@@ -277,7 +277,7 @@ function verdatos(intervalo)
 
 function BuscarDetalle(codigo)
 {
-	var doLoginMethodUrl = 'respuestas/buscardetalle';
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/respuestas/buscardetalle';
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
@@ -311,13 +311,49 @@ function respuestas_form(usuario)
 
 	$.ajax({
 		type: "POST", 
-		url: "respuestas/registro",
+		url: urlRoot('index.php')+"/bpr/respuestas/registro",
 		data: form_data,
 		success: function(response){
 			$("#frm_respuesta :input").val('');
 			$("#usuario").val(usuario);
 			$("#list2").trigger("reloadGrid");
 			alert("Respuesta Enviada!");
+		}
+	});
+}
+
+function Form_Validar_Repregunta()
+{
+	id_cuestionario = $("#codigo").val();
+	cons = $("#consulta").val();
+	nombre = $("#nombrecompleto").val();
+
+	if (id_cuestionario == "" || nombre == "" || cons == "")
+	{
+		alert("Faltan Datos!");
+		return false;
+	}
+
+	re_preguntas_form(id_cuestionario);
+}
+
+function re_preguntas_form(codigo)
+{
+	var bsub = $( ":submit" );
+	var form_data = $('#frm_repreguntas').serializeArray();
+
+	form_data.push(
+		{name: 'id_cuestionario',value:codigo}
+	);
+	form_data = $.param(form_data);
+
+	$.ajax({
+		type: "POST", 
+		url: urlRoot('index.php')+"/bpr/preguntas/re_pregunta",
+		data: form_data,
+		success: function(response){
+			$("#frm_repreguntas :input").val('');
+			alert("Consulta Enviada!");
 		}
 	});
 }

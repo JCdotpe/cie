@@ -151,28 +151,6 @@
 				</div>
 			</div>
 			<div id="v_banco" class="row-fluid well top-conv">
-				<!--
-				<div class="row-fluid">
-					<div id="preg0" class="span8"></div>
-				</div>
-				<div class="row-fluid">
-					<div class="span10">
-						Primera Respuestaaaaaaaaaaaaaa!!!  xD
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span8">
-						<a href="">algunas preguntas sobre el capitulo I</a>
-					</div>
-					<div class="span3">
-						11/03/2013
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span10">
-						Segundaaaaaa Respuestaaaaaaaaaaaaaa!!!  xD
-					</div>
-				</div>-->
 			</div>
 			<?php echo form_close(); ?>			
 		</div>
@@ -182,75 +160,34 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-
-		var doLoginMethodUrl = 'banco/view_pregunta';
-		//var pregunta = document.getElementById("v_banco");
-		var campo;
-		var campo1;
-		var campo2;
-		$.ajax({
-			type: "POST",
-			url: doLoginMethodUrl,
-			//data: "id_depa="+id_depa+"&id_prov="+id_prov,
-			dataType:'json',
-			success: function(json_data){
-				$.each(json_data, function(i, data){
-					campo1 = '<div class="row-fluid">'+
-					'<div id="preg'+data.CODIGO+'" class="span8">'+
-					data.CONSULTA+'</div>'+
-					'<div id="fex'+data.CODIGO+'" class="span3">'+
-					data.FECHA+'</div>'+
-					'</div>';
-					/*
-					$.ajax({
-	                    type: "POST",
-	                    url: "banco/view_ultima_respuesta",
-	                    data: "id_cuestionario=1",
-	                    dataType:'json',
-	                    success: function(json_data){
-	                       $.each(json_data, function(i, data){
-								campo2 = '<div class="row-fluid">'+
-								'<div id="resp'+data.CODIGO+'" class="span10">'+
-								data.RESPUESTA+'</div>'+
-								'</div>';
-								return campo2;
-								//$("#v_banco").append(campo);
-							});
-	                    }
-	                });*/
-					//campo2 = view_last_respuesta(data.CODIGO);
-
-	                campo = campo1+campo2;
-					
-					$("#v_banco").append(campo);
-					//view_last_respuesta(data.CODIGO);
-				});
-			}
-		});
+		ListarBanco();
 	});
 
-	function view_last_respuesta(codigo)
-	{
-		var doLoginMethodUrl = 'banco/view_ultima_respuesta';
-		//var respuesta = document.getElementById("v_banco");
-		var campo;
-		$.ajax({
-			type: "POST",
-			url: doLoginMethodUrl,
-			data: "id_cuestionario="+codigo,
-			dataType:'json',
-			success: function(json_data){
-				$.each(json_data, function(i, data){
-					campo = '<div class="row-fluid">'+
-					'<div id="resp'+data.CODIGO+'" class="span10">'+
-					data.RESPUESTA+'</div>'+
+function ListarBanco()
+{
+	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
+
+		var html="";
+
+		$.each(data, function(index, val) {
+			html+='<div class="row-fluid">'+
+						'<div id="preg'+val.id_cuestionario+'" class="span8">'+
+							'<a href="'+urlRoot('index.php')+'/bpr/historial/?variable='+val.id_cuestionario+'">'+val.consulta+'</a>'
+						+'</div>'+
+						'<div id="fex'+val.id_cuestionario+'" class="span3">'+
+							val.fecha_creacion
+						+'</div>'+
 					'</div>';
-					//$("#v_banco").append(campo);
-					
+				$.each(val.respuesta, function(index, val) {
+
+					html+='<div class="row-fluid">'+
+							'<div id="resp'+val.id_cuestionario+'" class="span10">'+
+							val.respuesta
+						+'</div>'+'</div>';
 				});
-			}
 		});
-		return campo;
-	}
+		$("#v_banco").append(html);
+	});
+}
 
 </script>

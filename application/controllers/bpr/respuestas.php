@@ -13,7 +13,7 @@ class Respuestas extends CI_Controller {
 
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
-		/*
+		
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -23,7 +23,7 @@ class Respuestas extends CI_Controller {
 		$roles = $this->tank_auth->get_roles();
 		$flag = FALSE;
 		foreach ($roles as $role) {
-			if($role->role_id == 10){
+			if($role->role_id == 15){
 				$flag = TRUE;
 				break;
 			}
@@ -34,7 +34,7 @@ class Respuestas extends CI_Controller {
 			show_404();
 			die();
 		}
-		*/
+		
 	}
 
 	public function index()
