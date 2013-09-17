@@ -28,6 +28,11 @@ class PCarC1N extends REST_Controller{
 
             $array= json_decode($data,1);
 
+            foreach ($array as $key => $value) {
+
+              $array[$key]['version']='1';// poner 99 mas adelante
+
+            }
 
             $flag = $this->PCarC1N_model->insertBatch($array);
 
@@ -62,7 +67,7 @@ class PCarC1N extends REST_Controller{
 
             header_json();
 
-            $data = $this->PCarC1N_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->PCarC1N_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

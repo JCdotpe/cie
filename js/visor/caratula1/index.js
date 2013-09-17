@@ -1,7 +1,7 @@
 
 function get_PadLocal(cod_local){
 
-		$.post(urlRoot('index.php')+'/visor/visor/get_PadLocal/', {cod_local:getLocal()}, function(data) {
+		$.post(urlRoot('index.php')+'/visor/visor/get_PadLocal/', {cod_local:getLocal(),predio:getPredio()}, function(data) {
 			
 			$.each(data, function(index, val) {
 
@@ -105,7 +105,7 @@ function get_PCar(type){
 }
 
 function get_PCar_C_1N(cod_local){
-	//alert(cod_local)
+	
 	$.getJSON(urlRoot('index.php')+'/visor/PCarC1N/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data, textStatus) {
 	
 		var html="";
