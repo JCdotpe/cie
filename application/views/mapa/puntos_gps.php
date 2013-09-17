@@ -31,7 +31,7 @@
     
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="<?php echo base_url('js/map/markerwithlabel.js'); ?>"></script>
-    <script src="<?php echo base_url('js/map/markcluster.js'); ?>"></script>
+    <script src="<?php echo base_url('js/general/basic.js'); ?>"></script>
     <script>
 
     function initialize() {
@@ -44,7 +44,6 @@
             $x++;
 
     ?>
-
       
           <?php echo "var myLatlng".$x." = new google.maps.LatLng(".$filas->LatitudPunto.",".$filas->LongitudPunto.");"; ?>
             var mapOptions = {
@@ -61,6 +60,26 @@
 
           var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+          var image = {
+            url: urlRoot('cie/')+'img/colindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
+
+           var image2 = {
+            url: urlRoot('cie/')+'img/nocolindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
+
     <?php     
  
         $data = $this->Procedure_model->Lista_Last_Gps();
@@ -74,48 +93,27 @@
 
            var marker<?php echo $x; ?> = new MarkerWithLabel({
              position: myLatlng<?php echo $x; ?>,
-             draggable: true,
+             draggable: false,
              raiseOnDrag: true,
              map: map,
              labelContent: <?php echo "'".$filas->codigo_de_local." - ".$filas->nro_pred."'"; ?>,
              labelAnchor: new google.maps.Point(22, 0),
              labelClass: "labels", // the CSS class for the label
-             labelStyle: {opacity: 1.0}
+             labelStyle: {opacity: 1.0},
+             icon: <?php if($filas->Tipo==0){echo "image";}else{echo "image2";} ?>
            });
-
-       
           
-          var contentString<?php echo $x; ?>="<table>"+
-            "<thead>"+
-              "<tr>"+
-              "<th colspan='9' style='text-align:center;'>Punto GPS</th>"+
-              "</tr>"+
-              "<tr>"+
-              "<th>Local</th>"+
-              "<th>Predio</th>"+
-              "<th>Departamento</th>"+
-              "<th>Provincia</th>"+
-              "<th>Distrito</th>"+
-              "<th>Longitud</th>"+
-              "<th>Latitud</th>"+
-              "<th>Altitud</th>"+
-              "<th>cedula</th>"+
-              "</tr>"+
-            "</thead>"+
-            "<tbody>"+
-              "<td><?php echo $filas->codigo_de_local; ?></td>"+
-              "<td><?php echo $filas->nro_pred; ?></td>"+
-              "<td><?php echo $filas->Departamento; ?></td>"+
-              "<td><?php echo $filas->Provincia; ?></td>"+
-              "<td><?php echo $filas->Distrito; ?></td>"+
-              "<td><?php echo $filas->LongitudPunto; ?></td>"+
-              "<td><?php echo $filas->LatitudPunto; ?></td>"+
-              "<td><?php echo $filas->AltitudPunto; ?></td>"+
-              "<td><a href='#'>Cedula</a></td>"+
-            "</tbody>"+
-          "</table>";
-
-
+          var contentString<?php echo $x; ?>="<div>"+
+              "<strong>Codigo de local: </strong><?php echo $filas->codigo_de_local; ?><br />"+
+              "<strong>Predio: </strong><?php echo $filas->nro_pred; ?> (<?php if($filas->Tipo==0){echo 'Principal o Colindante';}else{echo 'No Colindante';} ?>)<br />"+
+              "<strong>Departamento: </strong><?php echo $filas->Departamento; ?><br />"+
+              "<strong>Provincia: </strong><?php echo $filas->Provincia; ?><br />"+
+              "<strong>Distrito: </strong><?php echo $filas->Distrito; ?><br />"+
+              "<strong>Longitud: </strong><?php echo $filas->LongitudPunto; ?><br />"+
+              "<strong>Latitud: </strong><?php echo $filas->LatitudPunto; ?><br />"+
+              "<strong>Altitud: </strong><?php echo $filas->AltitudPunto; ?><br />"+
+              "<a href='"+urlRoot('index.php/')+"visor/caratula1/?le=<?php echo obfuscate($filas->codigo_de_local); ?>&pr=1' target='_blank'>Cedula</a>"+
+            "</div>";
 
           var infowindow<?php echo $x; ?> = new google.maps.InfoWindow({
             content: contentString<?php echo $x; ?>,
@@ -124,19 +122,14 @@
           google.maps.event.addListener(marker<?php echo $x; ?>, 'click', function() {
             infowindow<?php echo $x; ?>.open(map,marker<?php echo $x; ?>);
           });
-
-          var markerCluster = new MarkerClusterer(map, marker<?php echo $x; ?>);
+          
         <?php 
 
          }
 
         ?>
 
-     
-
       }
-
-
 
       google.maps.event.addDomListener(window, 'load', initialize);
 

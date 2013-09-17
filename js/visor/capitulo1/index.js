@@ -171,15 +171,19 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 											
 	});
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1B/Tabla/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
+	function lista_Predios(){
+		
+		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
 
-		$.each(data, function(index, val) {
-			 
-			
+			$.each(data, function(index, val) {
+				 
+							
+
+			});
 
 		});
-
-	})
+	
+	}
 
 }
 

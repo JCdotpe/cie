@@ -3,8 +3,22 @@
 <script type="text/javascript">
 
 	$.import('js/visor/caratula1/index.js','js');
+
+	$(document).ready(function() {
+
+		get_PadLocal();
+		get_PCar();
+
+		$('input').attr({
+			disabled : true,
+		});
+
+	});
+
 	
 </script>
+
+
 
 <div class="tab-pane active" id="general">
 					<div class="content" id="content1">

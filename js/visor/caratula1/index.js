@@ -1,15 +1,4 @@
 
-$(document).ready(function() {
-
-		get_PadLocal();
-		get_PCar();
-
-		$('input').attr({
-			disabled : true,
-		});
-
-});
-
 function get_PadLocal(cod_local){
 
 		$.post(urlRoot('index.php')+'/visor/visor/get_PadLocal/', {cod_local:getLocal()}, function(data) {
@@ -31,66 +20,79 @@ function get_PadLocal(cod_local){
 		});
 }
 
-function get_PCar(){
+function get_PCar(type){
 
 	var cod_loc="";
 	$.getJSON(urlRoot('index.php')+'/visor/PCar/Data/', {token:getToken() ,id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 			$.each(data, function(index, val) {
 				
-				$('.id_local').val(val.id_local);
-				$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);
-				$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
-				$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
-				$('#PC_A_7Dir_3_Nro').html(val.PC_A_7Dir_3_Nro);
-				$('#PC_A_7Dir_4_Piso').html(val.PC_A_7Dir_4_Piso);
-				$('#PC_A_7Dir_5_Mz').html(val.PC_A_7Dir_5_Mz);
-				$('#PC_A_7Dir_6_Lt').html(val.PC_A_7Dir_6_Lt);
-				$('#PC_A_7Dir_7_Sect').html(val.PC_A_7Dir_7_Sect);
-				$('#PC_A_7Dir_8_Zona').html(val.PC_A_7Dir_8_Zona);
-				$('#PC_A_7Dir_9_Et').html(val.PC_A_7Dir_9_Et);
-				$('#PC_A_7Dir_10_Km').html(val.PC_A_7Dir_10_Km);
+				if(type="simple"){
 
-				get_type_Address(val.PC_A_7Dir_1_Tvia);
-				get_dir_Verif(val.PC_A_8_DirVerif);
-
-				$('#PC_A_9_RefDir').val(val.PC_A_9_RefDir);
-				$('.PC_B_1_CodLocal').val(val.PC_B_1_CodLocal);
-				$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv);
-
-				get_PCar_C_1N(val.PC_B_1_CodLocal)
-
-				$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha);
-				
-				if(val.PC_C_2_Rfinal_resul==5){
-				
-					$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul+" - "+val.PC_C_2_Rfinal_resul_O);
+					$('.id_local').val(val.id_local);
+					$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);//
+					$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);//
+					$('.PC_B_1_CodLocal').val(val.PC_B_1_CodLocal);//
 				
 				}else{
-				
-					$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);		
-				
+
+					$('.id_local').val(val.id_local);
+					$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);
+					$('.PC_A_5_NucleoUrb').val(val.PC_A_5_NucleoUrb);
+					$('.PC_B_1_CodLocal').val(val.PC_B_1_CodLocal);
+					$('#PC_A_7Dir_2_Nomb').html(val.PC_A_7Dir_2_Nomb);
+					$('#PC_A_7Dir_3_Nro').html(val.PC_A_7Dir_3_Nro);
+					$('#PC_A_7Dir_4_Piso').html(val.PC_A_7Dir_4_Piso);
+					$('#PC_A_7Dir_5_Mz').html(val.PC_A_7Dir_5_Mz);
+					$('#PC_A_7Dir_6_Lt').html(val.PC_A_7Dir_6_Lt);
+					$('#PC_A_7Dir_7_Sect').html(val.PC_A_7Dir_7_Sect);
+					$('#PC_A_7Dir_8_Zona').html(val.PC_A_7Dir_8_Zona);
+					$('#PC_A_7Dir_9_Et').html(val.PC_A_7Dir_9_Et);
+					$('#PC_A_7Dir_10_Km').html(val.PC_A_7Dir_10_Km);
+
+					get_type_Address(val.PC_A_7Dir_1_Tvia);
+					get_dir_Verif(val.PC_A_8_DirVerif);
+
+					$('#PC_A_9_RefDir').val(val.PC_A_9_RefDir);
+					
+					$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv);
+
+					get_PCar_C_1N(val.PC_B_1_CodLocal)
+
+					$('#PC_C_2_Rfinal_fecha').html(val.PC_C_2_Rfinal_fecha);
+					
+					if(val.PC_C_2_Rfinal_resul==5){
+					
+						$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul+" - "+val.PC_C_2_Rfinal_resul_O);
+					
+					}else{
+					
+						$('#PC_C_2_Rfinal_resul').html(val.PC_C_2_Rfinal_resul);		
+					
+					}
+
+					$('#PC_D_EvT_dni').html(val.PC_D_EvT_dni);
+					$('#PC_D_EvT_Nomb').html(val.PC_D_EvT_Nomb);
+					$('#PC_D_JBri_dni').html(val.PC_D_JBri_dni);
+					$('#PC_D_JBri_Nomb').html(val.PC_D_JBri_Nomb);
+					$('#PC_D_CProv_dni').html(val.PC_D_CProv_dni);
+					$('#PC_D_CProv_Nomb').html(val.PC_D_CProv_Nomb);
+					$('#PC_D_CDep_dni').html(val.PC_D_CDep_dni);
+					$('#PC_D_CDep_Nomb').html(val.PC_D_CDep_Nomb);
+					$('#PC_D_SupN_dni').html(val.PC_D_SupN_dni);
+					$('#PC_D_SupN_Nomb').html(val.PC_D_SupN_Nomb);
+
+					$('#PC_E_1_TPred').html(val.PC_E_1_TPred);
+					$('#PC_E_2_TPred_NoCol').html(val.PC_E_2_TPred_NoCol);
+					$('#PC_E_3_TEdif').html(val.PC_E_3_TEdif);
+					$('#PC_E_4_TPat').html(val.PC_E_4_TPat);
+					$('#PC_E_5_TLosa').html(val.PC_E_5_TLosa);
+					$('#PC_E_6_TCist').html(val.PC_E_6_TCist);
+					$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
+					$('#Nro_Pred').html(val.Nro_Pred);
+
 				}
-
-				$('#PC_D_EvT_dni').html(val.PC_D_EvT_dni);
-				$('#PC_D_EvT_Nomb').html(val.PC_D_EvT_Nomb);
-				$('#PC_D_JBri_dni').html(val.PC_D_JBri_dni);
-				$('#PC_D_JBri_Nomb').html(val.PC_D_JBri_Nomb);
-				$('#PC_D_CProv_dni').html(val.PC_D_CProv_dni);
-				$('#PC_D_CProv_Nomb').html(val.PC_D_CProv_Nomb);
-				$('#PC_D_CDep_dni').html(val.PC_D_CDep_dni);
-				$('#PC_D_CDep_Nomb').html(val.PC_D_CDep_Nomb);
-				$('#PC_D_SupN_dni').html(val.PC_D_SupN_dni);
-				$('#PC_D_SupN_Nomb').html(val.PC_D_SupN_Nomb);
-
-				$('#PC_E_1_TPred').html(val.PC_E_1_TPred);
-				$('#PC_E_2_TPred_NoCol').html(val.PC_E_2_TPred_NoCol);
-				$('#PC_E_3_TEdif').html(val.PC_E_3_TEdif);
-				$('#PC_E_4_TPat').html(val.PC_E_4_TPat);
-				$('#PC_E_5_TLosa').html(val.PC_E_5_TLosa);
-				$('#PC_E_6_TCist').html(val.PC_E_6_TCist);
-				$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
-				$('#Nro_Pred').html(val.Nro_Pred);
+				
 
 			})
 		
