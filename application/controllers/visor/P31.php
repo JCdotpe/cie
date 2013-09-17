@@ -28,11 +28,6 @@ class P31 extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            /*foreach ($array as $key => $value) {
-
-              $array[$key]['version']='1';
-            }*/
-
 
             $flag = $this->P31_model->insertBatch($array);
 
@@ -51,7 +46,7 @@ class P31 extends REST_Controller{
         }
 
         $this->response($msg, 200);
-        
+
     }
 
     public function Data_get(){

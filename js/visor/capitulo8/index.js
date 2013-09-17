@@ -10,57 +10,44 @@ $(document).ready(function(){
 	});
 	Get_Tot_Edif_Cap05();
 
-	$('#losasdeportivas,#cisterna,#muros').change(function(event) {
-		var tipo=null;
-		var prefijo=null;
-		var val=null;
-		switch(event.target.id){
-		 	case 'combopatios':
-		 		tipo= $('#combopatios');
-		 		prefijo='P';
-		 		val= $('#combopatios').val();
-		 		break;
+	var val=null;
+	Get_Edif('P',1);
+	Get_Edif('LD',1);
+	Get_Edif('MC',1);
+	Get_Edif('CTE',1);
 
-		 	case 'losasdeportivas':
-		 		tipo= $('#losasdeportivas');
-		 		prefijo='LD';
-		 		val= $('#losasdeportivas').val();
-
-		 		break;
-
-		 	case 'cisterna':
-		 		tipo= $('#cisterna');
-		 		prefijo='CTE';
-		 		val= $('#cisterna').val();
-		 		break;
-
-		 	case 'muros':
-		 		tipo= $('#muros');
-		 		prefijo='MC';
-		 		val= $('#muros').val();
-		 		break;
-		}
-
-		 Get_Edif(tipo,prefijo,val);
-	}).change();
 
 	$('#combopatios').change(function(event) {
-		var tipo=null;
-		var prefijo=null;
-		var val=null;
-		tipo= $('#combopatios');
-		prefijo='P';
-		val= $('#combopatios').val();
-		Get_Edif(tipo,prefijo,val);
 
-	}).change();
-	
+		val= $('#combopatios').val();
+		Get_Edif('P',val);
+	});
+
+
+	$('#losasdeportivas').change(function(event) {
+
+		val= $('#losasdeportivas').val();
+		Get_Edif('LD',val);
+	});
+
+	$('#cisterna').change(function(event) {
+
+		val= $('#cisterna').val();
+		Get_Edif('MC',val);
+	});
+
+	$('#muros').change(function(event) {
+
+		val= $('#muros').val();
+		Get_Edif('CTE',val);
+	});
+
 
 });
 
 function Get_count_Type_Edif(){
 
-		$.getJSON(CI.base_url+'index.php/visor/P8/Data/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio()}, function(data) {			
+		$.getJSON(CI.base_url+'index.php/visor/P8/Data/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio()}, function(data) {
 			$.each(data ,function(index, val){
 				if (val.P8_2_Tipo=='P'){
 					$('#combopatios').append('<option value="' + val.P8_2_Nro + '">' + val.P8_2_Tipo +'- '+val.P8_2_Nro+ '</option>');
@@ -82,20 +69,20 @@ function Get_count_Type_Edif(){
 		});
 }
 
-function Get_Edif(tipo,prefijo,numero){
+function Get_Edif(prefijo,numero){
 		var arr=[];
 		$.getJSON(CI.base_url+'index.php/visor/P8/DataTipoEdif/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio(), P8_2_Tipo: prefijo, P8_2_Nro:numero}, function(data) {
-			
+
 			$.each(data ,function(index, val){
-					
+
 					$('#P8_2_Nro'+prefijo).val(val.P8_2_Nro);
 					if (prefijo!='MC') {
 						arr = val.P8_area.split(".");
 						$('#P8_area'+prefijo).val(arr[0]);
 						$('#P8_area_decimal'+prefijo).val();
 					};
-					
-					
+
+
 					$('#Nro_Pred'+prefijo).val(val.Nro_Pred);
 					$('#P8_altura').val(val.P8_altura);
 					$('#P8_longitud').val(val.P8_longitud);

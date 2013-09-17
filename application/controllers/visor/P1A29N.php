@@ -21,22 +21,18 @@ class P1A29N extends REST_Controller{
         $result=validtoken_get($this->post('token'));
 
         if (!$result) {
-          
+
           $msg= array('message' => 'Token key invalid',
                       'value'=> false);
         }else{
 
             $array= json_decode($data,1);
-           
-            foreach ($array as $key => $value) {
-           
-              $array[$key]['version']='1';// poner 99 mas adelante
-           
-            }            
-            
+
+
+
             $flag = $this->P1A29N_model->insertBatch($array);
-            
-            if ($flag) {           
+
+            if ($flag) {
 
               $msg= array('message' => 'Saved Successfull',
                       'value'=> true);
@@ -47,7 +43,7 @@ class P1A29N extends REST_Controller{
                       'value'=> false);
 
             }
-        
+
         }
 
         $this->response($msg, 200);
@@ -56,9 +52,9 @@ class P1A29N extends REST_Controller{
     public function Data_get(){
 
          $result=validtoken_get($this->get('token'));
-    
+
         if (!$result) {
-          
+
           $msg= array('message' => 'Token Key Invalid',
                       'value'=> false);
           prettyPrint(json_encode($msg));
@@ -66,7 +62,7 @@ class P1A29N extends REST_Controller{
         }else{
 
             header_json();
-            
+
             $data = $this->P1A29N_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = my_json_encode($data->result());
@@ -75,8 +71,8 @@ class P1A29N extends REST_Controller{
 
         }
 
-        
-            
+
+
     }
 
 }

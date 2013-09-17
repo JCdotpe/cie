@@ -1,33 +1,44 @@
 <script type="text/javascript">
-
+	$.import('css/basic.css','css');
 	$.import('js/visor/capitulo7/index.js','js');
-
 </script>
 
 <?php $this->load->view('visor/nav_view.php'); ?>	  	    	<!-- CAPITULO 7-->
-				<div id="pag_edificacion" style="width:920px; height:200px; overflow:auto;"  >
+				<div id="pag_edificacion"  >
 		  	    				<!--AJAX-->
-		  	    				<table class="table table-hover" style="width:920px;" class="content8" >
-										<thead>
-										<tr align="center">
-											<th colspan="3" style="text-align:center; vertical-align:middle;">EDIFICACIONES</th>
-										</tr>
-							    			<tr>
-							    				<th>NRO DE EDIFICACION</th>
-							    				<th style="text-align:right;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
-							    				<th style="text-align:right;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
-							    			</tr>
-							    		</thead>
-							    		<tbody id="edificaciones">
+		  	    				<div class="panel panel_title">
+										<strong>LISTADO DE EDIFICIACIONES</strong>
+									</div>
+									<table class="table table-hover" style="width:920px;">
+											<thead>
+								    		<tr>
 
-							    		</tbody>
-								</table>
+								    				<th style="text-align:center;">NRO DE EDIFICACION</th>
+								    				<th style="text-align:center;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
+								    				<th style="text-align:center;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
+								    		</tr>
+								    		</thead>
+
+								    </table>
+								    <div style="width:920px; height:150px; overflow:auto;">
+									    <table class="table table-hover" >
+									    	<tbody id="edificaciones">
+
+									    	</tbody>
+									    </table>
+
+								    </div>
 		  	    </div>
 	  	    	<div class="tab-pane" id="cap7">
 	  	    		<div class="content" id="content8">
+	  	    		<div class="panel panel-info">
 	  	    			<table class="table table-bordered">
 	  	    				<thead>
-	  	    					<th colspan="3" style="text-align:center;">Sección A:  Sistema estructural predominante y estado de conservación de la edificación</th>
+	  	    					<tr>
+	  	    						<div class="panel-heading">
+											<h5 class="panel-title">Sección A:  Sistema estructural predominante y estado de conservación de la edificación</h5>
+									</div>
+	  	    					</tr>
 	  	    				</thead>
 	  	    				<tbody>
 	  	    					<tr>
@@ -43,7 +54,7 @@
 	  	    							<strong>¿quién es el ejecutor de la obra?</strong>
 	  	    							<br>(acepte un solo código)
 	  	    						</td>
-	  	    						<td>	  	    							
+	  	    						<td>
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_1_2" id="P7_1_21" value="option1" >
@@ -100,7 +111,7 @@
 													<input type="radio" name="P7_1_3" id="P7_1_33" value="option1" >
 													    Después de 1998
 													</label>
-											</div>											
+											</div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -986,7 +997,7 @@
 	  	    					<tr>
 	  	    						<td>21.</td>
 	  	    						<td>
-	  	    							<strong>Las conexiones estan en buen estado</strong>	    							
+	  	    							<strong>Las conexiones estan en buen estado</strong>
 	  	    						</td>
 	  	    						<td>
 	  	    								<div class="radio">
@@ -1007,7 +1018,7 @@
 	  	    					<tr>
 	  	    						<td>22.</td>
 	  	    						<td>
-	  	    							<strong>Presenta arriostramiento lateral</strong>	    							
+	  	    							<strong>Presenta arriostramiento lateral</strong>
 	  	    						</td>
 	  	    						<td>
 	  	    								<div class="radio">
@@ -1226,7 +1237,12 @@
 	  	    			</table>
 	  	    			<table class="table table-bordered">
 	  	    				<thead>
-	  	    					<th colspan="3" style="text-align:center;">Sección B:  Opinión técnica del evaluador</th>
+	  	    					<tr>
+	  	    						<div class="panel-heading">
+											<h5 class="panel-title">Sección B:  Opinión técnica del evaluador</h5>
+									</div>
+	  	    					</tr>
+
 	  	    				</thead>
 	  	    				<tbody>
 	  	    					<tr>
@@ -1270,5 +1286,6 @@
 	  	    					</tr>
 	  	    				</tbody>
 	  	    			</table>
+	  	    			</div>
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO 7-->

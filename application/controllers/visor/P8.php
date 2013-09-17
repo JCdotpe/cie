@@ -28,11 +28,7 @@ class P8 extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            foreach ($array as $key => $value) {
 
-              $array[$key]['version']='1';// poner 99 mas adelante
-
-            }
 
             $flag = $this->P8_model->insertBatch($array);
 

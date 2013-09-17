@@ -28,15 +28,11 @@ class P1A2N extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            foreach ($array as $key => $value) {
 
-              $array[$key]['version']='1';// poner 99 mas adelante
 
-            }
-            
             $flag = $this->P1A2N_model->insertBatch($array);
-            
-            if ($flag) {           
+
+            if ($flag) {
 
               $msg= array('message' => 'Saved Successfull',
                       'value'=> true);

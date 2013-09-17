@@ -14,9 +14,9 @@
 
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
-		  	    					<tr>
+
 			  	    					<th colspan="3">Sección A: IDENTIFICACIÓN DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</th>
-		  	    					</tr>
+
 		  	    				</thead>
 		  	    			</table>
 		  	    			<table class="table table-bordered">

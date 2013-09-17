@@ -1,14 +1,22 @@
 $(document).ready(function(){
-	
-	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';	
+
+	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
 	var cod_local=getLocal();
 	Get_List_Edif_Cap06();
-	$('#edificaciones').on('click','.ie',function(event){
-		
-		nro_edif=$(this).attr('id');		
+	var nro_edif="1";
+	Get_cap7(nro_edif);
+	//Edificaciones
+	$('#edificaciones').on('click','.raw',function(event){
+
+		nro_edif=$(this).attr('id');
+		/*Get_Edif_Cap06(token,cod_local,predio,nro_edif);
+		Get_Edif_Pisos_Cap06(nro_edif);*/
+		$('.raw').removeClass('raw_active');
+		$(this).addClass('raw_active');
 		Get_cap7(nro_edif);
 	});
-		
+
+
 	$('input').attr({
 		disabled : true,
 	});
@@ -18,21 +26,24 @@ $(document).ready(function(){
 function Get_List_Edif_Cap06(){
 
 	var html="";
-	var i=1;
+	var i=0;
+	var cl="";
 
 	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 
 				$.each(data, function(index, val) {
-					// aqui me quede seccion c
-
-		  	    	html+='<tr class="ie" id="'+val.Nro_Ed+'">'+
-		  	    					'<td style="text-align:center"> Edificación Nro. '+val.Nro_Ed+'.</td>'+
+					i++;
+		  	    	html+='<tr id="'+val.Nro_Ed+'" class="raw '+cl+'">'+
+		  	    					'<td style="text-align:center;width:150px;"> Edificación Nro. '+val.Nro_Ed+'.</td>'+
 		  	    					'<td style="text-align:center">'+val.P6_1_3+'.</td>'+
 		  	    					'<td style="text-align:center">'+val.P6_1_4+'.</td>'+
 		  	    				'</tr>';
 				});
-
-				$('#seccion_m').html(html);
+				if(i==0){
+					html+='<tr id="">'+
+						'<td colspan="2" style="text-align:center;">No Existen Edificaciones en el Predio '+getPredio()+' </td>'+
+						'</tr>';
+				}
 				$('#edificaciones').html(html);
 
 	});
@@ -80,6 +91,6 @@ function Get_cap7(nro_edif){
 			check_Radio(val.P7_1_27,'P7_1_27');
 			check_Radio(val.P7_1_28,'P7_1_28');
 			check_Radio(val.P7_2_1,'P7_2_1');
-		});		
+		});
 	});
 }

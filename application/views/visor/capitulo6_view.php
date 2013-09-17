@@ -1,6 +1,7 @@
 
 <script type="text/javascript">
 
+	$.import('css/basic.css','css');
 	$.import('js/visor/capitulo6/index.js','js');
 
 </script>
@@ -35,23 +36,30 @@
 
 
 
-		  	    			<div id="pag_seccion_a" style="width:920px; height:200px; overflow:auto;"  >
-		  	    				<!--AJAX-->
-		  	    				<table class="table table-hover" style="width:920px;" class="content8" >
-										<thead>
-										<tr align="center">
-											<th colspan="3" style="text-align:center; vertical-align:middle;">EDIFICACIONES</th>
-										</tr>
-							    			<tr>
-							    				<th>NRO DE EDIFICACION</th>
-							    				<th style="text-align:right;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
-							    				<th style="text-align:right;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
-							    			</tr>
-							    		</thead>
-							    		<tbody id="seccion_m">
+		  	    			<div id="pag_seccion_a">
 
-							    		</tbody>
-								</table>
+			  	    				<div class="panel panel_title">
+										<strong>LISTADO DE EDIFICIACIONES</strong>
+									</div>
+									<table class="table table-hover" style="width:920px;">
+											<thead>
+								    		<tr>
+
+								    				<th style="text-align:center;">NRO DE EDIFICACION</th>
+								    				<th style="text-align:center;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
+								    				<th style="text-align:center;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
+								    		</tr>
+								    		</thead>
+
+								    </table>
+								    <div style="width:920px; height:150px; overflow:auto;">
+									    <table class="table table-hover" >
+									    	<tbody id="seccion_m">
+
+									    	</tbody>
+									    </table>
+
+								    </div>
 		  	    			</div>
 
 		  	    			<div id="seccion_a" class="content7">
@@ -222,28 +230,36 @@
 		  	    				</table>
 							</div>
 
-							<div id="pag_seccion_b" style="width:920px; height:200px; overflow:auto;"  >
+							<div id="pag_seccion_b" >
 			  	    				<!--AJAX-->
-			  	    				<table class="table table-hover" style="width:920px;" class="content8">
-											<thead>
-											<tr align="center">
-												<th colspan="3" style="text-align:center; vertical-align:middle;">LISTADO DE AMBIENTES</th>
-											</tr>
-								    			<tr>
-								    				<th  style="text-align:center;">NRO DE AMBIENTE</th>
-								    				<th style="text-align:center;">NRO DE PISO</th>
-								    			</tr>
-								    		</thead>
-								    		<tbody id="seccion_b">
+			  	    				<div class="panel panel_title">
+										<strong>LISTADO DE AMBIENTES</strong>
+									</div>
 
-								    		</tbody>
-									</table>
+			  	    				<table class="table table-hover" style="width:920px;" >
+											<thead>
+								    		<tr>
+								    			<th style="text-align:center;">NRO DE AMBIENTE</th>
+								    			<th style="text-align:center;">NRO DE PISO</th>
+								    		</tr>
+								    		</thead>
+								    </table>
+
+									<div style="width:920px; height:150px; overflow:auto;">
+										    <table class="table table-hover" >
+										    	<tbody id="seccion_b">
+
+										    	</tbody>
+										    </table>
+									</div>
 			  	    		</div>
 
-							<table class="table table-bordered">
+							<table class="table table-bordered" id="pag_seccion_b1">
 		  	    				<thead>
 		  	    					<tr>
-			  	    					<th colspan="2">Sección B: Verificación de los espacios educativos de la edificación</th>
+			  	    					<div class="panel-heading">
+											<h5 class="panel-title">Sección B: Verificación de los espacios educativos de la edificación</h5>
+										</div>
 		  	    					</tr>
 		  	    				</thead>
 		  	    				<tbody>
@@ -259,7 +275,7 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-		  	    			<table class="table table-bordered">
+		  	    			<table class="table table-bordered" id="pag_seccion_b2">
 		  	    				<tbody>
 		  	    					<td>3.</td>
 		  	    					<td>
@@ -953,7 +969,7 @@
 											</label>
 			  	    						<label class="radio">
 												<input type="radio" id="P6_2_133" value="option3"> 3. Caseta de Guardianía
-											</label>			  	    						
+											</label>
 			  	    						<label class="radio">
 												<input type="radio" id="P6_2_134" value="option3"> 4. Área de espera
 											</label>
@@ -1412,22 +1428,22 @@
 			  	    										<label class="checkbox">
 																<input type="checkbox" id="P6_2_16f6" value="option3"> 6. No tiene
 															</label>
-				  	    									
+
 				  	    								</td>
 				  	    								<td>
-				  	    								
-															
-														
+
+
+
 				  	    								</td>
 				  	    								<td>
-				  	    									
-															
-															
+
+
+
 				  	    								</td>
 				  	    								<td>
-				  	    									
-															
-															
+
+
+
 				  	    								</td>
 			  	    								</tr>
 			  	    							</tbody>
@@ -1632,16 +1648,19 @@
 									<textarea style="width:870px; height:100px;" id="P6_2_20Obs"></textarea>
 								</div>
 		  	    				<!-- cierre caso 1-->
-		  	    				
-		  	    				
+
+
 		  	    			</div>
 
-		  	    			
+
 
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="3">Sección C:  instalaciones eléctricas interiores de la edificación</th>
+
+										<div class="panel-heading">
+											<h5 class="panel-title">Sección C: Verificación de los espacios educativos de la edificación</h5>
+										</div>
 									</tr>
 									<tr>
 										<th colspan="3">Evaluador: esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero dEBErá preguntar y luego verificar.</th>
@@ -1864,9 +1883,10 @@
 
 							<table class="table table-bordered" id="secciond">
 								<thead>
-									<tr>
-										<th colspan="3">Sección D: Instalaciones sanitarias interiores de la edificación</th>
-									</tr>
+
+									<div class="panel-heading">
+											<h5 class="panel-title">Sección D: Instalaciones sanitarias interiores de la edificación</h5>
+									</div>
 									<tr>
 										<th colspan="3">Evaluador: Evaluador: esta sección se realizará por observación directa.</th>
 									</tr>
@@ -1941,9 +1961,10 @@
 
 							<table class="table table-bordered">
 								<thead>
-									<tr>
-										<th colspan="3">Sección E: Canaletas aéreas y bajadas pluviales de la edificación</th>
-									</tr>
+
+									<div class="panel-heading">
+											<h5 class="panel-title">Sección E: Instalaciones sanitarias interiores de la edificación</h5>
+									</div>
 									<tr>
 										<th colspan="3">Evaluador: Evaluador: esta sección se realizará por observación directa</th>
 									</tr>

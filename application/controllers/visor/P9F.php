@@ -28,11 +28,7 @@ class P9F extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            foreach ($array as $key => $value) {
 
-              $array[$key]['version']='1';// poner 99 mas adelante
-
-            }
 
             $flag = $this->P9F_model->insertBatch($array);
 

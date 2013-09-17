@@ -125,6 +125,7 @@ class getToken extends REST_Controller
         $msg="";
         $next=true;
         $resulimei=$this->Personal_Patrimonio_model->get_imei($this->post('imei'));
+
         if ($resulimei->num_rows() > 0) {
             # code...
             $code=4;

@@ -28,11 +28,7 @@ class PCar extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            foreach ($array as $key => $value) {
 
-              $array[$key]['version']='1';// poner 99 mas adelante
-
-            }
 
             $flag = $this->PCar_model->insertBatch($array);
 
