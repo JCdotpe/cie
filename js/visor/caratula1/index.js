@@ -27,7 +27,7 @@ function get_PCar(type){
 		
 			$.each(data, function(index, val) {
 				
-				if(type="simple"){
+				if(type=="simple"){
 
 					$('.id_local').val(val.id_local);
 					$('.PC_A_4_CentroP').val(val.PC_A_4_CentroP);//
