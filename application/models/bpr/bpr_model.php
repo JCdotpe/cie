@@ -47,6 +47,20 @@ class Bpr_Model extends CI_Model {
 		$this->db->query($query2);
 		return $this->db->affected_rows();
 	}
+
+	public function get_pregunta_principal()
+	{
+		$sql="SELECT id_cuestionario, id_nro, consulta, convert(char,fecha,103) as fecha_creacion FROM bpr_cuestionario WHERE id_nro = 1 ORDER BY fecha";
+		$q=$this->db->query($sql);
+		return $q;
+	}
+
+	public function get_ultima_respuesta($codigo)
+	{ 
+		$sql="SELECT TOP 1 id_cuestionario, id_nro, respuesta, convert(char,fecha,103) as fecha_respuesta FROM bpr_respuesta WHERE id_cuestionario = $codigo ORDER BY id_nro DESC";
+		$q=$this->db->query($sql);
+		return $q;
+	}
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

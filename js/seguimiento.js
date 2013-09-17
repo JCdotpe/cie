@@ -168,3 +168,79 @@ function verdatos(intervalo)
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }
+
+function validar_numeros(e)
+{
+	e= (window.event)? event : e;
+	tecla= (e.keyCode)? e.keyCode: e.which;
+	if (tecla==8 || tecla==9 || tecla==16 || (tecla>=35 && tecla<=40)) return true; 
+	patron =/[0-9]/;
+	te = String.fromCharCode(tecla);
+	return patron.test(te); 
+}
+
+function consultar_codigo()
+{
+	var doLoginMethodUrl = 'mantenimiento_fotos/existelocal';
+	var id_codigo = $("#codigolocal").val();
+	
+	$.ajax({
+		type: "POST",
+		url: doLoginMethodUrl,
+		data: "codigo="+id_codigo,
+		dataType:'json',
+		success: function(data){
+			if (data.cantidad==0)
+			{
+				alert("El Codigo es Invalido");
+				$("#codigolocal").val('');				
+			}
+		}
+	});
+}
+
+
+function Validar_Fotos()
+{
+	var codigo = $("#codigolocal").val();
+	var repo = document.getElementsByName("estado_repo");
+	var estado_repo ="";
+  
+	for(i=0;i<repo.length;i++){
+		if(repo[i].checked){
+			estado_repo = repo[i].value;
+			break;
+		}
+	}
+
+	if (codigo == "" || estado_repo == "")
+	{
+		alert("Faltan Datos!");
+		return false;
+	}else{
+		registar_detalle_fotos(estado_repo);
+	}
+}
+
+function registar_detalle_fotos(estado)
+{
+	var bsub = $( ":submit" );
+	var form_data = $('#frm_seguimiento_mant').serializeArray();
+
+	form_data.push(
+		{name: 'estado_repo',value:estado}
+	);
+	form_data = $.param(form_data);
+
+	$.ajax({
+		type: "POST", 
+		url: "mantenimiento_fotos/registro",
+		data: form_data,
+		success: function(response){
+			$("#codigolocal").val('');
+			$("#observaciones").val('');			
+			$("input:radio").attr("checked", false);
+			alert("Datos Registrados!");
+		}
+	});
+}

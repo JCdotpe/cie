@@ -150,14 +150,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="row-fluid well top-conv">
+			<div id="v_banco" class="row-fluid well top-conv">
+				<!--
 				<div class="row-fluid">
-					<div class="span8">
-						<a href="">EL CIE no cuenta con correo electrónico, qué hago??</a>
-					</div>
-					<div class="span3">
-						12/03/2013
-					</div>
+					<div id="preg0" class="span8"></div>
 				</div>
 				<div class="row-fluid">
 					<div class="span10">
@@ -176,9 +172,85 @@
 					<div class="span10">
 						Segundaaaaaa Respuestaaaaaaaaaaaaaa!!!  xD
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<?php echo form_close(); ?>			
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var doLoginMethodUrl = 'banco/view_pregunta';
+		//var pregunta = document.getElementById("v_banco");
+		var campo;
+		var campo1;
+		var campo2;
+		$.ajax({
+			type: "POST",
+			url: doLoginMethodUrl,
+			//data: "id_depa="+id_depa+"&id_prov="+id_prov,
+			dataType:'json',
+			success: function(json_data){
+				$.each(json_data, function(i, data){
+					campo1 = '<div class="row-fluid">'+
+					'<div id="preg'+data.CODIGO+'" class="span8">'+
+					data.CONSULTA+'</div>'+
+					'<div id="fex'+data.CODIGO+'" class="span3">'+
+					data.FECHA+'</div>'+
+					'</div>';
+					/*
+					$.ajax({
+	                    type: "POST",
+	                    url: "banco/view_ultima_respuesta",
+	                    data: "id_cuestionario=1",
+	                    dataType:'json',
+	                    success: function(json_data){
+	                       $.each(json_data, function(i, data){
+								campo2 = '<div class="row-fluid">'+
+								'<div id="resp'+data.CODIGO+'" class="span10">'+
+								data.RESPUESTA+'</div>'+
+								'</div>';
+								return campo2;
+								//$("#v_banco").append(campo);
+							});
+	                    }
+	                });*/
+					//campo2 = view_last_respuesta(data.CODIGO);
+
+	                campo = campo1+campo2;
+					
+					$("#v_banco").append(campo);
+					//view_last_respuesta(data.CODIGO);
+				});
+			}
+		});
+	});
+
+	function view_last_respuesta(codigo)
+	{
+		var doLoginMethodUrl = 'banco/view_ultima_respuesta';
+		//var respuesta = document.getElementById("v_banco");
+		var campo;
+		$.ajax({
+			type: "POST",
+			url: doLoginMethodUrl,
+			data: "id_cuestionario="+codigo,
+			dataType:'json',
+			success: function(json_data){
+				$.each(json_data, function(i, data){
+					campo = '<div class="row-fluid">'+
+					'<div id="resp'+data.CODIGO+'" class="span10">'+
+					data.RESPUESTA+'</div>'+
+					'</div>';
+					//$("#v_banco").append(campo);
+					
+				});
+			}
+		});
+		return campo;
+	}
+
+</script>

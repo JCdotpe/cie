@@ -80,6 +80,28 @@ class Seguimiento_Model extends CI_Model {
 		return $q;
 	}
 
+	function get_existelocal($codigo_de_local)
+	{
+		$sql = "SELECT COUNT(id_local) as Cantidad_Registros FROM fotos_detalle_cie WHERE id_local = '$codigo_de_local'";
+
+		$q = $this->db->query($sql);
+		$row = $q->first_row();
+		return $row->Cantidad_Registros;
+	}
+
+	function insert_detalle_foto($data)
+	{
+		if ($data['repositorio']==1)
+		{
+			$query="UPDATE fotos_detalle_cie set repositorio = '".$data['repositorio']."', observaciones = '".$data['observaciones']."', fecha_ftp = getdate() WHERE id_local = '".$data['id_local']."'";
+		}else{
+			$query="UPDATE fotos_detalle_cie set repositorio = '".$data['repositorio']."', observaciones = '".$data['observaciones']."', fecha_storage = getdate() WHERE id_local = '".$data['id_local']."'";
+		}
+
+		$this->db->query($query);
+		return $this->db->affected_rows();
+	}
+
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

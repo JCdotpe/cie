@@ -38,6 +38,7 @@ class Seguimiento extends CI_Controller {
 	{
 		$data['nav'] = TRUE;
 		$data['title'] = 'Seguimiento';
+		$data['user_id'] = $this->session->userdata('user_id');
 		$data['main_content'] = 'seguimiento/index_view';
 		$this->load->view('backend/includes/template', $data);
 	}
