@@ -101,10 +101,15 @@
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);
 		//curl_setopt($curl_handle, CURLOPT_POSTFIELDS,$array);
-		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
+		$data=array(
 		    'datos' => $json,
-		    'token'=> '7959ac60dc22523a9ac306ac6f9308d3d7201c55'));
+		    'token'=> '7959ac60dc22523a9ac306ac6f9308d3d7201c55');
 
+		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data);
+		 $data=json_encode($data);
+		 $decode=json_decode($data,1);
+
+		 var_dump($decode);
 		$buffer = curl_exec($curl_handle);
 		curl_close($curl_handle);
 

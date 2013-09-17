@@ -21,6 +21,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Lista_Last_Gps(){
+       
+        $q=$this->db->query("CAP03_Punto10"); 
+        return $q;
+    
+    }
+
 }
 
 ?>

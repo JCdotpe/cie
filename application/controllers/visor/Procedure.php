@@ -12,7 +12,6 @@ class Procedure extends REST_Controller{
     $this->load->helper('my');
 
   }
-
   
     public function Lista_IE_get(){
 
@@ -65,5 +64,7 @@ class Procedure extends REST_Controller{
 
 
     }
+
+    
 
 }

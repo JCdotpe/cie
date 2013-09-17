@@ -8,7 +8,8 @@ class Gps extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->helper('my');
-		//$this->load->model('visor/visor_model');
+		$this->load->model('visor/visor_model');
+		$this->load->model('visor/Procedure_model');
 
 	}
 
