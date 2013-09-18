@@ -4,40 +4,28 @@
 </script>
 
 <?php $this->load->view('visor/nav_view.php'); ?>	  	    	<!-- CAPITULO 7-->
-				<div id="pag_edificacion"  >
-		  	    				<!--AJAX-->
-		  	    				<div class="panel panel_title">
-										<strong>LISTADO DE EDIFICIACIONES</strong>
-									</div>
-									<table class="table table-hover" style="width:920px;">
-											<thead>
-								    		<tr>
 
-								    				<th style="text-align:center;">NRO DE EDIFICACION</th>
-								    				<th style="text-align:center;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
-								    				<th style="text-align:center;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
-								    		</tr>
-								    		</thead>
 
-								    </table>
-								    <div style="width:920px; height:150px; overflow:auto;">
-									    <table class="table table-hover" >
-									    	<tbody id="edificaciones">
 
-									    	</tbody>
-									    </table>
+				<div class="panel" style="background:#DDD;">
+						<strong>Visualizar Edificaciones</strong>
+						<div id="panel_edificaciones2">
+									<!--  AJAX -->
+						</div>
+				</div>
 
-								    </div>
-		  	    </div>
 	  	    	<div class="tab-pane" id="cap7">
 	  	    		<div class="content" id="content8">
 	  	    		<div class="panel panel-info">
+	  	    		<div class="panel-heading">
+	  	    					<h5 class="panel-title">CAPÍTULO VII. EVALUACIÓN TÉCNICA DE LA EDIFICACIÓN</h5>
+	  	    		</div>
 	  	    			<table class="table table-bordered">
 	  	    				<thead>
 	  	    					<tr>
-	  	    						<div class="panel-heading">
-											<h5 class="panel-title">Sección A:  Sistema estructural predominante y estado de conservación de la edificación</h5>
-									</div>
+	  	    						<tr>
+			  	    					<th colspan="3">SECCIÓN A: SISTEMA ESTRUCTURAL PREDOMINANTE Y ESTADO DE CONSERVACIÓN DE LA EDIFICACIÓN</th>
+		  	    					</tr>
 	  	    					</tr>
 	  	    				</thead>
 	  	    				<tbody>
@@ -51,8 +39,8 @@
 	  	    					<tr>
 	  	    						<td>2.</td>
 	  	    						<td>
-	  	    							<strong>¿quién es el ejecutor de la obra?</strong>
-	  	    							<br>(acepte un solo código)
+	  	    							<strong>¿Quién es el ejecutor de la obra?</strong>
+	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
 											<div class="radio">
@@ -90,7 +78,7 @@
 	  	    					<tr>
 	  	    						<td>3.</td>
 	  	    						<td>
-	  	    							<strong>¿cuál es la antigüedad de la edificación?</strong>
+	  	    							<strong>¿Cuál es la antigüedad de la edificación?</strong>
 	  	    							<br>(acepte un solo código)
 	  	    						</td>
 	  	    						<td>
@@ -118,7 +106,7 @@
 	  	    						<td>4.</td>
 	  	    						<td>
 	  	    							<strong>Sistema estructural predominante</strong>
-	  	    							<br>(acepte un solo código)
+	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
 	  	    								<div class="radio">
@@ -867,7 +855,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_1_17" id="P7_1_172" value="option1" >
-													    2. Falta mantenimiento
+													    2. Falta de mantenimiento
 													</label>
 											</div>
 											<div class="radio">
@@ -901,7 +889,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_1_18" id="P7_1_182" value="option1" >
-													    2. Falta mantenimiento
+													    2. Falta de mantenimiento
 													</label>
 											</div>
 											<div class="radio">
@@ -935,7 +923,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_1_19" id="P7_1_192" value="option1" >
-													    2. Falta mantenimiento
+													    2. Falta de mantenimiento
 													</label>
 											</div>
 											<div class="radio">
@@ -969,7 +957,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_1_20" id="P7_1_202" value="option1" >
-													    2. Falta mantenimiento
+													    2. Falta de mantenimiento
 													</label>
 											</div>
 											<div class="radio">
@@ -997,7 +985,7 @@
 	  	    					<tr>
 	  	    						<td>21.</td>
 	  	    						<td>
-	  	    							<strong>Las conexiones estan en buen estado</strong>
+	  	    							<strong>Las conexiones están en buen estado</strong>
 	  	    						</td>
 	  	    						<td>
 	  	    								<div class="radio">

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-
+	$.import('css/basic.css','css');
 	$.import('js/visor/capitulo8/index.js','js');
 
 </script>
@@ -15,7 +15,7 @@
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
 
-			  	    					<th colspan="3">Sección A: IDENTIFICACIÓN DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</th>
+			  	    					<th colspan="3">SECCIÓN A: IDENTIFICACIÓN DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</th>
 
 		  	    				</thead>
 		  	    			</table>
@@ -29,7 +29,7 @@
 		  	    					<tr>
 		  	    						<td>1.</td>
 		  	    						<td>
-		  	    							<strong>Total de patios del local escolar</strong>
+		  	    							<strong>Número de patios del local escolar</strong>
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Nº de patios  verificar Cap. 5</label>
@@ -38,12 +38,14 @@
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-		  	    			<div>
-		  	    				<label>Listado de Patios</label>
-			  	    			<select id="combopatios">
-			  	    			</select>
 
-		  	    			</div>
+		  	    			<div class="panel" style="background:#DDD;">
+									<strong>Visualizar Patios</strong>
+									<div id="combopatios" style="margin-top:10px;margin-bottom:10px;">
+
+									</div>
+							</div>
+
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -85,7 +87,7 @@
 		  	    					<tr>
 		  	    						<td>2.2</td>
 		  	    						<td>
-		  	    							<strong>Predio en el que ubica la edificación</strong>
+		  	    							<strong>Predio en el que se ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
 		  	    							<input style="width:100px;" type="text" class="form-control Nro_PredP" id="Nro_PredP">
@@ -246,12 +248,13 @@
 		  	    				</tbody>
 		  	    			</table>
 
-		  	    			<div>
-		  	    				<label>Listado Losas deportivas</label>
-			  	    			<select id="losasdeportivas">
-			  	    			</select>
 
-		  	    			</div>
+		  	    			<div class="panel" style="background:#DDD;">
+									<strong>Visualizar Losas deportivas</strong>
+									<div id="losasdeportivas">
+
+									</div>
+							</div>
 
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
@@ -446,19 +449,20 @@
 		  	    							<strong>Número de cisternas y/o tanques elevados del local escolar</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<label>Nº de de cisternas y/o tanques elevados Cap. 5</label>
+		  	    							<label>Nº de de cisternas y/o tanques elevados Verificar Cap. V</label>
 		  	    							<input style="width:100px;" type="text" class="form-control P5_Tot_CTE" id="P5_Tot_CTE">
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
 
-		  	    			<div>
-		  	    				<label>Listado de Cisternas - tanques</label>
-			  	    			<select id="cisterna">
-			  	    			</select>
 
-		  	    			</div>
+		  	    			<div class="panel" style="background:#DDD;">
+									<strong>Visualizar Cisterna - Tanque</strong>
+									<div id="cisterna">
+
+									</div>
+							</div>
 
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
@@ -666,12 +670,12 @@
 		  	    				</tbody>
 		  	    			</table>
 
-		  	    			<div>
-		  	    				<label>Listado de muros de contención</label>
-			  	    			<select id="muros">
-			  	    			</select>
+		  	    			<div class="panel" style="background:#DDD;">
+									<strong>Visualizar Muros de contención</strong>
+									<div id="muros">
 
-		  	    			</div>
+									</div>
+							</div>
 
 		  	    			<table class="table table-bordered">
 		  	    				<thead>

@@ -1,79 +1,75 @@
 $(document).ready(function(){
 
+	$.import('css/basic.css','css');
+
+
+	/*----------------Carga default-------------------*/
+
 	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
 	var predio= getPredio();
 	var nro_edif=1;
 	var nro_ambiente=1;
 	var cod_local=getLocal();
 
-
 	Get_Tot_Edif_Cap05();
 	Get_List_Edif_Cap06();
-
-	// default
 	Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 	Get_Edif_Pisos_Cap06(nro_edif);
 	Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);
-	alert('miguel');
-	//Edificaciones
-	$('#seccion_m').on('click','.raw',function(event){
+	var array_ambiente=null;
+
+
+	/*--------------------Edificaciones---------------*/
+
+	$('#panel_edificaciones').on('click','.combo_ins',function(event){
 
 		nro_edif=$(this).attr('id');
 		Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 		Get_Edif_Pisos_Cap06(nro_edif);
 
 
-		$('.raw').removeClass('raw_active');
-		$(this).addClass('raw_active');
+		$('.combo_ins').removeClass('active');
+		$(this).addClass('active');
 	});
 
 
-	//Ambientes
-	$('#seccion_b').on('click','.raw',function(event){
+	/*-----------------------Ambientes----------------*/
+
+	$('#panel_ambientes').on('click','.combo_ins',function(event){
+
 		nro_ambiente=$(this).attr('id');
+		array_ambiente = nro_ambiente.split("p");
+		nro_ambiente= array_ambiente[0];
 		Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);
 
-		$('.raw').removeClass('raw_active');
-		$(this).addClass('raw_active');
+		$('.combo_ins').removeClass('active');
+		$(this).addClass('active');
 	});
 
+
+
+
+
+	/*-----------------deshabilita inputs-------------*/
 
 	$('input').attr({
 		disabled : true,
 	});
-	//
-	$('.dropdown-menu').on('click','.combo_ins',function(event){
 
-		alert('hola');
+	$('input,textarea').attr({
+		disabled : true,
 	});
+
 
 
 
 });
 
-function Get_Cap06(cod_local){
-	$.post(CI.base_url+'index.php/visor/p6_n/Find_Cap06_pag/', {cod_local:cod_local, cod_predio:getPredio()}, function(data) {
 
-				var html="";
-				var i=1;
 
-				$.each(data, function(index, val) {
-					html+='<table class="table table-hover" style="width:900px; height:150px; overflow:auto;"> '+
-		  	    			'<tbody>'+
-		  	    				'<tr>'+
-		  	    					'<td>'+ i +'.</td>'+
-		  	    					'<td>'+ val.P6_1N_2_Cod_E +'</td>'+
-		  	    					'<td>'+ val.P6_1N_3 +'</td>'+
-		  	    					'<td>'+ val.P6_1N_4 +'</td>'+
-		  	    				'</tr>'+
-		  	    			'</tbody></table>';
-		  	    	i++;
-				});
-				$('#pag_seccion_a').html(html);
-	});
-}
 
-// vevuelve total de edificaciones del capitulo 5
+/*-- devuelve total de edificaciones del capitulo 5 ---*/
+
 function Get_Tot_Edif_Cap05(){
 
 	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio()}, function(data) {
@@ -83,10 +79,19 @@ function Get_Tot_Edif_Cap05(){
 
 					 $('.P5_TOT_E').val(val.P5_Tot_E);
 				});
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+
 	});
 }
 
-//devuelve el listado de eficiaciones
+
+
+
+/*--devuelve listado de edificiaciones--*/
+
 function Get_List_Edif_Cap06(){
 
 	var html="";
@@ -95,34 +100,7 @@ function Get_List_Edif_Cap06(){
 
 	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 
-				/*$.each(data, function(index, val) {
-					i++;
-					if(i==1){
-
-						cl="raw_active";
-					}else{
-						cl="";
-					}
-		  	    	html+='<tr  id="'+val.Nro_Ed+'" class="raw '+cl+'">'+
-		  	    					'<td style="text-align:center;width:150px;"> Edificación Nro. '+val.Nro_Ed+'</td>'+
-		  	    					'<td style="text-align:center">'+val.P6_1_3+'</td>'+
-		  	    					'<td style="text-align:center">'+val.P6_1_4+'</td>'+
-		  	    				'</tr>';
-				});
-				if(i==0){
-					html+='<tr id="">'+
-						'<td colspan="2" style="text-align:center;">No Existen Edificaciones en el Predio '+getPredio()+' </td>'+
-						'</tr>';
-				}
-				if(i==1){
-					$("#pag_seccion_a").hide();
-				}
-
-				$('#seccion_m').html(html);
-				//$('#edificaciones').html(html);*/
-
-
-				 html='<div class="dropdown">'+
+				html='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
 							'Seleccione una edificación '+
 							'<span class="caret"></span>'+
@@ -133,32 +111,39 @@ function Get_List_Edif_Cap06(){
 					i++;
 					if(i==1){
 
-						cl="raw_active";
+						cl="active";
 					}else{
 						cl="";
 					}
-		  	    	html+='<li id="'+val.Nro_Ed+'">'+
-								'<a> Edificación Nro:'+ val.Nro_Ed+'</a>'+
+		  	    	html+='<li class="combo_ins '+cl+'" id="'+val.Nro_Ed+'">'+
+								'<a href="" data-toggle="dropdown"> Edificación Nro:'+ val.Nro_Ed+'</a>'+
 							'</li>';
 				});
-				/*if(i==0){
-					html+='<tr id="">'+
-						'<td colspan="2" style="text-align:center;">No Existen Edificaciones en el Predio '+getPredio()+' </td>'+
-						'</tr>';
-				}
-				if(i==1){
-					$("#pag_seccion_a").hide();
-				}*/
+
 				html+='</ul>'+
 					'</div>';
 
-				$('#Combo_edificaciones').html(html);
-				//$('#edificaciones').html(html);
+				if(i==1){
+					 $("#panel_edificaciones").hide();
+				}
+
+				$("#panel_edificaciones").html(html);
+
+				if(i==0){
+					$('#panel_edificaciones').html('No Existen Instituciones Edificaciones en el Predio '+getPredio());
+				}
+
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
 
 	});
 }
 
-// devuelve los ambientes y pisos
+
+
+
 function Get_Edif_Pisos_Cap06(nro_edif){
 
 	var html="";
@@ -168,40 +153,65 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 
 	$.getJSON(CI.base_url+'index.php/visor/P62/Data/', {token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
 
+
+
+				html='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
+							'Seleccione un ambiente '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
 				$.each(data, function(index, val){
 
 					i++;
 					if(i==1){
 
-						cl="raw_active";
+						cl="active";
 					}else{
 						cl="";
 					}
 
-					html+='<tr id="'+val.P6_2_1+'" class="raw '+cl+'">'+
-		  	    					'<td style="text-align:center; width:300px;"> Ambiente N° : '+val.P6_2_1+'</td>'+
-		  	    					'<td style="text-align:center; width:300px;"> Piso :'+val.P5_NroPiso+'</td>'+
-		  	    				'</tr>';
+					html+='<li class="combo_ins '+cl+'" id="'+val.P6_2_1+'p'+val.P5_NroPiso+'">'+
+									'<a href="" data-toggle="dropdown"> Ambiente N°:'+ val.P6_2_1 +' - Piso N°: '+ val.P5_NroPiso +'</a>'+
+		  	    			'</li>';
 
 				});
+
+				if(i==1){
+
+					 $("#panel_ambientes").hide();
+				}
+
+				$('#panel_ambientes').html(html);
+
 				if(i==0){
 
-					html+='<tr id="">'+
-						'<td colspan="2" style="text-align:center;">No Existen Ambientes en la edificación '+nro_edif+' </td>'+
-						'</tr>';
-						$('#pag_seccion_b1').hide();
-						$('#pag_seccion_b2').hide();
-						$('#aulacomun').hide();
+					$('#panel_ambientes').html('No Existen Ambientes en la edificación ' + nro_edif);
+					$('#pag_seccion_b1').hide();
+					$('#pag_seccion_b2').hide();
+					$('#aulacomun').hide();
+
 				}else{
+
 					$('#pag_seccion_b1').show();
 					$('#pag_seccion_b2').show();
 					$('#aulacomun').show();
+
 				}
 
-				$('#seccion_b').html(html);
+
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+
 	});
 }
-// devuelve los ambientes y pisos
+
+
+/*-- devuelve los ambientes y pisos --*/
+
 function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 
 	var html="";
@@ -446,6 +456,11 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 
   									$("#P6_2_20Obs").val(val.P6_2_20Obs);
 				});
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+
 	});
 }
 
@@ -485,7 +500,8 @@ function check_Radio4(arrayvalue){
     }
 }
 
-//
+
+
 // devuelve la edificacion filtrado por numero de edificacion
 
 function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
@@ -580,7 +596,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    			'<td><strong>2.</strong></td>'+
 				  	    			'<td><strong>Código de la edificación </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed"  value="'+val.Nro_Ed+'" disabled>'+
+				  	    				'<input style="width:100px;" type="text" class="form-control Nro_Ed"  value="E - '+leftceros(val.Nro_Ed)+'" disabled>'+
 				  	    			'</td>'+
 			  	    			'</tr>'+
 			  	    			'<tr>'+
@@ -686,10 +702,21 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 								});
 
 					});
+
+
 				$('#seccion_a').html(html);
 				check_Radio3(arraychecked);
 				check_Radio4(arraycheckpisos);
+
+
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+
 	});
+
+
 }
 
 //==============================FINCAPITULO 6=================================

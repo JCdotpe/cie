@@ -91,7 +91,6 @@ class P62 extends REST_Controller{
             $data = $this->P62_model->getDataAmbiente(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P5_Ed_Nro'),$this->get('P6_2_1'));
             $p624n = $this->P624N_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P5_Ed_Nro'),$this->get('P6_2_1'));
 
-
             foreach ($data->result() as $fila) {
               # code...
               $x=array("id_local" => $fila->id_local,

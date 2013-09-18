@@ -12,12 +12,14 @@
 	  	    	<div class="tab-pane" id="cap6">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
-	  	    				<div class="panel-heading">Capitulo VI: Caracteristicas generales de la edificación</div>
+	  	    				<div class="panel-heading">
+	  	    					<h5 class="panel-title">CAPÍTULO VI. CARACTERÍSTICAS GENERALES DE LA EDIFICACIÓN</h5>
+	  	    				</div>
 
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
-			  	    					<th colspan="3">Sección A: Identificación de las edificaciones</th>
+			  	    					<th colspan="3">SECCIÓN A: IDENTIFICACIÓN DE LAS EDIFICACIONES</th>
 		  	    					</tr>
 		  	    				</thead>
 		  	    				<tbody>
@@ -35,35 +37,13 @@
 		  	    			</table>
 
 
-
-		  	    	<!--		<div id="pag_seccion_a">
-
-			  	    				<div class="panel panel_title">
-										<strong>LISTADO DE EDIFICIACIONES</strong>
-									</div>
-									<table class="table table-hover" style="width:920px;">
-											<thead>
-								    		<tr>
-
-								    				<th style="text-align:center;">NRO DE EDIFICACION</th>
-								    				<th style="text-align:center;">AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</th>
-								    				<th style="text-align:center;">PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</th>
-								    		</tr>
-								    		</thead>
-
-								    </table>
-								    <div style="width:920px; height:150px; overflow:auto;">
-									    <table class="table table-hover" >
-									    	<tbody id="seccion_m">
-
-									    	</tbody>
-									    </table>
-
-								    </div>
-		  	    			</div>-->
-		  	    			<div id="Combo_edificaciones" style="width:300px;margin:10px;">
-
+		  	    			<div class="panel" style="background:#DDD;">
+								<strong>Visualizar Edificaciones</strong>
+								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
+									<!--  AJAX -->
+								</div>
 							</div>
+
 
 		  	    			<div id="seccion_a" class="content7">
 								<!--AJAX-->
@@ -233,35 +213,21 @@
 		  	    				</table>
 							</div>
 
-							<div id="pag_seccion_b" >
-			  	    				<!--AJAX-->
-			  	    				<div class="panel panel_title">
-										<strong>LISTADO DE AMBIENTES</strong>
-									</div>
 
-			  	    				<table class="table table-hover" style="width:920px;" >
-											<thead>
-								    		<tr>
-								    			<th style="text-align:center;">NRO DE AMBIENTE</th>
-								    			<th style="text-align:center;">NRO DE PISO</th>
-								    		</tr>
-								    		</thead>
-								    </table>
-
-									<div style="width:920px; height:150px; overflow:auto;">
-										    <table class="table table-hover" >
-										    	<tbody id="seccion_b">
-
-										    	</tbody>
-										    </table>
-									</div>
-			  	    		</div>
 
 							<table class="table table-bordered" id="pag_seccion_b1">
 		  	    				<thead>
 		  	    					<tr>
-			  	    					<div class="panel-heading">
-											<h5 class="panel-title">Sección B: Verificación de los espacios educativos de la edificación</h5>
+			  	    					<!--<div class="panel-heading">-->
+											<th colspan="3">SECCIÓN B: VERIFICACIÓN DE LOS ESPACIOS EDUCATIVOS DE LA EDIFICACIÓN</th>
+										<!--</div>-->
+		  	    					</tr>
+		  	    					<tr>
+		  	    						<div class="panel" style="background:#DDD;">
+											<strong>Visualizar Ambientes</strong>
+											<div id="panel_ambientes" style="margin-top:10px;margin-bottom:10px;">
+
+											</div>
 										</div>
 		  	    					</tr>
 		  	    				</thead>
@@ -1660,13 +1626,10 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-
-										<div class="panel-heading">
-											<h5 class="panel-title">Sección C: Verificación de los espacios educativos de la edificación</h5>
-										</div>
+										<th colspan="3">SECCIÓN C: INSTALACIONES ELÉCTRICAS INTERIORES DE LA EDIFICACIÓN</th>
 									</tr>
 									<tr>
-										<th colspan="3">Evaluador: esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero dEBErá preguntar y luego verificar.</th>
+										<td colspan="3">Evaluador: Esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero deberá preguntar y luego verificar.</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -1874,7 +1837,7 @@
 											3A.
 										</td>
 										<td>
-											<strong>¿en qué año se hizo el último mantenimiento?</strong>
+											<strong>¿En qué año se hizo el último mantenimiento?</strong>
 										</td>
 										<td>
 											<label>Año</label>
@@ -1887,11 +1850,11 @@
 							<table class="table table-bordered" id="secciond">
 								<thead>
 
-									<div class="panel-heading">
-											<h5 class="panel-title">Sección D: Instalaciones sanitarias interiores de la edificación</h5>
-									</div>
+
+									<th colspan="3">SECCIÓN D: INSTALACIONES SANITARIAS INTERIORES DE LA EDIFICACIÓN</h5>
+
 									<tr>
-										<th colspan="3">Evaluador: Evaluador: esta sección se realizará por observación directa.</th>
+										<td colspan="3">Evaluador: Esta sección se realizará por observación directa.</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -1965,11 +1928,11 @@
 							<table class="table table-bordered">
 								<thead>
 
-									<div class="panel-heading">
-											<h5 class="panel-title">Sección E: Instalaciones sanitarias interiores de la edificación</h5>
-									</div>
+
+											<th colspan="3"> SECCIÓN E: CANALETAS AÉREAS Y BAJADAS PLUVIALES DE LA EDIFICACIÓN </th>
+
 									<tr>
-										<th colspan="3">Evaluador: Evaluador: esta sección se realizará por observación directa</th>
+										<td colspan="3">Evaluador: Esta sección se realizará por observación directa</td>
 									</tr>
 								</thead>
 								<tbody>

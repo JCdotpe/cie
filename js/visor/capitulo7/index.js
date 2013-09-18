@@ -1,28 +1,57 @@
 $(document).ready(function(){
 
+	$.import('css/basic.css','css');
+
+
+
+	/*----------------------default------------------*/
+
+
 	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
 	var cod_local=getLocal();
 	Get_List_Edif_Cap06();
 	var nro_edif="1";
 	Get_cap7(nro_edif);
-	//Edificaciones
-	$('#edificaciones').on('click','.raw',function(event){
+
+
+
+
+
+	/*-------------------Edificaciones----------------*/
+
+
+	$('#panel_edificaciones2').on('click','.combo_ins',function(event){
 
 		nro_edif=$(this).attr('id');
-		/*Get_Edif_Cap06(token,cod_local,predio,nro_edif);
-		Get_Edif_Pisos_Cap06(nro_edif);*/
-		$('.raw').removeClass('raw_active');
-		$(this).addClass('raw_active');
 		Get_cap7(nro_edif);
+		$('.combo_ins').removeClass('active');
+		$(this).addClass('active');
+
 	});
 
+
+
+	/*------------------deshabilita inputs--------------*/
 
 	$('input').attr({
 		disabled : true,
 	});
 
+
+	$('input,textarea').attr({
+		disabled : true,
+	});
+
+
+
+
 });
-//devuelve el listado de eficiaciones
+
+
+
+
+/*--devuelve el listado de eficiaciones--*/
+
 function Get_List_Edif_Cap06(){
 
 	var html="";
@@ -31,23 +60,50 @@ function Get_List_Edif_Cap06(){
 
 	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 
+				html='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
+							'Seleccione una edificación '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
 				$.each(data, function(index, val) {
 					i++;
-		  	    	html+='<tr id="'+val.Nro_Ed+'" class="raw '+cl+'">'+
-		  	    					'<td style="text-align:center;width:150px;"> Edificación Nro. '+val.Nro_Ed+'.</td>'+
-		  	    					'<td style="text-align:center">'+val.P6_1_3+'.</td>'+
-		  	    					'<td style="text-align:center">'+val.P6_1_4+'.</td>'+
-		  	    				'</tr>';
+					if(i==1){
+
+						cl="active";
+					}else{
+						cl="";
+					}
+		  	    	html+='<li class="combo_ins '+cl+'" id="'+val.Nro_Ed+'">'+
+								'<a href="" data-toggle="dropdown"> Edificación Nro:'+ val.Nro_Ed+'</a>'+
+							'</li>';
 				});
-				if(i==0){
-					html+='<tr id="">'+
-						'<td colspan="2" style="text-align:center;">No Existen Edificaciones en el Predio '+getPredio()+' </td>'+
-						'</tr>';
+
+				html+='</ul>'+
+					'</div>';
+
+				if(i==1){
+					 $("#panel_edificaciones2").hide();
 				}
-				$('#edificaciones').html(html);
+
+				$("#panel_edificaciones2").html(html);
+
+				if(i==0){
+					$('#panel_edificaciones2').html('No Existen Instituciones Edificaciones en el Predio '+getPredio());
+				}
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
 
 	});
 }
+
+
+
+
+
 
 function Get_cap7(nro_edif){
 
@@ -92,5 +148,11 @@ function Get_cap7(nro_edif){
 			check_Radio(val.P7_1_28,'P7_1_28');
 			check_Radio(val.P7_2_1,'P7_2_1');
 		});
+	}).fail(function( jqxhr, textStatus, error ) {
+
+		var err = textStatus + ', ' + error;
+		console.log( "Request Failed: " + err);
+
 	});
+
 }

@@ -9,8 +9,8 @@ function urlRoot(delimiter){
         return loc;
     }else{
         return url[pos_array]+delimiter;
-    }   	
-	
+    }
+
 }
 
 function urlCombo(){
@@ -19,19 +19,19 @@ function urlCombo(){
     var delimiter="?";
     var loc = document.location.href;
     var url = loc.split(delimiter);
-   
-    return url[pos_array]; 
+
+    return url[pos_array];
 }
 
 function getLocal(){
-   
+
     pos_array=1;
     var delimiter="?le=";
     var loc = document.location.href;
     var url = loc.split(delimiter);
     code=url[pos_array].substring(0, 8);
-    
-    return code;            
+
+    return code;
 }
 
 function getPredio(){
@@ -55,9 +55,9 @@ function getToken(){
 function check_Radio(value,id){
 
     if(value!=null){
-             
-       document.getElementById(id+value).checked=true; 
-    
+
+       document.getElementById(id+value).checked=true;
+
     }
 }
 
@@ -78,7 +78,7 @@ function check_Radio(value,id){
                 }
 
             if(clase==null || clase==undefined || clase==''){
-                clase="head";                
+                clase="head";
             }else{
                 clase='.'+clase;
             }
@@ -97,13 +97,13 @@ function check_Radio(value,id){
                     break;
 
                 }
-                
-                
+
+
 
                 imported.push(url);
             }
         }
-        
+
     });
 
 })(jQuery);
@@ -181,4 +181,15 @@ function inmueble_Predio(codigo){
             return 'No sabe';
         break;
     }
+}
+
+function leftceros(numero){
+
+
+    numero=numero.toString();
+
+    if (numero.length<2)
+        return '0'+numero;
+
+    return numero;
 }
