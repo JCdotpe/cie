@@ -2,6 +2,27 @@
 
 class Operativa_Model extends CI_Model {
 
+	function Get_SedeOpe()
+	{
+		$query="SELECT os.cod_sede_operativa, os.sede_operativa FROM user_ubigeo u left join operativa_sede os on u.cod_sede_operativa = os.cod_sede_operativa ORDER BY os.sede_operativa";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function Get_ProvbySedeOpe($codsede_ope)
+	{
+		$query="SELECT cod_prov_operativa, prov_operativa_ugel FROM operativa_prov WHERE cod_sede_operativa = '$codsede_ope'";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
+	function Get_DistbySedeProv_Ope($codsede_ope,$codprov_ope)
+	{
+		$query="SELECT d.CCDI, d.Nombre FROM codigo_territorial ct left join DIST d on ct.CCDD=d.CCDD and ct.CCPP=d.CCPP and ct.CCDI=d.CCDI where cod_sede_operativa = '$codsede_ope' and cod_prov_operativa = '$codprov_ope'";
+		$q = $this->db->query($query);
+		return $q;
+	}
+
 	function Get_Cedula()
 	{
 		$query="SELECT DISTINCT cedula FROM BPR_Capitulo ORDER BY cedula";

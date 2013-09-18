@@ -23,8 +23,9 @@ class Banco extends CI_Controller {
 		$data['nav'] = TRUE;
 		$data['title'] = 'BPR - Banco de Preguntas y Respuestas';
 		$data['main_content'] = 'bpr/banco_view';
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
+		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['cedula']=$this->operativa_model->Get_Cedula();
 		$this->load->view('backend/includes/template', $data);
 	}
 

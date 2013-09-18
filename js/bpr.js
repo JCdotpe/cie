@@ -1,34 +1,35 @@
 function cargarProv()
 {
-	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerprovincia';
-	var id_dpto = $("#departamento").val();
+	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerprovincia_by_sede';
+	var id_sede = $("#sedeoperativa").val();
 	
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_dpto="+id_dpto,
+		data: "id_sede="+id_sede,
 		dataType:'json',
 		success: function(json_data){
-			$("#provincia").empty();
+			$("#provincia_ope").empty();
 			$.each(json_data, function(i, data){
-				$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+				$("#provincia_ope").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
 			
-			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 		}
 	});
 }
 
-function cargarDist()
+function cargarDatosbyProvOpe()
 {
-	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerdistrito';
-	var id_depa = $("#departamento").val();
-	var id_prov = $("#provincia").val();
+	//var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenerdistrito';
+	//var id_sede = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
+	/*
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
-		data: "id_depa="+id_depa+"&id_prov="+id_prov,
+		data: "id_sede="+id_sede+"&id_prov="+id_prov,
 		dataType:'json',
 		success: function(json_data){
 			$("#distrito").empty();
@@ -37,15 +38,16 @@ function cargarDist()
 			});
 			
 			$("#distrito").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-			
+			*/
 			if ($("#list2").length)
 			{
 				if (id_prov=='-1'){ verdatos(0); }else{ verdatos(1); }	
 			}
-		}
-	});
+		//}
+	//});
 }
 
+/*
 function cargarDatosbyDistrito()
 {
 	var id_dist = $("#distrito").val();
@@ -55,11 +57,14 @@ function cargarDatosbyDistrito()
 		if (id_dist=='-1'){ verdatos(1); }else{ verdatos(2); }	
 	}
 }
+*/
 
-function cargarCedula()
+function cargarDatosbyCargo()
 {
-	var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenercedula';
+	
+	//var doLoginMethodUrl = urlRoot('index.php')+'/bpr/preguntas/obtenercedula';
 	var id_cargo = document.getElementById("cargo").value;
+	/*
 	$.ajax({
 		type: "POST",
 		url: doLoginMethodUrl,
@@ -74,13 +79,13 @@ function cargarCedula()
 			$("#capitulo").empty().append("<option value='-1' selected='true'></value>");
 			$("#seccion").empty().append("<option value='-1' selected='true'></value>");
 			$("#pregunta").empty().append("<option value='-1' selected='true'></value>");
-
+*/
 			if ($("#list2").length)
 			{
-				if (id_cargo=='-1'){ verdatos(2); }else{ verdatos(3); }	
+				if (id_cargo=='-1'){ verdatos(1); }else{ verdatos(2); }	
 			}
-		}
-	});
+		//}
+	//});
 }
 
 function cargarCapitulo()
@@ -104,7 +109,7 @@ function cargarCapitulo()
 
 			if ($("#list2").length)
 			{
-				if (id_cedula=='-1'){ verdatos(3); }else{ verdatos(4); }	
+				if (id_cedula=='-1'){ verdatos(2); }else{ verdatos(3); }	
 			}
 		}
 	});
@@ -130,7 +135,7 @@ function cargarSeccion()
 
 			if ($("#list2").length)
 			{
-				if (id_cap=='-1'){ verdatos(4); }else{ verdatos(5); }	
+				if (id_cap=='-1'){ verdatos(3); }else{ verdatos(4); }	
 			}
 		}
 	});
@@ -156,7 +161,7 @@ function cargarPreguntas()
 
 			if ($("#list2").length)
 			{
-				if (id_sec=='-1'){ verdatos(5); }else{ verdatos(6); }	
+				if (id_sec=='-1'){ verdatos(4); }else{ verdatos(5); }	
 			}
 		}
 	});
@@ -168,7 +173,7 @@ function cargarDatosbyPregunta()
 
 	if ($("#list2").length)
 	{
-		if (id_pre=='-1'){ verdatos(6); }else{ verdatos(7); }	
+		if (id_pre=='-1'){ verdatos(5); }else{ verdatos(6); }	
 	}
 }
 
@@ -184,9 +189,9 @@ function validar_numeros(e)
 
 function Form_Validar()
 {
-	id_depa = $("#departamento").val();
-	id_prov = $("#provincia").val();
-	id_dist = $("#distrito").val();
+	id_sede = $("#sedeoperativa").val();
+	id_prov = $("#provincia_ope").val();
+	
 	id_cargo = document.getElementById("cargo").value;
 	id_cedula = $("#cedula").val();
 	id_cap = $("#capitulo").val();
@@ -194,15 +199,15 @@ function Form_Validar()
 	id_pre = $("#pregunta").val();
 
 	cons = $("#consulta").val();
-	nombre = $("#nombrecompleto").val();
+	//nombre = $("#nombrecompleto").val();
 
-	if (id_depa == -1 || id_prov == -1 || id_dist == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1)
+	if (id_sede == -1 || id_prov == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1)
 	{
 		alert("Faltan Seleccionar Datos!");
 		return false;
 	}
 
-	if (nombre == "") { alert("Ingrese Nombre Completo!");  return false; }
+	//if (nombre == "") { alert("Ingrese Nombre Completo!");  return false; }
 
 	if (cons == "") { alert("Ingrese Consulta que desea realizar!");  return false; }
 
@@ -232,16 +237,16 @@ function preguntas_form(cargo)
 
 function verdatos(intervalo)
 {
-	var id_depa = $("#departamento").val();
-	var id_prov = $("#provincia").val();
-	var id_dist = $("#distrito").val();
+	var id_sede = $("#sedeoperativa").val();
+	var id_prov = $("#provincia_ope").val();
+	//var id_dist = $("#distrito").val();
 	var cargo = document.getElementById("cargo").value;
 	var id_cedula = $("#cedula").val();
 	var id_cap = $("#capitulo").val();
 	var id_sec = $("#seccion").val();
 	var id_pre = $("#pregunta").val();
 
-	if (id_pre=='-1' && intervalo == 7){ intervalo=6; }
+	//if (id_pre=='-1' && intervalo == 7){ intervalo=6; }
 
 	var condicion;
 
@@ -250,25 +255,22 @@ function verdatos(intervalo)
 		case 0: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas";
 			break;
 
-		case 1: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov;
+		case 1: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov;
 			break;
 
-		case 2:	condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist;
+		case 2:	condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov+"&codcargo="+cargo;
 			break;
 
-		case 3:	condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo;
+		case 3: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov+"&codcargo="+cargo+"&codced="+id_cedula;
 			break;
 
-		case 4: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula;
+		case 4: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap;
 			break;
 
-		case 5: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap;
+		case 5: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec;
 			break;
 
-		case 6: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec;
-			break;
-
-		case 7: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?coddepa="+id_depa+"&codprov="+id_prov+"&coddis="+id_dist+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
+		case 6: condicion = urlRoot('index.php')+"/bpr/respuestas/lista_consultas?codsede="+id_sede+"&codprov="+id_prov+"&codcargo="+cargo+"&codced="+id_cedula+"&codcap="+id_cap+"&codsec="+id_sec+"&codpre="+id_pre;
 			break;
 	}
 
@@ -316,6 +318,7 @@ function respuestas_form(usuario)
 		success: function(response){
 			$("#frm_respuesta :input").val('');
 			$("#usuario").val(usuario);
+			$('#responder').attr('disabled',true);
 			$("#list2").trigger("reloadGrid");
 			alert("Respuesta Enviada!");
 		}
@@ -326,9 +329,9 @@ function Form_Validar_Repregunta()
 {
 	id_cuestionario = $("#codigo").val();
 	cons = $("#consulta").val();
-	nombre = $("#nombrecompleto").val();
+	//nombre = $("#nombrecompleto").val();
 
-	if (id_cuestionario == "" || nombre == "" || cons == "")
+	if (id_cuestionario == "" || cons == "")
 	{
 		alert("Faltan Datos!");
 		return false;

@@ -12,7 +12,7 @@ class Bpr_Model extends CI_Model {
 
 	function insert_reg($data)
 	{	
-		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['CCDD']."','".$data['CCPP']."','".$data['CCDI']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
+		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
 		$this->db->query($query);
 		return $this->db->affected_rows();
 	}
@@ -78,7 +78,7 @@ class Bpr_Model extends CI_Model {
 
 	public function get_datos_pregunta($codigo)
 	{ 
-		$sql="SELECT cedula, cod_cap, cod_sec, cod_preg, ccdd, ccpp, ccdi, cargo FROM bpr_cuestionario WHERE id_cuestionario = $codigo";
+		$sql="SELECT cedula, cod_cap, cod_sec, cod_preg, cod_sede_operativa, cod_prov_operativa, cargo FROM bpr_cuestionario WHERE id_cuestionario = $codigo";
 		$q=$this->db->query($sql);
 		return $q;
 	}
@@ -89,8 +89,8 @@ class Bpr_Model extends CI_Model {
 		$q = $this->db->query($sql);
 		$row = $q->first_row();
 
-		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",".$row->NroRegistros.",'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['CCDD']."','".$data['CCPP']."','".$data['CCDI']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
-		//echo $query;
+		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",".$row->NroRegistros.",'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
+
 		$this->db->query($query);
 		return $this->db->affected_rows();
 	}

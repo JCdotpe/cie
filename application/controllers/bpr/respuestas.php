@@ -46,8 +46,9 @@ class Respuestas extends CI_Controller {
 		$data['title'] = 'BPR - Preguntas';
 		$data['main_content'] = 'bpr/respuestas_view';
 		$data['user_id'] = $this->session->userdata('user_id');
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
+		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['cedula']=$this->operativa_model->Get_Cedula();
 		$this->load->view('backend/includes/template', $data);
 	}
 
@@ -79,51 +80,53 @@ class Respuestas extends CI_Controller {
 	{
 		$this->load->model('bpr/bpr_model');
 
-		$page = $this->input->get('page',TRUE); 
-		$limit = $this->input->get('rows',TRUE); 
-		$sidx = $this->input->get('sidx',TRUE);  
-		$sord = $this->input->get('sord',TRUE); 
+		$page = $this->input->get('page',TRUE);
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
 
-		$where1="WHERE CCDD='-1'";
+		$where1="WHERE cod_sede_operativa='-1'";
 
-		if(isset($_GET['coddepa'])) { 
-			$depa = $this->input->get('coddepa');
-			$where1="WHERE CCDD='$depa'";
+		if(isset($_GET['codsede'])) {
+			$sedeope = $this->input->get('codsede');
+			$where1="WHERE cod_sede_operativa='$sedeope'";
 		}
 
-		if(isset($_GET['codprov'])) { 
+		if(isset($_GET['codprov'])) {
 			$prov = $this->input->get('codprov');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov'";
 		}
 
+		/*
 		if(isset($_GET['coddis'])) { 
 			$dist = $this->input->get('coddis');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND CCDI='$dist'";
 		}
-		
+		*/
+
 		if(isset($_GET['codcargo'])) { 
 			$cargo = $this->input->get('codcargo');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cargo='$cargo'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cargo='$cargo'";
 		}
 
 		if(isset($_GET['codced'])) { 
 			$ced = $this->input->get('codced');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced'";
 		}
 
 		if(isset($_GET['codcap'])) { 
 			$cap = $this->input->get('codcap');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap'";
 		}
 
 		if(isset($_GET['codsec'])) { 
 			$sec = $this->input->get('codsec');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec'";
 		}
 
 		if(isset($_GET['codpre'])) { 
 			$preg = $this->input->get('codpre');
-			$where1="WHERE CCDD='$depa' AND CCPP='$prov' AND CCDI='$dist' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec' AND cod_preg='$preg'";
+			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec' AND cod_preg='$preg'";
 		}
 
 		if(!$sidx) $sidx =1;

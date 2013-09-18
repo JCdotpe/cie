@@ -10,9 +10,9 @@ class Preguntas extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->model('convocatoria/Dist_model');
+		//$this->load->model('convocatoria/Dpto_model');
+		//$this->load->model('convocatoria/Provincia_model');
+		//$this->load->model('convocatoria/Dist_model');
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
 	}
@@ -24,27 +24,28 @@ class Preguntas extends CI_Controller {
 		$data['nav'] = TRUE;
 		$data['title'] = 'BPR - Preguntas';
 		$data['main_content'] = 'bpr/preguntas_view';
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
+		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['cedula']=$this->operativa_model->Get_Cedula();
 		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function obtenerprovincia()
+	public function obtenerprovincia_by_sede()
 	{
-		$prov = $this->Provincia_model->get_provs($_POST['id_dpto']);
+		$sedeope = $this->operativa_model->Get_ProvbySedeOpe($_POST['id_sede']);
 		$return_arr['datos']=array();
-		foreach($prov->result() as $filas)
+		foreach($sedeope->result() as $filas)
 		{
-			$data['CODIGO'] = $filas->CCPP;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
+			$data['CODIGO'] = $filas->cod_prov_operativa;
+			$data['NOMBRE'] = utf8_encode(strtoupper($filas->prov_operativa_ugel));
 			array_push($return_arr['datos'], $data);
 		}
 		$this->load->view('backend/json/json_view', $return_arr);
 	}
-
+/*
 	public function obtenerdistrito()
 	{
-		$dist = $this->Dist_model->Get_Dist_combo($_POST['id_depa'],$_POST['id_prov']);
+		$dist = $this->operativa_model->Get_DistbySedeProv_Ope($_POST['id_sede'],$_POST['id_prov']);
 		$return_arr['datos']=array();
 		foreach($dist->result() as $filas)
 		{
@@ -54,7 +55,7 @@ class Preguntas extends CI_Controller {
 		}
 		$this->load->view('backend/json/json_view', $return_arr);	
 	}
-
+*/
 	public function obtenercedula()
 	{
 		$ced = $this->operativa_model->Get_Cedula();
@@ -115,9 +116,8 @@ class Preguntas extends CI_Controller {
 				'cod_cap'=> $this->input->post('capitulo'),
 				'cod_sec'=> $this->input->post('seccion'),
 				'cod_preg'=> $this->input->post('pregunta'),
-				'CCDD'=> $this->input->post('departamento'),
-				'CCPP'=> $this->input->post('provincia'),
-				'CCDI'=> $this->input->post('distrito'),
+				'cod_sede_operativa'=> $this->input->post('sedeoperativa'),
+				'cod_prov_operativa'=> $this->input->post('provincia_ope'),
 				'cargo'=> $this->input->post('id_cargo'),
 				'nombre'=> utf8_decode($this->input->post('nombrecompleto')),
 				'dni'=> $this->input->post('nrodni'),
@@ -146,9 +146,8 @@ class Preguntas extends CI_Controller {
 			$cod_cap = $filas->cod_cap;
 			$cod_sec = $filas->cod_sec;
 			$cod_preg = $filas->cod_preg;
-			$ccdd = $filas->ccdd;
-			$ccpp = $filas->ccpp;
-			$ccdi = $filas->ccdi;
+			$cod_sede_operativa = $filas->cod_sede_operativa;
+			$cod_prov_operativa = $filas->cod_prov_operativa;
 			$cargo = $filas->cargo;
 		}
 
@@ -158,9 +157,8 @@ class Preguntas extends CI_Controller {
 				'cod_cap'=> $cod_cap,
 				'cod_sec'=> $cod_sec,
 				'cod_preg'=> $cod_preg,
-				'CCDD'=> $ccdd,
-				'CCPP'=> $ccpp,
-				'CCDI'=> $ccdi,
+				'cod_sede_operativa'=> $cod_sede_operativa,
+				'cod_prov_operativa'=> $cod_prov_operativa,
 				'cargo'=> $cargo,
 				'nombre'=> utf8_decode($this->input->post('nombrecompleto')),
 				'dni'=> $this->input->post('nrodni'),

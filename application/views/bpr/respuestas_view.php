@@ -10,13 +10,13 @@
 </style>
 <?php
 	$label_class =  array('class' => 'control-label');
-	$depaArray = array(-1 => 'Seleccione...');
-    foreach($depa->result() as $filas)
-    {
-      $depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Nombre));
-    }
+	$sedeArray = array(-1 => 'Seleccione...');
+	foreach($sedeope->result() as $filas)
+	{
+		$sedeArray[$filas->cod_sede_operativa] = utf8_encode(strtoupper($filas->sede_operativa));
+	}
     $provArray = array(-1 => '');
-    $distArray = array(-1 => '');
+    //$distArray = array(-1 => '');
 
     $cargosArray = array(-1 => 'Seleccione...'); 
 	$cargospresupuestario=array(-1 => '-1');
@@ -28,10 +28,13 @@
 		$cargospresupuestario[$filas->codigo_Convocatoria] = $filas->codigo_CredPresupuestario;
 		$cargosadm[$filas->codigo_Convocatoria] = $filas->codigo_adm;
 	}
-
 	$selected_cargo = (set_value('cargo')) ? set_value('cargo') : '' ;
 
-	$cedulaArray = array(-1 => '');
+	$cedulaArray = array(-1 => 'Seleccione...');
+	foreach($cedula->result() as $filas)
+	{
+		$cedulaArray[$filas->cedula] = utf8_encode(strtoupper($filas->cedula));
+	}
 	$capArray = array(-1 => '');
     $secArray = array(-1 => '');
     $preArray = array(-1 => '');
@@ -81,34 +84,36 @@
 			<div class="row-fluid well top-conv">				
 				<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
+						<?php echo form_label('Sede Operativa', 'sedeope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProv();"'); ?>
+							<?php echo form_dropdown('sedeoperativa', $sedeArray, '#', 'id="sedeoperativa" onChange="cargarProv();"'); ?>
 						</div>
 					</div>
 				</div>
 				<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('Provincia', 'provincia', $label_class); ?>
+						<?php echo form_label('Provincia Operativa', 'provinciaope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia" onChange="cargarDist();"'); ?>
+							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" onChange="cargarDatosbyProvOpe();"'); ?>
 						</div>
 					</div>
 				</div>
+				<!--
 				<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('Distrito', 'distrito', $label_class); ?>
+						<?php #echo form_label('Distrito', 'distrito', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('distrito', $distArray, '#', 'id="distrito" onChange="cargarDatosbyDistrito();"'); ?>
+							<?php #echo form_dropdown('distrito', $distArray, '#', 'id="distrito"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				-->
+				<div class="span6">
 					<div class="control-group">
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"  onChange="cargarCedula();"'); 
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"  onChange="cargarDatosbyCargo();"'); 
 								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
 								echo form_dropdown('cargo', $cargosadm, $selected_cargo, 'id="cargo_adm" style="display:none"');
 							?>
@@ -324,6 +329,8 @@
 	{
 			$('#codigo').val(values);
 			BuscarDetalle(values);
+			$('#responder').attr('disabled',false);
 			$("#add-detalle-modal").modal('show');
+
 	}
 </script>

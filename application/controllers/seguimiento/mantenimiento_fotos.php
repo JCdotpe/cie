@@ -67,69 +67,6 @@ class Mantenimiento_Fotos extends CI_Controller {
 			$show = 'Datos Grabados Satisfactoriamente.';
 		}
 	}
-
-	public function ver_datos()
-	{
-		$this->load->helper('form');
-
-		$page = $this->input->get('page',TRUE); 
-		$limit = $this->input->get('rows',TRUE);
-		$sidx = $this->input->get('sidx',TRUE);
-		$sord = $this->input->get('sord',TRUE);
-
-		$where1="WHERE COD_SEDE_OPERATIVA='-1'";
-
-		if(isset($_GET['codsede'])) { 
-			$sede = $this->input->get('codsede');
-		}
-
-		if(isset($_GET['codprov'])) { 
-			$prov = $this->input->get('codprov');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov'";
-		}
-		
-		if(isset($_GET['coddist'])) { 
-			$dist = $this->input->get('coddist');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist'";
-		}
-
-		if(isset($_GET['codcentrop'])) { 
-			$centrop = $this->input->get('codcentrop');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop'";
-		}
-
-
-		if(!$sidx) $sidx =1;
-
-		$count = $this->seguimiento_model->nro_locales_for_seguimiento($where1);
-
- 		//En base al numero de registros se obtiene el numero de paginas
-		if( $count > 0 ) {
-			$total_pages = ceil($count/$limit);
-		} else {
-			$total_pages = 0;
-		}
-		if ($page > $total_pages) $page=$total_pages;
-
-		$row_final = $page * $limit;
-		$row_inicio = $row_final - $limit;
-
-		$resultado = $this->seguimiento_model->get_locales_for_seguimiento($sidx, $sord, $row_inicio, $row_final, $where1);
-
-		$respuesta->page = $page;
-		$respuesta->total = $total_pages;
-		$respuesta->records = $count;
-		$i=0;		
-		foreach ($resultado->result() as $fila)
-		{
-			$respuesta->rows[$i]['id'] = $fila->codigo_de_local;
-			$respuesta->rows[$i]['cell'] = array($fila->periodo,$fila->codigo_de_local, $fila->estado, $fila->entrada_informacion, $fila->datos_gps, $fila->fotos);
-			$i++;			
-		}
-
-		$jsonData = json_encode($respuesta);
-		echo $jsonData;
-	}
 	
 }
 
