@@ -244,3 +244,24 @@ function registar_detalle_fotos(estado)
 		}
 	});
 }
+
+function cargarProv()
+{
+	var doLoginMethodUrl = urlRoot('index.php')+'/seguimiento/reporte_ubigeo/obtenerprovincia';
+	var id_depa = $("#departamento").val();
+
+	$.ajax({
+		type: "POST",
+		url: doLoginMethodUrl,
+		data: "id_depa="+id_depa,
+		dataType:'json',
+		success: function(json_data){
+			$("#provincia").empty();
+			$.each(json_data, function(i, data){
+				$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
+			});
+			
+			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+		}
+	});
+}

@@ -11,13 +11,13 @@
 <?php
 	$label_class =  array('class' => 'control-label');
 
-	$odeiArray = array(-1 => 'Seleccione...');
-    foreach($odei->result() as $filas)
-    {
-      $odeiArray[$filas->coddepe]=utf8_encode(strtoupper($filas->detadepen));
-    }
+	$depaArray = array(-1 => 'Seleccione...', 99 => 'Departamentos');
+	foreach($depa->result() as $filas)
+	{
+		$depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Nombre));
+	}
+	$provArray = array(-1 => '');
 
-    
     $periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
 ?>
 
@@ -31,26 +31,34 @@
 				<?php echo form_open('','id="frm_reporte"'); ?>
 				<div class="span3">
 					<div class="control-group">
-						<?php echo form_label('ODEI', 'odei', $label_class); ?>
+						<?php echo form_label('Departamento', 'depa', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('odei', $odeiArray, '#', 'id="odei"'); ?>
+							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProv();"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span3">
+					<div class="control-group">
+						<?php echo form_label('Provincia', 'prov', $label_class); ?>
+						<div class="controls">
+							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia"'); ?>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Periodo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" onChange="reportar();"'); ?>
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo"'); ?>
 						</div>
 					</div>
 				</div>
-				<!--
 				<div class="span1">
-					<?php #echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
-				</div>-->
+					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
+				</div>
 			</div>
-			<input type="hidden" name="cod_odei" id="cod_odei" value="" />
+			<input type="hidden" name="cod_depa" id="cod_depa" value="" />
+			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
 			<input type="hidden" name="cod_per" id="cod_per" value="" />
 			<?php echo form_close(); ?>
 		</div>
@@ -71,13 +79,14 @@
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 		   	type:"POST",
-		   	url:'reporte_odei/obtenreporte',
+		   	url:urlRoot('index.php')+'/seguimiento/reporte_ubigeo/obtenreporte',
 			datatype: "json",
 			height: 255,			
-		   	colNames:['Nro', 'ODEI', 'Total de Locales Escolares', 'Total Colegio Censados (Abs)', 'Total Colegio Censados (%)', 'Completa (Abs)', 'Completa (%)', 'Incompleta (Abs)',  'Incompleta (%)', 'Rechazo (Abs)',  'Rechazo (%)', 'Desocupada (Abs)',  'Desocupada (%)', 'Otro (Abs)',  'Otro (%)'],
+		   	colNames:['Nro', 'Departamento', 'Provincia', 'Total de Locales Escolares', 'Total Colegio Censados (Abs)', 'Total Colegio Censados (%)', 'Completa (Abs)', 'Completa (%)', 'Incompleta (Abs)',  'Incompleta (%)', 'Rechazo (Abs)',  'Rechazo (%)', 'Desocupada (Abs)',  'Desocupada (%)', 'Otro (Abs)',  'Otro (%)'],
 		   	colModel:[
 		   		{name:'nro_fila',sortable:false,width:25,align:"center"},
-		   		{name:'detadepen',index:'detadepen',align:"center"},
+		   		{name:'NomDpto',index:'NomDpto',align:"center"},
+		   		{name:'NomProv',index:'NomProv',align:"center"},
 		   		{name:'LocEscolares',index:'LocEscolares',align:"center"},
 		   		{name:'LocEscolar_Censado',index:'LocEscolar_Censado',align:"center"},
 		   		{name:'LocEscolar_Censado_Porc',index:'LocEscolar_Censado_Porc',align:"center"},
@@ -95,10 +104,10 @@
 		   	rowNum:10,
 		   	rowList:[10,20,30],
 		   	pager: '#pager2',
-		   	sortname: 'detadepen',
+		   	sortname: 'NomDpto, NomProv',
 		    viewrecords: true,
 		    sortorder: "asc",
-		    caption:"Datos del Reporte"		    
+		    caption:"Datos del Reporte"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false})			
 		$("#list2").setGridWidth($('#grid_content').width(), true);
@@ -107,24 +116,28 @@
 
 	function reportar()
 	{
-		//var cododei = $("#odei").val();
+		var coddepa = $("#departamento").val();
+		var codprov = $("#provincia").val();
 		var codper = $("#periodo").val();
-		
-		if (codper == -1)
+
+		if (codper == -1 && coddepa == -1)
 		{ 
-			alert("Debe Seleccionar Periodo"); 
+			alert("Debe Seleccionar Datos");
+			return false;
 		}else{
-			//$("#cod_odei").val(cododei);
+			$("#cod_depa").val(coddepa);
+			$("#cod_prov").val(codprov);
 			$("#cod_per").val(codper);
 
-			jQuery("#list2").jqGrid('setGridParam',{url:"reporte_odei/obtenreporte?periodo="+codper,page:1}).trigger("reloadGrid");
+			jQuery("#list2").jqGrid('setGridParam',{url:urlRoot('index.php')+"/seguimiento/reporte_ubigeo/obtenreporte?depa="+coddepa+"&prov="+codprov+"&periodo="+codper,page:1}).trigger("reloadGrid");
 		}
 	}
 
 	function exportExcel()
 	{
-        //var cododei = $("#odei").val();
-		var codper = $("#periodo").val();
+		var coddepa = $("#cod_depa").val();
+		var codprov = $("#cod_prov").val();
+		var codper = $("#cod_per").val();
 
 		if (codper == -1)
 		{ 
