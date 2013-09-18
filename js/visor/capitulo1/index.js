@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 	
 	
-	$('#list_ie').on('click','.raw',function(event){
+	$('.dropdown-menu').on('click','.combo_ins',function(event){
 
 		P1A2N($(this).attr('id'));
 
@@ -54,34 +54,43 @@ function lista_ie(){
 		var ie="";
 		var i=0;
 		var first="";
+
+		var combo='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_ie" href="#">'+
+							'Seleccione una Institución Educativa '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
 		$.each(data, function(index, val) {
 			i++;
 			if(i==1){
 				P1A2N(val.P1_A_2_NroIE);
-				cl="raw_active";
+				cl="active";
 			}else{
 				cl="";
 			}
 				
-			ie+='<tr class="raw '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
-				'<td style="text-align:center;">'+val.P1_A_2_NroIE+'</td>'+
-				'<td style="text-align:center;">'+val.P1_A_2_1_NomIE+'</td>'+							    			
-			'</tr>';
+			combo+='<li class="combo_ins '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
+							'<a href="" data-toggle="dropdown">I.E. N° '+val.P1_A_2_NroIE+' - '+val.P1_A_2_1_NomIE+'</a>'+
+						'</li>';
 
 		});
 
-		if(i==0){
-			ie+='<tr id="">'+
-				'<td colspan="2" style="text-align:center;">No Existen I.E. en el Predio '+getPredio()+' </td>'+							    			
-				'</tr>';
-		}
+		combo+='</ul>'+
+				'</div>';
+				alert(i)
+		
 
 		if(i==1){
-			$("#ie-panel").hide();
+			 $("#ie-panel").hide();
 		}
 
-		$("#list_ie").html(ie);
+		$("#ie-panel").html(combo);
 		
+		if(i==0){
+			$('#combo_ie').html('No Existen Instituciones Educativas en el Predio '+getPredio());
+		}
 	});
 
 }

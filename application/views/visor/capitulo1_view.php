@@ -26,7 +26,7 @@
 
 								<div id="ie-panel">
 
-									<div class="panel panel_title">
+									<!-- <div class="panel panel_title">
 										<strong>Lista de Instituciones Educativas</strong>
 									</div>
 
@@ -44,13 +44,13 @@
 									   <table class="table table-hover" style="width:575px; height:120px;">
 								    		
 								    		<tbody id="list_ie">
-								    			<!-- AJAX-->
+								    			
 								    		</tbody>
 									    
 									    </table>
 
 									</div>
-
+ -->
 								</div>
 
 							<div id="ie_educa" style="margin-top:10px;">
