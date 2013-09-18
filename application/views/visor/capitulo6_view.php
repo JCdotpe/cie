@@ -36,7 +36,7 @@
 
 
 
-		  	    			<div id="pag_seccion_a">
+		  	    	<!--		<div id="pag_seccion_a">
 
 			  	    				<div class="panel panel_title">
 										<strong>LISTADO DE EDIFICIACIONES</strong>
@@ -60,7 +60,10 @@
 									    </table>
 
 								    </div>
-		  	    			</div>
+		  	    			</div>-->
+		  	    			<div id="Combo_edificaciones" style="width:300px;margin:10px;">
+
+							</div>
 
 		  	    			<div id="seccion_a" class="content7">
 								<!--AJAX-->

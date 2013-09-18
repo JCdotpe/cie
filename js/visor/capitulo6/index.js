@@ -14,7 +14,7 @@ $(document).ready(function(){
 	Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 	Get_Edif_Pisos_Cap06(nro_edif);
 	Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);
-
+	alert('miguel');
 	//Edificaciones
 	$('#seccion_m').on('click','.raw',function(event){
 
@@ -41,6 +41,12 @@ $(document).ready(function(){
 	$('input').attr({
 		disabled : true,
 	});
+	//
+	$('.dropdown-menu').on('click','.combo_ins',function(event){
+
+		alert('hola');
+	});
+
 
 
 });
@@ -89,7 +95,7 @@ function Get_List_Edif_Cap06(){
 
 	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
 
-				$.each(data, function(index, val) {
+				/*$.each(data, function(index, val) {
 					i++;
 					if(i==1){
 
@@ -113,7 +119,41 @@ function Get_List_Edif_Cap06(){
 				}
 
 				$('#seccion_m').html(html);
-				$('#edificaciones').html(html);
+				//$('#edificaciones').html(html);*/
+
+
+				 html='<div class="dropdown">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
+							'Seleccione una edificación '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
+				$.each(data, function(index, val) {
+					i++;
+					if(i==1){
+
+						cl="raw_active";
+					}else{
+						cl="";
+					}
+		  	    	html+='<li id="'+val.Nro_Ed+'">'+
+								'<a> Edificación Nro:'+ val.Nro_Ed+'</a>'+
+							'</li>';
+				});
+				/*if(i==0){
+					html+='<tr id="">'+
+						'<td colspan="2" style="text-align:center;">No Existen Edificaciones en el Predio '+getPredio()+' </td>'+
+						'</tr>';
+				}
+				if(i==1){
+					$("#pag_seccion_a").hide();
+				}*/
+				html+='</ul>'+
+					'</div>';
+
+				$('#Combo_edificaciones').html(html);
+				//$('#edificaciones').html(html);
 
 	});
 }

@@ -19,7 +19,7 @@ $(document).ready(function(){
 		P1A2N($(this).attr('id'));
 
 		$('.raw').removeClass('raw_active');
-		$(this).addClass('raw_active');
+		$(this).addClass('raw_active');		
 
 	});
 
