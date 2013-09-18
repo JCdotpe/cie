@@ -65,7 +65,7 @@ class P9F extends REST_Controller{
 
             $data = $this->P9F_model->getData($this->get('id_local'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

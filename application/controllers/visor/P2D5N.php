@@ -64,7 +64,7 @@ class P2D5N extends REST_Controller{
 
             $data = $this->P2D5N_model->getData(no_obfuscate($this->get('id_local')));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

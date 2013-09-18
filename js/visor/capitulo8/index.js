@@ -151,7 +151,7 @@ function Get_count_Type_Edif(){
 					}
 
 					combopatios+='<li class="combo_ins1 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+val.P8_2_Nro+'</a>'+
+									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
@@ -166,7 +166,7 @@ function Get_count_Type_Edif(){
 					}
 
 					losasdeportivas+='<li class="combo_ins2 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-										'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+val.P8_2_Nro+'</a>'+
+										'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
@@ -180,7 +180,7 @@ function Get_count_Type_Edif(){
 					}
 
 					cisterna+='<li class="combo_ins3 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+val.P8_2_Nro+'</a>'+
+									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
@@ -194,7 +194,7 @@ function Get_count_Type_Edif(){
 					}
 
 					muros+='<li class="combo_ins4 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+val.P8_2_Nro+'</a>'+
+									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
@@ -223,7 +223,7 @@ function Get_Edif(prefijo,numero){
 
 			$.each(data ,function(index, val){
 
-					$('#P8_2_Nro'+prefijo).val(prefijo+' - '+val.P8_2_Nro);
+					$('#P8_2_Nro'+prefijo).val(prefijo+' - '+leftceros(val.P8_2_Nro));
 					if (prefijo!='MC') {
 						arr = val.P8_area.split(".");
 						$('#P8_area'+prefijo).val(arr[0]);
@@ -235,7 +235,7 @@ function Get_Edif(prefijo,numero){
 					};
 
 
-					$('#Nro_Pred'+prefijo).val(val.Nro_Pred);
+					$('#Nro_Pred'+prefijo).val(leftceros(val.Nro_Pred));
 					check_Radio(val.P8_ejecuto,'P8_ejecuto'+prefijo);
 					check_Radio(val.P8_Est_E,'P8_Est_E'+prefijo);
 					check_Radio(val.P8_Ant,'P8_Ant'+prefijo);
@@ -266,10 +266,10 @@ function Get_Tot_Edif_Cap05(){
 				var i=1;
 				$.each(data, function(index, val) {
 
-					 $('#P5_Tot_P').val(val.P5_Tot_P);
-					 $('#P5_Tot_LD').val(val.P5_Tot_LD);
-					 $('#P5_Tot_CTE').val(val.P5_Tot_CTE);
-					 $('#P5_Tot_MC').val(val.P5_Tot_MC);
+					 $('#P5_Tot_P').val(leftceros(val.P5_Tot_P));
+					 $('#P5_Tot_LD').val(leftceros(val.P5_Tot_LD));
+					 $('#P5_Tot_CTE').val(leftceros(val.P5_Tot_CTE));
+					 $('#P5_Tot_MC').val(leftceros(val.P5_Tot_MC));
 
 
 				});

@@ -64,7 +64,7 @@ class P5 extends REST_Controller{
 
             $data = $this->P5_model->getData(no_obfuscate($this->get('id_local')));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 
@@ -87,7 +87,7 @@ class P5 extends REST_Controller{
 
             $data = $this->P5_model->getDataPredio(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

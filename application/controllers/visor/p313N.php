@@ -64,7 +64,7 @@ class P313N extends REST_Controller{
 
             $data = $this->P313N_model->getData(no_obfuscate($this->get('id_local'))/*,$this->get('predio')*/);
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

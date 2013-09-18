@@ -110,7 +110,7 @@ function Get_cap7(nro_edif){
 	$.getJSON(CI.base_url+'index.php/visor/P7/Data/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(), NRO_ED:nro_edif}, function(data) {
 		$.each(data, function(index, val) {
 			$('#P7_2_2').val(val.P7_2_2);
-			$('#Nro_Ed').val(val.Nro_Ed);
+			$('#Nro_Ed').val(leftceros(val.Nro_Ed));
 			check_Radio(val.P7_1_2,'P7_1_2');
 			check_Radio(val.P7_1_3,'P7_1_3');
 			check_Radio(val.P7_1_4,'P7_1_4');
