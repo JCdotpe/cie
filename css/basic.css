@@ -10,8 +10,10 @@
 .panel_title{
 	background: #EBFBFE;
 	color: #000;
+	text-transform: uppercase;
 }
 
 th{
 	background: #ddd;
 }
+
