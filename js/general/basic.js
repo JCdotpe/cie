@@ -63,7 +63,7 @@ function check_Radio(value,id){
 }
 
 
-(function(){
+(function($){
 
     var imported = [];
 
