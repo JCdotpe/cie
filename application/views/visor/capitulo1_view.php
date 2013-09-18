@@ -115,9 +115,9 @@
 
 
 										<div class="panel"><!-- N CODIGOS -->
-														<label>2.9 Códigos modulares asignados a la institución educativa:</label>
+											<label>2.9 Códigos modulares asignados a la institución educativa:</label>
 
-														<table class="table table-bordered">
+												<table class="table table-bordered">
 															<thead>
 																<tr>
 																	<th rowspan="2" style="text-align:center;vertical-align:middle;">N° Ord.</th>

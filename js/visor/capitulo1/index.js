@@ -20,25 +20,17 @@ $(document).ready(function(){
 
 		P1A2N($(this).attr('id'));
 
-
-		$('.raw').removeClass('active');
-		$(this).addClass('active');		
-
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
 
 
 	});
 
-	$('#ie-panel').on('click','.combo_ins',function(event){
+	$('#list-predio').on('click','.combo_pred',function(event){
 
 		//P1A2N($(this).attr('id'));
 
-
-		$('.raw').removeClass('active');
-		$(this).addClass('active');		
-
-		$('.combo_ins').removeClass('active');
+		$('.combo_pred').removeClass('active');
 		$(this).addClass('active');
 
 
@@ -212,7 +204,7 @@ function lista_Predios(){
 
 		var combo='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_predio" href="#">'+
-							'Seleccione una Institución Educativa '+
+							'Seleccione un Predio '+
 							'<span class="caret"></span>'+
 						'</a>'+
 						'<ul class="dropdown-menu">';
@@ -226,7 +218,7 @@ function lista_Predios(){
 				cl="";
 			}
 				
-			combo+='<li class="combo_ins '+cl+'" id="'+val.Nro_Pred+'">'+
+			combo+='<li class="combo_pred '+cl+'" id="'+val.Nro_Pred+'">'+
 							'<a href="" data-toggle="dropdown">Predio N° '+val.Nro_Pred+' - Inmueble: '+val.Inmueble_Cod+'</a>'+
 						'</li>';
 
