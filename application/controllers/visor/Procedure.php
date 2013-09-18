@@ -65,6 +65,33 @@ class Procedure extends REST_Controller{
 
     }
 
+    public function Lista_Anexo_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->Lista_Anexo(no_obfuscate($this->get('id_local')));
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+
+
+    }
+
+
     
 
 }

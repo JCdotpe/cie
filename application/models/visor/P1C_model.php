@@ -14,11 +14,12 @@ class P1C_model extends CI_MODEL{
     
     }
 
-    public function getData($codigo_de_local){
+    public function getData($codigo_de_local,$anexo){
 
         $this->db->select('*');
         $this->db->from('P1_C');
         $this->db->where('id_local',$codigo_de_local);
+        $this->db->where('P1_A_2_9_AnexNro',$anexo);
         $q = $this->db->get();
         return $q;
         

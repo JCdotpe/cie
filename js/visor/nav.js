@@ -51,7 +51,7 @@ $(document).ready(function() {
 
 			var combo='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
-							'Seleccione un Predio '+
+							'Seleccione un Predio para cargar las Cedulas'+
 							'<span class="caret"></span>'+
 						'</a>'+
 						'<ul class="dropdown-menu">';

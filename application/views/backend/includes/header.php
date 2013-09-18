@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/TableTools.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/ui.jqgrid.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/main.css'); ?>">
-    
+     <link rel="stylesheet" href="<?php echo base_url('css/basic.css'); ?>">
     <link rel="shortcut icon" href="<?php echo base_url('img/ico/favicon.ico'); ?>">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo base_url('img/ico/apple-touch-icon-57x57-precomposed.png'); ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url('img/ico/apple-touch-icon-114x114-precomposed.png'); ?>">

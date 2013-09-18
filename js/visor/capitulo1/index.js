@@ -1,20 +1,21 @@
 $(document).ready(function(){
 
-	$.import('css/basic.css','css');
+	
 
 	$('#ie_educa').hide();
+	$('#table_predios').hide();
 
 	P1A();
 	/*P1A2N();*/
 	lista_ie();
 
 	lista_Predios();
+
+	lista_Anexos();
 	
 	$('input,textarea').attr({
 		disabled : true,
 	});
-
-	
 	
 	$('#ie-panel').on('click','.combo_ins',function(event){
 
@@ -23,15 +24,27 @@ $(document).ready(function(){
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
 
+	});
+
+	$('#list-predio').on('click','.combo_predio',function(event){
+	
+		$('.combo_pred').removeClass('active');
+		$(this).addClass('active');
+
+		get_P1B2AN();
+		get_P1B();
+	
+		get_P1B3N($(this).attr('id'));
+		get_P1B312N($(this).attr('id'));
 
 	});
 
-	$('#list-predio').on('click','.combo_pred',function(event){
+	$('#list-anexo').on('click','.combo_anexo',function(event){
 
-		//P1A2N($(this).attr('id'));
-
-		$('.combo_pred').removeClass('active');
+		$('.combo_anexo').removeClass('active');
 		$(this).addClass('active');
+
+		 P1C($(this).attr('id'));
 
 
 	});
@@ -127,7 +140,8 @@ function P1A2N(ie){
 			$("#P1_A_2_7_InformantCarg").val(val.P1_A_2_7_InformantCarg);
 			$("#P1_A_2_8_Can_CMod_IE").val(val.P1_A_2_8_Can_CMod_IE);
 			$("#P1_A_2_Obs").val(val.P1_A_2_Obs);
-			get_P1_A_2_8N(getLocal(),getPredio(),val.P1_A_2_NroIE)
+			get_P1_A_2_8N(getLocal(),getPredio(),val.P1_A_2_NroIE);
+
 		});
 		
 
@@ -212,14 +226,31 @@ function lista_Predios(){
 		$.each(data, function(index, val) {
 			i++;
 			if(i==1){
-				//P1A2N(val.P1_A_2_NroIE);
+				
+			get_P1B2AN();
+			get_P1B();
+			get_P1B3N(1);
+			get_P1B312N(1);
+
 				cl="active";
 			}else{
 				cl="";
 			}
+
+			if(val.Nro_Pred==1){
+				tipo="Predio Principal";
+			}else{
+				tipo=tipoPredio(val.Colindante);
+			}
+
+			if(val.Inmueble_Cod==null || val.Inmueble_Cod==undefined || val.Inmueble_Cod==''){
+				inmueble=inmueble_Predio(val.Inmueble_Tip);
+			}else{
+				inmueble=val.Inmueble_Cod;
+			}
 				
 			combo+='<li class="combo_pred '+cl+'" id="'+val.Nro_Pred+'">'+
-							'<a href="" data-toggle="dropdown">Predio N° '+val.Nro_Pred+' - Inmueble: '+val.Inmueble_Cod+'</a>'+
+							'<a href="" data-toggle="dropdown">Predio N° '+val.Nro_Pred+' ('+tipo+') - Inmueble: '+inmueble+'</a>'+
 						'</li>';
 
 		});
@@ -228,15 +259,231 @@ function lista_Predios(){
 				'</div>';
 
 		if(i==1){
-			 $("#list-predio").hide();
+			 $("#panel-predio").hide();
 		}
 
 		$("#list-predio").html(combo);
 		
 		if(i==0){
-			$('#combo_predio').html('No Existen Instituciones Educativas en el Predio '+getPredio());
+			$('#combo_predio').html('No Existen Predios');
 		}
 	});
+
+}
+
+function get_P1B(){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1B/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+		
+		$('#table_predios').show();
+
+		$.each(data, function(index, val) {
+
+			$("#P1_B_1_TPred").val(val.P1_B_1_TPred);
+			check_Radio(val.P1_B_2_PredCol,"P1_B_2_PredCol");
+
+		});
+
+	});
+
+
+}
+
+function get_P1B2AN(){
+	$.getJSON(urlRoot('index.php')+'/visor/P1B2AN/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+
+		var p="";
+		var c=0;
+
+		$.each(data, function(index, val) {
+			
+			if(val.P1_B_2A_PredNoCol==1){
+				c++;if(c>1){p+=" - ";};p+=val.Nro_Pred;
+			}
+			
+			$('#predios_no_colindantes').val(p);
+
+		});
+
+	});
+}
+
+function get_P1B3N(predio){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1B3N/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
+		
+		$.each(data, function(index, val) {
+
+			$("#Nro_Pred").val(val.Nro_Pred);
+			$("#P1_B_3_InmCod").val(val.P1_B_3_InmCod);
+
+			check_Radio(val.P1_B_3_InmTip,"P1_B_3_InmTip");
+			
+			check_Radio(val.P1_B_3_1_Prop,"P1_B_3_1_Prop");
+			
+			if(val.P1_B_3_1_Prop==4){
+				$("#P1_B_3_1_Prop_O1").val(val.P1_B_3_1_Prop_O);
+			}else if(val.P1_B_3_1_Prop==5){
+				$("#P1_B_3_1_Prop_O2").val(val.P1_B_3_1_Prop_O);
+			}
+			
+			check_Radio(val.P1_B_3_2_AntReg_Cod,"P1_B_3_2_AntReg_Cod");//
+			
+			$("#P1_B_3_3_AntReg_Nro").val(val.P1_B_3_3_AntReg_Nro);
+			
+			check_Radio(val.P1_B_3_4_Tipo_TProp,"P1_B_3_4_Tipo_TProp");
+
+			if(val.P1_B_3_4_Tipo_TProp==9){
+				$("#P1_B_3_4_Tipo_TProp_O").val(val.P1_B_3_4_Tipo_TProp_O);
+			}
+
+			$("#P1_B_3_5_FecTit").val(val.P1_B_3_5_FecTit);
+			
+			check_Radio(val.P1_B_3_6_DocPos,"P1_B_3_6_DocPos");
+
+			if(val.P1_B_3_6_DocPos==9){
+				$("#P1_B_3_6_DocPos_O").val(val.P1_B_3_6_DocPos_O);
+			}
+			
+			$("#P1_B_3_7_DocPos_Fech").val(val.P1_B_3_7_DocPos_Fech);
+			
+			decimal1=val.P1_B_3_8_At_Pred.split('.');
+
+			$("#P1_B_3_8_At_Pred1").html(decimal1[0]); 
+			$("#P1_B_3_8_At_Pred2").html(decimal1[1]);
+
+			decimal2=val.P1_B_3_8_At_Pred.split('.');
+
+			$("#P1_B_3_9_At_Local1").html(decimal2[0]); 
+			$("#P1_B_3_9_At_Local2").html(decimal2[1]);
+
+			check_Radio(val.P1_B_3_10_Comp,"P1_B_3_10_Comp");
+			
+			$("#P1_B_3_11_CompCan").val(val.P1_B_3_11_CompCan);
+			$("#P1_B_3_Obs").val(val.P1_B_3_Obs);
+
+		});
+
+	});
+
+}
+
+
+function get_P1B312N(predio){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1B312N/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
+		
+		var c=0;
+		var p="";
+
+		$.each(data, function(index, val) {
+				c++;
+				if(c>1){p+=" - ";};
+				p+=val.P1_B_3_12_NombComp;
+			
+			$('#P1_B_3_12_NombComp').val(p);
+		})
+
+	});
+
+}
+
+function lista_Anexos(){
+
+	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Anexo/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	
+		var html="";
+		var ie="";
+		var i=0;
+		var first="";
+
+		var combo='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_predio" href="#">'+
+							'Seleccione un Anexo '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
+		$.each(data, function(index, val) {
+			i++;
+			if(i==1){
+				
+				cl="active";
+			}else{
+				cl="";
+			}
+				
+			combo+='<li class="combo_anexo '+cl+'" id="'+val.P1_A_2_9_AnexNro+'">'+
+						'<a href="" data-toggle="dropdown">Anexo N° '+val.P1_A_2_9_AnexNro+' - '+val.P1_A_2_9_NroCMod+' - '+val.P1_A_2_1_NomIE+'</a>'+
+					'</li>';
+		
+		});
+
+		combo+='</ul>'+
+				'</div>';
+
+		if(i==1){
+			 $("#panel-anexo").hide();
+		}
+
+		$("#list-anexo").html(combo);
+		
+		if(i==0){
+			$('#combo_anexo').html('No Existen Anexos');
+		}
+
+
+	});
+
+}
+
+function P1C(anexo){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1C/Data/', {token: getToken(),id_local: getLocal(), anexo: anexo}, function(data, textStatus) {
+		
+		$.each(data, function(index, val) {
+
+		$("#P1_A_2_9_NroCMod").val(val.P1_A_2_9_NroCMod)
+		$("#P1_A_2_9_AnexNro").val(val.P1_A_2_9_AnexNro)
+		$("#P1_C_1_CodLoc_Anex").val(val.P1_C_1_CodLoc_Anex)
+
+		/*"P1_C_2_ProvCod": "01",
+		"P1_C_3_DistCod": "01",
+		"P1_C_4_CCPP": "464",
+		"P1_C_5_NucleoUrb": "n",
+		"P1_C_6Dir_1_Tvia": 3,
+		"P1_C_6Dir_2_Nomb": "wqwdq",
+		"P1_C_6Dir_3_Nro": "5644",
+		"P1_C_6Dir_4_Piso": "2",
+		"P1_C_6Dir_5_Mz": null,
+		"P1_C_6Dir_6_Lt": null,
+		"P1_C_6Dir_7_Sect": null,
+		"P1_C_6Dir_8_Zona": null,
+		"P1_C_6Dir_9_Et": null,
+		"P1_C_6Dir_10_Km": null,
+		"P1_C_7_RefDir": null,
+		"P1_C_8_InmCod": null,
+		"P1_C_8_InmTip": null,
+		"P1_C_9_Prop": null,
+		"P1_C_9_Prop_O": null,
+		"P1_C_10_AntReg_Cod": null,
+		"P1_C_11_AntReg_Nro": null,
+		"P1_C_12_Tipo_TProp": null,
+		"P1_C_12_Tipo_TProp_O": null,
+		"P1_C_13_FecTit": null,
+		"P1_C_14_DocPos": null,
+		"P1_C_14_DocPos_O": null,
+		"P1_C_15_DocPos_Fech": null,
+		"P1_C_16_At_Pred": null,
+		"P1_C_17_At_Local": null,
+		"P1_C_18_Comp": null,
+		"P1_C_19_CompCan": null,
+		"P1_C_Obs": null,*/
+		
+		});
+
+	});
+
 
 }
 

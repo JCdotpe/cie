@@ -21,6 +21,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Lista_Anexo($codigo_de_local){
+       
+        $q=$this->db->query("CAP01_Lista_Anexo ?", array($codigo_de_local)); 
+        return $q;
+    
+    }
+
     function Lista_Last_Gps(){
        
         $q=$this->db->query("CAP03_Punto10"); 

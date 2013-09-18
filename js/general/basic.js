@@ -1,16 +1,16 @@
 function urlRoot(delimiter){
 
-	pos_array=0;
-	var delimiter;
-	var loc = document.location.href;
-	var url = loc.split(delimiter);
+    pos_array=0;
+    var delimiter;
+    var loc = document.location.href;
+    var url = loc.split(delimiter);
 
     if(delimiter=='.'){
         return loc;
     }else{
         return url[pos_array]+delimiter;
-    }
-
+    }       
+    
 }
 
 function urlCombo(){
@@ -19,19 +19,19 @@ function urlCombo(){
     var delimiter="?";
     var loc = document.location.href;
     var url = loc.split(delimiter);
-
-    return url[pos_array];
+   
+    return url[pos_array]; 
 }
 
 function getLocal(){
-
+   
     pos_array=1;
     var delimiter="?le=";
     var loc = document.location.href;
     var url = loc.split(delimiter);
     code=url[pos_array].substring(0, 8);
-
-    return code;
+    
+    return code;            
 }
 
 function getPredio(){
@@ -55,14 +55,15 @@ function getToken(){
 function check_Radio(value,id){
 
     if(value!=null){
-
-       document.getElementById(id+value).checked=true;
-
+             
+       document.getElementById(id+value).checked=true; 
+       //$("#"+id+value).attr('checked',true);
+       
     }
 }
 
 
-(function($){
+(function(){
 
     var imported = [];
 
@@ -78,7 +79,7 @@ function check_Radio(value,id){
                 }
 
             if(clase==null || clase==undefined || clase==''){
-                clase="head";
+                clase="head";                
             }else{
                 clase='.'+clase;
             }
@@ -97,13 +98,13 @@ function check_Radio(value,id){
                     break;
 
                 }
-
-
+                
+                
 
                 imported.push(url);
             }
         }
-
+        
     });
 
 })(jQuery);
@@ -122,11 +123,11 @@ function tipoPredio(codigo){
         case '':
             return 'No Ingresado';
         break;
-        case 0:
-            return 'No Colindante';
-        break;
-        case 1:
+        case "0":
             return 'Colindante';
+        break;
+        case "1":
+            return 'No Colindante';
         break;
     }
 
@@ -144,19 +145,19 @@ function prop_Predio(codigo,otro){
         case '':
             return 'No Ingresado';
         break;
-        case 1:
+        case "1":
             return 'Ministerio de Educación';
         break;
-        case 2:
+        case "2":
             return 'Institución Educativa';
         break;
-        case 3:
+        case "3":
             return 'Estado';
         break;
-        case 4:
+        case "4":
             return otro;
         break;
-        case 5:
+        case "5":
             return otro;
         break;
     }
@@ -174,14 +175,15 @@ function inmueble_Predio(codigo){
         case '':
             return 'No Ingresado';
         break;
-        case 1:
+        case "1":
             return 'No tiene Constancia';
         break;
-        case 2:
+        case "2":
             return 'No sabe';
         break;
     }
 }
+
 
 function leftceros(numero){
 
@@ -192,4 +194,66 @@ function leftceros(numero){
         return '0'+numero;
 
     return numero;
+}
+
+
+//-------------------------------------------------------------------------------------
+//CARGA NOMBRE DE DEPARTAMENTO POR CODIGO
+function get_Depa(code){
+
+    $.ajax({
+        url: urlRoot('index.php')+'/convocatoria/registro/get_ajax_dptobyCode/',
+        type: 'POST',
+        dataType: 'json',
+        data: {code: code},
+        success: function(data){
+            
+            $.each(data, function(index, val) {
+                $('.departamento').val(val.Nombre);         
+            });
+
+        }
+        
+    });
+    
+}
+
+//CARGA NOMBRE DE PROVINCIA POR CODIGOS
+function get_Prov(depa,prov){
+
+    $.ajax({
+        url: urlRoot('index.php')+'/convocatoria/registro/get_ajax_provsbyCode/',
+        type: 'POST',
+        dataType: 'json',
+        data: { depa: depa , prov:prov },
+        success: function(data){
+            
+            $.each(data, function(index, val) {
+                $('.provincia').val(val.Nombre);            
+            });
+
+        }
+        
+    });
+
+}
+
+//CARGA NOMBRE DE DISTRITO POR CODIGOS
+function get_Dist(depa,prov,dist){
+
+    $.ajax({
+        url: urlRoot('index.php')+'/convocatoria/registro/get_ajax_distbyCode/',
+        type: 'POST',
+        dataType: 'json',
+        data: {depa:depa , prov:prov , dist:dist},
+        success: function(data){
+            
+            $.each(data, function(index, val) {
+                $('.distrito').val(val.Nombre);         
+            });
+
+        }
+        
+    });
+
 }

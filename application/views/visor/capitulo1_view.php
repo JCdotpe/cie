@@ -11,7 +11,7 @@
 
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h5 class="panel-title">Capitulo I Identificación de las instituciones eductivas, predios y anexos del local escolar</h5>
+								<h5 class="panel-title" style="text-transform: uppercase;">Capitulo I Identificación de las instituciones eductivas, predios y anexos del local escolar</h5>
 							</div>
 
 							<table class="table table-bordered">
@@ -26,7 +26,7 @@
 
 							<div class="panel" style="background:#DDD;">
 								<strong>Visualizar Instituciones Educativas</strong>
-								<div id="ie-panel">
+								<div id="ie-panel" style="margin-top:20px;">
 									<!--  AJAX -->
 								</div>
 							</div>
@@ -207,15 +207,17 @@
 										<td><strong>¿cuales son los predios no colindantes?</strong></td>
 										<td>
 											<label>N° de predio</label>
-											<input style="width:300px;" type="text" class="form-control">
+											<input style="width:300px;" id="predios_no_colindantes" type="text" class="form-control">
 										</td>
 									</tr>
 								</tbody>
 							</table>
 
-								<div class="panel" style="background:#DDD;">
+								<div id="panel-predio" class="panel" style="background:#DDD;">
+									
 									<strong>Visualizar Predios</strong>
-									<div id="list-predio" style="margin-top:10px;margin-bottom:10px;">
+
+									<div id="list-predio" style="margin-top:20px;">
 
 										<!--  AJAX -->
 
@@ -225,14 +227,14 @@
 								
 
 
-							<table class="table table-bordered">
+							<table id="table_predios" class="table table-bordered">
 								<thead>
 									<tr>
 										<th colspan="2">
 											<label style="float:left;">Predio N°</label>
 										</th>
 										<th>
-											<input style="float:left; width:300px;" type="text" class="form-control">
+											<input id="Nro_Pred" style="float:left; width:300px;" type="text" class="form-control">
 										</th>
 									</tr>
 								</thead>
@@ -244,13 +246,15 @@
 											(Este código se encuentranen la constancia MARGESI)
 										</td>
 										<td>
-											<input style="float:left; width:300px;" type="text" class="form-control"><br />
+											<input id="P1_B_3_InmCod" style="float:left; width:300px;" type="text" class="form-control">
+											<br />
+
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. No tiene constancia
+												<input type="radio" id="P1_B_3_InmTip1" name="P1_B_3_InmTip" value="option1"> 1. No tiene constancia
 											</label>
 
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No sabe
+												<input type="radio" id="P1_B_3_InmTip2" name="P1_B_3_InmTip" value="option2"> 2. No sabe
 											</label>
 										</td>
 									</tr>
@@ -262,29 +266,29 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Ministerio de Educación
+												<input type="radio" id="P1_B_3_1_Prop1" name="P1_B_3_1_Prop" value=""> 1. Ministerio de Educación
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Institucion educativa
+												<input type="radio" id="P1_B_3_1_Prop2" name="P1_B_3_1_Prop" value=""> 2. Institucion educativa
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Estado
+												<input type="radio" id="P1_B_3_1_Prop3" name="P1_B_3_1_Prop" value=""> 3. Estado
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">
+												<input type="radio" id="P1_B_3_1_Prop4" name="P1_B_3_1_Prop" value="">
 												4. Otro sector del estado
 											</label>
 											<label>
-												<input style="float:left; width:300px;" type="text" class="form-control">
+												<input id="P1_B_3_1_Prop_O1" style="float:left; width:300px;" type="text" class="form-control">
 												(Especifique)
 											</label>
 
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option5">
+												<input type="radio" id="P1_B_3_1_Prop5" name="P1_B_3_1_Prop" value="">
 												5. Propiedad de terceros
 											</label>
 											<label>
-												<input style="float:left; width:300px;" type="text" class="form-control">
+												<input id="P1_B_3_1_Prop_O2" style="float:left; width:300px;" type="text" class="form-control">
 												(Especifique)
 											</label>
 
@@ -298,19 +302,19 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Partida electrónica?
+												<input type="radio" id="P1_B_3_2_AntReg_Cod1" name="P1_B_3_2_AntReg_Cod" value="option1"> 1. Partida electrónica?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Código de predio?
+												<input type="radio" id="P1_B_3_2_AntReg_Cod2" name="P1_B_3_2_AntReg_Cod" value="option2"> 2. Código de predio?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Ficha?
+												<input type="radio" id="P1_B_3_2_AntReg_Cod3" name="P1_B_3_2_AntReg_Cod" value="option3"> 3. Ficha?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4"> 4. Tomo/Foja/Asiento?
+												<input type="radio" id="P1_B_3_2_AntReg_Cod4" name="P1_B_3_2_AntReg_Cod" value="option4"> 4. Tomo/Foja/Asiento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option5"> 5. Ninguno?
+												<input type="radio" id="P1_B_3_2_AntReg_Cod5" name="P1_B_3_2_AntReg_Cod" value="option5"> 5. Ninguno?
 											</label>
 										</td>
 									</tr>
@@ -322,7 +326,7 @@
 										</td>
 										<td>
 											<label>N° de antecedente registral</label>
-											<input style="float:left; width:300px;" type="text" class="form-control"><br />
+											<input id="P1_B_3_3_AntReg_Nro" style="float:left; width:300px;" type="text" class="form-control"><br />
 										</td>
 									</tr>
 									<tr>
@@ -333,39 +337,39 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Escritura pública?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp1" name="P1_B_3_4_Tipo_TProp" value="option1"> 1. Escritura pública?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Minuta de compra-venta?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp2" name="P1_B_3_4_Tipo_TProp" value="option2"> 2. Minuta de compra-venta?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Minuta de donación?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp3" name="P1_B_3_4_Tipo_TProp" value="option3"> 3. Minuta de donación?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Minuta de cesión?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp4" name="P1_B_3_4_Tipo_TProp" value="option4">	4. Minuta de cesión?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Minuta de permuta?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp5" name="P1_B_3_4_Tipo_TProp" value="option4">	5. Minuta de permuta?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Aporte reglamentario?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp6" name="P1_B_3_4_Tipo_TProp" value="option4">	6. Aporte reglamentario?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Resolución emitida por  entidad del estado?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp7" name="P1_B_3_4_Tipo_TProp" value="option4">	7. Resolución emitida por  entidad del estado?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Acta de donación de CC/CN?
+												<input type="radio" id="P1_B_3_4_Tipo_TProp8" name="P1_B_3_4_Tipo_TProp" value="option4">	8. Acta de donación de CC/CN?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
-											</label>
-
-											<label>
-												<input style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
+												<input type="radio" id="P1_B_3_4_Tipo_TProp9" name="P1_B_3_4_Tipo_TProp" value="option4">	9. Otro?
 											</label>
 
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
+												<input id="P1_B_3_4_Tipo_TProp_O" style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
+											</label>
+
+											<label>
+												<input type="radio" id="P1_B_3_4_Tipo_TProp10" name="P1_B_3_4_Tipo_TProp" value="option5">	10. Ninguno
 											</label>
 
 										</td>
@@ -378,7 +382,7 @@
 										</td>
 										<td>
 											<label>Fecha</label>
-											<input style="float:left; width:100px;" type="text" class="form-control"><br />
+											<input id="P1_B_3_5_FecTit" style="float:left; width:100px;" type="text" class="form-control"><br />
 										</td>
 									</tr>
 									<tr>
@@ -389,39 +393,39 @@
 										</td>
 										<td>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Constancia de posesion de Juez de Paz?
+												<input type="radio" id="P1_B_3_6_DocPos1" name="check" value="option1"> 1. Constancia de posesion de Juez de Paz?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. Constancia de posesion municipal?
+												<input type="radio" id="P1_B_3_6_DocPos2" name="check" value="option2"> 2. Constancia de posesion municipal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option3"> 3. Resolución municipal?
+												<input type="radio" id="P1_B_3_6_DocPos3" name="check" value="option3"> 3. Resolución municipal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	4. Resolución de afectación en uso?
+												<input type="radio" id="P1_B_3_6_DocPos4" name="check" value="option4">	4. Resolución de afectación en uso?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	5. Convenio con entidad estatal?
+												<input type="radio" id="P1_B_3_6_DocPos5" name="check" value="option4">	5. Convenio con entidad estatal?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	6. Convenio con particulares?
+												<input type="radio" id="P1_B_3_6_DocPos6" name="check" value="option4">	6. Convenio con particulares?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	7. Contrato de arrendamiento?
+												<input type="radio" id="P1_B_3_6_DocPos7" name="check" value="option4">	7. Contrato de arrendamiento?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	8. Contrato de servidumbre?
+												<input type="radio" id="P1_B_3_6_DocPos8" name="check" value="option4">	8. Contrato de servidumbre?
 											</label>
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option4">	9. Otro?
-											</label>
-
-											<label>
-												<input style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
+												<input type="radio" id="P1_B_3_6_DocPos9" name="check" value="option4">	9. Otro?
 											</label>
 
 											<label>
-												<input type="radio" id="Checkbox1" name="check" value="option5">	10. Ninguno
+												<input id="P1_B_3_6_DocPos_O" style="float:left; width:300px;" type="text" class="form-control"> (Especifique)
+											</label>
+
+											<label>
+												<input type="radio" id="P1_B_3_6_DocPos10" name="check" value="option5">	10. Ninguno
 											</label>
 										</td>
 									</tr>
@@ -433,7 +437,7 @@
 										</td>
 										<td>
 											<label>Fecha</label>
-											<input style="float:left; width:100px;" type="text" class="form-control">
+											<input id="P1_B_3_7_DocPos_Fech" style="float:left; width:100px;" type="text" class="form-control">
 										</td>
 									</tr>
 									<tr>
@@ -446,12 +450,12 @@
 											<label>Area en m2</label>
 											<table class="table table-bordered">
 												<tr>
-													<th style="text-align:center;">Enteros</th>
-													<th style="text-align:center;">Decimales</th>
+													<th  style="text-align:center;">Enteros</th>
+													<th  style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td></td>
-													<td></td>
+													<td id="P1_B_3_8_At_Pred1"></td>
+													<td id="P1_B_3_8_At_Pred2"></td>
 												</tr>
 											</table>
 										</td>
@@ -470,8 +474,8 @@
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td></td>
-													<td></td>
+													<td id="P1_B_3_9_At_Local1"></td>
+													<td id="P1_B_3_9_At_Local2"></td>
 												</tr>
 											</table>
 										</td>
@@ -483,11 +487,11 @@
 										</td>
 										<td>
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox1" name="check" value="option1"> 1. Si
+												<input type="radio" id="P1_B_3_10_Comp1" name="P1_B_3_10_Comp" value="option1"> 1. Si
 											</label>
 
 											<label class="checkbox-inline">
-												<input type="radio" id="Checkbox2" name="check" value="option2"> 2. No
+												<input type="radio" id="P1_B_3_10_Comp2" name="P1_B_3_10_Comp" value="option2"> 2. No
 											</label>
 										</td>
 									</tr>
@@ -498,7 +502,7 @@
 										</td>
 										<td>
 											<label>N°</label>
-											<input style="float:left; width:100px;" type="text" class="form-control">
+											<input id="P1_B_3_11_CompCan" style="float:left; width:50px;" type="text" class="form-control">
 										</td>
 									</tr>
 									<tr>
@@ -508,7 +512,8 @@
 											(Diligencie, según respuesta en pregunta 3.11)
 										</td>
 										<td>
-											<textarea style="width:300px; height:100px;"></textarea>
+											<textarea id="P1_B_3_12_NombComp" style="width:300px; height:100px;">
+											</textarea>
 										</td>
 									</tr>
 								</tbody>
@@ -516,7 +521,7 @@
 
 							<div class="panel">
 								<label>Observaciones:</label>
-								<textarea style="width:870px; height:100px;"></textarea>
+								<textarea id="P1_B_3_Obs" style="width:870px; height:100px;"></textarea>
 							</div>
 
 						</div><!-- END PANEL SECCION B-->
@@ -530,103 +535,32 @@
 								Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
 							</div>
 
-							<div class="panel">
-								<div>Visualizar Anexos</div>
-							</div>
+							<div id="panel-anexo" class="panel" style="background:#DDD;">
+									
+									<strong>Visualizar Anexos</strong>
 
+									<div id="list-anexo" style="margin-top:20px;">
 
+										<!--  AJAX -->
 
-									<table class="table table-hover" style="width:900px;">
-										<thead>
-							    			<tr>
-							    				<th>Nro.</th>
-							    				<th>Anexo</th>
-							    				<th>Modulo</th>
-							    				<th>Inst. Educativa</th>
-							    			</tr>
-							    		</thead>
-							    	</table>
-
-								<div style="width:900px; height:150px; overflow:auto;">
-
-								   <table class="table table-hover" style="width:900px; height:150px; overflow:auto;">
-							    		<tbody>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-							    			<tr>
-							    				<td>1</td>
-							    				<td>001</td>
-							    				<td>015</td>
-							    				<td>IE 1174</td>
-								    		</tr>
-								    	</tbody>
-								    </table>
-
+									</div>
 								</div>
-
-
 
 							<div class="panel" style="height:100px;">
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Número de Anexo</label>
-									<input style="float:left; width:200px;" type="text" class="form-control">
+									<input id="P1_A_2_9_AnexNro" style="float:left; width:200px;" type="text" class="form-control">
 								</div>
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Codigo Modular</label>
-									<input style="float:left; width:200px;" type="text" class="form-control">
+									<input id="P1_A_2_9_NroCMod" style="float:left; width:200px;" type="text" class="form-control">
 								</div>
 							</div>
 
 							<div class="panel">
 								<div class="panel">
 									<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
-									<input style="width:200px;" type="text" class="form-control">
+									<input id="P1_C_1_CodLoc_Anex" style="width:200px;" type="text" class="form-control">
 								</div>
 
 								<ul class="list-group">
