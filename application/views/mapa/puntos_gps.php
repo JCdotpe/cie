@@ -100,7 +100,7 @@
              labelAnchor: new google.maps.Point(22, 0),
              labelClass: "labels", // the CSS class for the label
              labelStyle: {opacity: 1.0},
-             icon: <?php if($filas->Tipo==0){echo "image";}else{echo "image2";} ?>
+             icon: <?php if($filas->Tipo==0){echo "image2";}else{echo "image";} ?>
            });
           
           var contentString<?php echo $x; ?>="<div>"+
@@ -109,8 +109,8 @@
               "<strong>Departamento: </strong><?php echo $filas->Departamento; ?><br />"+
               "<strong>Provincia: </strong><?php echo $filas->Provincia; ?><br />"+
               "<strong>Distrito: </strong><?php echo $filas->Distrito; ?><br />"+
-              "<strong>Longitud: </strong><?php echo $filas->LongitudPunto; ?><br />"+
               "<strong>Latitud: </strong><?php echo $filas->LatitudPunto; ?><br />"+
+              "<strong>Longitud: </strong><?php echo $filas->LongitudPunto; ?><br />"+
               "<strong>Altitud: </strong><?php echo $filas->AltitudPunto; ?><br />"+
               "<a href='"+urlRoot('index.php/')+"visor/caratula1/?le=<?php echo obfuscate($filas->codigo_de_local); ?>&pr=1' target='_blank'>Cedula</a>"+
             "</div>";

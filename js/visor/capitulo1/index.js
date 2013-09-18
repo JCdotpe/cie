@@ -7,6 +7,8 @@ $(document).ready(function(){
 	P1A();
 	/*P1A2N();*/
 	lista_ie();
+
+	lista_Predios();
 	
 	$('input,textarea').attr({
 		disabled : true,
@@ -14,12 +16,31 @@ $(document).ready(function(){
 
 	
 	
-	$('.dropdown-menu').on('click','.combo_ins',function(event){
+	$('#ie-panel').on('click','.combo_ins',function(event){
 
 		P1A2N($(this).attr('id'));
 
-		$('.raw').removeClass('raw_active');
-		$(this).addClass('raw_active');		
+
+		$('.raw').removeClass('active');
+		$(this).addClass('active');		
+
+		$('.combo_ins').removeClass('active');
+		$(this).addClass('active');
+
+
+	});
+
+	$('#ie-panel').on('click','.combo_ins',function(event){
+
+		//P1A2N($(this).attr('id'));
+
+
+		$('.raw').removeClass('active');
+		$(this).addClass('active');		
+
+		$('.combo_ins').removeClass('active');
+		$(this).addClass('active');
+
 
 	});
 
@@ -79,8 +100,6 @@ function lista_ie(){
 
 		combo+='</ul>'+
 				'</div>';
-				alert(i)
-		
 
 		if(i==1){
 			 $("#ie-panel").hide();
@@ -180,19 +199,53 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 											
 	});
 
-	function lista_Predios(){
-		
-		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
+}
 
-			$.each(data, function(index, val) {
-				 
-							
+function lista_Predios(){
 
-			});
+	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	
+		var html="";
+		var ie="";
+		var i=0;
+		var first="";
+
+		var combo='<div class="btn-group">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_predio" href="#">'+
+							'Seleccione una Institución Educativa '+
+							'<span class="caret"></span>'+
+						'</a>'+
+						'<ul class="dropdown-menu">';
+
+		$.each(data, function(index, val) {
+			i++;
+			if(i==1){
+				//P1A2N(val.P1_A_2_NroIE);
+				cl="active";
+			}else{
+				cl="";
+			}
+				
+			combo+='<li class="combo_ins '+cl+'" id="'+val.Nro_Pred+'">'+
+							'<a href="" data-toggle="dropdown">Predio N° '+val.Nro_Pred+' - Inmueble: '+val.Inmueble_Cod+'</a>'+
+						'</li>';
 
 		});
-	
-	}
+
+		combo+='</ul>'+
+				'</div>';
+
+		if(i==1){
+			 $("#list-predio").hide();
+		}
+
+		$("#list-predio").html(combo);
+		
+		if(i==0){
+			$('#combo_predio').html('No Existen Instituciones Educativas en el Predio '+getPredio());
+		}
+	});
 
 }
+
 
