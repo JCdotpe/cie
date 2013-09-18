@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-	
+	/*$.import('js/visor/caratula1/index.js','js');
 
-	$('#ie_educa').hide();
+*/	$('#ie_educa').hide();
 	$('#table_predios').hide();
 
 	P1A();
@@ -407,7 +407,8 @@ function lista_Anexos(){
 		$.each(data, function(index, val) {
 			i++;
 			if(i==1){
-				
+				P1C(1);
+
 				cl="active";
 			}else{
 				cl="";
@@ -447,10 +448,15 @@ function P1C(anexo){
 		$("#P1_A_2_9_AnexNro").val(val.P1_A_2_9_AnexNro)
 		$("#P1_C_1_CodLoc_Anex").val(val.P1_C_1_CodLoc_Anex)
 
-		/*"P1_C_2_ProvCod": "01",
-		"P1_C_3_DistCod": "01",
-		"P1_C_4_CCPP": "464",
-		"P1_C_5_NucleoUrb": "n",
+		$("#P1_C_2_ProvCod").val(val.P1_C_2_ProvCod);
+		$("#P1_C_3_DistCod").val(val.P1_C_3_DistCod);
+		$("#P1_C_4_CCPP").val(val.P1_C_4_CCPP);
+		$("#P1_C_5_NucleoUrb").val(val.P1_C_5_NucleoUrb);
+		
+		get_Prov(val.cod_dpto,val.cod_prov);
+		get_Dist(val.cod_dpto,val.cod_prov,val.cod_dist);
+
+		/*
 		"P1_C_6Dir_1_Tvia": 3,
 		"P1_C_6Dir_2_Nomb": "wqwdq",
 		"P1_C_6Dir_3_Nro": "5644",

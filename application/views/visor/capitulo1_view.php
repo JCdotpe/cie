@@ -564,10 +564,12 @@
 								</div>
 
 								<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;"><strong>2. Provincia</strong></div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;"><strong>3. Distrito</strong></div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;"><strong>4. Centro Poblado</strong> </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;"><strong>5. Nucleo Urbano</strong> </div> <input style="width:300px;" type="text" class="form-control"></li>
+								
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control distrito"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control PC_A_4_CentroP"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control PC_A_5_NucleoUrb"></li>
+								
 									<li class="list-group-item" style="height:100px;">
 										<div style=" width:120px; margin-left:10px; margin-right:10px; float:left;"><strong>6. Dirección del local escolar</strong><br /> (Para tipo de via circule sólo un código)</div>
 
