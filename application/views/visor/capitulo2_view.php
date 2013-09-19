@@ -10,14 +10,14 @@
 	  	    		<div class="content" id="content3">
 	  	    			<div class="panel panel-info">
 							<div class="panel-heading">
-								<h5 class="panel-title">Capitulo II. Caracteristicas del clima y terreno - Servicios y obras en ejecución</h5>
+								<h5 class="panel-title" style="text-transform: uppercase;">Capitulo II. Caracteristicas del clima y terreno - Servicios y obras en ejecución</h5>
 							</div>
 
 							<table class="table table-bordered">
 									<thead>
 										<tr>
 											<th colspan="3">
-												<h6>Sección A: Caracteristica climatica local</h6>
+												<h6 style="text-transform: uppercase;" >Sección A: Caracteristica climatica local</h6>
 											</th>
 										</tr>
 									</thead>
@@ -176,7 +176,7 @@
 									<thead>
 										<tr>
 											<th colspan="3">
-												<h6>Sección B: Condición del terreno y acceso</h6>
+												<h6 style="text-transform: uppercase;">Sección B: Condición del terreno y acceso</h6>
 											</th>
 										</tr>
 									</thead>
@@ -496,7 +496,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="4" style="text-align:center;">Sección C: Servicios basicos y comunicaciones</th>
+										<th colspan="4" style="text-align:center; text-transform: uppercase;" >Sección C: Servicios basicos y comunicaciones</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -753,7 +753,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="3">Sección D: Conexión de los servicios basicos del local escolar</th>
+										<th colspan="3" style="text-transform: uppercase;">Sección D: Conexión de los servicios basicos del local escolar</th>
 									</tr>
 									<tr>
 										<td colspan="3">Si en la Sección C, pregunta 2, ítem 1, circuló código 2 (No), pasar a la pregunta 5.</td>
@@ -929,7 +929,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="3">Sección E:  Pararrayos – Descargadores o Discipadores de sobretensiones</th>
+										<th colspan="3" style="text-transform: uppercase;">Sección E:  Pararrayos – Descargadores o Discipadores de sobretensiones</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -978,7 +978,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="3">Sección F:  Eliminación de basura</th>
+										<th colspan="3" style="text-transform: uppercase;">Sección F:  Eliminación de basura</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -1029,7 +1029,7 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th colspan="3">Sección G:  Nuevas intervenciones en el local escolar</th>
+										<th colspan="3" style="text-transform: uppercase;">Sección G:  Nuevas intervenciones en el local escolar</th>
 									</tr>
 								</thead>
 								<tbody>

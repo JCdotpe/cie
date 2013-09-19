@@ -10,7 +10,7 @@
 	  	    	<div class="tab-pane" id="cap8">
 	  	    		<div class="content" id="content8">
 	  	    			<div class="panel panel-info">
-	  	    				<div class="panel-heading">Capitulo VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>
+	  	    				<div class="panel-heading">CAPITULO VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>
 
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
