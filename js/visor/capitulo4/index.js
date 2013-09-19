@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 function P4(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P4/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P4/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -43,7 +43,7 @@ function P42N(){
 
 
 
-	$.getJSON(urlRoot('index.php')+'/visor/P42N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P42N/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 
 		i = 1;
 

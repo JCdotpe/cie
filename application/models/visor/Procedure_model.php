@@ -28,6 +28,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Anexo_Datos($codigo_de_local,$predio,$nmodulo,$nroie,$anexo){
+       
+        $q=$this->db->query("CAP01_C_Datos_Anexo ?, ?, ?, ?, ?", array($codigo_de_local,$predio,$nmodulo,$nroie,$anexo)); 
+        return $q;
+    
+    }
+
     function Lista_Last_Gps(){
        
         $q=$this->db->query("CAP03_Punto10"); 
