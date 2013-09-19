@@ -20,7 +20,7 @@ class Estadoseleccion extends CI_Controller {
 		$roles = $this->tank_auth->get_roles();
 		$flag = FALSE;
 		foreach ($roles as $role) {
-			if($role->role_id == 10 && $role->rolename == 'Informes'){
+			if($role->role_id == 10){
 				$flag = TRUE;
 				break;
 			}
@@ -87,7 +87,7 @@ class Estadoseleccion extends CI_Controller {
 
 		if(isset($_GET['coddepa'])) { 
 			$depa = $this->input->get('coddepa');
-			if ($depa != -1) {
+			if ($depa != -1 && $depa != 99 ) {
 				$cond1 = "cod_dep = '$depa' AND "; 
 				$cond11 = "cod_dep = '$depa'";	
 			}
@@ -128,8 +128,14 @@ class Estadoseleccion extends CI_Controller {
 		if(isset($_GET['codestado'])) { 
 			$estadoselec = $this->input->get('codestado');
 			if ($estadoselec != -1) { 
-				$cond6 = "estado >= '$estadoselec' AND "; 
-				$cond66 = "estado >= '$estadoselec'";
+				if ($estadoselec == 2 || $estadoselec == 4 || $estadoselec == 6 || $estadoselec == 7 || $estadoselec == 8)
+				{
+					$cond6 = "estado = '$estadoselec' AND "; 
+					$cond66 = "estado = '$estadoselec'";	
+				}else{
+					$cond6 = "estado >= '$estadoselec' AND "; 
+					$cond66 = "estado >= '$estadoselec'";
+				}
 			}
 		}else{ $cond6 = "estado = '-1' AND "; 
 				$cond66 = "estado = '-1'"; }

@@ -62,9 +62,9 @@
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, '" id="cargo"'); 
-								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, '" id="cargo_presupuestal" style="display:none"'); 
-								echo form_dropdown('cargo', $cargosadm, $selected_cargo, '" id="cargo_adm" style="display:none" ');
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"'); 
+								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
+								echo form_dropdown('cargo', $cargosadm, $selected_cargo, ' id="cargo_adm" style="display:none" ');
 							?>
 						</div>
 					</div>

@@ -86,7 +86,7 @@ class Csvexport extends CI_Controller {
 		
 		if(isset($_GET['coddepa'])) { 
 			$depa = $this->input->get('coddepa');
-			if ($depa != -1) {			
+			if ($depa != -1 && $depa != 99) {			
 				$cond1 = "cod_dep = '$depa' AND "; 
 				$cond11 = "cod_dep = '$depa'";
 			}

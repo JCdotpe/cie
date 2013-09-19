@@ -11,17 +11,17 @@
 <?php
 	$label_class =  array('class' => 'control-label');
 	$depaArray = array(-1 => 'Seleccione...');
-	$sedeArray = array(-1 => '-1');
+	//$sedeArray = array(-1 => '-1');
 	
     foreach($depa->result() as $filas)
     {
-		$depaArray[$filas->CCDD]=utf8_encode($filas->Departamento);
-		$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
+		$depaArray[$filas->cod_sede_operativa.$filas->CCDD]=utf8_encode($filas->Departamento);
+		//$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
     }
-    $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
-    $provArray = array(-1 => '');
+	$selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
+	$provArray = array(-1 => '');
     
-    $cargosArray = array(-1 => 'Seleccione...'); 
+	$cargosArray = array(-1 => 'Seleccione...'); 
 	$cargospresupuestario=array(-1 => '-1');
 	$cargosadm=array(-1 => '-1');
 
@@ -49,7 +49,7 @@
 						<div class="controls">
 							<?php 
 								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"');
-								echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
+								#echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
 							?>
 						</div>
 					</div>
@@ -67,9 +67,9 @@
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, '" id="cargo"'); 
-								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, '" id="cargo_presupuestal" style="display:none"'); 
-								echo form_dropdown('cargo', $cargosadm, $selected_cargo, '" id="cargo_adm" style="display:none" ');
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"'); 
+								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
+								echo form_dropdown('cargo', $cargosadm, $selected_cargo, ' id="cargo_adm" style="display:none" ');
 							?>
 						</div>
 					</div>
@@ -220,8 +220,15 @@
 
 	function reportar()
 	{
-		var coddepa = jQuery("#departamento").val();
+		var codigo = jQuery("#departamento").val();
 		var codprov = jQuery("#provincia").val();
+
+		if (codigo.length < 5)
+		{
+			coddepa = codigo.substring(2,4);
+		}else{
+			coddepa = codigo.substring(3,5);
+		}
 
 		var id_cargo = $('#cargo').val();
 		$("#cargo_presupuestal option[value=" + id_cargo + "]").attr('selected', 'selected');
@@ -229,7 +236,7 @@
 		var cargo_presupuestal = $('#cargo_presupuestal').find('option:selected').text();
 		var cargo_adm = $('#cargo_adm').find('option:selected').text();
 
-		if (coddepa == -1 || codprov == -1 || id_cargo == -1)
+		if (codigo == -1 || codprov == -1 || id_cargo == -1)
 		{ 
 			alert("Debe Seleccionar un Departamento, Provincia y Cargo");
 		}else{

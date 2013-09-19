@@ -21,7 +21,7 @@ class Coberturapea extends CI_Controller {
 		$roles = $this->tank_auth->get_roles();
 		$flag = FALSE;
 		foreach ($roles as $role) {
-			if($role->role_id == 10 && $role->rolename == 'Informes'){
+			if($role->role_id == 10){
 				$flag = TRUE;
 				break;
 			}
