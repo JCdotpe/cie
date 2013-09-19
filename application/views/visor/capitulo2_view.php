@@ -1,4 +1,11 @@
 <?php $this->load->view('visor/nav_view.php'); ?>
+
+<script type="text/javascript">
+
+
+	$.import('js/visor/capitulo2/index.js','js');
+
+</script>
 <div class="tab-pane" id="cap2">
 	  	    		<div class="content" id="content3">
 	  	    			<div class="panel panel-info">
