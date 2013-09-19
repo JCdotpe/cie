@@ -26,9 +26,13 @@
 
 							<div class="panel" style="background:#DDD;">
 								<strong>Visualizar Instituciones Educativas</strong>
-								<div id="ie-panel" style="margin-top:20px;">
+								<div id="ie-panel" style="margin-top:20px;width:400px;">
 									<!--  AJAX -->
 								</div>
+								<div id="ie_selected">
+									
+								</div>
+
 							</div>
 
 							<div id="ie_educa" style="margin-top:10px;">

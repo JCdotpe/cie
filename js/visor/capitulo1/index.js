@@ -1,8 +1,6 @@
 $(document).ready(function(){
 
-	/*$.import('js/visor/caratula1/index.js','js');
-
-*/	$('#ie_educa').hide();
+	$('#ie_educa').hide();
 	$('#table_predios').hide();
 
 	P1A();
