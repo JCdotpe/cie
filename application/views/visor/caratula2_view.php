@@ -1,4 +1,19 @@
 <?php $this->load->view('visor/nav_view.php'); ?>
+<script type="text/javascript">
+
+	$.import('js/visor/caratula1/index.js','js');
+	$(document).ready(function() {
+
+		get_PadLocal();
+		get_PCar('simple');
+
+		$('input').attr({
+			disabled : true,
+		});
+
+	});
+
+</script>
 <!-- CAPITULO G2-->
 	  	    	<div class="tab-pane" id="general2">
 	  	    		<div class="content" id="content5">
@@ -9,12 +24,12 @@
 							</div>
 
 								<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control"></li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> <input style="width:300px;" type="text" class="form-control departamento"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> <input style="width:300px;" type="text" class="form-control provincia"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> <input style="width:300px;" type="text" class="form-control distrito"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> <input style="width:300px;" type="text" class="form-control PC_A_4_CentroP"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> <input style="width:300px;" type="text" class="form-control PC_A_5_NucleoUrb"></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> <input style="width:300px;" type="text" class="form-control ugel"></li>
 								</ul>
 
 
@@ -34,10 +49,10 @@
 							<tbody>
 								<tr>
 									<td>
-										<div class="panel">
+										<!-- <div class="panel">
 											<label>Observaciones:</label>
 											<textarea style="width:870px; height:100px;"></textarea>
-										</div>
+										</div> -->
 									</td>
 								</tr>
 							</tbody>

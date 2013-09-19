@@ -77,7 +77,7 @@ function Get_Tot_Edif_Cap05(){
 				var i=1;
 				$.each(data, function(index, val) {
 
-					 $('.P5_TOT_E').val(val.P5_Tot_E);
+					 $('.P5_TOT_E').val(leftceros(val.P5_Tot_E));
 				});
 	}).fail(function( jqxhr, textStatus, error ) {
 
@@ -116,7 +116,7 @@ function Get_List_Edif_Cap06(){
 						cl="";
 					}
 		  	    	html+='<li class="combo_ins '+cl+'" id="'+val.Nro_Ed+'">'+
-								'<a href="" data-toggle="dropdown"> Edificación Nro:'+ val.Nro_Ed+'</a>'+
+								'<a href="" data-toggle="dropdown"> Edificación Nro:'+ leftceros(val.Nro_Ed)+'</a>'+
 							'</li>';
 				});
 
@@ -173,7 +173,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 					}
 
 					html+='<li class="combo_ins '+cl+'" id="'+val.P6_2_1+'p'+val.P5_NroPiso+'">'+
-									'<a href="" data-toggle="dropdown"> Ambiente N°:'+ val.P6_2_1 +' - Piso N°: '+ val.P5_NroPiso +'</a>'+
+									'<a href="" data-toggle="dropdown"> Ambiente N°:'+ leftceros(val.P6_2_1) +' - Piso N°: '+ leftceros(val.P5_NroPiso) +'</a>'+
 		  	    			'</li>';
 
 				});
@@ -224,8 +224,8 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 		$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif,P6_2_1:nro_ambiente}, function(data) {
 
 				$.each(data, function(index, val){
-					$("#P6_2_1").val(val.P6_2_1);
-					$("#P5_NroPiso").val(val.P5_NroPiso);
+					$("#P6_2_1").val(leftceros(val.P6_2_1));
+					$("#P5_NroPiso").val(leftceros(val.P5_NroPiso));
 					check_Radio(val.P6_2_3,'P6_2_3');
 
 					$.each(val.P6_2_4ID, function(index, val){
@@ -623,7 +623,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>Predio en el que se ubica la edificación </strong></td>'+
 				  	    			'<td>'+
 				  	    				'<label>Predio N° </label>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_4" value="'+val.P6_1_4+'" disabled>'+
+				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_4" value="'+leftceros(val.P6_1_4)+'" disabled>'+
 				  	    			'</td>'+
 				  	    		'</tr>'+
 				  	    		'<tr>'+
@@ -666,7 +666,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 			  	    				'<td><strong>8.</strong></td>'+
 			  	    				'<td><strong>Nro de pisos de esta edificación </strong></td>'+
 				  	    			'<td>'+
-				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_8+'" disabled>'+
+				  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+leftceros(val.P6_1_8)+'" disabled>'+
 				  	    			'</td>'+
 				  	    		'</tr>';
 
@@ -693,7 +693,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 						  	    				'<td><strong>9.</strong></td>'+
 						  	    				'<td><strong>¿ Cuántos  niveles o modalidades hacen uso de esta edificación? </strong></td>'+
 							  	    			'<td>'+
-							  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+val.P6_1_9+'" disabled>'+
+							  	    				'<input style="width:100px;" type="text" class="form-control P6_1_8" value="'+leftceros(val.P6_1_9)+'" disabled>'+
 							  	    			'</td>'+
 				  	    				  '</tr>';
 				  	    		$.each(val.P6_1_10_e, function(index, val) {

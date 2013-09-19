@@ -65,7 +65,7 @@ class P6110N extends REST_Controller{
 
             $data = $this->P6110N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('Nro_Ed'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

@@ -9,8 +9,8 @@ function urlRoot(delimiter){
         return loc;
     }else{
         return url[pos_array]+delimiter;
-    }       
-    
+    }
+
 }
 
 function urlCombo(){
@@ -19,19 +19,19 @@ function urlCombo(){
     var delimiter="?";
     var loc = document.location.href;
     var url = loc.split(delimiter);
-   
-    return url[pos_array]; 
+
+    return url[pos_array];
 }
 
 function getLocal(){
-   
+
     pos_array=1;
     var delimiter="?le=";
     var loc = document.location.href;
     var url = loc.split(delimiter);
     code=url[pos_array].substring(0, 8);
-    
-    return code;            
+
+    return code;
 }
 
 function getPredio(){
@@ -55,11 +55,57 @@ function getToken(){
 function check_Radio(value,id){
 
     if(value!=null){
-             
-       document.getElementById(id+value).checked=true; 
+
+       document.getElementById(id+value).checked=true;
        //$("#"+id+value).attr('checked',true);
-       
+
     }
+}
+
+function getmonths(n_month){
+
+    var month="";
+
+    switch(parseInt(n_month)){
+
+        case 1 :
+            month='Enero';
+            break;
+        case 2:
+            month='Febrero';
+            break;
+        case 3:
+            month='Marzo';
+            break;
+        case 4:
+            month='Abril';
+            break;
+        case 5:
+            month='Mayo';
+            break;
+        case 6:
+            month='Junio';
+            break;
+        case 7:
+            month='Julio';
+            break;
+        case 8:
+            month='Agosto';
+            break;
+        case 9:
+            month='Septiembre';
+            break;
+        case 10:
+            month='Octubre';
+            break;
+        case 11:
+            month='Noviembre';
+            break;
+        case 12:
+            month='Diciembre';
+            break;
+    }
+    return month;
 }
 
 
@@ -79,7 +125,7 @@ function check_Radio(value,id){
                 }
 
             if(clase==null || clase==undefined || clase==''){
-                clase="head";                
+                clase="head";
             }else{
                 clase='.'+clase;
             }
@@ -98,13 +144,13 @@ function check_Radio(value,id){
                     break;
 
                 }
-                
-                
+
+
 
                 imported.push(url);
             }
         }
-        
+
     });
 
 })(jQuery);
@@ -207,15 +253,15 @@ function get_Depa(code){
         dataType: 'json',
         data: {code: code},
         success: function(data){
-            
+
             $.each(data, function(index, val) {
-                $('.departamento').val(val.Nombre);         
+                $('.departamento').val(val.Nombre);
             });
 
         }
-        
+
     });
-    
+
 }
 
 //CARGA NOMBRE DE PROVINCIA POR CODIGOS
@@ -227,13 +273,13 @@ function get_Prov(depa,prov){
         dataType: 'json',
         data: { depa: depa , prov:prov },
         success: function(data){
-            
+
             $.each(data, function(index, val) {
-                $('.provincia').val(val.Nombre);            
+                $('.provincia').val(val.Nombre);
             });
 
         }
-        
+
     });
 
 }
@@ -247,13 +293,13 @@ function get_Dist(depa,prov,dist){
         dataType: 'json',
         data: {depa:depa , prov:prov , dist:dist},
         success: function(data){
-            
+
             $.each(data, function(index, val) {
-                $('.distrito').val(val.Nombre);         
+                $('.distrito').val(val.Nombre);
             });
 
         }
-        
+
     });
 
 }

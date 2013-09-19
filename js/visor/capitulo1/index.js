@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-	
+	/*$.import('js/visor/caratula1/index.js','js');
 
-	$('#ie_educa').hide();
+*/	$('#ie_educa').hide();
 	$('#table_predios').hide();
 
 	P1A();
@@ -44,7 +44,11 @@ $(document).ready(function(){
 		$('.combo_anexo').removeClass('active');
 		$(this).addClass('active');
 
-		 P1C($(this).attr('id'));
+			p=$(this).attr('id').split('-');
+
+		P1C(p[0],p[1],p[2]);
+	    P1C20N(p[0],p[1],p[2]);
+	    Anexos_Datos(p[0],p[1],p[2])
 
 
 	});
@@ -407,14 +411,17 @@ function lista_Anexos(){
 		$.each(data, function(index, val) {
 			i++;
 			if(i==1){
-				
+				P1C(1,1,1);
+				P1C20N(1,1,1);
+				Anexos_Datos(1,1,1)
+
 				cl="active";
 			}else{
 				cl="";
 			}
 				
-			combo+='<li class="combo_anexo '+cl+'" id="'+val.P1_A_2_9_AnexNro+'">'+
-						'<a href="" data-toggle="dropdown">Anexo N° '+val.P1_A_2_9_AnexNro+' - '+val.P1_A_2_9_NroCMod+' - '+val.P1_A_2_1_NomIE+'</a>'+
+			combo+='<li class="combo_anexo '+cl+'" id="'+val.IE_Nro+'-'+val.CodigoModular_Nro+'-'+val.Anex_Correl+'">'+
+						'<a href="" data-toggle="dropdown">Anexo N° '+val.P1_A_2_9_Nro+' - Codigo Modular: '+val.P1_A_2_9A_CMod+' - '+val.P1_A_2_1_NomIE+'</a>'+
 					'</li>';
 		
 		});
@@ -437,53 +444,118 @@ function lista_Anexos(){
 
 }
 
-function P1C(anexo){
+function P1C(nroie,nmodulo,anexo){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1C/Data/', {token: getToken(),id_local: getLocal(), anexo: anexo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P1C/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
 		
-		$.each(data, function(index, val) {
+		$.each(data, function(index, val){
 
 		$("#P1_A_2_9_NroCMod").val(val.P1_A_2_9_NroCMod)
-		$("#P1_A_2_9_AnexNro").val(val.P1_A_2_9_AnexNro)
+		$("#P1_A_2_9_Nro").val(val.P1_A_2_9_Nro)
 		$("#P1_C_1_CodLoc_Anex").val(val.P1_C_1_CodLoc_Anex)
+		
+		check_Radio(val.P1_C_6Dir_1_Tvia,"P1_C_6Dir_1_Tvia");
+		
+		$("#P1_C_6Dir_2_Nomb").html(val.P1_C_6Dir_2_Nomb);
+		$("#P1_C_6Dir_3_Nro").html(val.P1_C_6Dir_3_Nro);
+		$("#P1_C_6Dir_4_Piso").html(val.P1_C_6Dir_4_Piso);
+		$("#P1_C_6Dir_5_Mz").html(val.P1_C_6Dir_5_Mz);
+		$("#P1_C_6Dir_6_Lt").html(val.P1_C_6Dir_6_Lt);
+		$("#P1_C_6Dir_7_Sect").html(val.P1_C_6Dir_7_Sect);
+		$("#P1_C_6Dir_8_Zona").html(val.P1_C_6Dir_8_Zona);
+		$("#P1_C_6Dir_9_Et").html(val.P1_C_6Dir_9_Et);
+		$("#P1_C_6Dir_10_Km").html(val.P1_C_6Dir_10_Km);
+		$("#P1_C_7_RefDir").val(val.P1_C_7_RefDir);
+		
+		$("#P1_C_8_InmCod").val(val.P1_C_8_InmCod);
+		
+		check_Radio(val.P1_C_8_InmTip,"P1_C_8_InmTip");
+				
+		check_Radio(val.P1_C_9_Prop,"P1_C_9_Prop");
+		
+		if(val.P1_C_9_Prop==4){
+			$("#P1_C_9_Prop_O1").val(val.P1_C_9_Prop_O);
+		}else if(val.P1_C_9_Prop==5){
+			$("#P1_C_9_Prop_O2").val(val.P1_C_9_Prop_O);
+		}
+		
+		check_Radio(val.P1_C_10_AntReg_Cod,"P1_C_10_AntReg_Cod");
+		
+		$("#P1_C_11_AntReg_Nro").val(val.P1_C_11_AntReg_Nro);
+		
+		check_Radio(val.P1_C_12_Tipo_TProp,"P1_C_12_Tipo_TProp");
 
-		/*"P1_C_2_ProvCod": "01",
-		"P1_C_3_DistCod": "01",
-		"P1_C_4_CCPP": "464",
-		"P1_C_5_NucleoUrb": "n",
-		"P1_C_6Dir_1_Tvia": 3,
-		"P1_C_6Dir_2_Nomb": "wqwdq",
-		"P1_C_6Dir_3_Nro": "5644",
-		"P1_C_6Dir_4_Piso": "2",
-		"P1_C_6Dir_5_Mz": null,
-		"P1_C_6Dir_6_Lt": null,
-		"P1_C_6Dir_7_Sect": null,
-		"P1_C_6Dir_8_Zona": null,
-		"P1_C_6Dir_9_Et": null,
-		"P1_C_6Dir_10_Km": null,
-		"P1_C_7_RefDir": null,
-		"P1_C_8_InmCod": null,
-		"P1_C_8_InmTip": null,
-		"P1_C_9_Prop": null,
-		"P1_C_9_Prop_O": null,
-		"P1_C_10_AntReg_Cod": null,
-		"P1_C_11_AntReg_Nro": null,
-		"P1_C_12_Tipo_TProp": null,
-		"P1_C_12_Tipo_TProp_O": null,
-		"P1_C_13_FecTit": null,
-		"P1_C_14_DocPos": null,
-		"P1_C_14_DocPos_O": null,
-		"P1_C_15_DocPos_Fech": null,
-		"P1_C_16_At_Pred": null,
-		"P1_C_17_At_Local": null,
-		"P1_C_18_Comp": null,
-		"P1_C_19_CompCan": null,
-		"P1_C_Obs": null,*/
+		$("#P1_C_12_Tipo_TProp_O").val(val.P1_C_12_Tipo_TProp_O);
+				
+		$("#P1_C_13_FecTit").val(val.P1_C_13_FecTit);
+
+		check_Radio(val.P1_C_14_DocPos,"P1_C_14_DocPos");
+
+		if(val.P1_C_14_DocPos==9){
+
+			$("#P1_C_14_DocPos_O").val(val.P1_C_14_DocPos_O);
+		
+		}
+		
+		$("#P1_C_15_DocPos_Fech").val(val.P1_C_15_DocPos_Fech);
+
+		decimal3=val.P1_C_16_At_Pred.split('.');
+		
+		$("#P1_C_16_At_Pred1").html(decimal3[0]);
+		$("#P1_C_16_At_Pred2").html(decimal3[1]);
+		
+		decimal4=val.P1_C_17_At_Local.split('.');
+
+		$("#P1_C_17_At_Local1").html(decimal4[0]);
+		$("#P1_C_17_At_Local2").html(decimal4[1]);
+
+		check_Radio(val.P1_C_18_Comp,"P1_C_18_Comp");
+
+		$("#P1_C_19_CompCan").val(val.P1_C_19_CompCan);
+		$("#P1_C_Obs").val(val.P1_C_Obs);
 		
 		});
 
 	});
 
+	
+}
+
+function P1C20N(nroie,nmodulo,anexo){
+
+	$.getJSON(urlRoot('index.php')+'/visor/P1C20N/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
+		p="";
+		c=0;
+		$.each(data, function(index, val) {
+
+			c++;
+				if(c>1){p+=" - ";};
+				p+=val.P1_C_20_NombComp;
+			
+			$("#P1_C_20_NombComp").val(p);
+
+		});
+
+	});
+
+
+}
+
+function Anexos_Datos(nroie,nmodulo,anexo){
+
+	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Anexo_Datos/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
+		
+		$.each(data, function(index, val) {
+
+
+		$(".provincia").val(val.Provincia);
+		$(".distrito").val(val.Distrito);
+		$(".PC_A_4_CentroP").val(val.P1_C_4_CCPP);
+		$(".PC_A_5_NucleoUrb").val(val.P1_C_5_NucleoUrb);
+
+		});
+
+	});
 
 }
 

@@ -66,7 +66,7 @@ class P62 extends REST_Controller{
 
             $data = $this->P62_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P5_Ed_Nro'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 
@@ -186,7 +186,7 @@ class P62 extends REST_Controller{
                 );
             }
 
-           $jsonData = json_encode(array($x));
+           $jsonData = my_json_encode(array($x));
 
            prettyPrint($jsonData);
 

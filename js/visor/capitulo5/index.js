@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 function P5(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P5/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P5/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -43,7 +43,7 @@ function P5(){
 
 function P5F(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P5F/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P5F/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -86,7 +86,7 @@ function P5F(){
 
 function P5N(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P5N/Data/', {token: '7959ac60dc22523a9ac306ac6f9308d3d7201c56',id_local: localE(), predio: '1'}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/P5N/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 

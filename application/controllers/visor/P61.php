@@ -124,7 +124,7 @@ class P61 extends REST_Controller{
                 "Frecep" => $fila->Frecep
                 );
             }
-            $jsonData = json_encode(array($x));
+            $jsonData = my_json_encode(array($x));
 
             prettyPrint($jsonData);
         }

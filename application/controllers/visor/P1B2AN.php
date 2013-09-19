@@ -63,7 +63,7 @@ class P1B2AN extends REST_Controller{
 
             $data = $this->P1B2AN_model->getData(no_obfuscate($this->get('id_local')));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
 

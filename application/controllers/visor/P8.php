@@ -65,7 +65,7 @@ class P8 extends REST_Controller{
 
             $data = $this->P8_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
         }
@@ -87,7 +87,7 @@ class P8 extends REST_Controller{
 
             $data = $this->P8_model->getDataTipoEdif(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P8_2_Tipo'),$this->get('P8_2_Nro'));
 
-            $jsonData = json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
         }

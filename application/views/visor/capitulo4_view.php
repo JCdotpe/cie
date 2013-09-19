@@ -23,7 +23,7 @@
 		  	    				</thead>
 		  	    				<tbody>
 		  	    					<tr>
-		  	    						<td><input id="P4_1_Foto" type="text" class="form-control"></td>
+		  	    						<td><input id="P4_1_Foto" type="text" style="width:900px;" class="form-control"></td>
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
@@ -40,7 +40,7 @@
 		  	    						<td><strong>De cuántos tramos está conformado el lindero frente con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							<input id="P4_2_CantTram_Lfrente" type="text" class="form-control">
+		  	    							<input id="P4_2_CantTram_Lfrente" style="width:50px;" type="text" class="form-control">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -75,7 +75,7 @@
 		  	    						<td><strong>De cuántos tramos está conformado el lindero derecho con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							<input id="P4_2_CantTram_Lderecho" type="text" class="form-control">
+		  	    							<input id="P4_2_CantTram_Lderecho" style="width:50px;" type="text" class="form-control">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -110,7 +110,7 @@
 		  	    						<td><strong>De cuántos tramos está conformado el lindero fondo con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							<input id="P4_2_CantTram_Lfondo" type="text" class="form-control">
+		  	    							<input id="P4_2_CantTram_Lfondo" style="width:50px;" type="text" class="form-control">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -145,7 +145,7 @@
 		  	    						<td><strong>De cuántos tramos está conformado el lindero izquierdo con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							<input id="P4_2_CantTram_Lizq" type="text" class="form-control">
+		  	    							<input id="P4_2_CantTram_Lizq" style="width:50px;" type="text" class="form-control">
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>

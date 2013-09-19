@@ -91,6 +91,32 @@ class Procedure extends REST_Controller{
 
     }
 
+    public function Anexo_Datos_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->Anexo_Datos(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nmodulo'),$this->get('nroie'),$this->get('anexo'));
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+
+
+    }
+
 
     
 
