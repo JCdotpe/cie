@@ -22,7 +22,7 @@ class P1C_model extends CI_MODEL{
         $this->db->where('Nro_Pred',$predio);
         $this->db->where('P1_A_2_NroIE',$nroie);
         $this->db->where('P1_A_2_9_NroCMod',$nmodulo);
-        $this->db->where('P1_A_2_9_AnexNro',$anexo);
+        $this->db->where('P1_A_2_9_Nro',$anexo);
         $q = $this->db->get();
         return $q;
         

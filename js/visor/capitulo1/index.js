@@ -421,7 +421,7 @@ function lista_Anexos(){
 			}
 				
 			combo+='<li class="combo_anexo '+cl+'" id="'+val.IE_Nro+'-'+val.CodigoModular_Nro+'-'+val.Anex_Correl+'">'+
-						'<a href="" data-toggle="dropdown">Anexo N° '+val.P1_A_2_9_AnexNro+' - Codigo Modular: '+val.P1_A_2_9A_CMod+' - '+val.P1_A_2_1_NomIE+'</a>'+
+						'<a href="" data-toggle="dropdown">Anexo N° '+val.P1_A_2_9_Nro+' - Codigo Modular: '+val.P1_A_2_9A_CMod+' - '+val.P1_A_2_1_NomIE+'</a>'+
 					'</li>';
 		
 		});
@@ -451,7 +451,7 @@ function P1C(nroie,nmodulo,anexo){
 		$.each(data, function(index, val){
 
 		$("#P1_A_2_9_NroCMod").val(val.P1_A_2_9_NroCMod)
-		$("#P1_A_2_9_AnexNro").val(val.P1_A_2_9_AnexNro)
+		$("#P1_A_2_9_Nro").val(val.P1_A_2_9_Nro)
 		$("#P1_C_1_CodLoc_Anex").val(val.P1_C_1_CodLoc_Anex)
 		
 		check_Radio(val.P1_C_6Dir_1_Tvia,"P1_C_6Dir_1_Tvia");

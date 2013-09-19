@@ -16,7 +16,7 @@
 
 							<table class="table table-bordered">
 								<thead>
-									<th colspan="2">Sección A: Instituciones educativas</th>
+									<th colspan="2" style="text-transform: uppercase;">Sección A: Instituciones educativas</th>
 								</thead>
 								<tbody>
 									<td><strong>1.¿Cuantas instituciones educativas prestan servicio en este local escolar?</strong></td>
@@ -176,7 +176,7 @@
 							<!-- PANEL SECCION B N PREDIOS-->
 
 							<div class="panel-heading">
-								<h5 class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
+								<h5 class="panel-title" style="text-transform: uppercase;">Sección B: Predio o predios ocupados por el local escolar</h5>
 							</div>
 
 							<table class="table table-bordered">
@@ -528,7 +528,7 @@
 
 						<div class="panel panel-info"><!-- PANEL SECCION C N ANEXOS-->
 							<div class="panel-heading">
-								<h5 class="panel-title">Sección C: Anexos de la institución educativa</h5>
+								<h5 class="panel-title" style="text-transform: uppercase;">Sección C: Anexos de la institución educativa</h5>
 							</div>
 
 							<div class="panel">
@@ -549,7 +549,7 @@
 							<div class="panel" style="height:100px;">
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Número de Anexo</label>
-									<input id="P1_A_2_9_AnexNro" style="float:left; width:200px;" type="text" class="form-control">
+									<input id="P1_A_2_9_Nro" style="float:left; width:200px;" type="text" class="form-control">
 								</div>
 								<div class="panel" style="float:left; margin-left:150px;">
 									<label>Codigo Modular</label>
@@ -667,22 +667,22 @@
 									</td>
 									<td>
 										<label>
-												<input type="radio" id="P1_C_9_Prop1" name="check" value="option1"> 1. Ministerio de educación?
+												<input type="radio" id="P1_C_9_Prop1" name="P1_C_9_Prop" value="option1"> 1. Ministerio de educación?
 											</label>
 											<label>
-												<input type="radio" id="P1_C_9_Prop2" name="check" value="option2"> 2. Institución educativa?
+												<input type="radio" id="P1_C_9_Prop2" name="P1_C_9_Prop" value="option2"> 2. Institución educativa?
 											</label>
 											<label>
-												<input type="radio" id="P1_C_9_Prop3" name="check" value="option3"> 3. Estado?
+												<input type="radio" id="P1_C_9_Prop3" name="P1_C_9_Prop" value="option3"> 3. Estado?
 											</label>
 											<label>
-												<input type="radio" id="P1_C_9_Prop4" name="check" value="option4">	4. Otro sector del estado?
+												<input type="radio" id="P1_C_9_Prop4" name="P1_C_9_Prop" value="option4">	4. Otro sector del estado?
 											</label>
 											<label>
 												<input id="P1_C_9_Prop_O1" style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
 											</label>
 											<label>
-												<input type="radio" id="P1_C_9_Prop5" name="check" value="option4">	5.Propiedad de terceros?
+												<input type="radio" id="P1_C_9_Prop5" name="P1_C_9_Prop" value="option4">	5.Propiedad de terceros?
 											</label>
 											<label>
 												<input id="P1_C_9_Prop_O2" style="float:left; width:500px;" type="text" class="form-control"> (Especifique)
