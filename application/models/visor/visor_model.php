@@ -11,9 +11,11 @@ class Visor_model extends CI_MODEL{
 
     public function Get_Resultados($cod_dpto,$cod_prov){
 
-        $this->db->select('*');
+        /*$this->db->select('*');
         $this->db->from('Padlocal');
-        $this->db->where('codigo_de_local="052131"');
+        $this->db->in('052131,052193,052211,052225,052254');
+*/
+         $q=$this->db->query("select * from Padlocal where codigo_de_local in('052131','052193','052211','052225','052254')");
 
        // $this->db->join('Padlocal PL','PL.codigo_de_local=r.codlocal','inner');
       /*  $this->db->where('cod_dpto',$cod_dpto);
@@ -26,8 +28,8 @@ class Visor_model extends CI_MODEL{
         $this->db->order_by('cod_dist','asc');
         $this->db->order_by('centroPoblado','asc');*/
   
-        $q = $this->db->get();
         return $q;
+       
     }
 
     public function Get_Ruta($cod_dpto,$cod_prov){
