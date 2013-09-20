@@ -13,13 +13,15 @@ class Visor_model extends CI_MODEL{
 
         $this->db->select('*');
         $this->db->from('Padlocal');
+        $this->db->where('codigo_de_local="052131"');
+
        // $this->db->join('Padlocal PL','PL.codigo_de_local=r.codlocal','inner');
-        $this->db->where('cod_dpto',$cod_dpto);
-        $this->db->where('cod_prov',$cod_prov);
+      /*  $this->db->where('cod_dpto',$cod_dpto);
+        $this->db->where('cod_prov',$cod_prov);*/
         //$this->db->where('r.idruta',$idruta);
 
-        $this->db->order_by('codigo_de_local','asc');
-       /* $this->db->order_by('cod_dpto','asc');
+        /*$this->db->order_by('codigo_de_local','asc');
+       *//* $this->db->order_by('cod_dpto','asc');
         $this->db->order_by('cod_prov','asc');
         $this->db->order_by('cod_dist','asc');
         $this->db->order_by('centroPoblado','asc');*/

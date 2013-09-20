@@ -100,8 +100,8 @@ function lista_ie(){
 			}
 				
 			combo+='<li class="combo_ins '+cl+'" id="'+val.P1_A_2_NroIE+'">'+
-							'<a href="" data-toggle="dropdown">I.E. N° '+val.P1_A_2_NroIE+' - '+val.P1_A_2_1_NomIE+'</a>'+
-						'</li>';
+						'<a href="" data-toggle="dropdown">I.E. N° '+val.P1_A_2_NroIE+' - '+val.P1_A_2_1_NomIE+'</a>'+
+					'</li>';
 
 		});
 
