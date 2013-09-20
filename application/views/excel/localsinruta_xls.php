@@ -38,14 +38,14 @@
 		$i++;
 		echo "<tr align=\"center\">";
 			echo "<td>".$i."</td>";
-			echo "<td>".utf8_encode($fila->NomDept)."</td>";
-			echo "<td>".utf8_encode($fila->NomProv)."</td>";
-			echo "<td>".utf8_encode($fila->NomDist)."</td>";
-			echo "<td>".utf8_encode($fila->centroPoblado)."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->NomDept))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->NomProv))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->NomDist))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->centroPoblado))."</td>";
 			echo "<td class=\"xl65\">".$fila->codigo_de_local."</td>";
-			echo "<td>".chao_tilde($fila->sede_operativa)."</td>";
-			echo "<td>".chao_tilde($fila->prov_operativa_ugel)."</td>";
-			echo "<td>".chao_tilde($fila->direccion)."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->sede_operativa))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->prov_operativa_ugel))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->direccion))."</td>";
 		echo "</tr>";
 	}
 	echo "<tr><td colspan=\"9\" align=\"left\"></td></tr>

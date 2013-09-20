@@ -61,23 +61,23 @@
 			echo "<td>".utf8_encode($fila->ODEI)."</td>";
 			echo "<td class=\"xl65\">".$fila->dni."</td>";
 			echo "<td class=\"xl65\">".$fila->ruc."</td>";
-			echo "<td>".chao_tilde($fila->ap_paterno)."</td>";
-			echo "<td>".chao_tilde($fila->ap_materno)."</td>";
-			echo "<td>".chao_tilde($fila->nombre1)." ".chao_tilde($fila->nombre2)."</td>";			
-			echo "<td>".$fila->estadocivil."</td>";
-			echo "<td>".$fila->sexo."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->ap_paterno))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->ap_materno))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->nombre1))." ".chao_tilde(strtoupper($fila->nombre2))."</td>";			
+			echo "<td>".strtoupper($fila->estadocivil)."</td>";
+			echo "<td>".strtoupper($fila->sexo)."</td>";
 			echo "<td>".$fila->fechanacimiento."</td>";
-			echo "<td>".utf8_encode($fila->departamento_dom)."</td>";
-			echo "<td>".utf8_encode($fila->provincia_dom)."</td>";
-			echo "<td>".utf8_encode($fila->distrito_dom)."</td>";
-			echo "<td>".chao_tilde($fila->direccion)."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->departamento_dom))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->provincia_dom))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->distrito_dom))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->direccion))."</td>";
 			echo "<td class=\"xl65\">".$fila->nro_tel."</td>";
 			echo "<td class=\"xl65\">".$fila->nro_cel."</td>";
 			echo "<td>".utf8_encode($fila->grado)."</td>";
-			echo "<td>".chao_tilde($fila->profesion)."</td>";
-			echo "<td>".chao_tilde($fila->lugar_estudios)."</td>";
-			echo "<td>".chao_tilde($fila->cargofuncional)."</td>";
-			echo "<td>".chao_tilde($fila->NEstado)."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->profesion))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->lugar_estudios))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->cargofuncional))."</td>";
+			echo "<td>".chao_tilde(strtoupper($fila->NEstado))."</td>";
 		echo "</tr>";
 	}
 	echo "<tr><td colspan=\"21\"></td></tr>

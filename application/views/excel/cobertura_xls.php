@@ -42,9 +42,9 @@
 
 		echo "<tr align=\"center\">";
 			echo "<td>".$i."</td>";
-			echo "<td>".utf8_encode($fila->departamento)."</td>";
-			echo "<td>".utf8_encode($fila->provincia)."</td>";
-			echo "<td>".utf8_encode($fila->odei)."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->departamento))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->provincia))."</td>";
+			echo "<td>".utf8_encode(strtoupper($fila->odei))."</td>";
 			echo "<td>".$fila->meta_insc."</td>";
 			echo "<td>".$fila->inscritos."</td>";
 			echo "<td>".round($prct_inscritos,1)."</td>";
