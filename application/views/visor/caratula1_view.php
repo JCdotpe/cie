@@ -123,7 +123,7 @@
 							</li>
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
-								<input type="text" id="PC_A_9_RefDir" class="form-control">
+								<input type="text" id="PC_A_9_RefDir" style="width:800px;" class="form-control">
 							</li>
 						</ul>
 
