@@ -70,8 +70,8 @@
 											<table class="table table-bordered">
 												<tr>
 													<td></td>
-													<th style="text-align:center;">Longitud</th>
 													<th style="text-align:center;">Latitud</th>
+													<th style="text-align:center;">Longitud</th>
 													<th style="text-align:center;">Altitud (msnm)</th>
 													<th style="text-align:center;">
 														<strong>Ver punto final en el Mapa</strong>
@@ -79,8 +79,8 @@
 												</tr>
 												<tr>
 													<td>Punto Final</td>
-													<td id="LongitudPunto" style="text-align:center;"></td>
 													<td id="LatitudPunto" style="text-align:center;"></td>
+													<td id="LongitudPunto" style="text-align:center;"></td>
 													<td id="AltitudPunto" style="text-align:center;"></td>
 													<td style="text-align:center;">
 														<a id="map2" target="_blank" href="" class="map"></a>

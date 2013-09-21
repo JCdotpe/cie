@@ -87,11 +87,11 @@
 											<td>
 												<div class="panel">
 													<label>La Institucion Educativa?</label>
-													<input value="" id="P1_A_2_5_EmailIE" style="width:400px;" type="text" class="form-control">
+													<input value="" id="P1_A_2_5_EmailIE" style="width:400px;text-transform:lowercase;" type="text" class="form-control">
 												</div>
 												<div class="panel">
 													<label>Director?</label>
-													<input value="" id="P1_A_2_5_EmailDir" style="width:400px;" type="text" class="form-control">
+													<input value="" id="P1_A_2_5_EmailDir" style="width:400px;text-transform:lowercase;" type="text" class="form-control">
 												</div>
 											</td>
 										</tr>

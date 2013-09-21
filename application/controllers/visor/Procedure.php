@@ -113,11 +113,31 @@ class Procedure extends REST_Controller{
 
         }
 
-
-
     }
 
+    public function Lista_CIE_get(){
 
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->Lista_CIE();
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+    }
     
 
 }

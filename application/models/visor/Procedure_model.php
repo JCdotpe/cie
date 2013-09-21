@@ -35,6 +35,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Lista_CIE(){
+       
+        $q=$this->db->query("Lista_Locales_con_CIE"); 
+        return $q;
+    
+    }
+
     function Lista_Last_Gps(){
        
         $q=$this->db->query("CAP03_Punto10"); 

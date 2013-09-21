@@ -72,16 +72,16 @@ function get_P2_B(){
 
 			 	$("#P2_B_4_CapAcc").val(val.P2_B_4_CapAcc)
 
-			 	check_Radio(val.P2_B_5_Mtran_1,"P2_B_5_Mtran_1");
-			 	check_Radio(val.P2_B_5_Mtran_2,"P2_B_5_Mtran_2");
-			 	check_Radio(val.P2_B_5_Mtran_3,"P2_B_5_Mtran_3");
+			 	check_Radio(val.P2_B_5_1,"P2_B_5_1");
+			 	check_Radio(val.P2_B_5_2,"P2_B_5_2");
+			 	check_Radio(val.P2_B_5_3,"P2_B_5_3");
 
 			 	check_Radio(val.P2_B_5A_Uso,"P2_B_5A_Uso")
 
-			 	check_Radio(val.P2_B_5B_Tvia_uso_1,"P2_B_5B_Tvia_uso_1");
-			 	check_Radio(val.P2_B_5B_Tvia_uso_2,"P2_B_5B_Tvia_uso_2");
-			 	check_Radio(val.P2_B_5B_Tvia_uso_3,"P2_B_5B_Tvia_uso_3");
-			 	check_Radio(val.P2_B_5B_Tvia_uso_4,"P2_B_5B_Tvia_uso_4");
+			 	check_Radio(val.P2_B_5B_1,"P2_B_5B_1");
+			 	check_Radio(val.P2_B_5B_2,"P2_B_5B_2");
+			 	check_Radio(val.P2_B_5B_3,"P2_B_5B_3");
+			 	check_Radio(val.P2_B_5B_4,"P2_B_5B_4");
 
 			 	$("#P2_B_6_Trec_H").val(val.P2_B_6_Trec_H);
 		 		$("#P2_B_6_Trec_M").val(val.P2_B_6_Trec_M);
@@ -94,19 +94,19 @@ function get_P2_B(){
 			 		$.each(val.peligros1, function(index, val) {
 
 
-						check_Radio(val.P2_B_9_Cod,"P2_B_9")
+						check_Radio(val.P2_B_9_Cod_e,"P2_B_9"+val.P2_B_9_Cod)
 
 			 		});
 
 			 		$.each(val.peligros2, function(index, val) {
 
-						check_Radio(val.P2_B_10_Cod,"P2_B_10")
+						check_Radio(val.P2_B_10_Cod_e,"P2_B_10"+val.P2_B_10_Cod)
 
 			 		});
 
 			 		$.each(val.peligros3, function(index, val) {
 
-						check_Radio(val.P2_B_11_Cod,"P2_B_11")
+						check_Radio(val.P2_B_11_Cod_e,"P2_B_11"+val.P2_B_11_Cod)
 
 						if(val.P2_B_11_Cod==11){
 							$("#P2_B_11_Cod_O").val(val.P2_B_11_Cod_O);
@@ -117,7 +117,7 @@ function get_P2_B(){
 			 		$.each(val.vulnerabilidades, function(index, val) {
 
 
-						check_Radio(val.P2_B_12_Cod,"P2_B_12")
+						check_Radio(val.P2_B_12_Cod_e,"P2_B_12"+val.P2_B_12_Cod)
 
 						if(val.P2_B_12_Cod==6){
 							$("#P2_B_12_Cod_O").val(val.P2_B_12_Cod_O);

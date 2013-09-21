@@ -13,6 +13,14 @@ function urlRoot(delimiter){
 
 }
 
+function trim(myString)
+{
+
+    return myString.replace(/^\s+/g,'').replace(/\s+$/g,'')
+
+}
+
+
 function urlCombo(){
 
     pos_array=0;
@@ -54,11 +62,14 @@ function getToken(){
 
 function check_Radio(value,id){
 
-    if(value!=null){
+    if(value==null || value==0 || value==undefined){
 
+        /* alert(id+value) */
+    
+    }else{
+        
        document.getElementById(id+value).checked=true;
-       //$("#"+id+value).attr('checked',true);
-
+          //$("#"+id+value).attr('checked',true);
     }
 }
 

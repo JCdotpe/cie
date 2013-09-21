@@ -260,13 +260,13 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_5_Mtran_11" name="check9" value="option1"> 1. Terrestre
+													<input type="checkbox" id="P2_B_5_11" name="check9" value="option1"> 1. Terrestre
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_5_Mtran_22" name="check9" value="option2"> 2. Fluvial/lacustre/maritimo
+													<input type="checkbox" id="P2_B_5_21" name="check9" value="option2"> 2. Fluvial/lacustre/maritimo
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_5_Mtran_33" name="check9" value="option2"> 3. Aereo
+													<input type="checkbox" id="P2_B_5_31" name="check9" value="option2"> 3. Aereo
 												</label>
 											</td>
 										</tr>
@@ -290,16 +290,16 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_5B_Tvia_uso_11" name="check11" value="option1"> 1. Camino de herradura
+													<input type="checkbox" id="P2_B_5B_11" name="check11" value="option1"> 1. Camino de herradura
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_5B_Tvia_uso_22" name="check11" value="option2"> 2. Trocha carrozable
+													<input type="checkbox" id="P2_B_5B_21" name="check11" value="option2"> 2. Trocha carrozable
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_5B_Tvia_uso_33" name="check11" value="option1"> 3. carretera afirmada
+													<input type="checkbox" id="P2_B_5B_31" name="check11" value="option1"> 3. carretera afirmada
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_5B_Tvia_uso_44" name="check11" value="option2"> 4. vía asfaltada
+													<input type="checkbox" id="P2_B_5B_41" name="check11" value="option2"> 4. vía asfaltada
 												</label>
 											</td>
 										</tr>
@@ -337,7 +337,7 @@
 													<input type="radio" id="P2_B_8_Pelig1" name="check12" value="option1"> 1. Si
 												</label>
 												<label>
-													<input type="radio" id="P2_B_8_Pelig2" name="check12" value="option2"> 2. SNo
+													<input type="radio" id="P2_B_8_Pelig2" name="check12" value="option2"> 2. No
 												</label>
 											</td>
 										</tr>
@@ -349,34 +349,34 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_91" name="check13" value="option1"> 1. Sismos?
+													<input type="checkbox" id="P2_B_911" name="check13" value="option1"> 1. Sismos?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_92" name="check13" value="option2"> 2. Tsunami u oleaje anómalos?
+													<input type="checkbox" id="P2_B_921" name="check13" value="option2"> 2. Tsunami u oleaje anómalos?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_93" name="check13" value="option1"> 3. Lluvias?
+													<input type="checkbox" id="P2_B_931" name="check13" value="option1"> 3. Lluvias?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_94" name="check13" value="option2"> 4. Heladas?
+													<input type="checkbox" id="P2_B_941" name="check13" value="option2"> 4. Heladas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_95" name="check13" value="option1"> 5. Sequías?
+													<input type="checkbox" id="P2_B_951" name="check13" value="option1"> 5. Sequías?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_96" name="check13" value="option2"> 6. Granizadas?
+													<input type="checkbox" id="P2_B_961" name="check13" value="option2"> 6. Granizadas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_97" name="check13" value="option1"> 7. Nevadas?
+													<input type="checkbox" id="P2_B_971" name="check13" value="option1"> 7. Nevadas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_98" name="check13" value="option2"> 8. Vendavales?
+													<input type="checkbox" id="P2_B_981" name="check13" value="option2"> 8. Vendavales?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_99" name="check13" value="option1"> 9. Actividades volcánicas?
+													<input type="checkbox" id="P2_B_991" name="check13" value="option1"> 9. Actividades volcánicas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_910" name="check13" value="option2"> 10. Ninguno
+													<input type="checkbox" id="P2_B_9101" name="check13" value="option2"> 10. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -388,25 +388,25 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_101" name="check14" value="option1"> 1. Inundaciones?
+													<input type="checkbox" id="P2_B_1011" name="check14" value="option1"> 1. Inundaciones?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_102" name="check14" value="option2"> 2. Deslizamientos?
+													<input type="checkbox" id="P2_B_1021" name="check14" value="option2"> 2. Deslizamientos?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_103" name="check14" value="option1"> 3. Huaycos / Aluviones / Aludes?
+													<input type="checkbox" id="P2_B_1031" name="check14" value="option1"> 3. Huaycos / Aluviones / Aludes?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_104" name="check14" value="option2"> 4. Derrumbes?
+													<input type="checkbox" id="P2_B_1041" name="check14" value="option2"> 4. Derrumbes?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_105" name="check14" value="option1"> 5. Desertificaciones?
+													<input type="checkbox" id="P2_B_1051" name="check14" value="option1"> 5. Desertificaciones?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_106" name="check14" value="option2"> 6. Salinización de los suelos?
+													<input type="checkbox" id="P2_B_1061" name="check14" value="option2"> 6. Salinización de los suelos?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_10" name="check14" value="option1"> 7. Ninguno?
+													<input type="checkbox" id="P2_B_101" name="check14" value="option1"> 7. Ninguno?
 												</label>
 											</td>
 										</tr>
@@ -418,42 +418,42 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_111" name="check15" value="option1"> 1. Contaminación ambiental?
+													<input type="checkbox" id="P2_B_1111" name="check15" value="option1"> 1. Contaminación ambiental?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_112" name="check15" value="option2"> 2. Incendios, quemas?
+													<input type="checkbox" id="P2_B_1121" name="check15" value="option2"> 2. Incendios, quemas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_113" name="check15" value="option1"> 3. Explosiones?
+													<input type="checkbox" id="P2_B_1131" name="check15" value="option1"> 3. Explosiones?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_114" name="check15" value="option2"> 4. Derrame de sustancias tóxicas?
+													<input type="checkbox" id="P2_B_1141" name="check15" value="option2"> 4. Derrame de sustancias tóxicas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_115" name="check15" value="option1"> 5. Fuga de gases?
+													<input type="checkbox" id="P2_B_1151" name="check15" value="option1"> 5. Fuga de gases?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_116" name="check15" value="option2"> 6. Zonas aereoportuarias?
+													<input type="checkbox" id="P2_B_1161" name="check15" value="option2"> 6. Zonas aereoportuarias?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_117" name="check15" value="option1"> 7. Zonas industriales?
+													<input type="checkbox" id="P2_B_1171" name="check15" value="option1"> 7. Zonas industriales?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_118" name="check15" value="option2"> 8. Crianza de animales?
+													<input type="checkbox" id="P2_B_1181" name="check15" value="option2"> 8. Crianza de animales?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_119" name="check15" value="option1"> 9. Subversiónes / conflictos?
+													<input type="checkbox" id="P2_B_1191" name="check15" value="option1"> 9. Subversiónes / conflictos?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_1110" name="check15" value="option2"> 10. Rellenos sanitarios?
+													<input type="checkbox" id="P2_B_11101" name="check15" value="option2"> 10. Rellenos sanitarios?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_1111" name="check15" value="option1"> 11. Otro?
+													<input type="checkbox" id="P2_B_11111" name="check15" value="option1"> 11. Otro?
 												</label>
 												<label>(Especifique)</label>
 												<input style="width:400px;" id="P2_B_11_Cod_O" type="text" class="form-control">
 												<label>
-													<input type="checkbox" id="P2_B_1112" name="check" value="option2"> 12. Ninguno
+													<input type="checkbox" id="P2_B_11121" name="check" value="option2"> 12. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -465,28 +465,28 @@
 											</td>
 											<td>
 												<label>
-													<input type="checkbox" id="P2_B_121" name="check16" value="option1"> 1. Cercanía lecho de río, quebrada?
+													<input type="checkbox" id="P2_B_1211" name="check16" value="option1"> 1. Cercanía lecho de río, quebrada?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_122" name="check16" value="option2"> 2. Cercanía a vía ferrea?
+													<input type="checkbox" id="P2_B_1221" name="check16" value="option2"> 2. Cercanía a vía ferrea?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_123" name="check16" value="option1"> 3. Cercanía a barranco o precipicio?
+													<input type="checkbox" id="P2_B_1231" name="check16" value="option1"> 3. Cercanía a barranco o precipicio?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_124" name="check16" value="option2"> 4. Cercanía a cuartel militar o policial?
+													<input type="checkbox" id="P2_B_1241" name="check16" value="option2"> 4. Cercanía a cuartel militar o policial?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_125" name="check16" value="option1"> 5. Erosión fluvial de laderas?
+													<input type="checkbox" id="P2_B_1251" name="check16" value="option1"> 5. Erosión fluvial de laderas?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_B_126" name="check16" value="option2"> 6. Otro?
+													<input type="checkbox" id="P2_B_1261" name="check16" value="option2"> 6. Otro?
 												</label>
 												<label>(Especifique)</label>
 												<input style="width:400px;" id="P2_B_12_Cod_O" type="text" class="form-control">
 												<label>
 												<label>
-													<input type="checkbox" id="P2_B_127" name="check16" value="option1"> 7. Ninguno
+													<input type="checkbox" id="P2_B_1271" name="check16" value="option1"> 7. Ninguno
 												</label>
 											</td>
 										</tr>
@@ -554,7 +554,7 @@
 														</td>
 														<td>
 															<label>
-																<input type="checkbox" id="P2_C_1Locl_3_Alc12" name="P2_C_1Locl_3_Alc12" value="">
+																<input type="checkbox" id="P2_C_1Locl_3_Alc2" name="P2_C_1Locl_3_Alc12" value="">
 																 2
 															</label>
 														</td>

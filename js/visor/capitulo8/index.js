@@ -139,8 +139,9 @@ function Get_count_Type_Edif(){
 
 			$.each(data ,function(index, val){
 
-
-				if (val.P8_2_Tipo=='P'){
+					Tipo_E=trim(val.P8_2_Tipo);
+				
+				if (Tipo_E=='P'){
 
 					icombo++;
 					if(icombo==1){
@@ -150,13 +151,13 @@ function Get_count_Type_Edif(){
 						cl="";
 					}
 
-					combopatios+='<li class="combo_ins1 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
+					combopatios+='<li class="combo_ins1 '+cl+'" id="'+Tipo_E+'.'+val.P8_2_Nro+'">'+
+									'<a href="" data-toggle="dropdown"> '+ Tipo_E +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
 
-				if (val.P8_2_Tipo=='LD'){
+				if (Tipo_E=='LD'){
 
 					ilosa++;
 					if(ilosa==1){
@@ -165,12 +166,12 @@ function Get_count_Type_Edif(){
 						cl="";
 					}
 
-					losasdeportivas+='<li class="combo_ins2 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-										'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
+					losasdeportivas+='<li class="combo_ins2 '+cl+'" id="'+Tipo_E+'.'+val.P8_2_Nro+'">'+
+										'<a href="" data-toggle="dropdown"> '+ Tipo_E +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
-				if (val.P8_2_Tipo=='CTE'){
+				if (Tipo_E=='CTE'){
 
 					icisterna++;
 					if(icisterna==1){
@@ -179,12 +180,12 @@ function Get_count_Type_Edif(){
 						cl="";
 					}
 
-					cisterna+='<li class="combo_ins3 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
+					cisterna+='<li class="combo_ins3 '+cl+'" id="'+Tipo_E+'.'+val.P8_2_Nro+'">'+
+									'<a href="" data-toggle="dropdown"> '+ Tipo_E +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};
-				if (val.P8_2_Tipo=='MC'){
+				if (Tipo_E=='MC'){
 
 					imuros++;
 					if(imuros==1){
@@ -193,8 +194,8 @@ function Get_count_Type_Edif(){
 						cl="";
 					}
 
-					muros+='<li class="combo_ins4 '+cl+'" id="'+val.P8_2_Tipo+'.'+val.P8_2_Nro+'">'+
-									'<a href="" data-toggle="dropdown"> '+ val.P8_2_Tipo +'- '+leftceros(val.P8_2_Nro)+'</a>'+
+					muros+='<li class="combo_ins4 '+cl+'" id="'+Tipo_E+'.'+val.P8_2_Nro+'">'+
+									'<a href="" data-toggle="dropdown"> '+ Tipo_E +'- '+leftceros(val.P8_2_Nro)+'</a>'+
 								'</li>';
 
 				};

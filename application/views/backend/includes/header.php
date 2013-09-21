@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>">
     <!--<link rel="stylesheet" href="--><?php //echo base_url('css/jquery.dataTables.css'); ?><!--">-->
     
-    <link rel="stylesheet" href="<?php echo base_url('css/jquery-ui-1.10.3.custom.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('css/smoothness/jquery-ui-1.10.3.custom.min.css') ?>">
     
     <link rel="stylesheet" href="<?php echo base_url('css/TableTools.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/ui.jqgrid.css') ?>">
