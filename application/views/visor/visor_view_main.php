@@ -101,6 +101,17 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td class="center"><?php echo '<a href="visor/caratula1/?le='.obfuscate('042076').'&pr=1" target="_blank">042076 <img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>'; ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
                         <td class="center"><?php echo '<a href="visor/caratula1/?le='.obfuscate('000024').'&pr=1" target="_blank">000024 <img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>'; ?></td>
                         <td></td>
                         <td></td>

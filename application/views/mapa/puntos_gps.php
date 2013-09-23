@@ -21,11 +21,14 @@
        .labels {
          color: black;
          font-family: "Lucida Grande", "Arial", sans-serif;
-         font-size: 14px;
+         font-size: 15px;
          font-weight: bold;
          text-align: center;
          width: auto;
          white-space: nowrap;
+         background: yellow;
+         padding: 3px;
+         border: 1px solid black;
        }
    </style>
     
@@ -57,7 +60,6 @@
          }
 
     ?>
-
           var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
           var image = {

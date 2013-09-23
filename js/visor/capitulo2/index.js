@@ -201,7 +201,7 @@ function get_P2_D_1N(){
 
 		$.each(data, function(index, val) {
 
-			check_Radio(val.P2_D_1_EnergCod,"P2_D_1_EnergCod");
+			check_Radio(val.P2_D_1_Cod,"P2_D_1_Cod"+val.P2_D_1_Cod_Est);
 
 			if(val.P2_D_1_EnergCod==4){
 
@@ -216,7 +216,7 @@ function get_P2_D_1N(){
 
 
 
-
+//PEndiente de probar, no habia data
 
 
 function get_P2_D_3N(){
