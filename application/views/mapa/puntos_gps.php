@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Puntos GPS de Locales Escolares</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Georeferenciación de Locales Escolares</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
+
+
+
+.map_container {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
       html, body, #map-canvas {
         margin: 0;
         padding: 0;
@@ -27,11 +40,119 @@
          width: auto;
          white-space: nowrap;
        }
+
+#footer {
+    font-size: 80%;
+}
+#footer {
+    background: none repeat scroll 0 0 #333333;
+    border-top: 1px solid #000000;
+    bottom: 0;
+    color: #C2C2C2;
+    display: block;
+    padding: 5px 0 3px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+
+#footer p {
+    margin: 0;
+}
+
+#footer img {
+    margin-left: 15px;
+    padding-right: 5px;
+}
+
+#header {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+    border-bottom: 7px solid #00A1C7 !important;
+    padding: 10px 20px 5px;
+    position: relative;
+}
+
+#oted {
+    color: #00A1C7;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    text-align: right;
+    text-transform: uppercase;
+    top: 33px;
+}
+
+
+
+.filtro_map {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+    border-radius: 5px 5px 5px 5px;
+    bottom: 50px;
+    left: 20px;
+    margin: 0 !important;
+    padding: 7px 12px !important;
+    position: absolute;
+}
+.preguntas_sub2 {
+    font-size: 11px !important;
+    line-height: 20px !important;
+    margin-bottom: 1px !important;
+    margin-top: 1px !important;
+    padding: 8px 10px !important;
+    text-align: left;
+}
+
+.preguntas_sub2 {
+    font-size: 11px !important;
+    line-height: 20px !important;
+    margin-bottom: 1px !important;
+    margin-top: 1px !important;
+    padding: 8px 10px !important;
+    text-align: left;
+}
+
+.filtro_map .control-group .controls {
+    margin-left: 0;
+}
+
+
+#footer .row-fluid [class*="span"] {
+    min-height: 22px;
+}
+
+
+#footer .span3{height: auto; padding-top: 0}
+
+.filtro_map .control-group {
+    margin-left: 0;
+}
+
+#map-canvas img { 
+  max-width: none;
+}
+
+#map-canvas label { 
+  width: auto; display:inline; 
+} 
+
    </style>
+
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    
+
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>"> 
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.spacelab.css'); ?>"> 
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>"> 
+    
     
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="<?php echo base_url('js/map/markerwithlabel.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/basic.js'); ?>"></script>
+    
     <script>
 
     function initialize() {
@@ -47,10 +168,32 @@
       
           <?php echo "var myLatlng".$x." = new google.maps.LatLng(".$filas->LatitudPunto.",".$filas->LongitudPunto.");"; ?>
             var mapOptions = {
-            zoom: 5,
-            center: myLatlng<?php echo $x; ?>,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
+      zoom: 6,
+      center: new google.maps.LatLng(-7.1663,-71.455078),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+zoomControl: true,
+zoomControlOptions: {
+    style: google.maps.ZoomControlStyle.LARGE,
+    position: google.maps.ControlPosition.RIGHT_CENTER
+},
+streetViewControl: true,
+streetViewControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+panControl: false,
+panControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+scaleControl: false,
+scaleControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.RIGHT_CENTER 
+    } 
+    }
     
     <?php 
 
@@ -136,6 +279,85 @@
     </script>
   </head>
   <body>
-    <div id="map-canvas"></div>
+
+<div class="map_container">
+  <div id="map-canvas"></div>
+</div>
+      
+<div id="header" style="display: block;">
+  <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a> 
+  <div id="oted">Oficina Técnica de Estadísticas Departamentales - OTED</div>
+</div>   
+
+
+
+<div class="filtro_map preguntas_sub2 span2"><div class="row-fluid control-group span9">
+<label class="preguntas_sub2" for="NOM_SEDE">SEDE OPERATIVA</label><div class="controls span"><select id="NOM_SEDE" class="span12" name="NOM_SEDE">
+<option value="01">AMAZONAS</option>
+<option value="04">APURIMAC</option>
+<option value="05">AREQUIPA</option>
+<option value="06">AYACUCHO</option>
+<option value="07">CAJAMARCA</option>
+<option value="03">CHIMBOTE</option>
+<option value="08">CUSCO</option>
+<option value="09">HUANCAVELICA</option>
+<option value="10">HUANUCO</option>
+<option value="02">HUARAZ</option>
+<option value="11">ICA</option>
+<option value="12">JUNIN</option>
+<option value="13">LA LIBERTAD</option>
+<option value="14">LAMBAYEQUE</option>
+<option value="15">LIMA</option>
+<option value="16">LORETO</option>
+<option value="17">MADRE DE DIOS</option>
+<option value="18">MOQUEGUA</option>
+<option value="22">MOYOBAMBA</option>
+<option value="19">PASCO</option>
+<option value="20">PIURA</option>
+<option value="21">PUNO</option>
+<option value="24">TACNA</option>
+<option value="23">TARAPOTO</option>
+<option value="25">TUMBES</option>
+<option value="26">UCAYALI</option>
+</select></div></div>
+
+<div class="row-fluid control-group span9">
+  <label class="preguntas_sub2" for="NOM_DD">PROVINCIA</label>
+  <div class="controls">
+  <select id="NOM_DD" class="span12" name="NOM_DD">
+    <option value="-1">-</option>
+  </select>
+  </div>
+</div>
+
+<div class="row-fluid control-group span9">
+  <label class="preguntas_sub2" for="PERIODO">PERIODO</label>
+  <div class="controls">
+  <select id="PERIODO" class="span12" name="PERIODO">
+    <option value="-1">-</option>
+    <option value="1">1</option>
+  </select>
+  </div>
+</div>
+
+
+</div>
+
+
+<div id="footer">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <p>AVANCE DE LA COBERTURA DE LOCALES ESCOLARES: 3845 / 49638 </p>
+    </div>
+
+    <div class="span3">
+      <p class="pull-right">CENSO DE INFRAESTRUCTURA EDUCATIVA 2013</p>
+    </div>    
+
+  </div>
+</div>
+</div>  
+
   </body>
 </html>
