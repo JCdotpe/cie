@@ -28,6 +28,7 @@ class Seguimiento_Model extends CI_Model {
 	public function insert_avance($data)
 	{
 		$sql="INSERT INTO avance (codlocal, nro_visita, fecha_visita, estado, especifique, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['fecha_visita']."', '".$data['estado']."', '".$data['especifique']."', '".$data['usu_registra']."', getdate())";
+		//echo $sql;
 		$this->db->query($sql);
 		return $this->db->affected_rows() > 0;
 	}
@@ -40,13 +41,13 @@ class Seguimiento_Model extends CI_Model {
 		return $row->NroRegistros;
 	}
 
-	public function repite_fecha_avance($local, $fecha_visita)
-	{
-		$sql = "SELECT COUNT(codlocal) as Cantidad_Registros FROM v_avance WHERE codlocal = '$local' and fecha_visita = '$fecha_visita'";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->Cantidad_Registros;
-	}	
+	// public function repite_fecha_avance($local, $fecha_visita)
+	// {
+	// 	$sql = "SELECT COUNT(codlocal) as Cantidad_Registros FROM v_avance WHERE codlocal = '$local' and fecha_visita = convert(date,'$fecha_visita',103)";
+ //    	$q = $this->db->query($sql);
+ //    	$row = $q->first_row();
+	// 	return $row->Cantidad_Registros;
+	// }	
 
 	public function get_locales_for_avance($ord, $ascdesc, $inicio, $final, $condicion1)
 	{

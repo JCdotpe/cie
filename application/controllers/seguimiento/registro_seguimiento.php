@@ -189,9 +189,9 @@ class Registro_Seguimiento extends CI_Controller {
 	{
 		$codlocal = $this->input->post('codigo');
 		$nro_visitas=$this->seguimiento_model->get_nro_visitas($codlocal);
-		$fecha_visita=$this->input->post('fecha_avance');
+		$newDate = explode( "/" , $this->input->post('fecha_avance'));
+		$fecha_visita = $newDate[2]."/".$newDate[1]."/".$newDate[0];
 		$especifique=$this->input->post('especifique');
-
 		//$repite = $this->seguimiento_model->repite_fecha_avance($codlocal,$fecha_visita);
 		//if ($repite == 0)
 		//{
@@ -206,8 +206,8 @@ class Registro_Seguimiento extends CI_Controller {
 			$this->seguimiento_model->insert_avance($c_data);
 		//}
 		
-		$jsonData = json_encode($repite);
-		echo $jsonData;
+		//$jsonData = json_encode($repite);
+		//echo $jsonData;
 	}
 
 	public function ver_datos_avance()
