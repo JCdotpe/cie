@@ -62,7 +62,7 @@
 					<div class="control-group">
 						<?php echo form_label('Centro Poblado', 'centropoblado', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('centropoblado', $centropArray, '#', 'id="centropoblado" style="width:180px;" onChange="cargarRutas();"');
+							<?php echo form_dropdown('centropoblado', $centropArray, '#', 'id="centropoblado" style="width:180px;" onChange="verdatos();"');
 							?>
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 					<div class="control-group">
 						<?php echo form_label('Código de Ruta', 'rutas', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;" onChange="cargarPeriodo();"');
+							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;" onChange="verdatos();"');
 							?>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 					<div class="control-group">
 						<?php echo form_label('Periodo de Trabajo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;" onChange="verdatos(5);"');
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;" onChange="verdatos();"');
 							?>
 						</div>
 					</div>
@@ -136,6 +136,9 @@
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
+
+		cargarRutas();
+		cargarPeriodo();
 	});
 </script>
 
@@ -247,7 +250,7 @@
 			pager: '#pager3',
 			rowNum:10,
 			rowList:[10,15,20],
-			sortname: 'fecha_visita',
+			sortname: 'convert(datetime,fecha_visita,103)',
 			viewrecords: true,
 			/*gridComplete: function(){
 				var ids = jQuery("#list3").jqGrid('getDataIDs');
@@ -347,7 +350,7 @@
 	);
 
 
-	$attr = array('class' => 'form-val','id' => 'frm_avance', 'style' => 'overflow: auto;');
+	$attr = array('class' => 'form-val','id' => 'frm_detalle', 'style' => 'overflow: auto;');
 	echo form_open('', $attr);
 ?>
 <style type="text/css">
@@ -385,7 +388,7 @@
 							<td><?php echo form_input($txtFechaDetalle); ?></td>
 							<td>
 								<?php echo form_button($btnAgregar); ?>		
-								<input type="hidden" id="usuario" name="usuario" value="<?php echo $user_id; ?>">
+								<input type="hidden" id="usuario_dt" name="usuario_dt" value="<?php echo $user_id; ?>">
 							</td>
 						</tr>
 					</tbody>
@@ -408,20 +411,20 @@
 	$(document).ready(function() {
 		jQuery("#list4").jqGrid({
 			type:"POST",
-			url:'registro_seguimiento/ver_datos_avance',
+			url:urlRoot('index.php')+'/seguimiento/registro_seguimiento/ver_datos_detalle',
 			datatype: "json",
 			height: 200,
-			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
+			colNames:['Código de Local', 'Cédula', 'Cantidad', 'Fecha de Visita'],
 			colModel:[
-				{name:'nro_fila',index:'nro_fila', align:"center"},
 				{name:'codlocal',index:'codlocal', align:"center"},
-				{name:'NEstado',index:'estado', align:"center"},
+				{name:'cedula',index:'cedula', align:"center"},
+				{name:'cantidad',index:'cantidad', align:"center"},
 				{name:'fecha_visita',index:'fecha_visita', align:"center"}
 			],
 			pager: '#pager4',
 			rowNum:10,
 			rowList:[10,15,20],
-			sortname: 'fecha_visita',
+			sortname: 'convert(datetime,fecha_visita,103)',
 			viewrecords: true,
 			sortorder: "asc",
 			caption:"Detalles"

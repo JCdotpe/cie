@@ -20,10 +20,11 @@ function cargarProvBySede()
 			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+			//$("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			//$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			verdatos(0);
+			//verdatos(0);
+			verdatos();
 		}
 	});
 }
@@ -46,10 +47,11 @@ function cargarDist()
 			
 			$("#distrito").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+			// $("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			// $("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			verdatos(1);
+			//verdatos(1);
+			verdatos();
 		}
 	});
 }
@@ -72,15 +74,16 @@ function cargarCentroPoblado()
 			});
 
 			$("#centropoblado").prepend("<option value='-1' selected='true'>Seleccione...</value>");			
-			$("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+			// $("#rutas").empty().append("<option value='-1' selected='true'></value>");
+			// $("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			if (id_dist=='-1'){ verdatos(1); }else{ verdatos(2); }
+			//if (id_dist=='-1'){ verdatos(1); }else{ verdatos(2); }
+			verdatos();
 		}
 	});
 }
 
-function cargarRutas()
+/*function cargarRutas()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerrutas';
 	var id_depa = $("#sedeoperativa").val();
@@ -104,9 +107,9 @@ function cargarRutas()
 			if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
 		}
 	});
-}
+}*/
 
-function cargarPeriodo()
+/*function cargarPeriodo()
 {
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerperiodo';
 	var id_depa = $("#sedeoperativa").val();
@@ -130,9 +133,39 @@ function cargarPeriodo()
 			if (id_ruta=='-1'){ verdatos(3); }else{ verdatos(4); }
 		}
 	});
+}*/
+
+function cargarRutas()
+{
+	$("#rutas").empty();
+
+	for (var i = 1; i <= 90; i++)
+	{
+		if (i<10)
+		{
+			codigo = "0"+i.toString();			
+			$("#rutas").append('<option value="' + codigo + '">' + codigo + '</option>');
+		}else{
+			$("#rutas").append('<option value="' + i + '">' + i + '</option>');
+		}
+	}
+
+	$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 }
 
-function verdatos(intervalo)
+function cargarPeriodo()
+{
+	$("#periodo").empty();
+
+	for (var i = 1; i <= 14; i++)
+	{
+		$("#periodo").append('<option value="' + i + '">' + i + '</option>');
+	}	
+			
+	$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+}
+
+function verdatos()
 {
 	var codsede = $("#sedeoperativa").val();
 	var codprov = $("#provincia_ope").val();
@@ -141,30 +174,32 @@ function verdatos(intervalo)
 	var codruta = $("#rutas").val();
 	var nroperiodo = $("#periodo").val();
 
-	if (nroperiodo=='-1' && intervalo == 5){ intervalo=4; }
+	//if (nroperiodo=='-1' && intervalo == 5){ intervalo=4; }
 
-	var condicion;
+	//var condicion;
 
-	switch(intervalo)
-	{
-		case 0: condicion = "registro_seguimiento/ver_datos";
-			break;
+	// switch(intervalo)
+	// {
+	// 	case 0: condicion = "registro_seguimiento/ver_datos";
+	// 		break;
 
-		case 1: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov;
-			break;
+	// 	case 1: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov;
+	// 		break;
 
-		case 2:	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist;
-			break;
+	// 	case 2:	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist;
+	// 		break;
 
-		case 3: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
-			break;
+	// 	case 3: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
+	// 		break;
 
-		case 4: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
-			break;
+	// 	case 4: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
+	// 		break;
 
-		case 5: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
-			break;
-	}
+	// 	case 5: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	// 		break;
+	// }
+
+	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }
@@ -244,13 +279,13 @@ function registrar_avance()
 function savedetalle(values)
 {
 	$('#codigo_dt').val(values);
-	ver_avance(values);
+	ver_detalle(values);
 	$("#add-detalle-modal").modal('show');
 }
 
 function ver_detalle(codigo)
 {
-	jQuery("#list4").jqGrid('setGridParam',{url:"registro_seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
+	jQuery("#list4").jqGrid('setGridParam',{url:"registro_seguimiento/ver_datos_detalle?codigo="+codigo,page:1}).trigger("reloadGrid");
 }
 
 function cargarCedula()
@@ -271,11 +306,11 @@ function cargarCedula()
 	});
 }
 
-function frm_ValidarAvance()
+function frm_ValidarDetalle()
 {
-	var fecha = $("#fecha_avance").val();
-	var estado = $("#estado").val();
-	var codigo = $("#codigo").val();
+	var fecha = $("#fecha_detalle").val();
+	var estado = $("#cedula").val();
+	var codigo = $("#codigo_dt").val();
 	
 	if (estado == -1 || fecha == "")
 	{
@@ -285,13 +320,13 @@ function frm_ValidarAvance()
 
 	if (fecha.length<10){ alert("Fecha Incompleta"); return false; }
 
-	registrar_avance();
+	registrar_detalle();
 }
 
-function registrar_avance()
+function registrar_detalle()
 {
 	var bsub = $( ":submit" );
-	var form_data = $('#frm_avance').serializeArray();
+	var form_data = $('#frm_detalle').serializeArray();
 
 	form_data.push(
 		{name: 'ajax',value:1}
@@ -300,15 +335,13 @@ function registrar_avance()
 
 	$.ajax({
 		type: "POST",
-		url: "registro_seguimiento/registro_avance",
+		url: urlRoot('index.php')+"/seguimiento/registro_seguimiento/registro_detalle",
 		data: form_data,
 
 		success: function(data){
-			$("#fecha_avance").val('');
-			$("#estado").val('');
-			$("#especifique").val('');
-			$("#list3").trigger("reloadGrid");
-			$("#list2").trigger("reloadGrid");
+			$("#fecha_detalle").val('');
+			$("#cantidad").val('');
+			$("#list4").trigger("reloadGrid");
 			alert("Avance Guardado!");
 		}
 	});
@@ -424,7 +457,51 @@ function cargarProv()
 		if (isNaN(v2)) { sw= "N";} 
 		} 
 		if (sw=="S") {return true;} else {return false; } 
-	} 
+	}
+
+	function IsRange(dia, mes) 
+	{
+		var sw=0;
+		switch(mes)
+		{
+			case '01':
+				if (dia<=31){ sw=1; }
+			break;
+			case '03':
+				if (dia<=31){ sw=1; }
+			break;
+			case '04':
+				if (dia<=30){ sw=1; }
+			break;
+			case '05':
+				if (dia<=31){ sw=1; }
+			break;
+			case '06':
+				if (dia<=30){ sw=1; }
+			break;
+			case '07':
+				if (dia<=31){ sw=1; }
+			break;
+			case '08':
+				if (dia<=31){ sw=1; }
+			break;
+			case '09':
+		  		if (dia<=30){ sw=1; }
+		  	break;
+		  	case '10':
+				if (dia<=31){ sw=1; }
+			break;
+			case '11':
+				if (dia<=30){ sw=1; }
+			break;
+			case '12':
+				if (dia<=31){ sw=1; }
+			break;
+		}
+		
+		if (sw==1) {return true;} else {return false; } 
+	}
+
 	var primerslap=false; 
 	var segundoslap=false; 
 
@@ -447,8 +524,8 @@ function cargarProv()
 		if ((long<=2) && (primerslap=true)) {fecha=fecha.substr(0,1); primerslap=false; } 
 		} 
 		if ((long>=5) && (segundoslap==false)) 
-		{ mes=fecha.substr(3,2); 
-		if ((IsNumeric(mes)==true) &&(mes<=12) && (mes!="00")) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
+		{ mes=fecha.substr(3,2); dia=fecha.substr(0,2);
+		if ((IsNumeric(mes)==true) &&(mes<=12) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
 		else { fecha=fecha.substr(0,3);; segundoslap=false;} 
 		} 
 		else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
@@ -458,22 +535,20 @@ function cargarProv()
 		else { if (long==10){ if ((ano==0) || (ano<2013) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
 		}
 		if (long==10)
-		{ 
-			dia=fecha.substr(0,2); 
-			mes=fecha.substr(3,2); 
-			if ((ano==2013) && (mes<=9) && (dia<9))
-			{
-				fecha="";
-			}
+		{
+			dia=fecha.substr(0,2);
+			mes=fecha.substr(3,2);
+			if ((ano<=2013) && (mes<9)){ fecha=""; }
+			if ((ano==2013) && (mes==9) && (dia<9)){ fecha=""; }
 		}
 		if (long>=10) 
 		{ 
-		fecha=fecha.substr(0,10); 
-		dia=fecha.substr(0,2); 
-		mes=fecha.substr(3,2); 
-		ano=fecha.substr(6,4); 
-		// Año no viciesto y es febrero y el dia es mayor a 28 
-		if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
+			fecha=fecha.substr(0,10); 
+			dia=fecha.substr(0,2); 
+			mes=fecha.substr(3,2); 
+			ano=fecha.substr(6,4); 
+			// Año no viciesto y es febrero y el dia es mayor a 28 
+			if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
 		} 
 		return (fecha); 
 	}

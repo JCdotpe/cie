@@ -33,13 +33,23 @@ class Seguimiento_Model extends CI_Model {
 		return $this->db->affected_rows() > 0;
 	}
 
-	public function cantidad_avances($condicion1)
+	public function get_nro_visitas_detalle($codlocal)
 	{
-		$sql = "SELECT count(codlocal) as NroRegistros FROM v_avance $condicion1";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->NroRegistros;
+		$sql="SELECT isnull(max(nro_visita),0) + 1 as nro_visita FROM avance_detalle WHERE codlocal = '$codlocal'";
+		$q=$this->db->query($sql);
+		$row = $q->first_row();
+		return $row->nro_visita;
 	}
+
+	public function insert_detalle($data)
+	{
+		$sql="INSERT INTO avance_detalle (codlocal, nro_visita, cedula, cantidad, fecha_visita, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['cedula']."', '".$data['cantidad']."', '".$data['fecha_visita']."', '".$data['usu_registra']."', getdate())";
+		//echo $sql;
+		$this->db->query($sql);
+		return $this->db->affected_rows() > 0;
+	}
+
+	
 
 	// public function repite_fecha_avance($local, $fecha_visita)
 	// {
@@ -49,11 +59,34 @@ class Seguimiento_Model extends CI_Model {
 	// 	return $row->Cantidad_Registros;
 	// }	
 
+	public function cantidad_avances($condicion1)
+	{
+		$sql = "SELECT count(codlocal) as NroRegistros FROM v_avance $condicion1";
+    	$q = $this->db->query($sql);
+    	$row = $q->first_row();
+		return $row->NroRegistros;
+	}
+
 	public function get_locales_for_avance($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
 		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
 		return $q; 
+	}
+
+	public function cantidad_detalles($condicion1)
+	{
+		$sql = "SELECT count(codlocal) as NroRegistros FROM avance_detalle $condicion1";
+    	$q = $this->db->query($sql);
+    	$row = $q->first_row();
+		return $row->NroRegistros;
+	}
+
+	public function get_locales_for_detalle($ord, $ascdesc, $inicio, $final, $condicion1)
+	{
+		$sql="SELECT codlocal, nro_visita, cedula, cantidad, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM avance_detalle $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$q=$this->db->query($sql);
+		return $q;
 	}
 
 	public function get_cantidad_for_odei($condicion1, $todos)

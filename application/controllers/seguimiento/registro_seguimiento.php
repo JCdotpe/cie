@@ -134,24 +134,37 @@ class Registro_Seguimiento extends CI_Controller {
 		
 		if(isset($_GET['coddist'])) { 
 			$dist = $this->input->get('coddist');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist'";
+			if ($dist != -1)
+			{
+				$where1 = $where1." and cod_dist='$dist'";
+			}			
 		}
 
 		if(isset($_GET['codcentrop'])) { 
 			$centrop = $this->input->get('codcentrop');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop'";
+			if ($centrop != -1)
+			{
+				$where1 = $where1." and cod_ccpp='$centrop'";
+			}
 		}
 
 		if(isset($_GET['codruta'])) { 
 			$ruta = $this->input->get('codruta');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta'";
+			if ($ruta != -1)
+			{
+				$where1 = $where1." and ruta = '$ruta'";
+			}			
 		}
 
 		if(isset($_GET['nroperiodo'])) { 
 			$periodo = $this->input->get('nroperiodo');
-			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov' and cod_dist='$dist' and cod_ccpp='$centrop' and ruta = '$ruta' and periodo = '$periodo'";
+			if ($periodo != -1)
+			{
+				$where1 = $where1." and periodo = '$periodo'";
+			}			
 		}
 
+		//echo $where1;
 
 		if(!$sidx) $sidx =1;
 
@@ -210,6 +223,25 @@ class Registro_Seguimiento extends CI_Controller {
 		//echo $jsonData;
 	}
 
+	public function registro_detalle()
+	{
+		$codlocal = $this->input->post('codigo_dt');
+		$nro_visitas=$this->seguimiento_model->get_nro_visitas_detalle($codlocal);
+		$cantidad=$this->input->post('cantidad');
+		$newDate = explode( "/" , $this->input->post('fecha_detalle'));
+		$fecha_detalle = $newDate[2]."/".$newDate[1]."/".$newDate[0];
+		
+		$c_data = array(
+			'codlocal'=>$codlocal,
+			'nro_visita'=>$nro_visitas,
+			'cedula'=> $this->input->post('cedula'),
+			'cantidad'=> $cantidad,
+			'fecha_visita'=> $fecha_detalle,			
+			'usu_registra'=> $this->input->post('usuario_dt')
+		);
+		$this->seguimiento_model->insert_detalle($c_data);
+	}
+
 	public function ver_datos_avance()
 	{
 		$this->load->helper('form');
@@ -252,6 +284,53 @@ class Registro_Seguimiento extends CI_Controller {
 			$nro_fila++;
 			$respuesta->rows[$i]['id'] = $fila->nro_visita;
 			$respuesta->rows[$i]['cell'] = array($nro_fila,$fila->codlocal,$fila->NEstado, $fila->fecha_visita);
+			$i++;
+		}
+
+		$jsonData = json_encode($respuesta);
+		echo $jsonData;
+	}
+
+	public function ver_datos_detalle()
+	{
+		$this->load->helper('form');
+
+		$page = $this->input->get('page',TRUE); 
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
+
+		if(isset($_GET['codigo'])) { 
+			$local = $this->input->get('codigo');
+		}else{ $local = "-1"; }
+
+		$where1 = "WHERE codlocal='$local'";
+
+		if(!$sidx) $sidx =1;
+
+		$count = $this->seguimiento_model->cantidad_detalles($where1);
+
+ 		//En base al numero de registros se obtiene el numero de paginas
+		if( $count > 0 ) {
+			$total_pages = ceil($count/$limit);
+		} else {
+			$total_pages = 0;
+		}
+		if ($page > $total_pages) $page=$total_pages;
+
+		$row_final = $page * $limit;
+		$row_inicio = $row_final - $limit;
+
+		$resultado = $this->seguimiento_model->get_locales_for_detalle($sidx, $sord, $row_inicio, $row_final, $where1);
+
+		$respuesta->page = $page;
+		$respuesta->total = $total_pages;
+		$respuesta->records = $count;
+		$i=0;
+		foreach ($resultado->result() as $fila)
+		{
+			$respuesta->rows[$i]['id'] = $fila->nro_visita;
+			$respuesta->rows[$i]['cell'] = array($fila->codlocal,$fila->cedula,$fila->cantidad,$fila->fecha_visita);
 			$i++;
 		}
 
