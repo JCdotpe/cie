@@ -138,6 +138,31 @@ class Procedure extends REST_Controller{
         }
 
     }
+
+
+    public function Lista_GPS_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->Lista_Last_Gps_by_sede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+    }
     
 
 }

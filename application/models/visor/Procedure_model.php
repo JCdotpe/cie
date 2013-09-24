@@ -49,6 +49,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Lista_Last_Gps_by_sede($sede,$provincia,$periodo){
+       
+        $q=$this->db->query("CAP03_Punto10_xTerritorio ?,?,?",array($sede,$provincia,$periodo)); 
+        return $q;
+    
+    }
+
 }
 
 ?>

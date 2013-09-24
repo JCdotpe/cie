@@ -160,98 +160,131 @@
     
     <script>
 
-   var gmarkers = [];
-      var map = null;
-      var category = "";
+    function initialize() {
 
-      var infowindow = new google.maps.InfoWindow({ 
-        size: new google.maps.Size(300,400)
-        });
+    <?php     
+ 
+        $data = $this->Procedure_model->Lista_Last_Gps();
+        $x=0;  
+          foreach($data->result() as $filas){
+            $x++;
 
-      // A function to create the marker and set up the event window
-      function createMarkerLEN(latlng,name,html,icon,texto) {
-          var contentString = html;
-          //alert(category)
-          var color = null;
-            if(icon==1){
-              color=urlRoot('cie/')+'img/colindante.png';
-            }else{
-              color=urlRoot('cie/')+'img/nocolindante.png'                
-            }
-          var marker = new MarkerWithLabel({
-              draggable: false,
-              raiseOnDrag: false,
-              position: latlng,
-              map: map,
-              icon: color,
-              title: name,
-              zIndex: Math.round(latlng.lat()*-100000)<<5,
-              labelContent: texto,
-              labelAnchor: new google.maps.Point(22, 0),
-              labelClass: "glabels", // the CSS class for the label
-              labelStyle: {opacity: 0.75}
-              });
-              // === Store the category and name info as a marker properties ===
-              //marker.mycategory = category;                                 
-              marker.myname = name;
+    ?>
+      
+          <?php echo "var myLatlng".$x." = new google.maps.LatLng(".$filas->LatitudPunto.",".$filas->LongitudPunto.");"; ?>
+            var mapOptions = {
+      zoom: 6,
+      center: new google.maps.LatLng(-7.1663,-71.455078),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+zoomControl: true,
+zoomControlOptions: {
+    style: google.maps.ZoomControlStyle.LARGE,
+    position: google.maps.ControlPosition.RIGHT_CENTER
+},
+streetViewControl: true,
+streetViewControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+panControl: false,
+panControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+scaleControl: false,
+scaleControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.RIGHT_CENTER 
+    } 
+    }
+    
+    <?php 
 
-              gmarkers.push(marker);
+         }
 
-              google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(contentString); 
-              infowindow.open(map,marker);
-              });
+    ?>
+          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+          var image = {
+            url: urlRoot('cie/')+'img/colindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
 
+           var image2 = {
+            url: urlRoot('cie/')+'img/nocolindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
+
+    <?php     
+ 
+        $data = $this->Procedure_model->Lista_Last_Gps();
+        $x=0;  
+          foreach($data->result() as $filas){
+            $x++;
+
+    ?>
+
+         
+
+           var marker<?php echo $x; ?> = new MarkerWithLabel({
+             position: myLatlng<?php echo $x; ?>,
+             draggable: false,
+             raiseOnDrag: true,
+             map: map,
+             labelContent: <?php echo "'".$filas->codigo_de_local." - ".$filas->nro_pred."'"; ?>,
+             labelAnchor: new google.maps.Point(22, 0),
+             labelClass: "labels", // the CSS class for the label
+             labelStyle: {opacity: 1.0},
+             icon: <?php if($filas->Tipo==0){echo "image2";}else{echo "image";} ?>
+           });
+          
+          var contentString<?php echo $x; ?>="<div>"+
+              "<strong>Codigo de local: </strong><?php echo $filas->codigo_de_local; ?><br />"+
+              "<strong>Predio: </strong><?php echo $filas->nro_pred; ?> (<?php if($filas->Tipo==0){echo 'Principal o Colindante';}else{echo 'No Colindante';} ?>)<br />"+
+              "<strong>Departamento: </strong><?php echo $filas->Departamento; ?><br />"+
+              "<strong>Provincia: </strong><?php echo $filas->Provincia; ?><br />"+
+              "<strong>Distrito: </strong><?php echo $filas->Distrito; ?><br />"+
+              "<strong>Latitud: </strong><?php echo $filas->LatitudPunto; ?><br />"+
+              "<strong>Longitud: </strong><?php echo $filas->LongitudPunto; ?><br />"+
+              "<strong>Altitud: </strong><?php echo $filas->AltitudPunto; ?><br />"+
+              "<a href='"+urlRoot('index.php/')+"visor/caratula1/?le=<?php echo obfuscate($filas->codigo_de_local); ?>&pr=1' target='_blank'>Cedula</a>"+
+            "</div>";
+
+          var infowindow<?php echo $x; ?> = new google.maps.InfoWindow({
+            content: contentString<?php echo $x; ?>,
+          });
+
+          google.maps.event.addListener(marker<?php echo $x; ?>, 'click', function() {
+            infowindow<?php echo $x; ?>.open(map,marker<?php echo $x; ?>);
+          });
+          
+        <?php 
+
+         }
+
+        ?>
 
       }
 
-      function initialize() {
-          var myOptions = {
-            zoom: 6,
-            center: new google.maps.LatLng(-7.1663,-71.455078),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            zoomControl: true,
-            zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
-            position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            streetViewControl: true,
-            streetViewControlOptions:{
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            panControl: false,
-            panControlOptions: {
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            scaleControl: false,
-            scaleControlOptions: {
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                position: google.maps.ControlPosition.RIGHT_CENTER 
-            } 
-        }
-        
-          map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-          google.maps.event.addListener(map, 'click', function() {
-              infowindow.close();
-          });
-
-         
-    }
+      google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-   
     <script type="text/javascript">
    
     $(document).ready(function() {
-
-        initialize();
-
+          
         combosede();
 
 /*        $('#NOM_SEDE').on('click', '.cmbsede', function(event) {
@@ -263,11 +296,6 @@
         
 
         $('#NOM_PROV').attr('disabled', true);    
-        $('#PERIODO').attr('disabled', true);   
-
-        $('#PERIODO').change(function(event) {
-           puntosGPS($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());   
-        });  
     });
 
     function combosede(){
@@ -313,10 +341,6 @@
 
           $('#NOM_PROV').html(html);
 
-          $('#NOM_PROV').change(function(event) {
-            $('#PERIODO').attr('disabled', false); 
-          });
-
         }).fail(function( jqxhr, textStatus, error ) {
         
           var err = textStatus + ', ' + error;
@@ -324,38 +348,7 @@
         
         });
       
-    }  
-
-    function puntosGPS(sede,provincia,periodo){
-
-      $.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
-
-          $.each(data, function(i, val){
-
-              var contentString="<div>"+
-              "<strong>Codigo de local: </strong>"+val.codigo_de_local+"<br />"+
-              "<strong>Predio: </strong><br />"+val.Nro_Pred+""+
-              "<strong>Departamento: </strong>"+val.Departamento+"<br />"+
-              "<strong>Provincia: </strong>"+val.Provincia+"<br />"+
-              "<strong>Distrito: </strong>"+val.Distrito+"<br />"+
-              "<strong>Latitud: </strong>"+val.LatitudPunto+"<br />"+
-              "<strong>Longitud: </strong>"+val.LongitudPunto+"<br />"+
-              "<strong>Altitud: </strong>"+val.AltitudPunto+"<br />"+
-              "</div>";
-          
-                            
-              var point = new google.maps.LatLng(val.LatitudPunto,val.LongitudPunto);
-              var marker = createMarkerLEN(point, val.codigo_de_local, contentString, val.tipo, val.codigo_de_local+" - "+val.Nro_Pred);
-          
-          });
-
-        
-
-      });
-
-    }
-
-    
+    }   
 
     </script>
   </head>
