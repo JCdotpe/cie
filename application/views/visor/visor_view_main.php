@@ -41,7 +41,7 @@
 
         <h4 align="center">VISOR DE CEDULAS</h4>
 
-        <div class="form-span10 row-fluid well top-conv" style="width:845px; margin-left:70px;">
+        <div class="form-span10 row-fluid well top-conv" style="margin-left:0px;">
 
             <div class="span3" style="margin:0 auto; border-right:1px solid #CCC; width:340px;">
 
@@ -66,15 +66,22 @@
 
                     <div class="control-group" style="float:left;">
                         <?php echo form_label('Departamento', 'departamento', $label_class); ?>
-                        <div class="controls">
-                            <?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento"'); ?>
+                        <div class="controls" id="control1">
+                            
                         </div>
                     </div>
 
                     <div class="control-group" style="float:left; margin-left:15px;">
                         <?php echo form_label('Provincia', 'provincia', $label_class); ?>
-                        <div class="controls">
-                            <?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia"'); ?>
+                        <div class="controls" id="control2">
+                            
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="float:left; margin-left:15px;">
+                        <?php echo form_label('Provincia', 'provincia', $label_class); ?>
+                        <div class="controls" id="control3">
+                            
                         </div>
                     </div>
             </div>
@@ -86,7 +93,7 @@
   <div id="grid_content" class="span12" style="width: 900px;">
         <table id="editgrid"></table>
           <div class="span12">
-            <table id="lista" style="width:950px;" class="display">
+            <!-- <table id="lista" style="width:950px;" class="display">
                 <thead>
                     <tr>
                         <th>Codigo de Local</th>
@@ -123,7 +130,7 @@
                     </tr>
                                         
                 </tbody>
-            </table>
+            </table> -->
            
           </div>
   </div>
