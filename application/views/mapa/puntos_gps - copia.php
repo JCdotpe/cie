@@ -160,120 +160,149 @@
     
     <script>
 
-      var gmarkers = [];
-      var map = null;
-      var category = "";
+    function initialize() {
 
-      var infowindow = new google.maps.InfoWindow({ 
-        size: new google.maps.Size(300,400)
-      });
+    <?php     
+ 
+        $data = $this->Procedure_model->Lista_Last_Gps();
+        $x=0;  
+          foreach($data->result() as $filas){
+            $x++;
 
-      // A function to create the marker and set up the event window
-      function createMarkerLEN(latlng,name,html,category,icon,texto) {
-          var contentString = html;
-          var color = null;
+    ?>
+      
+          <?php echo "var myLatlng".$x." = new google.maps.LatLng(".$filas->LatitudPunto.",".$filas->LongitudPunto.");"; ?>
+            var mapOptions = {
+      zoom: 6,
+      center: new google.maps.LatLng(-7.1663,-71.455078),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+zoomControl: true,
+zoomControlOptions: {
+    style: google.maps.ZoomControlStyle.LARGE,
+    position: google.maps.ControlPosition.RIGHT_CENTER
+},
+streetViewControl: true,
+streetViewControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+panControl: false,
+panControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+scaleControl: false,
+scaleControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+},
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.RIGHT_CENTER 
+    } 
+    }
+    
+    <?php 
 
-          /*for (var i=0; i<gmarkers.length; i++) {
-                  if (gmarkers[i].mycategory == '1') {
-                      gmarkers[i].setVisible(false);
-               }
-          } */
+         }
+
+    ?>
+          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+          var image = {
+            url: urlRoot('cie/')+'img/colindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
+
+           var image2 = {
+            url: urlRoot('cie/')+'img/nocolindante.png',
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(40, 40),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            anchor: new google.maps.Point(0, 32)
+          };
+
+    <?php     
+ 
+        $data = $this->Procedure_model->Lista_Last_Gps();
+        $x=0;  
+          foreach($data->result() as $filas){
+            $x++;
+
+    ?>
+
+         
+
+           var marker<?php echo $x; ?> = new MarkerWithLabel({
+             position: myLatlng<?php echo $x; ?>,
+             draggable: false,
+             raiseOnDrag: true,
+             map: map,
+             labelContent: <?php echo "'".$filas->codigo_de_local." - ".$filas->nro_pred."'"; ?>,
+             labelAnchor: new google.maps.Point(22, 0),
+             labelClass: "labels", // the CSS class for the label
+             labelStyle: {opacity: 1.0},
+             icon: <?php if($filas->Tipo==0){echo "image2";}else{echo "image";} ?>
+           });
           
-          if(icon==0){
-             color=urlRoot('cie/')+'img/colindante.png';
-          }else{
-             color=urlRoot('cie/')+'img/nocolindante.png'                
-          }
-        
-          var marker = new MarkerWithLabel({
-              draggable: false,
-              raiseOnDrag: false,
-              position: latlng,
-              map: map,
-              icon: color,
-              title: name,
-              zIndex: Math.round(latlng.lat()*-100000)<<5,
-              labelContent: texto,
-              labelAnchor: new google.maps.Point(22, 0),
-              labelClass: "glabels", // the CSS class for the label
-              labelStyle: {opacity: 0.75}
-              });
-              // === Store the category and name info as a marker properties ===
-              marker.mycategory = category;                                 
-              marker.myname = name;
+          var contentString<?php echo $x; ?>="<div>"+
+              "<strong>Codigo de local: </strong><?php echo $filas->codigo_de_local; ?><br />"+
+              "<strong>Predio: </strong><?php echo $filas->nro_pred; ?> (<?php if($filas->Tipo==0){echo 'Principal o Colindante';}else{echo 'No Colindante';} ?>)<br />"+
+              "<strong>Departamento: </strong><?php echo $filas->Departamento; ?><br />"+
+              "<strong>Provincia: </strong><?php echo $filas->Provincia; ?><br />"+
+              "<strong>Distrito: </strong><?php echo $filas->Distrito; ?><br />"+
+              "<strong>Latitud: </strong><?php echo $filas->LatitudPunto; ?><br />"+
+              "<strong>Longitud: </strong><?php echo $filas->LongitudPunto; ?><br />"+
+              "<strong>Altitud: </strong><?php echo $filas->AltitudPunto; ?><br />"+
+              "<a href='"+urlRoot('index.php/')+"visor/caratula1/?le=<?php echo obfuscate($filas->codigo_de_local); ?>&pr=1' target='_blank'>Cedula</a>"+
+            "</div>";
 
-              gmarkers.push(marker);
+          var infowindow<?php echo $x; ?> = new google.maps.InfoWindow({
+            content: contentString<?php echo $x; ?>,
+          });
 
-              google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(contentString); 
-              infowindow.open(map,marker);
-              });
+          google.maps.event.addListener(marker<?php echo $x; ?>, 'click', function() {
+            infowindow<?php echo $x; ?>.open(map,marker<?php echo $x; ?>);
+          });
+          
+        <?php 
+
+         }
+
+        ?>
 
       }
 
-      function initialize() {
-          var myOptions = {
-            zoom: 6,
-            center: new google.maps.LatLng(-7.1663,-71.455078),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            zoomControl: true,
-            zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
-            position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            streetViewControl: true,
-            streetViewControlOptions:{
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            panControl: false,
-            panControlOptions: {
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            scaleControl: false,
-            scaleControlOptions: {
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                position: google.maps.ControlPosition.RIGHT_CENTER 
-            } 
-        }
-        
-          map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-          google.maps.event.addListener(map, 'click', function() {
-              infowindow.close();
-          });
-         
-    }
+      google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-   
     <script type="text/javascript">
    
     $(document).ready(function() {
-
-        initialize();
-
+          
         combosede();
 
-        $('#NOM_PROV').attr('disabled', true);    
-        $('#PERIODO').attr('disabled', true);   
-
-        $('#PERIODO').change(function(event) {
+/*        $('#NOM_SEDE').on('click', '.cmbsede', function(event) {
           
-           puntosGPS($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());   
- 
-        });  
- 
+            comboprovincia($(this).val());
+          
+        });
+*/
+        
+
+        $('#NOM_PROV').attr('disabled', true);    
     });
 
     function combosede(){
 
         $.getJSON(urlRoot('index.php')+'/visor/gps/sedeOperativa', {token: getToken()}, function(data, textStatus) {
           
-          var html='<option value="0">SELECCIONE...</option>';
+          var html='<option value="">SELECCIONE...</option>';
 
           $.each(data, function(index, val) {
             
@@ -283,13 +312,8 @@
 
           $('#NOM_SEDE').html(html);
 
-          $('#NOM_SEDE').change(function(event){
-
+          $('#NOM_SEDE').change(function(event) {
             comboprovincia($(this).val());
-
-            $('#PERIODO').attr('disabled', true); 
-            $('#PERIODO').val(0)
-
           });
 
         }).fail(function( jqxhr, textStatus, error ) {
@@ -305,7 +329,7 @@
 
         $.getJSON(urlRoot('index.php')+'/visor/gps/provinciaOperativa', {token: getToken(),code:code}, function(data, textStatus) {
           
-          var html='<option value="0">SELECCIONE...</option>';
+          var html='<option value="00">SELECCIONE...</option>';
 
           $('#NOM_PROV').attr('disabled', false);
           
@@ -317,11 +341,6 @@
 
           $('#NOM_PROV').html(html);
 
-          $('#NOM_PROV').change(function(event) {
-            $('#PERIODO').attr('disabled', false);
-            $('#PERIODO').val(0) 
-          });
-
         }).fail(function( jqxhr, textStatus, error ) {
         
           var err = textStatus + ', ' + error;
@@ -329,35 +348,7 @@
         
         });
       
-    }  
-
-    function puntosGPS(sede,provincia,periodo){
-  
-        $.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
-               
-                $.each(data, function(i, val){
-
-                    var contentString="<div>"+
-                    "<strong>Codigo de local: </strong>"+val.codigo_de_local+"<br />"+
-                    "<strong>Predio: </strong>"+val.Nro_Pred+"<br />"+
-                    "<strong>Departamento: </strong>"+val.Departamento+"<br />"+
-                    "<strong>Provincia: </strong>"+val.Provincia+"<br />"+
-                    "<strong>Distrito: </strong>"+val.Distrito+"<br />"+
-                    "<strong>Latitud: </strong>"+val.LatitudPunto+"<br />"+
-                    "<strong>Longitud: </strong>"+val.LongitudPunto+"<br />"+
-                    "<strong>Altitud: </strong>"+val.AltitudPunto+"<br />"+
-                    "</div>";
-                                  
-                    var point = new google.maps.LatLng(val.LatitudPunto,val.LongitudPunto);
-                    var marker = createMarkerLEN(point, val.codigo_de_local, contentString,'1',val.Tipo, val.codigo_de_local+" - "+val.Nro_Pred);
-                
-                });
-
-            });          
-
-    }
-
-    
+    }   
 
     </script>
   </head>
@@ -378,14 +369,39 @@
 <label class="preguntas_sub2" for="NOM_SEDE">SEDE OPERATIVA</label>
 <div class="controls span">
 <select id="NOM_SEDE" class="span12" name="NOM_SEDE">
-  <!-- AJAX -->
+<!-- <option value="01">AMAZONAS</option>
+<option value="04">APURIMAC</option>
+<option value="05">AREQUIPA</option>
+<option value="06">AYACUCHO</option>
+<option value="07">CAJAMARCA</option>
+<option value="03">CHIMBOTE</option>
+<option value="08">CUSCO</option>
+<option value="09">HUANCAVELICA</option>
+<option value="10">HUANUCO</option>
+<option value="02">HUARAZ</option>
+<option value="11">ICA</option>
+<option value="12">JUNIN</option>
+<option value="13">LA LIBERTAD</option>
+<option value="14">LAMBAYEQUE</option>
+<option value="15">LIMA</option>
+<option value="16">LORETO</option>
+<option value="17">MADRE DE DIOS</option>
+<option value="18">MOQUEGUA</option>
+<option value="22">MOYOBAMBA</option>
+<option value="19">PASCO</option>
+<option value="20">PIURA</option>
+<option value="21">PUNO</option>
+<option value="24">TACNA</option>
+<option value="23">TARAPOTO</option>
+<option value="25">TUMBES</option>
+<option value="26">UCAYALI</option> -->
 </select></div></div>
 
 <div class="row-fluid control-group span9">
   <label class="preguntas_sub2" for="NOM_DD">PROVINCIA</label>
   <div class="controls">
   <select id="NOM_PROV" class="span12" name="NOM_PROV">
-    <option value="0">SELECCIONE...</option>
+    
   </select>
   </div>
 </div>
@@ -394,7 +410,7 @@
   <label class="preguntas_sub2" for="PERIODO">PERIODO</label>
   <div class="controls">
   <select id="PERIODO" class="span12" name="PERIODO">
-    <option value="0">SELECCIONE...</option>
+    <option value="-1">SELECCIONE...</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>

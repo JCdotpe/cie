@@ -10,6 +10,7 @@ class Gps extends CI_Controller {
 		$this->load->helper('my');
 		$this->load->model('visor/visor_model');
 		$this->load->model('visor/Procedure_model');
+		$this->load->model('segmentaciones/operativa_model');
 
 	}
 

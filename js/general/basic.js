@@ -67,9 +67,12 @@ function check_Radio(value,id){
         /* alert(id+value) */
     
     }else{
-        
-       document.getElementById(id+value).checked=true;
+       //prompt(id+value,$('#'+id+value).length)
+       if ($('#'+id+value).length>0) {
+            document.getElementById(id+value).checked=true;
           //$("#"+id+value).attr('checked',true);
+       }
+       
     }
 }
 

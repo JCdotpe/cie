@@ -17,7 +17,7 @@
 									<thead>
 										<tr>
 											<th colspan="3">
-												<h6 style="text-transform: uppercase;" >Sección A: Caracteristica climatica local</h6>
+												<h6 style="text-transform: uppercase;" >Sección A: Caracteristica climatica del local</h6>
 											</th>
 										</tr>
 									</thead>
@@ -768,19 +768,19 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="P2_D_1_EnergCod1" name="P2_D_1_EnergCod" value=""> 1. Red pública?
+												<input type="checkbox" id="P2_D_1_Cod11" name="P2_D_1_EnergCod" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_1_EnergCod2" name="P2_D_1_EnergCod" value=""> 2. Generador o motor?
+												<input type="checkbox" id="P2_D_1_Cod21" name="P2_D_1_EnergCod" value=""> 2. Generador o motor?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_1_EnergCod3" name="P2_D_1_EnergCod" value=""> 3. Panel solar?
+												<input type="checkbox" id="P2_D_1_Cod31" name="P2_D_1_EnergCod" value=""> 3. Panel solar?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_1_EnergCod4" name="P2_D_1_EnergCod" value=""> 4. Otro?
+												<input type="checkbox" id="P2_D_1_Cod41" name="P2_D_1_EnergCod" value=""> 4. Otro?
 											</label>
 											<label>(Especifique)</label>
-											<input style="width:400px;" id="P2_D_1_EnergCod_O" type="text" class="form-control">
+											<input style="width:400px;" id="P2_D_1_Cod_O" type="text" class="form-control">
 										</td>
 
 									</tr>
