@@ -163,6 +163,29 @@ class Procedure extends REST_Controller{
         }
 
     }
-    
+
+    public function QueryLocal_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->query_by_Local($this->get('local'));
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+    }    
 
 }
