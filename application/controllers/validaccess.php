@@ -1,14 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class validaccess extends REST_Controller
+class Validaccess extends REST_Controller
 {
 
     function __construct(){
         parent::__construct();        
-        $this->load->model('visor/Personal_Patrimonio_model');
+        $this->load->model('visor/personal_Patrimonio_model');
         $this->load->model('visor/patrimonial_model');
-        $this->load->model('visor/V_procesoseleccion_model');
+        $this->load->model('visor/v_procesoseleccion_model');
         $this->load->library('tank_auth');
         $this->lang->load('tank_auth');
     }
