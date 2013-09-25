@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require APPPATH.'/libraries/REST_Controller.php';
+require APPPATH.'/libraries/rest_controller.php';
 //peiec
 class p2d5n extends REST_Controller{
 
