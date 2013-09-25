@@ -1,6 +1,6 @@
 <?php
 
-class P1a_model extends CI_MODEL{
+class p1a_model extends CI_MODEL{
 
     public function __construct() {
             parent::__construct();
