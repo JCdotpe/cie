@@ -10,8 +10,8 @@ class Coberturapea extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');	
 		$this->load->helper('form');
-		$this->load->model('convocatoria/Provincia_model');
-		$this->load->model('convocatoria/Dist_model');
+		$this->load->model('convocatoria/provincia_model');
+		$this->load->model('convocatoria/dist_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -36,22 +36,22 @@ class Coberturapea extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Cargo_funcional_vista');
+		$this->load->model('convocatoria/dpto_model');
+		$this->load->model('convocatoria/cargo_funcional_vista');
 		
 		$data['option'] = 2;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte Cobertura PEA';
 		$data['main_content'] = 'informes/coberturapea_view';
 
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['depa'] = $this->dpto_model->Get_Dpto();
+		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenerprovincia()
 	{
-		$prov = $this->Provincia_model->get_provs($_POST['id_depa']);
+		$prov = $this->provincia_model->get_provs($_POST['id_depa']);
 		$return_arr['datos']=array();
 		foreach($prov->result() as $filas)
 		{

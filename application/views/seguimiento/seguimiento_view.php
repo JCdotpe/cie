@@ -104,14 +104,13 @@
 			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
-			colNames:['Periodo', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Repositorio', 'Avance', 'Detalle'],
+			colNames:['Periodo', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Detalle'],
 			colModel:[
 				{name:'periodo',index:'periodo', align:"center"},
 				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
 				{name:'estado',index:'estado', align:"center"},
 				{name:'entrada_informacion',index:'entrada_informacion', align:"center"},
 				{name:'datos_gps',index:'datos_gps', align:"center"},
-				{name:'fotos',index:'fotos', align:"center"},
 				{name:'foto_ruta',index:'foto_ruta', align:"center"},
 				{name:'avance',index:'avance', align:"center"},
 				{name:'detalle',index:'detalle', align:"center"}

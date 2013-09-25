@@ -190,7 +190,7 @@ class Registro_Seguimiento extends CI_Controller {
 		foreach ($resultado->result() as $fila)
 		{
 			$respuesta->rows[$i]['id'] = $fila->codigo_de_local;
-			$respuesta->rows[$i]['cell'] = array($fila->periodo,$fila->codigo_de_local, $fila->estado, $fila->entrada_informacion, $fila->datos_gps, $fila->fotos, $fila->foto_ruta);
+			$respuesta->rows[$i]['cell'] = array($fila->periodo,$fila->codigo_de_local, $fila->estado, $fila->entrada_informacion, $fila->datos_gps, $fila->foto_ruta);
 			$i++;			
 		}
 

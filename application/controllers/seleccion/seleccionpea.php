@@ -35,8 +35,8 @@ class Seleccionpea extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Cargo_funcional_vista');
+		$this->load->model('convocatoria/dpto_model');
+		$this->load->model('convocatoria/cargo_funcional_vista');
 		
 		$data['option'] = 4;
 		$data['nav'] = TRUE;
@@ -44,8 +44,8 @@ class Seleccionpea extends CI_Controller {
 		$data['main_content'] = 'seleccion/seleccionpea_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['depa'] = $this->dpto_model->Get_DptobyUser($data['user_id']);
+		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 

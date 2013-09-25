@@ -10,7 +10,7 @@ class Aprobacioncv extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
-		$this->load->model('convocatoria/Provincia_model');
+		$this->load->model('convocatoria/provincia_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -35,8 +35,8 @@ class Aprobacioncv extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Cargo_funcional_vista');
+		$this->load->model('convocatoria/dpto_model');
+		$this->load->model('convocatoria/cargo_funcional_vista');
 		
 		$data['option'] = 2;
 		$data['nav'] = TRUE;
@@ -44,14 +44,14 @@ class Aprobacioncv extends CI_Controller {
 		$data['main_content'] = 'seleccion/aprobacioncv_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['depa'] = $this->dpto_model->Get_DptobyUser($data['user_id']);
+		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenerprovincia_by_sede()
 	{		
-		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
+		$sedeope = $this->provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
 		$return_arr['datos']=array();
 		foreach($sedeope->result() as $filas)
 		{

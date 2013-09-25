@@ -9,22 +9,20 @@
 	}
 </style>
 <?php
-	$label_class =  array('class' => 'control-label');
+	$label_class = array('class' => 'control-label');
 	$depaArray = array(-1 => 'Seleccione...', 99 => 'Departamentales');
-    //$sedeArray = array(-1 => '-1');
-	
+
     foreach($depa->result() as $filas)
     {
-      $depaArray[$filas->cod_sede_operativa.$filas->CCDD]=utf8_encode($filas->Departamento);
-      //$sedeArray[$filas->cod_sede_operativa] = $filas->CCDD;
+		$depaArray[$filas->cod_sede_operativa.$filas->CCDD]=utf8_encode($filas->Departamento);
     }
-    $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
-    $provArray = array(-1 => '');
+	$selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
+	$provArray = array(-1 => '');
 
-    $estadosArray = array(-1 => 'Seleccione...', 1 => 'Inscritos', 2 => 'Desaprobado CV', 3 => 'Aprobados CV', 4 => 'Desaprobados Capacitación', 5 => 'Aprobados Capacitación', 6 => 'No Seleccionado', 7 => 'Suplente', 8 => 'Titular');
-    $selected_estados = (set_value('estados')) ? set_value('estados') : '' ;
+	$estadosArray = array(-1 => 'Seleccione...', 1 => 'Inscritos', 2 => 'Desaprobado CV', 3 => 'Aprobados CV', 4 => 'Desaprobados Capacitación', 5 => 'Aprobados Capacitación', 6 => 'No Seleccionado', 7 => 'Suplente', 8 => 'Titular');
+	$selected_estados = (set_value('estados')) ? set_value('estados') : '' ;
 
-    $cargosArray = array(-1 => 'Seleccione...'); 
+	$cargosArray = array(-1 => 'Seleccione...'); 
 	$cargospresupuestario=array(-1 => '-1');
 	$cargosadm=array(-1 => '-1');
 
@@ -34,9 +32,8 @@
 		$cargospresupuestario[$filas->codigo_Convocatoria] = $filas->codigo_CredPresupuestario;
 		$cargosadm[$filas->codigo_Convocatoria] = $filas->codigo_adm;
 	}
-
+	
 	$selected_cargo = (set_value('cargo')) ? set_value('cargo') : '' ;
-
 ?>
 
 <div class="row-fluid">
@@ -45,50 +42,45 @@
 			<?php $this->load->view('informes/includes/sidebar_view.php'); ?>
 		</div>
 		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
-				<?php echo form_open('','id="frm_reporte"'); ?>
-				<div class="span3">
+			<?php echo form_open('','id="frm_reporte"'); ?>
+			<div class="row-fluid well top-conv">				
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
 						<div class="controls">
-							<?php 
-								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"'); 
-								#echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
-							?>
+							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();" style="width:150px;"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Provincia', 'provincia', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia"'); ?>
+							<?php echo form_dropdown('provincia', $provArray, '#', 'id="provincia" style="width:150px;"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Estados', 'lblestados', $label_class); ?>
 						<div class="controls">
-							<?php
-								echo form_dropdown('estados', $estadosArray, $selected_estados, ' id="estados"');
-							?>
+							<?php echo form_dropdown('estados', $estadosArray, $selected_estados, 'id="estados" style="width:150px;"'); ?>
 						</div>
 					</div>
 				</div>	
-				<div class="span3">
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"'); 
-								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
-								echo form_dropdown('cargo', $cargosadm, $selected_cargo, ' id="cargo_adm" style="display:none" ');
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo" style="width:150px;"');
+								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"');
+								echo form_dropdown('cargo', $cargosadm, $selected_cargo, ' id="cargo_adm" style="display:none"');
 							?>
 						</div>
 					</div>
 				</div>
-				<div class="span11">
+				<div class="span2">
 					<?php echo form_button('ver','Visualizar','class="btn btn-primary pull-right" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>
 			</div>
@@ -147,7 +139,6 @@
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false})
 		$("#list2").setGridWidth($('#grid_content').width(), true);
-
 	});
 
 	function reportar()
@@ -186,7 +177,7 @@
 			$('#cod_adm').val(cargo_adm);
 
 			jQuery("#list2").jqGrid('setGridParam',{url:"estadoseleccion/obtenreporte?coddepa="+coddepa+"&codprov="+codprov+"&codconvo="+id_cargo+"&codpresu="+cargo_presupuestal+"&codadm="+cargo_adm+"&codestado="+estadoselec,page:1}).trigger("reloadGrid");
-		}		
+		}
 	}
 
 	function exportExcel()

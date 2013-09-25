@@ -10,7 +10,7 @@ class Estadoseleccion extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->library('session');
-		$this->load->model('convocatoria/Provincia_model');
+		$this->load->model('convocatoria/provincia_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -35,23 +35,23 @@ class Estadoseleccion extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Cargo_funcional_vista');
+		$this->load->model('convocatoria/dpto_model');
+		$this->load->model('convocatoria/cargo_funcional_vista');
 		
 		$data['option'] = 3;
 		$data['nav'] = TRUE;
-		$data['title'] = 'Reporte de Estados de Selección';
+		$data['title'] = 'Reporte de Estados de Seleccion';
 		$data['main_content'] = 'informes/estadoseleccion_view';
+		
 		$data['user_id'] = $this->session->userdata('user_id');
-
-		$data['depa'] = $this->Dpto_model->Get_DptobyUser($data['user_id']);
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['depa'] = $this->dpto_model->Get_DptobyUser($data['user_id']);
+		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenerprovincia_by_sede()
 	{
-		$sedeope = $this->Provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
+		$sedeope = $this->provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
 		$return_arr['datos']=array();
 		foreach($sedeope->result() as $filas)
 		{
@@ -67,10 +67,10 @@ class Estadoseleccion extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->model('procesoseleccion/estadoseleccion_model');
 
-		$page = $this->input->get('page',TRUE);  // Almacena el numero de pagina actual
-		$limit = $this->input->get('rows',TRUE); // Almacena el numero de filas que se van a mostrar por pagina
-		$sidx = $this->input->get('sidx',TRUE);  // Almacena el indice por el cual se hará la ordenación de los datos
-		$sord = $this->input->get('sord',TRUE);  // Almacena el modo de ordenación
+		$page = $this->input->get('page',TRUE);
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
 
 		$cond1 = "";
 		$cond11 = "";

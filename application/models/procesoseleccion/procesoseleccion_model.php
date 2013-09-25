@@ -1,5 +1,6 @@
-<?php 
-class Procesoseleccion_model extends CI_MODEL{
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Procesoseleccion_Model extends CI_MODEL{
 	
     function contar_datos($condicion1)
     {

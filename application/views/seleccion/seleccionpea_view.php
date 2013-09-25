@@ -11,12 +11,10 @@
 <?php
 	$label_class =  array('class' => 'control-label');
 	$depaArray = array(-1 => 'Seleccione...');
-    //$sedeArray = array(-1 => '-1');
 	
     foreach($depa->result() as $filas)
     {
 		$depaArray[$filas->cod_sede_operativa.$filas->CCDD]=utf8_encode($filas->Departamento);
-		//$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
     }
     $selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
     $provArray = array(-1 => '');
@@ -46,16 +44,13 @@
 			<?php $this->load->view('seleccion/includes/sidebar_view.php'); ?>
 		</div>
 		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
-				<?php echo form_open('','id="frm_reporte"'); ?>
+			<?php echo form_open('','id="frm_reporte"'); ?>
+			<div class="row-fluid well top-conv">				
 				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
 						<div class="controls">
-							<?php
-								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"');
-								#secho form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
-							?>
+							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"'); ?>
 						</div>
 					</div>
 				</div>

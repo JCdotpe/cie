@@ -11,12 +11,10 @@
 <?php
 	$label_class =  array('class' => 'control-label');
 	$depaArray = array(-1 => 'Seleccione...');
-	//$sedeArray = array(-1 => '-1');
-	
+		
     foreach($depa->result() as $filas)
     {
 		$depaArray[$filas->cod_sede_operativa.$filas->CCDD]=utf8_encode($filas->Departamento);
-		//$sedeArray[$filas->CCDD] = $filas->cod_sede_operativa;
     }
 	$selected_dpto = (set_value('departamento')) ? set_value('departamento') : '' ;
 	$provArray = array(-1 => '');
@@ -41,16 +39,13 @@
 			<?php $this->load->view('seleccion/includes/sidebar_view.php'); ?>
 		</div>
 		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
-				<?php echo form_open('','id="frm_reporte"'); ?>
+			<?php echo form_open('','id="frm_reporte"'); ?>
+			<div class="row-fluid well top-conv">				
 				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Departamento', 'departamento', $label_class); ?>
 						<div class="controls">
-							<?php 
-								echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"');
-								#echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
-							?>
+							<?php echo form_dropdown('departamento', $depaArray, '#', 'id="departamento" onChange="cargarProvBySede();"'); ?>
 						</div>
 					</div>
 				</div>
@@ -101,26 +96,6 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		/*
-		getColumnIndexByName = function(columnName) {
-			var cm = jQuery("#list2").jqGrid('getGridParam','colModel'),i=0,l=cm.length;
-			for (; i<l; i++) {
-				if (cm[i].name===columnName) {
-					return i; // return the index
-				}
-			}
-			return -1;
-		},
-		disableIfChecked = function(elem){
-			if ($(elem).is(':checked')) {
-				//$(elem).attr('disabled',true);
-				var gr = jQuery("#list2").jqGrid('getGridParam','selrow');
-				alert(gr);
-			}else{
-				$(elem).attr('disabled',false);
-			}
-		};
-		*/
 		jQuery("#list2").jqGrid({
 		   	type:"POST",
 		   	url:'aprobacioncv/obtenreporte',
@@ -146,26 +121,10 @@
 		   	sortname: 'fecha_registro,ap_paterno',
 		    viewrecords: true,
 		    sortorder: "asc",
-			// multiselect: false,
-			/*loadComplete: function() {
-				var i=getColumnIndexByName('estado');
-				// nth-child need 1-based index so we use (i+1) below
-				$("tbody > tr.jqgrow > td:nth-child("+(i+1)+") > input",this).click(function(e) {
-					disableIfChecked(this);
-				}).each(function(e) {
-					disableIfChecked(this);
-				});
-			},*/
-			/*
-		    onSelectRow:function() {
-				var gr = jQuery("#list2").jqGrid('getGridParam','selrow');
-				alert(gr);
-            },*/
 		    caption:"Datos del Reporte"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
-
 	});
 
 	function cboxAprobado(cellvalue, options, rowObject)
