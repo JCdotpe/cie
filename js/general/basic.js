@@ -148,13 +148,13 @@ function getmonths(n_month){
 
                 switch(type){
                     case 'js':
-                    $(clase).append('<script type="text/javascript" src="' + urlRoot("cie/") + url + '"></script>');
+                    $(clase).append('<script type="text/javascript" src="' + urlRoot("web/") + url + '"></script>');
                     break;
                     case 'css':
-                    $(clase).append('<link rel="stylesheet" href="' + urlRoot("cie/") + url + '"/>');
+                    $(clase).append('<link rel="stylesheet" href="' + urlRoot("web/") + url + '"/>');
                     break;
                     case 'image':
-                    $(clase).html('<img src="' + urlRoot("cie/") + url + '" alt="" />');
+                    $(clase).html('<img src="' + urlRoot("web/") + url + '" alt="" />');
                     break;
 
                 }

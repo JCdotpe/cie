@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	//alert(localE());
 
-	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
+	var token=getToken();
 	var predio= $('#PC_F_1').html();
 	var cod_local=localE();
 			//get_TotalEdif(code);

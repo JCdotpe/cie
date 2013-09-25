@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 	/*-------------------default ----------------*/
 
-	var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
+	var token=getToken();
 	var cod_local=getLocal();
 	var val=null;
 	var array=null;
