@@ -180,9 +180,9 @@
           } */
           
           if(icon==0){
-             color=urlRoot('cie/')+'img/colindante.png';
+             color=urlRoot('web/')+'img/colindante.png';
           }else{
-             color=urlRoot('cie/')+'img/nocolindante.png'                
+             color=urlRoot('web/')+'img/nocolindante.png'                
           }
         
           var marker = new MarkerWithLabel({
