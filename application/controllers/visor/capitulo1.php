@@ -1,7 +1,7 @@
 <?php
  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Capitulo1 extends CI_Controller {
+class capitulo1 extends CI_Controller {
 
 	function __construct()
 	{

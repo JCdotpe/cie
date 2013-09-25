@@ -8,7 +8,7 @@ class PCarC1N extends REST_Controller{
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/PCarC1N_model');
+    $this->load->model('visor/pcarc1n_model');
     $this->load->helper('my');
 
   }

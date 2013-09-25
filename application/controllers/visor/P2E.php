@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class P2E extends REST_Controller{
+class p2e extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P2E_model');
+    $this->load->model('visor/p2e_model');
     $this->load->helper('my');
 
   }

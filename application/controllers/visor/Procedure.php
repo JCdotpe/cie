@@ -8,7 +8,7 @@ class Procedure extends REST_Controller{
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/Procedure_model');
+    $this->load->model('visor/procedure_model');
     $this->load->helper('my');
 
   }
@@ -93,7 +93,7 @@ class Procedure extends REST_Controller{
 
     public function Anexo_Datos_get(){
 
-         $result=validtoken_get($this->get('token'));
+        $result=validtoken_get($this->get('token'));
 
         if (!$result) {
 
@@ -172,13 +172,39 @@ class Procedure extends REST_Controller{
 
           $msg= array('message' => 'Token Key Invalid',
                       'value'=> false);
+
           prettyPrint(json_encode($msg));
 
         }else{
 
             header_json();
 
-            $data = $this->Procedure_model->query_by_Local($this->get('local'));
+            $data = $this->Procedure_model->query_by_Local($this->get('id_local'));
+
+            $jsonData = my_json_encode($data->result());
+
+            prettyPrint($jsonData);
+
+        }
+
+    }    
+
+    public function QuerySede_get(){
+
+         $result=validtoken_get($this->get('token'));
+
+        if (!$result) {
+
+          $msg= array('message' => 'Token Key Invalid',
+                      'value'=> false);
+
+          prettyPrint(json_encode($msg));
+
+        }else{
+
+            header_json();
+
+            $data = $this->Procedure_model->query_by_Sede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
 
             $jsonData = my_json_encode($data->result());
 

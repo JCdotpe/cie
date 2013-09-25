@@ -1,7 +1,7 @@
 <?php
  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Caratula3 extends CI_Controller {
+class caratula3 extends CI_Controller {
 
 	function __construct()
 	{

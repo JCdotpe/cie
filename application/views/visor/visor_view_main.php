@@ -14,15 +14,20 @@
 	
 	$(document).ready(function() {
 		
-        /*$('#lista').dataTable( {
-			"bJQueryUI": false,
-            "bFilter": false,
-            "bLengthChange": false,
-			"sPaginationType": "full_numbers"
-		} );*/
         combosede();
         $('#NOM_PROV').attr('disabled', true);
         $('#PERIODO').attr('disabled', true);
+        $('#ver').attr('disabled', false);
+
+        $('#ver').click(function(event) {
+            query_by_local($('#cod_local').val());
+        });
+
+        $('#PERIODO').change(function(event) {
+            query_by_sede($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());     
+        });
+
+       
 
 	});
 
@@ -58,7 +63,7 @@
       
     }   
 
-     function comboprovincia(code){
+    function comboprovincia(code){
 
         $.getJSON(urlRoot('index.php')+'/visor/gps/provinciaOperativa', {token: getToken(),code:code}, function(data, textStatus) {
           
@@ -88,15 +93,107 @@
       
     }
 
-    function query_by_local(){
+    function query_by_local(id_local){
         
-        $.getJSON(urlRoot('index.php')+'/visor/gps/provinciaOperativa', {token: getToken(),id_local:id_local}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/visor/Procedure/QueryLocal/', {token: getToken(),id_local:id_local}, function(data, textStatus) {
             
-            
+                table='<table id="lista" style="width:950px;" class="display">'+
+                    '<thead>'+
+                        '<tr>'+
+                            '<th>Codigo de Local</th>'+
+                            '<th>Departamento</th>'+
+                            '<th>Provincia</th>'+
+                            '<th>Distrito</th>'+
+                            '<th>Instituciones Educativas</th>'+
+                            '<th>Cedulas Registradas</th>'+
+                            '<th>Puntos GPS</th>'+
+                            '<th>Fotos</th>'+
+                        '</tr>'+
+                    '</thead>'+
+                    '<tbody>';
+
+                $.each(data, function(index, val) {
+
+                    table+='<tr>'+
+                        '<td class="center">'+val.codigo_de_local+'</td>'+
+                        '<td>'+val.Departamento+'</td>'+
+                        '<td>'+val.Provincia+'</td>'+
+                        '<td>'+val.Distrito+'</td>'+
+                        '<td>'+val.IE+'</td>'+
+                        '<td>'+val.Registrado+'</td>'+
+                        '<td>'+val.GPS+'</td>'+
+                        '<td>'+val.Foto+'</td>'+
+                    '</tr>';
+
+                });    
+                                        
+                    table+='</tbody>'+
+                    '</table>';
+
+                    $('#table_container').html(table);
+
+                    $('#lista').dataTable( {
+                        "bJQueryUI": false,
+                        "bFilter": false,
+                        "bLengthChange": false,
+                        "sPaginationType": "full_numbers"
+                    } );
 
         });    
     
     }
+
+    function query_by_sede(sede,provincia,periodo){
+        
+        $.getJSON(urlRoot('index.php')+'/visor/Procedure/QuerySede/', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
+            
+                table='<table id="lista" style="width:950px;" class="display">'+
+                    '<thead>'+
+                        '<tr>'+
+                            '<th>Codigo de Local</th>'+
+                            '<th>Departamento</th>'+
+                            '<th>Provincia</th>'+
+                            '<th>Distrito</th>'+
+                            '<th>Instituciones Educativas</th>'+
+                            '<th>Cedulas Registradas</th>'+
+                            '<th>Puntos GPS</th>'+
+                            '<th>Fotos</th>'+
+                        '</tr>'+
+                    '</thead>'+
+                    '<tbody>';
+
+                $.each(data, function(index, val) {
+
+                    table+='<tr>'+
+                        '<td class="center">'+val.codigo_de_local+'</td>'+
+                        '<td>'+val.Departamento+'</td>'+
+                        '<td>'+val.Provincia+'</td>'+
+                        '<td>'+val.Distrito+'</td>'+
+                        '<td>'+val.IE+'</td>'+
+                        '<td>'+val.Registrado+'</td>'+
+                        '<td>'+val.GPS+'</td>'+
+                        '<td>'+val.Foto+'</td>'+
+                    '</tr>';
+
+                });    
+                                        
+                    table+='</tbody>'+
+                    '</table>';
+
+                    $('#table_container').html(table);
+
+                    $('#lista').dataTable({
+                        "bJQueryUI": false,
+                        "bFilter": false,
+                        "bLengthChange": false,
+                        "sPaginationType": "full_numbers"
+                    });
+
+        });    
+    
+    }
+
+
 
 
 </script>
@@ -175,7 +272,7 @@
 <div class="row-fluid">
   <div id="grid_content" class="span12" style="width: 900px;">
         <table id="editgrid"></table>
-          <div class="span12">
+          <div class="span12" id="table_container">
             <!-- <table id="lista" style="width:950px;" class="display">
                 <thead>
                     <tr>

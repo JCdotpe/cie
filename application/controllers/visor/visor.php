@@ -26,7 +26,7 @@ class Visor extends CI_Controller {
 			$code="-1";
 			//$data['datos']	= $this->Resultados_model->Get_Resultados($code);
 
-			$this->load->model('convocatoria/Dpto_model');
+			$this->load->model('convocatoria/dpto_model');
 			$data['depa'] = $this->Dpto_model->Get_Dpto();
 
 			$data['main_content'] = 'visor/visor_view';

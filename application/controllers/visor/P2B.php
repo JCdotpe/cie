@@ -1,18 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/REST_Controller.php';
 //peiec
-class P2B extends REST_Controller{
+class p2b extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/P2B_model');
-    $this->load->model('visor/P2B9N_model');
-    $this->load->model('visor/P2B10N_model');
-    $this->load->model('visor/P2B11N_model');
-    $this->load->model('visor/P2B12N_model');
+    $this->load->model('visor/p2b_model');
+    $this->load->model('visor/p2b9n_model');
+    $this->load->model('visor/p2b10n_model');
+    $this->load->model('visor/p2b11n_model');
+    $this->load->model('visor/p2b12n_model');
     $this->load->helper('my');
 
   }
