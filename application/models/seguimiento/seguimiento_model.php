@@ -97,8 +97,8 @@ class Seguimiento_Model extends CI_Model {
 		}else{
 			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1";
 		}
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
+		$q = $this->db->query($sql);
+		$row = $q->first_row();
 		return $row->Cantidad_Registros;
 	}
 
@@ -134,6 +134,31 @@ class Seguimiento_Model extends CI_Model {
 
 		$this->db->query($query);
 		return $this->db->affected_rows();
+	}
+
+	public function get_cantidad_for_avance_odei($condicion1, $todos)
+	{
+		if ($todos == "SI")
+		{
+			//$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer";
+		}else{
+			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance $condicion1";
+		}
+    	$q = $this->db->query($sql);
+    	$row = $q->first_row();
+		return $row->Cantidad_Registros;
+	}
+
+	public function get_seguimiento_for_avance_odei($ord, $ascdesc, $inicio, $final, $condicion1, $todos)
+	{
+		if ($todos == "SI")
+		{
+			//$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer) a WHERE a.row > $inicio and a.row <= $final";
+		}else{
+			$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		}
+		$q = $this->db->query($sql);
+		return $q;
 	}
 
 }

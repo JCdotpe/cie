@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Reporte_ubigeo extends CI_Controller {
+class Reporte_avance_odei extends CI_Controller {
 
 	function __construct()
 	{
@@ -10,11 +10,6 @@ class Reporte_ubigeo extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');	
 		$this->load->model('seguimiento/seguimiento_model');
-		$this->load->model('seguimiento/operativa_model');
-		
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Provincia_model');
-
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -39,25 +34,13 @@ class Reporte_ubigeo extends CI_Controller {
 
 	public function index()
 	{
-		$data['option'] = 4;
+		$this->load->model('seguimiento/operativa_model');
+		$data['option'] = 3;
 		$data['nav'] = TRUE;
-		$data['title'] = 'Reporte de Ubigeo';
-		$data['main_content'] = 'seguimiento/reporte_ubigeo_view';
-		$data['depa'] = $this->Dpto_model->Get_Dpto();
-		$this->load->view('backend/includes/template', $data);
-	}
+		$data['title'] = 'Reporte de Avance por ODEI';
+		$data['main_content'] = 'seguimiento/reporte_avance_odei_view';
 
-	public function obtenerprovincia()
-	{
-		$prov = $this->Provincia_model->get_provs($_POST['id_depa']);
-		$return_arr['datos']=array();
-		foreach($prov->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->CCPP;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);
+		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenreporte()
@@ -67,21 +50,10 @@ class Reporte_ubigeo extends CI_Controller {
 		$sidx = $this->input->get('sidx',TRUE);
 		$sord = $this->input->get('sord',TRUE);
 
-		$cond1 = "";
 		$cond2 = "";
 		
 		$where1 = "";
 		$todos = "";
-
-		
-		if(isset($_GET['odei'])) { 
-			$odei = $this->input->get('odei');
-			if ($odei != -1) { 
-				$cond1 = "coddepe = '$odei'";
-			}
-		}else{ $odei = ""; 
-			$cond1 = "coddepe = '-1'"; }
-		
 
 		if(isset($_GET['periodo'])) { 
 			$periodo = $this->input->get('periodo');
@@ -99,7 +71,7 @@ class Reporte_ubigeo extends CI_Controller {
 		if(!$sidx) $sidx =1;
 
 		$where1 =  "WHERE ".$cond2;
-		$count = $this->seguimiento_model->get_cantidad_for_odei($where1,$todos);
+		$count = $this->seguimiento_model->get_cantidad_for_avance_odei($where1,$todos);
 
  		//En base al numero de registros se obtiene el numero de paginas
 		if( $count > 0 ) {
@@ -112,7 +84,7 @@ class Reporte_ubigeo extends CI_Controller {
 		$row_final = $page * $limit;
 		$row_inicio = $row_final - $limit;
 
-		$resultado = $this->seguimiento_model->get_seguimiento_for_odei($sidx, $sord, $row_inicio, $row_final, $where1, $todos);
+		$resultado = $this->seguimiento_model->get_seguimiento_for_avance_odei($sidx, $sord, $row_inicio, $row_final, $where1, $todos);
 
 		$respuesta->page = $page;
 		$respuesta->total = $total_pages;
