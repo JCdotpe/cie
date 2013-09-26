@@ -30,7 +30,7 @@ class P2f extends REST_Controller{
 
 
 
-            $flag = $this->P2F_model->insertBatch($array);
+            $flag = $this->p2f_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P2f extends REST_Controller{
 
             header_json();
 
-            $data = $this->P2F_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->p2f_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

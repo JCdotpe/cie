@@ -30,7 +30,7 @@ class P7 extends REST_Controller{
 
 
 
-            $flag = $this->P7_model->insertBatch($array);
+            $flag = $this->p7_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P7 extends REST_Controller{
 
             header_json();
 
-            $data = $this->P7_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('NRO_ED'));
+            $data = $this->p7_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'));
 
             $jsonData = my_json_encode($data->result());
 

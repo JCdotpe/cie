@@ -30,7 +30,7 @@ class P4 extends REST_Controller{
 
 
 
-            $flag = $this->P4_model->insertBatch($array);
+            $flag = $this->p4_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P4 extends REST_Controller{
 
             header_json();
 
-            $data = $this->P4_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->p4_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

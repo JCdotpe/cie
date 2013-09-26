@@ -34,7 +34,7 @@ class P2b extends REST_Controller{
 
 
 
-            $flag = $this->P2B_model->insertBatch($array);
+            $flag = $this->p2b_model->insertBatch($array);
 
             if ($flag) {
 
@@ -69,13 +69,14 @@ class P2b extends REST_Controller{
 
             /*-------------modelos------------*/
 
-            $data =  $this->P2B_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
-            $p2b9n= $this->P2B9N_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
-            $p2b10n= $this->P2B10N_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
-            $p2b11n= $this->P2B11N_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
-            $p2b12n= $this->P2B12N_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
+            $data =  $this->p2b_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
+            $p2b9n= $this->p2b9n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
+            $p2b10n= $this->p2b10n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
+            $p2b11n= $this->p2b11n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
+            $p2b12n= $this->p2b12n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
 
             $i=0;
+            $x='';
 
             foreach ($data->result() as $fila ){
 
@@ -109,6 +110,8 @@ class P2b extends REST_Controller{
             $jsonData = my_json_encode(array($x));
             prettyPrint($jsonData);
       }
+
+
 
   }
 }

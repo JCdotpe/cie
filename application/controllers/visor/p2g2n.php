@@ -30,7 +30,7 @@ class P2g2n extends REST_Controller{
 
 
 
-            $flag = $this->P2G2N_model->insertBatch($array);
+            $flag = $this->p2g2n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P2g2n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P2G2N_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->p2g2n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

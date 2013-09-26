@@ -30,7 +30,7 @@ class P2a extends REST_Controller{
 
 
 
-            $flag = $this->P2A_model->insertBatch($array);
+            $flag = $this->p2a_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P2a extends REST_Controller{
 
             header_json();
 
-            $data = $this->P2A_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
+            $data = $this->p2a_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
 
             $jsonData = my_json_encode($data->result());
 

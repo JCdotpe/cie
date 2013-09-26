@@ -34,7 +34,7 @@ class Pcarc1N extends REST_Controller{
 
             }
 
-            $flag = $this->PCarC1N_model->insertBatch($array);
+            $flag = $this->pcarc1n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -67,7 +67,7 @@ class Pcarc1N extends REST_Controller{
 
             header_json();
 
-            $data = $this->PCarC1N_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->pcarc1n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

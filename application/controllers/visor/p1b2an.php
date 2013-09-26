@@ -28,7 +28,7 @@ class P1b2an extends REST_Controller{
 
             $array= json_decode($data,1);
 
-            $flag = $this->P1B2AN_model->insertBatch($array);
+            $flag = $this->p1b2an_model->insertBatch($array);
 
             if ($flag) {
 
@@ -61,7 +61,7 @@ class P1b2an extends REST_Controller{
 
             header_json();
 
-            $data = $this->P1B2AN_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->p1b2an_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = my_json_encode($data->result());
 

@@ -30,7 +30,7 @@ class P1a28n extends REST_Controller{
 
 
 
-            $flag = $this->P1A28N_model->insertBatch($array);
+            $flag = $this->p1a28n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P1a28n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P1A28N_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->p1a28n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -79,7 +79,7 @@ class P1a28n extends REST_Controller{
 
     header_json();
 
-    $data = $this->P1A28N_model->Data_P1_A_2_8N(no_obfuscate($this->get('id_local')),$this->get("predio"),$this->get("nroie"));
+    $data = $this->p1a28n_model->Data_P1_A_2_8N(no_obfuscate($this->get('id_local')),$this->get("predio"),$this->get("nroie"));
 
     $i=0;
     echo "[";
@@ -118,7 +118,7 @@ class P1a28n extends REST_Controller{
 
   public function get_P1_A_2_9N($id_local,$predio,$NroIE,$NroCMod){
 
-    $data = $this->P1A28N_model->Data_P1_A_2_9N($id_local,$predio,$NroIE,$NroCMod);
+    $data = $this->p1a28n_model->Data_P1_A_2_9N($id_local,$predio,$NroIE,$NroCMod);
 
 
     return $data->result();

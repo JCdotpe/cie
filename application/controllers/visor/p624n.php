@@ -30,7 +30,7 @@ class P624n extends REST_Controller{
 
 
 
-            $flag = $this->P624N_model->insertBatch($array);
+            $flag = $this->p624n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P624n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P624N_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('Nro_Ed'),$this->get('P5_NroPiso'));
+            $data = $this->p624n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'),$this->get('nropiso'));
 
             $jsonData = my_json_encode($data->result());
 

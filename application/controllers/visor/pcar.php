@@ -30,7 +30,7 @@ class Pcar extends REST_Controller{
 
 
 
-            $flag = $this->PCar_model->insertBatch($array);
+            $flag = $this->pcar_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class Pcar extends REST_Controller{
 
             header_json();
 
-            $data = $this->PCar_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->pcar_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

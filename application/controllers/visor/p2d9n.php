@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH.'/libraries/rest_controller.php';
 //peiec
-class P5f extends REST_Controller{
+class P2d9n extends REST_Controller{
 
   function __construct(){
 
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/p5f_model');
+    $this->load->model('visor/p2d9n_model');
     $this->load->helper('my');
 
   }
@@ -29,7 +29,7 @@ class P5f extends REST_Controller{
             $array= json_decode($data,1);
 
 
-            $flag = $this->p5f_model->insertBatch($array);
+            $flag = $this->p2d9n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -62,7 +62,7 @@ class P5f extends REST_Controller{
 
             header_json();
 
-            $data = $this->p5f_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->p2d9n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

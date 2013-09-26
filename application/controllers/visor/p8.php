@@ -30,7 +30,7 @@ class P8 extends REST_Controller{
 
 
 
-            $flag = $this->P8_model->insertBatch($array);
+            $flag = $this->p8_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P8 extends REST_Controller{
 
             header_json();
 
-            $data = $this->P8_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
+            $data = $this->p8_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -85,7 +85,7 @@ class P8 extends REST_Controller{
 
             header_json();
 
-            $data = $this->P8_model->getDataTipoEdif(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'),$this->get('P8_2_Tipo'),$this->get('P8_2_Nro'));
+            $data = $this->p8_model->getDataTipoEdif(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('P8_2_Tipo'),$this->get('P8_2_Nro'));
 
             $jsonData = my_json_encode($data->result());
 

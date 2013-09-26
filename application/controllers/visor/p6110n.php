@@ -30,7 +30,7 @@ class P6110n extends REST_Controller{
 
 
 
-            $flag = $this->P6110N_model->insertBatch($array);
+            $flag = $this->p6110n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P6110n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P6110N_model->getData(no_obfuscate($this->get('id_local')),$this->get('PC_F_1'),$this->get('Nro_Ed'));
+            $data = $this->p6110n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'));
 
             $jsonData = my_json_encode($data->result());
 

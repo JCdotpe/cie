@@ -30,7 +30,7 @@ class P2d3n extends REST_Controller{
 
 
 
-            $flag = $this->P2D3N_model->insertBatch($array);
+            $flag = $this->p2d3n_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P2d3n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P2D3N_model->getData(no_obfuscate($this->get('id_local')), $this->get('Nro_Pred'));
+            $data = $this->p2d3n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

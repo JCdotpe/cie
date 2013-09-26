@@ -30,7 +30,7 @@ class P1b extends REST_Controller{
 
 
 
-            $flag = $this->P1B_model->insertBatch($array);
+            $flag = $this->p1b_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P1b extends REST_Controller{
 
             header_json();
 
-            $data = $this->P1B_model->getData(no_obfuscate($this->get('id_local')));
+            $data = $this->p1b_model->getData(no_obfuscate($this->get('id_local')));
 
             $jsonData = my_json_encode($data->result());
 

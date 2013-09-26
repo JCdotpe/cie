@@ -8,7 +8,7 @@ class P1b312n extends REST_Controller{
     parent::__construct();
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
-    $this->load->model('visor/p1b312n_model');
+    $this->load->model('visor/p1b2an_model');
     $this->load->helper('my');
 
   }
@@ -30,7 +30,7 @@ class P1b312n extends REST_Controller{
 
 
 
-            $flag = $this->P1B312N_model->insertBatch($array);
+            $flag = $this->p1b2an_model->insertBatch($array);
 
             if ($flag) {
 
@@ -63,7 +63,7 @@ class P1b312n extends REST_Controller{
 
             header_json();
 
-            $data = $this->P1B312N_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->p1b2an_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 
