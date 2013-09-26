@@ -266,7 +266,7 @@ function registrar_avance()
 
 		success: function(data){
 			$("#fecha_avance").val('');
-			$("#estado").val('');
+			//$("#estado").val('');
 			$("#especifique").val('');
 			$("#list3").trigger("reloadGrid");
 			$("#list2").trigger("reloadGrid");
@@ -309,10 +309,10 @@ function cargarCedula()
 function frm_ValidarDetalle()
 {
 	var fecha = $("#fecha_detalle").val();
-	var estado = $("#cedula").val();
+	var cedula = $("#cedula").val();
 	var codigo = $("#codigo_dt").val();
 	
-	if (estado == -1 || fecha == "")
+	if (cedula == -1 || fecha == "")
 	{
 		alert("Cuidado, Faltan Datos!");
 		return false;
