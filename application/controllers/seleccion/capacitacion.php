@@ -43,7 +43,7 @@ class Capacitacion extends CI_Controller {
 		$data['main_content'] = 'seleccion/capacitacion_view';
 		$data['user_id'] = $this->session->userdata('user_id');
 
-		$data['depa'] = $this->dpto_model->Get_DptobyUser($data['user_id']);
+		$data['depa'] = $this->dpto_model->get_dptobyuser($data['user_id']);
 		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}

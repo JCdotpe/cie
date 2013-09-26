@@ -44,14 +44,14 @@ class Estadoseleccion extends CI_Controller {
 		$data['main_content'] = 'informes/estadoseleccion_view';
 		
 		$data['user_id'] = $this->session->userdata('user_id');
-		$data['depa'] = $this->dpto_model->Get_DptobyUser($data['user_id']);
+		$data['depa'] = $this->dpto_model->get_dptobyuser($data['user_id']);
 		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function obtenerprovincia_by_sede()
 	{
-		$sedeope = $this->provincia_model->Get_ProvbySedeOpe($_POST['id_sede'],$_POST['id_dpto']);
+		$sedeope = $this->provincia_model->get_provbysedeope($_POST['id_sede'],$_POST['id_dpto']);
 		$return_arr['datos']=array();
 		foreach($sedeope->result() as $filas)
 		{

@@ -8,7 +8,7 @@ class Procesoseleccion_Model extends CI_MODEL{
     	$q = $this->db->query($sql);
 		foreach ($q->result() as $row)
         {
-            $NroRegistros = $row->NroRegistros;         
+            $NroRegistros = $row->NroRegistros;
         }
         return $NroRegistros;
     }
@@ -40,7 +40,6 @@ class Procesoseleccion_Model extends CI_MODEL{
     function regs_aprobadoscv($codigo,$seleccion,$user)
     {
         $sql = "UPDATE registro SET estado = $seleccion, fecha_aprobcv = getdate(), usuario_aprobcv = $user WHERE id = $codigo";
-        //echo $sql;
         $this->db->query($sql);
         return $this->db->affected_rows();
     }
@@ -48,7 +47,6 @@ class Procesoseleccion_Model extends CI_MODEL{
     function regs_capacitados($codigo,$seleccion,$user)
     {
         $sql = "UPDATE registro SET estado = $seleccion, fecha_capa = getdate(), usuario_capa = $user WHERE id = $codigo";
-        //echo $sql;
         $this->db->query($sql);
         return $this->db->affected_rows();
     }
@@ -56,7 +54,6 @@ class Procesoseleccion_Model extends CI_MODEL{
     function regs_seleccionpea($codigo,$seleccion,$user)
     {
         $sql = "UPDATE registro SET estado = $seleccion, fecha_selecpea = getdate(), usuario_selecpea = $user WHERE id = $codigo";
-        //echo $sql;
         $this->db->query($sql);
         return $this->db->affected_rows();
     }

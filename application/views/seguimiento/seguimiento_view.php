@@ -418,12 +418,12 @@
 				{name:'codlocal',index:'codlocal', align:"center"},
 				{name:'cedula',index:'cedula', align:"center"},
 				{name:'cantidad',index:'cantidad', align:"center"},
-				{name:'fecha_visita',index:'fecha_visita', align:"center"}
+				{name:'fecha_avance',index:'fecha_avance', align:"center"}
 			],
 			pager: '#pager4',
 			rowNum:10,
 			rowList:[10,15,20],
-			sortname: 'convert(datetime,fecha_visita,103)',
+			sortname: 'convert(datetime,fecha_avance,103)',
 			viewrecords: true,
 			sortorder: "asc",
 			caption:"Detalles"

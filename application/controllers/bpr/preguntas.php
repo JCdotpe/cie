@@ -19,13 +19,13 @@ class Preguntas extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('convocatoria/Cargo_funcional_vista');
+		$this->load->model('convocatoria/cargo_funcional_vista');
 
 		$data['nav'] = TRUE;
 		$data['title'] = 'BPR - Preguntas';
 		$data['main_content'] = 'bpr/preguntas_view';
 		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
+		$data['cargos']=$this->cargo_funcional_vista->Get_Cargo_vista();
 		$data['cedula']=$this->operativa_model->Get_Cedula();
 		$this->load->view('backend/includes/template', $data);
 	}

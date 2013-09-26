@@ -33,17 +33,17 @@ class Seguimiento_Model extends CI_Model {
 		return $this->db->affected_rows() > 0;
 	}
 
-	public function get_nro_visitas_detalle($codlocal)
+	public function get_nro_detalle($codlocal)
 	{
-		$sql="SELECT isnull(max(nro_visita),0) + 1 as nro_visita FROM avance_detalle WHERE codlocal = '$codlocal'";
+		$sql="SELECT isnull(max(nro_det),0) + 1 as nro_det FROM avance_docuCIE WHERE codlocal = '$codlocal'";
 		$q=$this->db->query($sql);
 		$row = $q->first_row();
-		return $row->nro_visita;
+		return $row->nro_det;
 	}
 
 	public function insert_detalle($data)
 	{
-		$sql="INSERT INTO avance_detalle (codlocal, nro_visita, cedula, cantidad, fecha_visita, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['cedula']."', '".$data['cantidad']."', '".$data['fecha_visita']."', '".$data['usu_registra']."', getdate())";
+		$sql="INSERT INTO avance_docuCIE (codlocal, nro_det, cedula, cantidad, fecha_avance, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_det'].", '".$data['cedula']."', '".$data['cantidad']."', '".$data['fecha_avance']."', '".$data['usu_registra']."', getdate())";
 		//echo $sql;
 		$this->db->query($sql);
 		return $this->db->affected_rows() > 0;
@@ -76,7 +76,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function cantidad_detalles($condicion1)
 	{
-		$sql = "SELECT count(codlocal) as NroRegistros FROM avance_detalle $condicion1";
+		$sql = "SELECT count(codlocal) as NroRegistros FROM avance_docuCIE $condicion1";
     	$q = $this->db->query($sql);
     	$row = $q->first_row();
 		return $row->NroRegistros;
@@ -84,7 +84,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function get_locales_for_detalle($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
-		$sql="SELECT codlocal, nro_visita, cedula, cantidad, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM avance_detalle $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$sql="SELECT codlocal, nro_det, cedula, cantidad, convert(char,fecha_avance,103) as fecha_avance FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM avance_docuCIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
 		return $q;
 	}

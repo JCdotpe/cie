@@ -1,9 +1,10 @@
 function cargarProvBySede()
 {
-	var doLoginMethodUrl = 'aprobacioncv/obtenerprovincia_by_sede';
-	//var id_dpto = $("#departamento").val();
-
+	var doLoginMethodUrl = urlRoot('index.php')+'/seleccion/aprobacioncv/obtenerprovincia_by_sede';
+	
 	var codigo = $("#departamento").val();
+	var id_sede="";
+	var id_dpto="";
 
 	if (codigo.length < 5)
 	{
@@ -13,10 +14,6 @@ function cargarProvBySede()
 		id_sede = codigo.substring(0,3);
 		id_dpto = codigo.substring(3,5);
 	}
-
-
-	//$("#sedeoperativa option[value="+id_dpto+"]").attr('selected','selected');
-	//var id_sede = $("#sedeoperativa").find('option:selected').text();
 
 	$.ajax({
 		type: "POST",

@@ -1,9 +1,6 @@
 function cargarProvBySede()
 {
 	var doLoginMethodUrl = urlRoot('index.php')+'/seguimiento/registro_seguimiento/obtenerprovincia_by_sede';
-	//var id_dpto = $("#departamento").val();
-	//$("#sedeoperativa option[value="+id_dpto+"]").attr('selected','selected');
-	//var id_sede = $("#sedeoperativa").find('option:selected').text();
 	var id_sede = $("#sedeoperativa").val();
 
 	$.ajax({
@@ -20,10 +17,6 @@ function cargarProvBySede()
 			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			//$("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			//$("#periodo").empty().append("<option value='-1' selected='true'></value>");
-
-			//verdatos(0);
 			verdatos();
 		}
 	});
@@ -47,10 +40,6 @@ function cargarDist()
 			
 			$("#distrito").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			// $("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			// $("#periodo").empty().append("<option value='-1' selected='true'></value>");
-
-			//verdatos(1);
 			verdatos();
 		}
 	});
@@ -73,11 +62,7 @@ function cargarCentroPoblado()
 				$("#centropoblado").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
 
-			$("#centropoblado").prepend("<option value='-1' selected='true'>Seleccione...</value>");			
-			// $("#rutas").empty().append("<option value='-1' selected='true'></value>");
-			// $("#periodo").empty().append("<option value='-1' selected='true'></value>");
-
-			//if (id_dist=='-1'){ verdatos(1); }else{ verdatos(2); }
+			$("#centropoblado").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			verdatos();
 		}
 	});

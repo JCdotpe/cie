@@ -226,17 +226,17 @@ class Registro_Seguimiento extends CI_Controller {
 	public function registro_detalle()
 	{
 		$codlocal = $this->input->post('codigo_dt');
-		$nro_visitas=$this->seguimiento_model->get_nro_visitas_detalle($codlocal);
+		$nro_visitas=$this->seguimiento_model->get_nro_detalle($codlocal);
 		$cantidad=$this->input->post('cantidad');
 		$newDate = explode( "/" , $this->input->post('fecha_detalle'));
 		$fecha_detalle = $newDate[2]."/".$newDate[1]."/".$newDate[0];
 		
 		$c_data = array(
 			'codlocal'=>$codlocal,
-			'nro_visita'=>$nro_visitas,
+			'nro_det'=>$nro_visitas,
 			'cedula'=> $this->input->post('cedula'),
 			'cantidad'=> $cantidad,
-			'fecha_visita'=> $fecha_detalle,			
+			'fecha_avance'=> $fecha_detalle,			
 			'usu_registra'=> $this->input->post('usuario_dt')
 		);
 		$this->seguimiento_model->insert_detalle($c_data);
@@ -329,8 +329,8 @@ class Registro_Seguimiento extends CI_Controller {
 		$i=0;
 		foreach ($resultado->result() as $fila)
 		{
-			$respuesta->rows[$i]['id'] = $fila->nro_visita;
-			$respuesta->rows[$i]['cell'] = array($fila->codlocal,$fila->cedula,$fila->cantidad,$fila->fecha_visita);
+			$respuesta->rows[$i]['id'] = $fila->nro_det;
+			$respuesta->rows[$i]['cell'] = array($fila->codlocal,$fila->cedula,$fila->cantidad,$fila->fecha_avance);
 			$i++;
 		}
 
