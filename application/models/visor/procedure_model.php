@@ -65,7 +65,7 @@ class Procedure_model extends CI_MODEL{
 
     function querySede($sede,$provincia,$periodo){
        
-        $q=$this->db->query("Vis_Locales_Estado_xTerritorio ?,?,?",array($sede,$provincia,$periodo)); 
+        $q=$this->db->query("Vis_Locales_Estado_xTerrit ?,?,?",array($sede,$provincia,$periodo)); 
         return $q;
     
     }

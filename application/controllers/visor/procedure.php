@@ -187,9 +187,9 @@ class Procedure extends REST_Controller{
 
         }
 
-    }    
+    }
 
-    public function CapituloSede_get(){
+    public function querySede_get(){
 
          $result=validtoken_get($this->get('token'));
 
@@ -205,13 +205,15 @@ class Procedure extends REST_Controller{
             header_json();
 
             $data = $this->procedure_model->querySede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
+           
+           /* $jsonData = my_json_encode($data->result());
 
-            $jsonData = my_json_encode($data->result());
-
-            prettyPrint($jsonData);
+            prettyPrint($jsonData);*/
 
         }
 
     }    
+
+    
 
 }
