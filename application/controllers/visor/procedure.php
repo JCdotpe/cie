@@ -27,7 +27,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),$this->get('predio'));
+            $data = $this->procedure_model->Lista_IE(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -53,7 +53,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_Predio(no_obfuscate($this->get('id_local')));
+            $data = $this->procedure_model->Lista_Predio(no_obfuscate($this->get('id_local')));
 
             $jsonData = my_json_encode($data->result());
 
@@ -79,7 +79,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_Anexo(no_obfuscate($this->get('id_local')));
+            $data = $this->procedure_model->Lista_Anexo(no_obfuscate($this->get('id_local')));
 
             $jsonData = my_json_encode($data->result());
 
@@ -105,7 +105,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Anexo_Datos(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nmodulo'),$this->get('nroie'),$this->get('anexo'));
+            $data = $this->procedure_model->Anexo_Datos(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nmodulo'),$this->get('nroie'),$this->get('anexo'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -129,7 +129,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_CIE();
+            $data = $this->procedure_model->Lista_CIE();
 
             $jsonData = my_json_encode($data->result());
 
@@ -154,7 +154,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->Lista_Last_Gps_by_sede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
+            $data = $this->procedure_model->Lista_Last_Gps_by_sede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -179,7 +179,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->query_by_Local($this->get('id_local'));
+            $data = $this->procedure_model->query_by_Local($this->get('id_local'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -189,7 +189,7 @@ class Procedure extends REST_Controller{
 
     }    
 
-    public function QuerySede_get(){
+    public function CapituloSede_get(){
 
          $result=validtoken_get($this->get('token'));
 
@@ -204,7 +204,7 @@ class Procedure extends REST_Controller{
 
             header_json();
 
-            $data = $this->Procedure_model->query_by_Sede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
+            $data = $this->procedure_model->querySede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
 
             $jsonData = my_json_encode($data->result());
 
