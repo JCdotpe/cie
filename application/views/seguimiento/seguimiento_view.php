@@ -144,7 +144,7 @@
 
 <!-- Modal de AVANCE -->
 <?php
-	$estadoArray = array(-1 => 'Seleccione...', 1 => 'Completa', 2 => 'Incompleta', 3 => 'Local Cerrado / Desocupado', 4 => 'Otro');
+	$estadoArray = array(-1 => 'Seleccione...', 1=>'Completa', 2=>'Incompleta', 3=>'Rechazo', 4=>'Local Cerrado / Desocupado', 5=>'Otro');
 
 	$txtFechaAvance = array(
 	'name'	=> 'fecha_avance',
