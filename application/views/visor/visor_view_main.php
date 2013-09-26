@@ -145,7 +145,7 @@
 
     function query_by_sede(sede,provincia,periodo){
         
-        $.getJSON(urlRoot('index.php')+'/visor/Procedure/CapituloSede/', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/visor/procedure/querySede/', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
             
                 table='<table id="lista" style="width:950px;" class="display">'+
                     '<thead>'+
