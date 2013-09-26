@@ -213,7 +213,7 @@
 
                     <div class="control-group">
                         <?php /*echo form_label('Ruta', 'ruta', $label_class);*/ ?>
-                        <label>CODIGO DE LOCAL</label>
+                        <label>Codigo de Local</label>
                         <div class="controls">
                             <?php /*echo form_dropdown('ruta', $regArray, '#', 'id="ruta"');*/ ?>
                             <input id="cod_local" style="width:50px;float:left;" type="text" class="form-control">
@@ -229,21 +229,21 @@
                     <div style="font-weight:bold; padding:0 0 10px 0; font-size:14px;">2. Busqueda de Locales Escolares por Departamento y Provincia.</div>
 
                     <div class="control-group" style="float:left;">
-                        <?php echo form_label('SEDE OPERATIVA', 'departamento', $label_class); ?>
+                        <?php echo form_label('Sede Operativa', 'departamento', $label_class); ?>
                         <div class="controls">
                             <select id="NOM_SEDE" style="width:140px;"></select>
                         </div>
                     </div>
 
                     <div class="control-group" style="float:left; margin-left:15px;">
-                        <?php echo form_label('PROVINCIA', 'provincia', $label_class); ?>
+                        <?php echo form_label('Provncia', 'provincia', $label_class); ?>
                         <div class="controls">
                             <select id="NOM_PROV" style="width:140px;"></select>
                         </div>
                     </div>
 
                     <div class="control-group" style="float:left; margin-left:15px;">
-                        <?php echo form_label('PERIODO', 'provincia', $label_class); ?>
+                        <?php echo form_label('Periodo', 'provincia', $label_class); ?>
                         <div class="controls">
                             <select id="PERIODO" style="width:140px;">
                                 <option value="0">SELECCIONE...</option>

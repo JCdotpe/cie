@@ -50,15 +50,16 @@
 
 		$json= json_encode($return_arr['datos']);*/
 
-		$json='{{"RutaFoto":"ruta Foto","id_local":000142,"Nro_Pred":1,"token":"ee5fc378a104ac0581aef116e4adaf18d056b5e9","Observaciones":"obs 1","Fenvio":"2014-12-12","P3_1_1_LugGeoref":1,"Version":1,"FRegistro":"2014-12-12","Frecep":"2014-12-12"}]';
+		//$json='{{"RutaFoto":"ruta Foto","id_local":000142,"Nro_Pred":1,"token":"ee5fc378a104ac0581aef116e4adaf18d056b5e9","Observaciones":"obs 1","Fenvio":"2014-12-12","P3_1_1_LugGeoref":1,"Version":1,"FRegistro":"2014-12-12","Frecep":"2014-12-12"}]';
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/cie/index.php/visor/p31/send/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/P1A/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);
 		//curl_setopt($curl_handle, CURLOPT_POSTFIELDS,$array);
 		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
-		    'datos' => $json
+		    'datos' => $json,
+		    'token' => $token
 		));
 
 		$buffer = curl_exec($curl_handle);

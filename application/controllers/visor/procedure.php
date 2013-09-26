@@ -206,9 +206,9 @@ class Procedure extends REST_Controller{
 
             $data = $this->procedure_model->querySede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
            
-           /* $jsonData = my_json_encode($data->result());
+            $jsonData = my_json_encode($data->result());
 
-            prettyPrint($jsonData);*/
+            prettyPrint($jsonData);
 
         }
 
