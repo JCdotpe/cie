@@ -140,7 +140,7 @@ class Seguimiento_Model extends CI_Model {
 	{
 		if ($todos == "SI")
 		{
-			//$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer";
+			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance_Tot";
 		}else{
 			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance $condicion1";
 		}
@@ -149,14 +149,16 @@ class Seguimiento_Model extends CI_Model {
 		return $row->Cantidad_Registros;
 	}
 
-	public function get_seguimiento_for_avance_odei($ord, $ascdesc, $inicio, $final, $condicion1, $todos)
+	public function get_avance_odei($periodo)
 	{
-		if ($todos == "SI")
-		{
-			//$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer) a WHERE a.row > $inicio and a.row <= $final";
-		}else{
-			$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
-		}
+		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance WHERE periodo = $periodo ORDER BY detadepen";
+		$q = $this->db->query($sql);
+		return $q;
+	}
+
+	public function get_avance_odei_total()
+	{
+		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance_Tot ORDER BY detadepen";
 		$q = $this->db->query($sql);
 		return $q;
 	}

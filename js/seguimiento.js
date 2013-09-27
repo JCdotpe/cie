@@ -201,7 +201,7 @@ function activar_especifique()
 {
 	$("#especifique").val('');
 	var codestado = $("#estado").val();
-	if (codestado == 4)
+	if (codestado == 5)
 	{
 		if ($("#especifique").attr('disabled'))
 		{

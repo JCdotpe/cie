@@ -8,7 +8,8 @@ class Reporte_avance_odei extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->library('security');
 		$this->load->library('tank_auth');
-		$this->lang->load('tank_auth');	
+		$this->lang->load('tank_auth');
+		//$this->load->helper('my');
 		$this->load->model('seguimiento/seguimiento_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
@@ -43,7 +44,50 @@ class Reporte_avance_odei extends CI_Controller {
 		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function obtenreporte()
+	public function view_resultado()
+	{
+		$periodo = $this->input->get('vperiodo');
+		if ($periodo!=99){
+			$data = $this->seguimiento_model->get_avance_odei($periodo);
+		}else{
+			$data = $this->seguimiento_model->get_avance_odei_total();
+		}
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("detadepen" => $fila->detadepen,
+			"LocEscolares" => $fila->LocEscolares,
+			"LocEscolar_Censado" => $fila->LocEscolar_Censado,
+			"LocEscolar_Censado_Porc" => $fila->LocEscolar_Censado_Porc,
+			"Completa" => is_null($fila->Completa) ? '' : $fila->Completa,
+			"Completa_Porc" => $fila->Completa_Porc,
+			"Incompleta" => $fila->Incompleta,
+			"Incompleta_Porc" => $fila->Incompleta_Porc,
+			"Rechazo" => $fila->Rechazo,
+			"Rechazo_Porc" => $fila->Rechazo_Porc,
+			"Desocupada" => $fila->Desocupada,
+			"Desocupada_Porc" => $fila->Desocupada_Porc,
+			"Otro" => $fila->Otro,
+			"Otro_Porc" => $fila->Otro_Porc
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
+	/*public function view_avance_odei()
 	{
 		$page = $this->input->get('page',TRUE);
 		$limit = $this->input->get('rows',TRUE);
@@ -102,7 +146,7 @@ class Reporte_avance_odei extends CI_Controller {
 		$jsonData = json_encode($respuesta);
 		echo $jsonData;
 	}
-
+*/
 }
 
 /* End of file welcome.php */
