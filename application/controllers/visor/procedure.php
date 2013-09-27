@@ -180,10 +180,32 @@ class Procedure extends REST_Controller{
             header_json();
 
             $data = $this->procedure_model->query_by_Local($this->get('id_local'));
+            $res="";
+            $i=0;
+            echo "[";
 
-            $jsonData = my_json_encode($data->result());
+            foreach ($data->result() as $fila ){
 
-            prettyPrint($jsonData);
+                if($i>0){echo",";}
+
+                $res=array("codigo_de_local" => "<a href='visor/capitulo1/?le=".obfuscate($fila->codigo_de_local)."&pr=1'>".$fila->codigo_de_local."</a>",
+                           "Departamento" => $fila->Departamento,
+                           "Provincia" => $fila->Provincia,
+                           "Distrito" => $fila->Distrito,
+                           "IE" => $fila->IE,
+                           "Registrado" => $fila->Registrado,
+                           "GPS" => $fila->GPS,
+                           "Foto" => $fila->Foto);
+
+                $jsonData = my_json_encode($res);
+           
+                prettyPrint($jsonData);
+
+                 $i++;
+
+            }
+
+            echo "]";
 
         }
 
@@ -206,9 +228,32 @@ class Procedure extends REST_Controller{
 
             $data = $this->procedure_model->querySede($this->get('sede'),$this->get('provincia'),$this->get('periodo'));
            
-            $jsonData = my_json_encode($data->result());
+           $res="";
+            $i=0;
+            echo "[";
 
-            prettyPrint($jsonData);
+            foreach ($data->result() as $fila ){
+
+                if($i>0){echo",";}
+
+                $res=array("codigo_de_local" => "<a href='visor/capitulo1/?le=".obfuscate($fila->codigo_de_local)."&pr=1'>".$fila->codigo_de_local."</a>",
+                           "Departamento" => $fila->Departamento,
+                           "Provincia" => $fila->Provincia,
+                           "Distrito" => $fila->Distrito,
+                           "IE" => $fila->IE,
+                           "Registrado" => $fila->Registrado,
+                           "GPS" => $fila->GPS,
+                           "Foto" => $fila->Foto);
+
+                $jsonData = my_json_encode($res);
+           
+                prettyPrint($jsonData);
+
+                $i++;
+
+            }
+
+            echo "]";
 
         }
 

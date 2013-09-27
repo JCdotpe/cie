@@ -273,45 +273,7 @@
   <div id="grid_content" class="span12" style="width: 900px;">
         <table id="editgrid"></table>
           <div class="span12" id="table_container">
-            <!-- <table id="lista" style="width:950px;" class="display">
-                <thead>
-                    <tr>
-                        <th>Codigo de Local</th>
-                        <th>Departamento</th>
-                        <th>Provincia</th>
-                        <th>Distrito</th>
-                        <th>Instituciones Educativas</th>
-                        <th>Cedulas Registradas</th>
-                        <th>Puntos GPS</th>
-                        <th>Fotos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="center"><?php echo '<a href="visor/caratula1/?le='.obfuscate('042076').'&pr=1" target="_blank">042076 <img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>'; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td class="center"><?php echo '<a href="visor/caratula1/?le='.obfuscate('000024').'&pr=1" target="_blank">000024 <img class="view" style="cursor:pointer;" src="'.base_url('img/search32.png').'" height="16" width="16" /></a>'; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                                        
-                </tbody>
-            </table> -->
-           
+               <!--AJAX-->
           </div>
   </div>
 </div>

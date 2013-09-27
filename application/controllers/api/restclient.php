@@ -49,10 +49,64 @@
 		//}
 
 		$json= json_encode($return_arr['datos']);*/
-
+		$token="7959ac60dc22523a9ac306ac6f9308d3d7201c55";
 		//$json='{{"RutaFoto":"ruta Foto","id_local":000142,"Nro_Pred":1,"token":"ee5fc378a104ac0581aef116e4adaf18d056b5e9","Observaciones":"obs 1","Fenvio":"2014-12-12","P3_1_1_LugGeoref":1,"Version":1,"FRegistro":"2014-12-12","Frecep":"2014-12-12"}]';
+		$json='[
+	{
+		"id_local": "000024",
+		"Nro_Pred": "1",
+		"PC_CedAdic": "2",
+		"PC_CedNum": "",
+		"PC_CedTot": "",
+		"PC_CedAdic_Mot": "",
+		"PC_A_1_Dep": "01",
+		"PC_A_2_Prov": "01",
+		"PC_A_3_Dist": "01",
+		"PC_A_4_CentroP": "CHACHAPOYAS",
+		"PC_A_5_NucleoUrb": "CHACHAPOYAS",
+		"PC_A_6_Ugel": "UGEL CHACHAPOYAS",
+		"PC_A_7Dir_1_Tvia": "3",
+		"PC_A_7Dir_2_Nomb": "CHACHAPOYAS",
+		"PC_A_7Dir_3_Nro": "SN",
+		"PC_A_7Dir_4_Piso": "1",
+		"PC_A_7Dir_5_Mz": " ",
+		"PC_A_7Dir_6_Lt": " ",
+		"PC_A_7Dir_7_Sect": " ",
+		"PC_A_7Dir_8_Zona": " ",
+		"PC_A_7Dir_9_Et": " ",
+		"PC_A_7Dir_10_Km": " ",
+		"PC_A_8_DirVerif": "2",
+		"PC_A_9_RefDir": "FRENTE A SOL DE ORO",
+		"PC_B_1_CodLocal": "000024",
+		"PC_B_2_CantEv": "1",
+		"PC_C_2_Rfinal_fecha": "2013-09-20",
+		"PC_C_2_Rfinal_resul": "1",
+		"PC_C_2_Rfinal_resul_O": " ",
+		"PC_D_EvT_dni": "41425365",
+		"PC_D_EvT_Nomb": "KEVIN MALPARTIDA SOSA",
+		"PC_D_JBri_dni": "        ",
+		"PC_D_JBri_Nomb": " ",
+		"PC_D_CProv_dni": "        ",
+		"PC_D_CProv_Nomb": " ",
+		"PC_D_CDep_dni": "        ",
+		"PC_D_CDep_Nomb": " ",
+		"PC_D_SupN_dni": "        ",
+		"PC_D_SupN_Nomb": " ",
+		"PC_E_1_TPred": "6",
+		"PC_E_2_TPred_NoCol": "5",
+		"PC_E_3_TEdif": "0",
+		"PC_E_4_TPat": "0",
+		"PC_E_5_TLosa": "0",
+		"PC_E_6_TCist": "0",
+		"PC_E_7_TMurCon": "0",
+		"Fregistro": "",
+		"Fenvio": "",
+		"Frecep": "09/08/2013",
+		"Version": ""
+	}
+]';
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/P1A/send/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/pcar/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);
