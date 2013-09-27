@@ -28,7 +28,6 @@ class Seguimiento_Model extends CI_Model {
 	public function insert_avance($data)
 	{
 		$sql="INSERT INTO avance (codlocal, nro_visita, fecha_visita, estado, especifique, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['fecha_visita']."', '".$data['estado']."', '".$data['especifique']."', '".$data['usu_registra']."', getdate())";
-		//echo $sql;
 		$this->db->query($sql);
 		return $this->db->affected_rows() > 0;
 	}
@@ -89,27 +88,16 @@ class Seguimiento_Model extends CI_Model {
 		return $q;
 	}
 
-	public function get_cantidad_for_odei($condicion1, $todos)
+	public function get_cruce_odei($periodo)
 	{
-		if ($todos == "SI")
-		{
-			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer";
-		}else{
-			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1";
-		}
+		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI WHERE periodo = $periodo ORDER BY detadepen";
 		$q = $this->db->query($sql);
-		$row = $q->first_row();
-		return $row->Cantidad_Registros;
+		return $q;
 	}
 
-	public function get_seguimiento_for_odei($ord, $ascdesc, $inicio, $final, $condicion1, $todos)
+	public function get_cruce_odei_total()
 	{
-		if ($todos == "SI")
-		{
-			$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer) a WHERE a.row > $inicio and a.row <= $final";
-		}else{
-			$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI $condicion1) a WHERE a.row > $inicio and a.row <= $final";
-		}
+		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_TotPer ORDER BY detadepen";
 		$q = $this->db->query($sql);
 		return $q;
 	}
@@ -134,19 +122,6 @@ class Seguimiento_Model extends CI_Model {
 
 		$this->db->query($query);
 		return $this->db->affected_rows();
-	}
-
-	public function get_cantidad_for_avance_odei($condicion1, $todos)
-	{
-		if ($todos == "SI")
-		{
-			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance_Tot";
-		}else{
-			$sql = "SELECT COUNT(detadepen) as Cantidad_Registros FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance $condicion1";
-		}
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
-		return $row->Cantidad_Registros;
 	}
 
 	public function get_avance_odei($periodo)

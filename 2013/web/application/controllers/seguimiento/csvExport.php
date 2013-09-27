@@ -15,44 +15,15 @@ class Csvexport extends CI_Controller {
 
 	public function ExportacionODEI()
 	{
-		//$cond1 = "";
-		$cond2 = "";
-
-		$where1 = "";
-		$todos = "";
-
-		$sidx = "detadepen";
-		/*
-		if(isset($_GET['odei'])) { 
-			$odei = $this->input->get('odei');
-			if ($odei != -1) { 
-				$cond1 = "coddepe = '$odei'";
-			}
-		}else{ $odei = ""; 
-			$cond1 = "coddepe = '-1'"; }
-		*/
-		if(isset($_GET['periodo'])) { 
-			$periodo = $this->input->get('periodo');
-			if ($periodo != -1) { 
-				if ($periodo != 99)
-				{
-					$cond2 = "Periodo = '$periodo'";
-				}else{
-					$todos = "SI";
-				}
-			}
-		}else{ $periodo = ""; 
-			$cond2 = "Periodo = '-1'"; }
-
-		if(!$sidx) $sidx =1;
-
-		$where1 =  "WHERE ".$cond2;
-		$count = $this->seguimiento_model->get_cantidad_for_odei($where1,$todos);
-
-		//$data['cantidad'] = $count;
-		$query = $this->seguimiento_model->get_seguimiento_for_odei($sidx, 'asc', '0', $count, $where1, $todos);
-		//$data['consulta'] = $query;
-		  
+		
+		$periodo = $this->input->get('periodo');
+		
+		if ($periodo!=99){
+			$query = $this->seguimiento_model->get_cruce_odei($periodo);
+		}else{
+			$query = $this->seguimiento_model->get_cruce_odei_total();
+		}
+		
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
 

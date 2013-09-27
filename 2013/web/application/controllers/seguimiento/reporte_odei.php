@@ -44,77 +44,48 @@ class Reporte_odei extends CI_Controller {
 		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function obtenreporte()
+	public function view_resultado()
 	{
-		$page = $this->input->get('page',TRUE);
-		$limit = $this->input->get('rows',TRUE);
-		$sidx = $this->input->get('sidx',TRUE);
-		$sord = $this->input->get('sord',TRUE);
-
-		//$cond1 = "";
-		$cond2 = "";
-		
-		$where1 = "";
-		$todos = "";
-
-		/*
-		if(isset($_GET['odei'])) { 
-			$odei = $this->input->get('odei');
-			if ($odei != -1) { 
-				$cond1 = "coddepe = '$odei'";
-			}
-		}else{ $odei = ""; 
-			$cond1 = "coddepe = '-1'"; }
-		*/
-
-		if(isset($_GET['periodo'])) { 
-			$periodo = $this->input->get('periodo');
-			if ($periodo != -1) { 
-				if ($periodo != 99)
-				{
-					$cond2 = "Periodo = '$periodo'";
-				}else{
-					$todos = "SI";
-				}
-			}
-		}else{ $periodo = ""; 
-			$cond2 = "Periodo = '-1'"; }
-		
-		if(!$sidx) $sidx =1;
-
-		$where1 =  "WHERE ".$cond2;
-		$count = $this->seguimiento_model->get_cantidad_for_odei($where1,$todos);
-
- 		//En base al numero de registros se obtiene el numero de paginas
-		if( $count > 0 ) {
-			$total_pages = ceil($count/$limit);
-		} else {
-			$total_pages = 0;
+		$periodo = $this->input->get('vperiodo');
+		if ($periodo!=99){
+			$data = $this->seguimiento_model->get_cruce_odei($periodo);
+		}else{
+			$data = $this->seguimiento_model->get_cruce_odei_total();
 		}
-		if ($page > $total_pages) $page=$total_pages;
 
-		$row_final = $page * $limit;
-		$row_inicio = $row_final - $limit;
-
-		$resultado = $this->seguimiento_model->get_seguimiento_for_odei($sidx, $sord, $row_inicio, $row_final, $where1, $todos);
-
-		$respuesta->page = $page;
-		$respuesta->total = $total_pages;
-		$respuesta->records = $count;
 		$i=0;
-		$nro_fila = $row_inicio;
-		foreach ($resultado->result() as $fila)
-		{
-			$nro_fila++;
-			$respuesta->rows[$i]['id'] = $i;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->detadepen),$fila->LocEscolares,$fila->LocEscolar_Censado,$fila->LocEscolar_Censado_Porc,$fila->Completa,$fila->Completa_Porc,$fila->Incompleta,$fila->Incompleta_Porc,$fila->Rechazo,$fila->Rechazo_Porc,$fila->Desocupada,$fila->Desocupada_Porc,$fila->Otro,$fila->Otro_Porc);
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("detadepen" => $fila->detadepen,
+			"LocEscolares" => $fila->LocEscolares,
+			"LocEscolar_Censado" => $fila->LocEscolar_Censado,
+			"LocEscolar_Censado_Porc" => is_null($fila->LocEscolar_Censado_Porc) ? '' : $fila->LocEscolar_Censado_Porc,
+			"Completa" => is_null($fila->Completa) ? '' : $fila->Completa,
+			"Completa_Porc" => is_null($fila->Completa_Porc) ? '' : $fila->Completa_Porc,
+			"Incompleta" => is_null($fila->Incompleta) ? '' : $fila->Incompleta,
+			"Incompleta_Porc" => is_null($fila->Incompleta_Porc) ? '' : $fila->Incompleta_Porc,
+			"Rechazo" => is_null($fila->Rechazo) ? '' : $fila->Rechazo,
+			"Rechazo_Porc" => is_null($fila->Rechazo_Porc) ? '' : $fila->Rechazo_Porc,
+			"Desocupada" => is_null($fila->Desocupada) ? '' : $fila->Desocupada,
+			"Desocupada_Porc" => is_null($fila->Desocupada_Porc) ? '' : $fila->Desocupada_Porc,
+			"Otro" => is_null($fila->Otro) ? '' : $fila->Otro,
+			"Otro_Porc" => is_null($fila->Otro_Porc) ? '' : $fila->Otro_Porc
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
 			$i++;
 		}
 
-		$jsonData = json_encode($respuesta);
-		echo $jsonData;
-	}
+		echo "]";
 
+	}
 }
 
 /* End of file welcome.php */
