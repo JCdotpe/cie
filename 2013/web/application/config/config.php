@@ -15,7 +15,7 @@
 |
 */
 
-	$config['base_url']	= 'http://localhost/cie/2013/cie/';
+	$config['base_url']	= 'http://localhost/cie/2013/web/';
 
 /*
 |--------------------------------------------------------------------------
