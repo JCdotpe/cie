@@ -54,14 +54,11 @@
 		$json='[
 	{
 		"id_local": "000024",
-		"Nro_Pred": "1",
+		
 		"PC_CedAdic": "2",
-		"PC_CedNum": "",
-		"PC_CedTot": "",
-		"PC_CedAdic_Mot": "",
-		"PC_A_1_Dep": "01",
-		"PC_A_2_Prov": "01",
-		"PC_A_3_Dist": "01",
+		"PC_A_1_Dep": "1",
+		"PC_A_2_Prov": "1",
+		"PC_A_3_Dist": "1",
 		"PC_A_4_CentroP": "CHACHAPOYAS",
 		"PC_A_5_NucleoUrb": "CHACHAPOYAS",
 		"PC_A_6_Ugel": "UGEL CHACHAPOYAS",
@@ -79,7 +76,7 @@
 		"PC_A_9_RefDir": "FRENTE A SOL DE ORO",
 		"PC_B_1_CodLocal": "000024",
 		"PC_B_2_CantEv": "1",
-		"PC_C_2_Rfinal_fecha": "2013-09-20",
+		"PC_C_2_Rfinal_fecha": 20/09/2013,
 		"PC_C_2_Rfinal_resul": "1",
 		"PC_C_2_Rfinal_resul_O": " ",
 		"PC_D_EvT_dni": "41425365",
@@ -99,9 +96,6 @@
 		"PC_E_5_TLosa": "0",
 		"PC_E_6_TCist": "0",
 		"PC_E_7_TMurCon": "0",
-		"Fregistro": "",
-		"Fenvio": "",
-		"Frecep": "09/08/2013",
 		"Version": ""
 	}
 ]';

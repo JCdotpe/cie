@@ -5,7 +5,7 @@ class Pcar_model extends CI_MODEL{
     public function __construct() {
             parent::__construct();
             $this->load->database();
-             $this->db_b = $this->load->database('conexion_B', true);
+            $this->db_b = $this->load->database('conexion_B', true);
     }
   
     public function insertBatch($data) {
