@@ -6,11 +6,12 @@ $(document).ready(function() {
 
 	function nav_Active(){
 
-	    pos_array=6;
+	    pos_array=8;
 	    var delimiter="/";
 	    var loc = document.location.href;
 	    var url = loc.split(delimiter);
 	    $('#'+url[pos_array]).addClass('active');
+	   
 
 	    if(url[pos_array]=="caratula1" || url[pos_array]=="capitulo1" || url[pos_array]=="capitulo2" || url[pos_array]=="capitulo3"){
 

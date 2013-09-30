@@ -76,10 +76,10 @@ class P2b extends REST_Controller{
             $p2b12n= $this->p2b12n_model->getData(no_obfuscate($this->get('id_local')), $this->get('predio'));
 
             $i=0;
-            $x='';
+            
 
             foreach ($data->result() as $fila ){
-
+                $i++;
                 $x= array("P2_B_1_Topo"=> $fila->P2_B_1_Topo,
                         "P2_B_2_Suelo"=> $fila->P2_B_2_Suelo,
                         "P2_B_2_Suelo_O"=> $fila->P2_B_2_Suelo_O,
@@ -107,8 +107,14 @@ class P2b extends REST_Controller{
                         "vulnerabilidades"=>$p2b12n->result());
             }
 
-            $jsonData = my_json_encode(array($x));
-            prettyPrint($jsonData);
+            if($i>0){
+                
+                $jsonData = my_json_encode(array($x));
+                prettyPrint($jsonData);
+            
+            }else{
+                echo '{"status":"No hay datos"}';
+            }
       }
 
 

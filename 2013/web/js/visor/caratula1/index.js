@@ -182,10 +182,10 @@ function get_type_Address(type){
 
 function get_dir_Verif(type){
 	switch(type){
-		case 1:
+		case "1":
 			document.getElementById("verif1").checked=true;
 		break;
-		case 2:
+		case "2":
 			document.getElementById("verif2").checked=true;
 		break;
 	}
