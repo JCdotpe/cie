@@ -1137,7 +1137,7 @@ class CI_DB_active_record extends CI_DB_driver {
                 $j = 0;
             }
 
-            $query .= "INSERT INTO $table ($fields) VALUES $values;";            
+             $query .= "INSERT INTO BDCIE2013_INFRAESTRUCTURA.dbo.$table ($fields) VALUES $values;";            
         	
         }else{
             return FALSE;

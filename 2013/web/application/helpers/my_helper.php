@@ -125,9 +125,6 @@ if ( ! function_exists('header_json'))
 if ( ! function_exists('my_json_encode'))
 {
 
-/*function escape($str){
-    return addcslashes($str, "\v\t\n\r\f\"\\/");
-};*/
 
 function my_json_encode($in) {
 

@@ -35,25 +35,9 @@ class getToken extends REST_Controller
 
 
         $response="";
-        /*if ($this->tank_auth->is_logged_in()) {
-
-
-            $msg=  array('message' => "ingreso valido",
-                         'value'=> true);
-
-            $this->response($msg, 200);
-
-            return true;
-
-        }else{*
-
-           /* if(!$this->post('token'))
-            {
-                $this->response(NULL, 400);
-            }*/
-            //$data=$this->Personal_Patrimonio_model->count($this->get('imei'));
+       
             $resulttoken=$this->Personal_Patrimonio_model->get_token($token);
-            //$resulttoken=$this->Personal_Patrimonio_model->get_token($this->get('token'));
+       
             if ($resulttoken->num_rows() > 0){
 
 
