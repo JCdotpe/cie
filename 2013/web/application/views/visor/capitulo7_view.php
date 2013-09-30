@@ -9,7 +9,7 @@
 
 				<div class="panel" style="background:#DDD;">
 						<strong>Visualizar Edificaciones</strong>
-						<div id="panel_edificaciones2">
+						<div id="panel_edificaciones2" style="margin-top:10px;margin-bottom:10px;">
 									<!--  AJAX -->
 						</div>
 				</div>

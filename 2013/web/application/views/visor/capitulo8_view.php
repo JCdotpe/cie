@@ -78,7 +78,7 @@
 												<tr>
 													<tr>
 														<td> <input style="width:100px;" type="text" class="form-control P8_areaP" id="P8_areaP"> </td>
-														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalP" id="P8_area_decimalP"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalP" id="P8_area_decimalP" > </td>
 													</tr>
 												</tr>
 											</table>
@@ -251,7 +251,7 @@
 
 		  	    			<div class="panel" style="background:#DDD;">
 									<strong>Visualizar Losas deportivas</strong>
-									<div id="losasdeportivas">
+									<div id="losasdeportivas" style="margin-top:10px;margin-bottom:10px;">
 
 									</div>
 							</div>
@@ -287,7 +287,7 @@
 												</tr>
 												<tr>
 													<td> <input style="width:100px;" type="text" class="form-control P8_areaLD" id="P8_areaLD"> </td>
-														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalLD" id="P8_area_decimalLD"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalLD" id="P8_area_decimalLD" > </td>
 												</tr>
 											</table>
 		  	    						</td>
@@ -459,7 +459,7 @@
 
 		  	    			<div class="panel" style="background:#DDD;">
 									<strong>Visualizar Cisterna - Tanque</strong>
-									<div id="cisterna">
+									<div id="cisterna" style="margin-top:10px;margin-bottom:10px;">
 
 									</div>
 							</div>
@@ -495,7 +495,7 @@
 												</tr>
 												<tr>
 													    <td> <input style="width:100px;" type="text" class="form-control P8_areaCTE" id="P8_areaCTE"> </td>
-														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalCTE" id="P8_area_decimalCTE"> </td>
+														<td> <input style="width:100px;" type="text" class="form-control P8_area_decimalCTE" id="P8_area_decimalCTE" > </td>
 												</tr>
 											</table>
 		  	    						</td>
@@ -672,7 +672,7 @@
 
 		  	    			<div class="panel" style="background:#DDD;">
 									<strong>Visualizar Muros de contención</strong>
-									<div id="muros">
+									<div id="muros" style="margin-top:10px;margin-bottom:10px;">
 
 									</div>
 							</div>

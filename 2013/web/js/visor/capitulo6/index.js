@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	/*--------------------Edificaciones---------------*/
 
-	$('#panel_edificaciones').on('click','.combo_ins',function(event){
+	$('#panel_edificaciones').on('click','.combo_ins7',function(event){
 
 
 
@@ -30,13 +30,8 @@ $(document).ready(function(){
 		Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 		Get_Edif_Pisos_Cap06(nro_edif);
 
-		$('.combo_ins').removeClass('active');
+		$('.combo_ins7').removeClass('active');
 		$(this).addClass('active');
-
-	/*	alert('edificacion '+ nro_edif);
-		alert('ambiente'+nro_ambiente);
-		alert('piso'+piso);*/
-
 		Get_Edif_Pisos_Ambiente(nro_edif,1,1);
 
 	});
@@ -55,8 +50,6 @@ $(document).ready(function(){
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
 	});
-
-
 
 
 
@@ -125,7 +118,7 @@ function Get_List_Edif_Cap06(){
 					}else{
 						cl="";
 					}
-		  	    	html+='<li class="combo_ins '+cl+'" id="'+val.Nro_Ed+'">'+
+		  	    	html+='<li class="combo_ins7 '+cl+'" id="'+val.Nro_Ed+'">'+
 								'<a href="" data-toggle="dropdown"> Edificación Nro:'+ leftceros(val.Nro_Ed)+'</a>'+
 							'</li>';
 				});
@@ -187,10 +180,10 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 
 				});
 				$("#panel_ambientes").show();
-
+				$("#visualizar_ambientes").show();
 				if(i==1){
 
-					 $("#panel_ambientes").hide();
+					 $("#visualizar_ambientes").hide();
 				}
 				$('#panel_ambientes').html(html);
 
@@ -219,7 +212,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 }
 
 
-/*-- devuelve los ambientes y pisos --*/
+/*-- Devuelve los ambientes y pisos --*/
 
 function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 
@@ -357,7 +350,8 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
   									};
 							break;
 					}
-					// if general pregunta 15
+
+					// IF general pregunta 15
 					if (val.P6_2_16f==6) {
   										$("#caso5p17").hide();
   										$("#caso5p18").show();
@@ -477,24 +471,6 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 		console.log( "Request Failed: " + err);
 
 	});
-}
-
-
-/*function check_Radio(value,id){
-
-    if(value!=null && value!=0){
-
-       document.getElementById(id+value).checked=true;
-    }
-}*/
-
-function check_Radio2(value){
-
-    if(value!=null){
-
-       document.getElementById(value).checked=true;
-
-    }
 }
 
 function check_Radio3(arrayvalue){

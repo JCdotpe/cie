@@ -223,7 +223,7 @@
 										<!--</div>-->
 		  	    					</tr>
 		  	    					<tr>
-		  	    						<div class="panel" style="background:#DDD;">
+		  	    						<div class="panel" id="visualizar_ambientes" style="background:#DDD;">
 											<strong>Visualizar Ambientes</strong>
 											<div id="panel_ambientes" style="margin-top:10px;margin-bottom:10px;">
 
