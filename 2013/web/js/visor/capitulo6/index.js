@@ -9,13 +9,14 @@ $(document).ready(function(){
 	var predio= getPredio();
 	var nro_edif=1;
 	var nro_ambiente=1;
+	var piso=1;
 	var cod_local=getLocal();
 
 	Get_Tot_Edif_Cap05();
 	Get_List_Edif_Cap06();
 	Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 	Get_Edif_Pisos_Cap06(nro_edif);
-	Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);
+	Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso);
 	var array_ambiente=null;
 
 
@@ -23,13 +24,21 @@ $(document).ready(function(){
 
 	$('#panel_edificaciones').on('click','.combo_ins',function(event){
 
+
+
 		nro_edif=$(this).attr('id');
 		Get_Edif_Cap06(token,cod_local,predio,nro_edif);
 		Get_Edif_Pisos_Cap06(nro_edif);
 
-
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
+
+	/*	alert('edificacion '+ nro_edif);
+		alert('ambiente'+nro_ambiente);
+		alert('piso'+piso);*/
+
+		Get_Edif_Pisos_Ambiente(nro_edif,1,1);
+
 	});
 
 
@@ -40,7 +49,8 @@ $(document).ready(function(){
 		nro_ambiente=$(this).attr('id');
 		array_ambiente = nro_ambiente.split("p");
 		nro_ambiente= array_ambiente[0];
-		Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente);
+		piso= array_ambiente[1];
+		Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso);
 
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
@@ -72,7 +82,7 @@ $(document).ready(function(){
 
 function Get_Tot_Edif_Cap05(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),Nro_Pred:getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
@@ -98,7 +108,7 @@ function Get_List_Edif_Cap06(){
 	var i=0;
 	var cl="";
 
-	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data) {
 
 				html='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
@@ -150,8 +160,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 	var i=0;
 	var cl="";
 
-
-	$.getJSON(CI.base_url+'index.php/visor/P62/Data/', {token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/P62/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
 
 
 
@@ -177,12 +186,12 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 		  	    			'</li>';
 
 				});
+				$("#panel_ambientes").show();
 
 				if(i==1){
 
 					 $("#panel_ambientes").hide();
 				}
-
 				$('#panel_ambientes').html(html);
 
 				if(i==0){
@@ -212,7 +221,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 
 /*-- devuelve los ambientes y pisos --*/
 
-function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
+function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 
 	var html="";
 	var i=1;
@@ -221,7 +230,7 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 	var arraychecked16="";
 
 
-		$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(),P5_Ed_Nro:nro_edif,P6_2_1:nro_ambiente}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/',{token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif, P6_2_1:nro_ambiente,P5_NroPiso: piso}, function(data) {
 
 				$.each(data, function(index, val){
 					$("#P6_2_1").val(leftceros(val.P6_2_1));
@@ -415,9 +424,13 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
   									$("#P6_2_16e_b").val(val.P6_2_16e_b);
   									$("#P6_2_16e_r").val(val.P6_2_16e_r);
   									$("#P6_2_16e_m").val(val.P6_2_16e_m);
-  									$("#P6_2_16f_b").val(val.P6_2_16f_b);
+
+  									/*--------------otro----------------*/
+  									$("#P6_2_16f").val(val.P6_2_16f);
+
+  									/*$("#P6_2_16f_b").val(val.P6_2_16f_b);
   									$("#P6_2_16f_r").val(val.P6_2_16f_r);
-  									$("#P6_2_16f_m").val(val.P6_2_16f_m);
+  									$("#P6_2_16f_m").val(val.P6_2_16f_m);*/
 
 
 
@@ -445,9 +458,11 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
   									$("#P6_2_18e_b").val(val.P6_2_18e_b);
   									$("#P6_2_18e_r").val(val.P6_2_18e_r);
   									$("#P6_2_18e_m").val(val.P6_2_18e_m);
-  									$("#P6_2_18f_b").val(val.P6_2_18f_b);
+  									/*----------------------------------*/
+
+  									/*$("#P6_2_18f_b").val(val.P6_2_18f_b);
   									$("#P6_2_18f_r").val(val.P6_2_18f_r);
-  									$("#P6_2_18f_m").val(val.P6_2_18f_m);
+  									$("#P6_2_18f_m").val(val.P6_2_18f_m);*/
   									check_Radio(val.P6_2_18f,'P6_2_18f');
 
   									$("#P6_2_19a").val(val.P6_2_19a);
@@ -465,13 +480,13 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente){
 }
 
 
-function check_Radio(value,id){
+/*function check_Radio(value,id){
 
     if(value!=null && value!=0){
 
        document.getElementById(id+value).checked=true;
     }
-}
+}*/
 
 function check_Radio2(value){
 
@@ -486,7 +501,10 @@ function check_Radio3(arrayvalue){
 	if(arrayvalue!=null){
 	    for (var i in arrayvalue) {
 
-	    	document.getElementById(arrayvalue[i]).checked=true;
+	    	 if ($('#'+arrayvalue[i]).length>0) {
+
+	    		document.getElementById(arrayvalue[i]).checked=true;
+	    	}
 	    }
     }
 }
@@ -494,8 +512,10 @@ function check_Radio3(arrayvalue){
 function check_Radio4(arrayvalue){
 	if(arrayvalue!=null){
 	    for (var i in arrayvalue) {
+	    	 if ($('#'+arrayvalue[i]).length>0) {
 
-	    	document.getElementById(arrayvalue[i]).checked=true;
+	    		document.getElementById(arrayvalue[i]).checked=true;
+	    	}
 	    }
     }
 }
@@ -540,7 +560,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var arr="";
 
 
-		$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/',{token: getToken(),id_local: getLocal(), Nro_Pred:getPredio(), NRO_ED:nro_edif}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
 
 
 				$.each(data, function(index, val) {

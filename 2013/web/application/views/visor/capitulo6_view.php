@@ -1395,7 +1395,7 @@
 			  	    								<tr>
 			  	    									<td>
 			  	    										<label class="checkbox">
-																<input type="checkbox" id="P6_2_16f6" value="option3"> 6. No tiene
+																<input type="checkbox" id="P6_2_16f1" value="option3"> 6. No tiene
 															</label>
 
 				  	    								</td>
@@ -1509,7 +1509,7 @@
 				  	    									3. Aluminio
 				  	    								</td>
 				  	    								<td>
-				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18c_b"  class="form-control P6_2_18b_b">
+				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18c_b"  class="form-control P6_2_18c_b">
 				  	    								</td>
 				  	    								<td>
 				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18c_r"  class="form-control P6_2_18c_r">
@@ -1549,13 +1549,13 @@
 				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18e_r"  class="form-control P6_2_18e_r">
 				  	    								</td>
 				  	    								<td>
-				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18f_m"  class="form-control P6_2_18f_m">
+				  	    									<input style="float:left; width:50px;" type="text" id="P6_2_18e_m"  class="form-control P6_2_18e_m">
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									<label class="checkbox">
-																<input type="checkbox" id="P6_2_18f6" value="option3"> 6. No tiene
+																<input type="checkbox" id="P6_2_18f1" value="option3"> 6. No tiene
 															</label>
 				  	    								</td>
 				  	    								<td>

@@ -26,12 +26,13 @@ class P62_model extends CI_MODEL{
 
     }
 
-    public function getDataAmbiente($codigo_de_local,$pc_f_1,$nro_ed,$nro_ambiente){
+    public function getDataAmbiente($codigo_de_local,$pc_f_1,$nro_ed,$nro_ambiente,$piso){
 
         $this->db->select('*');
         $this->db->from('P6_2');
         $this->db->where('id_local',$codigo_de_local);
         $this->db->where('Nro_Pred',$pc_f_1);
+        $this->db->where('P5_NroPiso',$piso);
         $this->db->where('P5_Ed_Nro',$nro_ed);
         $this->db->where('P6_2_1',$nro_ambiente);
         $q = $this->db->get();

@@ -64,7 +64,7 @@ class P62 extends REST_Controller{
 
             header_json();
 
-            $data = $this->p62_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'));
+            $data = $this->p62_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('P5_Ed_Nro'));
 
             $jsonData = my_json_encode($data->result());
 
@@ -87,9 +87,9 @@ class P62 extends REST_Controller{
         }else{
 
             header_json();
-
-            $data = $this->p62_model->getDataAmbiente(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'),$this->get('P6_2_1'));
-            $p624n = $this->p624n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'),$this->get('P6_2_1'));
+            $x="";
+            $data = $this->p62_model->getDataAmbiente(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('P5_Ed_Nro'),$this->get('P6_2_1'),$this->get('P5_NroPiso'));
+            $p624n = $this->p624n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('P5_Ed_Nro'),$this->get('P6_2_1'),$this->get('P5_NroPiso'));
 
             foreach ($data->result() as $fila) {
               # code...

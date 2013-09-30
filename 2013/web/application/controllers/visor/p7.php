@@ -63,7 +63,7 @@ class P7 extends REST_Controller{
 
             header_json();
 
-            $data = $this->p7_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('nroie'));
+            $data = $this->p7_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('NRO_ED'));
 
             $jsonData = my_json_encode($data->result());
 
