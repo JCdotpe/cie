@@ -10,7 +10,7 @@ class caratula1 extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		//$this->load->model('convocatoria/Resultados_model');
-		$this->load->model('visor/visor_model');
+		/*$this->load->model('visor/visor_model');*/
 
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');

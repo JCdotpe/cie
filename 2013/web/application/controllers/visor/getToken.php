@@ -21,6 +21,8 @@ require APPPATH.'/libraries/rest_controller.php';
 class getToken extends REST_Controller
 {
 
+    public $token;
+
     function __construct(){
         parent::__construct();
         $this->load->model('visor/Personal_Patrimonio_model');
@@ -30,40 +32,11 @@ class getToken extends REST_Controller
         $this->lang->load('tank_auth');
     }
 
-	public function validtoken_get($token)
-	{
-
-
-        $response="";
-       
-            $resulttoken=$this->Personal_Patrimonio_model->get_token($token);
-       
-            if ($resulttoken->num_rows() > 0){
-
-
-                $msg=  array('message' => "token valido",
-                               'value'=> true);
-
-                $this->response($msg, 200);
-                return true;
-
-            }else{
-
-
-                $msg=  array('message' => "token invalido",
-                               'value'=> false);
-
-                $this->response($msg, 200);
-                return false;
-            }
-
-       // }
-	}
-
     public function handling_errors($code){
+
         switch ($code) {
             case 1:
-                # code...
+               
                 $msg=  array('message' => "Dni no existe",
                                'value'=> false);
 
@@ -72,8 +45,7 @@ class getToken extends REST_Controller
                 break;
 
             case 2:
-                # code...
-
+               
                 $msg=  array('message' => "Codigo patrimonial no existe",
                                'value'=> false);
 
@@ -81,7 +53,7 @@ class getToken extends REST_Controller
 
                 break;
             case 3:
-                # code...
+               
                 $msg=  array('message' => "Error de insercion",
                                'value'=> false);
 
@@ -92,7 +64,8 @@ class getToken extends REST_Controller
                 # code...
 
                 $msg=  array('message' => "IMEI ya registrado",
-                               'value'=> false);
+                             'value'=> false,
+                             'token' => $this->token);
                 $this->response($msg, 400);
 
                 break;
@@ -110,9 +83,16 @@ class getToken extends REST_Controller
         $next=true;
         $resulimei=$this->Personal_Patrimonio_model->get_imei($this->post('imei'));
 
+         foreach ($resulimei->result() as $fila ){
+
+            $this->token=$fila->token;
+         
+         }
+
         if ($resulimei->num_rows() > 0) {
             # code...
             $code=4;
+            $this->token=
             $this->handling_errors($code);
             return false;
         }
@@ -141,19 +121,20 @@ class getToken extends REST_Controller
 
         if ($next) {
 
-            $token = sha1(microtime());
+            /*$token = sha1(microtime());*/
+            $this->token = sha1(microtime());
 
             $array= array('imei' => $this->post('imei'),
                           'dni'=> $this->post('dni'),
                           'cod_pat' => $this->post('cod_pat'),
-                          'token' => $token,
+                          'token' => $this->token,
                           'fecha_reg'=>date('Y-m-d')." ".date("H:i:s"));
 
 
             $flag = $this->Personal_Patrimonio_model->insert_reg($array);
 
             if ($flag){
-                $msg=  array('token' => $token,
+                $msg=  array('token' => $this->token,
                                'value'=> true);
             }else{
 

@@ -10,14 +10,15 @@
 		}
 
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://192.168.202.191/cie/index.php/visor/getToken/verify/format/json');
+		//curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/getToken/verify/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://192.168.202.191/cie/2013/web/index.php/visor/getToken/verify/format/json');
+
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);
-		 curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
-		    'imei' => '6',
-			'dni' => '00039083',
-			'cod_pat' => '12345'));
-
+		curl_setopt($curl_handle, CURLOPT_POSTFIELDS, array(
+		    'imei' => '789',
+			'dni' => '00046732',
+			'cod_pat' => '42057'));
 
 		$buffer = curl_exec($curl_handle);
 		curl_close($curl_handle);
@@ -34,23 +35,9 @@
 
 		}
 
-		/*$return_arr['datos']=  array();
-		//for ($i=2; $i <10 ; $i++) {
-
-			$data["codigo_de_local"] = "000118";
-			$data["PC_F_1"] = 1;
-			$data["P3_1_1_LugGeoref"] = 1;
-			$data["P3_1_3_NroPtos"] = 1;
-			$data["P3_1_4_ArchGPS"] = "archivo gps";
-			$data["P3_1_5_CodFoto"] = "000118_foto_cap3";
-			$data["PC_Version"]=1;
-
-			array_push($return_arr['datos'],$data);
-		//}
-
-		$json= json_encode($return_arr['datos']);*/
+	
 		$token="7959ac60dc22523a9ac306ac6f9308d3d7201c55";
-		//$json='{{"RutaFoto":"ruta Foto","id_local":000142,"Nro_Pred":1,"token":"ee5fc378a104ac0581aef116e4adaf18d056b5e9","Observaciones":"obs 1","Fenvio":"2014-12-12","P3_1_1_LugGeoref":1,"Version":1,"FRegistro":"2014-12-12","Frecep":"2014-12-12"}]';
+	
 		$json='[
 	{
 		"id_local": "000024",

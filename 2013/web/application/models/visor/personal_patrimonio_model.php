@@ -8,7 +8,7 @@ class Personal_patrimonio_model extends CI_MODEL{
     }
 
 	public function get_imei($codigo){
-		$q=$this->db->query("select imei from Personal_Patrimonio where imei=?", array($codigo));
+		$q=$this->db->query("select imei,token from Personal_Patrimonio where imei=?", array($codigo));
         return $q;
 	}
 
