@@ -38,42 +38,10 @@
 	
 		$token="7959ac60dc22523a9ac306ac6f9308d3d7201c55";
 	
-		$json='[{"P1_A_2_9A_CMod":"2222222",
-"P1_A_2_9E_NroAnex":1,
-"P1_A_2_9J_T2_Taul":1,
-"PC_F_1":1,
-"P1_A_2_9H_T1_Taul":2,
-"P1_A_2_NroIE":1,
-"P1_A_2_9L_T3_Taul":2,
-"P1_A_2_9I_T2_Talu":2,
-"P1_A_2_9D_Car":1,
-"id_local":"000000",
-"P1_A_2_9K_T3_Talu":8,
-"P1_A_2_9_NroCMod":1,
-"P1_A_2_9B_CodLocal":"223333",
-"Version":0,
-"P1_A_2_9G_T1_Talu":3,
-"P1_A_2_9C_Nivel":1,
-"P1_A_2_9F_CantAnex":0
-},{
-"P1_A_2_9A_CMod":"3333333",
-"P1_A_2_9E_NroAnex":2,
-"P1_A_2_9J_T2_Taul":1,
-"PC_F_1":1,"P1_A_2_9H_T1_Taul":1,
-"P1_A_2_NroIE":1,"P1_A_2_9L_T3_Taul":1,
-"P1_A_2_9I_T2_Talu":2,
-"P1_A_2_9D_Car":3,
-"id_local":"000000",
-"P1_A_2_9K_T3_Talu":2,
-"P1_A_2_9_NroCMod":2,
-"P1_A_2_9B_CodLocal":"444444",
-"Version":0,
-"P1_A_2_9G_T1_Talu":2,
-"P1_A_2_9C_Nivel":3,
-"P1_A_2_9F_CantAnex":0}]';
+		$json='';
 
 		$curl_handle = curl_init();
-		curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/p1a28n/send/format/json');
+		curl_setopt($curl_handle, CURLOPT_URL, 'http://webinei.inei.gob.pe/cie/2013/web/index.php/visor/p2d9n/send/format/json');
 		//curl_setopt($curl_handle, CURLOPT_URL, 'http://localhost/trabajos/inei/cie/index.php/api/example/user/id/1/format/json');
 		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl_handle, CURLOPT_POST, 1);

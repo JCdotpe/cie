@@ -900,25 +900,25 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag1" name="" value=""> 1. Red pública?
+												<input type="checkbox" id="P2_D_9_Nro1" name="P2_D_9_Nro" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag2" name="" value=""> 2. Tanque séptico y pozo percolador?
+												<input type="checkbox" id="P2_D_9_Nro2" name="P2_D_9_Nro" value=""> 2. Tanque séptico y pozo percolador?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag3" name="" value=""> 3. Pozo con tratamiento (cal, ceniza y otro)?
+												<input type="checkbox" id="P2_D_9_Nro3" name="P2_D_9_Nro" value=""> 3. Pozo con tratamiento (cal, ceniza y otro)?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag4" name="" value=""> 4. Pozo sin tratamiento alguno?
+												<input type="checkbox" id="P2_D_9_Nro4" name="P2_D_9_Nro" value=""> 4. Pozo sin tratamiento alguno?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag5" name="" value=""> 5. Río, acequia, manantial o canal?
+												<input type="checkbox" id="P2_D_9_Nro5" name="P2_D_9_Nro" value=""> 5. Río, acequia, manantial o canal?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag6" name="" value=""> 6. Zanja filtrante?
+												<input type="checkbox" id="P2_D_9_Nro6" name="P2_D_9_Nro" value=""> 6. Zanja filtrante?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_9_Desag7" name="" value=""> 7. No tiene
+												<input type="checkbox" id="P2_D_9_Nro7" name="P2_D_9_Nro" value=""> 7. No tiene
 											</label>
 										</td>
 									</tr>
