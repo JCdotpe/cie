@@ -16,9 +16,9 @@
 	{
 		$depaArray[$filas->CCDD]=utf8_encode(strtoupper($filas->Nombre));
 	}
-	$provArray = array(-1 => ''); 
+	$provArray = array(-1 => '');
 
-    $periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
+	$periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
 ?>
 
 <div class="row-fluid">
@@ -27,8 +27,8 @@
 			<?php $this->load->view('seguimiento/includes/sidebar_view.php'); ?>
 		</div>
 		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
-				<?php echo form_open('','id="frm_reporte"'); ?>
+			<?php echo form_open('','id="frm_reporte"'); ?>
+			<div class="row-fluid well top-conv">				
 				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Departamento', 'depa', $label_class); ?>
@@ -69,7 +69,6 @@
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 
 function Reportar()
@@ -88,7 +87,7 @@ function Reportar()
 
 function ViewResultado(depa,prov,periodo)
 {
-	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_ubigeo/view_resultado/' , {vdepa:depa,vprov:prov,vperiodo:periodo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_ubigeo/view_resultado/' , {vdepa:depa,vprov:prov,vperiodo:periodo}, function(data, textStatus) {
 
 			table='<table id="lista" style="width:950px;" class="display">'+
 			'<thead>'+
@@ -147,7 +146,6 @@ function ViewResultado(depa,prov,periodo)
 		} );
 	});
 }
-
 	function exportExcel()
 	{
 		var coddepa = $("#cod_depa").val();
@@ -159,9 +157,10 @@ function ViewResultado(depa,prov,periodo)
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 			document.forms[0].method='POST';
-			document.forms[0].action=CI.base_url+"index.php/seguimiento/csvExport/ExportacionUbigeo?vperiodo="+codper+"&vdepa="+coddepa+"&vprov="+codprov;
+			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionUbigeo_Avance?vperiodo="+codper+"&vdepa="+coddepa+"&vprov="+codprov;
 			document.forms[0].target='_blank';
 			document.forms[0].submit();
 		}
 	}
+
 </script>

@@ -24,7 +24,7 @@ function cargarProvBySede()
 
 function cargarDist()
 {
-	var doLoginMethodUrl = 'registro_seguimiento/obtenerdistrito';
+	var doLoginMethodUrl = urlRoot('index.php')+'/seguimiento/registro_seguimiento/obtenerdistrito';
 	var id_sede = $("#sedeoperativa").val();
 	var id_prov = $("#provincia_ope").val();
 	$.ajax({
@@ -47,7 +47,7 @@ function cargarDist()
 
 function cargarCentroPoblado()
 {
-	var doLoginMethodUrl = 'registro_seguimiento/obtenercentropoblado';
+	var doLoginMethodUrl = urlRoot('index.php')+'/seguimiento/registro_seguimiento/obtenercentropoblado';
 	var id_depa = $("#sedeoperativa").val();
 	var id_prov = $("#provincia_ope").val();
 	var id_dist = $("#distrito").val();
@@ -184,7 +184,7 @@ function verdatos()
 	// 		break;
 	// }
 
-	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }
@@ -214,7 +214,7 @@ function activar_especifique()
 
 function ver_avance(codigo)
 {
-	jQuery("#list3").jqGrid('setGridParam',{url:"registro_seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
+	jQuery("#list3").jqGrid('setGridParam',{url:urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos_avance?codigo="+codigo,page:1}).trigger("reloadGrid");
 }
 
 function frm_ValidarAvance()
@@ -246,7 +246,7 @@ function registrar_avance()
 
 	$.ajax({
 		type: "POST",
-		url: "registro_seguimiento/registro_avance",
+		url: urlRoot('index.php')+"/seguimiento/registro_seguimiento/registro_avance",
 		data: form_data,
 
 		success: function(data){
@@ -270,7 +270,7 @@ function savedetalle(values)
 
 function ver_detalle(codigo)
 {
-	jQuery("#list4").jqGrid('setGridParam',{url:"registro_seguimiento/ver_datos_detalle?codigo="+codigo,page:1}).trigger("reloadGrid");
+	jQuery("#list4").jqGrid('setGridParam',{url:urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos_detalle?codigo="+codigo,page:1}).trigger("reloadGrid");
 }
 
 function cargarCedula()
@@ -345,7 +345,7 @@ function validar_numeros(e)
 
 function consultar_codigo()
 {
-	var doLoginMethodUrl = 'mantenimiento_fotos/existelocal';
+	var doLoginMethodUrl = urlRoot('index.php')+'/seguimiento/mantenimiento_fotos/existelocal';
 	var id_codigo = $("#codigolocal").val();
 	
 	$.ajax({
@@ -398,7 +398,7 @@ function registar_detalle_fotos(estado)
 
 	$.ajax({
 		type: "POST", 
-		url: "mantenimiento_fotos/registro",
+		url: urlRoot('index.php')+"/seguimiento/mantenimiento_fotos/registro",
 		data: form_data,
 		success: function(response){
 			$("#codigolocal").val('');

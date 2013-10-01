@@ -48,8 +48,6 @@ class Seguimiento_Model extends CI_Model {
 		return $this->db->affected_rows() > 0;
 	}
 
-	
-
 	// public function repite_fecha_avance($local, $fecha_visita)
 	// {
 	// 	$sql = "SELECT COUNT(codlocal) as Cantidad_Registros FROM v_avance WHERE codlocal = '$local' and fecha_visita = convert(date,'$fecha_visita',103)";
@@ -61,8 +59,8 @@ class Seguimiento_Model extends CI_Model {
 	public function cantidad_avances($condicion1)
 	{
 		$sql = "SELECT count(codlocal) as NroRegistros FROM v_avance $condicion1";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
+		$q = $this->db->query($sql);
+		$row = $q->first_row();
 		return $row->NroRegistros;
 	}
 
@@ -70,14 +68,14 @@ class Seguimiento_Model extends CI_Model {
 	{
 		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
-		return $q; 
+		return $q;
 	}
 
 	public function cantidad_detalles($condicion1)
 	{
 		$sql = "SELECT count(codlocal) as NroRegistros FROM avance_docuCIE $condicion1";
-    	$q = $this->db->query($sql);
-    	$row = $q->first_row();
+		$q = $this->db->query($sql);
+		$row = $q->first_row();
 		return $row->NroRegistros;
 	}
 
@@ -135,6 +133,18 @@ class Seguimiento_Model extends CI_Model {
 	{
 		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance_Tot ORDER BY detadepen";
 		$q = $this->db->query($sql);
+		return $q;
+	}
+
+	function get_avance_ubigeo($cod_depa,$cod_prov,$periodo,$tipo)
+	{
+		$q=$this->db->query("Seguimiento_Ubigeo ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo,$tipo));
+		return $q;
+	}
+
+	function get_ubigeo_cedula($cod_depa,$cod_prov,$periodo,$tipo)
+	{
+		$q=$this->db->query("Seguimiento_Ubigeo_Cedula ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo,$tipo));
 		return $q;
 	}
 

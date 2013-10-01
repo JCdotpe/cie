@@ -102,7 +102,9 @@ function ViewResultado(periodo)
 			"bJQueryUI": false,
 			"bFilter": false,
 			"bLengthChange": false,
-			"sPaginationType": "full_numbers"
+			"sPaginationType": "full_numbers",
+			"bScrollCollapse": true,
+			"sScrollY": "300px"
 		} );
 	});
 }

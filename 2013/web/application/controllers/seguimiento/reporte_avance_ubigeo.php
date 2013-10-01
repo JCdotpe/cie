@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Reporte_ubigeo extends CI_Controller {
+class Reporte_avance_ubigeo extends CI_Controller {
 
 	function __construct()
 	{
@@ -39,10 +39,10 @@ class Reporte_ubigeo extends CI_Controller {
 
 	public function index()
 	{
-		$data['option'] = 4;
+		$data['option'] = 5;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Ubigeo';
-		$data['main_content'] = 'seguimiento/reporte_ubigeo_view';
+		$data['main_content'] = 'seguimiento/reporte_avance_ubigeo_view';
 		$data['depa'] = $this->dpto_model->Get_Dpto();
 		$this->load->view('backend/includes/template', $data);
 	}
@@ -78,18 +78,18 @@ class Reporte_ubigeo extends CI_Controller {
 		}elseif ($depa!=99 && $periodo==99){
 			$tipo = 4;
 		}
-		$data = $this->seguimiento_model->get_ubigeo_cedula($depa,$prov,$periodo,$tipo);
+		$data = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo,$tipo);
 
 		$i=0;
 		echo "[";
 
 		foreach ($data->result() as $fila ){
 			
-			$provincia = ($tipo==1 || $tipo==4) ? $fila->Provincia : '';
+			$provincia = ($tipo==1 || $tipo==4) ? $fila->NombProv : '';
 
 			if($i>0){echo",";}
 
-			$x= array("departamento" => $fila->Departamento,
+			$x= array("departamento" => $fila->NombDpto,
 				"provincia" => $provincia,
 			"LocEscolares" => $fila->LocEscolares,
 			"LocEscolar_Censado" => $fila->LocEscolar_Censado,
@@ -114,6 +114,7 @@ class Reporte_ubigeo extends CI_Controller {
 		}
 
 		echo "]";
+
 	}
 
 }
