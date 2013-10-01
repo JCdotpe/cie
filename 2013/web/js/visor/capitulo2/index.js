@@ -177,6 +177,7 @@ function get_P2_D_1N(){
 			if(val.P2_D_1_EnergCod==4){
 
 				$("#P2_D_1_EnergCod_O").val(val.P2_D_1_EnergCod_O);
+				
 			}
 
 		});
@@ -320,7 +321,7 @@ function get_P2_G_2N(){
 	$.getJSON(CI.base_url+'index.php/visor/P2G2N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
-			alert(index);
+
 			check_Radio(val.P2_G_2_Nro,'P2_G_2_Cod'+val.P2_G_2_Cod);
 			check_Radio(val.P2_G_2A_EstPre,'P2_G_2A_EstPre'+val.P2_G_2_Nro);
 			$('#P2_G_2B_snip'+val.P2_G_2_Nro).val(val.P2_G_2B_snip)
