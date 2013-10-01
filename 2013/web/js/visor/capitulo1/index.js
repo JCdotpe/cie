@@ -4,14 +4,12 @@ $(document).ready(function(){
 	$('#table_predios').hide();
 
 	P1A();
-	/*P1A2N();*/
+	
 	lista_ie();
 
 	lista_Predios();
 
 	lista_Anexos();
-
-	
 	
 	$('input,textarea').attr({
 		disabled : true,
@@ -49,10 +47,9 @@ $(document).ready(function(){
 		P1C(p[0],p[1],p[2]);
 	    P1C20N(p[0],p[1],p[2]);
 	    Anexos_Datos(p[0],p[1],p[2])
-	    
-	});
 
-	
+
+	});
 
 });
 
@@ -74,7 +71,7 @@ function P1A(){
 		console.log( "Request Failed: " + err);
 	
 	});
-			
+
 }
 
 function lista_ie(){

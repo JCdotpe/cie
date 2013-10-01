@@ -42,7 +42,6 @@ $(document).ready(function() {
 	    }else{
 	    	$('#p'+url[pos_array]).addClass('active');	
 	    }
-	    
 	
 	}
 
@@ -83,11 +82,7 @@ $(document).ready(function() {
 			$('#predios_Combo').html(combo)
 
 			combo_Active();
-			/*$('.combo_predio').click(function(){
-				$('title').html($(this).html());	
-			})*/
-			reset_input()
-
+						
 		});
 	
 
