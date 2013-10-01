@@ -36,11 +36,12 @@ input{
 
 #footer{
 
-	margin: 90px auto;
+	margin: 0 auto;
 	color: #333;
 	width: 1000px;
 	height: 10px;
 	text-align: center;
+	font-size: 12px;
 
 }
 

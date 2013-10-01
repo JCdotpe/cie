@@ -10,6 +10,8 @@ $(document).ready(function(){
 	lista_Predios();
 
 	lista_Anexos();
+
+	
 	
 	$('input,textarea').attr({
 		disabled : true,
@@ -47,9 +49,10 @@ $(document).ready(function(){
 		P1C(p[0],p[1],p[2]);
 	    P1C20N(p[0],p[1],p[2]);
 	    Anexos_Datos(p[0],p[1],p[2])
-
-
+	    
 	});
+
+	
 
 });
 

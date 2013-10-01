@@ -317,3 +317,10 @@ function get_Dist(depa,prov,dist){
     });
 
 }
+
+function reset_input(){
+
+  $('input').val('');
+  $('input').attr('checked', false);
+
+}

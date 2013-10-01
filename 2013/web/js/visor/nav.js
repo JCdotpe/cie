@@ -86,7 +86,7 @@ $(document).ready(function() {
 			/*$('.combo_predio').click(function(){
 				$('title').html($(this).html());	
 			})*/
-			
+			reset_input()
 
 		});
 	
