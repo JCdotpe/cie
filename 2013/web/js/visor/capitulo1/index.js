@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$('#table_predios').hide();
 
 	P1A();
-	/*P1A2N();*/
+	
 	lista_ie();
 
 	lista_Predios();
@@ -71,7 +71,7 @@ function P1A(){
 		console.log( "Request Failed: " + err);
 	
 	});
-			
+
 }
 
 function lista_ie(){

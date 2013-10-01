@@ -63,7 +63,7 @@ class P2a extends REST_Controller{
 
             header_json();
 
-            $data = $this->p2a_model->getData(no_obfuscate($this->get('id_local')),$this->get('Nro_Pred'));
+            $data = $this->p2a_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'));
 
             $jsonData = my_json_encode($data->result());
 

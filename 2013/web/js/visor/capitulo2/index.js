@@ -2,8 +2,6 @@ $(document).ready(function(){
 
 	$.import('css/basic.css','css');
 
-	/*-----------------defaults-----------------------*/
-
 	get_P2_A();
 	get_P2_B();
 	get_P2_C();
@@ -15,14 +13,9 @@ $(document).ready(function(){
 	get_P2_D_9N();
 
 	get_P2_E();
-
-
-
-	/*-----------------deshabilita inputs-------------*/
-
-	$('input').attr({
-		disabled : true,
-	});
+	get_P2_F();
+	get_P2_G();
+	get_P2_G_2N();
 
 	$('input,textarea').attr({
 		disabled : true,
@@ -224,11 +217,13 @@ function get_P2_D_5N(){
 
 		$.each(data, function(index, val) {
 
-			check_Radio(val.P2_D_5_AbastAgCod,"P2_D_5_AbastAgCod");
-
+			check_Radio(val.P2_D_5_Cod,"P2_D_5_Cod"+val.P2_D_5_Cod_Est);
+				
 			if(val.P2_D_5_AbastAgCod=="6"){
 
 				$("#P2_D_5_AbastAgCod_O").val(val.P2_D_5_AbastAgCod_O);
+
+
 			}
 
 		});
@@ -281,7 +276,8 @@ function get_P2_E(){
 
 			check_Radio(val.P2_E_1_Prayo,'P2_E_1_Prayo');
 			$('#P2_E_2_Ptierra').val(val.P2_E_2_Ptierra);
-		}	$('#P2_E_3_Ano').val(val.P2_E_3_Ano);
+			$('#P2_E_3_Ano').val(val.P2_E_3_Ano);
+			$('#P2_E_Obs').val(val.P2_E_Obs);
 			
 
 		});
@@ -289,3 +285,55 @@ function get_P2_E(){
 	});
 
 }
+
+function get_P2_F(){
+
+	$.getJSON(CI.base_url+'index.php/visor/P2F/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+
+		$.each(data, function(index, val) {
+
+			check_Radio(val.P2_F_1_ElimBas_e,'P2_F_1_ElimBas'+val.P2_F_1_ElimBas);
+			
+		});
+
+	});
+
+}
+
+function get_P2_G(){
+
+	$.getJSON(CI.base_url+'index.php/visor/P2G/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+
+		$.each(data, function(index, val) {
+
+			check_Radio(val.P2_G_1_ObEjec,'P2_G_1_ObEjec');
+			$('#P2_G_Obs').val(val.P2_G_Obs);
+			
+		});
+
+	});
+
+}
+
+function get_P2_G_2N(){
+
+	$.getJSON(CI.base_url+'index.php/visor/P2G2N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+
+		$.each(data, function(index, val) {
+			alert(index);
+			check_Radio(val.P2_G_2_Nro,'P2_G_2_Cod'+val.P2_G_2_Cod);
+			check_Radio(val.P2_G_2A_EstPre,'P2_G_2A_EstPre'+val.P2_G_2_Nro);
+			$('#P2_G_2B_snip'+val.P2_G_2_Nro).val(val.P2_G_2B_snip)
+
+			if(val.P2_G_2_Nro=="7" && val.P2_G_2_Cod=="1"){
+			
+				$('#P2_F_1_ElimBas_O').val(val.P2_F_1_ElimBas_O);	
+
+			}
+
+		});
+
+	});
+}
+
+

@@ -830,25 +830,25 @@
 										</td>
 										<td>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod1" name="" value=""> 1. Red pública?
+												<input type="checkbox" id="P2_D_5_Cod11" name="" value=""> 1. Red pública?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod2" name="" value=""> 2. Pilón de uso público (agua potable)?
+												<input type="checkbox" id="P2_D_5_Cod21" name="" value=""> 2. Pilón de uso público (agua potable)?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod3" name="" value=""> 3. Camión cisterna u otro similar?
+												<input type="checkbox" id="P2_D_5_Cod31" name="" value=""> 3. Camión cisterna u otro similar?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod4" name="" value=""> 4. Pozo?
+												<input type="checkbox" id="P2_D_5_Cod41" name="" value=""> 4. Pozo?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod5" name="" value=""> 5. Río, acequia, manantial o similar?
+												<input type="checkbox" id="P2_D_5_Cod51" name="" value=""> 5. Río, acequia, manantial o similar?
 											</label>
 											<label>
-												<input type="checkbox" id="P2_D_5_AbastAgCod6" name="" value=""> 6. Otro?
+												<input type="checkbox" id="P2_D_5_Cod61" name="" value=""> 6. Otro?
 											</label>
 											<label>(Especifique)</label>
-											<input id="P2_D_5_AbastAgCod_O" style="width:400px;" type="text" class="form-control">
+											<input id="P2_D_5_Cod_O" style="width:400px;" type="text" class="form-control">
 										</td>
 									</tr>
 
@@ -990,34 +990,34 @@
 										</td>
 										<td>
 											<label>
-													<input type="checkbox" id="P2_F_1_ElimBas1" name="" value=""> 1. Arrojada al camión/triciclo municipal?
+													<input type="checkbox" id="P2_F_1_ElimBas11" name="" value=""> 1. Arrojada al camión/triciclo municipal?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas2" name="" value=""> 2. Arrojada al camión/informal?
+													<input type="checkbox" id="P2_F_1_ElimBas21" name="" value=""> 2. Arrojada al camión/informal?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas3" name="" value=""> 3. Depositada en contenedor?
+													<input type="checkbox" id="P2_F_1_ElimBas31" name="" value=""> 3. Depositada en contenedor?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas4" name="" value=""> 4. Acumulada en calles/campo abierto?
+													<input type="checkbox" id="P2_F_1_ElimBas41" name="" value=""> 4. Acumulada en calles/campo abierto?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas5" name="" value=""> 5. Reciclada?
+													<input type="checkbox" id="P2_F_1_ElimBas51" name="" value=""> 5. Reciclada?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas6" name="" value=""> 6. Quemada?
+													<input type="checkbox" id="P2_F_1_ElimBas61" name="" value=""> 6. Quemada?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas7" name="" value=""> 7. Enterrada?
+													<input type="checkbox" id="P2_F_1_ElimBas71" name="" value=""> 7. Enterrada?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas8" name="" value=""> 8. Usada como alimento para animales?
+													<input type="checkbox" id="P2_F_1_ElimBas81" name="" value=""> 8. Usada como alimento para animales?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas9" name="" value=""> 9. Separada para el compost?
+													<input type="checkbox" id="P2_F_1_ElimBas91" name="" value=""> 9. Separada para el compost?
 												</label>
 												<label>
-													<input type="checkbox" id="P2_F_1_ElimBas10" name="" value=""> 10. Otra forma?
+													<input type="checkbox" id="P2_F_1_ElimBas101" name="" value=""> 10. Otra forma?
 												</label>
 												<label>(Especifique)</label>
 												<input id="P2_F_1_ElimBas_O" style="width:400px;" type="text" class="form-control">
@@ -1069,7 +1069,7 @@
 												<tbody>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod1" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod11" name="" value="">
 															1.Gobierno nacional / proyectos especiales</td>
 														<td>
 															<label>
@@ -1084,7 +1084,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod2" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod21" name="" value="">
 															2.Gobierno regional / local</td>
 														<td>
 															<label>
@@ -1099,7 +1099,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod3" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod31" name="" value="">
 															3.Apafa / autoconstrucción</td>
 														<td>
 															<label>
@@ -1114,7 +1114,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod4" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod41" name="" value="">
 															4.Entidades cooperantes</td>
 														<td>
 															<label>
@@ -1129,7 +1129,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod5" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod51" name="" value="">
 															5.Organismos sin fines de lucro</td>
 														<td>
 															<label>
@@ -1144,7 +1144,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod6" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod61" name="" value="">
 															6.Empresa privada</td>
 														<td>
 															<label>
@@ -1159,7 +1159,7 @@
 													</tr>
 													<tr>
 														<td>
-															<input type="checkbox" id="P2_G_2_Cod7" name="" value="">
+															<input type="checkbox" id="P2_G_2_Cod71" name="" value="">
 															<label>7.Otro (Especifique)</label>
 															<input id="P2_F_1_ElimBas_O" style="width:300px;" type="text" class="form-control">
 														</td>

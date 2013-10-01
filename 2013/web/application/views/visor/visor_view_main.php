@@ -137,8 +137,8 @@
                         "bFilter": false,
                         "bLengthChange": false,
                         "sPaginationType": "full_numbers",
-                        "bScrollCollapse": true,
-                         "sScrollY": "200px"
+                        "bScrollCollapse": false,
+                        "sScrollY": "360px"
                     } );
 
         });    
