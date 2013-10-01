@@ -36,16 +36,12 @@ input{
 
 #footer{
 
-	position: absolute;
-	bottom: 0px;
-	margin: 0 auto;
-	padding-bottom: 10px;
+	position:absolute;
+	margin: 90px auto;
 	color: #333;
 	width: 1000px;
-	border: 1px solid #CCC;
 	height: 10px;
 	text-align: center;
-
 
 }
 

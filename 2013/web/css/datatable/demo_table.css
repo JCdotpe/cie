@@ -66,6 +66,7 @@
 .dataTables_info {
 	width: 60%;
 	float: left;
+	padding-top: 5px;
 }
 
 .dataTables_paginate {
@@ -267,6 +268,8 @@ tr.even {
 .dataTables_scrollBody {
 	*margin-top: -1px;
 	-webkit-overflow-scrolling: touch;
+	background: #DDD;
+	border-bottom: 1px solid #333;
 }
 
 .top, .bottom {
@@ -277,6 +280,7 @@ tr.even {
 
 .top .dataTables_info {
 	float: none;
+
 }
 
 .clear {
