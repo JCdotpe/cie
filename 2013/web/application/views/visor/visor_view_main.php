@@ -136,7 +136,9 @@
                         "bJQueryUI": false,
                         "bFilter": false,
                         "bLengthChange": false,
-                        "sPaginationType": "full_numbers"
+                        "sPaginationType": "full_numbers",
+                        "bScrollCollapse": true,
+                         "sScrollY": "200px"
                     } );
 
         });    
@@ -186,7 +188,9 @@
                         "bJQueryUI": false,
                         "bFilter": false,
                         "bLengthChange": false,
-                        "sPaginationType": "full_numbers"
+                        "sPaginationType": "full_numbers",
+                        "bScrollCollapse": false,
+                        "sScrollY": "360px"
                     });
 
         });    
