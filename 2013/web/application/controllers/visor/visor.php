@@ -59,13 +59,13 @@ class Visor extends CI_Controller {
 
 	public function get_PadLocal(){
 
-		$this->header_json();
+		header_json();
 
 		$data = $this->visor_model->Data_PadLocal(no_obfuscate($_REQUEST["cod_local"]));
 
 		$jsonData = json_encode($data->result());
 
-		$this->prettyPrint($jsonData);
+		prettyPrint($jsonData);
 
 	}
 

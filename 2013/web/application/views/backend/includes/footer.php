@@ -1,9 +1,6 @@
 
             <hr>
 
-           
-      
-
         </div>        
     </body>
      <div id="footer">
