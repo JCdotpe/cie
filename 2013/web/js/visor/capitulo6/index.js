@@ -34,6 +34,14 @@ $(document).ready(function(){
 		$(this).addClass('active');
 		Get_Edif_Pisos_Ambiente(nro_edif,1,1);
 
+		/*--------------- reset  ---------------------*/
+		$('#seccion_a_p10 input').val('');
+ 		$('#seccion_a_p10 input').attr('checked', false);
+
+
+
+
+
 	});
 
 
@@ -41,7 +49,7 @@ $(document).ready(function(){
 
 	$('#panel_ambientes').on('click','.combo_ins',function(event){
 
-		nro_ambiente=$(this).attr('id');
+		nro_ambiente= $(this).attr('id');
 		array_ambiente = nro_ambiente.split("p");
 		nro_ambiente= array_ambiente[0];
 		piso= array_ambiente[1];
@@ -49,6 +57,37 @@ $(document).ready(function(){
 
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
+
+
+
+		/*--------------- reset  ---------------------*/
+
+		$('#pag_seccion_b2 input').val('');
+ 		$('#pag_seccion_b2 input').attr('checked', false);
+
+		$('#aulacomun input').val('');
+ 		$('#aulacomun input').attr('checked', false);
+
+ 		$('#espaciopedagogico input').val('');
+ 		$('#espaciopedagogico input').attr('checked', false);
+
+ 		$('#administrativo input').val('');
+ 		$('#administrativo input').attr('checked', false);
+
+ 		$('#complementario input').val('');
+ 		$('#complementario input').attr('checked', false);
+
+ 		$('#servicios input').val('');
+ 		$('#servicios input').attr('checked', false);
+
+
+ 		$('#sshh input').val('');
+ 		$('#sshh input').attr('checked', false);
+
+ 		$('#evasshhh input').val('');
+ 		$('#evasshhh input').attr('checked', false);
+
+
 	});
 
 
@@ -93,7 +132,7 @@ function Get_Tot_Edif_Cap05(){
 
 
 
-/*--devuelve listado de edificiaciones--*/
+/*---- Devuelve listado de edificiaciones ----*/
 
 function Get_List_Edif_Cap06(){
 
@@ -143,7 +182,6 @@ function Get_List_Edif_Cap06(){
 
 	});
 }
-
 
 
 
@@ -212,7 +250,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 }
 
 
-/*-- Devuelve los ambientes y pisos --*/
+/*----------- Devuelve los ambientes y pisos -----------*/
 
 function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 
@@ -231,9 +269,9 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 					check_Radio(val.P6_2_3,'P6_2_3');
 
 					$.each(val.P6_2_4ID, function(index, val){
-						check_Radio(val.P6_2_4Turno_M,val.P6_2_4Mod+'P6_2_4Turno_M');
-						check_Radio(val.P6_2_4Turno_T,val.P6_2_4Mod+'P6_2_4Turno_T');
-						check_Radio(val.P6_2_4Turno_N,val.P6_2_4Mod+'P6_2_4Turno_N');
+						check_Radio(val.P6_2_4Turno_M,val.P6_2_4ID+'P6_2_4Turno_M');
+						check_Radio(val.P6_2_4Turno_T,val.P6_2_4ID+'P6_2_4Turno_T');
+						check_Radio(val.P6_2_4Turno_N,val.P6_2_4ID+'P6_2_4Turno_N');
 						i++;
 					});
 					check_Radio(val.P6_2_5,'P6_2_5');
@@ -694,7 +732,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 				  	    				  '</tr>';
 				  	    		$.each(val.P6_1_10_e, function(index, val) {
 
-				  	    			check_Radio(val.P6_1_10_e,'P6_1_10_e');
+				  	    			check_Radio(val.P6_1_10_e,val.P6_1_10+'P6_1_10_e');
 								});
 
 					});
