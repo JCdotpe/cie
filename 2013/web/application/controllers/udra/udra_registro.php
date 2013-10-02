@@ -18,7 +18,7 @@ class Udra_registro extends CI_Controller {
 		$this->load->helper('date');
 		date_default_timezone_set('America/Lima');
 
-		if (!$this->tank_auth->is_logged_in()) {
+	/*	if (!$this->tank_auth->is_logged_in()) {
 			// redirect('/auth/login/');
 			//No loging enviar a bienvenida cenpesco
 			redirect('/auth/login/');
@@ -38,7 +38,7 @@ class Udra_registro extends CI_Controller {
 		if (!$flag) {
 			show_404();
 			die();
-		}
+		}*/
 	}
 
 	public function index()

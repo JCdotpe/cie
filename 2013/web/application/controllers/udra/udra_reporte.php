@@ -10,7 +10,7 @@ class Udra_reporte extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		//User is logged in
-		if (!$this->tank_auth->is_logged_in()) {
+	/*	if (!$this->tank_auth->is_logged_in()) {
 			redirect();
 		}
 
@@ -28,7 +28,7 @@ class Udra_reporte extends CI_Controller {
 		if (!$flag) {
 			show_404();
 			die();
-		}
+		}*/
 	}
 
 	public function index()

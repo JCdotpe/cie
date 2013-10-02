@@ -15,7 +15,7 @@ class Udra extends CI_Controller {
 		$this->load->model('udra/Udra_registro_model');
 		$this->load->model('udra/udra_detalle_model');
 
-		if (!$this->tank_auth->is_logged_in()) {
+	/*	if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
 
@@ -33,7 +33,7 @@ class Udra extends CI_Controller {
 		if (!$flag) {
 			show_404();
 			die();
-		}
+	}*/
 
 
 	}
@@ -118,6 +118,7 @@ class Udra extends CI_Controller {
 					$this->load->view('backend/json/json_view', $data);
         	}
 	}
+
 	public function update_udra_registro(){
 
 

@@ -1304,8 +1304,6 @@ $("#conv_update").validate({
 
 function reg_form(){
 
-
-
     var id_cargo = $('#cargo').val();
     var id_universidad= $('#universidad').val();
     var proyectos_inei= $('#proyectos_inei').val();
@@ -1515,23 +1513,23 @@ $("#form_contacto").validate({
     }
 });
 
-$("#form_contacto").ready(function() {
+   $("#form_contacto").ready(function() {
 
-    $("#nombres").keydown(function(event)
-    {
+        $("#nombres").keydown(function(event)
+        {
 
-        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || event.keyCode == 32 ){
-                 return;
-        }
+            if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || event.keyCode == 32 ){
+                     return;
+            }
 
-        else if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode == 164 || event.keyCode == 165) {
-                 return;
-        }
-        else {
-            event.preventDefault();
-        }
-    });
-});
+            else if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode == 164 || event.keyCode == 165) {
+                     return;
+            }
+            else {
+                event.preventDefault();
+            }
+        });
+  });
   $("#frm_registro").validate({
       rules: {
 
