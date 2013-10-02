@@ -3,7 +3,8 @@
 	$.import('js/visor/nav.js','js');
 	
 </script>
-<div id="predios_Combo" style="width:300px;margin:10px;">
+
+<div id="predios_Combo" >
 
 </div>
 

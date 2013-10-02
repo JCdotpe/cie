@@ -14,7 +14,7 @@
 
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h5 class="modal-title">Seguimiento de Cedulas</h5>
+          <h5 class="modal-title">Visor de Cedulas</h5>
         </div>
 
         <div class="modal-body">
