@@ -116,6 +116,7 @@ function lista_ie(){
 		
 		if(i==0){
 			$('#combo_ie').html('No Existen Instituciones Educativas en el Predio '+getPredio());
+			$('#panel-list-ie').hide();
 		}
 	});
 
@@ -268,6 +269,7 @@ function lista_Predios(){
 		
 		if(i==0){
 			$('#combo_predio').html('No Existen Predios');
+			$('#panel-list-predio').hide();
 		}
 	});
 
@@ -400,7 +402,7 @@ function lista_Anexos(){
 		var first="";
 
 		var combo='<div class="btn-group">'+
-						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_predio" href="#">'+
+						'<a class="btn dropdown-toggle" data-toggle="dropdown" id="combo_anexo" href="#">'+
 							'Seleccione un Anexo '+
 							'<span class="caret"></span>'+
 						'</a>'+
@@ -432,9 +434,10 @@ function lista_Anexos(){
 		}
 
 		$("#list-anexo").html(combo);
-		
+		alert(i)
 		if(i==0){
 			$('#combo_anexo').html('No Existen Anexos');
+			$('#panel-list-anexo').hide();
 		}
 
 
