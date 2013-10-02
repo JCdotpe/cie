@@ -93,12 +93,23 @@
 .filtro_map {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
     border-radius: 5px 5px 5px 5px;
-    bottom: 50px;
+    top: 80px;
     left: 20px;
     margin: 0 !important;
     padding: 7px 12px !important;
     position: absolute;
 }
+
+.coordenadas_map {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+    border-radius: 5px 5px 5px 5px;
+    top: 380px;
+    left: 20px;
+    margin: 0 !important;
+    padding: 7px 12px !important;
+    position: absolute;
+}
+
 .preguntas_sub2 {
     font-size: 11px !important;
     line-height: 20px !important;
@@ -172,9 +183,10 @@
       function createMarkerLEN(latlng,name,html,category,icon,texto) {
           var contentString = html;
           var color = null;
+          var myCoordsLenght = 6;
 
           /*for (var i=0; i<gmarkers.length; i++) {
-                  if (gmarkers[i].mycategory == '1') {
+                  if (gmarkers[i].mycategory == 'punto') {
                       gmarkers[i].setVisible(false);
                }
           } */
@@ -186,7 +198,7 @@
           }
         
           var marker = new MarkerWithLabel({
-              draggable: false,
+              draggable: true,
               raiseOnDrag: false,
               position: latlng,
               map: map,
@@ -205,8 +217,13 @@
               gmarkers.push(marker);
 
               google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(contentString); 
-              infowindow.open(map,marker);
+                infowindow.setContent(contentString); 
+                infowindow.open(map,marker);
+              });
+
+              google.maps.event.addListener(myMarker, 'dragend', function(evt){
+                document.getElementById('latitud').value = evt.latLng.lat().toFixed(myCoordsLenght);
+                document.getElementById('longitud').value = evt.latLng.lng().toFixed(myCoordsLenght);
               });
 
       }
@@ -349,7 +366,7 @@
                     "</div>";
                                   
                     var point = new google.maps.LatLng(val.LatitudPunto,val.LongitudPunto);
-                    var marker = createMarkerLEN(point, val.codigo_de_local, contentString,'1',val.Tipo, val.codigo_de_local+" - "+val.Nro_Pred);
+                    var marker = createMarkerLEN(point, val.codigo_de_local, contentString,'punto',val.Tipo, val.codigo_de_local+" - "+val.Nro_Pred);
                 
                 });
 
@@ -374,45 +391,59 @@
 
 
 
-<div class="filtro_map preguntas_sub2 span2"><div class="row-fluid control-group span9">
-<label class="preguntas_sub2" for="NOM_SEDE">SEDE OPERATIVA</label>
-<div class="controls span">
-<select id="NOM_SEDE" class="span12" name="NOM_SEDE">
-  <!-- AJAX -->
-</select></div></div>
+<div class="filtro_map preguntas_sub2 span2">
+  <div class="row-fluid control-group span9">
+  <label class="preguntas_sub2" for="NOM_SEDE">SEDE OPERATIVA</label>
+  <div class="controls span">
+  <select id="NOM_SEDE" class="span12" name="NOM_SEDE">
+    <!-- AJAX -->
+  </select></div></div>
 
-<div class="row-fluid control-group span9">
-  <label class="preguntas_sub2" for="NOM_DD">PROVINCIA</label>
-  <div class="controls">
-  <select id="NOM_PROV" class="span12" name="NOM_PROV">
-    <option value="0">SELECCIONE...</option>
-  </select>
+  <div class="row-fluid control-group span9">
+    <label class="preguntas_sub2" for="NOM_DD">PROVINCIA</label>
+    <div class="controls">
+    <select id="NOM_PROV" class="span12" name="NOM_PROV">
+      <option value="0">SELECCIONE...</option>
+    </select>
+    </div>
   </div>
+
+  <div class="row-fluid control-group span9">
+    <label class="preguntas_sub2" for="PERIODO">PERIODO</label>
+    <div class="controls">
+    <select id="PERIODO" class="span12" name="PERIODO">
+      <option value="0">SELECCIONE...</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+    </select>
+    </div>
+  </div>
+
+
 </div>
 
-<div class="row-fluid control-group span9">
-  <label class="preguntas_sub2" for="PERIODO">PERIODO</label>
-  <div class="controls">
-  <select id="PERIODO" class="span12" name="PERIODO">
-    <option value="0">SELECCIONE...</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-  </select>
-  </div>
-</div>
+<div class="coordenadas_map preguntas_sub2 span2">
 
+ <!--  <div class="row-fluid control-group span9"> -->
+
+    <label>Latitud:</label>
+    <input type="text" id="latitud" style="width:155px;">
+    <label>Longitud:</label>
+    <input type="text" id="longitud" style="width:155px;">
+
+ <!--  </div> -->
 
 </div>
 
