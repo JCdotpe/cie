@@ -109,7 +109,7 @@ function lista_ie(){
 				'</div>';
 
 		if(i==1){
-			 $("#ie-panel").hide();
+			 $("#ie-panel-bg").hide();
 		}
 
 		$("#ie-panel").html(combo);

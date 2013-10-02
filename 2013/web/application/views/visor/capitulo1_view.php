@@ -9,7 +9,7 @@
 <div class="tab-pane" id="cap1">
 	<div class="content" id="content2">
 
-		<div class="panel" style="background:#DDD;">
+		<div class="panel" id="ie-panel-bg" style="background:#DDD;">
 
 			<strong>Visualizar Instituciones Educativas</strong>
 			<div id="ie-panel" style="margin-top:20px;width:400px;">
