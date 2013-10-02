@@ -45,6 +45,39 @@ $(document).ready(function() {
 	
 	}
 
+	function combo_Selected(){
+
+		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Busca_Predio/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data, textStatus) {
+
+			$.each(data, function(index, val) {
+
+				if(val.Nro_Pred==1){
+					tipo="Predio Principal";
+				}else{
+					tipo=tipoPredio(val.Colindante);
+				}
+
+				if(val.Inmueble_Cod==null || val.Inmueble_Cod==undefined || val.Inmueble_Cod==' ' || val.Inmueble_Cod==''){
+					inmueble=inmueble_Predio(val.Inmueble_Tip);
+
+				}else{
+					inmueble=val.Inmueble_Cod;
+				}
+
+				var predio='<strong>Codigo de Local:</strong> '+val.id_local+' / <strong>Predio Seleccionado:</strong> '+val.Nro_Pred+' ('+tipo+') / <strong>Propietario:</strong> '+prop_Predio(val.Pred_Prop,val.Pred_Prop_O)+' / <strong>Inmueble:</strong> '+inmueble+'</strong>';
+
+				$("#selected_Combo").html(predio);
+			});
+
+			
+
+
+		});
+
+
+
+	}
+
 	function comboPredios(){
 
 		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: getLocal()}, function(data, textStatus) {
@@ -64,8 +97,9 @@ $(document).ready(function() {
 					tipo=tipoPredio(val.Colindante);
 				}
 
-				if(val.Inmueble_Cod==null || val.Inmueble_Cod==undefined || val.Inmueble_Cod==''){
+				if(val.Inmueble_Cod==null || val.Inmueble_Cod==undefined || val.Inmueble_Cod==' ' || val.Inmueble_Cod==''){
 					inmueble=inmueble_Predio(val.Inmueble_Tip);
+
 				}else{
 					inmueble=val.Inmueble_Cod;
 				}
@@ -79,9 +113,10 @@ $(document).ready(function() {
 			combo+='</ul>'+
 					'</div>';
 
-			$('#predios_Combo').html(combo)
-
+			$('#predios_Combo').html(combo);
+			
 			combo_Active();
+			combo_Selected()
 						
 		});
 	

@@ -225,7 +225,9 @@ function prop_Predio(codigo,otro){
 }
 
 function inmueble_Predio(codigo){
+    
     switch(codigo){
+
         case null:
             return 'No Ingresado';
         break;

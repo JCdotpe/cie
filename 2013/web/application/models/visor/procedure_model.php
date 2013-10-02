@@ -21,6 +21,13 @@ class Procedure_model extends CI_MODEL{
     
     }
 
+    function Busca_Predio($codigo_de_local,$predio){
+
+        $q=$this->db->query("CAP01_Busca_Predio ?,?", array($codigo_de_local,$predio)); 
+        return $q;
+        
+    }
+
     function Lista_Anexo($codigo_de_local){
        
         $q=$this->db->query("CAP01_Lista_Anexo ?", array($codigo_de_local)); 

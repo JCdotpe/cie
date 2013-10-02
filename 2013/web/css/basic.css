@@ -34,6 +34,16 @@ input{
 	/*background: #CCC;*/
 }
 
+#selected_Combo{
+
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background: #FCFCD7;
+
+}
+
 #footer{
 
 	margin: 0 auto;
