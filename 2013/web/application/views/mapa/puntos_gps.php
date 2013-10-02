@@ -33,7 +33,7 @@
       }
     </style>
     <style type="text/css">
-       .labels {
+       .glabels {
          color: black;
          font-family: "Lucida Grande", "Arial", sans-serif;
          font-size: 15px;
@@ -41,8 +41,8 @@
          text-align: center;
          width: auto;
          white-space: nowrap;
-         background: yellow;
-         padding: 3px;
+         background: #FFF;
+         padding: 2px;
          border: 1px solid black;
        }
 
@@ -221,9 +221,10 @@
                 infowindow.open(map,marker);
               });
 
-              google.maps.event.addListener(myMarker, 'dragend', function(evt){
+              google.maps.event.addListener(marker, 'dragend', function(evt){
                 document.getElementById('latitud').value = evt.latLng.lat().toFixed(myCoordsLenght);
                 document.getElementById('longitud').value = evt.latLng.lng().toFixed(myCoordsLenght);
+                prompt('',JSON.stringify(evt));
               });
 
       }
@@ -437,12 +438,15 @@
 <div class="coordenadas_map preguntas_sub2 span2">
 
  <!--  <div class="row-fluid control-group span9"> -->
-
+    <div>
+      <h5>Actalizar Coordenadas <span id="id_local"></span></h5>
+    </div>
+    
     <label>Latitud:</label>
     <input type="text" id="latitud" style="width:155px;">
     <label>Longitud:</label>
     <input type="text" id="longitud" style="width:155px;">
-
+    <button type="submit" class="btn">Actualizar</button>
  <!--  </div> -->
 
 </div>
@@ -452,11 +456,11 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span9">
-      <p>AVANCE DE LA COBERTURA DE LOCALES ESCOLARES: 3845 / 49638 </p>
+      <p>COBERTURA DE LOCALES ESCOLARES</p>
     </div>
 
     <div class="span3">
-      <p class="pull-right">CENSO DE INFRAESTRUCTURA EDUCATIVA 2013</p>
+      <p class="pull-right">CIE 2013</p>
     </div>    
 
   </div>
