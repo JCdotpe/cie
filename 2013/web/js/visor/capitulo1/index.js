@@ -60,7 +60,7 @@ function P1A(){
 		
 		$.each(data, function(index, val) {
 
-			$('#nie2').val(val.P1_A_1_Cant_IE);
+			$('#nie2').val(leftceros(val.P1_A_1_Cant_IE));
 
 		});
 
@@ -130,7 +130,7 @@ function P1A2N(ie){
 		
 		$.each(data, function(index, val) {
 
-			$("#P1_A_2_NroIE").val(val.P1_A_2_NroIE);
+			$("#P1_A_2_NroIE").val(leftceros(val.P1_A_2_NroIE));
 			$("#P1_A_2_1_NomIE").val(val.P1_A_2_1_NomIE);
 			$("#P1_A_2_2_Direc").val(val.P1_A_2_2_Direc);
 			$("#P1_A_2_3_DocNro").val(val.P1_A_2_3_DocNro);
@@ -141,7 +141,7 @@ function P1A2N(ie){
 			$("#P1_A_2_5_EmailDir").val(val.P1_A_2_5_EmailDir);
 			$("#P1_A_2_6_Informant").val(val.P1_A_2_6_Informant);
 			$("#P1_A_2_7_InformantCarg").val(val.P1_A_2_7_InformantCarg);
-			$("#P1_A_2_8_Can_CMod_IE").val(val.P1_A_2_8_Can_CMod_IE);
+			$("#P1_A_2_8_Can_CMod_IE").val(leftceros(val.P1_A_2_8_Can_CMod_IE));
 			$("#P1_A_2_Obs").val(val.P1_A_2_Obs);
 			get_P1_A_2_8N(getLocal(),getPredio(),val.P1_A_2_NroIE);
 
@@ -173,8 +173,8 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 				'<td>'+val.P1_A_2_9B_CodLocal+'</td>'+
 				'<td>'+val.P1_A_2_9C_Nivel+'</td>'+
 				'<td>'+val.P1_A_2_9D_Car+'</td>'+
-				'<td>'+val.P1_A_2_9E_NroAnex+'</td>'+
-				'<td>'+val.P1_A_2_9F_CantAnex+'</td>'+
+				'<td>'+leftceros(val.P1_A_2_9E_NroAnex)+'</td>'+
+				'<td>'+leftceros(val.P1_A_2_9F_CantAnex)+'</td>'+
 				'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
 				'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
 				'<td>'+val.P1_A_2_9I_T2_Talu+'</td>'+
@@ -189,7 +189,7 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 							'<td></td>'+
 							'<th colspan="2" style="text-align:center;">Nombre asignado al anexo</th>'+
 							'<th style="text-align:center;">N°</th>'+
-							'<td>'+val.P1_A_2_9_AnexNro+'</td>'+
+							'<td>'+leftceros(val.P1_A_2_9_AnexNro)+'</td>'+
 							'<td colspan="2">'+val.P1_A_2_9_AnexNomb+'</td>'+
 							'<td>'+val.P1_A_2_9G_T1_Talu+'</td>'+
 							'<td>'+val.P1_A_2_9H_T1_Taul+'</td>'+
@@ -434,7 +434,7 @@ function lista_Anexos(){
 		}
 
 		$("#list-anexo").html(combo);
-		alert(i)
+		
 		if(i==0){
 			$('#combo_anexo').html('No Existen Anexos');
 			$('#panel-list-anexo').hide();

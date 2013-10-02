@@ -55,7 +55,7 @@ function get_PCar(type){
 
 					$('#PC_A_9_RefDir').val(val.PC_A_9_RefDir);
 					
-					$('#PC_B_2_CantEv').val(val.PC_B_2_CantEv);
+					$('#PC_B_2_CantEv').val(leftceros(val.PC_B_2_CantEv));
 
 					get_PCar_C_1N(val.PC_B_1_CodLocal)
 
@@ -82,13 +82,13 @@ function get_PCar(type){
 					$('#PC_D_SupN_dni').html(val.PC_D_SupN_dni);
 					$('#PC_D_SupN_Nomb').html(val.PC_D_SupN_Nomb);
 
-					$('#PC_E_1_TPred').html(val.PC_E_1_TPred);
-					$('#PC_E_2_TPred_NoCol').html(val.PC_E_2_TPred_NoCol);
-					$('#PC_E_3_TEdif').html(val.PC_E_3_TEdif);
-					$('#PC_E_4_TPat').html(val.PC_E_4_TPat);
-					$('#PC_E_5_TLosa').html(val.PC_E_5_TLosa);
-					$('#PC_E_6_TCist').html(val.PC_E_6_TCist);
-					$('#PC_E_7_TMurCon').html(val.PC_E_7_TMurCon);
+					$('#PC_E_1_TPred').html(leftceros(val.PC_E_1_TPred));
+					$('#PC_E_2_TPred_NoCol').html(leftceros(val.PC_E_2_TPred_NoCol));
+					$('#PC_E_3_TEdif').html(leftceros(val.PC_E_3_TEdif));
+					$('#PC_E_4_TPat').html(leftceros(val.PC_E_4_TPat));
+					$('#PC_E_5_TLosa').html(leftceros(val.PC_E_5_TLosa));
+					$('#PC_E_6_TCist').html(leftceros(val.PC_E_6_TCist));
+					$('#PC_E_7_TMurCon').html(leftceros(val.PC_E_7_TMurCon));
 					$('#Nro_Pred').html(val.Nro_Pred);
 
 				}
