@@ -78,11 +78,11 @@ function get_P2_B(){
 			 	check_Radio(val.P2_B_5B_3,"P2_B_5B_3");
 			 	check_Radio(val.P2_B_5B_4,"P2_B_5B_4");
 
-			 	$("#P2_B_6_Trec_H").val(val.P2_B_6_Trec_H);
-		 		$("#P2_B_6_Trec_M").val(val.P2_B_6_Trec_M);
+			 	$("#P2_B_6_Trec_H").val(leftceros(val.P2_B_6_Trec_H));
+		 		$("#P2_B_6_Trec_M").val(leftceros(val.P2_B_6_Trec_M));
 
-		 		$("#P2_B_7_Ttramo_H").val(val.P2_B_7_Ttramo_H);
-		 		$("#P2_B_7_Ttramo_M").val(val.P2_B_7_Ttramo_M);
+		 		$("#P2_B_7_Ttramo_H").val(leftceros(val.P2_B_7_Ttramo_H));
+		 		$("#P2_B_7_Ttramo_M").val(leftceros(val.P2_B_7_Ttramo_M));
 
 		 		check_Radio(val.P2_B_8_Pelig,"P2_B_8_Pelig");
 
@@ -155,9 +155,9 @@ function get_P2_D(){
 
 		$.each(data, function(index, val) {
 
-			$("#P2_D_2_Energ_CantSum").val(val.P2_D_2_Energ_CantSum);
+			$("#P2_D_2_Energ_CantSum").val(leftceros(val.P2_D_2_Energ_CantSum));
 			$("#P2_D_4_Energ_Emp").val(val.P2_D_4_Energ_Emp);
-			$("#P2_D_6_Agua_CantSum").val(val.P2_D_6_Agua_CantSum);
+			$("#P2_D_6_Agua_CantSum").val(leftceros(val.P2_D_6_Agua_CantSum));
 			$("#P2_D_8_Agua_Emp").val(val.P2_D_8_Agua_Emp);
 			check_Radio(val.P2_D_9_Desag,"P2_D_9_Desag");
 
@@ -276,7 +276,7 @@ function get_P2_E(){
 		$.each(data, function(index, val) {
 
 			check_Radio(val.P2_E_1_Prayo,'P2_E_1_Prayo');
-			$('#P2_E_2_Ptierra').val(val.P2_E_2_Ptierra);
+			$('#P2_E_2_Ptierra').val(leftceros(val.P2_E_2_Ptierra));
 			$('#P2_E_3_Ano').val(val.P2_E_3_Ano);
 			$('#P2_E_Obs').val(val.P2_E_Obs);
 			

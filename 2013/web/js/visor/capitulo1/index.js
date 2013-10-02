@@ -283,7 +283,7 @@ function get_P1B(){
 
 		$.each(data, function(index, val) {
 
-			$("#P1_B_1_TPred").val(val.P1_B_1_TPred);
+			$("#P1_B_1_TPred").val(leftceros(val.P1_B_1_TPred));
 			check_Radio(val.P1_B_2_PredCol,"P1_B_2_PredCol");
 
 		});
@@ -318,7 +318,7 @@ function get_P1B3N(predio){
 		
 		$.each(data, function(index, val) {
 
-			$("#Nro_Pred").val(val.Nro_Pred);
+			$("#Nro_Pred").val(leftceros(val.Nro_Pred));
 			$("#P1_B_3_InmCod").val(val.P1_B_3_InmCod);
 
 			check_Radio(val.P1_B_3_InmTip,"P1_B_3_InmTip");
@@ -363,7 +363,7 @@ function get_P1B3N(predio){
 
 			check_Radio(val.P1_B_3_10_Comp,"P1_B_3_10_Comp");
 			
-			$("#P1_B_3_11_CompCan").val(val.P1_B_3_11_CompCan);
+			$("#P1_B_3_11_CompCan").val(leftceros(val.P1_B_3_11_CompCan));
 			$("#P1_B_3_Obs").val(val.P1_B_3_Obs);
 
 		});
@@ -451,15 +451,15 @@ function P1C(nroie,nmodulo,anexo){
 		
 		$.each(data, function(index, val){
 
-		$("#P1_A_2_9_NroCMod").val(val.P1_A_2_9_NroCMod)
-		$("#P1_A_2_9_Nro").val(val.P1_A_2_9_Nro)
+		$("#P1_A_2_9_NroCMod").val(leftceros(val.P1_A_2_9_NroCMod));
+		$("#P1_A_2_9_Nro").val(leftceros(val.P1_A_2_9_Nro));
 		$("#P1_C_1_CodLoc_Anex").val(val.P1_C_1_CodLoc_Anex)
 		
 		check_Radio(val.P1_C_6Dir_1_Tvia,"P1_C_6Dir_1_Tvia");
 		
 		$("#P1_C_6Dir_2_Nomb").html(val.P1_C_6Dir_2_Nomb);
 		$("#P1_C_6Dir_3_Nro").html(val.P1_C_6Dir_3_Nro);
-		$("#P1_C_6Dir_4_Piso").html(val.P1_C_6Dir_4_Piso);
+		$("#P1_C_6Dir_4_Piso").html(leftceros(val.P1_C_6Dir_4_Piso));
 		$("#P1_C_6Dir_5_Mz").html(val.P1_C_6Dir_5_Mz);
 		$("#P1_C_6Dir_6_Lt").html(val.P1_C_6Dir_6_Lt);
 		$("#P1_C_6Dir_7_Sect").html(val.P1_C_6Dir_7_Sect);
@@ -512,7 +512,7 @@ function P1C(nroie,nmodulo,anexo){
 
 		check_Radio(val.P1_C_18_Comp,"P1_C_18_Comp");
 
-		$("#P1_C_19_CompCan").val(val.P1_C_19_CompCan);
+		$("#P1_C_19_CompCan").val(leftceros(val.P1_C_19_CompCan));
 		$("#P1_C_Obs").val(val.P1_C_Obs);
 		
 		});
