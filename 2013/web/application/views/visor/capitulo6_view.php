@@ -1559,19 +1559,13 @@
 															</label>
 				  	    								</td>
 				  	    								<td>
-				  	    									<!--<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3">
-															</label>-->
+
 				  	    								</td>
 				  	    								<td>
-				  	    									<!--<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 2
-															</label>-->
+
 				  	    								</td>
 				  	    								<td>
-				  	    									<!--<label class="checkbox">
-																<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-															</label>-->
+
 				  	    								</td>
 			  	    								</tr>
 			  	    							</tbody>
@@ -1980,7 +1974,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P6_5_1A" id="P6_5_1A3" value="option1">
-													    2. Colapso total
+													    3. Colapso total
 													</label>
 											</div>
 										</td>

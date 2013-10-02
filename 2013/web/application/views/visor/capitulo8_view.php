@@ -225,6 +225,14 @@
 											</div>
 		  	    						</td>
 		  	    					</tr>
+		  	    					<tr>
+			  	    					<td colspan="3">
+			  	    							<div class="panel">
+													<label>Observaciones:</label>
+													<textarea style="width:870px; height:100px;" id="P8_ObsP"></textarea>
+												</div>
+			  	    					</td>
+			  	    				</tr>
 		  	    				</tbody>
 		  	    			</table>
 
@@ -433,6 +441,14 @@
 											</div>
 		  	    						</td>
 		  	    					</tr>
+		  	    					<tr>
+			  	    					<td colspan="3">
+			  	    							<div class="panel">
+													<label>Observaciones:</label>
+													<textarea style="width:870px; height:100px;" id="P8_ObsLD"></textarea>
+												</div>
+			  	    					</td>
+			  	    				</tr>
 		  	    				</tbody>
 		  	    			</table>
 
@@ -647,6 +663,14 @@
 											</div>
 		  	    						</td>
 		  	    					</tr>
+		  	    					<tr>
+			  	    					<td colspan="3">
+			  	    							<div class="panel">
+													<label>Observaciones:</label>
+													<textarea style="width:870px; height:100px;" id="P8_ObsCTE"></textarea>
+												</div>
+			  	    					</td>
+			  	    				</tr>
 		  	    				</tbody>
 		  	    			</table>
 
@@ -855,9 +879,19 @@
 											</div>
 		  	    						</td>
 		  	    					</tr>
+		  	    					<tr>
+		  	    						<td colspan="3">
+		  	    							<div class="panel">
+												<label>Observaciones:</label>
+												<textarea style="width:870px; height:100px;" id="P8_ObsMC"></textarea>
+											</div>
+		  	    						</td>
+		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
 
 		  	    		</div>
+
 	  	    		</div>
+
 	  	    	</div><!-- END CAPITULO 8-->

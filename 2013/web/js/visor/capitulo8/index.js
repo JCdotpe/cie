@@ -241,6 +241,7 @@ function Get_Edif(prefijo,numero){
 					check_Radio(val.P8_Est_E,'P8_Est_E'+prefijo);
 					check_Radio(val.P8_Ant,'P8_Ant'+prefijo);
 					check_Radio(val.P8_RecTec,'P8_RecTec'+prefijo);
+					$('#P8_Obs'+prefijo).val(val.P8_Obs);
 			});
 
 

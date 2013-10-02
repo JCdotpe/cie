@@ -1255,7 +1255,7 @@
 											<div class="radio">
 												<label>
 													<input type="radio" name="P7_2_1" id="P7_2_13" value="option1" >
-													    2. Demolición
+													    3. Demolición
 													</label>
 											</div>
 	  	    						</td>
@@ -1267,13 +1267,17 @@
 	  	    						</td>
 	  	    						<td>
 	  	    								<div class="panel">
-												<label>Observaciones:</label>
+
 												<textarea style="width:870px; height:100px;" id="P7_2_2"></textarea>
 											</div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
 	  	    			</table>
+		  	    			<div class="panel">
+		  	    				<label> Observaciones</label>
+								<textarea style="width:870px; height:100px;" id="P7_Obs"></textarea>
+							</div>
 	  	    			</div>
 	  	    		</div>
 	  	    	</div><!-- END CAPITULO 7-->

@@ -34,10 +34,38 @@ $(document).ready(function(){
 		$(this).addClass('active');
 		Get_Edif_Pisos_Ambiente(nro_edif,1,1);
 
+
 		/*--------------- reset  ---------------------*/
+
 		$('#seccion_a_p10 input').val('');
  		$('#seccion_a_p10 input').attr('checked', false);
 
+
+
+ 		$('#pag_seccion_b2 input').val('');
+ 		$('#pag_seccion_b2 input').attr('checked', false);
+
+		$('#aulacomun input').val('');
+ 		$('#aulacomun input').attr('checked', false);
+
+ 		$('#espaciopedagogico input').val('');
+ 		$('#espaciopedagogico input').attr('checked', false);
+
+ 		$('#administrativo input').val('');
+ 		$('#administrativo input').attr('checked', false);
+
+ 		$('#complementario input').val('');
+ 		$('#complementario input').attr('checked', false);
+
+ 		$('#servicios input').val('');
+ 		$('#servicios input').attr('checked', false);
+
+
+ 		$('#sshh input').val('');
+ 		$('#sshh input').attr('checked', false);
+
+ 		$('#evasshhh input').val('');
+ 		$('#evasshhh input').attr('checked', false);
 
 
 
@@ -274,6 +302,7 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 						check_Radio(val.P6_2_4Turno_N,val.P6_2_4ID+'P6_2_4Turno_N');
 						i++;
 					});
+
 					check_Radio(val.P6_2_5,'P6_2_5');
 					switch(val.P6_2_5){
 						case 1 :
@@ -382,6 +411,7 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
   									$("#evasshhh").hide();
   									$("#servicios").show();
   									$("#aulacomun").show();
+
   									if (val.P6_2_13==1 || val.P6_2_13==2) {
   										$("#sshh").show();
   										$("#evasshhh").show();
@@ -460,12 +490,6 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
   									/*--------------otro----------------*/
   									$("#P6_2_16f").val(val.P6_2_16f);
 
-  									/*$("#P6_2_16f_b").val(val.P6_2_16f_b);
-  									$("#P6_2_16f_r").val(val.P6_2_16f_r);
-  									$("#P6_2_16f_m").val(val.P6_2_16f_m);*/
-
-
-
   									check_Radio(val.P6_2_16f,'P6_2_16f');
 
 
@@ -492,9 +516,6 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
   									$("#P6_2_18e_m").val(val.P6_2_18e_m);
   									/*----------------------------------*/
 
-  									/*$("#P6_2_18f_b").val(val.P6_2_18f_b);
-  									$("#P6_2_18f_r").val(val.P6_2_18f_r);
-  									$("#P6_2_18f_m").val(val.P6_2_18f_m);*/
   									check_Radio(val.P6_2_18f,'P6_2_18f');
 
   									$("#P6_2_19a").val(val.P6_2_19a);
@@ -601,9 +622,18 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 					check_Radio(val.P6_5_1,'P6_5_1');
 					check_Radio(val.P6_5_1A,'P6_5_1A');
 					$('#P6_Obs').val(val.P6_Obs);
+
+
+					/*------- Condiciones seccion 6 pregunta 2  ---------*/
+
 					if (val.P6_3_1==2) {
 						$('#distribucion').hide();
+					}else{
+						$('#distribucion').show();
 					};
+
+
+
 					if (val.P6_3_2==2) {
 						$('#distribucionp2a').hide();
 						$('#distribucionp2b').hide();
@@ -611,18 +641,44 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 						$('#distribucionp2d').hide();
 						$('#distribucionp3').hide();
 						$('#distribucionp3a').hide();
+
 					}else{
+
+						$('#distribucionp2a').show();
+						$('#distribucionp2b').show();
+						$('#distribucionp2c').show();
+						$('#distribucionp2d').show();
+						$('#distribucionp3').show();
+						$('#distribucionp3a').show();
 
 						if (val.P6_3_3==2) {
 							$('#distribucionp3a').hide();
+						}else{
+							$('#distribucionp3a').show();
 						};
 					};
+
+					/*---------------------------------------------------*/
+
+
+
+					/*---------- condiciones sección d y e ---------------*/
+
 					if (val.P6_4_1==2) {
 						$('#secciondp1a').hide();
+					}else{
+						$('#secciondp1a').show();
 					};
+
 					if (val.P6_5_1==2) {
 						$('#seccionep1a').hide();
+					}else{
+						$('#seccionep1a').show();
 					};
+					/*----------------------------------------------------*/
+
+
+
 
 		  	    	html+='<table class="table table-bordered">'+
 		  	    			'<tbody>'+

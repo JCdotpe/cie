@@ -27,6 +27,13 @@ $(document).ready(function(){
 		$('.combo_ins').removeClass('active');
 		$(this).addClass('active');
 
+		/*--------------- reset  ---------------------*/
+
+		$('#cap7 input').val('');
+ 		$('#cap7 input').attr('checked', false);
+
+
+
 	});
 
 
@@ -110,6 +117,7 @@ function Get_cap7(nro_edif){
 	$.getJSON(CI.base_url+'index.php/visor/P7/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
 		$.each(data, function(index, val) {
 			$('#P7_2_2').val(val.P7_2_2);
+			$('#P7_Obs').val(val.P7_Obs);
 			$('#Nro_Ed').val(leftceros(val.Nro_Ed));
 			check_Radio(val.P7_1_2,'P7_1_2');
 			check_Radio(val.P7_1_3,'P7_1_3');
@@ -147,6 +155,7 @@ function Get_cap7(nro_edif){
 			check_Radio(val.P7_1_27,'P7_1_27');
 			check_Radio(val.P7_1_28,'P7_1_28');
 			check_Radio(val.P7_2_1,'P7_2_1');
+
 		});
 	}).fail(function( jqxhr, textStatus, error ) {
 
