@@ -39,7 +39,7 @@ class Reporte_ubigeo extends CI_Controller {
 
 	public function index()
 	{
-		$data['option'] = 4;
+		$data['option'] = 3;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Ubigeo';
 		$data['main_content'] = 'seguimiento/reporte_ubigeo_view';

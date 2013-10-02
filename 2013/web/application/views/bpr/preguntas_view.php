@@ -112,7 +112,7 @@
 					</div>
 				</div>
 				-->
-				<div class="span6">
+				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
@@ -125,6 +125,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="span3"></div>
 				<div>
 					<div class="span3">
 						<div class="control-group">

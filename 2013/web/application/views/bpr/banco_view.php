@@ -16,7 +16,6 @@
 		$sedeArray[$filas->cod_sede_operativa] = utf8_encode(strtoupper($filas->sede_operativa));
 	}
 	$provArray = array(-1 => '');
-	//$distArray = array(-1 => '');
 
 	$cargosArray = array(-1 => 'Seleccione...'); 
 	$cargospresupuestario=array(-1 => '-1');
@@ -97,17 +96,7 @@
 						</div>
 					</div>
 				</div>
-				<!--
 				<div class="span3">
-					<div class="control-group">
-						<?php #echo form_label('Distrito', 'distrito', $label_class); ?>
-						<div class="controls">
-							<?php #echo form_dropdown('distrito', $distArray, '#', 'id="distrito"'); ?>
-						</div>
-					</div>
-				</div>
-				-->
-				<div class="span6">
 					<div class="control-group">
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
@@ -119,6 +108,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="span3"></div>
 				<div>
 					<div class="span3">
 						<div class="control-group">
@@ -154,6 +144,32 @@
 					</div>
 				</div>
 			</div>
+			<div class="accordion" id="accordion2">
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						Pregunta #1
+						</a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Repuesta de la Pregunta #1
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+						Pregunta #2
+						</a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse">
+						<div class="accordion-inner">
+        					Respuesta de la Pregunta #2
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="v_banco" class="row-fluid well top-conv">
 			</div>
 			<?php echo form_close(); ?>			
@@ -164,8 +180,41 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		ListarBanco();
+		ListarPreguntaPrincipal();
 	});
+
+
+function ListarPreguntaPrincipal()
+{
+	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
+
+		var html="";
+
+				/*<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						Pregunta #1
+						</a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Repuesta de la Pregunta #1
+						</div>
+					</div>
+				</div>*/
+
+		$.each(data, function(index, val) {
+			html+='<div class="accordion-group">'+
+					'<div class="accordion-heading">'+
+						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">'+
+							val.consulta+
+						'</a>'+
+					'</div>';
+		});
+		$("#accordion2").html(html);
+	});
+}
+
 
 function ListarBanco()
 {

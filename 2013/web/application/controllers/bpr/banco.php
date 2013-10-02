@@ -44,7 +44,7 @@ class Banco extends CI_Controller {
 			"id_nro" => $fila->id_nro,
 			"consulta" => $fila->consulta,
 			"fecha_creacion" => $fila->fecha_creacion,
-			"respuesta" => $this->view_ultima_respuesta($fila->id_cuestionario));
+			"historial" => $this->view_historial_tema($fila->id_cuestionario));
 
 			$jsonData = my_json_encode($x);
 
@@ -57,9 +57,9 @@ class Banco extends CI_Controller {
 
 	}
 
-	public function view_ultima_respuesta($id_cuestionario)
+	public function view_historial_tema($id_cuestionario)
 	{
-		$res = $this->bpr_model->get_ultima_respuesta($id_cuestionario);
+		$res = $this->bpr_model->get_historial_tema($id_cuestionario);
 
 		return $res->result();
 	}

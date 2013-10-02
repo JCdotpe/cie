@@ -35,7 +35,7 @@ class Reporte_avance_odei extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('seguimiento/operativa_model');
-		$data['option'] = 3;
+		$data['option'] = 4;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Avance por ODEI';
 		$data['main_content'] = 'seguimiento/reporte_avance_odei_view';
