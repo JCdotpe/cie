@@ -573,10 +573,10 @@
 		  	    					<td>5.</td>
 		  	    					<td>
 		  	    						<strong>
-		  	    							¿cuál es la función del espacio educativo?
+		  	    							¿Cuál es la función del espacio educativo?
 		  	    						</strong>
 		  	    						<br />
-		  	    						<label>(Acepte uno o más códigos)</label>
+		  	    						<label>(Acepte sólo un código)</label>
 		  	    					</td>
 		  	    					<td>
 		  	    						<label class="radio">
@@ -1049,7 +1049,7 @@
 		  	    						<td>14A.</td>
 		  	    						<td>
 		  	    							<strong>
-		  	    								Del total de inodoros del ss.hh., ¿cuántos cumplen con la función de descarga?
+		  	    								Del total de inodoros del ss.hh., ¿Cuántos cumplen con la función de descarga?
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
