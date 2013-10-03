@@ -56,7 +56,7 @@ $(document).ready(function(){
 
 function P1A(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1a/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -76,7 +76,7 @@ function P1A(){
 
 function lista_ie(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_IE/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_IE/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 	
 		var html="";
 		var ie="";
@@ -124,7 +124,7 @@ function lista_ie(){
 
 function P1A2N(ie){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A2N/Data/format/json/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: ie}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1a2n/Data/format/json/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: ie}, function(data, textStatus) {
 
 		$('#ie_educa').show();
 		
@@ -161,7 +161,7 @@ function P1A2N(ie){
 
 function get_P1_A_2_8N(cod_local,predio,nroie){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1A28N/Tabla/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1a28n/Tabla/', {token: getToken(), id_local: getLocal(), predio: getPredio(), nroie: nroie}, function(data, textStatus) {
 
 		var html="";
 
@@ -212,7 +212,7 @@ function get_P1_A_2_8N(cod_local,predio,nroie){
 
 function lista_Predios(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_Predio/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 	
 		var html="";
 		var ie="";
@@ -277,7 +277,7 @@ function lista_Predios(){
 
 function get_P1B(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1B/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1b/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$('#table_predios').show();
 
@@ -294,7 +294,7 @@ function get_P1B(){
 }
 
 function get_P1B2AN(){
-	$.getJSON(urlRoot('index.php')+'/visor/P1B2AN/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1b2an/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 
 		var p="";
 		var c=0;
@@ -314,7 +314,7 @@ function get_P1B2AN(){
 
 function get_P1B3N(predio){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1B3N/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1b3n/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -375,7 +375,7 @@ function get_P1B3N(predio){
 
 function get_P1B312N(predio){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1B312N/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1b312n/Data/', {token: getToken(),id_local: getLocal(), predio: predio}, function(data, textStatus) {
 		
 		var c=0;
 		var p="";
@@ -394,7 +394,7 @@ function get_P1B312N(predio){
 
 function lista_Anexos(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Anexo/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_Anexo/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 	
 		var html="";
 		var ie="";
@@ -447,7 +447,7 @@ function lista_Anexos(){
 
 function P1C(nroie,nmodulo,anexo){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1C/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1c/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
 		
 		$.each(data, function(index, val){
 
@@ -524,7 +524,7 @@ function P1C(nroie,nmodulo,anexo){
 
 function P1C20N(nroie,nmodulo,anexo){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P1C20N/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p1c20n/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
 		p="";
 		c=0;
 		$.each(data, function(index, val) {
@@ -544,7 +544,7 @@ function P1C20N(nroie,nmodulo,anexo){
 
 function Anexos_Datos(nroie,nmodulo,anexo){
 
-	$.getJSON(urlRoot('index.php')+'/visor/Procedure/Anexo_Datos/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/procedure/Anexo_Datos/', {token: getToken(),id_local: getLocal(), predio:getPredio(), nmodulo:nmodulo, nroie:nroie, anexo: anexo}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 

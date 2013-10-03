@@ -351,7 +351,7 @@
 
     function puntosGPS(sede,provincia,periodo){
   
-        $.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
                
                 $.each(data, function(i, val){
 

@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 function P4(){
 
-	$.getJSON(urlRoot('index.php')+'/visor/P4/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p4/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 		$.each(data, function(index, val) {
 
@@ -43,7 +43,7 @@ function P42N(){
 
 
 
-	$.getJSON(urlRoot('index.php')+'/visor/P42N/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/p42n/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 
 		i = 1;
 

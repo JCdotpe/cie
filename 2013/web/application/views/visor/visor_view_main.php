@@ -95,7 +95,7 @@
 
     function query_by_local(id_local){
         
-        $.getJSON(urlRoot('index.php')+'/visor/Procedure/QueryLocal/', {token: getToken(),id_local:id_local}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/visor/procedure/QueryLocal/', {token: getToken(),id_local:id_local}, function(data, textStatus) {
             
                 table='<table id="lista" style="width:950px;" class="display">'+
                     '<thead>'+

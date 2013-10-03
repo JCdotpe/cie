@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 function get_P2_A(){
 
-		$.getJSON(CI.base_url+'index.php/visor/P2A/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p2a/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
 
 			$.each(data, function(index, val) {
 
@@ -53,7 +53,7 @@ function get_P2_A(){
 
 function get_P2_B(){
 
-		$.getJSON(CI.base_url+'index.php/visor/P2B/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p2b/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
 
 			$.each(data, function(index, val) {
 
@@ -127,7 +127,7 @@ function get_P2_B(){
 
 function get_P2_C(){
 
-		$.getJSON(CI.base_url+'index.php/visor/P2C/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p2c/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
 
 			$.each(data, function(index, val) {
 
@@ -151,7 +151,7 @@ function get_P2_C(){
 
 function get_P2_D(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -168,7 +168,7 @@ function get_P2_D(){
 
 function get_P2_D_1N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D1N/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()} , function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d1n/Data/', {token: getToken(),id_local: getLocal(), predio: getPredio()} , function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -187,7 +187,7 @@ function get_P2_D_1N(){
 
 function get_P2_D_3N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D3N/Data/', {token: getToken(),id_local: getLocal() , predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d3n/Data/', {token: getToken(),id_local: getLocal() , predio: getPredio()}, function(data) {
 
 
 			html='<table class="table table-bordered">'+
@@ -214,7 +214,7 @@ function get_P2_D_3N(){
 
 function get_P2_D_5N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D5N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d5n/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -233,7 +233,7 @@ function get_P2_D_5N(){
 
 function get_P2_D_7N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D7N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d7n/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 
 			html='<table class="table table-bordered">'+
@@ -259,7 +259,7 @@ function get_P2_D_7N(){
 
 function get_P2_D_9N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2D9N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2d9n/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -271,7 +271,7 @@ function get_P2_D_9N(){
 
 function get_P2_E(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2E/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2e/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -289,7 +289,7 @@ function get_P2_E(){
 
 function get_P2_F(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2F/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2f/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -303,7 +303,7 @@ function get_P2_F(){
 
 function get_P2_G(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2G/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2g/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 
@@ -318,7 +318,7 @@ function get_P2_G(){
 
 function get_P2_G_2N(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P2G2N/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p2g2n/Data/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data) {
 
 		$.each(data, function(index, val) {
 

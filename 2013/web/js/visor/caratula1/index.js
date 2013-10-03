@@ -23,7 +23,7 @@ function get_PadLocal(cod_local){
 function get_PCar(type){
 
 	var cod_loc="";
-	$.getJSON(urlRoot('index.php')+'/visor/PCar/Data/', {token:getToken() ,id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/pcar/Data/', {token:getToken() ,id_local: getLocal(), predio: getPredio()}, function(data, textStatus) {
 		
 			$.each(data, function(index, val) {
 				
@@ -106,7 +106,7 @@ function get_PCar(type){
 
 function get_PCar_C_1N(cod_local){
 	
-	$.getJSON(urlRoot('index.php')+'/visor/PCarC1N/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/visor/pcarc1n/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data, textStatus) {
 	
 		var html="";
 

@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 	function combo_Selected(){
 
-		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Busca_Predio/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data, textStatus) {
+		$.getJSON(urlRoot('index.php')+'/visor/procedure/Busca_Predio/', {token: getToken(),id_local: getLocal(),predio: getPredio()}, function(data, textStatus) {
 
 			$.each(data, function(index, val) {
 
