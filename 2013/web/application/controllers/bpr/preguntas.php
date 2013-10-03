@@ -10,9 +10,6 @@ class Preguntas extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 
-		//$this->load->model('convocatoria/Dpto_model');
-		//$this->load->model('convocatoria/Provincia_model');
-		//$this->load->model('convocatoria/Dist_model');
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
 	}
@@ -42,20 +39,7 @@ class Preguntas extends CI_Controller {
 		}
 		$this->load->view('backend/json/json_view', $return_arr);
 	}
-/*
-	public function obtenerdistrito()
-	{
-		$dist = $this->operativa_model->Get_DistbySedeProv_Ope($_POST['id_sede'],$_POST['id_prov']);
-		$return_arr['datos']=array();
-		foreach($dist->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->CCDI;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-*/
+
 	public function obtenercedula()
 	{
 		$ced = $this->operativa_model->Get_Cedula();

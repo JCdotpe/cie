@@ -57,7 +57,7 @@ class Bpr_Model extends CI_Model {
 
 	public function get_historial_tema($codigo)
 	{
-		$sql="SELECT c.id_cuestionario, c.id_nro, c.consulta, convert(char,c.fecha,103) as fecha_pregunta, r.respuesta, convert(char,r.fecha,103) as fecha_respuesta FROM BPR_Cuestionario c LEFT JOIN BPR_Respuesta r ON c.id_cuestionario=r.id_cuestionario AND c.id_nro=r.id_nro WHERE c.id_cuestionario = $codigo AND c.id_nro > 1";
+		$sql="SELECT c.id_cuestionario, c.id_nro, c.consulta, convert(char,c.fecha,103) as fecha_pregunta, c.estado, isnull(r.respuesta,'no tiene respuesta') as respuesta, isnull(convert(char,r.fecha,103),'') as fecha_respuesta FROM BPR_Cuestionario c LEFT JOIN BPR_Respuesta r ON c.id_cuestionario=r.id_cuestionario AND c.id_nro=r.id_nro WHERE c.id_cuestionario = $codigo";
 		$q=$this->db->query($sql);
 		return $q;
 	}

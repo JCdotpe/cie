@@ -144,6 +144,7 @@
 					</div>
 				</div>
 			</div>
+			<input type="hidden" name="codigo" id="codigo" value="<?php echo $user_id; ?>" />
 			<div class="accordion" id="accordion2">
 				<div class="accordion-group">
 					<div class="accordion-heading">
@@ -154,7 +155,44 @@
 					<div id="collapseOne" class="accordion-body collapse">
 						<div class="accordion-inner">
 							Repuesta de la Pregunta #1
+						<hr>
+        					Pregunta #1.1
+						<br>
+        					Respuesta de la pregunta #1.1
 						</div>
+						<div id="zonamixta" style="padding:20px;">
+							<div class="span4">
+								<div class="control-group">
+									<label for="nombre" class="control-label">Nombre Completo</label>
+									<div class="controls">
+										<input id="nombrecompleto" type="text" maxlength="80" style="width: 250px;" value="" name="nombrecompleto"></input>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="control-group">
+									<label for="dni" class="control-label">Nro DNI</label>
+									<div class="controls">
+										<input id="nrodni" type="text" maxlength="8" onkeypress="return validar_numeros(event)" style="width: 100px;" value="" name="nrodni"></input>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="span7">
+									<div class="control-group">
+										<label class="control-label" for="cons">Consulta</label>
+										<div class="controls">
+											<textarea id="consulta" style="width: 500px;" maxlength="400" rows="4" cols="20" name="consulta"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="span12">
+									<button id="guardar" class="btn btn-primary pull-left" onclick="" type="button" name="guardar">Enviar</button>
+								</div>
+							</div>
+						</div>						
 					</div>
 				</div>
 				<div class="accordion-group">
@@ -170,8 +208,6 @@
 					</div>
 				</div>
 			</div>
-			<div id="v_banco" class="row-fluid well top-conv">
-			</div>
 			<?php echo form_close(); ?>			
 		</div>
 	</div>
@@ -180,66 +216,139 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		ListarPreguntaPrincipal();
+		var codigo = $("#codigo").val();
+		ListarPreguntaPrincipal(codigo);
 	});
 
-
-function ListarPreguntaPrincipal()
+function ListarPreguntaPrincipal(codigo)
 {
 	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
 
 		var html="";
-
-				/*<div class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-						Pregunta #1
-						</a>
-					</div>
-					<div id="collapseOne" class="accordion-body collapse">
-						<div class="accordion-inner">
-							Repuesta de la Pregunta #1
-						</div>
-					</div>
-				</div>*/
-
+		var estado="";
+		var nro="";
 		$.each(data, function(index, val) {
 			html+='<div class="accordion-group">'+
 					'<div class="accordion-heading">'+
-						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">'+
+						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'+val.id_cuestionario+'">'+
 							val.consulta+
 						'</a>'+
+					'</div>'+
+					'<div id="collapse'+val.id_cuestionario+'" class="accordion-body collapse">'+
+						'<div class="accordion-inner">';
+							$.each(val.historial, function(index, val) {
+								if (val.id_nro == 1)
+								{
+									html+=val.respuesta+
+										'<hr>';
+								}else{
+									html+=val.consulta+
+										'<br>'+
+										val.respuesta+
+										'<hr>';	
+								}
+								estado=val.estado;
+								nro=val.id_nro;
+							});
+					html+='</div>';
+					if (codigo!='' && estado==0)
+					{
+					html+='<div id="respuesta_'+val.id_cuestionario+'" style="padding:20px;">'+
+							'<div class="span7">'+
+								'<div class="control-group">'+
+									'<label class="control-label" for="resp">Respuesta</label>'+
+									'<div class="controls">'+
+										'<textarea id="contenido_'+val.id_cuestionario+'" style="width: 500px;" maxlength="400" rows="4" cols="20" name="respuesta"></textarea>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div>'+
+							'<div class="span12">'+
+								'<button id="rpt" class="btn btn-primary pull-left" onclick="respuesta_bpr('+val.id_cuestionario+','+nro+')" type="button" name="rpt">Reponder</button>'+
+							'</div>'+
+						'</div>'+
 					'</div>';
+					}else if (codigo=='' && estado==1){
+					html+='<div id="pregunta_'+val.id_cuestionario+'" style="padding:20px;">'+
+							'<div class="span4">'+
+								'<div class="control-group">'+
+									'<label for="nombre" class="control-label">Nombre Completo</label>'+
+									'<div class="controls">'+
+										'<input id="nombrecompleto_'+val.id_cuestionario+'" type="text" maxlength="80" style="width: 250px;" value="" name="nombrecompleto"></input>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div class="span4">'+
+								'<div class="control-group">'+
+									'<label for="dni" class="control-label">Nro DNI</label>'+
+									'<div class="controls">'+
+										'<input id="nrodni_'+val.id_cuestionario+'" type="text" maxlength="8" onkeypress="return validar_numeros(event)" style="width: 100px;" value="" name="nrodni"></input>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div>'+
+								'<div class="span7">'+
+									'<div class="control-group">'+
+										'<label class="control-label" for="cons">Consulta</label>'+
+										'<div class="controls">'+
+											'<textarea id="consulta_'+val.id_cuestionario+'" style="width: 500px;" maxlength="400" rows="4" cols="20" name="consulta"></textarea>'+
+										'</div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div>'+
+								'<div class="span12">'+
+									'<button id="guardar" class="btn btn-primary pull-left" onclick="repregunta_bpr('+val.id_cuestionario+')" type="button" name="guardar">Enviar</button>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					}
+				html+='</div>'+
+				'</div>';
 		});
 		$("#accordion2").html(html);
 	});
 }
 
-
-function ListarBanco()
+function repregunta_bpr(codigo_cuestionario)
 {
-	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
+	var nombre = $("#nombrecompleto_"+codigo_cuestionario).val();
+	var nrodni = $("#nrodni_"+codigo_cuestionario).val();
+	var consulta = $("#consulta_"+codigo_cuestionario).val();
 
-		var html="";
+	if (consulta=='') { alert("Ingrese su Consulta!"); return false; }
 
-		$.each(data, function(index, val) {
-			html+='<div class="row-fluid">'+
-						'<div id="preg'+val.id_cuestionario+'" class="span8">'+
-							'<a href="'+urlRoot('index.php')+'/bpr/historial/?variable='+val.id_cuestionario+'">'+val.consulta+'</a>'
-						+'</div>'+
-						'<div id="fex'+val.id_cuestionario+'" class="span3">'+
-							val.fecha_creacion
-						+'</div>'+
-					'</div>';
-				$.each(val.respuesta, function(index, val) {
+	$.ajax({
+		type: "POST", 
+		url: urlRoot('index.php')+"/bpr/preguntas/re_pregunta",
+		data: "id_cuestionario="+codigo_cuestionario+"&nombrecompleto="+nombre+"&nrodni="+nrodni+"&consulta="+consulta,
+		success: function(response){
+			$("#nombrecompleto_"+codigo_cuestionario).val('');
+			$("#nrodni_"+codigo_cuestionario).val('');
+			$("#consulta_"+codigo_cuestionario).val('');
+			alert("Consulta Enviada!");
+		}
+	});
+}
 
-					html+='<div class="row-fluid">'+
-							'<div id="resp'+val.id_cuestionario+'" class="span10">'+
-							val.respuesta
-						+'</div>'+'</div>';
-				});
-		});
-		$("#v_banco").append(html);
+function respuesta_bpr(codigo_cuestionario,nro_cuestionario)
+{
+	var codigo = $("#codigo").val();
+	var respuesta = $("#contenido_"+codigo_cuestionario).val();
+	var codigo_rpt = codigo_cuestionario+'.'+nro_cuestionario;
+
+	alert(respuesta);
+
+	if (respuesta=='') { alert("Ingrese su Respuesta!"); return false; }
+
+	$.ajax({
+		type: "POST", 
+		url: urlRoot('index.php')+"/bpr/respuestas/registro",
+		data: "codigo="+codigo_rpt+"&respuesta="+respuesta+"&usuario="+codigo,
+		success: function(response){
+			alert("Respuesta Enviada!");
+		}
 	});
 }
 

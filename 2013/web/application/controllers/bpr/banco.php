@@ -10,6 +10,7 @@ class Banco extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->helper('my');
+		$this->load->library('session');
 
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
@@ -26,6 +27,7 @@ class Banco extends CI_Controller {
 		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
 		$data['cedula']=$this->operativa_model->Get_Cedula();
+		$data['user_id'] = $this->session->userdata('user_id');
 		$this->load->view('backend/includes/template', $data);
 	}
 
