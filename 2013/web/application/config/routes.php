@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "convocatoria/convocatoria";
+$route['default_controller'] = "auth/login";
 $route['inscripcion'] = "convocatoria/registro/inscripcion";
 $route['presupuesto'] = "presupuesto/presupuesto";
 $route['administracion'] = "administracion/seguimiento";
@@ -55,7 +55,7 @@ $route['udra_reporte'] = "udra/udra_reporte";
 $route['visor_de_cedulas'] = "visor/visor";
 $route['caratula1'] = "visor/caratula1";
 $route['capitulo1'] = "visor/capitulo1";
-$route['bpr'] = "bpr/respuestas";
+$route['bpr'] = "bpr/banco";
 
 
 

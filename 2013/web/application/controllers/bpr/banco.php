@@ -33,7 +33,25 @@ class Banco extends CI_Controller {
 
 	public function view_pregunta()
 	{
-		$data = $this->bpr_model->get_pregunta_principal();
+		$condicion="";
+
+		$sede_ope = $this->input->get('sede_ope');
+		$prov_ope = $this->input->get('prov_ope');
+		$cargo = $this->input->get('cargo');
+		$cedula = $this->input->get('cedula');
+		$capitulo = $this->input->get('capitulo');
+		$seccion = $this->input->get('seccion');
+		$pregunta = $this->input->get('pregunta');
+
+		if ($sede_ope!=-1) { $condicion=$condicion." and cod_sede_operativa='$sede_ope'"; }
+		if ($prov_ope!=-1) { $condicion=$condicion." and cod_prov_operativa='$prov_ope'"; }
+		if ($cargo!=-1) { $condicion=$condicion." and cargo=$cargo"; }
+		if ($cedula!=-1) { $condicion=$condicion." and cedula='$cedula'"; }
+		if ($capitulo!=-1) { $condicion=$condicion." and cod_cap='$capitulo'"; }
+		if ($seccion!=-1) { $condicion=$condicion." and cod_sec='$seccion'"; }
+		if ($pregunta!=-1) { $condicion=$condicion." and cod_preg='$pregunta'"; }
+
+		$data = $this->bpr_model->get_pregunta_principal($condicion);
 
 		$i=0;
 		echo "[";

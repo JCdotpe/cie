@@ -525,7 +525,7 @@ function cargarProv()
 		{
 			if (mes==mesactual){
 				if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
-			}
+			}else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
 		}
 
 		if (long==10)

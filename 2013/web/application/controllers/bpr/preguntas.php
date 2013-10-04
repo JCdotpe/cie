@@ -159,6 +159,34 @@ class Preguntas extends CI_Controller {
 		}
 	}
 
+	public function view_ultima_pregunta()
+	{
+		$id_cuestionario = $this->input->get('id_cuestionario');
+		$data = $this->bpr_model->get_ultima_pregunta($id_cuestionario);
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("id_cuestionario" => $fila->id_cuestionario,
+			"id_nro" => $fila->id_nro,
+			"consulta" => $fila->consulta,
+			"fecha_pregunta" => $fila->fecha_pregunta);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
 }
 
 /* End of file welcome.php */
