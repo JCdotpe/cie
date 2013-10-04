@@ -12,14 +12,14 @@ class Bpr_Model extends CI_Model {
 
 	function insert_reg($data)
 	{	
-		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
+		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".str_replace("'", "''",$data['consulta'])."',getdate(),0)";
 		$this->db->query($query);
 		return $this->db->affected_rows();
 	}
 
 	function insert_reg_respuesta($data)
 	{	
-		$query="INSERT INTO BPR_Respuesta VALUES('".$data['id_cuestionario']."','".$data['id_nro']."','".$data['id_usuario']."','".$data['respuesta']."',getdate())";
+		$query="INSERT INTO BPR_Respuesta VALUES('".$data['id_cuestionario']."','".$data['id_nro']."','".$data['id_usuario']."','".str_replace("'", "''",$data['respuesta'])."',getdate())";
 		$this->db->query($query);
 		$query2="UPDATE BPR_Cuestionario SET estado = 1 WHERE id_cuestionario = '".$data['id_cuestionario']."' AND id_nro = '".$data['id_nro']."'";
 		$this->db->query($query2);
@@ -74,7 +74,7 @@ class Bpr_Model extends CI_Model {
 		$q = $this->db->query($sql);
 		$row = $q->first_row();
 
-		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",".$row->NroRegistros.",'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".$data['consulta']."',getdate(),0)";
+		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",".$row->NroRegistros.",'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".str_replace("'", "''",$data['consulta'])."',getdate(),0)";
 
 		$this->db->query($query);
 		return $this->db->affected_rows();

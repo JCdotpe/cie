@@ -129,7 +129,7 @@ class Registro_Rutas extends CI_Controller {
 			);
 
 		$jb_data = array(
-			'idruta'=> $this->input->post('codruta'),	
+			'idruta'=> $this->input->post('codruta'),
 			'codlocal'=> $this->input->post('ecodlocal'),
 			'cod_jefebrigada' => $this->input->post('jefebrigada')
 			);

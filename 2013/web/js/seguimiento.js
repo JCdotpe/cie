@@ -424,8 +424,12 @@ function cargarProv()
 			$.each(json_data, function(i, data){
 				$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
-			
+			if (id_depa!=99 && id_depa!=-1)
+			{
+				$("#provincia").append("<option value='99' selected='true'>Todos</value>");	
+			}			
 			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+
 		}
 	});
 }

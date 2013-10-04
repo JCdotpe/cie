@@ -328,5 +328,4 @@ function view_last_resp(codigo)
 	});
 }
 
-
 </script>
