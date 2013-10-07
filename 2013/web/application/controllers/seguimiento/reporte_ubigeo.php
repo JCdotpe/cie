@@ -68,15 +68,19 @@ class Reporte_ubigeo extends CI_Controller {
 		
 		$tipo = 0;
 
-		if ($depa!=99 && $periodo!=99)
+		if ($depa!=99 && $prov!=99 && $periodo!=99)
 		{
 			$tipo = 1;
-		}elseif ($depa==99 && $periodo!=99){
+		}elseif ($depa!=99 && $prov!=99 && $periodo==99){
 			$tipo = 2;
-		}elseif ($depa==99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo!=99){
 			$tipo = 3;
-		}elseif ($depa!=99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo==99){
 			$tipo = 4;
+		}elseif ($depa==99 && $periodo!=99){
+			$tipo = 5;
+		}elseif ($depa==99 && $periodo==99){
+			$tipo = 6;
 		}
 		$data = $this->seguimiento_model->get_ubigeo_cedula($depa,$prov,$periodo,$tipo);
 
@@ -85,7 +89,7 @@ class Reporte_ubigeo extends CI_Controller {
 
 		foreach ($data->result() as $fila ){
 			
-			$provincia = ($tipo==1 || $tipo==4) ? $fila->Provincia : '';
+			$provincia = ($tipo!=5 && $tipo!=6) ? $fila->Provincia : '';
 
 			if($i>0){echo",";}
 

@@ -276,12 +276,13 @@ class Registro_Seguimiento extends CI_Controller {
 		$respuesta->total = $total_pages;
 		$respuesta->records = $count;
 		$i=0;
-		$nro_fila = $row_inicio;
+		//$nro_fila = $row_inicio;
 		foreach ($resultado->result() as $fila)
 		{
-			$nro_fila++;
+			//$nro_fila++;
+			$fecha_hora = trim($fila->Fecha_Registro).' '.trim($fila->Hora_Registro);
 			$respuesta->rows[$i]['id'] = $fila->nro_visita;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,$fila->codlocal,$fila->NEstado, $fila->fecha_visita);
+			$respuesta->rows[$i]['cell'] = array($fila->nro_visita,$fila->codlocal,$fila->NEstado, $fila->fecha_visita,$fecha_hora);
 			$i++;
 		}
 
@@ -327,8 +328,9 @@ class Registro_Seguimiento extends CI_Controller {
 		$i=0;
 		foreach ($resultado->result() as $fila)
 		{
+			$fecha_hora = trim($fila->Fecha_Registro).' '.trim($fila->Hora_Registro);
 			$respuesta->rows[$i]['id'] = $fila->nro_det;
-			$respuesta->rows[$i]['cell'] = array($fila->codlocal,$fila->cedula,$fila->cantidad,$fila->fecha_avance);
+			$respuesta->rows[$i]['cell'] = array($fila->codlocal,$fila->cedula,$fila->cantidad,$fila->fecha_avance,$fecha_hora);
 			$i++;
 		}
 

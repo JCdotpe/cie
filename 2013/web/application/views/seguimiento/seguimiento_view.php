@@ -237,12 +237,13 @@
 			url:'registro_seguimiento/ver_datos_avance',
 			datatype: "json",
 			height: 200,
-			colNames:['Nro', 'Código de Local', 'Estado', 'Fecha de Visita'],
+			colNames:['Nro de Avance', 'Código de Local', 'Estado', 'Fecha de Visita', 'Fecha y Hora de Registro'],
 			colModel:[
-				{name:'nro_fila',index:'nro_fila', align:"center"},
+				{name:'nro_visita',index:'nro_visita', align:"center"},
 				{name:'codlocal',index:'codlocal', align:"center"},
 				{name:'NEstado',index:'estado', align:"center"},
-				{name:'fecha_visita',index:'fecha_visita', align:"center"}
+				{name:'fecha_visita',index:'fecha_visita', align:"center"},
+				{name:'fecha_hora',index:'fecha_registro', align:"center"}
 				//{name:'modificar',index:'modificar', align:"center"},
 				//{name:'eliminar',index:'eliminar', align:"center"}
 			],
@@ -413,12 +414,13 @@
 			url:urlRoot('index.php')+'/seguimiento/registro_seguimiento/ver_datos_detalle',
 			datatype: "json",
 			height: 200,
-			colNames:['Código de Local', 'Cédula', 'Cantidad', 'Fecha de Visita'],
+			colNames:['Código de Local', 'Cédula', 'Cantidad', 'Fecha de Visita', 'Fecha y Hora de Registro'],
 			colModel:[
 				{name:'codlocal',index:'codlocal', align:"center"},
 				{name:'cedula',index:'cedula', align:"center"},
 				{name:'cantidad',index:'cantidad', align:"center"},
-				{name:'fecha_avance',index:'fecha_avance', align:"center"}
+				{name:'fecha_avance',index:'fecha_avance', align:"center"},
+				{name:'fecha_hora',index:'fecha_registro', align:"center"}
 			],
 			pager: '#pager4',
 			rowNum:10,

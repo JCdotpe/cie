@@ -625,15 +625,19 @@ class Csvexport extends CI_Controller {
 		
 		$tipo = 0;
 
-		if ($depa!=99 && $periodo!=99)
+		if ($depa!=99 && $prov!=99 && $periodo!=99)
 		{
 			$tipo = 1;
-		}elseif ($depa==99 && $periodo!=99){
+		}elseif ($depa!=99 && $prov!=99 && $periodo==99){
 			$tipo = 2;
-		}elseif ($depa==99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo!=99){
 			$tipo = 3;
-		}elseif ($depa!=99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo==99){
 			$tipo = 4;
+		}elseif ($depa==99 && $periodo!=99){
+			$tipo = 5;
+		}elseif ($depa==99 && $periodo==99){
+			$tipo = 6;
 		}
 		$query = $this->seguimiento_model->get_ubigeo_cedula($depa,$prov,$periodo,$tipo);
 		
@@ -836,7 +840,7 @@ class Csvexport extends CI_Controller {
 			    $num ++;
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 
-			    $provincia = ($tipo==1 || $tipo==4) ? $filas->Provincia : '';
+			    $provincia = ($tipo!=5 && $tipo!=6) ? $filas->Provincia : '';
 			  		
 			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->Departamento)));
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($provincia)));
@@ -929,15 +933,19 @@ class Csvexport extends CI_Controller {
 		
 		$tipo = 0;
 
-		if ($depa!=99 && $periodo!=99)
+		if ($depa!=99 && $prov!=99 && $periodo!=99)
 		{
 			$tipo = 1;
-		}elseif ($depa==99 && $periodo!=99){
+		}elseif ($depa!=99 && $prov!=99 && $periodo==99){
 			$tipo = 2;
-		}elseif ($depa==99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo!=99){
 			$tipo = 3;
-		}elseif ($depa!=99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99 && $periodo==99){
 			$tipo = 4;
+		}elseif ($depa==99 && $periodo!=99){
+			$tipo = 5;
+		}elseif ($depa==99 && $periodo==99){
+			$tipo = 6;
 		}
 		$query = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo,$tipo);
 				  
@@ -1141,7 +1149,7 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$provincia = ($tipo==1 || $tipo==4) ? $filas->NombProv : '';
+			  		$provincia = ($tipo!=5 && $tipo!=6) ? $filas->NombProv : '';
 			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->NombDpto)));
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($provincia)));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocEscolares);

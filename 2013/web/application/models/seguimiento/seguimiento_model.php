@@ -66,7 +66,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function get_locales_for_avance($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
-		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$sql="SELECT codlocal, nro_visita, NEstado, convert(char,fecha_visita,103) as fecha_visita, convert(char,fecha_registro,103) as Fecha_Registro, convert(char,fecha_registro,108) as Hora_Registro FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM v_avance $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
 		return $q;
 	}
@@ -81,7 +81,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function get_locales_for_detalle($ord, $ascdesc, $inicio, $final, $condicion1)
 	{
-		$sql="SELECT codlocal, nro_det, cedula, cantidad, convert(char,fecha_avance,103) as fecha_avance FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM avance_docuCIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+		$sql="SELECT codlocal, nro_det, cedula, cantidad, convert(char,fecha_avance,103) as fecha_avance, convert(char,fecha_registro,103) as Fecha_Registro, convert(char,fecha_registro,108) as Hora_Registro FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY $ord $ascdesc) as row FROM avance_docuCIE $condicion1) a WHERE a.row > $inicio and a.row <= $final";
 		$q=$this->db->query($sql);
 		return $q;
 	}
