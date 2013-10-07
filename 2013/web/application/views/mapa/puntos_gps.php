@@ -324,7 +324,7 @@
 
         });
 
-        $('.btn').click(function(){
+        $('#save_edit').click(function(){
 
             if (confirm("¿Esta seguro que desea solicitar una actualización de coordenadas para el local "+ $('#local').val()+" ?")){
               reg_form_activo();
@@ -507,7 +507,7 @@
     <input type="text" class="edit_gps" id="longitud" style="width:155px">
 
 
-    <button type="submit" class="btn">Actualizar</button>
+    <button type="submit" id="save_edit" class="btn">Actualizar</button>
     <button type="submit" id="cancel_edit" class="btn">Cancelar</button>
  <!--  </div> -->
 
