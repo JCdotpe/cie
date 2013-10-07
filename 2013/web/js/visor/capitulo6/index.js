@@ -142,7 +142,7 @@ $(document).ready(function(){
 
 function Get_Tot_Edif_Cap05(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p5/DataPredio/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {
@@ -168,7 +168,7 @@ function Get_List_Edif_Cap06(){
 	var i=0;
 	var cl="";
 
-	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p61/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data) {
 
 				html='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
@@ -219,7 +219,7 @@ function Get_Edif_Pisos_Cap06(nro_edif){
 	var i=0;
 	var cl="";
 
-	$.getJSON(CI.base_url+'index.php/visor/P62/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p62/Data/', {token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif}, function(data) {
 
 
 
@@ -289,7 +289,7 @@ function Get_Edif_Pisos_Ambiente(nro_edif,nro_ambiente,piso){
 	var arraychecked16="";
 
 
-		$.getJSON(CI.base_url+'index.php/visor/P62/DataAmbiente/',{token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif, P6_2_1:nro_ambiente,P5_NroPiso: piso}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p62/DataAmbiente/',{token: getToken(),id_local: getLocal(), predio:getPredio(),P5_Ed_Nro:nro_edif, P6_2_1:nro_ambiente,P5_NroPiso: piso}, function(data) {
 
 				$.each(data, function(index, val){
 					$("#P6_2_1").val(leftceros(val.P6_2_1));
@@ -595,7 +595,7 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 	var arr="";
 
 
-		$.getJSON(CI.base_url+'index.php/visor/P61/DataNroEdif/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p61/DataNroEdif/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
 
 
 				$.each(data, function(index, val) {
@@ -605,7 +605,11 @@ function Get_Edif_Cap06(token,cod_local,predio,nro_edif){
 									  2: 'P6_1_7'+val.P6_1_7
 									};
 					i++;
-					arr = val.P6_1_3.split(".");
+					if (val.P6_1_3!=undefined) {
+
+						arr = val.P6_1_3.split(".");
+					};
+
 
 					check_Radio(val.P6_3_1,'P6_3_1');
 					check_Radio(val.P6_3_1A,'P6_3_1A');

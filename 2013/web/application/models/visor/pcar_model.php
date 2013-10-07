@@ -5,14 +5,14 @@ class Pcar_model extends CI_MODEL{
     public function __construct() {
             parent::__construct();
             $this->load->database();
-            $this->db_b = $this->load->database('conexion_B', true);
+            //$this->db_b = $this->load->database('conexion_B', true);
     }
-  
+
     public function insertBatch($data) {
-            
+
         $q = $this->db_b->sql_batch('PCar',$data);
         return ($q);
-    
+
     }
 
     public function getData($codigo_de_local,$predio){
@@ -23,7 +23,7 @@ class Pcar_model extends CI_MODEL{
         $this->db_b->where('PC_F_1',$predio);
         $q = $this->db_b->get();
         return $q;
-        
+
     }
 
 }

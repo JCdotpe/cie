@@ -58,7 +58,7 @@ class CI_DB_active_record extends CI_DB_driver {
 	var $ar_cache_having		= array();
 	var $ar_cache_orderby		= array();
 	var $ar_cache_set			= array();
-	
+
 	var $ar_no_escape 			= array();
 	var $ar_cache_no_escape     = array();
 
@@ -135,8 +135,8 @@ class CI_DB_active_record extends CI_DB_driver {
 		$table = str_replace($this->db["dbPfx"], "", $table);
 
 		$this->table($table);
-		
-		return $this->db["dbPfx"] . $table; 	
+
+		return $this->db["dbPfx"] . $table;
 	}
 
 	// --------------------------------------------------------------------
@@ -434,7 +434,7 @@ class CI_DB_active_record extends CI_DB_driver {
 
 					$v = ' '.$this->escape($v);
 				}
-				
+
 				if ( ! $this->_has_operator($k))
 				{
 					$k .= ' = ';
@@ -668,7 +668,7 @@ class CI_DB_active_record extends CI_DB_driver {
 			$prefix = (count($this->ar_like) == 0) ? '' : $type;
 
 			$v = $this->escape_like_str($v);
-			
+
 			if ($side == 'none')
 			{
 				$like_statement = $prefix." $k $not LIKE '{$v}'";
@@ -1058,7 +1058,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		if (!is_null($set)){
 
 			$this->set_insert_batch($set);
-		
+
 		}
 
 		if (count($this->ar_set) == 0){
@@ -1068,7 +1068,7 @@ class CI_DB_active_record extends CI_DB_driver {
 				return $this->display_error('db_must_use_set');
 			}
 			return FALSE;
-		
+
 		}
 
 		if ($table == ''){
@@ -1088,7 +1088,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		for ($i = 0, $total = count($this->ar_set); $i < $total; $i = $i + 100){
 
 			$sql = $this->_insert_batch($this->_protect_identifiers($table, TRUE, NULL, FALSE), $this->ar_keys, array_slice($this->ar_set, $i, 100));
-			
+
 			$this->query($sql);
 		}
 
@@ -1098,7 +1098,7 @@ class CI_DB_active_record extends CI_DB_driver {
 	}
 
 	public function sql_batch($table, $data){
-    
+
         if(!$table or !$data){
             return FALSE;
         }
@@ -1114,35 +1114,35 @@ class CI_DB_active_record extends CI_DB_driver {
 
             foreach($data as $insert) {
                 $total = count($data[$i]) - 1;
-                
+
                 foreach($insert as $field => $value) {
                     if($j === $total) {
                         $_fields .= "$field";
                         $_values .= "'$value'";
                     } else {
                         $_fields .= "$field, ";
-                        $_values .= "'$value', ";   
+                        $_values .= "'$value', ";
                     }
-                            
-                    $j++;   
+
+                    $j++;
                 }
-                
+
                 $values .= ($i === $count) ? "($_values)" : "($_values), ";
-                
+
                 $fields  = $_fields;
                 $_fields = NULL;
                 $_values = NULL;
-                
+
                 $i++;
                 $j = 0;
             }
 
-             $query .= "INSERT INTO BDCIE2013_INFRAESTRUCTURA.dbo.$table ($fields) VALUES $values;";            
-        	
+             $query .= "INSERT INTO BDCIE2013_INFRAESTRUCTURA.dbo.$table ($fields) VALUES $values;";
+
         }else{
             return FALSE;
         }
-        
+
         $res=$this->query($query);
 
         if($res){
@@ -1150,7 +1150,7 @@ class CI_DB_active_record extends CI_DB_driver {
         }
 
         return FALSE;
-		 
+
     }
 
 	// --------------------------------------------------------------------
@@ -1252,7 +1252,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		}
 
 		$sql = $this->_insert($this->_protect_identifiers($table, TRUE, NULL, FALSE), array_keys($this->ar_set), array_values($this->ar_set));
-		
+
 		$this->_reset_write();
 		return $this->query($sql);
 	}

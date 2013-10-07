@@ -89,6 +89,7 @@ class P61 extends REST_Controller{
             $data = $this->p61_model->getDataNroEdif(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('NRO_ED'));
             $p618n = $this->p618n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('NRO_ED'));
             $p6110n = $this->p6110n_model->getData(no_obfuscate($this->get('id_local')),$this->get('predio'),$this->get('NRO_ED'));
+            $x="";
 
             foreach ($data->result() as $fila) {
               # code...

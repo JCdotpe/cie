@@ -48,15 +48,15 @@
 $active_group = 'conexion_A';
 $active_record = TRUE;
 
-		$db['conexion_A']['hostname'] = '192.168.203.178';// Desarrollo
+		/*$db['conexion_A']['hostname'] = '192.168.203.178';// Desarrollo
 		$db['conexion_A']['username'] = 'yechevarria';
-		$db['conexion_A']['password'] = 'inei1209';
+		$db['conexion_A']['password'] = 'inei1209';*/
 
-		// $db['conexion_A']['hostname'] = '192.168.201.43';// Yanawara
-		// $db['conexion_A']['username'] = 'yechevarria';
-		// $db['conexion_A']['password'] = 'inei2106';
+		 $db['conexion_A']['hostname'] = '192.168.201.43';// Yanawara
+		 $db['conexion_A']['username'] = 'yechevarria';
+		 $db['conexion_A']['password'] = 'inei2106';
 
-		$db['conexion_A']['database'] = 'CIE2013';		
+		$db['conexion_A']['database'] = 'CIE2013';
 		$db['conexion_A']['dbdriver'] = 'mssql';
 		$db['conexion_A']['dbprefix'] = '';
 		$db['conexion_A']['pconnect'] = TRUE;
@@ -71,12 +71,12 @@ $active_record = TRUE;
 		$db['conexion_A']['stricton'] = FALSE;
 
 		// Nuestra segunda base de datos:
-		
+
 		$db['conexion_B']['hostname'] = '192.168.201.43';// Yanawara
 		$db['conexion_B']['username'] = 'yechevarria';
 		$db['conexion_B']['password'] = 'inei2106';
 
-		$db['conexion_B']['database'] = 'BDCIE2013_INFRAESTRUCTURA';		
+		$db['conexion_B']['database'] = 'BDCIE2013_INFRAESTRUCTURA';
 		$db['conexion_B']['dbdriver'] = 'mssql';
 		$db['conexion_B']['dbprefix'] = '';
 		$db['conexion_B']['pconnect'] = FALSE;

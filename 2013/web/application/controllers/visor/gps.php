@@ -9,14 +9,16 @@ class Gps extends REST_Controller{
 			parent::__construct();
 			$this->load->library('tank_auth');
 			$this->lang->load('tank_auth');
-			$this->load->helper('my');
 			$this->load->model('visor/visor_model');
 			$this->load->model('visor/Procedure_model');
-			$this->load->model('segmentaciones/operativa_model');
+      $this->load->model('visor/P313nimputar_model');
+			$this->load->model('seguimiento/operativa_model');
+      $this->load->library('session');
+      $this->load->helper('my');
 
 	}
 
-	
+
 	public function sedeOperativa_get(){
 
         $result=validtoken_get($this->get('token'));
@@ -28,11 +30,10 @@ class Gps extends REST_Controller{
           prettyPrint(json_encode($msg));
 
         }else{
-          
 
             header_json();
 
-            $data = $this->operativa_model->get_sede_operativa();
+            $data = $this->operativa_model->Get_SedebyUser($this->session->userdata('user_id'));
             $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
@@ -55,7 +56,7 @@ class Gps extends REST_Controller{
 
             header_json();
 
-            $data = $this->operativa_model->get_provincia_operativa($this->get('code'));
+            $data = $this->operativa_model->Get_ProvbySedeOpe($this->get('code'));
             $jsonData = my_json_encode($data->result());
 
             prettyPrint($jsonData);
@@ -63,6 +64,19 @@ class Gps extends REST_Controller{
         }
 
     }
+
+    public function updateP313nimputar_post(){
+
+      $registros = array(
+          'id_local'  => trim($this->post('id_local')),
+          'Nro_Pred'  => trim($this->post('Nro_Pred')),
+          'LatitudPunto'  => $this->post('LatitudPunto'),
+          'LongitudPunto'  => $this-> post('LongitudPunto')
+          );
+
+      $flag = $this->P313nimputar_model->update($this->post('id_local'),$this->post('Nro_Pred'),$registros);
+    }
+
 
 }
 

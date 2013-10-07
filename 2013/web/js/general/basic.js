@@ -55,7 +55,7 @@ function getPredio(){
 
 function getToken(){
 
-   var token='000000';
+   var token='7959ac60dc22523a9ac306ac6f9308d3d7201c55';
    return token;
 
 }
@@ -65,14 +65,14 @@ function check_Radio(value,id){
     if(value==null || value==0 || value==undefined){
 
         /* alert(id+value) */
-    
+
     }else{
        //prompt(id+value,$('#'+id+value).length)
        if ($('#'+id+value).length>0) {
             document.getElementById(id+value).checked=true;
           //$("#"+id+value).attr('checked',true);
        }
-       
+
     }
 }
 
@@ -225,7 +225,7 @@ function prop_Predio(codigo,otro){
 }
 
 function inmueble_Predio(codigo){
-    
+
     switch(codigo){
 
         case null:
@@ -249,13 +249,16 @@ function inmueble_Predio(codigo){
 
 function leftceros(numero){
 
+    if(numero!=undefined){
 
-    numero=numero.toString();
+        numero=numero.toString();
 
-    if (numero.length<2)
-        return '0'+numero;
+        if (numero.length<2)
+            return '0'+numero;
 
-    return numero;
+        return numero;
+    };
+
 }
 
 

@@ -19,7 +19,7 @@ class Festividad extends CI_Controller {
 		$this->load->helper('date');
 		date_default_timezone_set('America/Lima');
 
-	/*	if (!$this->tank_auth->is_logged_in()) {
+		/*	if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
 

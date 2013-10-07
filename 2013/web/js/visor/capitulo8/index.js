@@ -106,7 +106,7 @@ function Get_count_Type_Edif(){
 		var i=0;
 		var cl="";
 
-		$.getJSON(CI.base_url+'index.php/visor/P8/Data/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p8/Data/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
 
 			// patios
 			combopatios='<div class="btn-group">'+
@@ -220,7 +220,7 @@ function Get_count_Type_Edif(){
 
 function Get_Edif(prefijo,numero){
 		var arr=[];
-		$.getJSON(CI.base_url+'index.php/visor/P8/DataTipoEdif/',{token: getToken(),id_local: getLocal(),predio:getPredio(), P8_2_Tipo: prefijo, P8_2_Nro:numero}, function(data) {
+		$.getJSON(CI.base_url+'index.php/visor/p8/DataTipoEdif/',{token: getToken(),id_local: getLocal(),predio:getPredio(), P8_2_Tipo: prefijo, P8_2_Nro:numero}, function(data) {
 
 			$.each(data ,function(index, val){
 
@@ -255,7 +255,7 @@ function Get_Edif(prefijo,numero){
 
 function Get_Tot_Edif_Cap05(){
 
-	$.getJSON(CI.base_url+'index.php/visor/P5/DataPredio/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p5/DataPredio/',{token: getToken(),id_local: getLocal(),predio:getPredio()}, function(data) {
 				var html="";
 				var i=1;
 				$.each(data, function(index, val) {

@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	
+
 	nav_Active();
 	comboPredios();
-	
+
 
 	function nav_Active(){
 
@@ -11,26 +11,26 @@ $(document).ready(function() {
 	    var loc = document.location.href;
 	    var url = loc.split(delimiter);
 	    $('#'+url[pos_array]).addClass('active');
-	   
+
 
 	    if(url[pos_array]=="caratula1" || url[pos_array]=="capitulo1" || url[pos_array]=="capitulo2" || url[pos_array]=="capitulo3"){
 
-	    	$('#tab1').addClass('active');	
+	    	$('#tab1').addClass('active');
 
 	    }
-	    
+
 	    if(url[pos_array]=="caratula2" || url[pos_array]=="capitulo4" || url[pos_array]=="capitulo5"){
 
-	    	$('#tab2').addClass('active');	
+	    	$('#tab2').addClass('active');
 
 	    }
 
 	    if(url[pos_array]=="caratula3" || url[pos_array]=="capitulo6" || url[pos_array]=="capitulo7" || url[pos_array]=="capitulo8"){
 
-	    	$('#tab3').addClass('active');	
+	    	$('#tab3').addClass('active');
 
 	    }
-	                
+
 	}
 
 	function combo_Active(){
@@ -40,9 +40,9 @@ $(document).ready(function() {
 	    var url = loc.split(delimiter);
 	    if(url[pos_array]==undefined || url[pos_array]==null || url[pos_array]==''){
 	    }else{
-	    	$('#p'+url[pos_array]).addClass('active');	
+	    	$('#p'+url[pos_array]).addClass('active');
 	    }
-	
+
 	}
 
 	function combo_Selected(){
@@ -69,7 +69,7 @@ $(document).ready(function() {
 				$("#selected_Combo").html(predio);
 			});
 
-			
+
 
 
 		});
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 	function comboPredios(){
 
-		$.getJSON(urlRoot('index.php')+'/visor/Procedure/Lista_Predio/', {token: getToken(),id_local: getLocal()}, function(data, textStatus) {
+		$.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_Predio/', {token: getToken(),id_local: getLocal()}, function(data, textStatus) {
 
 			var combo='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
@@ -114,12 +114,12 @@ $(document).ready(function() {
 					'</div>';
 
 			$('#predios_Combo').html(combo);
-			
+
 			combo_Active();
 			combo_Selected()
-						
+
 		});
-	
+
 
 	}
 

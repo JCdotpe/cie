@@ -65,7 +65,7 @@ function Get_List_Edif_Cap06(){
 	var i=0;
 	var cl="";
 
-	$.getJSON(CI.base_url+'index.php/visor/P61/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p61/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio()}, function(data) {
 
 				html='<div class="btn-group">'+
 						'<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">'+
@@ -114,7 +114,7 @@ function Get_List_Edif_Cap06(){
 
 function Get_cap7(nro_edif){
 
-	$.getJSON(CI.base_url+'index.php/visor/P7/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
+	$.getJSON(CI.base_url+'index.php/visor/p7/Data/',{token: getToken(),id_local: getLocal(), predio:getPredio(), NRO_ED:nro_edif}, function(data) {
 		$.each(data, function(index, val) {
 			$('#P7_2_2').val(val.P7_2_2);
 			$('#P7_Obs').val(val.P7_Obs);

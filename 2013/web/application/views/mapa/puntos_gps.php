@@ -9,7 +9,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script src="<?php echo base_url('js/general/jquery-1.10.2.min.js'); ?>"></script>
-   
+
     <style>
 
 
@@ -144,13 +144,13 @@
     margin-left: 0;
 }
 
-#map-canvas img { 
+#map-canvas img {
   max-width: none;
 }
 
-#map-canvas label { 
-  width: auto; display:inline; 
-} 
+#map-canvas label {
+  width: auto; display:inline;
+}
 
    </style>
 
@@ -158,24 +158,24 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    
 
-    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>"> 
-    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.spacelab.css'); ?>"> 
-    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>"> 
-    
-    
+
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.spacelab.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>">
+
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="<?php echo base_url('js/map/markerwithlabel.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/basic.js'); ?>"></script>
-    
+
     <script>
 
       var gmarkers = [];
       var map = null;
       var category = "";
 
-      var infowindow = new google.maps.InfoWindow({ 
+      var infowindow = new google.maps.InfoWindow({
         size: new google.maps.Size(300,400)
       });
 
@@ -190,13 +190,13 @@
                       gmarkers[i].setVisible(false);
                }
           } */
-          
+
           if(icon==0){
              color=urlRoot('web/')+'img/colindante.png';
           }else{
-             color=urlRoot('web/')+'img/nocolindante.png'                
+             color=urlRoot('web/')+'img/nocolindante.png'
           }
-        
+
           var marker = new MarkerWithLabel({
               draggable: true,
               raiseOnDrag: false,
@@ -211,20 +211,23 @@
               labelStyle: {opacity: 0.75}
               });
               // === Store the category and name info as a marker properties ===
-              marker.mycategory = category;                                 
+              marker.mycategory = category;
               marker.myname = name;
 
               gmarkers.push(marker);
 
               google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent(contentString); 
+                infowindow.setContent(contentString);
                 infowindow.open(map,marker);
               });
 
               google.maps.event.addListener(marker, 'dragend', function(evt){
                 document.getElementById('latitud').value = evt.latLng.lat().toFixed(myCoordsLenght);
                 document.getElementById('longitud').value = evt.latLng.lng().toFixed(myCoordsLenght);
-                prompt('',JSON.stringify(evt));
+                var Local_Predio=texto.split('-');
+                document.getElementById('local').value = Local_Predio[0];
+                document.getElementById('predio').value = Local_Predio[1];
+
               });
 
       }
@@ -254,47 +257,90 @@
             mapTypeControl: true,
             mapTypeControlOptions: {
                 style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                position: google.maps.ControlPosition.RIGHT_CENTER 
-            } 
+                position: google.maps.ControlPosition.RIGHT_CENTER
+            }
         }
-        
+
           map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
           google.maps.event.addListener(map, 'click', function() {
               infowindow.close();
           });
-         
+
     }
 
+
+    function reg_form_activo(){
+
+
+        var form_data= new Array();
+
+        form_data.push(
+            {name: 'LatitudPunto',value:$( "#latitud" ).val()},
+            {name: 'LongitudPunto',value:$( "#longitud" ).val()},
+            {name: 'id_local',value:$( "#local" ).val()},
+            {name: 'Nro_Pred',value:$( "#predio" ).val()}
+        );
+        form_data = $.param(form_data);
+
+        $.ajax({
+            type: "POST",
+            url: urlRoot('index.php') +"/visor/gps/updateP313nimputar",
+            data: form_data,
+            success: function(response){
+
+                alert("Coordenadas actualizadas");
+            },
+            error: function(error) {
+
+                alert("Se perdio la conexión, revise su conexión a internet.");
+            }
+        });
+    }
+
+
+
     </script>
-   
+
     <script type="text/javascript">
-   
+
     $(document).ready(function() {
 
         initialize();
 
         combosede();
 
-        $('#NOM_PROV').attr('disabled', true);    
-        $('#PERIODO').attr('disabled', true);   
+        $('#NOM_PROV').attr('disabled', true);
+        $('#PERIODO').attr('disabled', true);
 
         $('#PERIODO').change(function(event) {
-          
-           puntosGPS($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());   
- 
-        });  
- 
+
+           puntosGPS($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());
+
+        });
+
+        $('.btn').click(function(){
+
+            if (confirm("¿Esta seguro que desea solicitar una actualización de coordenadas para el local "+ $('#local').val()+" ?")){
+              reg_form_activo();
+            }
+
+        });
+
+         $('input').attr({
+            disabled : true,
+         });
+
     });
 
     function combosede(){
 
         $.getJSON(urlRoot('index.php')+'/visor/gps/sedeOperativa', {token: getToken()}, function(data, textStatus) {
-          
+
           var html='<option value="0">SELECCIONE...</option>';
 
           $.each(data, function(index, val) {
-            
+
             html+='<option class="cmbsede" value="'+val.cod_sede_operativa+'">'+val.sede_operativa+'</option>';
 
           });
@@ -305,30 +351,30 @@
 
             comboprovincia($(this).val());
 
-            $('#PERIODO').attr('disabled', true); 
+            $('#PERIODO').attr('disabled', true);
             $('#PERIODO').val(0)
 
           });
 
         }).fail(function( jqxhr, textStatus, error ) {
-        
+
           var err = textStatus + ', ' + error;
           console.log( "Request Failed: " + err);
-        
+
         });
-      
-    }   
+
+    }
 
      function comboprovincia(code){
 
         $.getJSON(urlRoot('index.php')+'/visor/gps/provinciaOperativa', {token: getToken(),code:code}, function(data, textStatus) {
-          
+
           var html='<option value="0">SELECCIONE...</option>';
 
           $('#NOM_PROV').attr('disabled', false);
-          
+
           $.each(data, function(index, val) {
-            
+
             html+='<option value="'+val.cod_prov_operativa+'">'+val.prov_operativa_ugel+'</option>';
 
           });
@@ -337,27 +383,27 @@
 
           $('#NOM_PROV').change(function(event) {
             $('#PERIODO').attr('disabled', false);
-            $('#PERIODO').val(0) 
+            $('#PERIODO').val(0)
           });
 
         }).fail(function( jqxhr, textStatus, error ) {
-        
+
           var err = textStatus + ', ' + error;
           console.log( "Request Failed: " + err);
-        
+
         });
-      
-    }  
+
+    }
 
     function puntosGPS(sede,provincia,periodo){
-  
+
         $.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
-               
+
                 $.each(data, function(i, val){
 
                     var contentString="<div>"+
-                    "<strong>Codigo de local: </strong>"+val.codigo_de_local+"<br />"+
-                    "<strong>Predio: </strong>"+val.Nro_Pred+"<br />"+
+                    "<div id=C"+val.LatitudPunto+'.'+val.LongitudPunto+"><strong>Codigo de local: </strong>"+val.codigo_de_local+"<br /></div>"+
+                    "<div id=P"+val.LatitudPunto+'.'+val.LongitudPunto+"><strong>Predio: </strong>"+val.Nro_Pred+"<br /></div>"+
                     "<strong>Departamento: </strong>"+val.Departamento+"<br />"+
                     "<strong>Provincia: </strong>"+val.Provincia+"<br />"+
                     "<strong>Distrito: </strong>"+val.Distrito+"<br />"+
@@ -365,17 +411,17 @@
                     "<strong>Longitud: </strong>"+val.LongitudPunto+"<br />"+
                     "<strong>Altitud: </strong>"+val.AltitudPunto+"<br />"+
                     "</div>";
-                                  
+
                     var point = new google.maps.LatLng(val.LatitudPunto,val.LongitudPunto);
                     var marker = createMarkerLEN(point, val.codigo_de_local, contentString,'punto',val.Tipo, val.codigo_de_local+" - "+val.Nro_Pred);
-                
+
                 });
 
-            });          
+            });
 
     }
 
-    
+
 
     </script>
   </head>
@@ -384,11 +430,11 @@
 <div class="map_container">
   <div id="map-canvas"></div>
 </div>
-      
+
 <div id="header" style="display: block;">
-  <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a> 
+  <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a>
   <div id="oted">Oficina Técnica de Estadísticas Departamentales - OTED</div>
-</div>   
+</div>
 
 
 
@@ -439,13 +485,19 @@
 
  <!--  <div class="row-fluid control-group span9"> -->
     <div>
-      <h5>Actalizar Coordenadas <span id="id_local"></span></h5>
+      <h5>Actualizar Coordenadas <span id="id_local"></span></h5>
     </div>
-    
+
+    <label>Local Escolar:</label>
+    <input type="text" id="local" style="width:155px">
+    <label>Predio:</label>
+    <input type="text" id="predio" style="width:155px">
     <label>Latitud:</label>
-    <input type="text" id="latitud" style="width:155px;">
+    <input type="text" id="latitud" style="width:155px">
     <label>Longitud:</label>
-    <input type="text" id="longitud" style="width:155px;">
+    <input type="text" id="longitud" style="width:155px">
+
+
     <button type="submit" class="btn">Actualizar</button>
  <!--  </div> -->
 
@@ -461,11 +513,11 @@
 
     <div class="span3">
       <p class="pull-right">CIE 2013</p>
-    </div>    
+    </div>
 
   </div>
 </div>
-</div>  
+</div>
 
   </body>
 </html>

@@ -15,23 +15,23 @@ class Gps extends CI_Controller {
 	}
 
 	public function index(){
-		
+
 		$this->load->view('mapa/gps.php');
-		
+
 	}
 
 	public function diez(){
 
 		$this->load->view('mapa/gps_diez.php');
-	
+
 	}
 
 	public function last(){
 
 		$this->load->view('mapa/puntos_gps.php');
-	
+
 	}
 }
 
- 
+
 
