@@ -424,8 +424,12 @@ function cargarProv()
 			$.each(json_data, function(i, data){
 				$("#provincia").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
-			
+			if (id_depa!=99 && id_depa!=-1)
+			{
+				$("#provincia").append("<option value='99' selected='true'>Todos</value>");	
+			}			
 			$("#provincia").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+
 		}
 	});
 }
@@ -501,7 +505,7 @@ function cargarProv()
 		var mesactual = d.getMonth()+1;
 		var anoactual = d.getFullYear();
 		if ((long>=2) && (primerslap==false)) { dia=fecha.substr(0,2); 
-		if ((IsNumeric(dia)==true) && (dia<=diaactual) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
+		if ((IsNumeric(dia)==true) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
 		else { fecha=""; primerslap=false;} 
 		} 
 		else 
@@ -512,7 +516,7 @@ function cargarProv()
 		} 
 		if ((long>=5) && (segundoslap==false)) 
 		{ mes=fecha.substr(3,2); dia=fecha.substr(0,2);
-		if ((IsNumeric(mes)==true) &&(mes<=mesactual) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
+		if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
 		else { fecha=fecha.substr(0,3);; segundoslap=false;} 
 		} 
 		else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
@@ -521,6 +525,13 @@ function cargarProv()
 		if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
 		else { if (long==10){ if ((ano==0) || (ano<2013) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
 		}
+		if (long==5)
+		{
+			if (mes==mesactual){
+				if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+			}else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+		}
+
 		if (long==10)
 		{
 			dia=fecha.substr(0,2);

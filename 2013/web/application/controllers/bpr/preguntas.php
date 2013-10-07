@@ -10,9 +10,6 @@ class Preguntas extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 
-		//$this->load->model('convocatoria/Dpto_model');
-		//$this->load->model('convocatoria/Provincia_model');
-		//$this->load->model('convocatoria/Dist_model');
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
 	}
@@ -42,20 +39,7 @@ class Preguntas extends CI_Controller {
 		}
 		$this->load->view('backend/json/json_view', $return_arr);
 	}
-/*
-	public function obtenerdistrito()
-	{
-		$dist = $this->operativa_model->Get_DistbySedeProv_Ope($_POST['id_sede'],$_POST['id_prov']);
-		$return_arr['datos']=array();
-		foreach($dist->result() as $filas)
-		{
-			$data['CODIGO'] = $filas->CCDI;
-			$data['NOMBRE'] = utf8_encode(strtoupper($filas->Nombre));
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
-	}
-*/
+
 	public function obtenercedula()
 	{
 		$ced = $this->operativa_model->Get_Cedula();
@@ -173,6 +157,34 @@ class Preguntas extends CI_Controller {
 		}else{
 			$show = 'Datos Grabados Satisfactoriamente.';
 		}
+	}
+
+	public function view_ultima_pregunta()
+	{
+		$id_cuestionario = $this->input->get('id_cuestionario');
+		$data = $this->bpr_model->get_ultima_pregunta($id_cuestionario);
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("id_cuestionario" => $fila->id_cuestionario,
+			"id_nro" => $fila->id_nro,
+			"consulta" => $fila->consulta,
+			"fecha_pregunta" => $fila->fecha_pregunta);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
 	}
 
 }

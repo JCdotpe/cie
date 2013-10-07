@@ -37,21 +37,6 @@ class Respuestas extends CI_Controller {
 		
 	}
 
-	public function index()
-	{		
-		$this->load->model('convocatoria/Dpto_model');
-		$this->load->model('convocatoria/Cargo_funcional_vista');
-
-		$data['nav'] = TRUE;
-		$data['title'] = 'BPR - Preguntas';
-		$data['main_content'] = 'bpr/respuestas_view';
-		$data['user_id'] = $this->session->userdata('user_id');
-		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
-		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
-		$data['cedula']=$this->operativa_model->Get_Cedula();
-		$this->load->view('backend/includes/template', $data);
-	}
-
 	public function registro()
 	{
 		$codigo = $this->input->post('codigo');
@@ -76,109 +61,32 @@ class Respuestas extends CI_Controller {
 		}
 	}
 
-	public function lista_consultas()
+	public function view_ultima_respuesta()
 	{
-		$this->load->model('bpr/bpr_model');
+		$id_cuestionario = $this->input->get('id_cuestionario');
+		$data = $this->bpr_model->get_ultima_respuesta($id_cuestionario);
 
-		$page = $this->input->get('page',TRUE);
-		$limit = $this->input->get('rows',TRUE);
-		$sidx = $this->input->get('sidx',TRUE);
-		$sord = $this->input->get('sord',TRUE);
-
-		$where1="WHERE cod_sede_operativa='-1'";
-
-		if(isset($_GET['codsede'])) {
-			$sedeope = $this->input->get('codsede');
-			$where1="WHERE cod_sede_operativa='$sedeope'";
-		}
-
-		if(isset($_GET['codprov'])) {
-			$prov = $this->input->get('codprov');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov'";
-		}
-
-		/*
-		if(isset($_GET['coddis'])) { 
-			$dist = $this->input->get('coddis');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND CCDI='$dist'";
-		}
-		*/
-
-		if(isset($_GET['codcargo'])) { 
-			$cargo = $this->input->get('codcargo');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cargo='$cargo'";
-		}
-
-		if(isset($_GET['codced'])) { 
-			$ced = $this->input->get('codced');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced'";
-		}
-
-		if(isset($_GET['codcap'])) { 
-			$cap = $this->input->get('codcap');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap'";
-		}
-
-		if(isset($_GET['codsec'])) { 
-			$sec = $this->input->get('codsec');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec'";
-		}
-
-		if(isset($_GET['codpre'])) { 
-			$preg = $this->input->get('codpre');
-			$where1="WHERE cod_sede_operativa='$sedeope' AND cod_prov_operativa='$prov' AND cedula='$ced' AND cargo='$cargo' AND cod_cap='$cap' AND cod_sec='$sec' AND cod_preg='$preg'";
-		}
-
-		if(!$sidx) $sidx =1;
-		$count = $this->bpr_model->contar_datos($where1);
-
- 		//En base al numero de registros se obtiene el numero de paginas
-		if( $count > 0 ) {
-			$total_pages = ceil($count/$limit);
-		} else {
-			$total_pages = 0;
-		}
-		if ($page > $total_pages) $page=$total_pages;
-
-		$row_final = $page * $limit;
-		$row_inicio = $row_final - $limit;
-
-		$resultado = $this->bpr_model->mostrar_datos($sidx, $sord, $row_inicio, $row_final, $where1);
-
-		$respuesta->page = $page;
-		$respuesta->total = $total_pages;
-		$respuesta->records = $count;
 		$i=0;
-		$nro_fila = $row_inicio;
-		foreach ($resultado->result() as $fila )
-		{
-			$nro_fila++;
-			$respuesta->rows[$i]['id'] = $fila->id_cuestionario;
-			$respuesta->rows[$i]['cell'] = array($nro_fila,utf8_encode($fila->desc_capitulo),utf8_encode($fila->desc_seccion),utf8_encode($fila->desc_pregunta),utf8_encode($fila->consulta));
-			$i++;		
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("id_cuestionario" => $fila->id_cuestionario,
+			"id_nro" => $fila->id_nro,
+			"respuesta" => $fila->respuesta,
+			"fecha_respuesta" => $fila->fecha_respuesta);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
 		}
 
-		$jsonData = json_encode($respuesta);
-		echo $jsonData;
-	}
+		echo "]";
 
-	public function buscardetalle()
-	{
-		$codigo = $_POST['codigo'];
-		$pos = strpos($codigo,'.');
-		$id_cuestionario = substr($codigo,0,$pos);
-		$id_nro = substr($codigo,$pos+1);
-		$resultado = $this->bpr_model->get_detalle_pregunta($id_cuestionario, $id_nro);
-		$return_arr['datos']=array();
-		foreach($resultado->result() as $filas)
-		{
-			$data['desc_capitulo'] = utf8_encode($filas->desc_capitulo);
-			$data['desc_seccion'] = utf8_encode($filas->desc_seccion);
-			$data['desc_pregunta'] = utf8_encode($filas->desc_pregunta);
-			$data['consulta'] = utf8_encode($filas->consulta);
-			array_push($return_arr['datos'], $data);
-		}
-		$this->load->view('backend/json/json_view', $return_arr);	
 	}
 
 }

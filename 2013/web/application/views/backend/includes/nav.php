@@ -53,6 +53,7 @@
                    <li><a href="<?php echo base_url('index.php/convocatoria/contacto'); ?>">Contacto</a></li>
                    <li><a href="<?php echo base_url('index.php/convocatoria/resultados'); ?>">Resultados</a></li>
                    <li><a href="<?php echo base_url('index.php/auth/login'); ?>">Login</a></li>
+                   <li><a href="<?php echo base_url('index.php/bpr/menu'); ?>">BPR</a></li>
                 </ul>
 
             <?php }?>

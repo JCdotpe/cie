@@ -92,7 +92,7 @@
 					<div class="control-group">
 						<?php echo form_label('Provincia Operativa', 'provinciaope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope"'); ?>
+							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" onChange="cargarDatos();"'); ?>
 						</div>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
 						<div class="controls">
 							<?php
-								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo"'); 
+								echo form_dropdown('cargo', $cargosArray, $selected_cargo, ' id="cargo" onChange="cargarDatos();"'); 
 								echo form_dropdown('cargo', $cargospresupuestario, $selected_cargo, ' id="cargo_presupuestal" style="display:none"'); 
 								echo form_dropdown('cargo', $cargosadm, $selected_cargo, 'id="cargo_adm" style="display:none"');
 							?>
@@ -138,39 +138,14 @@
 						<div class="control-group">
 							<?php echo form_label('Pregunta', 'pregunta', $label_class); ?>
 							<div class="controls">
-								<?php echo form_dropdown('pregunta', $preArray, '#', 'id="pregunta"'); ?>
+								<?php echo form_dropdown('pregunta', $preArray, '#', 'id="pregunta" onChange="cargarDatos();"'); ?>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<input type="hidden" name="codigo" id="codigo" value="<?php echo $user_id; ?>" />
 			<div class="accordion" id="accordion2">
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-						Pregunta #1
-						</a>
-					</div>
-					<div id="collapseOne" class="accordion-body collapse">
-						<div class="accordion-inner">
-							Repuesta de la Pregunta #1
-						</div>
-					</div>
-				</div>
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-						Pregunta #2
-						</a>
-					</div>
-					<div id="collapseTwo" class="accordion-body collapse">
-						<div class="accordion-inner">
-        					Respuesta de la Pregunta #2
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="v_banco" class="row-fluid well top-conv">
 			</div>
 			<?php echo form_close(); ?>			
 		</div>
@@ -180,66 +155,176 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		ListarPreguntaPrincipal();
+		var codigo = $("#codigo").val();
+		ListarPreguntaPrincipal(codigo);
 	});
 
-
-function ListarPreguntaPrincipal()
+function ListarPreguntaPrincipal(usuario)
 {
-	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
+	var sedeope=$("#sedeoperativa").val();
+	var provope = $("#provincia_ope").val();
+	var cargo = document.getElementById("cargo").value;
+	var cedula = $("#cedula").val();
+	var capitulo = $("#capitulo").val();
+	var seccion = $("#seccion").val();
+	var pregunta = $("#pregunta").val();
+
+	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {sede_ope:sedeope,prov_ope:provope,cargo:cargo,cedula:cedula,capitulo:capitulo,seccion:seccion,pregunta:pregunta}, function(data, textStatus) {
 
 		var html="";
-
-				/*<div class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-						Pregunta #1
-						</a>
-					</div>
-					<div id="collapseOne" class="accordion-body collapse">
-						<div class="accordion-inner">
-							Repuesta de la Pregunta #1
-						</div>
-					</div>
-				</div>*/
-
+		var estado="";
+		var nro="";
 		$.each(data, function(index, val) {
 			html+='<div class="accordion-group">'+
 					'<div class="accordion-heading">'+
-						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">'+
-							val.consulta+
+						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'+val.id_cuestionario+'">'+
+							val.consulta+' '+val.fecha_creacion+
 						'</a>'+
+					'</div>'+
+					'<div id="collapse'+val.id_cuestionario+'" class="accordion-body collapse">'+
+						'<div id="content_'+val.id_cuestionario+'" class="accordion-inner">';
+							$.each(val.historial, function(index, val) {
+								if (val.id_nro == 1)
+								{
+									html+=val.respuesta+' '+val.fecha_respuesta+
+										'<hr>';
+								}else{
+									html+=val.consulta+' '+val.fecha_pregunta+
+										'<br>';
+										if (val.respuesta!='')
+										{
+										html+=val.respuesta+' '+val.fecha_respuesta+
+											'<hr>';	
+										}
+								}
+								estado=val.estado;
+								nro=val.id_nro;
+							});
+					html+='</div>';
+					if (usuario!='' && estado==0)
+					{
+					html+='<div id="respuesta_'+val.id_cuestionario+'" style="padding:20px;">'+
+							'<div class="span7">'+
+								'<div class="control-group">'+
+									'<label class="control-label" for="resp">Respuesta</label>'+
+									'<div class="controls">'+
+										'<textarea id="contenido_'+val.id_cuestionario+'" style="width: 500px;" maxlength="400" rows="4" cols="20" name="respuesta"></textarea>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div>'+
+								'<div class="span12">'+
+									'<button id="rpt" class="btn btn-primary pull-left" onclick="respuesta_bpr('+val.id_cuestionario+','+nro+')" type="button" name="rpt">Reponder</button>'+
+								'</div>'+
+							'</div>'+
 					'</div>';
+					}else if (usuario=='' && estado==1){
+					html+='<div id="pregunta_'+val.id_cuestionario+'" style="padding:20px;">'+
+							'<div class="span4">'+
+								'<div class="control-group">'+
+									'<label for="nombre" class="control-label">Nombre Completo</label>'+
+									'<div class="controls">'+
+										'<input id="nombrecompleto_'+val.id_cuestionario+'" type="text" maxlength="80" style="width: 250px;" value="" name="nombrecompleto"></input>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div class="span4">'+
+								'<div class="control-group">'+
+									'<label for="dni" class="control-label">Nro DNI</label>'+
+									'<div class="controls">'+
+										'<input id="nrodni_'+val.id_cuestionario+'" type="text" maxlength="8" onkeypress="return validar_numeros(event)" style="width: 100px;" value="" name="nrodni"></input>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div>'+
+								'<div class="span7">'+
+									'<div class="control-group">'+
+										'<label class="control-label" for="cons">Consulta</label>'+
+										'<div class="controls">'+
+											'<textarea id="consulta_'+val.id_cuestionario+'" style="width: 500px;" maxlength="400" rows="4" cols="20" name="consulta"></textarea>'+
+										'</div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div>'+
+								'<div class="span12">'+
+									'<button id="guardar" class="btn btn-primary pull-left" onclick="repregunta_bpr('+val.id_cuestionario+')" type="button" name="guardar">Enviar</button>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					}
+				html+='</div>'+
+				'</div>';
 		});
 		$("#accordion2").html(html);
 	});
 }
 
-
-function ListarBanco()
+function repregunta_bpr(codigo_cuestionario)
 {
-	$.getJSON(urlRoot('index.php')+'/bpr/banco/view_pregunta/', {}, function(data, textStatus) {
+	var nombre = $("#nombrecompleto_"+codigo_cuestionario).val();
+	var nrodni = $("#nrodni_"+codigo_cuestionario).val();
+	var consulta = $("#consulta_"+codigo_cuestionario).val();
+
+	if (consulta=='') { alert("Ingrese su Consulta!"); return false; }
+
+	$.ajax({
+		type: "POST", 
+		url: urlRoot('index.php')+"/bpr/preguntas/re_pregunta",
+		data: "id_cuestionario="+codigo_cuestionario+"&nombrecompleto="+nombre+"&nrodni="+nrodni+"&consulta="+consulta,
+		success: function(response){
+			view_last_quest(codigo_cuestionario);
+			$("#pregunta_"+codigo_cuestionario).hide();
+			$("#nombrecompleto_"+codigo_cuestionario).val('');
+			$("#nrodni_"+codigo_cuestionario).val('');
+			$("#consulta_"+codigo_cuestionario).val('');
+			alert("Consulta Enviada!");
+		}
+	});
+}
+
+function view_last_quest(codigo)
+{
+	$.getJSON(urlRoot('index.php')+'/bpr/preguntas/view_ultima_pregunta/', {id_cuestionario:codigo}, function(data, textStatus) {
 
 		var html="";
-
 		$.each(data, function(index, val) {
-			html+='<div class="row-fluid">'+
-						'<div id="preg'+val.id_cuestionario+'" class="span8">'+
-							'<a href="'+urlRoot('index.php')+'/bpr/historial/?variable='+val.id_cuestionario+'">'+val.consulta+'</a>'
-						+'</div>'+
-						'<div id="fex'+val.id_cuestionario+'" class="span3">'+
-							val.fecha_creacion
-						+'</div>'+
-					'</div>';
-				$.each(val.respuesta, function(index, val) {
-
-					html+='<div class="row-fluid">'+
-							'<div id="resp'+val.id_cuestionario+'" class="span10">'+
-							val.respuesta
-						+'</div>'+'</div>';
-				});
+			html+=val.consulta+'<br>';
 		});
-		$("#v_banco").append(html);
+		$("#content_"+codigo).append(html);
+	});
+}
+
+function respuesta_bpr(codigo_cuestionario,nro_cuestionario)
+{
+	var codigo = $("#codigo").val();
+	var respuesta = $("#contenido_"+codigo_cuestionario).val();
+	var codigo_rpt = codigo_cuestionario+'.'+nro_cuestionario;
+
+	if (respuesta=='') { alert("Ingrese su Respuesta!"); return false; }
+
+	$.ajax({
+		type: "POST", 
+		url: urlRoot('index.php')+"/bpr/respuestas/registro",
+		data: "codigo="+codigo_rpt+"&respuesta="+respuesta+"&usuario="+codigo,
+		success: function(response){
+			view_last_resp(codigo_cuestionario);
+			$("#respuesta_"+codigo_cuestionario).hide();
+			$("#contenido_"+codigo_cuestionario).val('');
+			alert("Respuesta Enviada!");
+		}
+	});
+}
+
+function view_last_resp(codigo)
+{
+	$.getJSON(urlRoot('index.php')+'/bpr/respuestas/view_ultima_respuesta/', {id_cuestionario:codigo}, function(data, textStatus) {
+
+		var html="";
+		$.each(data, function(index, val) {
+			html+=val.respuesta+'<hr>';
+		});
+		$("#content_"+codigo).append(html);
 	});
 }
 

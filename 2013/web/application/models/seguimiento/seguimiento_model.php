@@ -27,7 +27,7 @@ class Seguimiento_Model extends CI_Model {
 
 	public function insert_avance($data)
 	{
-		$sql="INSERT INTO avance (codlocal, nro_visita, fecha_visita, estado, especifique, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['fecha_visita']."', '".$data['estado']."', '".$data['especifique']."', '".$data['usu_registra']."', getdate())";
+		$sql="INSERT INTO avance (codlocal, nro_visita, fecha_visita, estado, especifique, usu_registra, fecha_registro) VALUES ('".$data['codlocal']."', ".$data['nro_visita'].", '".$data['fecha_visita']."', '".$data['estado']."', '".str_replace("'", "''",$data['especifique'])."', '".$data['usu_registra']."', getdate())";
 		$this->db->query($sql);
 		return $this->db->affected_rows() > 0;
 	}

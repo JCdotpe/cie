@@ -164,8 +164,6 @@ class Registro_Seguimiento extends CI_Controller {
 			}			
 		}
 
-		//echo $where1;
-
 		if(!$sidx) $sidx =1;
 
 		$count = $this->seguimiento_model->nro_locales_for_seguimiento($where1);
@@ -213,7 +211,7 @@ class Registro_Seguimiento extends CI_Controller {
 				'nro_visita'=>$nro_visitas,
 				'fecha_visita'=> $fecha_visita,
 				'estado'=> $this->input->post('estado'),
-				'especifique'=> $especifique,
+				'especifique'=> utf8_decode($especifique),
 				'usu_registra'=> $this->input->post('usuario')
 			);
 			$this->seguimiento_model->insert_avance($c_data);

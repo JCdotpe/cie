@@ -74,7 +74,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:P3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:P5');
-			$sheet->setCellValue('D7','REPORTE DE MONITOREO POR ODEI');
+			$sheet->setCellValue('D7','REPORTE DE REGISTRO POR ODEI (MONITOREO)');
 			$sheet->mergeCells('D7:P7');
 			$sheet->getStyle('D3:P7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:P7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -283,13 +283,13 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Monitoreo ODEI");
+				$sheet->setTitle("Reporte Registro ODEI");
 				$this->phpexcel->getProperties()
-				->setTitle("Reporte Monitoreo ODEI")
-				->setDescription("Reporte de Monitoreo por ODEI");
+				->setTitle("Reporte Registro ODEI")
+				->setDescription("Reporte de Registro por ODEI - MONITOREO");
 
 			header("Content-Type: application/vnd.ms-excel");
-			$nombreArchivo = 'Monitoreo_ODEI_'.date('Y-m-d').'_Periodo('.$periodo.')';
+			$nombreArchivo = 'Monitoreo_Registro_x_ODEI_'.date('Y-m-d').'_Periodo('.$periodo.')';
 			header("Content-Disposition: attachment; filename=\"$nombreArchivo.xls\""); //EXCEL
 			header("Cache-Control: max-age=0");
 			
@@ -362,7 +362,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:Q3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:Q5');
-			$sheet->setCellValue('D7','REPORTE DE MONITOREO DE AVANCE POR ODEI');
+			$sheet->setCellValue('D7','REPORTE DE AVANCE DIARIO POR ODEI (MONITOREO)');
 			$sheet->mergeCells('D7:Q7');
 			$sheet->getStyle('D3:Q7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:Q7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -555,6 +555,28 @@ class Csvexport extends CI_Controller {
 
 		// PIE TOTALES
 			$celda_s = $total+1 ; // inicio de pie de resumenes
+			$sheet->setCellValue('B'.$celda_s,'TOTALES');
+			$sheet->mergeCells('B'.$celda_s.':C'.$celda_s);
+			$sheet->mergeCells('G'.$celda_s.':Q'.$celda_s);
+			
+			$inicio_s = $cab+3 ; // inicio suma  de resumenes	
+			$fin_s = $total ; // fin suma de resumenes	
+
+			$sheet->setCellValue('D'. $celda_s ,'=IF(SUM(D'.$inicio_s.':D'.$fin_s.')>0,SUM(D'.$inicio_s.':D'.$fin_s.')," ")');
+			$sheet->setCellValue('E'. $celda_s ,'=IF(SUM(E'.$inicio_s.':E'.$fin_s.')>0,SUM(E'.$inicio_s.':E'.$fin_s.')," ")');
+			$sheet->setCellValue('F'. $celda_s ,'=IF(SUM(F'.$inicio_s.':F'.$fin_s.')>0,SUM(F'.$inicio_s.':F'.$fin_s.')," ")');
+
+			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('G'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('B'.$celda_s.':Q'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+
+			$sheet->getStyle('B'.$celda_s.':Q'.$celda_s)->applyFromArray(array(
+			'borders' => array(
+						'allborders' => array(
+										'style' => PHPExcel_Style_Border::BORDER_THIN)
+					)
+			));
 
 			//fecha
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );
@@ -576,13 +598,13 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Avance ODEI");
+				$sheet->setTitle("Reporte Avance ODEI");
 				$this->phpexcel->getProperties()
 				->setTitle("Reporte Avance ODEI")
-				->setDescription("Reporte de Avance por ODEI");
+				->setDescription("Reporte de Avance Diario por ODEI");
 
 			header("Content-Type: application/vnd.ms-excel");
-			$nombreArchivo = 'Avance_ODEI_'.date('Y-m-d').'_Periodo('.$periodo.')';
+			$nombreArchivo = 'Monitoreo_AvanceDiario_ODEI_'.date('Y-m-d').'_Periodo('.$periodo.')';
 			header("Content-Disposition: attachment; filename=\"$nombreArchivo.xls\""); //EXCEL
 			header("Cache-Control: max-age=0");
 			
@@ -666,7 +688,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:Q3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:Q5');
-			$sheet->setCellValue('D7','REPORTE DE MONITOREO POR UBIGEO');
+			$sheet->setCellValue('D7','REPORTE DE REGISTRO POR UBIGEO (MONITOREO)');
 			$sheet->mergeCells('D7:Q7');
 			$sheet->getStyle('D3:Q7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:Q7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -880,13 +902,13 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Monitoreo UBIGEO");
+				$sheet->setTitle("Monitoreo Registro UBIGEO");
 				$this->phpexcel->getProperties()
-				->setTitle("Reporte Monitoreo Ubigeo")
-				->setDescription("Reporte de Monitoreo por Ubigeo");
+				->setTitle("Reporte Registro Ubigeo")
+				->setDescription("Reporte de Registro por Ubigeo");
 
 			header("Content-Type: application/vnd.ms-excel");
-			$nombreArchivo = 'Monitoreo_Ubigeo_'.date('Y-m-d');
+			$nombreArchivo = 'Monitoreo_Registro_Ubigeo_'.date('Y-m-d');
 			header("Content-Disposition: attachment; filename=\"$nombreArchivo.xls\""); //EXCEL
 			header("Cache-Control: max-age=0");
 			
@@ -971,7 +993,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:R3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:R5');
-			$sheet->setCellValue('D7','REPORTE DE MONITOREO DE AVANCE POR UBIGEO');
+			$sheet->setCellValue('D7','REPORTE DE AVANCE DIARIO POR UBIGEO (MONITOREO)');
 			$sheet->mergeCells('D7:R7');
 			$sheet->getStyle('D3:R7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:R7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -1135,11 +1157,8 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->Desocupada_Porc);
 			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->Otro);
 			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->Otro_Porc);
-			  		//$sheet->getCellByColumnAndRow(16, $row)->setValue('Hola');
 			  		$sheet->setCellValue('R'.$row,'=SUM(I'.$row.',K'.$row.',M'.$row.',O'.$row.',Q'.$row.')');
 
-			  		//SUM(L'.$inicio_s.':L'.$fin_s.')
-			  		//=SUM(H14,J14,L14,N14,P14)
 
 				//}
 				 $col = 2;
@@ -1168,6 +1187,28 @@ class Csvexport extends CI_Controller {
 
 		// PIE TOTALES
 			$celda_s = $total+1 ; // inicio de pie de resumenes
+			$sheet->setCellValue('B'.$celda_s,'TOTALES');
+			$sheet->mergeCells('B'.$celda_s.':D'.$celda_s);
+			$sheet->mergeCells('H'.$celda_s.':R'.$celda_s);
+			
+			$inicio_s = $cab+3 ; // inicio suma  de resumenes	
+			$fin_s = $total ; // fin suma de resumenes	
+
+			$sheet->setCellValue('E'. $celda_s ,'=IF(SUM(E'.$inicio_s.':E'.$fin_s.')>0,SUM(E'.$inicio_s.':E'.$fin_s.')," ")');
+			$sheet->setCellValue('F'. $celda_s ,'=IF(SUM(F'.$inicio_s.':F'.$fin_s.')>0,SUM(F'.$inicio_s.':F'.$fin_s.')," ")');
+			$sheet->setCellValue('G'. $celda_s ,'=IF(SUM(G'.$inicio_s.':G'.$fin_s.')>0,SUM(G'.$inicio_s.':G'.$fin_s.')," ")');
+
+			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('H'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('B'.$celda_s.':R'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+
+			$sheet->getStyle('B'.$celda_s.':R'.$celda_s)->applyFromArray(array(
+			'borders' => array(
+						'allborders' => array(
+										'style' => PHPExcel_Style_Border::BORDER_THIN)
+					)
+			));
 
 			//fecha
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );
@@ -1189,13 +1230,13 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Avance UBIGEO");
+				$sheet->setTitle("Reporte Avance UBIGEO");
 				$this->phpexcel->getProperties()
 				->setTitle("Reporte Avance Ubigeo")
-				->setDescription("Reporte de Avance por Ubigeo");
+				->setDescription("Reporte de Avance Diario por Ubigeo");
 
 			header("Content-Type: application/vnd.ms-excel");
-			$nombreArchivo = 'Avance_Ubigeo_'.date('Y-m-d');
+			$nombreArchivo = 'Monitoreo_AvanceDiario_Ubigeo_'.date('Y-m-d');
 			header("Content-Disposition: attachment; filename=\"$nombreArchivo.xls\""); //EXCEL
 			header("Cache-Control: max-age=0");
 			

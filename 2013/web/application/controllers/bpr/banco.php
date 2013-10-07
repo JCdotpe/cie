@@ -10,6 +10,7 @@ class Banco extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->helper('my');
+		$this->load->library('session');
 
 		$this->load->model('bpr/operativa_model');
 		$this->load->model('bpr/bpr_model');
@@ -26,12 +27,31 @@ class Banco extends CI_Controller {
 		$data['sedeope'] = $this->operativa_model->Get_SedeOpe();
 		$data['cargos']=$this->Cargo_funcional_vista->Get_Cargo_vista();
 		$data['cedula']=$this->operativa_model->Get_Cedula();
+		$data['user_id'] = $this->session->userdata('user_id');
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function view_pregunta()
 	{
-		$data = $this->bpr_model->get_pregunta_principal();
+		$condicion="";
+
+		$sede_ope = $this->input->get('sede_ope');
+		$prov_ope = $this->input->get('prov_ope');
+		$cargo = $this->input->get('cargo');
+		$cedula = $this->input->get('cedula');
+		$capitulo = $this->input->get('capitulo');
+		$seccion = $this->input->get('seccion');
+		$pregunta = $this->input->get('pregunta');
+
+		if ($sede_ope!=-1) { $condicion=$condicion." and cod_sede_operativa='$sede_ope'"; }
+		if ($prov_ope!=-1) { $condicion=$condicion." and cod_prov_operativa='$prov_ope'"; }
+		if ($cargo!=-1) { $condicion=$condicion." and cargo=$cargo"; }
+		if ($cedula!=-1) { $condicion=$condicion." and cedula='$cedula'"; }
+		if ($capitulo!=-1) { $condicion=$condicion." and cod_cap='$capitulo'"; }
+		if ($seccion!=-1) { $condicion=$condicion." and cod_sec='$seccion'"; }
+		if ($pregunta!=-1) { $condicion=$condicion." and cod_preg='$pregunta'"; }
+
+		$data = $this->bpr_model->get_pregunta_principal($condicion);
 
 		$i=0;
 		echo "[";

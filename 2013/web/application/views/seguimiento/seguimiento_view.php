@@ -159,7 +159,7 @@
 	'name'	=> 'especifique',
 	'id'	=> 'especifique',
 	'value' => set_value('especifique'),
-	'maxlength'	=> 50,
+	'maxlength'	=> 45,
 	'style' => 'width:120px',
 	'disabled' => 'disabled'
 	);

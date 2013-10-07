@@ -19,7 +19,6 @@
 		$sedeArray[$filas->cod_sede_operativa] = utf8_encode(strtoupper($filas->sede_operativa));
 	}
     $provArray = array(-1 => '');
-    //$distArray = array(-1 => '');
 
     $cargosArray = array(-1 => 'Seleccione...'); 
 	$cargospresupuestario=array(-1 => '-1');
@@ -102,16 +101,6 @@
 						</div>
 					</div>
 				</div>
-				<!--
-				<div class="span3">
-					<div class="control-group">
-						<?php #echo form_label('Distrito', 'distrito', $label_class); ?>
-						<div class="controls">
-							<?php #echo form_dropdown('distrito', $distArray, '#', 'id="distrito"'); ?>
-						</div>
-					</div>
-				</div>
-				-->
 				<div class="span3">
 					<div class="control-group">
 						<?php echo form_label('Cargo', 'cargo', $label_class); ?>
@@ -198,116 +187,7 @@
 					</div>
 				</div>
 			</div>
-			<!--
-			<input type="hidden" name="cod_depa" id="cod_depa" value="" />
-			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
-			<input type="hidden" name="cod_cargo" id="cod_cargo" value="" />
-			<input type="hidden" name="cod_presu" id="cod_presu" value="" />
-			<input type="hidden" name="cod_adm" id="cod_adm" value="" />
-			-->
 			<?php echo form_close(); ?>			
 		</div>
-		<div id="grid_content" class="span12">
-			<!--
-			<div class="span6">
-				<table id="list2"></table>
-				<div id="pager2"></div>
-			</div>
-			-->
-		</div>
-		<!--
-		<div class="span12">
-			<?php #echo form_button('expo','Exportar a Excel','class="btn btn-inverse pull-right" id="expo" style="margin-top:20px" onClick="exportExcel()"'); ?>
-		</div>
-		-->
 	</div>
 </div>
-<!--
-<script type="text/javascript">
-
-	$(document).ready(function() {
-		jQuery("#list2").jqGrid({
-		   	type:"POST",
-		   	url:'coberturapea/obtenreporte',
-			datatype: "json",
-			height: 255,			
-		   	colNames:['Nro', 'Departamento', 'Provincia', 'ODEI', 'Meta Insc.', 'Inscritos', '% Inscritos', 'CV Calificados', 'CV Aprobados', 'Meta Cap.', 'Asistencia Cap.', '% Cobertura Meta', 'Capacitacion', '% Cobertura Meta', 'Meta Selec.', 'Seleccionado', '% Cobertura'],
-		   	colModel:[
-		   		{name:'nro_fila', sortable:false, width:20},
-		   		{name:'departamento',index:'departamento', width:55},
-		   		{name:'provincia',index:'provincia', width:55},
-		   		{name:'odei',index:'odei', width:55},
-		   		{name:'meta_insc',index:'meta_insc', width:20},
-		   		{name:'inscritos',index:'inscritos', width:20},
-		   		{name:'prct_inscritos',index:'prct_inscritos', width:20},
-		   		{name:'CV_calificado',index:'CV_calificado', width:20},
-		   		{name:'CV_aprobado',index:'CV_aprobado', width:20},
-		   		{name:'meta_capa',index:'meta_capa', width:20},
-		   		{name:'Asistente_Capacitacion',index:'Asistente_Capacitacion', width:20},
-		   		{name:'prct_asis_capa',index:'prct_asis_capa', width:20},
-		   		{name:'Aprobado_Capacitacion',index:'Aprobado_Capacitacion', width:20},
-		   		{name:'prct_capa',index:'prct_capa', width:20},
-		   		{name:'meta_con',index:'meta_con', width:20},
-		   		{name:'Titular',index:'Titular', width:20},
-		   		{name:'prct_selec',index:'prct_selec', width:20}	
-		   	],
-		   	rowNum:10,
-		   	rowList:[10,20,30],
-		   	pager: '#pager2',
-		   	sortname: 'departamento, provincia',
-		    viewrecords: true,
-		    sortorder: "asc",
-		    caption:"Datos del Reporte"		    
-		});
-		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false})			
-		$("#list2").setGridWidth($('#grid_content').width(), true);
-
-	});
-
-	function reportar()
-	{
-		var coddepa = jQuery("#departamento").val();
-		var codprov = jQuery("#provincia").val();
-
-		var id_cargo = $('#cargo').val();
-		$("#cargo_presupuestal option[value=" + id_cargo + "]").attr('selected', 'selected');
-		$("#cargo_adm option[value=" + id_cargo + "]").attr('selected', 'selected');
-		var cargo_presupuestal = $('#cargo_presupuestal').find('option:selected').text();
-		var cargo_adm = $('#cargo_adm').find('option:selected').text();
-
-		
-
-		if (id_cargo == -1 || coddepa == -1 )
-		{ 
-			alert("Debe Seleccionar un Departamento y Cargo"); 
-		}else{
-			$('#cod_depa').val(coddepa);
-			$('#cod_prov').val(codprov);
-			$('#cod_cargo').val(id_cargo);
-			$('#cod_presu').val(cargo_presupuestal);
-			$('#cod_adm').val(cargo_adm);
-
-			jQuery("#list2").jqGrid('setGridParam',{url:"coberturapea/obtenreporte?coddepa="+coddepa+"&codprov="+codprov+"&codconvo="+id_cargo+"&codpresu="+cargo_presupuestal+"&codadm="+cargo_adm,page:1}).trigger("reloadGrid");	
-		}
-	}
-
-	function exportExcel()
-	{
-		var coddepa = jQuery("#cod_depa").val();
-		var codprov = jQuery("#cod_prov").val();
-		var id_cargo = jQuery('#cod_cargo').val();
-		var cargo_presupuestal = jQuery('#cod_presu').val();
-		var cargo_adm = jQuery('#cod_adm').val();
-
-		if (coddepa == "" || id_cargo == "")
-		{
-			alert("Ud. No ha realizado ninguna búsqueda");
-		}else{
-			document.forms[0].method='POST';
-			document.forms[0].action="csvExport/ExportacionCobertura?coddepa="+coddepa+"&codprov="+codprov+"&codconvo="+id_cargo+"&codpresu="+cargo_presupuestal+"&codadm="+cargo_adm;
-			document.forms[0].target='_blank';
-			document.forms[0].submit();
-		}        
-	}
-</script>
--->
