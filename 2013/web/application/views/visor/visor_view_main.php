@@ -49,8 +49,8 @@
 
             comboprovincia($(this).val());
 
-            $('#PERIODO').attr('disabled', true); 
-            $('#PERIODO').val(0)
+            $('#PERIODO').attr('disabled', true);
+            $('#PERIODO').val(0);
 
           });
 
@@ -70,6 +70,7 @@
           var html='<option value="0">SELECCIONE...</option>';
 
           $('#NOM_PROV').attr('disabled', false);
+          $('#cod_local').val('');
           
           $.each(data, function(index, val) {
             
@@ -97,6 +98,15 @@
         
         $.getJSON(urlRoot('index.php')+'/visor/procedure/QueryLocal/', {token: getToken(),id_local:id_local}, function(data, textStatus) {
             
+                $('#NOM_PROV').attr('disabled', true);
+                $('#PERIODO').attr('disabled', true);
+                $('#NOM_SEDE').attr('disabled', false);
+
+                $('#NOM_PROV').val(0);
+                $('#PERIODO').val(0);
+                $('#NOM_SEDE').val(0);
+
+
                 table='<table id="lista" style="width:950px;" class="display">'+
                     '<thead>'+
                         '<tr>'+
@@ -120,9 +130,9 @@
                         '<td>'+val.Provincia+'</td>'+
                         '<td>'+val.Distrito+'</td>'+
                         '<td>'+val.IE+'</td>'+
-                        '<td>'+val.Registrado+'</td>'+
-                        '<td>'+val.GPS+'</td>'+
-                        '<td>'+val.Foto+'</td>'+
+                        '<td class="center">'+val.Registrado+'</td>'+
+                        '<td class="center">'+val.GPS+'</td>'+
+                        '<td class="center">'+val.Foto+'</td>'+
                     '</tr>';
 
                 });    
@@ -172,9 +182,9 @@
                         '<td>'+val.Provincia+'</td>'+
                         '<td>'+val.Distrito+'</td>'+
                         '<td>'+val.IE+'</td>'+
-                        '<td>'+val.Registrado+'</td>'+
-                        '<td>'+val.GPS+'</td>'+
-                        '<td>'+val.Foto+'</td>'+
+                        '<td class="center">'+val.Registrado+'</td>'+
+                        '<td class="center">'+val.GPS+'</td>'+
+                        '<td class="center">'+val.Foto+'</td>'+
                     '</tr>';
 
                 });    
