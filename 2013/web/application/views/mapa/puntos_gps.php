@@ -228,6 +228,8 @@
                 document.getElementById('local').value = Local_Predio[0];
                 document.getElementById('predio').value = Local_Predio[1];
 
+                $('#edit_gps').slideDown(200);
+
               });
 
       }
@@ -310,6 +312,9 @@
 
         combosede();
 
+        $('.edit_gps').attr('disabled', true);
+        $('#edit_gps').hide();
+
         $('#NOM_PROV').attr('disabled', true);
         $('#PERIODO').attr('disabled', true);
 
@@ -329,6 +334,10 @@
 
          $('input').attr({
             disabled : true,
+         });
+
+         $('#cancel_edit').click(function(event) {
+           $('#edit_gps').hide();
          });
 
     });
@@ -481,7 +490,7 @@
 
 </div>
 
-<div class="coordenadas_map preguntas_sub2 span2">
+<div class="coordenadas_map preguntas_sub2 span2" id="edit_gps">
 
  <!--  <div class="row-fluid control-group span9"> -->
     <div>
@@ -489,16 +498,17 @@
     </div>
 
     <label>Local Escolar:</label>
-    <input type="text" id="local" style="width:155px">
+    <input type="text" class="edit_gps" id="local" style="width:155px">
     <label>Predio:</label>
-    <input type="text" id="predio" style="width:155px">
+    <input type="text" class="edit_gps" id="predio" style="width:155px">
     <label>Latitud:</label>
-    <input type="text" id="latitud" style="width:155px">
+    <input type="text" class="edit_gps" id="latitud" style="width:155px">
     <label>Longitud:</label>
-    <input type="text" id="longitud" style="width:155px">
+    <input type="text" class="edit_gps" id="longitud" style="width:155px">
 
 
     <button type="submit" class="btn">Actualizar</button>
+    <button type="submit" id="cancel_edit" class="btn">Cancelar</button>
  <!--  </div> -->
 
 </div>
