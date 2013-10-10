@@ -553,3 +553,51 @@ a:hover, a:active{
 .accordion-heading_new h5{
 color: #5D77AD ;
   }
+
+
+.bpr_repregunta{
+  position: relative;
+  color: #666;
+  padding: 0 15px;
+}
+
+  .bpr_time{
+    color: #0274be;
+    display: block;
+    margin: 0 0 5px 0;    
+  }
+
+  .bpr_time_rp{
+    color: #0274be;
+    display: block;
+    margin: 0 0 5px 0;    
+  }
+
+
+  .accordion-heading .accordion-toggle {
+    background: #ccc;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.accordion hr{
+  margin: 5px;
+  border-top: 1px solid #d6d6d6
+}
+
+.accordion:last-child hr{
+  border-top: 0
+}
+
+.clear{
+  clear: both;
+}
+
+.accordion-inner{
+  padding-bottom: 0;
+}
+
+.fecha_pregunta_titulo{
+  float: right;
+  color: #0274BE;
+}

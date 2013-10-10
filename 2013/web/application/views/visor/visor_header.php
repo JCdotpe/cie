@@ -1,4 +1,3 @@
-<script src="<?php echo base_url('js/visor/cedulas.js'); ?>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 

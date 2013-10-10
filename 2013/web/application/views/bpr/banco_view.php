@@ -178,8 +178,8 @@ function ListarPreguntaPrincipal(usuario)
 			html+='<div class="accordion-group">'+
 					'<div class="accordion-heading">'+
 						'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'+val.id_cuestionario+'">'+
-							val.consulta+' '+val.fecha_creacion+
-						'</a>'+
+							val.consulta+' <span class="fecha_pregunta_titulo">'+val.fecha_creacion+
+						'</span></a>'+
 					'</div>'+
 					'<div id="collapse'+val.id_cuestionario+'" class="accordion-body collapse">'+
 						'<div id="content_'+val.id_cuestionario+'" class="accordion-inner">';
