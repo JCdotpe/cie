@@ -745,6 +745,7 @@ echo '
 
 <script type="text/javascript">
 $(function(){
+	
 	$.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
 	   $('#' + fila).val(valor);
 	}); 
