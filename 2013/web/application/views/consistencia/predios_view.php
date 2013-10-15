@@ -23,19 +23,19 @@ $(function(){
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 		  <ul class="nav nav-tabs" style="text-align:center">
-		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Sección II</a></li>
-		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Sección II</a></li>
-		    <li id="ctab3"><a href="#tab3" data-toggle="tab">Sección III</a></li>
-		    <li id="ctab4"><a href="#tab4" data-toggle="tab">Sección IV</a></li>
-		    <li id="ctab5"><a href="#tab5" data-toggle="tab">Sección V</a></li>
-		    <li id="ctab6"><a href="#tab6" data-toggle="tab">Sección VI</a></li>
-		    <li id="ctab7"><a href="#tab7" data-toggle="tab">Sección VII</a></li>
-		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Sección VIII</a></li>
-		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Sección IX</a></li>
-		    <li id="cinfo"><a href="#info" data-toggle="tab">Info</a></li>
+		    <li id="ctab2"><a href="#tabc" data-toggle="tab">Caratula</a></li>
+		    <li id="ctab2"><a href="#tab1" data-toggle="tab">Cap I</a></li>
+		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Cap II</a></li>
+		    <li id="ctab3"><a href="#tab3" data-toggle="tab">Cap III</a></li>
+		    <li id="ctab4"><a href="#tab4" data-toggle="tab">Cap IV</a></li>
+		    <li id="ctab5"><a href="#tab5" data-toggle="tab">Cap V</a></li>
+		    <li id="ctab6"><a href="#tab6" data-toggle="tab">Cap VI</a></li>
+		    <li id="ctab7"><a href="#tab7" data-toggle="tab">Cap VII</a></li>
+		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Cap VIII</a></li>
+		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Cap IX</a></li>
 		  </ul>
 		  <div class="tab-content">
-		    <div class="tab-pane" id="tab1">
+		    <div class="tab-pane" id="tabc">
 		      <p><?php $this->load->view('consistencia/forms/car_form'); ?></p>
 		    </div>	
 
