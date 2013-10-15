@@ -385,6 +385,18 @@ $PC_E_7_TMurCon = array(
 	'disabled' => 'disabled',
 );
 
+/////////////////
+
+// EXTRAS
+
+
+$pcar_num = array(
+	'name'	=> 'pcar_num',
+	'id'	=> 'pcar_num',
+	'class' => 'input2',
+	'maxlength'	=> 2,
+);
+
 
 
 
@@ -506,10 +518,12 @@ echo '
 
 <div class="panel panel-info">
 							<div class="panel-heading">
-								<h5 class="panel-title">Sección C: Entrevista y Supervision</h5>
+								<h5 class="panel-title">Sección C: Entrevista y Supervision</h5> 
 							</div>
 
 							<h6>1. Evaluación y Supervisión</h6>
+
+							'.form_input($pcar_num).'
 
 							<table class="table table-bordered">
 								<thead>
