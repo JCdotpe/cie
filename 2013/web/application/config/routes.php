@@ -57,6 +57,7 @@ $route['caratula1'] = "visor/caratula1";
 $route['capitulo1'] = "visor/capitulo1";
 $route['bpr'] = "bpr/banco";
 $route['consistencia/predios/(:any)'] = "consistencia/consistencia/predios/$1";
+$route['consistencia/predio/(:any)/(:number)'] = "consistencia/consistencia/predios/$1/$2";
 $route['consistencia'] = "consistencia/consistencia";
 
 

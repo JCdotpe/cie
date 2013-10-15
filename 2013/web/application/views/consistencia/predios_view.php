@@ -1,13 +1,21 @@
 <h1>Predios - Codigo Local <?php echo $cod; ?></h1>
 
 
-<div class="row-fluid">
-  <div id="grid_content" class="span12" style="width: 900px;">
-        <table id="editgrid"></table>
-          <div class="span12" id="table_container">
-               <!--AJAX-->
-          </div>
-  </div>
-</div>
+<ul id="predios">
 
-<?php print_r($predios->result()); ?>
+</ul>
+
+<script type="text/javascript">
+$(function(){
+	// function(i, data){
+	// 	function( fila, valor )
+  $.each( <?php echo json_encode($predios->result()); ?>, function(i, data) {
+  	var ahua = 'Principal';
+  	if(data.Nro_Pred != 1){
+  		ahua = (data.P1_B_2A_PredNoCol==0)? 'Colindante' : 'No Colindante';
+  	}
+	$('#predios').append('<li><a href="' + CI.site_url + '/predio/' + data.id_local + '/' + data.Nro_Pred + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
+});
+
+}); 
+</script>

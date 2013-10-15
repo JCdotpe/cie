@@ -30,4 +30,15 @@ class Consistencia extends CI_Controller {
 			$data['main_content'] = 'consistencia/predios_view';
 	  		$this->load->view('backend/includes/template', $data);
 	}	
+
+	public function predio($id,$pr)
+	{
+			$data['nav'] = TRUE;
+			$data['title'] = 'Predios';
+			$data['predios'] = $this->principal->get_predios($id);
+			$data['cod'] = $id;
+			$data['main_content'] = 'consistencia/predios_view';
+	  		$this->load->view('backend/includes/template', $data);
+	}	
+
 }

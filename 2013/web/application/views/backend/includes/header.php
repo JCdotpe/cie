@@ -64,6 +64,7 @@
         <!--
             var CI = {
               'base_url': '<?php echo base_url(); ?>',
+              'site_url': '<?php echo site_url(); ?>',
               'year' : <?php echo date("Y"); ?>,
               'cct' : $.cookie('csrf_cookie_name')
             };            
