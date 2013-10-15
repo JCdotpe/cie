@@ -56,7 +56,9 @@ $route['visor_de_cedulas'] = "visor/visor";
 $route['caratula1'] = "visor/caratula1";
 $route['capitulo1'] = "visor/capitulo1";
 $route['bpr'] = "bpr/banco";
-$route['consistencia/(:any)'] = "consistencia/consistencia/$1";
+$route['consistencia/predios/(:any)'] = "consistencia/consistencia/predios/$1";
+$route['consistencia'] = "consistencia/consistencia";
+
 
 
 
