@@ -9,138 +9,141 @@
 $departamento = array(
 	'name'	=> 'departamento',
 	'id'	=> 'departamento',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $provincia = array(
 	'name'	=> 'provincia',
 	'id'	=> 'provincia',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $distrito = array(
 	'name'	=> 'distrito',
 	'id'	=> 'distrito',
-	'maxlength'	=> 80,
- 'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $PC_A_4_CentroP = array(
 	'name'	=> 'PC_A_4_CentroP',
 	'id'	=> 'PC_A_4_CentroP',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $PC_A_5_NucleoUrb = array(
 	'name'	=> 'PC_A_5_NucleoUrb',
 	'id'	=> 'PC_A_5_NucleoUrb',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $ugel = array(
 	'name'	=> 'ugel',
 	'id'	=> 'ugel',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $PC_A_7Dir_1_Tvia = array(
 	'name'	=> 'PC_A_7Dir_1_Tvia',
+	'id'	=> 'PC_A_7Dir_1_Tvia',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $PC_A_7Dir_2_Nomb = array(
 	'name'	=> 'PC_A_7Dir_2_Nomb',
 	'id'	=> 'PC_A_7Dir_2_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_A_7Dir_3_Nro = array(
 	'name'	=> 'PC_A_7Dir_3_Nro',
 	'id'	=> 'PC_A_7Dir_3_Nro',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_4_Piso = array(
 	'name'	=> 'PC_A_7Dir_4_Piso',
 	'id'	=> 'PC_A_7Dir_4_Piso',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_5_Mz = array(
 	'name'	=> 'PC_A_7Dir_5_Mz',
 	'id'	=> 'PC_A_7Dir_5_Mz',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_6_Lt = array(
 	'name'	=> 'PC_A_7Dir_6_Lt',
 	'id'	=> 'PC_A_7Dir_6_Lt',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_7_Sect = array(
 	'name'	=> 'PC_A_7Dir_7_Sect',
 	'id'	=> 'PC_A_7Dir_7_Sect',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_8_Zona = array(
 	'name'	=> 'PC_A_7Dir_8_Zona',
 	'id'	=> 'PC_A_7Dir_8_Zona',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_9_Et = array(
 	'name'	=> 'PC_A_7Dir_9_Et',
 	'id'	=> 'PC_A_7Dir_9_Et',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_7Dir_10_Km = array(
 	'name'	=> 'PC_A_7Dir_10_Km',
 	'id'	=> 'PC_A_7Dir_10_Km',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $PC_A_8_DirVerif = array(
 	'name'	=> 'PC_A_8_DirVerif',
 	'id'	=> 'PC_A_8_DirVerif',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 1,
+	'class' => 'input1',
 );
 
 $PC_A_9_RefDir = array(
 	'name'	=> 'PC_A_9_RefDir',
 	'id'	=> 'PC_A_9_RefDir',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 200,
+	'class' => 'input200',
 );
 
 $PC_B_1_CodLocal = array(
 	'name'	=> 'PC_B_1_CodLocal',
 	'id'	=> 'PC_B_1_CodLocal',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input6',
+	'disabled' => 'disabled',
 );
 
 $PC_B_2_CantEv = array(
 	'name'	=> 'PC_B_2_CantEv',
 	'id'	=> 'PC_B_2_CantEv',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 
@@ -149,7 +152,7 @@ $PC_B_2_CantEv = array(
 $PC_C_2_Rfinal_fecha = array(
 	'name'	=> 'PC_C_2_Rfinal_fecha',
 	'id'	=> 'PC_C_2_Rfinal_fecha',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
@@ -158,91 +161,91 @@ $PC_C_2_Rfinal_fecha = array(
 $PC_C_1_NroVis = array(
 	'name'	=> 'PC_C_1_NroVis',
 	'id'	=> 'PC_C_1_NroVis',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Fecha = array(
 	'name'	=> 'PC_C_1_Et_Fecha',
 	'id'	=> 'PC_C_1_Et_Fecha',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Hini = array(
 	'name'	=> 'PC_C_1_Et_Hini',
 	'id'	=> 'PC_C_1_Et_Hini',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Hfin = array(
 	'name'	=> 'PC_C_1_Et_Hfin',
 	'id'	=> 'PC_C_1_Et_Hfin',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Fecha_Prox = array(
 	'name'	=> 'PC_C_1_Et_Fecha_Prox',
 	'id'	=> 'PC_C_1_Et_Fecha_Prox',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Hora_Prox = array(
 	'name'	=> 'PC_C_1_Et_Hora_Prox',
 	'id'	=> 'PC_C_1_Et_Hora_Prox',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Res = array(
 	'name'	=> 'PC_C_1_Et_Res',
 	'id'	=> 'PC_C_1_Et_Res',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Et_Res_O = array(
 	'name'	=> 'PC_C_1_Et_Res_O',
 	'id'	=> 'PC_C_1_Et_Res_O',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Jb_Fecha = array(
 	'name'	=> 'PC_C_1_Jb_Fecha',
 	'id'	=> 'PC_C_1_Jb_Fecha',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Jb_Hini = array(
 	'name'	=> 'PC_C_1_Jb_Hini',
 	'id'	=> 'PC_C_1_Jb_Hini',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Jb_Hfin = array(
 	'name'	=> 'PC_C_1_Jb_Hfin',
 	'id'	=> 'PC_C_1_Jb_Hfin',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Jb_Res = array(
 	'name'	=> 'PC_C_1_Jb_Res',
 	'id'	=> 'PC_C_1_Jb_Res',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_C_1_Jb_Res_O = array(
 	'name'	=> 'PC_C_1_Jb_Res_O',
 	'id'	=> 'PC_C_1_Jb_Res_O',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
@@ -252,134 +255,134 @@ $PC_C_1_Jb_Res_O = array(
 $PC_C_2_Rfinal_resul = array(
 	'name'	=> 'PC_C_2_Rfinal_resul',
 	'id'	=> 'PC_C_2_Rfinal_resul',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input1',
+	'disabled' => 'disabled',
 );
 
 $PC_C_2_Rfinal_resul_O = array(
 	'name'	=> 'PC_C_2_Rfinal_resul_O',
 	'id'	=> 'PC_C_2_Rfinal_resul_O',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_EvT_dni = array(
 	'name'	=> 'PC_D_EvT_dni',
 	'id'	=> 'PC_D_EvT_dni',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_EvT_Nomb = array(
 	'name'	=> 'PC_D_EvT_Nomb',
 	'id'	=> 'PC_D_EvT_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_JBri_dni = array(
 	'name'	=> 'PC_D_JBri_dni',
 	'id'	=> 'PC_D_JBri_dni',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_JBri_Nomb = array(
 	'name'	=> 'PC_D_JBri_Nomb',
 	'id'	=> 'PC_D_JBri_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_CProv_dni = array(
 	'name'	=> 'PC_D_CProv_dni',
 	'id'	=> 'PC_D_CProv_dni',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_CProv_Nomb = array(
 	'name'	=> 'PC_D_CProv_Nomb',
 	'id'	=> 'PC_D_CProv_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_CDep_dni = array(
 	'name'	=> 'PC_D_CDep_dni',
 	'id'	=> 'PC_D_CDep_dni',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_CDep_Nomb = array(
 	'name'	=> 'PC_D_CDep_Nomb',
 	'id'	=> 'PC_D_CDep_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_SupN_dni = array(
 	'name'	=> 'PC_D_SupN_dni',
 	'id'	=> 'PC_D_SupN_dni',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_D_SupN_Nomb = array(
 	'name'	=> 'PC_D_SupN_Nomb',
 	'id'	=> 'PC_D_SupN_Nomb',
-	'maxlength'	=> 80,
+	'maxlength'	=> 200,
 	'width' => 300,
 );
 
 $PC_E_1_TPred = array(
 	'name'	=> 'PC_E_1_TPred',
 	'id'	=> 'PC_E_1_TPred',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_2_TPred_NoCol = array(
 	'name'	=> 'PC_E_2_TPred_NoCol',
 	'id'	=> 'PC_E_2_TPred_NoCol',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_3_TEdif = array(
 	'name'	=> 'PC_E_3_TEdif',
 	'id'	=> 'PC_E_3_TEdif',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_4_TPat = array(
 	'name'	=> 'PC_E_4_TPat',
 	'id'	=> 'PC_E_4_TPat',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_5_TLosa = array(
 	'name'	=> 'PC_E_5_TLosa',
 	'id'	=> 'PC_E_5_TLosa',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_6_TCist = array(
 	'name'	=> 'PC_E_6_TCist',
 	'id'	=> 'PC_E_6_TCist',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 $PC_E_7_TMurCon = array(
 	'name'	=> 'PC_E_7_TMurCon',
 	'id'	=> 'PC_E_7_TMurCon',
-	'maxlength'	=> 80,
-	'width' => 300,
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 
@@ -419,33 +422,8 @@ echo '
 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
 
 								  	<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 1. Avenida
+										'.form_input($PC_A_7Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
 									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 2. Jiron
-									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 3. Calle
-									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 4. Pasaje
-									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 5. Carretera
-									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 6. Autopista
-									</label>
-
-									<label class="checkbox-inline">
-										'.form_radio($PC_A_7Dir_1_Tvia).' 7. Otro
-									</label>
-
 						</div>
 
 ';
@@ -495,9 +473,6 @@ echo '
 								8. La dirección del colegio del local escolar del DOC.CIE.03.06
 								<label class="checkbox-inline">
 									'.form_input($PC_A_8_DirVerif).'
-								</label>
-								<label class="checkbox-inline">
-									'.form_input($PC_A_8_DirVerif).' 2. No
 								</label>
 							</li>
 							<li class="list-group-item">
@@ -574,6 +549,9 @@ echo '
 
 									</tr>
 
+								</thead>
+								<tbody id="pcar_c_n">
+
 									<tr>
 										<td>1</td>
 										<td>'.form_input($PC_C_1_NroVis).'</td>
@@ -587,11 +565,6 @@ echo '
 										<td>'.form_input($PC_C_1_Jb_Hini).'</td>
 										<td>'.form_input($PC_C_1_Jb_Hfin).'</td>
 									</tr>
-
-								</thead>
-								<tbody id="eva_solu1">
-
-									<!--AJAX-->
 
 								</tbody>
 							</table>

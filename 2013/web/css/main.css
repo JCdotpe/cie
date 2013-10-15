@@ -625,3 +625,23 @@ ul.predios_views li.active, ul.predios_views li:hover{
   border-radius: 3px;
   color: #3A87AD;
 }
+
+.input1{
+  width: 15px !important;
+}
+
+.input2{
+  width: 17px !important;
+}
+
+.input3{
+  width: 35px !important;
+}
+
+.input6{
+  width: 45px !important;
+}
+
+.input200{
+  width: 200px !important;
+}
