@@ -1,7 +1,6 @@
-<h1>Predios - Codigo Local <?php echo $cod; ?></h1>
+<h4>Codigo de local: <?php echo $cod; ?></h4>
 
-<ul id="predios">
-
+<ul id="predios" class="predios_views">
 </ul>
 
 <script type="text/javascript">
@@ -23,16 +22,16 @@ $(function(){
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 		  <ul class="nav nav-tabs" style="text-align:center">
-		    <li id="ctab2"><a href="#tabc" data-toggle="tab">Caratula</a></li>
-		    <li id="ctab2"><a href="#tab1" data-toggle="tab">Cap I</a></li>
-		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Cap II</a></li>
-		    <li id="ctab3"><a href="#tab3" data-toggle="tab">Cap III</a></li>
-		    <li id="ctab4"><a href="#tab4" data-toggle="tab">Cap IV</a></li>
-		    <li id="ctab5"><a href="#tab5" data-toggle="tab">Cap V</a></li>
-		    <li id="ctab6"><a href="#tab6" data-toggle="tab">Cap VI</a></li>
-		    <li id="ctab7"><a href="#tab7" data-toggle="tab">Cap VII</a></li>
-		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Cap VIII</a></li>
-		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Cap IX</a></li>
+		    <li id="ctab2"><a href="#tabc" data-toggle="tab">Carátula</a></li>
+		    <li id="ctab2"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
+		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Capítulo II</a></li>
+		    <li id="ctab3"><a href="#tab3" data-toggle="tab">Capítulo III</a></li>
+		    <li id="ctab4"><a href="#tab4" data-toggle="tab">Capítulo IV</a></li>
+		    <li id="ctab5"><a href="#tab5" data-toggle="tab">Capítulo V</a></li>
+		    <li id="ctab6"><a href="#tab6" data-toggle="tab">Capítulo VI</a></li>
+		    <li id="ctab7"><a href="#tab7" data-toggle="tab">Capítulo VII</a></li>
+		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Capítulo VIII</a></li>
+		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Capítulo IX</a></li>
 		  </ul>
 		  <div class="tab-content">
 		    <div class="tab-pane" id="tabc">

@@ -601,3 +601,26 @@ color: #5D77AD ;
   float: right;
   color: #0274BE;
 }
+
+ul.predios_views{
+  margin: 0 0 30px 0;
+}
+
+ul.predios_views li{
+  list-style-type: none;
+  float: left;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+ul.predios_views li a{
+  color: #777777;
+}
+
+ul.predios_views li.active{
+  background: #D9EDF7;
+  border: 1px solid #BCE8F1;
+  border-radius: 3px;
+  color: #3A87AD;
+}

@@ -136,7 +136,7 @@ echo '
 													<td style="text-align:center;">'.form_input($LongitudPunto).'</td>
 													<td style="text-align:center;">'.form_input($AltitudPunto).'</td>
 													<td style="text-align:center;">
-														<a class="map" href="http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1=-6.231546666666666&amp;long1=-77.87222666666666" target="_blank" id="map2"><img alt="" src="http://webinei.inei.gob.pe/cie/2013/web/img/map.png"></a>
+														<a class="map" href="http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1=-6.231546666666666&amp;long1=-77.87222666666666" target="_blank" id="map2"><img alt="" src="'.site_url().'img/map.png"></a>
 													</td>
 												</tr>
 											</tbody></table>
