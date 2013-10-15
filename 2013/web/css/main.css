@@ -612,13 +612,14 @@ ul.predios_views li{
   border-radius: 3px;
   padding: 5px 10px;
   margin-right: 10px;
+  border: 1px solid transparent;
 }
 
 ul.predios_views li a{
   color: #777777;
 }
 
-ul.predios_views li.active{
+ul.predios_views li.active, ul.predios_views li:hover{
   background: #D9EDF7;
   border: 1px solid #BCE8F1;
   border-radius: 3px;
