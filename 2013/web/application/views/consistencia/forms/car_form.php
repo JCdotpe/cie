@@ -525,7 +525,7 @@ echo '
 
 							'.form_input($pcar_num).'
 
-							<table class="table table-bordered">
+							<table class="table table-bordered"  id="pcar_c_n">
 								<thead>
 
 									<tr>
@@ -564,21 +564,7 @@ echo '
 									</tr>
 
 								</thead>
-								<tbody id="pcar_c_n">
-
-									<tr>
-										<td>1</td>
-										<td>'.form_input($PC_C_1_NroVis).'</td>
-										<td>'.form_input($PC_C_1_Et_Fecha).'</td>
-										<td>'.form_input($PC_C_1_Et_Hini).'</td>
-										<td>'.form_input($PC_C_1_Et_Hfin).'</td>
-										<td>'.form_input($PC_C_1_Et_Fecha_Prox).'</td>
-										<td>'.form_input($PC_C_1_Et_Hora_Prox).'</td>
-										<td>'.form_input($PC_C_1_Et_Res).'</td>
-										<td>'.form_input($PC_C_1_Jb_Fecha).'</td>
-										<td>'.form_input($PC_C_1_Jb_Hini).'</td>
-										<td>'.form_input($PC_C_1_Jb_Hfin).'</td>
-									</tr>
+								<tbody>
 
 								</tbody>
 							</table>
@@ -732,10 +718,50 @@ echo '
 
 <script type="text/javascript">
 $(function(){
-	
-	$.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
+
+//car
+$.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
 	   $('#' + fila).val(valor);
-	}); 
+}); 
+
+
+//car N
+$('#pcar_num').val(<?php echo $car_n->num_rows(); ?>);
+
+
+$('#pcar_num').change(function(event) {
+
+$('#pcar_c_n tr').remove('.entrev');
+	var ahua = $(this).val();
+	if(ahua > 0 && ahua<=10){
+	  for(var i=1; i<=ahua;i++){
+	    var asd = '<tr class="entrev">';
+	    asd +='<td>' + i + '</td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_NroVis' + '_' + i + '" id="PC_C_1_NroVis' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha' + '_' + i + '" id="PC_C_1_Et_Fecha' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hini' + '_' + i + '" id="PC_C_1_Et_Hini' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hfin' + '_' + i + '" id="PC_C_1_Et_Hfin' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha_Prox' + '_' + i + '" id="PC_C_1_Et_Fecha_Prox' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hora_Prox' + '_' + i + '" id="PC_C_1_Et_Hora_Prox' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res' + '_' + i + '" id="PC_C_1_Et_Res' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Fecha' + '_' + i + '" id="PC_C_1_Jb_Fecha' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hini' + '_' + i + '" id="PC_C_1_Jb_Hini' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hfin' + '_' + i + '" id="PC_C_1_Jb_Hfin' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd += '</tr>';
+	    $('#pcar_c_n > tbody').append(asd);
+	  }
+	}else if(ahua==''){
+		//
+	}else{
+		alert('10 Entrevistas máximo');
+	}
+
+});
+
+$('#pcar_num').trigger('change');
+
+	
+
 }); 
 </script>
 

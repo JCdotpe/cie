@@ -28,6 +28,7 @@ class Consistencia extends CI_Controller {
 			$data['title'] = 'Predios';
 			$data['predios'] = $this->principal->get_predios($id);
 			$data['car_i'] = $this->principal->get_car($id,$prd);
+			$data['car_n'] = $this->principal->get_car_n($id,$prd);
 			$data['cod'] = $id;
 			$data['pr'] = $prd;
 			$data['main_content'] = 'consistencia/predios_view';
