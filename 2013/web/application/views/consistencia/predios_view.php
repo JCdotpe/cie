@@ -1,4 +1,4 @@
-<h4>Codigo de local: <?php echo $cod; ?></h4>
+<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr; ?></h4>
 
 <ul id="predios" class="predios_views">
 </ul>
