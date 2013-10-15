@@ -9,10 +9,12 @@ $(function(){
 	// 	function( fila, valor )
   $.each( <?php echo json_encode($predios->result()); ?>, function(i, data) {
 	  	var ahua = 'Principal';
+	  	var act = (<?php echo $pr; ?> == data.Nro_Pred)? 'class="active"' : '';
 	  	if(data.Nro_Pred != 1){
 	  		ahua = (data.P1_B_2A_PredNoCol==0)? 'Colindante' : 'No Colindante';
 	  	}
-		$('#predios').append('<li><a href="' + CI.site_url + '/predio/' + data.id_local + '/' + data.Nro_Pred + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
+
+		$('#predios').append('<li ' + act + '><a target="_self"  href="' + CI.site_url + '/consistencia/local/' + data.id_local + '/' + data.Nro_Pred + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
 	});
 
 }); 
