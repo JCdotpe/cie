@@ -190,7 +190,7 @@ class Procedure extends REST_Controller{
 
                 $res=array(
                             // "codigo_de_local" => "<a href='visor/caratula1/?le=".obfuscate($fila->codigo_de_local)."&pr=1' target='_blank'>".$fila->codigo_de_local."</a>",
-                           "codigo_de_local" => "<a href='consistencia/predios/".$fila->codigo_de_local."' target='_blank'>".$fila->codigo_de_local."</a>",
+                           "codigo_de_local" => "<a href='consistencia/local/".$fila->codigo_de_local."' target='_blank'>".$fila->codigo_de_local."</a>",
                            "Departamento" => $fila->Departamento,
                            "Provincia" => $fila->Provincia,
                            "Distrito" => $fila->Distrito,
@@ -239,7 +239,7 @@ class Procedure extends REST_Controller{
                 if($i>0){echo",";}
 
                 $res=array(
-                           "codigo_de_local" => "<a href='consistencia/predios/".$fila->codigo_de_local."' target='_blank'>".$fila->codigo_de_local."</a>",
+                           "codigo_de_local" => "<a href='consistencia/local/".$fila->codigo_de_local."' target='_blank'>".$fila->codigo_de_local."</a>",
                            
                            "Departamento" => $fila->Departamento,
                            "Provincia" => $fila->Provincia,
