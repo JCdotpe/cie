@@ -21,7 +21,7 @@ class Consistencia extends CI_Controller {
 	  		$this->load->view('backend/includes/template', $data);
 	}
 
-	public function predios($id)
+	public function local($id)
 	{
 			$data['nav'] = TRUE;
 			$data['title'] = 'Predios';
