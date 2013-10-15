@@ -717,6 +717,7 @@ echo '
 
 
 <script type="text/javascript">
+
 $(function(){
 
 //car
@@ -737,7 +738,6 @@ $('#pcar_c_n tr').remove('.entrev');
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
 	    asd +='<td>' + i + '</td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_NroVis' + '_' + i + '" id="PC_C_1_NroVis' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha' + '_' + i + '" id="PC_C_1_Et_Fecha' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hini' + '_' + i + '" id="PC_C_1_Et_Hini' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hfin' + '_' + i + '" id="PC_C_1_Et_Hfin' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -756,13 +756,27 @@ $('#pcar_c_n tr').remove('.entrev');
 		alert('10 Entrevistas máximo');
 	}
 
+
+var as = 1;
+$.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
+	   $('#PC_C_1_Et_Fecha' + '_' + as).val(data.PC_C_1_Et_Fecha);
+	   $('#PC_C_1_Et_Hini' + '_' +  as).val(data.PC_C_1_Et_Hini);
+	   $('#PC_C_1_Et_Hfin' + '_' +  as).val(data.PC_C_1_Et_Hfin);
+	   $('#PC_C_1_Et_Fecha_Prox' + '_' +  as).val(data.PC_C_1_Et_Fecha_Prox);
+	   $('#PC_C_1_Et_Hora_Prox' + '_' +  as).val(data.PC_C_1_Et_Hora_Prox);
+	   $('#PC_C_1_Et_Res' + '_' +  as).val(data.PC_C_1_Et_Res);
+	   $('#PC_C_1_Jb_Fecha' + '_' +  as).val(data.PC_C_1_Jb_Fecha);
+	   $('#PC_C_1_Jb_Hini' + '_' +  as).val(data.PC_C_1_Jb_Hini);
+	   $('#PC_C_1_Jb_Hfin' + '_' +  as).val(data.PC_C_1_Jb_Hfin);
+	   as++;
+}); 
+
 });
 
 $('#pcar_num').trigger('change');
+
 
 	
 
 }); 
 </script>
-
-
