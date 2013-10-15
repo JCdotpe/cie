@@ -11,109 +11,106 @@
 $P1_A_2_NroIE = array(
 	'name'	=> 'P1_A_2_NroIE',
 	'id'	=> 'P1_A_2_NroIE',
-	'maxlength'	=> 1,
+	'class' => 'input2',
+	'maxlength'	=> 2,
 );
 
 $P1_A_2_9_NroCMod = array(
 	'name'	=> 'P1_A_2_9_NroCMod',
 	'id'	=> 'P1_A_2_9_NroCMod',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',	
 );
 
 $P1_A_2_9A_CMod = array(
 	'name'	=> 'P1_A_2_9A_CMod',
 	'id'	=> 'P1_A_2_9A_CMod',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',
 );
 
 $P1_A_2_9B_CodLocal = array(
 	'name'	=> 'P1_A_2_9B_CodLocal',
 	'id'	=> 'P1_A_2_9B_CodLocal',
-	'maxlength'	=> 1,
+	'maxlength'	=> 6,
+	'class' => 'input6',
 );
 
 $P1_A_2_9C_Nivel = array(
 	'name'	=> 'P1_A_2_9C_Nivel',
 	'id'	=> 'P1_A_2_9C_Nivel',
 	'maxlength'	=> 1,
+	'class' => 'input1',
 );
 
 $P1_A_2_9D_Car = array(
 	'name'	=> 'P1_A_2_9D_Car',
 	'id'	=> 'P1_A_2_9D_Car',
 	'maxlength'	=> 1,
+	'class' => 'input1',
 );
 
 $P1_A_2_9E_NroAnex = array(
 	'name'	=> 'P1_A_2_9E_NroAnex',
 	'id'	=> 'P1_A_2_9E_NroAnex',
 	'maxlength'	=> 1,
+	'class' => 'input1',
 );
 
 $P1_A_2_9F_CantAnex = array(
 	'name'	=> 'P1_A_2_9F_CantAnex',
 	'id'	=> 'P1_A_2_9F_CantAnex',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',
 );
 
 $P1_A_2_9G_T1_Talu = array(
 	'name'	=> 'P1_A_2_9G_T1_Talu',
 	'id'	=> 'P1_A_2_9G_T1_Talu',
-	'maxlength'	=> 1,
+	'maxlength'	=> 5,
+	'class' => 'input5',
 );
 
 $P1_A_2_9H_T1_Taul = array(
 	'name'	=> 'P1_A_2_9H_T1_Taul',
 	'id'	=> 'P1_A_2_9H_T1_Taul',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $P1_A_2_9I_T2_Talu = array(
 	'name'	=> 'P1_A_2_9I_T2_Talu',
 	'id'	=> 'P1_A_2_9I_T2_Talu',
-	'maxlength'	=> 1,
+	'maxlength'	=> 5,
+	'class' => 'input5',
 );
 
 $P1_A_2_9J_T2_Taul = array(
 	'name'	=> 'P1_A_2_9J_T2_Taul',
 	'id'	=> 'P1_A_2_9J_T2_Taul',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $P1_A_2_9K_T3_Talu = array(
 	'name'	=> 'P1_A_2_9K_T3_Talu',
 	'id'	=> 'P1_A_2_9K_T3_Talu',
-	'maxlength'	=> 1,
+	'maxlength'	=> 5,
+	'class' => 'input5',
 );
 
 $P1_A_2_9L_T3_Taul = array(
 	'name'	=> 'P1_A_2_9L_T3_Taul',
 	'id'	=> 'P1_A_2_9L_T3_Taul',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 
-$P1_A_2_NroIE = array(
-	'name'	=> 'P1_A_2_NroIE',
-	'id'	=> 'P1_A_2_NroIE',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9_NroCMod = array(
-	'name'	=> 'P1_A_2_9_NroCMod',
-	'id'	=> 'P1_A_2_9_NroCMod',
-	'maxlength'	=> 1,
-);
 
 $P1_A_2_9_Nro = array(
 	'name'	=> 'P1_A_2_9_Nro',
 	'id'	=> 'P1_A_2_9_Nro',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9A_CMod = array(
-	'name'	=> 'P1_A_2_9A_CMod',
-	'id'	=> 'P1_A_2_9A_CMod',
 	'maxlength'	=> 1,
 );
 
@@ -129,119 +126,88 @@ $P1_A_2_9_AnexNomb = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_9G_T1_Talu = array(
-	'name'	=> 'P1_A_2_9G_T1_Talu',
-	'id'	=> 'P1_A_2_9G_T1_Talu',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9H_T1_Taul = array(
-	'name'	=> 'P1_A_2_9H_T1_Taul',
-	'id'	=> 'P1_A_2_9H_T1_Taul',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9I_T2_Talu = array(
-	'name'	=> 'P1_A_2_9I_T2_Talu',
-	'id'	=> 'P1_A_2_9I_T2_Talu',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9J_T2_Taul = array(
-	'name'	=> 'P1_A_2_9J_T2_Taul',
-	'id'	=> 'P1_A_2_9J_T2_Taul',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9K_T3_Talu = array(
-	'name'	=> 'P1_A_2_9K_T3_Talu',
-	'id'	=> 'P1_A_2_9K_T3_Talu',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9L_T3_Taul = array(
-	'name'	=> 'P1_A_2_9L_T3_Taul',
-	'id'	=> 'P1_A_2_9L_T3_Taul',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_NroIE = array(
-	'name'	=> 'P1_A_2_NroIE',
-	'id'	=> 'P1_A_2_NroIE',
-	'maxlength'	=> 1,
-);
-
 $P1_A_2_1_NomIE = array(
 	'name'	=> 'P1_A_2_1_NomIE',
 	'id'	=> 'P1_A_2_1_NomIE',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_2_Direc = array(
 	'name'	=> 'P1_A_2_2_Direc',
 	'id'	=> 'P1_A_2_2_Direc',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',		
 );
 
 
 $P1_A_2_3_DocTip = array(
 	'name'	=> 'P1_A_2_3_DocTip',
 	'id'	=> 'P1_A_2_3_DocTip',
-	'maxlength'	=> 1,
+	'maxlength'	=> 8,
+	'class' => 'input8',	
 );
 
 $P1_A_2_3_DocNro = array(
 	'name'	=> 'P1_A_2_3_DocNro',
 	'id'	=> 'P1_A_2_3_DocNro',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',	
 );
 
 $P1_A_2_4_TelfIE = array(
 	'name'	=> 'P1_A_2_4_TelfIE',
 	'id'	=> 'P1_A_2_4_TelfIE',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',	
 );
 
 $P1_A_2_4_TelfDir = array(
 	'name'	=> 'P1_A_2_4_TelfDir',
 	'id'	=> 'P1_A_2_4_TelfDir',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',	
 );
 
 $P1_A_2_5_EmailIE = array(
 	'name'	=> 'P1_A_2_5_EmailIE',
 	'id'	=> 'P1_A_2_5_EmailIE',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_5_EmailDir = array(
 	'name'	=> 'P1_A_2_5_EmailDir',
 	'id'	=> 'P1_A_2_5_EmailDir',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_6_Informant = array(
 	'name'	=> 'P1_A_2_6_Informant',
 	'id'	=> 'P1_A_2_6_Informant',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_7_InformantCarg = array(
 	'name'	=> 'P1_A_2_7_InformantCarg',
 	'id'	=> 'P1_A_2_7_InformantCarg',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_8_Can_CMod_IE = array(
 	'name'	=> 'P1_A_2_8_Can_CMod_IE',
 	'id'	=> 'P1_A_2_8_Can_CMod_IE',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P1_A_2_Obs = array(
 	'name'	=> 'P1_A_2_Obs',
 	'id'	=> 'P1_A_2_Obs',
-	'maxlength'	=> 1,
+	'class' => 'textarea98',	
 );
 
 $P1_A_1_Cant_IE = array(
@@ -378,18 +344,6 @@ $P1_B_2_PredCol = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_NroIE = array(
-	'name'	=> 'P1_A_2_NroIE',
-	'id'	=> 'P1_A_2_NroIE',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9_NroCMod = array(
-	'name'	=> 'P1_A_2_9_NroCMod',
-	'id'	=> 'P1_A_2_9_NroCMod',
-	'maxlength'	=> 1,
-);
-
 $P1_A_2_9_Nro = array(
 	'name'	=> 'P1_A_2_9_Nro',
 	'id'	=> 'P1_A_2_9_Nro',
@@ -399,12 +353,6 @@ $P1_A_2_9_Nro = array(
 $P1_A_2_9_AnexNro = array(
 	'name'	=> 'P1_A_2_9_AnexNro',
 	'id'	=> 'P1_A_2_9_AnexNro',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9A_CMod = array(
-	'name'	=> 'P1_A_2_9A_CMod',
-	'id'	=> 'P1_A_2_9A_CMod',
 	'maxlength'	=> 1,
 );
 
@@ -420,18 +368,6 @@ $P1_C_20_NombComp = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_NroIE = array(
-	'name'	=> 'P1_A_2_NroIE',
-	'id'	=> 'P1_A_2_NroIE',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9_NroCMod = array(
-	'name'	=> 'P1_A_2_9_NroCMod',
-	'id'	=> 'P1_A_2_9_NroCMod',
-	'maxlength'	=> 1,
-);
-
 $P1_A_2_9_Nro = array(
 	'name'	=> 'P1_A_2_9_Nro',
 	'id'	=> 'P1_A_2_9_Nro',
@@ -441,12 +377,6 @@ $P1_A_2_9_Nro = array(
 $P1_A_2_9_AnexNro = array(
 	'name'	=> 'P1_A_2_9_AnexNro',
 	'id'	=> 'P1_A_2_9_AnexNro',
-	'maxlength'	=> 1,
-);
-
-$P1_A_2_9A_CMod = array(
-	'name'	=> 'P1_A_2_9A_CMod',
-	'id'	=> 'P1_A_2_9A_CMod',
 	'maxlength'	=> 1,
 );
 

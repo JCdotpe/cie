@@ -638,10 +638,30 @@ ul.predios_views li.active, ul.predios_views li:hover{
   width: 35px !important;
 }
 
+.input5{
+  width: 40px !important;
+}
+
 .input6{
   width: 45px !important;
 }
 
+.input7{
+  width: 51px !important;
+}
+
+.input8{
+  width: 61px !important;
+}
+
+.input10{
+  width: 75px !important;
+}
+
 .input200{
   width: 200px !important;
+}
+
+.textarea98{
+  width: 98% !important;
 }
