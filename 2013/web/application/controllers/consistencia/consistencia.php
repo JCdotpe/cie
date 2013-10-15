@@ -23,11 +23,13 @@ class Consistencia extends CI_Controller {
 
 	public function local($id, $pr = null)
 	{
+			$prd = (is_null($pr))? 1 : $pr;
 			$data['nav'] = TRUE;
 			$data['title'] = 'Predios';
 			$data['predios'] = $this->principal->get_predios($id);
+			$data['car_i'] = $this->principal->get_car($id,$prd);
 			$data['cod'] = $id;
-			$data['pr'] = (is_null($pr))? 1 : $pr;
+			$data['pr'] = $prd;
 			$data['main_content'] = 'consistencia/predios_view';
 	  		$this->load->view('backend/includes/template', $data);
 	}	

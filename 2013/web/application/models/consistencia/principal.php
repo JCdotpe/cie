@@ -7,12 +7,10 @@ class Principal extends CI_MODEL{
         return $q;
     }
 
-    public function Get_DistbyCode($code1,$code2,$code3){
-        $this->db->select('CCDI, Nombre');        
-        $this->db->where('CCDD', $code1 );
-        $this->db->where('CCPP', $code2 );
-        $this->db->where('CCDI', $code3 );
-        $q = $this->db->get('DIST');
+    public function get_car($id,$pr){
+        $this->db->where('id_local', $id );
+        $this->db->where('Nro_Pred', $pr );
+        $q = $this->db->get('PCar');
         return $q;
     }
 

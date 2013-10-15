@@ -391,7 +391,6 @@ $PC_E_7_TMurCon = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
 echo '
 
 <div class="panel panel-info">
@@ -742,3 +741,14 @@ echo '
 
 
 ?>
+
+
+<script type="text/javascript">
+$(function(){
+	$.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
+	   $('#' + fila).val(valor);
+	}); 
+}); 
+</script>
+
+
