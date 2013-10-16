@@ -734,7 +734,7 @@ $('#pcar_num').change(function(event) {
 
 $('#pcar_c_n tr').remove('.entrev');
 	var ahua = $(this).val();
-	if(ahua > 0 && ahua<=10){
+	if(ahua >= 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
 	    asd +='<td>' + i + '</td>';
