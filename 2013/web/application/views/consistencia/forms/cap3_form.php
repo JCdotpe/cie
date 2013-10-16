@@ -12,26 +12,35 @@ $P3_1_1_LugGeoref = array(
 	'name'	=> 'P3_1_1_LugGeoref',
 	'id'	=> 'P3_1_1_LugGeoref',
 	'maxlength'	=> 1,
+	'class' => 'input1',
 );
 
 $P3_1_3_NroPtos = array(
 	'name'	=> 'P3_1_3_NroPtos',
 	'id'	=> 'P3_1_3_NroPtos',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
+	'disabled' => 'disabled',
 );
 
 $P3_1_4_ArchGPS = array(
 	'name'	=> 'P3_1_4_ArchGPS',
 	'id'	=> 'P3_1_4_ArchGPS',
+	'class' => 'input98p',	
+	'disabled' => 'disabled',		
 );
 
 $RutaFoto = array(
 	'name'	=> 'RutaFoto',
 	'id'	=> 'RutaFoto',
+	'class' => 'input98p',	
+	'disabled' => 'disabled',		
 );
 
 $Observaciones = array(
 	'name'	=> 'Observaciones',
 	'id'	=> 'Observaciones',
+	'class' => 'textarea98',	
 );
 
 $CodigoPuntoGPS = array(
@@ -42,16 +51,22 @@ $CodigoPuntoGPS = array(
 $LatitudPunto = array(
 	'name'	=> 'LatitudPunto',
 	'id'	=> 'LatitudPunto',
+	'class' => 'input10',		
+	'disabled' => 'disabled',		
 );
 
 $LongitudPunto = array(
 	'name'	=> 'LongitudPunto',
 	'id'	=> 'LongitudPunto',
+	'class' => 'input10',			
+	'disabled' => 'disabled',		
 );
 
 $AltitudPunto = array(
 	'name'	=> 'AltitudPunto',
 	'id'	=> 'AltitudPunto',
+	'class' => 'input10',		
+	'disabled' => 'disabled',		
 );
 
 
@@ -82,10 +97,7 @@ echo '
 										</td>
 										<td>
 											<label>
-												'.form_radio($P3_1_1_LugGeoref).' 1. Patio Central
-											</label>
-											<label>
-												'.form_radio($P3_1_1_LugGeoref).' 2. Frente al local
+												'.form_input($P3_1_1_LugGeoref).'
 											</label>
 										</td>
 									</tr>
@@ -95,14 +107,14 @@ echo '
 											<strong>Rango de puntos</strong>
 										</td>
 										<td>
-											<table style="width:250px;" class="table table-bordered">
+											<table class="table table-bordered">
 												<tbody><tr>
 													<td>Punto Inicial</td>
-													<td>'.form_input($CodigoPuntoGPS).'</td>
+													<td>'.form_input($P3_1_3_NroPtos).'</td>
 												</tr>
 												<tr>
 													<td>Punto Final</td>
-													<td>'.form_input($CodigoPuntoGPS).'</td>
+													<td>'.form_input($P3_1_3_NroPtos).'</td>
 												</tr>
 												<tr>
 													<td>
@@ -110,7 +122,11 @@ echo '
 													</td>
 													<td>'.form_input($LatitudPunto).' '.form_input($LongitudPunto).' '.form_input($AltitudPunto).' </td>
 												</tr>
-											</tbody></table>
+											</tbody>
+											</table>
+
+											<table class="table table-bordered">
+											
 										</td>
 									</tr>
 									<tr>
@@ -131,12 +147,12 @@ echo '
 													</th>
 												</tr>
 												<tr>
-													<td>Punto Final</td>
+													<th>Punto Final</th>
 													<td style="text-align:center;">'.form_input($LatitudPunto).'</td>
 													<td style="text-align:center;">'.form_input($LongitudPunto).'</td>
 													<td style="text-align:center;">'.form_input($AltitudPunto).'</td>
 													<td style="text-align:center;">
-														<a class="map" href="http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1=-6.231546666666666&amp;long1=-77.87222666666666" target="_blank" id="map2"><img alt="" src="'.site_url().'img/map.png"></a>
+														<a class="map" href="http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1='.$LatitudPunto.'&amp;long1='.$LongitudPunto.'" target="_blank" id="map2"><img alt="" src="'.base_url().'img/map.png"></a>
 													</td>
 												</tr>
 											</tbody></table>
@@ -172,5 +188,20 @@ echo '
 
 ';
 
+?>
 
- ?>
+
+
+<script type="text/javascript">
+
+$(function(){
+//car
+$.each( <?php echo json_encode($cap3_i->row()); ?>, function(fila, valor) {
+	   $('#' + fila).val(valor);
+}); 
+
+
+}); 
+</script>
+
+
