@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('js/consistencia/cap4.js'); ?>"></script>
 <?php 
 
 
@@ -17,21 +18,25 @@ $P4_1_Foto = array(
 $P4_2_CantTram_Lfrente = array(
 	'name'	=> 'P4_2_CantTram_Lfrente',
 	'id'	=> 'P4_2_CantTram_Lfrente',
+	'onblur' => 'addfieldFrente(this.value)'
 );
 
 $P4_2_CantTram_Lderecho = array(
 	'name'	=> 'P4_2_CantTram_Lderecho',
 	'id'	=> 'P4_2_CantTram_Lderecho',
+	'onblur' => 'addfieldDerecha(this.value)'
 );
 
 $P4_2_CantTram_Lfondo = array(
 	'name'	=> 'P4_2_CantTram_Lfondo',
 	'id'	=> 'P4_2_CantTram_Lfondo',
+	'onblur' => 'addfieldFondo(this.value)'
 );
 
 $P4_2_CantTram_Lizq = array(
 	'name'	=> 'P4_2_CantTram_Lizq',
 	'id'	=> 'P4_2_CantTram_Lizq',
+	'onblur' => 'addfieldIzquierda(this.value)'
 );
 
 // FIN TABLA FRENTE_LINDEROS - Capitulo IV
@@ -88,7 +93,17 @@ $P4_2_1F_Opin = array(
 	'id'	=> 'P4_2_1F_Opin',
 );
 
+
 // FIN TABLA P4_2N - Capitulo IV
+
+$btnGrabar = array(
+	'name' => 'registrar',
+	'id' => 'registrar',
+	'onclick' => 'Form_Validar()',
+	'type' => 'button',
+	'content' => 'Grabar',
+	'class' => 'btn btn-primary pull-left'
+);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +111,8 @@ $P4_2_1F_Opin = array(
 // CAP 4
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+
+echo $cod;
 
 echo '
 
@@ -136,7 +153,7 @@ echo '
 		  	    						<td></td>
 		  	    						<td colspan="2">
 
-		  	    							<table class="table table-bordered">
+		  	    							<table id="lindero_frente" class="table table-bordered">
 		  	    								<thead>
 		  	    									<tr>
 		  	    										<th style="text-align:center; vertical-align:middle;" colspan="8">
@@ -153,17 +170,8 @@ echo '
 		  	    										<th rowspan="2" style="text-align:center; vertical-align:middle;">1F. Opinión técnica del evaluador</th>
 		  	    									</tr>
 		  	    								</thead>
-		  	    								<tbody id="lindero_frente">
-		  	    									<tr>
-		  	    										<td>N</td>
-		  	    										<td>'.form_input($P4_2_1A_NroTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1B_LongTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1C_Cerco).'</td>
-		  	    										<td>'.form_input($P4_2_1D_Estruc).'</td>
-		  	    										<td>'.form_input($P4_2_1E_EstCons).'</td>
-		  	    										<td>'.form_input($P4_2_1F_Opin).'</td>
-		  	    										<td></td>
-		  	    									</tr>		  	    								
+		  	    								<tbody>
+		  	    											  	    								
 		  	    								</tbody>
 		  	    							</table>
 
@@ -181,7 +189,7 @@ echo '
 		  	    						<td></td>
 		  	    						<td colspan="2">
 
-		  	    							<table class="table table-bordered">
+		  	    							<table id="lindero_derecha"  class="table table-bordered">
 		  	    								<thead>
 		  	    									<tr>
 		  	    										<th style="text-align:center; vertical-align:middle;" colspan="8">
@@ -198,17 +206,8 @@ echo '
 		  	    										<th rowspan="2" style="text-align:center; vertical-align:middle;">2F. Opinión técnica del evaluador</th>
 		  	    									</tr>
 		  	    								</thead>
-		  	    								<tbody id="lindero_derecho">
-		  	    									<tr>
-		  	    										<td>N</td>
-		  	    										<td>'.form_input($P4_2_1A_NroTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1B_LongTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1C_Cerco).'</td>
-		  	    										<td>'.form_input($P4_2_1D_Estruc).'</td>
-		  	    										<td>'.form_input($P4_2_1E_EstCons).'</td>
-		  	    										<td>'.form_input($P4_2_1F_Opin).'</td>
-		  	    										<td></td>
-		  	    									</tr>			  	    								
+		  	    								<tbody>
+		  	    												  	    								
 		  	    								</tbody>
 		  	    							</table>
 
@@ -226,7 +225,7 @@ echo '
 		  	    						<td></td>
 		  	    						<td colspan="2">
 
-		  	    							<table class="table table-bordered">
+		  	    							<table id="lindero_fondo" class="table table-bordered">
 		  	    								<thead>
 		  	    									<tr>
 		  	    										<th style="text-align:center; vertical-align:middle;" colspan="8">
@@ -243,17 +242,8 @@ echo '
 		  	    										<th rowspan="2" style="text-align:center; vertical-align:middle;">3F. Opinión técnica del evaluador</th>
 		  	    									</tr>
 		  	    								</thead>
-		  	    								<tbody id="lindero_fondo">
-		  	    									<tr>
-		  	    										<td>N</td>
-		  	    										<td>'.form_input($P4_2_1A_NroTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1B_LongTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1C_Cerco).'</td>
-		  	    										<td>'.form_input($P4_2_1D_Estruc).'</td>
-		  	    										<td>'.form_input($P4_2_1E_EstCons).'</td>
-		  	    										<td>'.form_input($P4_2_1F_Opin).'</td>
-		  	    										<td></td>
-		  	    									</tr>			  	    								
+		  	    								<tbody>
+		  	    									  	    								
 		  	    								</tbody>
 		  	    							</table>
 
@@ -271,7 +261,7 @@ echo '
 		  	    						<td></td>
 		  	    						<td colspan="2">
 
-		  	    							<table class="table table-bordered">
+		  	    							<table id="lindero_izquierda" class="table table-bordered">
 		  	    								<thead>
 		  	    									<tr>
 		  	    										<th style="text-align:center; vertical-align:middle;" colspan="8">
@@ -288,17 +278,8 @@ echo '
 		  	    										<th rowspan="2" style="text-align:center; vertical-align:middle;">4F. Opinión técnica del evaluador</th>
 		  	    									</tr>
 		  	    								</thead>
-		  	    								<tbody id="lindero_izquierdo">
-		  	    									<tr>
-		  	    										<td>N</td>
-		  	    										<td>'.form_input($P4_2_1A_NroTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1B_LongTramo).'</td>
-		  	    										<td>'.form_input($P4_2_1C_Cerco).'</td>
-		  	    										<td>'.form_input($P4_2_1D_Estruc).'</td>
-		  	    										<td>'.form_input($P4_2_1E_EstCons).'</td>
-		  	    										<td>'.form_input($P4_2_1F_Opin).'</td>
-		  	    										<td></td>
-		  	    									</tr>			  	    								
+		  	    								<tbody>
+		  	    									  	    								
 		  	    								</tbody>
 		  	    							</table>
 
@@ -311,7 +292,7 @@ echo '
 
 		  	    				</tbody>
 		  	    			</table>
-
+		  	    			'.form_button($btnGrabar).'
 	  	    			</div>
 
 ';
