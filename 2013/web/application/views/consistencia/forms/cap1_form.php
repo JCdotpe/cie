@@ -7,7 +7,7 @@
 // CAP 1
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
- 
+
 $P1_A_2_NroIE = array(
 	'name'	=> 'P1_A_2_NroIE',
 	'id'	=> 'P1_A_2_NroIE',
@@ -215,6 +215,24 @@ $P1_A_1_Cant_IE = array(
 	'id'	=> 'P1_A_1_Cant_IE',
 	'maxlength'	=> 1,
 );
+
+// TABLA P1_B
+
+$P1_B_1_TPred = array(
+	'name'	=> 'P1_B_1_TPred',
+	'id'	=> 'P1_B_1_TPred',
+	'maxlength'	=> 1,
+);
+
+$P1_B_2_PredCol = array(
+	'name'	=> 'P1_B_2_PredCol',
+	'id'	=> 'P1_B_2_PredCol',
+	'maxlength'	=> 1,
+);
+
+
+// TABLA P1_B
+
 
 $P1_B_2A_PredNoCol = array(
 	'name'	=> 'P1_B_2A_PredNoCol',
@@ -770,20 +788,14 @@ echo '
 										<td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
 										<td>
 											<label>N° de predios</label>
-											<input type="text" class="form-control" id="P1_B_1_TPred" style="width:300px;" disabled="disabled">
+											'.form_input($P1_B_1_TPred).'
 										</td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">2.</td>
 										<td><strong>¿Los predios son colindantes?</strong></td>
 										<td>
-											<label class="checkbox-inline">
-												<input type="radio" value="option1" name="check" id="P1_B_2_PredCol1" disabled="disabled"> 1. Si
-											</label>
-
-											<label class="checkbox-inline">
-												<input type="radio" value="option2" name="check" id="P1_B_2_PredCol2" disabled="disabled"> 2. No
-											</label>
+											'.form_input($P1_B_2_PredCol).'
 										</td>
 									</tr>
 									<tr>
@@ -791,7 +803,7 @@ echo '
 										<td><strong>¿cuales son los predios no colindantes?</strong></td>
 										<td>
 											<label>N° de predio</label>
-											<input type="text" class="form-control" id="predios_no_colindantes" style="width:300px;" disabled="disabled">
+											'.form_input($P1_B_2_PredCol).'
 										</td>
 									</tr>
 								</tbody>
@@ -804,7 +816,7 @@ echo '
 											<label style="float:left;">Predio N°</label>
 										</th>
 										<th>
-											<input type="text" class="form-control" style="float:left; width:300px;" id="Nro_Pred" disabled="disabled">
+											'.form_input($Nro_Pred).'
 										</th>
 									</tr>
 								</thead>
@@ -816,15 +828,11 @@ echo '
 											(Este código se encuentranen la constancia MARGESI)
 										</td>
 										<td>
-											<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_InmCod" disabled="disabled">
+											'.form_input($P1_B_3_InmCod).'
 											<br>
 
 											<label class="checkbox-inline">
-												<input type="radio" value="option1" name="P1_B_3_InmTip" id="P1_B_3_InmTip1" disabled="disabled"> 1. No tiene constancia
-											</label>
-
-											<label class="checkbox-inline">
-												<input type="radio" value="option2" name="P1_B_3_InmTip" id="P1_B_3_InmTip2" disabled="disabled"> 2. No sabe
+												'.form_input($P1_B_3_InmTip).' 1. No tiene constancia, 2. No sabe
 											</label>
 										</td>
 									</tr>
@@ -835,32 +843,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											<label>
-												<input type="radio" value="" name="P1_B_3_1_Prop" id="P1_B_3_1_Prop1" disabled="disabled"> 1. Ministerio de Educación
-											</label>
-											<label>
-												<input type="radio" value="" name="P1_B_3_1_Prop" id="P1_B_3_1_Prop2" disabled="disabled"> 2. Institucion educativa
-											</label>
-											<label>
-												<input type="radio" value="" name="P1_B_3_1_Prop" id="P1_B_3_1_Prop3" disabled="disabled"> 3. Estado
-											</label>
-											<label>
-												<input type="radio" value="" name="P1_B_3_1_Prop" id="P1_B_3_1_Prop4" disabled="disabled">
-												4. Otro sector del estado
-											</label>
-											<label>
-												<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_1_Prop_O1" disabled="disabled">
-												(Especifique)
-											</label>
-
-											<label>
-												<input type="radio" value="" name="P1_B_3_1_Prop" id="P1_B_3_1_Prop5" disabled="disabled">
-												5. Propiedad de terceros
-											</label>
-											<label>
-												<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_1_Prop_O2" disabled="disabled">
-												(Especifique)
-											</label>
+											'.form_input($P1_B_3_1_Prop).' <br />
+											'.form_input($P1_B_3_1_Prop_O).'
 
 										</td>
 									</tr>
@@ -871,21 +855,7 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											<label>
-												<input type="radio" value="option1" name="P1_B_3_2_AntReg_Cod" id="P1_B_3_2_AntReg_Cod1" disabled="disabled"> 1. Partida electrónica?
-											</label>
-											<label>
-												<input type="radio" value="option2" name="P1_B_3_2_AntReg_Cod" id="P1_B_3_2_AntReg_Cod2" disabled="disabled"> 2. Código de predio?
-											</label>
-											<label>
-												<input type="radio" value="option3" name="P1_B_3_2_AntReg_Cod" id="P1_B_3_2_AntReg_Cod3" disabled="disabled"> 3. Ficha?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_2_AntReg_Cod" id="P1_B_3_2_AntReg_Cod4" disabled="disabled"> 4. Tomo/Foja/Asiento?
-											</label>
-											<label>
-												<input type="radio" value="option5" name="P1_B_3_2_AntReg_Cod" id="P1_B_3_2_AntReg_Cod5" disabled="disabled"> 5. Ninguno?
-											</label>
+											'.form_input($P1_B_3_2_AntReg_Cod).'
 										</td>
 									</tr>
 									<tr>
@@ -896,7 +866,7 @@ echo '
 										</td>
 										<td>
 											<label>N° de antecedente registral</label>
-											<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_3_AntReg_Nro" disabled="disabled"><br>
+											'.form_input($P1_B_3_3_AntReg_Nro).'
 										</td>
 									</tr>
 									<tr>
@@ -906,41 +876,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											<label>
-												<input type="radio" value="option1" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp1" disabled="disabled"> 1. Escritura pública?
-											</label>
-											<label>
-												<input type="radio" value="option2" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp2" disabled="disabled"> 2. Minuta de compra-venta?
-											</label>
-											<label>
-												<input type="radio" value="option3" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp3" disabled="disabled"> 3. Minuta de donación?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp4" disabled="disabled">	4. Minuta de cesión?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp5" disabled="disabled">	5. Minuta de permuta?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp6" disabled="disabled">	6. Aporte reglamentario?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp7" disabled="disabled">	7. Resolución emitida por  entidad del estado?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp8" disabled="disabled">	8. Acta de donación de CC/CN?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp9" disabled="disabled">	9. Otro?
-											</label>
-
-											<label>
-												<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_4_Tipo_TProp_O" disabled="disabled"> (Especifique)
-											</label>
-
-											<label>
-												<input type="radio" value="option5" name="P1_B_3_4_Tipo_TProp" id="P1_B_3_4_Tipo_TProp10" disabled="disabled">	10. Ninguno
-											</label>
+											'.form_input($P1_B_3_4_Tipo_TProp).' <br />
+											'.form_input($P1_B_3_4_Tipo_TProp_O).' 
 
 										</td>
 									</tr>
@@ -952,7 +889,7 @@ echo '
 										</td>
 										<td>
 											<label>Fecha</label>
-											<input type="text" class="form-control" style="float:left; width:100px;" id="P1_B_3_5_FecTit" disabled="disabled"><br>
+											'.form_input($P1_B_3_5_FecTit).' 
 										</td>
 									</tr>
 									<tr>
@@ -962,41 +899,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											<label>
-												<input type="radio" value="option1" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos1" disabled="disabled"> 1. Constancia de posesion de Juez de Paz?
-											</label>
-											<label>
-												<input type="radio" value="option2" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos2" disabled="disabled"> 2. Constancia de posesion municipal?
-											</label>
-											<label>
-												<input type="radio" value="option3" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos3" disabled="disabled"> 3. Resolución municipal?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos4" disabled="disabled">	4. Resolución de afectación en uso?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos5" disabled="disabled">	5. Convenio con entidad estatal?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos6" disabled="disabled">	6. Convenio con particulares?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos7" disabled="disabled">	7. Contrato de arrendamiento?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos8" disabled="disabled">	8. Contrato de servidumbre?
-											</label>
-											<label>
-												<input type="radio" value="option4" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos9" disabled="disabled">	9. Otro?
-											</label>
-
-											<label>
-												<input type="text" class="form-control" style="float:left; width:300px;" id="P1_B_3_6_DocPos_O" disabled="disabled"> (Especifique)
-											</label>
-
-											<label>
-												<input type="radio" value="option5" name="P1_B_3_6_DocPos" id="P1_B_3_6_DocPos10" disabled="disabled">	10. Ninguno
-											</label>
+											'.form_input($P1_B_3_6_DocPos).'  <br />
+											'.form_input($P1_B_3_6_DocPos_O).' 
 										</td>
 									</tr>
 									<tr>
@@ -1007,7 +911,7 @@ echo '
 										</td>
 										<td>
 											<label>Fecha</label>
-											<input type="text" class="form-control" style="float:left; width:100px;" id="P1_B_3_7_DocPos_Fech" disabled="disabled">
+											'.form_input($P1_B_3_5_FecTit).' 
 										</td>
 									</tr>
 									<tr>
@@ -1024,8 +928,8 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td id="P1_B_3_8_At_Pred1">2310</td>
-													<td id="P1_B_3_8_At_Pred2"></td>
+													<td>'.form_input($P1_B_3_8_At_Pred).'</td>
+													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
@@ -1044,8 +948,8 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td id="P1_B_3_9_At_Local1">2310</td>
-													<td id="P1_B_3_9_At_Local2"></td>
+													<td>'.form_input($P1_B_3_9_At_Local).'</td>
+													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
@@ -1055,25 +959,14 @@ echo '
 										<td>
 											<strong>¿El predio es compartido con otros locales escolares , otras instituciones o servicios?</strong>
 										</td>
-										<td>
-											<label class="checkbox-inline">
-												<input type="radio" value="option1" name="P1_B_3_10_Comp" id="P1_B_3_10_Comp1" disabled="disabled"> 1. Si
-											</label>
-
-											<label class="checkbox-inline">
-												<input type="radio" value="option2" name="P1_B_3_10_Comp" id="P1_B_3_10_Comp2" disabled="disabled"> 2. No
-											</label>
-										</td>
+										<td>'.form_input($P1_B_3_10_Comp).'</td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">3.11</td>
 										<td>
 											<strong>¿Con cuántos locales escolares otras instituciones o servicios comparten el predio?</strong>
 										</td>
-										<td>
-											<label>N°</label>
-											<input type="text" class="form-control" style="float:left; width:50px;" id="P1_B_3_11_CompCan" disabled="disabled">
-										</td>
+										<td>'.form_input($P1_B_3_11_CompCan).'</td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">3.12</td>
@@ -1082,7 +975,7 @@ echo '
 											(Diligencie, según respuesta en pregunta 3.11)
 										</td>
 										<td>
-											<textarea style="width:300px; height:100px;" id="P1_B_3_12_NombComp" disabled="disabled">											</textarea>
+											'.form_textarea($P1_B_3_12_NombComp).'
 										</td>
 									</tr>
 								</tbody>
@@ -1090,7 +983,7 @@ echo '
 
 						<div class="panel">
 							<label>Observaciones:</label>
-							<textarea style="width:870px; height:100px;" id="P1_B_3_Obs" disabled="disabled"></textarea>
+							'.form_textarea($P1_B_3_Obs).'
 						</div>
 
 					</div>
@@ -1135,18 +1028,18 @@ echo '
 								<div style="height:100px;" class="panel">
 									<div style="float:left; margin-left:150px;" class="panel">
 										<label>Número de Anexo</label>
-										<input type="text" class="form-control" style="float:left; width:200px;" id="P1_A_2_9_Nro" disabled="disabled">
+										'.form_input($P1_A_2_9_Nro).'
 									</div>
 									<div style="float:left; margin-left:150px;" class="panel">
 										<label>Codigo Modular</label>
-										<input type="text" class="form-control" style="float:left; width:200px;" id="P1_A_2_9_NroCMod" disabled="disabled">
+										'.form_input($P1_A_2_9_NroCMod).'
 									</div>
 								</div>
 
 								<div class="panel">
 									<div class="panel">
 										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
-										<input type="text" class="form-control" style="width:200px;" id="P1_C_1_CodLoc_Anex" disabled="disabled">
+										'.form_input($P1_C_1_CodLoc_Anex).'
 									</div>
 
 								</div><!--END PANEL -->
@@ -1160,7 +1053,7 @@ echo '
 
 
 								<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($P1_C_2_ProvCod).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($P1_C_2_ProvCod).' </li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_input($P1_C_3_DistCod).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
