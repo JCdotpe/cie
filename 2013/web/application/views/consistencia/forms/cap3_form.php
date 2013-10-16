@@ -122,7 +122,11 @@ echo '
 													</td>
 													<td>'.form_input($LatitudPunto).' '.form_input($LongitudPunto).' '.form_input($AltitudPunto).' </td>
 												</tr>
-											</tbody></table>
+											</tbody>
+											</table>
+
+											<table class="table table-bordered">
+											
 										</td>
 									</tr>
 									<tr>
@@ -184,5 +188,20 @@ echo '
 
 ';
 
+?>
 
- ?>
+
+
+<script type="text/javascript">
+
+$(function(){
+//car
+$.each( <?php echo json_encode($cap3_i->row()); ?>, function(fila, valor) {
+	   $('#' + fila).val(valor);
+}); 
+
+
+}); 
+</script>
+
+
