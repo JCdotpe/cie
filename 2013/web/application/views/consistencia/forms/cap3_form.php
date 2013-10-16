@@ -228,7 +228,7 @@ $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
 		   $('#LongitudPuntof').val(data.LongitudPunto);
 		   $('#AltitudPuntof').val(data.AltitudPunto);	 
 		   $("#map2").attr("href", 'http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1=' + data.LatitudPunto+'&long1='+ data.LongitudPunto);		
-		   $("#map2f").attr("href", 'http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?' + pts);		
+		   $("#map2f").attr("href", 'http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/diez/?' + pts);		
 	   }
 	   as++;
 }); 
