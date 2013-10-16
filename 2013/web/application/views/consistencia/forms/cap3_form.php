@@ -116,13 +116,18 @@ echo '
 													<td>Punto Final</td>
 													<td>'.form_input($P3_1_3_NroPtos).'</td>
 												</tr>
+											</tbody>
+
+
+											</table>
+
+											<p><strong>Ver 10 puntos en el Mapa</strong></p>
+											<table class="table table-bordered">
 												<tr>
-													<td>
-														<strong>Ver 10 puntos en el Mapa</strong>
-													</td>
 													<td>'.form_input($LatitudPunto).' '.form_input($LongitudPunto).' '.form_input($AltitudPunto).' </td>
 												</tr>
-											</tbody></table>
+											</tbody>
+											</table>											
 										</td>
 									</tr>
 									<tr>
@@ -188,5 +193,20 @@ echo '
 
 ';
 
+?>
 
- ?>
+
+
+<script type="text/javascript">
+
+$(function(){
+//car
+$.each( <?php echo json_encode($cap3_i->row()); ?>, function(fila, valor) {
+	   $('#' + fila).val(valor);
+}); 
+
+
+}); 
+</script>
+
+
