@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('js/consistencia/cap4.js'); ?>"></script>
 <?php 
 
 
@@ -17,25 +18,25 @@ $P4_1_Foto = array(
 $P4_2_CantTram_Lfrente = array(
 	'name'	=> 'P4_2_CantTram_Lfrente',
 	'id'	=> 'P4_2_CantTram_Lfrente',
-	//'onblur' => 'addfieldFrente(this.value)'
+	'onblur' => 'addfieldFrente(this.value)'
 );
 
 $P4_2_CantTram_Lderecho = array(
 	'name'	=> 'P4_2_CantTram_Lderecho',
 	'id'	=> 'P4_2_CantTram_Lderecho',
-	//'onblur' => 'addfieldDerecha(this.value)'
+	'onblur' => 'addfieldDerecha(this.value)'
 );
 
 $P4_2_CantTram_Lfondo = array(
 	'name'	=> 'P4_2_CantTram_Lfondo',
 	'id'	=> 'P4_2_CantTram_Lfondo',
-	//'onblur' => 'addfieldFondo(this.value)'
+	'onblur' => 'addfieldFondo(this.value)'
 );
 
 $P4_2_CantTram_Lizq = array(
 	'name'	=> 'P4_2_CantTram_Lizq',
 	'id'	=> 'P4_2_CantTram_Lizq',
-	//'onblur' => 'addfieldIzquierda(this.value)'
+	'onblur' => 'addfieldIzquierda(this.value)'
 );
 
 // FIN TABLA FRENTE_LINDEROS - Capitulo IV
@@ -95,14 +96,14 @@ $P4_2_1F_Opin = array(
 
 // FIN TABLA P4_2N - Capitulo IV
 
-// $btnGrabar = array(
-// 	'name' => 'registrar',
-// 	'id' => 'registrar',
-// 	'onclick' => 'Form_Validar()',
-// 	'type' => 'button',
-// 	'content' => 'Grabar',
-// 	'class' => 'btn btn-primary pull-left'
-// );
+$btnGrabar = array(
+	'name' => 'registrar',
+	'id' => 'registrar',
+	'onclick' => 'Form_Validar()',
+	'type' => 'button',
+	'content' => 'Grabar',
+	'class' => 'btn btn-primary pull-left'
+);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +111,8 @@ $P4_2_1F_Opin = array(
 // CAP 4
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+
+echo $cod;
 
 echo '
 
@@ -289,7 +292,7 @@ echo '
 
 		  	    				</tbody>
 		  	    			</table>
-
+		  	    			'.form_button($btnGrabar).'
 	  	    			</div>
 
 ';
