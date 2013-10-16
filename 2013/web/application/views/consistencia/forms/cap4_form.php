@@ -295,8 +295,7 @@ echo '
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
-		  	    						<th>OBSERVACIONES</th>
-		  	    						<td colspan="3">'.form_textarea($P4_1_Obs).'</td>
+		  	    						<td colspan="3"><h4>OBSERVACIONES</h4> <br /> '.form_textarea($P4_1_Obs).'</td>
 		  	    					</tr>
 
 		  	    				</tbody>
