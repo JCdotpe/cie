@@ -121,7 +121,7 @@ $P5_TotAmb = array(
 
 echo '
 
-<div class="panel panel-info">
+<div id="cap_5" class="panel panel-info">
 	  	    				<div class="panel-heading">Capitulo V: Esquema de distribución de las edificaciones con ambientes</div>
 
 
@@ -167,7 +167,7 @@ echo '
 
 	  	    				<p>Número de pisos: '.form_input($P5_cantNroPiso).'</p>
 
-	  	    				<table class="table table-bordered">
+	  	    				<table id="cap5_detalle" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
 			  	    					<th colspan="2">Piso N° '.$P5_NroPiso.'</th>
@@ -190,3 +190,24 @@ echo '
 ';
 
  ?>
+
+<script type="text/javascript">
+
+$(function(){
+
+//cap5
+$.each( <?php echo json_encode($cap5_i->row()); ?>, function(fila, valor) {
+	   $('#' + fila).val(valor);
+});
+
+$('#P5_cantNroPiso').val(<?php echo $cap5_f->num_rows(); ?>);
+
+$('#P5_cantNroPiso').change(function(event) {
+	$('#cap_5 table').remove('#cap5_detalle');
+	var ahua = $(this).val();
+
+});
+
+
+});
+</script>

@@ -13,7 +13,9 @@ class Consistencia extends CI_Controller {
 		$this->load->model('consistencia/car_model');		
 		$this->load->model('consistencia/cap3_model');		
 		$this->load->model('consistencia/principal_model');		
-		$this->load->model('consistencia/ubigeo_model');		
+		$this->load->model('consistencia/ubigeo_model');	
+		$this->load->model('consistencia/cap4_model');		
+		$this->load->model('consistencia/cap5_model');			
 	}
 
 	public function index()
@@ -36,7 +38,13 @@ class Consistencia extends CI_Controller {
 
 
 			$data['cap3_i'] = $this->cap3_model->get_cap3($id,$prd);
-			$data['cap3_n'] = $this->cap3_model->get_cap3_n($id,$prd);			
+			$data['cap3_n'] = $this->cap3_model->get_cap3_n($id,$prd);	
+
+			$data['cap4_i'] = $this->cap4_model->get_cap4($id,$prd);
+			$data['cap4_n'] = $this->cap4_model->get_cap4_n($id,$prd);
+			$data['cap5_i'] = $this->cap5_model->get_cap5($id,$prd);
+			$data['cap5_f'] = $this->cap5_model->get_cap5_f($id,$prd);
+
 			$data['cod'] = $id;
 			$data['pr'] = $prd;
 			$data['main_content'] = 'consistencia/predios_view';
