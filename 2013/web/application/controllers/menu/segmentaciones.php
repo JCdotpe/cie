@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Recursos_humanos extends CI_Controller {
+class Segmentaciones extends CI_Controller {
 
 	function __construct()
 	{
@@ -11,8 +11,7 @@ class Recursos_humanos extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->helper('form');
-		$this->load->library('session');
-		
+
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
@@ -38,9 +37,8 @@ class Recursos_humanos extends CI_Controller {
 	public function index()
 	{
 		$data['nav'] = TRUE;
-		$data['title'] = 'Recursos Humanos';
-		$data['user_id'] = $this->session->userdata('user_id');
-		$data['main_content'] = 'menu/recursos_humanos_view';
+		$data['title'] = 'Rutas y Segmentación';
+		$data['main_content'] = 'segmentaciones/index_view';
 		$this->load->view('backend/includes/template', $data);
 	}	
 }
