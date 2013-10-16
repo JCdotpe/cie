@@ -10,7 +10,10 @@ class Consistencia extends CI_Controller {
 		$this->load->library('tank_auth');	
 		$this->lang->load('tank_auth');	
 		$this->load->model('regs_model');		
-		$this->load->model('consistencia/principal');		
+		$this->load->model('consistencia/car_model');		
+		$this->load->model('consistencia/cap3_model');		
+		$this->load->model('consistencia/principal_model');		
+		$this->load->model('consistencia/ubigeo_model');		
 	}
 
 	public function index()
@@ -26,11 +29,14 @@ class Consistencia extends CI_Controller {
 			$prd = (is_null($pr))? 1 : $pr;
 			$data['nav'] = TRUE;
 			$data['title'] = 'Predios';
-			$data['predios'] = $this->principal->get_predios($id);
-			$data['car_i'] = $this->principal->get_car($id,$prd);
-			$data['car_n'] = $this->principal->get_car_n($id,$prd);
-			$data['cap3_i'] = $this->principal->get_cap3($id,$prd);
-			$data['cap3_n'] = $this->principal->get_cap3_n($id,$prd);			
+			$data['predios'] = $this->principal_model->get_predios($id);
+			$data['car_i'] = $this->car_model->get_car($id,$prd);
+			$data['car_n'] = $this->car_model->get_car_n($id,$prd);
+			$data['dptos'] = $this->ubigeo_model->get_dptos();
+
+
+			$data['cap3_i'] = $this->cap3_model->get_cap3($id,$prd);
+			$data['cap3_n'] = $this->cap3_model->get_cap3_n($id,$prd);			
 			$data['cod'] = $id;
 			$data['pr'] = $prd;
 			$data['main_content'] = 'consistencia/predios_view';

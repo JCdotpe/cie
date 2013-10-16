@@ -44,7 +44,6 @@ $route['presupuesto'] = "presupuesto/presupuesto";
 $route['administracion'] = "administracion/seguimiento";
 $route['udra_registro'] = 'udra/udra_registro';
 $route['segmentaciones'] = "segmentaciones/segmentaciones";
-$route['ajax'] = "ajax/ajax";
 $route['udra'] = "udra/udra";
 $route['convocatoria'] = "convocatoria/menu";
 $route['informes'] = "informes/menu";
@@ -59,6 +58,8 @@ $route['bpr'] = "bpr/banco";
 $route['consistencia/local/(:any)'] = "consistencia/consistencia/local/$1";
 $route['consistencia/predio/(:any)/(:number)'] = "consistencia/consistencia/predios/$1/$2";
 $route['consistencia'] = "consistencia/consistencia";
+$route['ajax'] = "ajax/ajax";
+$route['ajaxx'] = "ajaxx/ajax";
 
 
 

@@ -20,12 +20,23 @@ $provincia = array(
 	'class' => 'input200',
 );
 
-$distrito = array(
-	'name'	=> 'distrito',
-	'id'	=> 'distrito',
-	'maxlength'	=> 200,
-	'class' => 'input200',
-);
+// $distrito = array(
+// 	'name'	=> 'distrito',
+// 	'id'	=> 'distrito',
+// 	'maxlength'	=> 200,
+// 	'class' => 'input200',
+// );
+
+
+$depArray = NULL;
+foreach($dptos->result() as $d)
+{
+	$depArray[$d->CCDD]=strtoupper($d->Nombre);
+}
+
+$provArray = array(-1 => ' -'); 
+$distArray = array(-1 => ' -'); 
+
 
 $PC_A_4_CentroP = array(
 	'name'	=> 'PC_A_4_CentroP',
@@ -415,9 +426,9 @@ echo '
 
 
 								<ul class="list-group">
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> '.form_input($departamento).' </li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($provincia).'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_input($distrito).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> '. form_dropdown('PC_A_1_Dep', $depArray, FALSE,'class="input200" id="PC_A_1_Dep"') .' </li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '. form_dropdown('PC_A_2_Prov', $provArray, FALSE,'class="input200" id="PC_A_2_Prov"') .'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '. form_dropdown('PC_A_3_Dist', $distArray, FALSE,'class="input200" id="PC_A_3_Dist"') .'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($PC_A_4_CentroP).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($PC_A_5_NucleoUrb).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> '.form_input($ugel).'</li>
@@ -721,8 +732,89 @@ echo '
 $(function(){
 
 //car
+$("#PC_A_1_Dep").change(function(event) {
+        var sel = null;
+        var urlx = null;
+
+        sel = $("#PC_A_2_Prov");
+        urlx = CI.site_url + "/ajaxx/consistencia_ajax/get_ajax_prov/" + $(this).val();
+
+        var form_data = {
+            dep: $(this).val(),
+            ajax:1
+        };
+
+        $.ajax({
+            url: urlx,
+            type:'POST',
+            data:form_data,
+            dataType:'json',
+            success:function(json_data){
+                sel.empty();
+                // sel.append('<option value="-1">-</option>');
+                $.each(json_data, function(i, data){
+                    	sel.append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
+                });
+                sel.trigger('change');     	  
+            }
+        });           
+});
+
+
+$("#PC_A_2_Prov").change(function(event) {
+        var sel = null;
+        var dep = null;
+        var urlx = null;
+        dep = $("#PC_A_1_Dep");
+        sel = $("#PC_A_3_Dist");
+        urlx = CI.site_url + "/ajaxx/consistencia_ajax/get_ajax_dist/" + dep.val() + "/" + $(this).val();  
+           
+        var form_data = {
+            prov: $(this).val(),
+            dep: dep.val(),
+            ajax:1
+        };
+
+        $.ajax({
+            url: urlx,
+            type:'POST',
+            data:form_data,
+            dataType:'json',
+            success:function(json_data){
+                sel.empty();
+                // sel.append('<option value="-1">-</option>');
+                $.each(json_data, function(i, data){
+                    	sel.append('<option value="' + data.CCDI + '">' + data.Nombre + '</option>');
+                });   	                
+            }
+        });           
+});
+
+
 $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
-	   $('#' + fila).val(valor);
+											if(fila == 'PC_A_1_Dep'){
+	   												$('#' + fila).val(valor);
+	   												$('#' + fila).trigger('change');	
+                                             }else if(fila == 'PC_A_2_Prov'){
+                                                    var interval_PP = setInterval(function(){
+                                                       if($('#PC_A_2_Prov option:nth-child(2)').length){
+                                                            clearInterval(interval_PP);
+                                                            $('#PC_A_2_Prov').val(valor);
+                                                            $('#PC_A_2_Prov').trigger('change');
+                                                        }
+                                                    }, 1000); 
+
+                                            }else if(fila == 'PC_A_3_Dist'){
+                                                    var interval_DI = setInterval(function(){
+                                                        if($('#PC_A_3_Dist option:nth-child(2)').length){
+                                                            clearInterval(interval_DI);
+                                                            $('#PC_A_3_Dist').val(valor);
+                                                        }
+                                                    }, 1000);        
+
+                                            }else{
+	   												$('#' + fila).val(valor);
+                                            }             	
 }); 
 
 

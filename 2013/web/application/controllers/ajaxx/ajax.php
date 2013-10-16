@@ -5,17 +5,13 @@ class Ajax extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('form_validation');
-		$this->load->library('security');
-		$this->load->library('tank_auth');
-		$this->lang->load('tank_auth');	
+		show_404();		
 	}
 
 
 	public function index()
 	{
-		// show_404();		
-		echo 1;
+		show_404();		
 	}
 
 

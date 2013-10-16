@@ -201,8 +201,6 @@ $.each( <?php echo json_encode($cap3_i->row()); ?>, function(fila, valor) {
 	   $('#' + fila).val(valor);
 }); 
 
-
-
 var ahua = <?php echo $cap3_n->num_rows(); ?>;
 
 	if(ahua > 0){
@@ -217,18 +215,18 @@ var ahua = <?php echo $cap3_n->num_rows(); ?>;
 	}
 
 var as = 1;
-var pts;
+var pts = '';
 $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
 	   $('#LatitudPunto' + '_' + as).val(data.LatitudPunto);
 	   $('#LongitudPunto' + '_' +  as).val(data.LongitudPunto);
 	   $('#AltitudPunto' + '_' +  as).val(data.AltitudPunto);
-	   pts += 'lat' + as + '=' + data.LatitudPunto+'&long' + as + '='+ data.LongitudPunto + '';
+	   pts += 'lat' + as + '=' + data.LatitudPunto+'&long' + as + '='+ data.LongitudPunto + '&';
 	   if(as == ahua){
 		   $('#LatitudPuntof').val(data.LatitudPunto);
 		   $('#LongitudPuntof').val(data.LongitudPunto);
 		   $('#AltitudPuntof').val(data.AltitudPunto);	 
-		   $("#map2").attr("href", 'http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/?lat1=' + data.LatitudPunto+'&long1='+ data.LongitudPunto);		
-		   $("#map2f").attr("href", 'http://webinei.inei.gob.pe/cie/2013/web/index.php/mapa/gps/diez/?' + pts);		
+		   $("#map2").attr("href", CI.site_url + '/mapa/gps/?lat1=' + data.LatitudPunto+'&long1='+ data.LongitudPunto);		
+		   $("#map2f").attr("href", CI.site_url + '/mapa/gps/diez/?' + pts);		
 	   }
 	   as++;
 }); 
