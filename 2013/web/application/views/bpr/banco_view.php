@@ -186,17 +186,18 @@ function ListarPreguntaPrincipal(usuario)
 							$.each(val.historial, function(index, val) {
 								if (val.id_nro == 1)
 								{
-									html+=val.respuesta+' '+val.fecha_respuesta+
-										'<hr>';
+									html+="<div><span style='font-size: 12px; color: #000;'>Respuesta "+val.id_nro+" : </span><span style='font-size: 12px; color: #000; float:right;'>"+val.fecha_respuesta+"</span></div>";
+									html+="<div><span style='color:#494BDE;'>"+val.respuesta+"</span></div>";
 								}else{
-									html+=val.consulta+' '+val.fecha_pregunta+
-										'<br>';
-										if (val.respuesta!='')
-										{
-										html+=val.respuesta+' '+val.fecha_respuesta+
-											'<hr>';	
+									html+="<div><span style='font-size: 12px; color: #000;'>Pregunta "+val.id_nro+" : </span><span style='font-size: 12px; color: #000; float:right;'>"+val.fecha_pregunta+"</span></div>";
+									html+="<div><span style='color:#FC5B42;'>"+val.consulta+"</span></div>";
+										if (val.estado>0)
+										{	
+										html+="<div><span style='font-size: 12px; color: #000;'>Respuesta "+val.id_nro+" : </span><span style='font-size: 12px; color: #000; float:right;'>"+val.fecha_respuesta+"</span></div>";
+										html+="<div><span style='color:#494BDE;'>"+val.respuesta+"<span></div>";
 										}
 								}
+								html+="<br>";
 								estado=val.estado;
 								nro=val.id_nro;
 							});
@@ -289,7 +290,8 @@ function view_last_quest(codigo)
 
 		var html="";
 		$.each(data, function(index, val) {
-			html+=val.consulta+'<br>';
+			html+="<div><span style='font-size: 12px; color: #000;'>Pregunta "+val.id_nro+" : </span><span style='font-size: 12px; color: #000; float:right;'>"+val.fecha_pregunta+"</span></div>";
+			html+="<div><span style='color:#FC5B42;'>"+val.consulta+'</span></div>';
 		});
 		$("#content_"+codigo).append(html);
 	});
@@ -322,7 +324,8 @@ function view_last_resp(codigo)
 
 		var html="";
 		$.each(data, function(index, val) {
-			html+=val.respuesta+'<hr>';
+			html+="<div><span style='font-size: 12px; color: #000;'>Respuesta "+val.id_nro+" : </span><span style='font-size: 12px; color: #000; float:right;'>"+val.fecha_respuesta+"</span></div>";
+			html+="<div><span style='color:#494BDE;'>"+val.respuesta+"</span></div>";
 		});
 		$("#content_"+codigo).append(html);
 	});

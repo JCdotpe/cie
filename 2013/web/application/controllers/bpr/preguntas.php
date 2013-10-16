@@ -173,7 +173,7 @@ class Preguntas extends CI_Controller {
 
 			$x= array("id_cuestionario" => $fila->id_cuestionario,
 			"id_nro" => $fila->id_nro,
-			"consulta" => $fila->consulta,
+			"consulta" => trim($fila->consulta),
 			"fecha_pregunta" => $fila->fecha_pregunta);
 
 			$jsonData = my_json_encode($x);

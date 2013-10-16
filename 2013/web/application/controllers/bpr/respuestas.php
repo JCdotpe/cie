@@ -75,7 +75,7 @@ class Respuestas extends CI_Controller {
 
 			$x= array("id_cuestionario" => $fila->id_cuestionario,
 			"id_nro" => $fila->id_nro,
-			"respuesta" => $fila->respuesta,
+			"respuesta" => trim($fila->respuesta),
 			"fecha_respuesta" => $fila->fecha_respuesta);
 
 			$jsonData = my_json_encode($x);
