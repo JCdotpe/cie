@@ -636,17 +636,7 @@ echo '
 												<strong>¿El Clima que predomina en esta localidad es:</strong>
 											</td>
 											<td>
-												<label class="checkbox-inline">
-													<input type="radio" value="option1" name="check" id="P2_A_1_Clima1" disabled="disabled"> 1. Cálido?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option2" name="check" id="P2_A_1_Clima2" disabled="disabled"> 2. Templado?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option3" name="check" id="P2_A_1_Clima3" disabled="disabled"> 3. Frio?
-												</label>
+												'.form_input($P2_A_1_Clima).'
 											</td>
 										</tr>
 										<tr>
@@ -655,17 +645,7 @@ echo '
 												<strong>¿La intensidad de la lluvia en esta localidad es:</strong>
 											</td>
 											<td>
-												<label class="checkbox-inline">
-													<input type="radio" value="option1" name="check1" id="P2_A_2_Lluv1" disabled="disabled"> 1. Minima?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option2" name="check1" id="P2_A_2_Lluv2" disabled="disabled"> 2. Moderada?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option3" name="check1" id="P2_A_2_Lluv3" disabled="disabled"> 3. Torrencial?
-												</label>
+												'.form_input($P2_A_2_Lluv).'
 											</td>
 										</tr>
 										<tr>
@@ -675,9 +655,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input type="text" class="form-control" id="P2_A_2A_Lluv_Mini" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_2A_Lluv_Mini).'
 												<label>Mes de término</label>
-												<input type="text" class="form-control" id="P2_A_2A_Lluv_Mfin" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_2A_Lluv_Mfin).'
 											</td>
 										</tr>
 										<tr>
@@ -686,13 +666,7 @@ echo '
 												<strong>¿En esta localidad se producen heladas/friajes?</strong>
 											</td>
 											<td>
-												<label class="checkbox-inline">
-													<input type="radio" value="option1" name="check2" id="P2_A_3_Hel1" disabled="disabled"> 1. Si?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option2" name="check2" id="P2_A_3_Hel2" disabled="disabled"> 2. No?
-												</label>
+												'.form_input($P2_A_3_Hel).'
 											</td>
 										</tr>
 										<tr>
@@ -702,9 +676,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input type="text" class="form-control" id="P2_A_3A_Hel_Mini" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_3A_Hel_Mini).'
 												<label>Mes de término</label>
-												<input type="text" class="form-control" id="P2_A_3A_Hel_Mfin" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_3A_Hel_Mfin).'
 											</td>
 										</tr>
 										<tr>
@@ -713,13 +687,7 @@ echo '
 												<strong>¿En esta localidad cae granizada?</strong>
 											</td>
 											<td>
-												<label class="checkbox-inline">
-													<input type="radio" value="option1" name="check3" id="P2_A_4_Gra1" disabled="disabled"> 1. Si?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option2" name="check3" id="P2_A_4_Gra2" disabled="disabled"> 2. No?
-												</label>
+												'.form_input($P2_A_4_Gra1).'
 											</td>
 										</tr>
 										<tr>
@@ -729,9 +697,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input type="text" class="form-control" id="P2_A_4A_Gra_Mini" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_4A_Gra_Mini).'
 												<label>Mes de término</label>
-												<input type="text" class="form-control" id="P2_A_4A_Gra_Mfin" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_4A_Gra_Mfin).'
 											</td>
 										</tr>
 										<tr>
@@ -740,13 +708,7 @@ echo '
 												<strong>¿En esta localidad se forman vendavales?</strong>
 											</td>
 											<td>
-												<label class="checkbox-inline">
-													<input type="radio" value="option1" name="check4" id="P2_A_5_Vend1" disabled="disabled"> 1. Si?
-												</label>
-
-												<label class="checkbox-inline">
-													<input type="radio" value="option2" name="check4" id="P2_A_5_Vend2" disabled="disabled"> 2. No?
-												</label>
+												'.form_input($P2_A_5_Vend).'
 											</td>
 										</tr>
 										<tr>
@@ -756,13 +718,7 @@ echo '
 												<br>(Acepte solo un código)
 											</td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check5" id="P2_A_5A_Vend_Tip1" disabled="disabled"> 1. Moderados?
-												</label>
-
-												<label>
-													<input type="radio" value="option2" name="check5" id="P2_A_5A_Vend_Tip2" disabled="disabled"> 2. Fuertes (Que afecten la infraestructura de la localidad)?
-												</label>
+												'.form_input($P2_A_5A_Vend_Tip).'
 											</td>
 										</tr>
 										<tr>
@@ -772,9 +728,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												<input type="text" class="form-control" id="P2_A_5B_Vend_Mini" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_5B_Vend_Mini).'
 												<label>Mes de término</label>
-												<input type="text" class="form-control" id="P2_A_5B_Vend_Mfin" style="width:200px;" disabled="disabled">
+												'.form_input($P2_A_5B_Vend_Mfin).'
 											</td>
 										</tr>
 									</tbody>
@@ -796,19 +752,7 @@ echo '
 												<br>(Acepte un solo código)
 											</td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check6" id="P2_B_1_Topo1" disabled="disabled"> 1. Llano
-												</label>
-
-												<label>
-													<input type="radio" value="option2" name="check6" id="P2_B_1_Topo2" disabled="disabled"> 2. Inclinado
-												</label>
-												<label>
-													<input type="radio" value="option1" name="check6" id="P2_B_1_Topo1" disabled="disabled"> 3. Muy inclinado
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check6" id="P2_B_1_Topo2" disabled="disabled"> 4. Accidentado
-												</label>
+												'.form_input($P2_B_1_Topo).'
 											</td>
 										</tr>
 										<tr>
@@ -818,47 +762,21 @@ echo '
 												<br>(Acepte un solo código)
 											</td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check7" id="P2_B_2_Suelo1" disabled="disabled"> 1. Arcilloso
-												</label>
-
-												<label>
-													<input type="radio" value="option2" name="check7" id="P2_B_2_Suelo2" disabled="disabled"> 2. Rocoso
-												</label>
-												<label>
-													<input type="radio" value="option1" name="check7" id="P2_B_2_Suelo3" disabled="disabled"> 3. Arenoso
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check7" id="P2_B_2_Suelo4" disabled="disabled"> 4. Relleno
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check7" id="P2_B_2_Suelo5" disabled="disabled"> 5. Gravoso
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check7" id="P2_B_2_Suelo6" disabled="disabled"> 6. Otro
-												</label>
-												<label>(Especifique)</label>
-												<input type="text" class="form-control" style="width:400px;" id="P2_B_2_Suelo_O" disabled="disabled">
-
+												'.form_input($P2_B_2_Suelo).' <br />
+												'.form_input($P2_B_2_Suelo_O).'
 											</td>
 										</tr>
 										<tr>
 											<td>3.</td>
 											<td><strong>¿A qué profundidad se encuentra la napa freatica del local escolar?</strong></td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check8" id="P2_B_3_Prof1" disabled="disabled"> 1. A menos de 1.50 m
-												</label>
-
-												<label>
-													<input type="radio" value="option2" name="check8" id="P2_B_3_Prof2" disabled="disabled"> 2. A mas de 1.50 m
-												</label>
+												'.form_input($P2_B_3_Prof).'
 											</td>
 										</tr>
 										<tr>
 											<td>4.</td>
 											<td><strong>¿Cuál es la capital del distrito mas accesible al local escolar?</strong></td>
-											<td><input type="text" class="form-control" style="width:400px;" id="P2_B_4_CapAcc" disabled="disabled"></td>
+											<td>'.form_input($P2_B_4_CapAcc).'</td>
 										</tr>
 										<tr>
 											<td>5.</td>
@@ -867,27 +785,16 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check9" id="P2_B_5_11" disabled="disabled"> 1. Terrestre
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check9" id="P2_B_5_21" disabled="disabled"> 2. Fluvial/lacustre/maritimo
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check9" id="P2_B_5_31" disabled="disabled"> 3. Aereo
-												</label>
+												'.form_input($P2_B_5_11).' <br />
+												'.form_input($P2_B_5_21).' <br />
+												'.form_input($P2_B_5_31).' 
 											</td>
 										</tr>
 										<tr>
 											<td>5A.</td>
 											<td><strong>¿El uso mas frecuente es?</strong></td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check10" id="P2_B_5A_Uso1" disabled="disabled"> 1. Con motor
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check10" id="P2_B_5A_Uso2" disabled="disabled"> 2. Sin motor
-												</label>
+												'.form_input($P2_B_5A_Uso).' 
 											</td>
 										</tr>
 										<tr>
@@ -897,18 +804,10 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check11" id="P2_B_5B_11" disabled="disabled"> 1. Camino de herradura
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check11" id="P2_B_5B_21" disabled="disabled"> 2. Trocha carrozable
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check11" id="P2_B_5B_31" disabled="disabled"> 3. carretera afirmada
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check11" id="P2_B_5B_41" disabled="disabled"> 4. vía asfaltada
-												</label>
+												'.form_input($P2_B_5B_11).' <br />
+												'.form_input($P2_B_5B_21).' <br />
+												'.form_input($P2_B_5B_31).' <br />
+												'.form_input($P2_B_5B_41).' <br />												
 											</td>
 										</tr>
 										<tr>
@@ -916,8 +815,8 @@ echo '
 											<td><strong>¿Cuál es el tiempo total de recorrido de la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div style="height:60px; width:130px; margin-left:130px;" class="panel">
-													<input type="text" class="form-control" style="width:50px;float:left;" id="P2_B_6_Trec_H" disabled="disabled">
-													<input type="text" class="form-control" style="width:50px;float:left;" id="P2_B_6_Trec_M" disabled="disabled">
+													'.form_input($P2_B_6_Trec_H).' <br />	
+													'.form_input($P2_B_6_Trec_M).' <br />	
 													<br><br>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Hora</div>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Minuto</div>
@@ -929,8 +828,8 @@ echo '
 											<td><strong>¿Cuál es el tiempo del recorrido en el tramo mas dificultoso desde la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div style="height:60px; width:130px; margin-left:130px;" class="panel">
-													<input type="text" class="form-control" style="width:50px;float:left;" id="P2_B_7_Ttramo_H" disabled="disabled">
-													<input type="text" class="form-control" style="width:50px;float:left;" id="P2_B_7_Ttramo_M" disabled="disabled">
+													'.form_input($P2_B_7_Ttramo_H).' <br />	
+													'.form_input($P2_B_7_Ttramo_M).' <br />													
 													<br><br>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Hora</div>
 													<div style="width:50px;float:left; text-align:center; padding:5px;">Minuto</div>
@@ -941,12 +840,7 @@ echo '
 											<td>8.</td>
 											<td><strong>¿Existen peligros asociados ala ubicación de esta localidad?</strong></td>
 											<td>
-												<label>
-													<input type="radio" value="option1" name="check12" id="P2_B_8_Pelig1" disabled="disabled"> 1. Si
-												</label>
-												<label>
-													<input type="radio" value="option2" name="check12" id="P2_B_8_Pelig2" disabled="disabled"> 2. No
-												</label>
+												'.form_input($P2_B_8_Pelig).' 
 											</td>
 										</tr>
 										<tr>
@@ -956,36 +850,16 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check13" id="P2_B_911" disabled="disabled"> 1. Sismos?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check13" id="P2_B_921" disabled="disabled"> 2. Tsunami u oleaje anómalos?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check13" id="P2_B_931" disabled="disabled"> 3. Lluvias?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check13" id="P2_B_941" disabled="disabled"> 4. Heladas?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check13" id="P2_B_951" disabled="disabled"> 5. Sequías?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check13" id="P2_B_961" disabled="disabled"> 6. Granizadas?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check13" id="P2_B_971" disabled="disabled"> 7. Nevadas?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check13" id="P2_B_981" disabled="disabled"> 8. Vendavales?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check13" id="P2_B_991" disabled="disabled"> 9. Actividades volcánicas?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check13" id="P2_B_9101" disabled="disabled"> 10. Ninguno
-												</label>
+													'.form_input($P2_B_911).' <br />	
+													'.form_input($P2_B_921).' <br />													
+													'.form_input($P2_B_931).' <br />	
+													'.form_input($P2_B_941).' <br />													
+													'.form_input($P2_B_951).' <br />	
+													'.form_input($P2_B_961).' <br />													
+													'.form_input($P2_B_971).' <br />	
+													'.form_input($P2_B_981).' <br />													
+													'.form_input($P2_B_991).' <br />	
+													'.form_input($P2_B_9101).' 																																																																																										
 											</td>
 										</tr>
 										<tr>
@@ -995,27 +869,12 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check14" id="P2_B_1011" disabled="disabled"> 1. Inundaciones?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check14" id="P2_B_1021" disabled="disabled"> 2. Deslizamientos?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check14" id="P2_B_1031" disabled="disabled"> 3. Huaycos / Aluviones / Aludes?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check14" id="P2_B_1041" disabled="disabled"> 4. Derrumbes?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check14" id="P2_B_1051" disabled="disabled"> 5. Desertificaciones?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check14" id="P2_B_1061" disabled="disabled"> 6. Salinización de los suelos?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check14" id="P2_B_101" disabled="disabled"> 7. Ninguno?
-												</label>
+													'.form_input($P2_B_1011).' <br />	
+													'.form_input($P2_B_1021).' <br />													
+													'.form_input($P2_B_1031).' <br />	
+													'.form_input($P2_B_1041).' <br />													
+													'.form_input($P2_B_1051).' <br />	
+													'.form_input($P2_B_1061).' 												
 											</td>
 										</tr>
 										<tr>
@@ -1025,44 +884,17 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_1111" disabled="disabled"> 1. Contaminación ambiental?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check15" id="P2_B_1121" disabled="disabled"> 2. Incendios, quemas?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_1131" disabled="disabled"> 3. Explosiones?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check15" id="P2_B_1141" disabled="disabled"> 4. Derrame de sustancias tóxicas?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_1151" disabled="disabled"> 5. Fuga de gases?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check15" id="P2_B_1161" disabled="disabled"> 6. Zonas aereoportuarias?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_1171" disabled="disabled"> 7. Zonas industriales?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check15" id="P2_B_1181" disabled="disabled"> 8. Crianza de animales?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_1191" disabled="disabled"> 9. Subversiónes / conflictos?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check15" id="P2_B_11101" disabled="disabled"> 10. Rellenos sanitarios?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check15" id="P2_B_11111" disabled="disabled"> 11. Otro?
-												</label>
-												<label>(Especifique)</label>
-												<input type="text" class="form-control" id="P2_B_11_Cod_O" style="width:400px;" disabled="disabled">
-												<label>
-													<input type="checkbox" value="option2" name="check" id="P2_B_11121" disabled="disabled"> 12. Ninguno
-												</label>
+													'.form_input($P2_B_1111).' <br />	
+													'.form_input($P2_B_1121).' <br />													
+													'.form_input($P2_B_1131).' <br />	
+													'.form_input($P2_B_1141).' <br />													
+													'.form_input($P2_B_1151).' <br />	
+													'.form_input($P2_B_1161).' <br />											
+													'.form_input($P2_B_1171).' <br />	
+													'.form_input($P2_B_1181).' <br />													
+													'.form_input($P2_B_1191).' <br />												
+													'.form_input($P2_B_11101).' - Especifique '.form_input($P2_B_11_Cod_O).' <br /> 
+													'.form_input($P2_B_11111).' 
 											</td>
 										</tr>
 										<tr>
@@ -1072,31 +904,14 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												<label>
-													<input type="checkbox" value="option1" name="check16" id="P2_B_1211" disabled="disabled"> 1. Cercanía lecho de río, quebrada?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check16" id="P2_B_1221" disabled="disabled"> 2. Cercanía a vía ferrea?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check16" id="P2_B_1231" disabled="disabled"> 3. Cercanía a barranco o precipicio?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check16" id="P2_B_1241" disabled="disabled"> 4. Cercanía a cuartel militar o policial?
-												</label>
-												<label>
-													<input type="checkbox" value="option1" name="check16" id="P2_B_1251" disabled="disabled"> 5. Erosión fluvial de laderas?
-												</label>
-												<label>
-													<input type="checkbox" value="option2" name="check16" id="P2_B_1261" disabled="disabled"> 6. Otro?
-												</label>
-												<label>(Especifique)</label>
-												<input type="text" class="form-control" id="P2_B_12_Cod_O" style="width:400px;" disabled="disabled">
-												<label>
-												<label>
-													<input type="checkbox" value="option1" name="check16" id="P2_B_1271" disabled="disabled"> 7. Ninguno
-												</label>
-											</label></td>
+												'.form_input($P2_B_1211).' <br />	
+												'.form_input($P2_B_1221).' <br />	
+												'.form_input($P2_B_1231).' <br />	
+												'.form_input($P2_B_1241).' <br />	
+												'.form_input($P2_B_1251).' <br />	
+												'.form_input($P2_B_1261).' - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
+												'.form_input($P2_B_1271).' <br />	
+											</td>
 										</tr>
 									</tbody>
 							</table>
@@ -1125,46 +940,19 @@ echo '
 													<tr>
 														<td>1.	Energía eléctrica?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_1_Energ1" id="P2_C_1Locl_1_Energ1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_1_Energ2" id="P2_C_1Locl_1_Energ2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_1_Energ).'
 														</td>
 													</tr>
 													<tr>
 														<td>2.	Agua potable?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_2_Agua1" id="P2_C_1Locl_2_Agua1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_2_Agua2" id="P2_C_1Locl_2_Agua2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_2_Agua).'
 														</td>
 													</tr>
 													<tr>
 														<td>3.	Alcantarillado?	</td>
 														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_3_Alc11" id="P2_C_1Locl_3_Alc1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="" name="P2_C_1Locl_3_Alc12" id="P2_C_1Locl_3_Alc2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_3_Alc1).'
 														</td>
 													</tr>
 												</tbody>
@@ -1184,46 +972,19 @@ echo '
 													<tr>
 														<td>Telefonía fija?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_4_Tfija1" id="P2_C_1Locl_4_Tfija1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_4_Tfija2" id="P2_C_1Locl_4_Tfija1" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_4_Tfija).'
 														</td>
 													</tr>
 													<tr>
 														<td>Telefonía móvil?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_5_Tmov1" id="P2_C_1Locl_5_Tmov1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_5_Tmov2" id="P2_C_1Locl_5_Tmov2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_5_Tmov).'
 														</td>
 													</tr>
 													<tr>
 														<td>Internet?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_6_Int1" id="P2_C_1Locl_6_Int1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_1Locl_6_Int2" id="P2_C_1Locl_6_Int2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_1Locl_6_Int).'
 														</td>
 													</tr>
 												</tbody>
@@ -1248,46 +1009,19 @@ echo '
 													<tr>
 														<td>1.	Energía eléctrica?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_1_Energ1" id="P2_C_2LocE_1_Energ1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_1_Energ2" id="P2_C_2LocE_1_Energ2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_1_Energ).'
 														</td>
 													</tr>
 													<tr>
 														<td>2.	Agua potable?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_2_Agua1" id="P2_C_2LocE_2_Agua1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_2_Agua2" id="P2_C_2LocE_2_Agua2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_2_Agua).'
 														</td>
 													</tr>
 													<tr>
 														<td>3.	Alcantarillado?	</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_3_Alc1" id="P2_C_2LocE_3_Alc1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_3_Alc2" id="P2_C_2LocE_3_Alc2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_3_Alc).'
 														</td>
 													</tr>
 												</tbody>
@@ -1308,46 +1042,19 @@ echo '
 													<tr>
 														<td>Telefonía fija?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_4_Tfija1" id="P2_C_2LocE_4_Tfija1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_4_Tfija2" id="P2_C_2LocE_4_Tfija2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_4_Tfija).'
 														</td>
 													</tr>
 													<tr>
 														<td>Telefonía móvil?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_5_Tmov1" id="P2_C_2LocE_5_Tmov1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_5_Tmov2" id="P2_C_2LocE_5_Tmov2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_5_Tmov).'
 														</td>
 													</tr>
 													<tr>
 														<td>Internet?</td>
 														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_6_Int1" id="P2_C_2LocE_6_Int1" disabled="disabled">
-																 1
-															</label>
-														</td>
-														<td>
-															<label>
-																<input type="checkbox" value="option2" name="P2_C_2LocE_6_Int2" id="P2_C_2LocE_6_Int2" disabled="disabled">
-																 2
-															</label>
+															'.form_input($P2_C_2LocE_6_Int).'
 														</td>
 													</tr>
 												</tbody>
@@ -1375,20 +1082,10 @@ echo '
 											(Acepte uno o más códigos)
 										</td>
 										<td>
-											<label>
-												<input type="checkbox" value="" name="P2_D_1_EnergCod" id="P2_D_1_Cod11" disabled="disabled"> 1. Red pública?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_1_EnergCod" id="P2_D_1_Cod21" disabled="disabled"> 2. Generador o motor?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_1_EnergCod" id="P2_D_1_Cod31" disabled="disabled"> 3. Panel solar?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_1_EnergCod" id="P2_D_1_Cod41" disabled="disabled"> 4. Otro?
-											</label>
-											<label>(Especifique)</label>
-											<input type="text" class="form-control" id="P2_D_1_Cod_O" style="width:400px;" disabled="disabled">
+											'.form_input($P2_D_1_Cod11).'
+											'.form_input($P2_D_1_Cod21).'
+											'.form_input($P2_D_1_Cod31).'
+											'.form_input($P2_D_1_Cod41).' - Especifique '.form_input($P2_D_1_Cod_O).'
 										</td>
 
 									</tr>
@@ -1408,7 +1105,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input type="text" class="form-control" id="P2_D_2_Energ_CantSum" style="width:100px;" disabled="disabled">
+												'.form_input($P2_D_2_Energ_CantSum).'
 											</div>
 										</td>
 									</tr>
@@ -1427,7 +1124,7 @@ echo '
 									<tr>
 										<td>4.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio eléctrico?</strong></td>
-										<td><input type="text" class="form-control" id="P2_D_4_Energ_Emp" style="width:400px;" disabled="disabled"></td>
+										<td>'.form_input($P2_D_4_Energ_Emp).'</td>
 									</tr>
 									<tr>
 										<td>5.</td>
@@ -1435,26 +1132,12 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod11" disabled="disabled"> 1. Red pública?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod21" disabled="disabled"> 2. Pilón de uso público (agua potable)?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod31" disabled="disabled"> 3. Camión cisterna u otro similar?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod41" disabled="disabled"> 4. Pozo?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod51" disabled="disabled"> 5. Río, acequia, manantial o similar?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="" id="P2_D_5_Cod61" disabled="disabled"> 6. Otro?
-											</label>
-											<label>(Especifique)</label>
-											<input type="text" class="form-control" style="width:400px;" id="P2_D_5_Cod_O" disabled="disabled">
+											'.form_input($P2_D_5_Cod11).'
+											'.form_input($P2_D_5_Cod21).'
+											'.form_input($P2_D_5_Cod31).'
+											'.form_input($P2_D_5_Cod41).'
+											'.form_input($P2_D_5_Cod51).'
+											'.form_input($P2_D_5_Cod61).' - Especifique '.form_input($P2_D_5_Cod_O).'
 										</td>
 									</tr>
 
@@ -1474,7 +1157,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input type="text" class="form-control" id="P2_D_6_Agua_CantSum" style="width:100px;" disabled="disabled">
+												'.form_input($P2_D_6_Agua_CantSum).' 
 											</div>
 										</td>
 									</tr>
@@ -1495,7 +1178,7 @@ echo '
 									<tr>
 										<td>8.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio de agua?</strong></td>
-										<td><input type="text" class="form-control" id="P2_D_8_Agua_Emp" style="width:400px;" disabled="disabled"></td>
+										<td>'.form_input($P2_D_8_Agua_Emp).'</td>
 									</tr>
 									<tr>
 										<td>9.</td>
@@ -1503,27 +1186,13 @@ echo '
 											<br>(Acepte solo un código)
 										</td>
 										<td>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro1" disabled="disabled"> 1. Red pública?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro2" disabled="disabled"> 2. Tanque séptico y pozo percolador?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro3" disabled="disabled"> 3. Pozo con tratamiento (cal, ceniza y otro)?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro4" disabled="disabled"> 4. Pozo sin tratamiento alguno?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro5" disabled="disabled"> 5. Río, acequia, manantial o canal?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro6" disabled="disabled"> 6. Zanja filtrante?
-											</label>
-											<label>
-												<input type="checkbox" value="" name="P2_D_9_Nro" id="P2_D_9_Nro7" disabled="disabled"> 7. No tiene
-											</label>
+											'.form_input($P2_D_9_Nro1).' 
+											'.form_input($P2_D_9_Nro2).' 
+											'.form_input($P2_D_9_Nro3).' 
+											'.form_input($P2_D_9_Nro4).' 
+											'.form_input($P2_D_9_Nro5).' 
+											'.form_input($P2_D_9_Nro6).' 
+											'.form_input($P2_D_9_Nro7).' 
 										</td>
 									</tr>
 
@@ -1541,12 +1210,7 @@ echo '
 										<td>1.</td>
 										<td><strong>¿El local escolar, cuenta con pararrayos?</strong></td>
 										<td>
-											<label>
-												<input type="radio" value="" name="prayo" id="P2_E_1_Prayo1" disabled="disabled"> 1. Si?
-											</label>
-											<label>
-												<input type="radio" value="" name="prayo" id="P2_E_1_Prayo2" disabled="disabled"> 2. No?
-											</label>
+											'.form_input($P2_E_1_Prayo1).'
 										</td>
 									</tr>
 									<tr>
@@ -1555,7 +1219,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												<input type="text" class="form-control" style="width:100px;" id="P2_E_2_Ptierra" disabled="disabled">
+												'.form_input($P2_E_2_Ptierra).'
 											</div>
 										</td>
 									</tr>
@@ -1565,7 +1229,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Año</label>
-												<input type="text" class="form-control" style="width:100px;" id="P2_E_3_Ano" disabled="disabled">
+												'.form_input($P2_E_3_Ano).'
 											</div>
 										</td>
 									</tr>
@@ -1575,7 +1239,7 @@ echo '
 
 							<div class="panel">
 								<label>Observaciones:</label>
-								<textarea style="width:870px; height:100px;" id="P2_E_Obs" disabled="disabled"></textarea>
+								'.form_textarea($P2_E_Obs).' 
 							</div>
 
 
@@ -1593,38 +1257,17 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas11" disabled="disabled"> 1. Arrojada al camión/triciclo municipal?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas21" disabled="disabled"> 2. Arrojada al camión/informal?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas31" disabled="disabled"> 3. Depositada en contenedor?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas41" disabled="disabled"> 4. Acumulada en calles/campo abierto?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas51" disabled="disabled"> 5. Reciclada?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas61" disabled="disabled"> 6. Quemada?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas71" disabled="disabled"> 7. Enterrada?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas81" disabled="disabled"> 8. Usada como alimento para animales?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas91" disabled="disabled"> 9. Separada para el compost?
-												</label>
-												<label>
-													<input type="checkbox" value="" name="" id="P2_F_1_ElimBas101" disabled="disabled"> 10. Otra forma?
-												</label>
-												<label>(Especifique)</label>
-												<input type="text" class="form-control" style="width:400px;" id="P2_F_1_ElimBas_O" disabled="disabled">
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' <br />
+											'.form_input($P2_F_1_ElimBas).' - Especifique '.form_input($P2_F_1_ElimBas_O).' 
 										</td>
 									</tr>
 								</tbody>
@@ -1643,12 +1286,7 @@ echo '
 											<strong>¿En el local escolar existen obras en ejecución?</strong>
 										</td>
 										<td>
-											<label>
-												'.form_radio($P2_G_1_ObEjec).' 1. Si?
-											</label>
-											<label>
-												'.form_radio($P2_G_1_ObEjec).' 2. No?
-											</label>
+											'.form_input($P2_G_1_ObEjec).'
 										</td>
 									</tr>
 									<tr>
@@ -1662,12 +1300,11 @@ echo '
 												<thead>
 													<tr>
 														<td rowspan="2" style="text-align:center">Instituciones</td>
-														<td colspan="2" style="text-align:center">2A. ¿cuenta con estudio de pre-inversión?</td>
+														<td style="text-align:center">2A. ¿cuenta con estudio de pre-inversión?</td>
 														<td rowspan="2" style="text-align:center">2B. ¿cuál es el código snip?</td>
 													</tr>
 													<tr>
-														<td style="text-align:center">Si</td>
-														<td style="text-align:center">No</td>
+														<td style="text-align:center">1. Si, 2. No</td>
 													</tr>
 												</thead>
 												<tbody>
@@ -1675,90 +1312,42 @@ echo '
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod11" disabled="disabled">
 															1.Gobierno nacional / proyectos especiales</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' 1
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' 2
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod21" disabled="disabled">
 															2.Gobierno regional / local</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod31" disabled="disabled">
 															3.Apafa / autoconstrucción</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod41" disabled="disabled">
 															4.Entidades cooperantes</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod51" disabled="disabled">
 															5.Organismos sin fines de lucro</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
 														<td>
 															<input type="checkbox" value="" name="" id="P2_G_2_Cod61" disabled="disabled">
 															6.Empresa privada</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 													<tr>
@@ -1767,15 +1356,7 @@ echo '
 															<label>7.Otro (Especifique)</label>
 															'.form_input($P2_G_2_Otro).'
 														</td>
-														<td>
-															<label>
-																'.form_radio($P2_G_2A_EstPre).' Si
-															</label>
-														</td>
-														<td><label>
-																'.form_radio($P2_G_2A_EstPre).' No
-															</label>
-														</td>
+														<td>'.form_input($P2_G_2A_EstPre).'</td>
 														<td>'.form_input($P2_G_2B_snip).'</td>
 													</tr>
 												</tbody>
