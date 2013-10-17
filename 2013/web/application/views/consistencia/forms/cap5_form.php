@@ -234,9 +234,6 @@ $('#P5_Tot_E').change(function(event) {
 	var ahua = $(this).val();
 	var n_pisos = $('#P5_cantNroPiso').val();
 	
-	if(n_pisos == '' && n_pisos>99) return false;
-	if(ahua == '' && ahua>99) return false;
-	
 	for(var i=1; i<=n_pisos;i++){
 		var asd = "";
 			for (var j=1;j<=ahua;j++){

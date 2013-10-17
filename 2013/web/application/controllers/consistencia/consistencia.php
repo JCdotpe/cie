@@ -16,6 +16,7 @@ class Consistencia extends CI_Controller {
 		$this->load->model('consistencia/ubigeo_model');	
 		$this->load->model('consistencia/cap4_model');
 		$this->load->model('consistencia/cap5_model');
+		$this->load->model('consistencia/cap9_model');
 	}
 
 	public function index()
@@ -44,6 +45,10 @@ class Consistencia extends CI_Controller {
 			$data['cap4_n'] = $this->cap4_model->get_cap4_n($id,$prd);
 			$data['cap5_i'] = $this->cap5_model->get_cap5($id,$prd);
 			$data['cap5_f'] = $this->cap5_model->get_cap5_f($id,$prd);
+
+
+			$data['cap9_f'] = $this->cap9_model->get_cap9_f($id,$prd);
+
 
 			$data['cod'] = $id;
 			$data['pr'] = $prd;
