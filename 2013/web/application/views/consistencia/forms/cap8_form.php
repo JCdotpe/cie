@@ -9,6 +9,22 @@
 
 // TABLA P8 - Capitulo VIII
 
+$P8_2_Tipo = array(
+	'name'	=> 'P8_2_Tipo',
+	'id'	=> 'P8_2_Tipo',
+	'maxlength'	=> 3,
+	'class'	=> 'input3',
+	'disabled' => 'disabled',
+);
+
+$Nro_Pred = array(
+	'name'	=> 'Nro_Pred',
+	'id'	=> 'Nro_Pred',
+	'maxlength'	=> 2,
+	'class'	=> 'input2',
+	'disabled' => 'disabled',
+);
+
 $P8_2 = array(
 	'name'	=> 'P8_2',
 	'id'	=> 'P8_2',
@@ -17,6 +33,8 @@ $P8_2 = array(
 $P8_area = array(
 	'name'	=> 'P8_area',
 	'id'	=> 'P8_area',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',	
 );
 
 $P8_altura = array(
@@ -24,19 +42,11 @@ $P8_altura = array(
 	'id'	=> 'P8_altura',
 );
 
-$P8_longitud = array(
-	'name'	=> 'P8_longitud',
-	'id'	=> 'P8_longitud',
-);
-
-$P8_predio = array(
-	'name'	=> 'P8_predio',
-	'id'	=> 'P8_predio',
-);
-
 $P8_ejecuto = array(
 	'name'	=> 'P8_ejecuto',
 	'id'	=> 'P8_ejecuto',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',		
 );
 
 $P8_ejecuto_O = array(
@@ -47,16 +57,22 @@ $P8_ejecuto_O = array(
 $P8_Est_E = array(
 	'name'	=> 'P8_Est_E',
 	'id'	=> 'P8_Est_E',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',			
 );
 
 $P8_Ant = array(
 	'name'	=> 'P8_Ant',
 	'id'	=> 'P8_Ant',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',			
 );
 
 $P8_RecTec = array(
 	'name'	=> 'P8_RecTec',
 	'id'	=> 'P8_RecTec',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',		
 );
 
 $P8_Est_PaLo = array(
@@ -67,6 +83,7 @@ $P8_Est_PaLo = array(
 $P8_Obs = array(
 	'name'	=> 'P8_Obs',
 	'id'	=> 'P8_Obs',
+	'class'	=> 'textarea98p',		
 );
 
 // FIN TABLA P8 - Capitulo VIII
@@ -83,6 +100,35 @@ echo '
 
 <div class="panel panel-info">
 	  	    				<div class="panel-heading">CAPITULO VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>
+
+							<div class="panel" style="background:#DDD;">
+								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>	 
+
+							<div class="panel" style="background:#DDD;">
+								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione un Patio <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Patio Nro:01</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:02</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:03</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:04</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:05</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>	  	    				
 
 	  	    				<table class="table table-bordered">
 		  	    				<thead>
@@ -105,16 +151,11 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Nº de patios  verificar Cap. 5</label>
-		  	    							'.form_input($P5_Tot_P).'
+		  	    							'.form_input($P8_2_Tipo).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
 		  	    			</table>
-
-		  	    			<div style="background:#DDD;" class="panel">
-									<strong>Visualizar Patios</strong>
-									<div style="margin-top:10px;margin-bottom:10px;" id="combopatios"><div class="btn-group"><a href="#" data-toggle="dropdown" class="btn dropdown-toggle">Seleccione un patio <span class="caret"></span></a><ul class="dropdown-menu"></ul></div></div>
-							</div>
 
 		  	    			<table class="table table-bordered">
 		  	    				<thead>
@@ -129,8 +170,7 @@ echo '
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-
-		  	    							'.form_input($P5_Tot_P).'
+		  	    							'.form_input($P8_2_Tipo).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -148,7 +188,7 @@ echo '
 												<tr>
 													</tr><tr>
 														<td> '.form_input($P8_area).' </td>
-														<td> '.form_input($P8_area).' </td>
+														<td> 00 </td>
 													</tr>
 												
 											</tbody></table>
@@ -160,7 +200,7 @@ echo '
 		  	    							<strong>Predio en el que se ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<input type="text" id="Nro_PredP" class="form-control Nro_PredP" style="width:100px;" disabled="disabled">
+		  	    							'.form_input($Nro_Pred).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
