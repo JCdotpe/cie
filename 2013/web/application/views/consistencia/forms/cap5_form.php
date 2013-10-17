@@ -73,6 +73,7 @@ $P5_cantNroPiso = array(
 	'name'	=> 'P5_cantNroPiso',
 	'id'	=> 'P5_cantNroPiso',
 	'class' => 'input1',	
+	'maxlength'	=> 2,
 );
 
 $P5_NroPiso = array(
@@ -167,22 +168,7 @@ echo '
 
 	  	    				<p>Número de pisos: '.form_input($P5_cantNroPiso).'</p>
 
-	  	    				<table id="cap5_detalle" class="table table-bordered">
-		  	    				<thead>
-		  	    					<tr>
-			  	    					<th colspan="2">Piso N° '.$P5_NroPiso.'</th>
-		  	    					</tr>
-		  	    				</thead>
-		  	    				<tbody>
-			  	    				<tr>
-		  	    						<td colspan="2">'.form_input($P5_Foto).'</td>
-		  	    					</tr>
-		  	    					<tr>
-		  	    						<th>Edificación N° '.$P5_Ed_Nro.'</th>
-		  	    						<td>Cantidad de Ambientes: '.form_input($P5_TotAmb).'</td>
-		  	    					</tr>		  	    					
-		  	    				</tbody>
-		  	    			</table>
+	  	    				
 
 
 	  	    			</div>
@@ -205,8 +191,73 @@ $('#P5_cantNroPiso').val(<?php echo $cap5_f->num_rows(); ?>);
 $('#P5_cantNroPiso').change(function(event) {
 	$('#cap_5 table').remove('#cap5_detalle');
 	var ahua = $(this).val();
+	var edi = document.getElementById('P5_Tot_E').value;
+	for(var i=1; i<=ahua;i++){
+		var asd = '<table id="cap5_detalle" class="table table-bordered">';
+		asd+='<thead><tr>';
+		asd+='<thead><tr>';
+		asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" name="P5_NroPiso' + '_p_' + i + '" id="P5_NroPiso' + '_p_' + i + '" value="" ></th>';
+		asd+='</tr></thead>';
+		asd+='<tbody id="piso' + i + '">';
+		asd+='<tr><td colspan="2"><input type="text" class="input98p" disabled="disabled" name="P5_Foto' + '_p_' + i + '" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
+			for (var j=1;j<=edi;j++){
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro' + '_p_' + i  + '_e_' + j + '" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="" ></th>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb' + '_p_' + i + '_a_' + j + '" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+			}
+		asd+='</tbody></table>';
+		$('#cap_5').append(asd);
+	}
+
+	var as = 1;
+	$.each( <?php echo json_encode($cap5_f->result()); ?>, function(i, data) {
+			$('#P5_NroPiso' + '_p_' + as).val(data.P5_NroPiso);
+			$('#P5_Foto' + '_p_' + as).val(data.P5_Foto);
+			
+			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:data.id_local,predio:data.Nro_Pred,piso:data.P5_NroPiso}, function(data, textStatus) {
+					var ad = 1;
+					$.each(data, function(index, val) {
+						$('#P5_Ed_Nro' + '_p_' + val.P5_NroPiso + '_e_' + ad).val(val.P5_Ed_Nro);
+						$('#P5_TotAmb' + '_p_' + val.P5_NroPiso + '_a_' + ad).val(val.P5_TotAmb);
+						ad++;
+					});
+			});
+
+			as++;
+	});
 
 });
+$('#P5_cantNroPiso').trigger('change');
+
+
+$('#P5_Tot_E').change(function(event) {
+	$('#cap5_detalle > tbody > tr').remove('.detalle');
+	var ahua = $(this).val();
+	var n_pisos = $('#P5_cantNroPiso').val();
+	
+	if(n_pisos == '' && n_pisos>99) return false;
+	if(ahua == '' && ahua>99) return false;
+	
+	for(var i=1; i<=n_pisos;i++){
+		var asd = "";
+			for (var j=1;j<=ahua;j++){
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro' + '_p_' + i  + '_e_' + j + '" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="" ></th>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb' + '_p_' + i + '_a_' + j + '" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+			}
+		$('tbody#piso'+i).append(asd);
+	}
+		
+	for (var i=1; i<=n_pisos;i++){
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,piso:i}, function(data, textStatus) {
+				var ad = 1;
+				$.each(data, function(index, val) {
+					$('#P5_Ed_Nro' + '_p_' + val.P5_NroPiso + '_e_' + ad).val(val.P5_Ed_Nro);
+					$('#P5_TotAmb' + '_p_' + val.P5_NroPiso + '_a_' + ad).val(val.P5_TotAmb);
+					ad++;
+				});
+		});
+	}
+});
+
 
 
 });
