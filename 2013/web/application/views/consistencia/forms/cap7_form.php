@@ -9,194 +9,276 @@
 
 // TABLA P6_2_4N - Capitulo VII
 
+$Nro_Ed = array(
+	'name'	=> 'Nro_Ed',
+	'id'	=> 'Nro_Ed',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
+	'disabled' => 'disabled',	
+);
+
 $P7_1_2 = array(
 	'name'	=> 'P7_1_2',
 	'id'	=> 'P7_1_2',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_3 = array(
 	'name'	=> 'P7_1_3',
 	'id'	=> 'P7_1_3',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_4 = array(
 	'name'	=> 'P7_1_4',
 	'id'	=> 'P7_1_4',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_5 = array(
 	'name'	=> 'P7_1_5',
 	'id'	=> 'P7_1_5',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_6 = array(
 	'name'	=> 'P7_1_6',
 	'id'	=> 'P7_1_6',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_7 = array(
 	'name'	=> 'P7_1_7',
 	'id'	=> 'P7_1_7',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_8 = array(
 	'name'	=> 'P7_1_8',
 	'id'	=> 'P7_1_8',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_9 = array(
 	'name'	=> 'P7_1_9',
 	'id'	=> 'P7_1_9',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_9A = array(
 	'name'	=> 'P7_1_9A',
 	'id'	=> 'P7_1_9A',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_9B = array(
 	'name'	=> 'P7_1_9B',
 	'id'	=> 'P7_1_9B',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_9C = array(
 	'name'	=> 'P7_1_9C',
 	'id'	=> 'P7_1_9C',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_9D = array(
 	'name'	=> 'P7_1_9D',
 	'id'	=> 'P7_1_9D',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_10 = array(
 	'name'	=> 'P7_1_10',
 	'id'	=> 'P7_1_10',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_11 = array(
 	'name'	=> 'P7_1_11',
 	'id'	=> 'P7_1_11',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_12 = array(
 	'name'	=> 'P7_1_12',
 	'id'	=> 'P7_1_12',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_13 = array(
 	'name'	=> 'P7_1_13',
 	'id'	=> 'P7_1_13',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_14 = array(
 	'name'	=> 'P7_1_14',
 	'id'	=> 'P7_1_14',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_15 = array(
 	'name'	=> 'P7_1_15',
 	'id'	=> 'P7_1_15',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_15A = array(
 	'name'	=> 'P7_1_15A',
 	'id'	=> 'P7_1_15A',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_15B = array(
 	'name'	=> 'P7_1_15B',
 	'id'	=> 'P7_1_15B',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_15C = array(
 	'name'	=> 'P7_1_15C',
 	'id'	=> 'P7_1_15C',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_15D = array(
 	'name'	=> 'P7_1_15D',
 	'id'	=> 'P7_1_15D',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_16 = array(
 	'name'	=> 'P7_1_16',
 	'id'	=> 'P7_1_16',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_17 = array(
 	'name'	=> 'P7_1_17',
 	'id'	=> 'P7_1_17',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_18 = array(
 	'name'	=> 'P7_1_18',
 	'id'	=> 'P7_1_18',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_19 = array(
 	'name'	=> 'P7_1_19',
 	'id'	=> 'P7_1_19',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_20 = array(
 	'name'	=> 'P7_1_20',
 	'id'	=> 'P7_1_20',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_21 = array(
 	'name'	=> 'P7_1_21',
 	'id'	=> 'P7_1_21',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_22 = array(
 	'name'	=> 'P7_1_22',
 	'id'	=> 'P7_1_22',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_23 = array(
 	'name'	=> 'P7_1_23',
 	'id'	=> 'P7_1_23',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_24 = array(
 	'name'	=> 'P7_1_24',
 	'id'	=> 'P7_1_24',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_25 = array(
 	'name'	=> 'P7_1_25',
 	'id'	=> 'P7_1_25',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_26 = array(
 	'name'	=> 'P7_1_26',
 	'id'	=> 'P7_1_26',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_27 = array(
 	'name'	=> 'P7_1_27',
 	'id'	=> 'P7_1_27',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_1_28 = array(
 	'name'	=> 'P7_1_28',
 	'id'	=> 'P7_1_28',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P7_2_1 = array(
 	'name'	=> 'P7_2_1',
 	'id'	=> 'P7_2_1',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $p7_2_2 = array(
 	'name'	=> 'p7_2_2',
 	'id'	=> 'p7_2_2',
+	'class'	=> 'textarea98p',
 );
 
 $P7_OBS = array(
 	'name'	=> 'P7_OBS',
 	'id'	=> 'P7_OBS',
+	'class'	=> 'textarea98p',
 );
 
 // FIN TABLA P7 - Capitulo VII
@@ -214,6 +296,23 @@ echo '
 	  	    		<div class="panel-heading">
 	  	    					<h5 class="panel-title">CAPÍTULO VII. EVALUACIÓN TÉCNICA DE LA EDIFICACIÓN</h5>
 	  	    		</div>
+
+
+							<div class="panel" style="background:#DDD;">
+								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Edificación Nro:01</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:02</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:03</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:04</a></li>
+											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:05</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>	  
+
 	  	    			<table class="table table-bordered">
 	  	    				<thead>
 	  	    					<tr>
@@ -237,36 +336,7 @@ echo '
 	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_2).'
-													    Gobierno Nacional / Proyecto Especial
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_2).'
-													    Gobierno Regional / Local
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_2).'
-													    APAFA / Autoconstrucción
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_2).'
-													    Entidades cooperantes / ONGs
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_2).'
-													    Empresa privada
-													</label>
-											</div>
+										'.form_input($P7_1_2).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -276,24 +346,7 @@ echo '
 	  	    							<br>(acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_3).'
-													    Antes y durante 1977
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_3).'
-													    Entre 1978 y 1998
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_3).'
-													    Después de 1998
-													</label>
-											</div>
+										'.form_input($P7_1_3).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -303,56 +356,7 @@ echo '
 	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Pórticos de concreto armado y/o muros de albañilería (dual)
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Albañileria confinada o armada
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Estructura de acero
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Madera (normalizada)
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Adobe
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Albañileria sin confinar
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Construcciones precarias(triplay, quincha, tapial, similares)
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_4).'
-													    Aulas provicionales
-													</label>
-											</div>
+										'.form_input($P7_1_4).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -368,31 +372,7 @@ echo '
 	  	    							<strong>Estado de conservación de las columnas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_5).'
-													    1. Sin daños evidentes
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_5).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_5).'
-													    3. Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_5).'
-													    4. Agrietamiento / exposición del acero
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_5).'	
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -401,31 +381,7 @@ echo '
 	  	    							<strong>Estado de conservación de los muros portantes</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_6).'
-													    1. Sin daños evidentes
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_6).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_6).'
-													    3. Fisuras moderadas / afloramiento sales
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_6).'
-													    4. Agrietamiento / asentamiento
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_6).'	
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -434,31 +390,7 @@ echo '
 	  	    							<strong>Estado de conservación de las vigas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_7).'
-													    1. Sin daños evidentes
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_7).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_7).'
-													    3. Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_7).'
-													    4. Agrietamiento / deflexión del elemento
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_7).'		
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -467,31 +399,7 @@ echo '
 	  	    							<strong>Estado de conservación de la losa del entrepiso</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_8).'
-													    1. Sin daños evidentes
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_8).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_8).'
-													    3. Fisuras moderadas / filtraciones
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_8).'
-													    4. Agrietamiento / Pandeo
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_8).'	
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -500,18 +408,7 @@ echo '
 	  	    							<strong>El tipo de techo es:</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_9).'
-													   1. De material noble
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9).'
-													    2. Estructura liviana
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_9).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -520,31 +417,7 @@ echo '
 	  	    							<strong>Estado de conservación del techo de material noble</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_9A).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9A).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9A).'
-													    3. Fisuras moderadas / filtraciones
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9A).'
-													    4. Agrietamiento / Pandeo
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_9A).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -553,45 +426,7 @@ echo '
 	  	    							<strong>Cobertura final del techo</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    1. Ladrillos pasteleros
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    2. Tejas de arcilla
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    3. Planchas termoacústicas, calaminas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    4. Planchas fibrocemento
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    5. Fibras vegetales
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9B).'
-													    6. Sin cobertura
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_9B).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -600,32 +435,7 @@ echo '
 	  	    							<strong>Estado de conservación del techo de cobertura liviana</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_9C).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9C).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9C).'
-													    3. Desprendimiento de nudos
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9C).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
-
+	  	    							'.form_input($P7_1_9C).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -634,31 +444,7 @@ echo '
 	  	    							<strong>Detalle cobertura liviana del techo</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_9D).'
-													    1. Tejas de arcilla
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9D).'
-													    2. Planchas termoacústicas, calaminas
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9D).'
-													    3. Planchas fibrocemento
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_9D).'
-													    4. Fibras vegetales
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_9D).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -674,19 +460,7 @@ echo '
 	  	    							<strong>Hay presencia de columnas "T" / placas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_10).'
-													    1. Si
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_10).'
-													    2. No
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_10).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -695,27 +469,11 @@ echo '
 	  	    							<strong> Hay efectos de columna corta</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_11).'
-													    1. Si
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_11).'
-													    2. No
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_11).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
 	  	    			</table>
-	  	    			<div class="panel">
-								<label>Observaciones:</label>
-								<textarea id="P6_Obs" style="width:870px; height:100px;" disabled="disabled"></textarea>
-						</div>
 
 	  	    			<table class="table table-bordered">
 	  	    				<thead>
@@ -729,32 +487,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_12).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_12).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_12).'
-													    3. Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_12).'
-													    4. Agrietamiento / pandeo de elemento
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_12).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -764,31 +497,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_13).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_13).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_13).'
-													    3. Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_13).'
-													    4. Agrietamiento / exposición del acero
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_13).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -798,31 +507,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_14).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_14).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_14).'
-													    3. Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_14).'
-													    4. Agrietamiento / pandeo de elemento
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_14).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -832,19 +517,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_15).'
-													    1. De material noble
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15).'
-													    2. Estructura liviana
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_15).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -854,31 +527,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_15A).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15A).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15A).'
-													    3. Fisuras moderadas / filtraciones
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15A).'
-													    4. Agrietamiento / pandeo
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_15A).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -888,45 +537,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    1. Ladrillos pasteleros
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    2. Tejas de arcilla
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    3.Planchas termoacústicas, calaminas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    4. Planchas fibrocemento
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    5. Fibras vegetales
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15B).'
-													    6. Sin cobertura
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_15B).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -936,31 +547,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_15C).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15C).'
-													    2. Falta mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15C).'
-													    3.Desprendimiento de nudos
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15C).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_15C).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -970,31 +557,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_15D).'
-													    1. Tejas de arcilla
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15D).'
-													    2. Planchas termoacústicas, calaminas
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15D).'
-													    3.Planchas fibrocemento
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_15D).'
-													    4. Fibras vegetales
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_15D).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1011,19 +574,7 @@ echo '
 	  	    							<label>(Ambas direcciones)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_16).'
-													    1.Si
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_16).'
-													    2. No
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_16).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1040,31 +591,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_17).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_17).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_17).'
-													    3.Torsiones o fracturas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_17).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_17).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1074,31 +601,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_18).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_18).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_18).'
-													    3.Torsiones o fracturas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_18).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_18).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1108,31 +611,7 @@ echo '
 		  	    							<label> (Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_19).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_19).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_19).'
-													    3.Torsiones o fracturas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_19).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_19).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1142,31 +621,7 @@ echo '
 		  	    							<label> (Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_20).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_20).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_20).'
-													    3.Torsiones o fracturas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_20).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_20).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1182,19 +637,7 @@ echo '
 	  	    							<strong>Las conexiones están en buen estado</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_21).'
-													    1. Si
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_21).'
-													    2. No
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_21).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1203,19 +646,7 @@ echo '
 	  	    							<strong>Presenta arriostramiento lateral</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_22).'
-													    1. Si
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_22).'
-													    2. No
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_22).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1232,31 +663,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_23).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_23).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_23).'
-													    3.Fisuras moderadas
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_23).'
-													    4. Fisuras severas
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_23).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1266,31 +673,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_24).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_24).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_24).'
-													    3.Desprendimiento de nudos
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_24).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_24).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1307,31 +690,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_25).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_25).'
-													    2. Fisuras leves
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_25).'
-													    3.Fisuras moderadas / afloramiento sales
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_25).'
-													    4. Agrietamiento / asentamiento
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_25).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1341,31 +700,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							<div class="radio">
-												<label>
-													'.form_radio($P7_1_26).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_26).'
-													    2. Falta de mantenimiento
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_26).'
-													    3.Desprendimiento de nudos
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_26).'
-													    4. Colapso parcial o total
-													</label>
-											</div>
+	  	    							'.form_input($P7_1_26).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1381,18 +716,7 @@ echo '
 	  	    							<strong>Hay presencia de mochetas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_27).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_27).'
-													    2. No
-													</label>
-											</div>
+	  	    								'.form_input($P7_1_27).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1401,18 +725,7 @@ echo '
 	  	    							<strong>¿Hay adobe reforzado (caña, malla, etc.)?</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_1_28).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_1_28).'
-													    2. No
-													</label>
-											</div>
+	  	    								'.form_input($P7_1_28).'
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -1433,25 +746,7 @@ echo '
 	  	    							<strong>En base a los resultados obtenidos en la evaluación, ¿ Cuál es la intervención a realizar en la edificación?</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								<div class="radio">
-												<label>
-													'.form_radio($P7_2_1).'
-													    1. Mantenimiento (rehabilitación menor)
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P7_2_1).'
-													    2. Reforzamiento estructural (rehabilitación mayor)
-													</label>
-											</div>
-
-											<div class="radio">
-												<label>
-													'.form_radio($P7_2_1).'
-													    3. Demolición
-													</label>
-											</div>
+	  	    								'.form_input($P7_2_1).'
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -1470,7 +765,7 @@ echo '
 	  	    			</table>
 		  	    			<div class="panel">
 		  	    				<label> Observaciones</label>
-								'.form_textarea($p7_2_2).'
+								'.form_textarea($P7_OBS).'
 							</div>
 	  	    			</div>
 
