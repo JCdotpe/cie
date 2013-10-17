@@ -11,6 +11,7 @@ class Consistencia extends CI_Controller {
 		$this->lang->load('tank_auth');	
 		$this->load->model('regs_model');		
 		$this->load->model('consistencia/car_model');		
+		$this->load->model('consistencia/cap2_model');		
 		$this->load->model('consistencia/cap3_model');		
 		$this->load->model('consistencia/principal_model');		
 		$this->load->model('consistencia/ubigeo_model');	
@@ -35,6 +36,16 @@ class Consistencia extends CI_Controller {
 			$data['predios'] = $this->principal_model->get_predios($id);
 			$data['car_i'] = $this->car_model->get_car($id,$prd);
 			$data['car_n'] = $this->car_model->get_car_n($id,$prd);
+
+			$data['cap2_p2_a'] = $this->cap2_model->get_p2_a($id,$prd);
+			$data['cap2_p2_b'] = $this->cap2_model->get_p2_b($id,$prd);
+			$data['cap2_p2_b_9n'] = $this->cap2_model->get_p2_b_9n($id,$prd);
+			$data['cap2_p2_b_10n'] = $this->cap2_model->get_p2_b_10n($id,$prd);
+			$data['cap2_p2_b_11n'] = $this->cap2_model->get_p2_b_11n($id,$prd);
+			$data['cap2_p2_b_12n'] = $this->cap2_model->get_p2_b_12n($id,$prd);
+
+
+
 			$data['dptos'] = $this->ubigeo_model->get_dptos();
 
 
@@ -51,7 +62,8 @@ class Consistencia extends CI_Controller {
 
 
 			$data['cod'] = $id;
-			$data['pr'] = $prd;
+			$real_prd = ($data['predios']->num_rows() > 0)? $prd : 0; 
+			$data['pr'] = $real_prd;
 			$data['main_content'] = 'consistencia/predios_view';
 	  		$this->load->view('backend/includes/template', $data);
 	}	

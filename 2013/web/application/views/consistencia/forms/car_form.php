@@ -802,7 +802,7 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                                        if($('#PC_A_2_Prov option:nth-child(2)').length){
                                                             clearInterval(interval_PP);
                                                             $('#PC_A_2_Prov').val(valor);
-                                                            $('#PC_A_2_Prov').trigger('change');
+                                                            // $('#PC_A_2_Prov').trigger('change');
                                                         }
                                                     }, 1000); 
 

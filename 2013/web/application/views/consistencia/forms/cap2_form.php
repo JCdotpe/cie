@@ -244,12 +244,70 @@ $P2_B_8_Pelig = array(
 
 // P2_B_9N - Capitulo II / Sección B: Condición del terreno y acceso
 
-$P2_B_9_Cod = array(
-	'name'	=> 'P2_B_9_Cod',
-	'id'	=> 'P2_B_9_Cod',
+$P2_B_9_Cod_1 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
+$P2_B_9_Cod_2 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_3 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_4 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_5 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_6 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_7 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_8 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_8',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_9 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_9',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_9_Cod_10 = array(
+	'name'	=> 'P2_B_9_Cod[]',
+	'id'	=> 'P2_B_9_Cod_10',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+
+
+
 
 $P2_B_9_Cod_e = array(
 	'name'	=> 'P2_B_9_Cod_e',
@@ -262,9 +320,45 @@ $P2_B_9_Cod_e = array(
 
 // P2_B_10N - Capitulo II / Sección B: Condición del terreno y acceso / 9. ¿Existen peligros naturales en esta localidad como: 
 
-$P2_B_10_Cod = array(
-	'name'	=> 'P2_B_10_Cod',
-	'id'	=> 'P2_B_10_Cod',
+$P2_B_10_Cod_1 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_1',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_2 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_3 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_4 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_5 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_6 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_10_Cod_7 = array(
+	'name'	=> 'P2_B_10_Cod[]',
+	'id'	=> 'P2_B_10_Cod_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
@@ -280,12 +374,79 @@ $P2_B_10_Cod_e = array(
 
 // P2_B_11N - Capitulo II / Sección B: Condición del terreno y acceso / 10. ¿Existen peligros socio-naturales en esta localidad como: 
 
-$P2_B_11_Cod = array(
-	'name'	=> 'P2_B_11_Cod',
-	'id'	=> 'P2_B_11_Cod',
+$P2_B_11_Cod_1 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
+$P2_B_11_Cod_2 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_3 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_4 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_5 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_6 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_7 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_8 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_8',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_9 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_9',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_10 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_10',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_11 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_11',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_11_Cod_12 = array(
+	'name'	=> 'P2_B_11_Cod[]',
+	'id'	=> 'P2_B_11_Cod_12',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
 
 $P2_B_11_Cod_e = array(
 	'name'	=> 'P2_B_11_Cod_e',
@@ -304,13 +465,48 @@ $P2_B_11_Cod_O = array(
 
 // P2_B_12N - Capitulo II / Sección B: Condición del terreno y acceso
 
-$P2_B_12_Cod = array(
-	'name'	=> 'P2_B_12_Cod',
-	'id'	=> 'P2_B_12_Cod',
+$P2_B_12_Cod_1 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
-
+$P2_B_12_Cod_2 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_12_Cod_3 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_12_Cod_4 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_12_Cod_5 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_12_Cod_6 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_B_12_Cod_7 = array(
+	'name'	=> 'P2_B_12_Cod[]',
+	'id'	=> 'P2_B_12_Cod_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
 $P2_B_12_Cod_e = array(
 	'name'	=> 'P2_B_12_Cod_e',
 	'id'	=> 'P2_B_12_Cod_e',
@@ -681,7 +877,9 @@ $P2_G_2B_snip = array(
 // CAPITULO 2
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap2_f');
 
+echo form_open($this->uri->uri_string(),$attr); 
 echo '
 
 <div class="panel panel-info">
@@ -871,7 +1069,7 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												'.form_input($P2_B_5_1).' 1. Camino de herradura <br />
+												'.form_input($P2_B_5B_1).' 1. Camino de herradura <br />
 												'.form_input($P2_B_5B_2).' 2. Trocha carrozable <br />
 												'.form_input($P2_B_5B_3).' 3. Carretera afirmada <br />
 												'.form_input($P2_B_5B_4).' 4. Vía asfaltada <br />												
@@ -911,16 +1109,16 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_9_Cod).' Sismos <br />	
-													'.form_input($P2_B_9_Cod).' Tsunami u oleaje anómalos <br />													
-													'.form_input($P2_B_9_Cod).' Lluvias <br />	
-													'.form_input($P2_B_9_Cod).' Heladas <br />													
-													'.form_input($P2_B_9_Cod).' Sequías <br />	
-													'.form_input($P2_B_9_Cod).' Granizadas <br />													
-													'.form_input($P2_B_9_Cod).' Nevadas <br />	
-													'.form_input($P2_B_9_Cod).' Vendavales <br />													
-													'.form_input($P2_B_9_Cod).' Actividades volcánicas <br />	
-													'.form_input($P2_B_9_Cod).' NINGUNO																																																																																										
+													'.form_input($P2_B_9_Cod_1).' Sismos <br />	
+													'.form_input($P2_B_9_Cod_2).' Tsunami u oleaje anómalos <br />													
+													'.form_input($P2_B_9_Cod_3).' Lluvias <br />	
+													'.form_input($P2_B_9_Cod_4).' Heladas <br />													
+													'.form_input($P2_B_9_Cod_5).' Sequías <br />	
+													'.form_input($P2_B_9_Cod_6).' Granizadas <br />													
+													'.form_input($P2_B_9_Cod_7).' Nevadas <br />	
+													'.form_input($P2_B_9_Cod_8).' Vendavales <br />													
+													'.form_input($P2_B_9_Cod_9).' Actividades volcánicas <br />	
+													'.form_input($P2_B_9_Cod_10).' NINGUNO																																																																																										
 											</td>
 										</tr>
 										<tr>
@@ -930,13 +1128,13 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_10_Cod).' Inundaciones <br />	
-													'.form_input($P2_B_10_Cod).' Deslizamientos <br />													
-													'.form_input($P2_B_10_Cod).' Huaycos / Aluviones / Aludes <br />	
-													'.form_input($P2_B_10_Cod).' Derrumbes <br />													
-													'.form_input($P2_B_10_Cod).' Desertificaciones <br />	
-													'.form_input($P2_B_10_Cod).' Salinización de los suelos <br />												
-													'.form_input($P2_B_10_Cod).' NINGUNO
+													'.form_input($P2_B_10_Cod_1).' Inundaciones <br />	
+													'.form_input($P2_B_10_Cod_2).' Deslizamientos <br />													
+													'.form_input($P2_B_10_Cod_3).' Huaycos / Aluviones / Aludes <br />	
+													'.form_input($P2_B_10_Cod_4).' Derrumbes <br />													
+													'.form_input($P2_B_10_Cod_5).' Desertificaciones <br />	
+													'.form_input($P2_B_10_Cod_6).' Salinización de los suelos <br />												
+													'.form_input($P2_B_10_Cod_7).' NINGUNO
 											</td>
 										</tr>
 										<tr>
@@ -946,18 +1144,18 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_11_Cod).' Contaminación ambiental <br />	
-													'.form_input($P2_B_11_Cod).' Incendios, quemas <br />													
-													'.form_input($P2_B_11_Cod).' Explosiones <br />	
-													'.form_input($P2_B_11_Cod).' Derrame de sustancias tóxicas <br />													
-													'.form_input($P2_B_11_Cod).' Fuga de gases <br />	
-													'.form_input($P2_B_11_Cod).' Zonas aereoportuarias <br />											
-													'.form_input($P2_B_11_Cod).' Zonas industriales <br />	
-													'.form_input($P2_B_11_Cod).' Crianza de animales <br />													
-													'.form_input($P2_B_11_Cod).' Subversiónes / conflictos <br />												
-													'.form_input($P2_B_11_Cod).' Rellenos sanitarios <br />												
-													'.form_input($P2_B_11_Cod).' Otro - Especifique '.form_input($P2_B_11_Cod_O).' <br /> 
-													'.form_input($P2_B_11_Cod).' NINGUNO
+													'.form_input($P2_B_11_Cod_1).' Contaminación ambiental <br />	
+													'.form_input($P2_B_11_Cod_2).' Incendios, quemas <br />													
+													'.form_input($P2_B_11_Cod_3).' Explosiones <br />	
+													'.form_input($P2_B_11_Cod_4).' Derrame de sustancias tóxicas <br />													
+													'.form_input($P2_B_11_Cod_5).' Fuga de gases <br />	
+													'.form_input($P2_B_11_Cod_6).' Zonas aereoportuarias <br />											
+													'.form_input($P2_B_11_Cod_7).' Zonas industriales <br />	
+													'.form_input($P2_B_11_Cod_8).' Crianza de animales <br />													
+													'.form_input($P2_B_11_Cod_9).' Subversiónes / conflictos <br />												
+													'.form_input($P2_B_11_Cod_10).' Rellenos sanitarios <br />												
+													'.form_input($P2_B_11_Cod_11).' Otro - Especifique '.form_input($P2_B_11_Cod_O).' <br /> 
+													'.form_input($P2_B_11_Cod_12).' NINGUNO
 											</td>
 										</tr>
 										<tr>
@@ -967,13 +1165,13 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												'.form_input($P2_B_12_Cod).' Cercanía lecho de río, quebrada <br />	
-												'.form_input($P2_B_12_Cod).' Cercanía a vía ferrea <br />	
-												'.form_input($P2_B_12_Cod).' Cercanía a barranco o precipicio <br />	
-												'.form_input($P2_B_12_Cod).' Cercanía a cuartel militar o policial <br />	
-												'.form_input($P2_B_12_Cod).' Erosión fluvial de laderas <br />	
-												'.form_input($P2_B_12_Cod).' - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
-												'.form_input($P2_B_12_Cod).' Otro <br />	
+												'.form_input($P2_B_12_Cod_1).' Cercanía lecho de río, quebrada <br />	
+												'.form_input($P2_B_12_Cod_2).' Cercanía a vía ferrea <br />	
+												'.form_input($P2_B_12_Cod_3).' Cercanía a barranco o precipicio <br />	
+												'.form_input($P2_B_12_Cod_4).' Cercanía a cuartel militar o policial <br />	
+												'.form_input($P2_B_12_Cod_5).' Erosión fluvial de laderas <br />	
+												'.form_input($P2_B_12_Cod_6).' - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
+												'.form_input($P2_B_12_Cod_7).' Otro <br />	
 											</td>
 										</tr>
 									</tbody>
@@ -1431,5 +1629,109 @@ echo '
 
 ';
 
+echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+echo form_close(); 
 
  ?>
+
+ <script type="text/javascript">
+
+$(function(){
+
+//p2_a
+$.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
+
+//p2_b
+$.each( <?php echo json_encode($cap2_p2_b->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
+
+//p2_b_9n
+$.each( <?php echo json_encode($cap2_p2_b_9n->result()); ?>, function(i, data) {
+	   	$('#P2_B_9_Cod_' + data.P2_B_9_Cod).val(data.P2_B_9_Cod_e);
+}); 
+
+//p2_b_10n
+$.each( <?php echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) {
+	   	$('#P2_B_10_Cod_' + data.P2_B_10_Cod).val(data.P2_B_10_Cod_e);
+}); 
+
+//p2_b_11n
+$.each( <?php echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
+	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
+	   	if(data.P2_B_11_Cod ==7)
+	   		$('#P2_B_11_Cod_O' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_O);
+}); 
+
+//p2_b_12n
+$.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
+	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
+	   	if(data.P2_B_12_Cod ==7)
+	   		$('#P2_B_12_Cod_O' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_O);
+}); 
+
+//p2_c
+$.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+});
+
+
+$("#cap2_f").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+				    	var car_data = $("#cap2_f").serializeArray();
+					    car_data.push(
+					        {name: 'ajax',value:1},
+					        {name: 'id_local',value:$("input[name='id_local']").val()},      
+					        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+					    );
+						
+				        var bcar = $( "#cap2_f :submit" );
+				         bcar.attr("disabled", "disabled");
+				        $.ajax({
+				            url: CI.site_url + "/consistencia/cap2",
+				            type:'POST',
+				            data:car_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+				            }
+				        });     			          	
+		    }       
+}); 
+
+
+
+
+
+
+}); 
+</script>
