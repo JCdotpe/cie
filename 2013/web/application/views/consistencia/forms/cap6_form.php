@@ -49,79 +49,110 @@ $P6_1_9 = array(
 	'id'	=> 'P6_1_9',
 );
 
+// SECCION D
+
 $P6_3_1 = array(
 	'name'	=> 'P6_3_1',
 	'id'	=> 'P6_3_1',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_1A = array(
 	'name'	=> 'P6_3_1A',
 	'id'	=> 'P6_3_1A',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_2 = array(
 	'name'	=> 'P6_3_2',
 	'id'	=> 'P6_3_2',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_2A = array(
 	'name'	=> 'P6_3_2A',
 	'id'	=> 'P6_3_2A',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_2B = array(
 	'name'	=> 'P6_3_2B',
 	'id'	=> 'P6_3_2B',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_2C = array(
 	'name'	=> 'P6_3_2C',
 	'id'	=> 'P6_3_2C',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_2D = array(
 	'name'	=> 'P6_3_2D',
 	'id'	=> 'P6_3_2D',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_3 = array(
 	'name'	=> 'P6_3_3',
 	'id'	=> 'P6_3_3',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_3_3A = array(
 	'name'	=> 'P6_3_3A',
 	'id'	=> 'P6_3_3A',
+	'maxlength'	=> 4,
+	'class' => 'input4',	
 );
 
 $P6_4_1 = array(
 	'name'	=> 'P6_4_1',
 	'id'	=> 'P6_4_1',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_4_1A = array(
 	'name'	=> 'P6_4_1A',
 	'id'	=> 'P6_4_1A',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_4_2 = array(
 	'name'	=> 'P6_4_2',
 	'id'	=> 'P6_4_2',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_5_1 = array(
 	'name'	=> 'P6_5_1',
 	'id'	=> 'P6_5_1',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_5_1A = array(
 	'name'	=> 'P6_5_1A',
 	'id'	=> 'P6_5_1A',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_Obs = array(
 	'name'	=> 'P6_Obs',
 	'id'	=> 'P6_Obs',
+	'class'	=> 'textarea98p',	
 );
 
 // FIN TABLA P6_1 - Capitulo VI
@@ -640,7 +671,7 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Verificar Cap. V</label>
-		  	    							'.form_input($P5_TOT_E).'
+		  	    							'.form_input().'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -679,7 +710,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -689,7 +720,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -699,7 +730,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -709,7 +740,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -719,7 +750,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -729,7 +760,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -739,7 +770,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -749,7 +780,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -759,7 +790,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -769,7 +800,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -779,7 +810,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -789,7 +820,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -799,7 +830,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -809,7 +840,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															'.form_checkbox($P6_1_10).'
+															'.form_input($P6_1_10).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -841,11 +872,11 @@ echo '
 		  	    					<tr>
 		  	    						<td>
 		  	    							<label>1. Ambiente Nº</label>
-		  	    							<input type="text" id="P6_2_1" class="form-control" style="width:100px;float:left;" disabled="disabled">
+		  	    							'.form_input($P6_2_1).'
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>2. Piso N°</label>
-		  	    							<input type="text" id="P5_NroPiso" class="form-control" style="width:100px;float:left;" disabled="disabled">
+		  	    							'.form_input($P5_NroPiso).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -854,14 +885,7 @@ echo '
 		  	    				<tbody>
 		  	    					<tr><td>3.</td>
 		  	    					<td>
-		  	    						<strong>
-		  	    							<label class="checkbox-inline">
-												<input type="checkbox" value="option1" id="P6_2_31" disabled="disabled"> 1. Si
-											</label>
-											<label class="checkbox-inline">
-												<input type="checkbox" value="option1" id="P6_2_32" disabled="disabled"> 2. No
-											</label>
-		  	    						</strong>
+		  	    						'.form_input($P6_2_3).'
 		  	    					</td>
 		  	    					<td>
 
@@ -897,17 +921,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="1P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="1P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="1P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -917,17 +941,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="2P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="2P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="2P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -937,17 +961,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="3P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="3P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="3P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -957,17 +981,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="4P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="4P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="4P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -977,17 +1001,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="5P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="5P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="5P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -997,17 +1021,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="6P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="6P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="6P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1017,17 +1041,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="7P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="7P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="7P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1037,17 +1061,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="8P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="8P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="8P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1057,17 +1081,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="9P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="9P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="9P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1077,17 +1101,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="10P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="10P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="10P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1097,17 +1121,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="11P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="11P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="11P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1117,17 +1141,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="12P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="12P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="12P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1137,17 +1161,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="13P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="13P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="13P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1157,17 +1181,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="14P6_2_4Turno_M1" disabled="disabled"> 1
+															'.form_input($P6_2_4Turno_M).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="14P6_2_4Turno_T2" disabled="disabled"> 2
+			  	    										'.form_input($P6_2_4Turno_T).'
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="checkbox" value="option3" id="14P6_2_4Turno_N3" disabled="disabled"> 3
+			  	    										'.form_input($P6_2_4Turno_N).'
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1185,21 +1209,7 @@ echo '
 		  	    						<label>(Acepte sólo un código)</label>
 		  	    					</td>
 		  	    					<td>
-		  	    						<label class="radio">
-											<input type="radio" value="option3" name="radio5" id="P6_2_51" disabled="disabled"> 1. Aula común
-										</label>
-		  	    						<label class="radio">
-											<input type="radio" value="option3" name="radio5" id="P6_2_52" disabled="disabled"> 2. Pedagógico
-										</label>
-		  	    						<label class="radio">
-											<input type="radio" value="option3" name="radio5" id="P6_2_53" disabled="disabled"> 3. Administrativo
-										</label>
-		  	    						<label class="radio">
-											<input type="radio" value="option3" name="radio5" id="P6_2_54" disabled="disabled"> 4. Complementario
-										</label>
-		  	    						<label class="radio">
-											<input type="radio" value="option3" name="radio5" id="P6_2_55" disabled="disabled"> 5. Servicios
-										</label>
+		  	    						'.form_input($P6_2_5).'
 		  	    					</td>
 		  	    				</tr></tbody>
 		  	    			</table>
@@ -1208,7 +1218,7 @@ echo '
 		  	    				<!-- Load secciones-->
 
 		  	    				<!-- caso 2  espacio pedagogico-->
-		  	    				<table id="espaciopedagogico" class="table table-bordered" style="display: none;">
+		  	    				<table id="espaciopedagogico" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
 		  	    						<th style="text-align:center;" colspan="3">
@@ -1418,7 +1428,7 @@ echo '
 		  	    				<!--cierra caso 2 -->
 
 		  	    				<!-- caso 3 administrativo -->
-		  	    				<table id="administrativo" class="table table-bordered" style="display: none;">
+		  	    				<table id="administrativo" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
 		  	    						<th colspan="3" style="text-align:center;">Espacio Administrativo:</th>
@@ -1433,50 +1443,14 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_111" disabled="disabled"> 1. Dirección
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_112" disabled="disabled"> 2. Sub dirección
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_113" disabled="disabled"> 3. Secretaría y espera
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_114" disabled="disabled"> 4. Sala de profesores
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_115" disabled="disabled"> 5. Asesoría
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_116" disabled="disabled"> 6. Sala de serv. Complementarios
-											</label>
-											<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_117" disabled="disabled"> 7. Tópico y servicios sociales
-											</label>
-			  	    						<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_118" disabled="disabled"> 8. Depósito de material educativo
-											</label>
-											<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_119" disabled="disabled"> 9. Impresiones
-											</label>
-											<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_1110" disabled="disabled"> 10. Archivo
-											</label>
-											<label class="checkbox">
-												<input type="checkbox" value="option3" id="P6_2_1111" disabled="disabled"> 11. Otro
-											</label>
-											<label>
-												<input type="text" id="P6_2_11_O" class="form-control P6_2_11_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+		  	    							'.form_input($P6_2_11).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
 		  	    				</table>
 		  	    				<!--cierra caso 3 -->
 		  	    				<!-- caso 4 complementario -->
-		  	    				<table id="complementario" class="table table-bordered" style="display: none;">
+		  	    				<table id="complementario" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
 		  	    						<th colspan="3" style="text-align:center;">Espacio Complementario:</th>
@@ -2212,10 +2186,7 @@ echo '
 		  	    					</tr>
 		  	    				</tbody>
 		  	    				</table>
-		  	    				<div class="panel">
-									<label>Observaciones:</label>
-									<textarea id="P6_2_20Obs" style="width:870px; height:100px;" disabled="disabled"></textarea>
-								</div>
+
 		  	    				<!-- cierre caso 1-->
 
 
@@ -2239,18 +2210,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación tiene instalaciones eléctricas interiores</strong></td>
 										<td>
-										<!--	<div class="radio">-->
-												<label class="radio">
-													'.form_radio($P6_3_1).'
-													    1. Si
-												</label>
-											<!--</div>-->
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_1).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_1).'
 										</td>
 									</tr>
 									<tr id="seccioncp1a">
@@ -2262,30 +2222,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_1A).'
-													    Circuito canalizado empotrado
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_1A).'
-													    Circuito canalizado expuesto
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_1A).'
-													    Circuito sin canalizar
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_1A).'
-													    Con conductor inadecuado
-													</label>
-											</div>
+											'.form_input($P6_3_1A).'
 										</td>
 									</tr>
 								</tbody>
@@ -2307,18 +2244,7 @@ echo '
 											<br>(verificar)
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_2).'
 										</td>
 									</tr>
 									<tr id="distribucionp2a">
@@ -2329,18 +2255,7 @@ echo '
 											<strong>Es de fácil acceso</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2A).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2A).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_2A).'
 										</td>
 									</tr>
 									<tr id="distribucionp2b">
@@ -2351,18 +2266,7 @@ echo '
 											<strong>Tiene un gabinete adecuado</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2B).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2B).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_2B).'
 										</td>
 									</tr>
 									<tr id="distribucionp2c">
@@ -2373,18 +2277,7 @@ echo '
 											<strong>Tiene interruptores electromagnéticos</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2C).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_textarea($P6_3_2C).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_2C).'
 										</td>
 									</tr>
 									<tr id="distribucionp2d">
@@ -2395,18 +2288,7 @@ echo '
 											<strong>Tiene interruptores diferenciales</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2D).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_2D).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_2D).'
 										</td>
 									</tr>
 									<tr id="distribucionp3">
@@ -2418,18 +2300,7 @@ echo '
 											<br>(Verificar)
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_3).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_3_3).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_3_3).'
 										</td>
 									</tr>
 									<tr id="distribucionp3a">
@@ -2441,7 +2312,7 @@ echo '
 										</td>
 										<td>
 											<label>Año</label>
-											'.form_radio($P6_3_3A).'
+											'.form_input($P6_3_3A).'
 										</td>
 									</tr>
 								</tbody>
@@ -2464,18 +2335,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación cuenta con red interna de agua</strong></td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_1).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_1).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_4_1).'
 										</td>
 									</tr>
 									<tr id="secciondp1a">
@@ -2486,18 +2346,7 @@ echo '
 											<strong>La instalación es empotrada</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_1A).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_1A).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_4_1A).'
 										</td>
 									</tr>
 									<tr>
@@ -2508,18 +2357,7 @@ echo '
 											<strong>Esta edificación cuenta con red interna de desague</strong>
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_2).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_4_2).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_4_2).'
 										</td>
 									</tr>
 								</tbody>
@@ -2542,18 +2380,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación tiene instaladas canaletas aéreas y bajadas pluviales</strong></td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_5_1).'
-													    1. Si
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_5_1).'
-													    2. No
-													</label>
-											</div>
+											'.form_input($P6_5_1).'
 										</td>
 									</tr>
 									<tr id="seccionep1a">
@@ -2565,24 +2392,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_5_1A).'
-													    1. Sin daños
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_5_1A).'
-													    2. Deterioro parcial
-													</label>
-											</div>
-											<div class="radio">
-												<label>
-													'.form_radio($P6_5_1A).'
-													    3. Colapso total
-													</label>
-											</div>
+											'.form_input($P6_5_1A).'
 										</td>
 									</tr>
 								</tbody>
