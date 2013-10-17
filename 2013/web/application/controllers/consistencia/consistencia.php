@@ -14,8 +14,8 @@ class Consistencia extends CI_Controller {
 		$this->load->model('consistencia/cap3_model');		
 		$this->load->model('consistencia/principal_model');		
 		$this->load->model('consistencia/ubigeo_model');	
-		$this->load->model('consistencia/cap4_model');		
-		$this->load->model('consistencia/cap5_model');			
+		$this->load->model('consistencia/cap4_model');
+		$this->load->model('consistencia/cap5_model');
 	}
 
 	public function index()
