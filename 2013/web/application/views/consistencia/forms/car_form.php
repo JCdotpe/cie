@@ -399,8 +399,6 @@ $PC_E_7_TMurCon = array(
 /////////////////
 
 // EXTRAS
-
-
 $pcar_num = array(
 	'name'	=> 'pcar_num',
 	'id'	=> 'pcar_num',
@@ -416,6 +414,9 @@ $pcar_num = array(
 // CARATULA
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+$attr = array('class' => 'form-vertical form-auth','id' => 'car_f');
+
+echo form_open($this->uri->uri_string(),$attr); 
 
 echo '
 
@@ -723,7 +724,8 @@ echo '
 
 ';
 
-
+echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+echo form_close(); 
 ?>
 
 
@@ -829,16 +831,17 @@ $('#pcar_c_n tr').remove('.entrev');
 	if(ahua >= 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
-	    asd +='<td>' + i + '</td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha' + '_' + i + '" id="PC_C_1_Et_Fecha' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hini' + '_' + i + '" id="PC_C_1_Et_Hini' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hfin' + '_' + i + '" id="PC_C_1_Et_Hfin' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha_Prox' + '_' + i + '" id="PC_C_1_Et_Fecha_Prox' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hora_Prox' + '_' + i + '" id="PC_C_1_Et_Hora_Prox' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res' + '_' + i + '" id="PC_C_1_Et_Res' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Fecha' + '_' + i + '" id="PC_C_1_Jb_Fecha' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hini' + '_' + i + '" id="PC_C_1_Jb_Hini' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hfin' + '_' + i + '" id="PC_C_1_Jb_Hfin' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_NroVis[]" id="PC_C_1_NroVis_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" ><div class="help-block error"><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hini[]" id="PC_C_1_Jb_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hfin[]" id="PC_C_1_Jb_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" ><div class="help-block error"><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Res_O' + '_' + i + '" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
 	    asd += '</tr>';
 	    $('#pcar_c_n > tbody').append(asd);
 	  }
@@ -851,15 +854,15 @@ $('#pcar_c_n tr').remove('.entrev');
 
 var as = 1;
 $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
-	   $('#PC_C_1_Et_Fecha' + '_' + as).val(data.PC_C_1_Et_Fecha);
-	   $('#PC_C_1_Et_Hini' + '_' +  as).val(data.PC_C_1_Et_Hini);
-	   $('#PC_C_1_Et_Hfin' + '_' +  as).val(data.PC_C_1_Et_Hfin);
-	   $('#PC_C_1_Et_Fecha_Prox' + '_' +  as).val(data.PC_C_1_Et_Fecha_Prox);
-	   $('#PC_C_1_Et_Hora_Prox' + '_' +  as).val(data.PC_C_1_Et_Hora_Prox);
-	   $('#PC_C_1_Et_Res' + '_' +  as).val(data.PC_C_1_Et_Res);
-	   $('#PC_C_1_Jb_Fecha' + '_' +  as).val(data.PC_C_1_Jb_Fecha);
-	   $('#PC_C_1_Jb_Hini' + '_' +  as).val(data.PC_C_1_Jb_Hini);
-	   $('#PC_C_1_Jb_Hfin' + '_' +  as).val(data.PC_C_1_Jb_Hfin);
+	   $('#PC_C_1_Et_Fecha_' +  as).val(data.PC_C_1_Et_Fecha);
+	   $('#PC_C_1_Et_Hini_' +  as).val(data.PC_C_1_Et_Hini);
+	   $('#PC_C_1_Et_Hfin_' +  as).val(data.PC_C_1_Et_Hfin);
+	   $('#PC_C_1_Et_Fecha_Prox_' +  as).val(data.PC_C_1_Et_Fecha_Prox);
+	   $('#PC_C_1_Et_Hora_Prox_' +  as).val(data.PC_C_1_Et_Hora_Prox);
+	   $('#PC_C_1_Et_Res_' +  as).val(data.PC_C_1_Et_Res);
+	   $('#PC_C_1_Jb_Fecha_' +  as).val(data.PC_C_1_Jb_Fecha);
+	   $('#PC_C_1_Jb_Hini_' +  as).val(data.PC_C_1_Jb_Hini);
+	   $('#PC_C_1_Jb_Hfin_' +  as).val(data.PC_C_1_Jb_Hfin);
 	   as++;
 }); 
 
@@ -867,8 +870,60 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 
 $('#pcar_num').trigger('change');
 
+$("#car_f").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
 
-	
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+				    	var car_data = $("#car_f").serializeArray();
+					    car_data.push(
+					        {name: 'ajax',value:1},
+					        {name: 'id_local',value:$("input[name='id_local']").val()},      
+					        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+					    );
+						
+				        var bcar = $( "#car_f :submit" );
+				         bcar.attr("disabled", "disabled");
+				        $.ajax({
+				            url: CI.site_url + "/consistencia/car",
+				            type:'POST',
+				            data:car_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+				            }
+				        });     			          	
+		    }       
+}); 
+
+
+
+
+
 
 }); 
 </script>

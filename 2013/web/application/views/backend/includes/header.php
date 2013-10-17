@@ -56,7 +56,7 @@
         
     <script src="<?php echo base_url('js/general/modernizr-2.6.2-respond-1.1.0.min.js'); ?>"></script>
         
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBRWqVZ3W4STXTofBB1i7BvCKmhPfA4GM8&sensor=false"></script>
+     <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBRWqVZ3W4STXTofBB1i7BvCKmhPfA4GM8&sensor=false"></script> -->
     
     <!-- Le fav and touch icons -->
    

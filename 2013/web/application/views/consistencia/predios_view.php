@@ -1,4 +1,8 @@
-<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr; ?></h4>
+
+<?php 
+$pr_view = ($pr == 0)? 'No se encontraron' : $pr;
+ ?>
+<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr_view; ?></h4>
 
 <ul id="predios" class="predios_views">
 </ul>
@@ -19,7 +23,10 @@ $(function(){
 
 }); 
 </script>
-
+<?php 
+echo form_hidden('id_local', $cod); 
+echo form_hidden('Nro_Pred', $pr); 
+?>
 <div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
