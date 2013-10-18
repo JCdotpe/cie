@@ -11,6 +11,7 @@ class Cap4_model extends CI_MODEL{
 		return $q;
 	}
 
+
 	public function get_cap4_n($id,$pr)
 	{
 		$this->db->where('id_local', $id );
