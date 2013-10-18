@@ -28,7 +28,7 @@ echo '
 // var asd = '';
 // var as = 1;
 // $.each( <?php #echo json_encode($cap9_f->result()); ?>, function(i, data) {
-// 	   asd+='<input type="text" class="input98p" disabled="disabled" name="P9_F_Url_Foto' + '_' + as + '" id="P9_F_Url_Foto' + '_' + as + '" value="'+ data.P9_F_Url_Foto +'" >';
+// 	   asd+='<input type="text" class="input98p" disabled="disabled" name="P9_Foto' + '_' + as + '" id="P9_Foto' + '_' + as + '" value="'+ data.P9_Foto +'" >';
 // 	   as++;
 // }); 
 // $('#fotos').append(asd);

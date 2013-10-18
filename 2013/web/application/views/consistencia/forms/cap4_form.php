@@ -323,7 +323,7 @@ echo '
 
 // 	$('#lindero_frente tr').remove('.entrev');
 // 	var ahua = $(this).val();
-// 	if(ahua > 0 && ahua<=10){
+// 	if(ahua > 0 && ahua<=99){
 // 		for(var i=1; i<=ahua;i++){
 // 			var asd = '<tr class="entrev">';
 // 			asd +='<td><input type="text" class="input1 embc' + i + '" disabled="disabled" maxlength="1" name="P4_2_1A_NroTramo' + '_t1_' + i + '" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
@@ -339,7 +339,7 @@ echo '
 // 	}else if(ahua==''){
 // 		//
 // 	}else{
-// 		alert('10 Entrevistas máximo');
+// 		alert('99 Entrevistas máximo');
 // 	}
 
 
@@ -366,7 +366,7 @@ echo '
 
 // 	$('#lindero_derecha tr').remove('.entrev');
 // 	var ahua = $(this).val();
-// 	if(ahua > 0 && ahua<=10){
+// 	if(ahua > 0 && ahua<=99){
 // 		for(var i=1; i<=ahua;i++){
 // 			var asd = '<tr class="entrev">';
 // 			asd +='<td><input type="text" class="input1 embc' + i + '" disabled="disabled" maxlength="1" name="P4_2_1A_NroTramo' + '_t2_' + i + '" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
@@ -382,7 +382,7 @@ echo '
 // 	}else if(ahua==''){
 // 		//
 // 	}else{
-// 		alert('10 Entrevistas máximo');
+// 		alert('99 Entrevistas máximo');
 // 	}
 
 
@@ -409,7 +409,7 @@ echo '
 
 // 	$('#lindero_fondo tr').remove('.entrev');
 // 	var ahua = $(this).val();
-// 	if(ahua > 0 && ahua<=10){
+// 	if(ahua > 0 && ahua<=99){
 // 		for(var i=1; i<=ahua;i++){
 // 			var asd = '<tr class="entrev">';
 // 			asd +='<td><input type="text" class="input1 embc' + i + '" disabled="disabled" maxlength="1" name="P4_2_1A_NroTramo' + '_t3_' + i + '" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
@@ -425,7 +425,7 @@ echo '
 // 	}else if(ahua==''){
 // 		//
 // 	}else{
-// 		alert('10 Entrevistas máximo');
+// 		alert('99 Entrevistas máximo');
 // 	}
 
 
@@ -452,7 +452,7 @@ echo '
 
 // 	$('#lindero_izquierda tr').remove('.entrev');
 // 	var ahua = $(this).val();
-// 	if(ahua > 0 && ahua<=10){
+// 	if(ahua > 0 && ahua<=99){
 // 		for(var i=1; i<=ahua;i++){
 // 			var asd = '<tr class="entrev">';
 // 			asd +='<td><input type="text" class="input1 embc' + i + '" disabled="disabled" maxlength="1" name="P4_2_1A_NroTramo' + '_t4_' + i + '" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
@@ -468,7 +468,7 @@ echo '
 // 	}else if(ahua==''){
 // 		//
 // 	}else{
-// 		alert('10 Entrevistas máximo');
+// 		alert('99 Entrevistas máximo');
 // 	}
 
 

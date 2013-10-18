@@ -264,9 +264,9 @@ echo '
 // 		if (data.P5_Tot_MC > 0){
 // 			asd+='<li id="' + data.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
 // 		}
-// 		// if (data.P5_Tot_L1 > 0){
-// 		// 	asd+='<li id="' + data.P5_Tot_L1 +'.cmb_P5_Tot_L1" class="combo_ins7"><a href="" data-toggle="dropdown">Portadas de Ingresos, Portón</a></li>';
-// 		// }
+// 		if (data.P5_Tot_L1 > 0){
+// 			asd+='<li id="' + data.P5_Tot_L1 +'.cmb_P5_Tot_L1" class="combo_ins1"><a href="" data-toggle="dropdown">Portadas de Ingresos, Portón</a></li>';
+// 		}
 // 		if (data.P5_Tot_R > 0){
 // 			asd+='<li id="' + data.P5_Tot_R +'.cmb_P5_Tot_R" class="combo_ins1"><a href="" data-toggle="dropdown">Rampas</a></li>';
 // 		}
