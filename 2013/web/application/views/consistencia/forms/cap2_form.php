@@ -1672,8 +1672,8 @@ $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) 
 	   		$('#P2_B_12_Cod_O' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_O);
 }); 
 
-//p2_c
-// $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
+
+// $.each( <?php //echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
 // 	   	$('#' + fila).val(valor);
 // });
 
