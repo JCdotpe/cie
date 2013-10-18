@@ -102,31 +102,14 @@ echo '
 	  	    				<div class="panel-heading">CAPITULO VIII: CARACTERÍSTICAS DE OTRAS EDIFICACIONES DEL LOCAL ESCOLAR</div>
 
 							<div class="panel" style="background:#DDD;">
-								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>
-										</ul>
-									</div>
+								<div id="panel_tipo_edificaciones" style="margin-top:10px;margin-bottom:10px;">
+									
 								</div>
 							</div>	 
 
 							<div class="panel" style="background:#DDD;">
-								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione un Patio <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Patio Nro:01</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:02</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:03</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:04</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Patio Nro:05</a></li>
-										</ul>
-									</div>
+								<div id="panel_nro_tedificaciones" style="margin-top:10px;margin-bottom:10px;">
+									
 								</div>
 							</div>	  	    				
 
@@ -260,3 +243,117 @@ echo '
 
 
  ?>
+
+<script type="text/javascript">
+
+// $.each( <?php #echo json_encode($cap5_i->result()); ?>, function(i, data) {
+
+// 		$('#panel_tipo_edificaciones > div').remove('.btn-group');
+// 		var asd ='<div class="btn-group">';
+// 			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+// 			asd+='<ul class="dropdown-menu">';
+// 		if (data.P5_Tot_P > 0){
+// 			asd+='<li id="' + data.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
+// 		}
+// 		if (data.P5_Tot_LD > 0){
+// 			asd+='<li id="' + data.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
+// 		}
+// 		if (data.P5_Tot_CTE > 0){
+// 			asd+='<li id="' + data.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
+// 		}
+// 		if (data.P5_Tot_MC > 0){
+// 			asd+='<li id="' + data.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
+// 		}
+// 		// if (data.P5_Tot_L1 > 0){
+// 		// 	asd+='<li id="' + data.P5_Tot_L1 +'.cmb_P5_Tot_L1" class="combo_ins7"><a href="" data-toggle="dropdown">Portadas de Ingresos, Portón</a></li>';
+// 		// }
+// 		if (data.P5_Tot_R > 0){
+// 			asd+='<li id="' + data.P5_Tot_R +'.cmb_P5_Tot_R" class="combo_ins1"><a href="" data-toggle="dropdown">Rampas</a></li>';
+// 		}
+// 		asd+='</ul>';
+// 		asd+='</div>';
+
+// 		$('#panel_tipo_edificaciones').html(asd);
+
+// });
+
+
+// 	$('#panel_tipo_edificaciones').on('click','.combo_ins1',function(event){
+
+// 		val= $(this).attr('id');
+// 		array=val.split(".")
+// 		Get_Nro_Edif(array[0],array[1]);
+// 		//alert(array[0]);
+// 		$('.combo_ins1').removeClass('active');
+// 		$(this).addClass('active');
+// 	});
+
+// 	function Get_Nro_Edif(numero,tipo){
+// 		$('#panel_nro_tedificaciones > div').remove('.btn-group');
+// 		var asd ='<div class="btn-group">';
+
+// 		var titulo = '';
+// 		var codtipo = '';
+// 		var contenido = '';
+
+// 		switch(tipo)
+// 		{
+// 			case 'cmb_P5_Tot_P':
+// 				titulo = 'Seleccione un Patio';
+// 				codtipo = 'P - ';
+// 				contenido = 'Patio Nro: ';
+// 				break;
+
+// 			case 'cmb_P5_Tot_LD':
+// 				titulo = 'Seleccione una Losa Deportiva';
+// 				codtipo = 'LD - ';
+// 				contenido = 'Losa deportiva Nro: ';
+// 				break;
+
+// 			case 'cmb_P5_Tot_CTE':
+// 				titulo = 'Seleccione una Cisterna o Tanque';
+// 				codtipo = 'CTE - ';
+// 				contenido = 'Cisterna y/o Tanque Nro: ';
+// 				break;
+
+// 			case 'cmb_P5_Tot_MC':
+// 				titulo = 'Seleccione un Muro de Contención';
+// 				codtipo = 'MC - ';
+// 				contenido = 'Muro de contención Nro: ';
+// 				break;
+
+// 			case 'cmb_P5_Tot_L1':
+// 				titulo = 'Seleccione una Portada de Ingreso, Portón';
+// 				codtipo = 'L1 - ';
+// 				contenido = 'Portada de Ingreso, Portón Nro: ';
+// 				break;
+
+// 			case 'cmb_P5_Tot_R':
+// 				titulo = 'Seleccione una Rampa';
+// 				codtipo = 'R - ';
+// 				contenido = 'Rampa Nro: ';
+// 				break;
+// 		}
+
+// 		asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">' + titulo + '<span class="caret"></span></a>';
+// 			asd+='<ul class="dropdown-menu">';
+// 		for (var i=1; i<=numero; i++) {
+// 			asd+='<li id="' + codtipo + i +'" class="combo_ins1"><a href="" data-toggle="dropdown">' + contenido + i + ' </a></li>';
+// 		}
+// 		asd+='</ul>';
+// 		asd+='</div>';
+
+// 		$('#panel_nro_tedificaciones').html(asd);
+// 	}
+
+// 	$('#panel_nro_tedificaciones').on('click','.combo_ins1',function(event){
+
+// 		val= $(this).attr('id');
+// 		//array=val.split(".")
+// 		//Get_Nro_Edif(array[0],array[1]);
+// 		alert(val);
+// 		$('.combo_ins1').removeClass('active');
+// 		$(this).addClass('active');
+// 	});
+
+</script>
