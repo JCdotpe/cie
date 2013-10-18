@@ -12,14 +12,14 @@ class Car_model extends CI_MODEL{
         $this->db->join('PROV p','pc.PC_A_1_Dep = p.CCDD and pc.PC_A_2_Prov = p.CCPP','inner');	    	
         $this->db->join('DIST di','pc.PC_A_1_Dep = di.CCDD and pc.PC_A_2_Prov = di.CCPP and pc.PC_A_3_Dist = di.CCDI','inner');	    	
         $this->db->where('pc.id_local', $id );
-        $this->db->where('pc.PC_F_1', $pr );
+        $this->db->where('pc.Nro_Pred', $pr );
         $q = $this->db->get();
         return $q;
     }
 
     function get_car_n($id,$pr){
         $this->db->where('id_local', $id );
-        $this->db->where('PC_F_1', $pr );
+        $this->db->where('Nro_Pred', $pr );
         $q = $this->db->get('PCar_C_1N');
         return $q;
     }

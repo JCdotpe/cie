@@ -1639,38 +1639,38 @@ echo form_close();
 $(function(){
 
 //p2_a
-// $.each( <?php //echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
-// 	   	$('#' + fila).val(valor);
-// }); 
+$.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
 
-// //p2_b
-// $.each( <?php //echo json_encode($cap2_p2_b->row()); ?>, function(fila, valor) {
-// 	   	$('#' + fila).val(valor);
-// }); 
+//p2_b
+$.each( <?php echo json_encode($cap2_p2_b->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
 
-// //p2_b_9n
-// $.each( <?php //echo json_encode($cap2_p2_b_9n->result()); ?>, function(i, data) {
-// 	   	$('#P2_B_9_Cod_' + data.P2_B_9_Cod).val(data.P2_B_9_Cod_e);
-// }); 
+//p2_b_9n
+$.each( <?php echo json_encode($cap2_p2_b_9n->result()); ?>, function(i, data) {
+	   	$('#P2_B_9_Cod_' + data.P2_B_9_Cod).val(data.P2_B_9_Cod_e);
+}); 
 
-// //p2_b_10n
-// $.each( <?php //echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) {
-// 	   	$('#P2_B_10_Cod_' + data.P2_B_10_Cod).val(data.P2_B_10_Cod_e);
-// }); 
+//p2_b_10n
+$.each( <?php echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) {
+	   	$('#P2_B_10_Cod_' + data.P2_B_10_Cod).val(data.P2_B_10_Cod_e);
+}); 
 
-// //p2_b_11n
-// $.each( <?php //echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
-// 	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
-// 	   	if(data.P2_B_11_Cod ==7)
-// 	   		$('#P2_B_11_Cod_O' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_O);
-// }); 
+//p2_b_11n
+$.each( <?php echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
+	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
+	   	if(data.P2_B_11_Cod ==7)
+	   		$('#P2_B_11_Cod_O' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_O);
+}); 
 
-// //p2_b_12n
-// $.each( <?php //echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
-// 	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
-// 	   	if(data.P2_B_12_Cod ==7)
-// 	   		$('#P2_B_12_Cod_O' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_O);
-// }); 
+//p2_b_12n
+$.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
+	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
+	   	if(data.P2_B_12_Cod ==7)
+	   		$('#P2_B_12_Cod_O' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_O);
+}); 
 
 
 // $.each( <?php //echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {

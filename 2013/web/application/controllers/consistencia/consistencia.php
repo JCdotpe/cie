@@ -37,28 +37,28 @@ class Consistencia extends CI_Controller {
 			$data['car_i'] = $this->car_model->get_car($id,$prd);
 			$data['car_n'] = $this->car_model->get_car_n($id,$prd);
 
-			// $data['cap2_p2_a'] = $this->cap2_model->get_p2_a($id,$prd);
-			// $data['cap2_p2_b'] = $this->cap2_model->get_p2_b($id,$prd);
-			// $data['cap2_p2_b_9n'] = $this->cap2_model->get_p2_b_9n($id,$prd);
-			// $data['cap2_p2_b_10n'] = $this->cap2_model->get_p2_b_10n($id,$prd);
-			// $data['cap2_p2_b_11n'] = $this->cap2_model->get_p2_b_11n($id,$prd);
-			// $data['cap2_p2_b_12n'] = $this->cap2_model->get_p2_b_12n($id,$prd);
+			$data['cap2_p2_a'] = $this->cap2_model->get_p2_a($id,$prd);
+			$data['cap2_p2_b'] = $this->cap2_model->get_p2_b($id,$prd);
+			$data['cap2_p2_b_9n'] = $this->cap2_model->get_p2_b_9n($id,$prd);
+			$data['cap2_p2_b_10n'] = $this->cap2_model->get_p2_b_10n($id,$prd);
+			$data['cap2_p2_b_11n'] = $this->cap2_model->get_p2_b_11n($id,$prd);
+			$data['cap2_p2_b_12n'] = $this->cap2_model->get_p2_b_12n($id,$prd);
 
 
 
 			$data['dptos'] = $this->ubigeo_model->get_dptos();
 
 
-			// $data['cap3_i'] = $this->cap3_model->get_cap3($id,$prd);
-			// $data['cap3_n'] = $this->cap3_model->get_cap3_n($id,$prd);	
+			$data['cap3_i'] = $this->cap3_model->get_cap3($id,$prd);
+			$data['cap3_n'] = $this->cap3_model->get_cap3_n($id,$prd);	
 
-			// $data['cap4_i'] = $this->cap4_model->get_cap4($id,$prd);
-			// $data['cap4_n'] = $this->cap4_model->get_cap4_n($id,$prd);
-			// $data['cap5_i'] = $this->cap5_model->get_cap5($id,$prd);
-			// $data['cap5_f'] = $this->cap5_model->get_cap5_f($id,$prd);
+			$data['cap4_i'] = $this->cap4_model->get_cap4($id,$prd);
+			$data['cap4_n'] = $this->cap4_model->get_cap4_n($id,$prd);
+			$data['cap5_i'] = $this->cap5_model->get_cap5($id,$prd);
+			$data['cap5_f'] = $this->cap5_model->get_cap5_f($id,$prd);
 
 
-			// $data['cap9_f'] = $this->cap9_model->get_cap9_f($id,$prd);
+			$data['cap9_f'] = $this->cap9_model->get_cap9_f($id,$prd);
 
 
 			$data['cod'] = $id;
