@@ -162,11 +162,15 @@ $P6_Obs = array(
 $P6_1_10 = array(
 	'name'	=> 'P6_1_10',
 	'id'	=> 'P6_1_10',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_1_10_e = array(
 	'name'	=> 'P6_1_10_e',
 	'id'	=> 'P6_1_10_e',
+	'maxlength'	=> 200,
+	'class' => 'input200',		
 );
 
 // FIN TABLA P6_1 - Capitulo VI
@@ -190,6 +194,8 @@ $P6_1_8_Accesibilidad = array(
 $P5_NroPiso = array(
 	'name'	=> 'P5_NroPiso',
 	'id'	=> 'P5_NroPiso',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P5_Ed_Nro = array(
@@ -200,6 +206,8 @@ $P5_Ed_Nro = array(
 $P6_2_1 = array(
 	'name'	=> 'P6_2_1',
 	'id'	=> 'P6_2_1',
+	'maxlength'	=> 2,
+	'class' => 'input2',		
 );
 
 $P6_2_3 = array(
@@ -1234,27 +1242,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_61" disabled="disabled"> 1. Sala de usos múltiples
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_62" disabled="disabled"> 2. Sala de psicomotricidad
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_63" disabled="disabled"> 3. Aula de usos múltiples
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_64" disabled="disabled"> 4. Aula especial
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_65" disabled="disabled"> 5. Laboratorio
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_66" disabled="disabled"> 6. Taller ligero
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_67" disabled="disabled"> 7. Taller semi-pesado
-											</label>
+			  	    						'.form_input($P6_2_6).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso4">
@@ -1264,31 +1252,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_71" disabled="disabled"> 1. De computo
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_72" disabled="disabled"> 2. De música / Banda
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_73" disabled="disabled"> 3. De idiomas
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_74" disabled="disabled"> 4. De artes plásticas
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_75" disabled="disabled"> 5. De matemáticas
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_76" disabled="disabled"> 6. De ciencias sociales
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_77" disabled="disabled"> 7. otro
-											</label>
-											<label>
-												<input type="text" id="P6_2_7_O" class="form-control P6_2_7_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+			  	    						'.form_input($P6_2_7).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso5">
@@ -1298,28 +1262,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_81" disabled="disabled"> 1. Laboratorio multifuncional
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_82" disabled="disabled"> 2. Laboratorio de física
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_83" disabled="disabled"> 3. Laboratorio de química
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_84" disabled="disabled"> 4. Laboratorio de Biología
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_85" disabled="disabled"> 5. Laboratorio de Química - Biología
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_86" disabled="disabled"> 6. otro
-											</label>
-											<label>
-												<input type="text" id="P6_2_8_O" class="form-control P6_2_8_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+			  	    						'.form_input($P6_2_8).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso6">
@@ -1329,61 +1272,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_91" disabled="disabled"> 1. Dibujo técnico
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_92" disabled="disabled"> 2. Electricidad
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_93" disabled="disabled"> 3. Electrónica
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_94" disabled="disabled"> 4. Industria alimentaria
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_95" disabled="disabled"> 5. Industria del vestido
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_96" disabled="disabled"> 6. Cosmetología
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_97" disabled="disabled"> 7. Cerámica
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_98" disabled="disabled"> 8. Orfebrería
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_99" disabled="disabled"> 9. Bordado
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_910" disabled="disabled"> 10. Floristería
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_911" disabled="disabled"> 11. Juglería
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_912" disabled="disabled"> 12. Artes decorativas
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_913" disabled="disabled"> 13. Artes gráficas
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_914" disabled="disabled"> 14. Coreoplastía
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_915" disabled="disabled"> 15. Contabilidad
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_916" disabled="disabled"> 16. Mecanografía y taquigrafía
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_917" disabled="disabled"> 17. Otro
-											</label>
-			  	    						<label>
-												<input type="text" id="P6_2_9_O" class="form-control P6_2_9_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+			  	    						'.form_input($P6_2_9).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso7">
@@ -1393,34 +1282,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_101" disabled="disabled"> 1. Modelería y fundición
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_102" disabled="disabled"> 2. Construcciones metálicas
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_103" disabled="disabled"> 3. Mecánica de taller
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_104" disabled="disabled"> 4. Mecánica automotriz
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_105" disabled="disabled"> 5. Artesanía en papel
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_106" disabled="disabled"> 6. Carpintería
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_107" disabled="disabled"> 7. Construcción civil
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_108" disabled="disabled"> 8. Otro
-											</label>
-											<label>
-												<input type="text" id="P6_2_10_O" class="form-control P6_2_10_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+			  	    						'.form_input($P6_2_10).'
 			  	    					</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1465,30 +1327,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<label class="radio">
-												<input type="radio" value="option3" id="P6_2_121" disabled="disabled"> 1. Sala de lactancia
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_122" disabled="disabled"> 2. Sala de descanso
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_123" disabled="disabled"> 3. Sala de higienización
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_124" disabled="disabled"> 4. Sala de preparación de biberones
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_125" disabled="disabled"> 5. Cocina
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_126" disabled="disabled"> 6. Biblioteca
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_127" disabled="disabled"> 7. Otro
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_128" disabled="disabled">8. SS.HH. de niños y niñas (inicial)
-											</label>
+		  	    							'.form_input($P6_2_12).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1510,58 +1349,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							<label class="radio">
-												<input type="radio" value="option3" id="P6_2_131" disabled="disabled"> 1. SS.HH. Alumnado
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_132" disabled="disabled"> 2. SS.HH. Personal
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_133" disabled="disabled"> 3. Caseta de Guardianía
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_134" disabled="disabled"> 4. Área de espera
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_135" disabled="disabled"> 5. Limpieza y mantenimiento
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_136" disabled="disabled"> 6. Vivienda para docentes
-											</label>
-			  	    						<label class="radio">
-												<input type="radio" value="option3" id="P6_2_137" disabled="disabled"> 7. Vivienda para alumnos
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_138" disabled="disabled"> 8. Guardianía
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_139" disabled="disabled"> 9. Cafetería / kiosco
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1310" disabled="disabled"> 10. Cocina
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1311" disabled="disabled"> 11. Comedor
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1312" disabled="disabled"> 12. Despensa
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1313" disabled="disabled"> 13. Vestuario
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1314" disabled="disabled"> 14. Escaleras
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1315" disabled="disabled"> 15. Ascensor
-											</label>
-											<label class="radio">
-												<input type="radio" value="option3" id="P6_2_1316" disabled="disabled"> 16. Otro
-											</label>
-											<label>
-												<input type="text" id="P6_2_13_O" class="form-control P6_2_13_O" style="float:left; width:300px;" disabled="disabled">
-												(Especifique)
-											</label>
+		  	    							'.form_input($P6_2_13).' - Especifique '.form_input($P6_2_13_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1590,27 +1378,27 @@ echo '
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>1. Turcos (piso)</td>
-		  	    									<td><input type="text" id="P6_2_14_1" class="form-control P6_2_14_1" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_1).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>2. Letrinas</td>
-		  	    									<td><input type="text" id="P6_2_14_2" class="form-control P6_2_14_2" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_2).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>3. Inodoros de adultos accesibles (discapacidad)</td>
-		  	    									<td><input type="text" id="P6_2_14_3" class="form-control P6_2_14_3" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_3).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>4. Inodoros de adultos</td>
-		  	    									<td><input type="text" id="P6_2_14_4" class="form-control P6_2_14_4" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_4).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>5. Inodoros de niños accesibles (discapacidad)</td>
-		  	    									<td><input type="text" id="P6_2_14_5" class="form-control P6_2_14_5" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_5).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>6. Inodoros de niños</td>
-		  	    									<td><input type="text" id="P6_2_14_6" class="form-control P6_2_14_6" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14_6).'</td>
 		  	    								</tr>
 		  	    							</tbody></table>
 
@@ -1634,7 +1422,7 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Total</label>
-											<input type="text" id="P6_2_14a" class="form-control P6_2_14a" style="float:left; width:300px;" disabled="disabled">
+											<td>'.form_input($P6_2_14a).'</td>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -1652,11 +1440,11 @@ echo '
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>1. Lavaderos o lavatorios</td>
-		  	    									<td><input type="text" id="P6_2_14b_1" class="form-control P6_2_14b_1" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14b_1).'</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>2. Lavaderos o lavatorios operativos</td>
-		  	    									<td><input type="text" id="P6_2_14b_2" class="form-control P6_2_14b_2" style="float:left; width:100px;" disabled="disabled"></td>
+		  	    									<td>'.form_input($P6_2_14b_2).'</td>
 		  	    								</tr>
 		  	    							</tbody></table>
 		  	    						</td>
@@ -1686,131 +1474,45 @@ echo '
 				  	    								<td style="text-align:center;" colspan="3">15A. Estado de conservación</td>
 			  	    								</tr>
 			  	    								<tr>
-			  	    									<td style="text-align:center;">Bueno</td>
-				  	    								<td style="text-align:center;">Regular</td>
-				  	    								<td style="text-align:center;">Malo</td>
-			  	    								</tr>
+			  	    									<td style="text-align:center;">Bueno, Regular, Malo</td>
+				  	    								</tr>
 			  	    							</thead>
 			  	    							<tbody>
 			  	    								<tr>
 			  	    									<td>
 				  	    									1. Parquet o madera pulida
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="1P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="1P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="1P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									2. Láminas asfálticas, vinílicos o similares
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="2P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="2P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="2P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									3. Losetas, terrazos o similares
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="3P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								
-				  	    								</td><td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="3P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="3P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									4. Madera (entablados)
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="4P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="4P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="4P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									5. Cemento
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="5P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="5P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="5P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									6. Tierra
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="6P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="6P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="6P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
@@ -1818,25 +1520,11 @@ echo '
 				  	    										7. Otro material
 				  	    									</label>
 				  	    									<label>
-																<input type="text" id="P6_2_15_O" class="form-control" style="float:left; width:300px;" disabled="disabled">
+																'.form_input($P6_2_15_O).'
 																(Especifique)
 															</label>
 				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="7P6_2_15a1" disabled="disabled"> 1
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="7P6_2_15a2" disabled="disabled"> 2
-															</label>
-				  	    								</td>
-				  	    								<td>
-				  	    									<label class="radio">
-																<input type="radio" value="option3" id="7P6_2_15a3" disabled="disabled"> 3
-															</label>
-				  	    								</td>
+														<td>'.form_input($P6_2_15a).'</td>
 			  	    								</tr>
 			  	    							</tbody>
 			  	    						</table>
@@ -1870,19 +1558,19 @@ echo '
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" value="option3"> 1-->
-																<input type="text" class="form-control P6_2_16a_b" id="P6_2_16a_b" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16a_b).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" value="option3"> 2-->
-																<input type="text" class="form-control P6_2_16a_r" id="P6_2_16a_r" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16a_r).'  
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" > 3-->
-																<input type="text" class="form-control P6_2_16a_m" id="P6_2_16a_m" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16a_m).'  
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1892,17 +1580,17 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16b_b" id="P6_2_16b_b" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16b_b).'   
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16b_r" id="P6_2_16b_r" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16b_r).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16b_m" id="P6_2_16b_m" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16b_m).'  
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1912,17 +1600,17 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16c_b" id="P6_2_16c_b" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16c_b).'   
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16c_r" id="P6_2_16c_r" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16c_r).'  
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16c_m" id="P6_2_16c_m" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16c_m).'  
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1932,17 +1620,17 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16d_b" id="P6_2_16d_b" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16d_b).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16d_r" id="P6_2_16d_r" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16d_r).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16d_m" id="P6_2_16d_m" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16d_m).' 
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1952,30 +1640,30 @@ echo '
 				  	    										5. Otro material
 				  	    									<!--</label>-->
 				  	    									<label>
-																<input type="text" id="P6_2_16e_O" class="form-control P6_2_16e_O" style="float:left; width:300px;" disabled="disabled">
+																'.form_input($P6_2_16e_O).' 
 																(Especifique)
 															<!--</label>-->
 			  	    									</label></label></td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16e_b" id="P6_2_16e_b" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16e_b).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16e_r" id="P6_2_16e_r" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16e_r).' 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																<input type="text" class="form-control P6_2_16e_m" id="P6_2_16e_m" style="float:left; width:50px;" disabled="disabled">
+																'.form_input($P6_2_16e_m).' 
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 			  	    										<label class="checkbox">
-																<input type="checkbox" value="option3" id="P6_2_16f1" disabled="disabled"> 6. No tiene
+																'.form_input($P6_2_16f).' 6. No tiene
 															</label>
 
 				  	    								</td>
@@ -2017,19 +1705,19 @@ echo '
 		  	    								<tbody>
 		  	    									<tr>
 			  	    									<td>1. Buen estado</td>
-			  	    									<td><input type="text" id="P6_2_17a" class="form-control P6_2_17a" style="float:center; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_17a).'  </td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>2. Oxidado</td>
-			  	    									<td><input type="text" id="P6_2_17b" class="form-control P6_2_17b" style="float:center; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_17b).' </td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>3. Deteriorado</td>
-			  	    									<td><input type="text" id="P6_2_17c" class="form-control P6_2_17c" style="float:center; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_17c).' </td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>4. No tiene</td>
-			  	    									<td><input type="text" id="P6_2_17d" class="form-control P6_2_17d" style="float:center; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_17d).' </td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
@@ -2061,13 +1749,13 @@ echo '
 				  	    									1. Metalica
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18a_b" id="P6_2_18a_b" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18a_b).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18a_r" id="P6_2_18a_r" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18a_r).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18a_m" id="P6_2_18a_m" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18a_m).' 
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
@@ -2075,13 +1763,13 @@ echo '
 				  	    									2. Madera
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18b_b" id="P6_2_18b_b" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18b_b).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18b_r" id="P6_2_18b_r" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18b_r).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18b_m" id="P6_2_18b_m" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18b_m).' 
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
@@ -2089,13 +1777,13 @@ echo '
 				  	    									3. Aluminio
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18c_b" id="P6_2_18c_b" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18c_b).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18c_r" id="P6_2_18c_r" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18c_r).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18c_m" id="P6_2_18c_m" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18c_m).' 
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
@@ -2103,13 +1791,13 @@ echo '
 				  	    									4. Malla
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18d_b" id="P6_2_18d_b" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18d_b).' 
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18d_r" id="P6_2_18d_r" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18d_r).'
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18d_m" id="P6_2_18d_m" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18d_m).'  
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
@@ -2118,24 +1806,23 @@ echo '
 				  	    										5. Otro material
 				  	    									</label>
 				  	    									<label>
-																<input type="text" id="P6_2_18e_O" class="form-control P6_2_18e_O" style="float:left; width:300px;" disabled="disabled">
-																(Especifique)
+																'.form_input($P6_2_18e_O).' - (Especifique)
 															</label>
 			  	    									</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18e_b" id="P6_2_18e_b" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18e_b).'  
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18e_r" id="P6_2_18e_r" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18e_r).'  
 				  	    								</td>
 				  	    								<td>
-				  	    									<input type="text" class="form-control P6_2_18e_m" id="P6_2_18e_m" style="float:left; width:50px;" disabled="disabled">
+				  	    									'.form_input($P6_2_18e_m).'  
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									<label class="checkbox">
-																<input type="checkbox" value="option3" id="P6_2_18f1" disabled="disabled"> 6. No tiene
+																'.form_input($P6_2_18f).' 6. No tiene
 															</label>
 				  	    								</td>
 				  	    								<td>
@@ -2170,15 +1857,15 @@ echo '
 		  	    								<tbody>
 		  	    									<tr>
 			  	    									<td>1. Completos</td>
-			  	    									<td><input type="text" id="P6_2_19a" class="form-control P6_2_19a" style="float:left; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_19a).'</td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>2. Con roturas</td>
-			  	    									<td><input type="text" id="P6_2_19b" class="form-control P6_2_19b" style="float:left; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_19b).'</td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>3. Sin vidrios</td>
-			  	    									<td><input type="text" id="P6_2_19c" class="form-control P6_2_19c" style="float:left; width:100px;" disabled="disabled"></td>
+			  	    									<td>'.form_input($P6_2_19c).'</td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
