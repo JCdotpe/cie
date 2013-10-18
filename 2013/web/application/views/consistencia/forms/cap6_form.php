@@ -12,41 +12,64 @@
 $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P6_1_3 = array(
 	'name'	=> 'P6_1_3',
 	'id'	=> 'P6_1_3',
+	'maxlength'	=> 7,
+	'class' => 'input7',
 );
 
 $P6_1_4 = array(
 	'name'	=> 'P6_1_4',
 	'id'	=> 'P6_1_4',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P6_1_5 = array(
 	'name'	=> 'P6_1_5',
 	'id'	=> 'P6_1_5',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_1_6 = array(
 	'name'	=> 'P6_1_6',
 	'id'	=> 'P6_1_6',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_1_7 = array(
 	'name'	=> 'P6_1_7',
 	'id'	=> 'P6_1_7',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_1_8 = array(
 	'name'	=> 'P6_1_8',
 	'id'	=> 'P6_1_8',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
+);
+
+$P6_1_8ID = array(
+	'name'	=> 'P6_1_8',
+	'id'	=> 'P6_1_8',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P6_1_9 = array(
 	'name'	=> 'P6_1_9',
 	'id'	=> 'P6_1_9',
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 // SECCION D
@@ -177,14 +200,11 @@ $P6_1_10_e = array(
 
 // TABLA P6_1_8N - Capitulo VI
 
-$P6_1_8ID = array(
-	'name'	=> 'P6_1_8ID',
-	'id'	=> 'P6_1_8ID',
-);
-
 $P6_1_8_Accesibilidad = array(
 	'name'	=> 'P6_1_8_Accesibilidad',
 	'id'	=> 'P6_1_8_Accesibilidad',
+	'maxlength'	=> 2,
+	'class' => 'input2',		
 );
 
 // FIN TABLA P6_1_8N - Capitulo VI
@@ -213,416 +233,573 @@ $P6_2_1 = array(
 $P6_2_3 = array(
 	'name'	=> 'P6_2_3',
 	'id'	=> 'P6_2_3',
+	'maxlength'	=> 2,
+	'class' => 'input2',		
 );
 
 $P6_2_5 = array(
 	'name'	=> 'P6_2_5',
 	'id'	=> 'P6_2_5',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_6 = array(
 	'name'	=> 'P6_2_6',
 	'id'	=> 'P6_2_6',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_7 = array(
 	'name'	=> 'P6_2_7',
 	'id'	=> 'P6_2_7',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_7_O = array(
 	'name'	=> 'P6_2_7_O',
 	'id'	=> 'P6_2_7_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_8 = array(
 	'name'	=> 'P6_2_8',
 	'id'	=> 'P6_2_8',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_8_O = array(
 	'name'	=> 'P6_2_8_O',
 	'id'	=> 'P6_2_8_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_9 = array(
 	'name'	=> 'P6_2_9',
 	'id'	=> 'P6_2_9',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_9_O = array(
 	'name'	=> 'P6_2_9_O',
 	'id'	=> 'P6_2_9_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_10 = array(
 	'name'	=> 'P6_2_10',
 	'id'	=> 'P6_2_10',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_10_O = array(
 	'name'	=> 'P6_2_10_O',
 	'id'	=> 'P6_2_10_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_11 = array(
 	'name'	=> 'P6_2_11',
 	'id'	=> 'P6_2_11',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_11_O = array(
 	'name'	=> 'P6_2_11_O',
 	'id'	=> 'P6_2_11_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_12 = array(
 	'name'	=> 'P6_2_12',
 	'id'	=> 'P6_2_12',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_12_O = array(
 	'name'	=> 'P6_2_12_O',
 	'id'	=> 'P6_2_12_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_13 = array(
 	'name'	=> 'P6_2_13',
 	'id'	=> 'P6_2_13',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_13_O = array(
 	'name'	=> 'P6_2_13_O',
 	'id'	=> 'P6_2_13_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P6_2_14_1 = array(
 	'name'	=> 'P6_2_14_1',
 	'id'	=> 'P6_2_14_1',
+	'maxlength'	=> 9,
+	'class' => 'input9',		
 );
 
 $P6_2_14_2 = array(
 	'name'	=> 'P6_2_14_2',
 	'id'	=> 'P6_2_14_2',
+	'maxlength'	=> 9,
+	'class' => 'input9',			
 );
 
 $P6_2_14_3 = array(
 	'name'	=> 'P6_2_14_3',
 	'id'	=> 'P6_2_14_3',
+	'maxlength'	=> 9,
+	'class' => 'input9',			
 );
 
 $P6_2_14_4 = array(
 	'name'	=> 'P6_2_14_4',
 	'id'	=> 'P6_2_14_4',
+	'maxlength'	=> 9,
+	'class' => 'input9',			
 );
 
 $P6_2_14_5 = array(
 	'name'	=> 'P6_2_14_5',
 	'id'	=> 'P6_2_14_5',
+	'maxlength'	=> 9,
+	'class' => 'input9',			
 );
 
 $P6_2_14_6 = array(
 	'name'	=> 'P6_2_14_6',
 	'id'	=> 'P6_2_14_6',
+	'maxlength'	=> 9,
+	'class' => 'input9',			
 );
 
 $P6_2_14a = array(
 	'name'	=> 'P6_2_14a',
 	'id'	=> 'P6_2_14a',
+	'maxlength'	=> 9,
+	'class' => 'input9',		
 );
 
 $P6_2_14b_1 = array(
 	'name'	=> 'P6_2_14b_1',
 	'id'	=> 'P6_2_14b_1',
+	'maxlength'	=> 9,
+	'class' => 'input9',		
 );
 
 $P6_2_14b_2 = array(
 	'name'	=> 'P6_2_14b_2',
 	'id'	=> 'P6_2_14b_2',
+	'maxlength'	=> 9,
+	'class' => 'input9',		
 );
 
 $P6_2_15 = array(
 	'name'	=> 'P6_2_15',
 	'id'	=> 'P6_2_15',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_2_15_O = array(
 	'name'	=> 'P6_2_15_O',
 	'id'	=> 'P6_2_15_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',		
 );
 
 $P6_2_15a = array(
 	'name'	=> 'P6_2_15a',
 	'id'	=> 'P6_2_15a',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_2_16a = array(
 	'name'	=> 'P6_2_16a',
 	'id'	=> 'P6_2_16a',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_16a_b = array(
 	'name'	=> 'P6_2_16a_b',
 	'id'	=> 'P6_2_16a_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_16a_r = array(
 	'name'	=> 'P6_2_16a_r',
 	'id'	=> 'P6_2_16a_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16a_m = array(
 	'name'	=> 'P6_2_16a_m',
 	'id'	=> 'P6_2_16a_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16b = array(
 	'name'	=> 'P6_2_16b',
 	'id'	=> 'P6_2_16b',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_16b_b = array(
 	'name'	=> 'P6_2_16b_b',
 	'id'	=> 'P6_2_16b_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16b_r = array(
 	'name'	=> 'P6_2_16b_r',
 	'id'	=> 'P6_2_16b_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16b_m = array(
 	'name'	=> 'P6_2_16b_m',
 	'id'	=> 'P6_2_16b_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16c = array(
 	'name'	=> 'P6_2_16c',
 	'id'	=> 'P6_2_16c',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_16c_b = array(
 	'name'	=> 'P6_2_16c_b',
 	'id'	=> 'P6_2_16c_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16c_r = array(
 	'name'	=> 'P6_2_16c_r',
 	'id'	=> 'P6_2_16c_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16c_m = array(
 	'name'	=> 'P6_2_16c_m',
 	'id'	=> 'P6_2_16c_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16d = array(
 	'name'	=> 'P6_2_16d',
 	'id'	=> 'P6_2_16d',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_16d_b = array(
 	'name'	=> 'P6_2_16d_b',
 	'id'	=> 'P6_2_16d_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16d_r = array(
 	'name'	=> 'P6_2_16d_r',
 	'id'	=> 'P6_2_16d_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16d_m = array(
 	'name'	=> 'P6_2_16d_m',
 	'id'	=> 'P6_2_16d_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16e = array(
 	'name'	=> 'P6_2_16e',
 	'id'	=> 'P6_2_16e',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_16e_b = array(
 	'name'	=> 'P6_2_16e_b',
 	'id'	=> 'P6_2_16e_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16e_r = array(
 	'name'	=> 'P6_2_16e_r',
 	'id'	=> 'P6_2_16e_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16e_m = array(
 	'name'	=> 'P6_2_16e_m',
 	'id'	=> 'P6_2_16e_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_16e_O = array(
 	'name'	=> 'P6_2_16e_O',
 	'id'	=> 'P6_2_16e_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',			
 );
 
 $P6_2_16f = array(
 	'name'	=> 'P6_2_16f',
 	'id'	=> 'P6_2_16f',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_17a = array(
 	'name'	=> 'P6_2_17a',
 	'id'	=> 'P6_2_17a',
+	'maxlength'	=> 4,
+	'class' => 'input4',	
 );
 
 $P6_2_17b = array(
 	'name'	=> 'P6_2_17b',
 	'id'	=> 'P6_2_17b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_17c = array(
 	'name'	=> 'P6_2_17c',
 	'id'	=> 'P6_2_17c',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_17d = array(
 	'name'	=> 'P6_2_17d',
 	'id'	=> 'P6_2_17d',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18a = array(
 	'name'	=> 'P6_2_18a',
 	'id'	=> 'P6_2_18a',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_2_18a_b = array(
 	'name'	=> 'P6_2_18a_b',
 	'id'	=> 'P6_2_18a_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18a_r = array(
 	'name'	=> 'P6_2_18a_r',
 	'id'	=> 'P6_2_18a_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18a_m = array(
 	'name'	=> 'P6_2_18a_m',
 	'id'	=> 'P6_2_18a_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18b = array(
 	'name'	=> 'P6_2_18b',
 	'id'	=> 'P6_2_18b',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_18b_b = array(
 	'name'	=> 'P6_2_18b_b',
 	'id'	=> 'P6_2_18b_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18b_r = array(
 	'name'	=> 'P6_2_18b_r',
 	'id'	=> 'P6_2_18b_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18b_m = array(
 	'name'	=> 'P6_2_18b_m',
 	'id'	=> 'P6_2_18b_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18c = array(
 	'name'	=> 'P6_2_18c',
 	'id'	=> 'P6_2_18c',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_18c_b = array(
 	'name'	=> 'P6_2_18c_b',
 	'id'	=> 'P6_2_18c_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18c_r = array(
 	'name'	=> 'P6_2_18c_r',
 	'id'	=> 'P6_2_18c_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18c_m = array(
 	'name'	=> 'P6_2_18c_m',
 	'id'	=> 'P6_2_18c_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18d = array(
 	'name'	=> 'P6_2_18d',
 	'id'	=> 'P6_2_18d',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_18d_b = array(
 	'name'	=> 'P6_2_18d_b',
 	'id'	=> 'P6_2_18d_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18d_r = array(
 	'name'	=> 'P6_2_18d_r',
 	'id'	=> 'P6_2_18d_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18d_m = array(
 	'name'	=> 'P6_2_18d_m',
 	'id'	=> 'P6_2_18d_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18e = array(
 	'name'	=> 'P6_2_18e',
 	'id'	=> 'P6_2_18e',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_18e_b = array(
 	'name'	=> 'P6_2_18e_b',
 	'id'	=> 'P6_2_18e_b',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18e_r = array(
 	'name'	=> 'P6_2_18e_r',
 	'id'	=> 'P6_2_18e_r',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18e_m = array(
 	'name'	=> 'P6_2_18e_m',
 	'id'	=> 'P6_2_18e_m',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_18e_O = array(
 	'name'	=> 'P6_2_18e_O',
 	'id'	=> 'P6_2_18e_O',
+	'maxlength'	=> 200,
+	'class' => 'input200',		
 );
 
 $P6_2_18f = array(
 	'name'	=> 'P6_2_18f',
 	'id'	=> 'P6_2_18f',
+	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P6_2_19a = array(
 	'name'	=> 'P6_2_19a',
 	'id'	=> 'P6_2_19a',
+	'maxlength'	=> 4,
+	'class' => 'input4',		
 );
 
 $P6_2_19b = array(
 	'name'	=> 'P6_2_19b',
 	'id'	=> 'P6_2_19b',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_19c = array(
 	'name'	=> 'P6_2_19c',
 	'id'	=> 'P6_2_19c',
+	'maxlength'	=> 4,
+	'class' => 'input4',			
 );
 
 $P6_2_20Obs = array(
 	'name'	=> 'P6_2_20Obs',
 	'id'	=> 'P6_2_20Obs',
+	'class' => 'textarea98',	
 );
 
 // FIN TABLA P6_2 - Capitulo VI
 
 // TABLA P6_2_4N - Capitulo VI
 
-$P6_2_1 = array(
-	'name'	=> 'P6_2_1',
-	'id'	=> 'P6_2_1',
-);
 
 $P6_2_4ID = array(
 	'name'	=> 'P6_2_4ID',
@@ -637,16 +814,22 @@ $P6_2_4Mod = array(
 $P6_2_4Turno_M = array(
 	'name'	=> 'P6_2_4Turno_M',
 	'id'	=> 'P6_2_4Turno_M',
+	'maxlength'	=> 1,
+	'class' => 'input1',		
 );
 
 $P6_2_4Turno_T = array(
 	'name'	=> 'P6_2_4Turno_T',
 	'id'	=> 'P6_2_4Turno_T',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 $P6_2_4Turno_N = array(
 	'name'	=> 'P6_2_4Turno_N',
 	'id'	=> 'P6_2_4Turno_N',
+	'maxlength'	=> 1,
+	'class' => 'input1',			
 );
 
 // FIN TABLA P6_2 - Capitulo VI
@@ -692,9 +875,74 @@ echo '
 							</div>
 
 
-		  	    			<div class="content7" id="seccion_a">
-								<!--AJAX-->
+
+		  	    			<div id="seccion_a" class="content7">
+								
+							<table class="table table-bordered">
+								<tr>
+									<td>2</td>
+									<td>CÓDIGO DE LA EDIFICACIÓN</td>
+									<td>E - '.form_input($Nro_Ed).'</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>AREA TECHADA DEL PRIMER PISO DE LA EDIFICACIÓN</td>
+									<td>'.form_input($P6_1_3).'</td>
+								</tr>								
+								<tr>
+									<td>4</td>
+									<td>PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</td>
+									<td>'.form_input($P6_1_4).'</td>
+								</tr>	
+								<tr>
+									<td>5</td>
+									<td>¿ESTA EDIFICACIÓN ES PARTE DEL PATRIMONIO CULTURAL INMUEBLE RECONOCIDO POR EL MINISTERIO DE CULTURA?</td>
+									<td>'.form_input($P6_1_5).'</td>
+								</tr>	
+								<tr>
+									<td>6</td>
+									<td>¿LA EDIFICACIÓN FUE INSPECCIONADA POR DEFENSA CIVIL?</td>
+									<td>'.form_input($P6_1_6).'</td>
+								</tr>	
+								<tr>
+									<td>7</td>
+									<td>¿LA EDIFICACIÓN SE ENCUENTRA DECLARADA INHABITABLE (ALTO RIESGO)?</td>
+									<td>'.form_input($P6_1_7).'</td>
+								</tr>	
+								<tr>
+									<td>8</td>
+									<td>Nº DE PISOS DE ESTA EDIFICACIÓN</td>
+									<td>'.form_input($P6_1_8ID).'</td>
+								</tr>	
+								<tr>
+									<td>8A</td>
+									<td>EL PRIMER PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
+									<td>'.form_input($P6_1_8_Accesibilidad).'</td>
+								</tr>									
+								<tr>
+									<td>8B</td>
+									<td>EL SEGUNDO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
+									<td>'.form_input($P6_1_8_Accesibilidad).'</td>
+								</tr>	
+								<tr>
+									<td>8C</td>
+									<td>EL TERCER PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
+									<td>'.form_input($P6_1_8_Accesibilidad).'</td>
+								</tr>	
+								<tr>
+									<td>8D</td>
+									<td>EL CUARTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
+									<td>'.form_input($P6_1_8_Accesibilidad).'</td>
+								</tr>																									
+								<tr>
+									<td>9</td>
+									<td>¿CUÁNTOS NIVELES O MODALIDADES HACEN USO DE ESTA EDIFICACIÓN?</td>
+									<td>'.form_input($P6_1_9).'</td>
+								</tr>	
+							</table>
+
 							</div>
+
 
 							<div class="content7" id="seccion_a_p10">
 								<!--AJAX-->
@@ -891,13 +1139,11 @@ echo '
 		  	    			</table>
 		  	    			<table id="pag_seccion_b2" class="table table-bordered">
 		  	    				<tbody>
-		  	    					<tr><td>3.</td>
+		  	    					<tr>
+		  	    						<td>3.</td>
+		  	    						<td>¿EL AMBIENTE ESTÁ EN USO ACTUALMENTE?</td>
 		  	    					<td>
 		  	    						'.form_input($P6_2_3).'
-		  	    					</td>
-		  	    					<td>
-
-
 		  	    					</td>
 		  	    				</tr></tbody>
 		  	    				<tbody>
@@ -1422,7 +1668,7 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Total</label>
-											<td>'.form_input($P6_2_14a).'</td>
+											'.form_input($P6_2_14a).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -1478,50 +1724,9 @@ echo '
 				  	    								</tr>
 			  	    							</thead>
 			  	    							<tbody>
-			  	    								<tr>
-			  	    									<td>
-				  	    									1. Parquet o madera pulida
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									2. Láminas asfálticas, vinílicos o similares
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									3. Losetas, terrazos o similares
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									4. Madera (entablados)
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									5. Cemento
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
-			  	    									<td>
-				  	    									6. Tierra
-				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
-			  	    								</tr>
-			  	    								<tr>
 			  	    									<td>
 				  	    									<label>
-				  	    										7. Otro material
-				  	    									</label>
-				  	    									<label>
-																'.form_input($P6_2_15_O).'
-																(Especifique)
+																'.form_input($P6_2_15_O).' - Especifique
 															</label>
 				  	    								</td>
 														<td>'.form_input($P6_2_15a).'</td>
@@ -1637,13 +1842,9 @@ echo '
 			  	    								<tr>
 			  	    									<td>
 			  	    										<label>
-				  	    										5. Otro material
-				  	    									<!--</label>-->
+				  	    										5. Otro material - Especifique '.form_input($P6_2_16e_O).' 
 				  	    									<label>
-																'.form_input($P6_2_16e_O).' 
-																(Especifique)
-															<!--</label>-->
-			  	    									</label></label></td>
+														</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																'.form_input($P6_2_16e_b).' 
@@ -1746,7 +1947,7 @@ echo '
 			  	    							<tbody>
 			  	    								<tr>
 			  	    									<td>
-				  	    									1. Metalica
+				  	    									'.form_input($P6_2_18a).'  1. Metalica
 				  	    								</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18a_b).' 
@@ -1760,7 +1961,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-				  	    									2. Madera
+				  	    									'.form_input($P6_2_18b).' 2. Madera
 				  	    								</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18b_b).' 
@@ -1774,7 +1975,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-				  	    									3. Aluminio
+				  	    									'.form_input($P6_2_18c).'  3. Aluminio
 				  	    								</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18c_b).' 
@@ -1788,7 +1989,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-				  	    									4. Malla
+				  	    									'.form_input($P6_2_18d).'  4. Malla
 				  	    								</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18d_b).' 
@@ -1802,12 +2003,8 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-			  	    										<label>
-				  	    										5. Otro material
-				  	    									</label>
-				  	    									<label>
-																'.form_input($P6_2_18e_O).' - (Especifique)
-															</label>
+				  	    									'.form_input($P6_2_18e).' 	5. Otro material
+																<br /> '.form_input($P6_2_18e_O).' (Especifique)
 			  	    									</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18e_b).'  
