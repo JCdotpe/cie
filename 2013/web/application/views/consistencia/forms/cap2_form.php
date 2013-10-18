@@ -1673,9 +1673,9 @@ $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) 
 }); 
 
 //p2_c
-$.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
-});
+// $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
+// 	   	$('#' + fila).val(valor);
+// });
 
 
 $("#cap2_f").validate({
