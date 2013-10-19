@@ -25,9 +25,11 @@ $Nro_Pred = array(
 	'disabled' => 'disabled',
 );
 
-$P8_2 = array(
-	'name'	=> 'P8_2',
-	'id'	=> 'P8_2',
+$P8_2_Nro = array(
+	'name'	=> 'P8_2_Nro',
+	'id'	=> 'P8_2_Nro',
+	'class'	=> 'input3',
+	'disabled' => 'disabled',
 );
 
 $P8_area = array(
@@ -140,10 +142,10 @@ echo '
 		  	    				</tbody>
 		  	    			</table>
 
-		  	    			<table class="table table-bordered">
+		  	    			<table id="datos_otros_ed" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
-			  	    					<th colspan="3">PATIO</th>
+			  	    					<th id="titulo_edificacion" colspan="3">&nbsp;</th>
 		  	    					</tr>
 		  	    				</thead>
 		  	    				<tbody>
@@ -153,13 +155,13 @@ echo '
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_2_Tipo).'
+		  	    							'.form_input($P8_2_Nro).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
 		  	    						<td>2.1</td>
-		  	    						<td>
-		  	    							<strong>Area de la losa deportiva</strong>
+		  	    						<td id="area_edificacion">
+		  	    							<strong>Area de </strong>
 		  	    						</td>
 		  	    						<td>
 											<label>Area en m2</label>
@@ -246,114 +248,132 @@ echo '
 
 <script type="text/javascript">
 
-// $.each( <?php #echo json_encode($cap5_i->result()); ?>, function(i, data) {
+$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 
-// 		$('#panel_tipo_edificaciones > div').remove('.btn-group');
-// 		var asd ='<div class="btn-group">';
-// 			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
-// 			asd+='<ul class="dropdown-menu">';
-// 		if (data.P5_Tot_P > 0){
-// 			asd+='<li id="' + data.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
-// 		}
-// 		if (data.P5_Tot_LD > 0){
-// 			asd+='<li id="' + data.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
-// 		}
-// 		if (data.P5_Tot_CTE > 0){
-// 			asd+='<li id="' + data.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
-// 		}
-// 		if (data.P5_Tot_MC > 0){
-// 			asd+='<li id="' + data.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
-// 		}
-// 		if (data.P5_Tot_L1 > 0){
-// 			asd+='<li id="' + data.P5_Tot_L1 +'.cmb_P5_Tot_L1" class="combo_ins1"><a href="" data-toggle="dropdown">Portadas de Ingresos, Portón</a></li>';
-// 		}
-// 		if (data.P5_Tot_R > 0){
-// 			asd+='<li id="' + data.P5_Tot_R +'.cmb_P5_Tot_R" class="combo_ins1"><a href="" data-toggle="dropdown">Rampas</a></li>';
-// 		}
-// 		asd+='</ul>';
-// 		asd+='</div>';
+		$('#panel_tipo_edificaciones > div').remove('.btn-group');
+		var asd ='<div class="btn-group">';
+			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+			asd+='<ul class="dropdown-menu">';
+		if (data.P5_Tot_P > 0){
+			asd+='<li id="' + data.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
+		}
+		if (data.P5_Tot_LD > 0){
+			asd+='<li id="' + data.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
+		}
+		if (data.P5_Tot_CTE > 0){
+			asd+='<li id="' + data.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
+		}
+		if (data.P5_Tot_MC > 0){
+			asd+='<li id="' + data.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
+		}
+		asd+='</ul>';
+		asd+='</div>';
 
-// 		$('#panel_tipo_edificaciones').html(asd);
+		$('#panel_tipo_edificaciones').html(asd);
 
-// });
+});
 
 
-// 	$('#panel_tipo_edificaciones').on('click','.combo_ins1',function(event){
+	$('#panel_tipo_edificaciones').on('click','.combo_ins1',function(event){
 
-// 		val= $(this).attr('id');
-// 		array=val.split(".")
-// 		Get_Nro_Edif(array[0],array[1]);
-// 		//alert(array[0]);
-// 		$('.combo_ins1').removeClass('active');
-// 		$(this).addClass('active');
-// 	});
+		val= $(this).attr('id');
+		array=val.split(".")
+		Get_Nro_Edif(array[0],array[1]);
+		//alert(array[0]);
+		$('.combo_ins1').removeClass('active');
+		$(this).addClass('active');
+	});
 
-// 	function Get_Nro_Edif(numero,tipo){
-// 		$('#panel_nro_tedificaciones > div').remove('.btn-group');
-// 		var asd ='<div class="btn-group">';
+	function Get_Nro_Edif(numero,tipo){
+		$('#panel_nro_tedificaciones > div').remove('.btn-group');
+		var asd ='<div class="btn-group">';
 
-// 		var titulo = '';
-// 		var codtipo = '';
-// 		var contenido = '';
+		var titulo = '';
+		var codtipo = '';
+		var contenido = '';
 
-// 		switch(tipo)
-// 		{
-// 			case 'cmb_P5_Tot_P':
-// 				titulo = 'Seleccione un Patio';
-// 				codtipo = 'P - ';
-// 				contenido = 'Patio Nro: ';
-// 				break;
+		switch(tipo)
+		{
+			case 'cmb_P5_Tot_P':
+				titulo = 'Seleccione un Patio';
+				codtipo = 'P.';
+				contenido = 'Patio Nro: ';
+				$('#titulo_edificacion').html('PATIO');
+				$('#area_edificacion').html('<strong>Area del Patio</strong>');	
+				break;
 
-// 			case 'cmb_P5_Tot_LD':
-// 				titulo = 'Seleccione una Losa Deportiva';
-// 				codtipo = 'LD - ';
-// 				contenido = 'Losa deportiva Nro: ';
-// 				break;
+			case 'cmb_P5_Tot_LD':
+				titulo = 'Seleccione una Losa Deportiva';
+				codtipo = 'LD.';
+				contenido = 'Losa deportiva Nro: ';
+				$('#titulo_edificacion').html('LOSA DEPORTIVA');
+				$('#area_edificacion').html('<strong>Area de la Losa Deportiva</strong>');
+				break;
 
-// 			case 'cmb_P5_Tot_CTE':
-// 				titulo = 'Seleccione una Cisterna o Tanque';
-// 				codtipo = 'CTE - ';
-// 				contenido = 'Cisterna y/o Tanque Nro: ';
-// 				break;
+			case 'cmb_P5_Tot_CTE':
+				titulo = 'Seleccione una Cisterna o Tanque';
+				codtipo = 'CTE.';
+				contenido = 'Cisterna y/o Tanque Nro: ';
+				$('#titulo_edificacion').html('CISTERNA - TANQUE');
+				break;
 
-// 			case 'cmb_P5_Tot_MC':
-// 				titulo = 'Seleccione un Muro de Contención';
-// 				codtipo = 'MC - ';
-// 				contenido = 'Muro de contención Nro: ';
-// 				break;
+			case 'cmb_P5_Tot_MC':
+				titulo = 'Seleccione un Muro de Contención';
+				codtipo = 'MC.';
+				contenido = 'Muro de contención Nro: ';
+				$('#titulo_edificacion').html('MURO DE CONTENCION');
+				break;
+		}
 
-// 			case 'cmb_P5_Tot_L1':
-// 				titulo = 'Seleccione una Portada de Ingreso, Portón';
-// 				codtipo = 'L1 - ';
-// 				contenido = 'Portada de Ingreso, Portón Nro: ';
-// 				break;
+		asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">' + titulo + '<span class="caret"></span></a>';
+			asd+='<ul class="dropdown-menu">';
+		for (var i=1; i<=numero; i++) {
+			asd+='<li id="' + codtipo + i +'" class="combo_ins1"><a href="" data-toggle="dropdown">' + contenido + i + ' </a></li>';
+		}
+		asd+='</ul>';
+		asd+='</div>';
 
-// 			case 'cmb_P5_Tot_R':
-// 				titulo = 'Seleccione una Rampa';
-// 				codtipo = 'R - ';
-// 				contenido = 'Rampa Nro: ';
-// 				break;
-// 		}
+		$('#panel_nro_tedificaciones').html(asd);
+		$('#P8_2_Tipo').val(numero);
+	}
 
-// 		asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">' + titulo + '<span class="caret"></span></a>';
-// 			asd+='<ul class="dropdown-menu">';
-// 		for (var i=1; i<=numero; i++) {
-// 			asd+='<li id="' + codtipo + i +'" class="combo_ins1"><a href="" data-toggle="dropdown">' + contenido + i + ' </a></li>';
-// 		}
-// 		asd+='</ul>';
-// 		asd+='</div>';
 
-// 		$('#panel_nro_tedificaciones').html(asd);
-// 	}
+	$('#panel_nro_tedificaciones').on('click','.combo_ins1',function(event){
 
-// 	$('#panel_nro_tedificaciones').on('click','.combo_ins1',function(event){
+		val= $(this).attr('id');
+		array=val.split(".")
+		Limpiar_Datos();
+		Get_Datos_Edif(array[0],array[1]);
+		$('.combo_ins1').removeClass('active');
+		$(this).addClass('active');
+	});
 
-// 		val= $(this).attr('id');
-// 		//array=val.split(".")
-// 		//Get_Nro_Edif(array[0],array[1]);
-// 		alert(val);
-// 		$('.combo_ins1').removeClass('active');
-// 		$(this).addClass('active');
-// 	});
+	function Get_Datos_Edif(tipo_edi,numero){
+
+		$('#P8_2_Nro').val(tipo_edi+' - '+numero);
+		
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap8/cap8_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,tipo:tipo_edi,nro:numero}, function(data, textStatus) {
+
+			$.each(data, function(index, val) {				
+				$('#P8_area').val(val.P8_area);
+				$('#P8_ejecuto').val(val.P8_ejecuto);
+				$('#P8_Est_E').val(val.P8_Est_E);
+				$('#P8_Ant').val(val.P8_Ant);
+				$('#P8_RecTec').val(val.P8_RecTec);
+				$('#P8_Obs').val(val.P8_Obs);
+			});
+
+		});
+	}
+
+	function Limpiar_Datos(){
+		$('#P8_2_Nro').val('');
+		$('#P8_area').val('');
+		$('#P8_ejecuto').val('');
+		$('#P8_Est_E').val('');
+		$('#P8_Ant').val('');
+		$('#P8_RecTec').val('');
+		$('#P8_Obs').val('');
+	}
 
 </script>
