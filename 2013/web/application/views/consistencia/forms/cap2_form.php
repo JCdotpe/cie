@@ -651,13 +651,30 @@ $P2_D_9_Desag = array(
 
 // TABLA P2_D_1N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar
 
-$P2_D_1_Cod = array(
-	'name'	=> 'P2_D_1_Cod',
-	'id'	=> 'P2_D_1_Cod',
+$P2_D_1_Cod_1 = array(
+	'name'	=> 'P2_D_1_Cod[]',
+	'id'	=> 'P2_D_1_Cod_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
-
+$P2_D_1_Cod_2 = array(
+	'name'	=> 'P2_D_1_Cod[]',
+	'id'	=> 'P2_D_1_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_1_Cod_3 = array(
+	'name'	=> 'P2_D_1_Cod[]',
+	'id'	=> 'P2_D_1_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_1_Cod_4 = array(
+	'name'	=> 'P2_D_1_Cod[]',
+	'id'	=> 'P2_D_1_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
 $P2_D_1_Cod_Est = array(
 	'name'	=> 'P2_D_1_Cod_Est',
 	'id'	=> 'P2_D_1_Cod_Est',
@@ -674,40 +691,70 @@ $P2_D_1_Cod_O = array(
 
 // TABLA P2_D_3N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 2. 	¿Con cuántos suministros eléctricos cuenta este local escolar?
 
-$P2_D_3_Nro = array(
-	'name'	=> 'P2_D_3_Nro',
-	'id'	=> 'P2_D_3_Nro',
-	'maxlength'	=> 1,
-);
+// $P2_D_3_Nro = array(
+// 	'name'	=> 'P2_D_3_Nro',
+// 	'id'	=> 'P2_D_3_Nro',
+// 	'maxlength'	=> 1,
+// );
 
-$P2_D_3_SumNro = array(
-	'name'	=> 'P2_D_3_SumNro',
-	'id'	=> 'P2_D_3_SumNro',
-	'maxlength'	=> 1,
-);
+// $P2_D_3_SumNro = array(
+// 	'name'	=> 'P2_D_3_SumNro',
+// 	'id'	=> 'P2_D_3_SumNro',
+// 	'maxlength'	=> 1,
+// );
 
-$P2_D_3_1DocRef = array(
-	'name'	=> 'P2_D_3_1DocRef',
-	'id'	=> 'P2_D_3_1DocRef',
-	'maxlength'	=> 1,
-);
+// $P2_D_3_1DocRef = array(
+// 	'name'	=> 'P2_D_3_1DocRef',
+// 	'id'	=> 'P2_D_3_1DocRef',
+// 	'maxlength'	=> 1,
+// );
 
 // FIN TABLA P2_D_3N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 5. 	El abastecimiento de agua, ¿procede de: 
 
 // TABLA P2_D_5N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 5. 	El abastecimiento de agua, ¿procede de: 
 
-$P2_D_5_Cod = array(
-	'name'	=> 'P2_D_5_Cod',
-	'id'	=> 'P2_D_5_Cod',
+$P2_D_5_Cod_1 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_1',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_5_Cod_2 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_5_Cod_3 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_5_Cod_4 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_5_Cod_5 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_5_Cod_6 = array(
+	'name'	=> 'P2_D_5_Cod[]',
+	'id'	=> 'P2_D_5_Cod_6',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
 
-$P2_D_5_Cod_Est = array(
-	'name'	=> 'P2_D_5_Cod_Est',
-	'id'	=> 'P2_D_5_Cod_Est',
-	'maxlength'	=> 1,
-);
+// $P2_D_5_Cod_Est = array(
+// 	'name'	=> 'P2_D_5_Cod_Est',
+// 	'id'	=> 'P2_D_5_Cod_Est',
+// 	'maxlength'	=> 1,
+// );
 
 $P2_D_5_Cod_O = array(
 	'name'	=> 'P2_D_5_Cod_O',
@@ -719,46 +766,84 @@ $P2_D_5_Cod_O = array(
 
 // TABLA P2_D_7N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 7. 	¿Cuáles son los números de suministros de agua con que cuenta el local escolar?  
 
-$P2_D_7_Nro = array(
-	'name'	=> 'P2_D_7_Nro',
-	'id'	=> 'P2_D_7_Nro',
-	'maxlength'	=> 1,
-);
+// $P2_D_7_Nro = array(
+// 	'name'	=> 'P2_D_7_Nro',
+// 	'id'	=> 'P2_D_7_Nro',
+// 	'maxlength'	=> 1,
+// );
 
-$P2_D_7_SumNro = array(
-	'name'	=> 'P2_D_7_SumNro',
-	'id'	=> 'P2_D_7_SumNro',
-	'maxlength'	=> 1,
-);
+// $P2_D_7_SumNro = array(
+// 	'name'	=> 'P2_D_7_SumNro',
+// 	'id'	=> 'P2_D_7_SumNro',
+// 	'maxlength'	=> 1,
+// );
 
-$P2_D_7_1DocRef = array(
-	'name'	=> 'P2_D_7_1DocRef',
-	'id'	=> 'P2_D_7_1DocRef',
-	'maxlength'	=> 1,
-);
+// $P2_D_7_1DocRef = array(
+// 	'name'	=> 'P2_D_7_1DocRef',
+// 	'id'	=> 'P2_D_7_1DocRef',
+// 	'maxlength'	=> 1,
+// );
 
 // FIN TABLA P2_D_7N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 7. 	¿Cuáles son los números de suministros de agua con que cuenta el local escolar? 
 
 // TABLA P2_D_9N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 9. 	¿el desagüe del local escolar está conectado a: 
 
-$P2_D_9_Nro = array(
-	'name'	=> 'P2_D_9_Nro',
-	'id'	=> 'P2_D_9_Nro',
+// $P2_D_9_Nro = array(
+// 	'name'	=> 'P2_D_9_Nro',
+// 	'id'	=> 'P2_D_9_Nro',
+// 	'maxlength'	=> 1,
+// 	'class'	=> 'input1',
+// );
+
+$P2_D_9_Nro_1 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_1',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_2 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_3 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_4 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_5 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_6 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_D_9_Nro_7 = array(
+	'name'	=> 'P2_D_9_Nro[]',
+	'id'	=> 'P2_D_9_Nro_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
 
-$P2_D_9_Cod = array(
-	'name'	=> 'P2_D_9_Cod',
-	'id'	=> 'P2_D_9_Cod',
-	'maxlength'	=> 1,
-);
 
-$P2_D_9_Cod_Est = array(
-	'name'	=> 'P2_D_9_Cod_Est',
-	'id'	=> 'P2_D_9_Cod_Est',
-	'maxlength'	=> 1,
-);
+// $P2_D_9_Cod_Est = array(
+// 	'name'	=> 'P2_D_9_Cod_Est',
+// 	'id'	=> 'P2_D_9_Cod_Est',
+// 	'maxlength'	=> 1,
+// );
 
 // FIN TABLA P2_D_9N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 9. 	¿el desagüe del local escolar está conectado a: 
 
@@ -1343,10 +1428,10 @@ echo '
 											(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_D_1_Cod).' Red pública <br />
-											'.form_input($P2_D_1_Cod).' Generador o motor <br />
-											'.form_input($P2_D_1_Cod).' Panel solar <br />
-											'.form_input($P2_D_1_Cod).' - Especifique '.form_input($P2_D_1_Cod_O).'
+											'.form_input($P2_D_1_Cod_1).' Red pública <br />
+											'.form_input($P2_D_1_Cod_2).' Generador o motor <br />
+											'.form_input($P2_D_1_Cod_3).' Panel solar <br />
+											'.form_input($P2_D_1_Cod_4).' - Especifique '.form_input($P2_D_1_Cod_O).'
 										</td>
 
 									</tr>
@@ -1376,7 +1461,16 @@ echo '
 											<br>(diligencie, según respuesta en pregunta 2)
 										</td>
 										<td>
-											<div id="suministros_electricos"><table class="table table-bordered"><tbody><tr><td style="text-align:center" colspan="3"><strong>Suministro N°</strong></td></tr><tr><th style="text-align:center">1</th><td>'.form_input($P2_D_3_SumNro).'</td><td style="text-align:center">1</td></tr></tbody></table></div>
+											<div id="suministros_electricos">
+
+											<table class="table table-bordered" id="p2_d_3_n">
+												<tbody>
+												<tr><td style="text-align:center" colspan="3"><strong>Suministro N°</strong></td></tr>
+												</tbody>
+											</table>
+
+											</div>
+
 											<div style="text-align:center" class="panel">
 												(1) No tiene documento de referencia
 											</div>
@@ -1393,12 +1487,12 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_D_5_Cod).' Red pública <br />
-											'.form_input($P2_D_5_Cod).' Pilón de uso público (agua potable) <br />
-											'.form_input($P2_D_5_Cod).' Camión cisterna u otro similar <br />
-											'.form_input($P2_D_5_Cod).' Pozo <br />
-											'.form_input($P2_D_5_Cod).' Río, acequia, manantial o similar <br />
-											'.form_input($P2_D_5_Cod).' Otro - Especifique '.form_input($P2_D_5_Cod_O).'
+											'.form_input($P2_D_5_Cod_1).' Red pública <br />
+											'.form_input($P2_D_5_Cod_2).' Pilón de uso público (agua potable) <br />
+											'.form_input($P2_D_5_Cod_3).' Camión cisterna u otro similar <br />
+											'.form_input($P2_D_5_Cod_4).' Pozo <br />
+											'.form_input($P2_D_5_Cod_5).' Río, acequia, manantial o similar <br />
+											'.form_input($P2_D_5_Cod_6).' Otro - Especifique '.form_input($P2_D_5_Cod_O).'
 										</td>
 									</tr>
 
@@ -1429,7 +1523,15 @@ echo '
 										</td>
 										<td>
 
-											<div id="suministros_agua"><table class="table table-bordered"><tbody><tr><td style="text-align:center" colspan="3"><strong>Suministro N°</strong></td></tr><tr><th style="text-align:center">1</th><td><input type="text" class="form-control" value="0" style="width:250px;"></td><td style="text-align:center">1</td></tr></tbody></table></div>
+											<div id="suministros_agua">
+											<table class="table table-bordered"  id="p2_d_7_n">
+												<tbody>
+												<tr>
+												<td style="text-align:center" colspan="3"><strong>Suministro N°</strong></td></tr>
+												</tbody>
+											</table>
+
+											</div>
 
 											<div style="text-align:center" class="panel">
 												(1) No tiene documento de referencia
@@ -1447,13 +1549,13 @@ echo '
 											<br>(Acepte solo un código)
 										</td>
 										<td>
-											'.form_input($P2_D_9_Nro).' Red pública? <br />
-											'.form_input($P2_D_9_Nro).' Tanque séptico y pozo percolador? <br />
-											'.form_input($P2_D_9_Nro).' Pozo con tratamiento (cal, ceniza y otro)? <br />
-											'.form_input($P2_D_9_Nro).' Pozo sin tratamiento alguno? <br />
-											'.form_input($P2_D_9_Nro).' Río, acequia, manantial o canal?<br />
-											'.form_input($P2_D_9_Nro).' Zanja filtrante?.<br />
-											'.form_input($P2_D_9_Nro).' NO TIENE<br />
+											'.form_input($P2_D_9_Nro_1).' Red pública? <br />
+											'.form_input($P2_D_9_Nro_2).' Tanque séptico y pozo percolador? <br />
+											'.form_input($P2_D_9_Nro_3).' Pozo con tratamiento (cal, ceniza y otro)? <br />
+											'.form_input($P2_D_9_Nro_4).' Pozo sin tratamiento alguno? <br />
+											'.form_input($P2_D_9_Nro_5).' Río, acequia, manantial o canal?<br />
+											'.form_input($P2_D_9_Nro_6).' Zanja filtrante?.<br />
+											'.form_input($P2_D_9_Nro_7).' NO TIENE<br />
 										</td>
 									</tr>
 
@@ -1662,21 +1764,119 @@ $.each( <?php echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) 
 $.each( <?php echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
 	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
 	   	if(data.P2_B_11_Cod ==7)
-	   		$('#P2_B_11_Cod_O' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_O);
+	   		$('#P2_B_11_Cod_O').val(data.P2_B_11_Cod_O);
 }); 
 
 //p2_b_12n
 $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
 	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
 	   	if(data.P2_B_12_Cod ==7)
-	   		$('#P2_B_12_Cod_O' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_O);
+	   		$('#P2_B_12_Cod_O').val(data.P2_B_12_Cod_O);
 }); 
 
+//p2_c
+$.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+});
 
-// $.each( <?php //echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
-// 	   	$('#' + fila).val(valor);
-// });
 
+
+//p2_d_3n -----------------------------------------------------------JS
+$('#P2_D_2_Energ_CantSum').change(function(event) {
+$('#p2_d_3_n tr').remove('.sumin');
+	var ahua = $(this).val();
+	if(ahua >= 0 && ahua<=10){
+	  for(var i=1; i<=ahua;i++){
+	    var asd = '<tr class="sumin">';
+	    asd +='<td><input type="text" class="input2 embc' + i + '" name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_3_SumNro[]" id="P2_D_3_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_3_1DocRef[]" id="P2_D_3_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd += '</tr>';
+	    $('#p2_d_3_n > tbody').append(asd);
+	  }
+	}else if(ahua==''){
+		//
+	}else{
+		alert('10 Entrevistas máximo');
+	}
+
+
+var as = 1;
+$.each( <?php echo json_encode($cap2_p2_d_3n->result()); ?>, function(i, data) {
+	   $('#P2_D_3_Nro_' +  as).val(data.P2_D_3_Nro);
+	   $('#P2_D_3_SumNro_' +  as).val(data.P2_D_3_SumNro);
+	   $('#P2_D_3_1DocRef_' +  as).val(data.P2_D_3_1DocRef);
+	   as++;
+}); 
+
+});
+
+
+//p2_d_7n -----------------------------------------------------------JS
+$('#P2_D_6_Agua_CantSum').change(function(event) {
+$('#p2_d_7_n tr').remove('.sumina');
+	var ahua = $(this).val();
+	if(ahua >= 0 && ahua<=10){
+	  for(var i=1; i<=ahua;i++){
+	    var asd = '<tr class="sumina">';
+	    asd +='<td><input type="text" class="input2 embc' + i + '" name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_7_SumNro[]" id="P2_D_7_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_7_1DocRef[]" id="P2_D_7_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd += '</tr>';
+	    $('#p2_d_7_n > tbody').append(asd);
+	  }
+	}else if(ahua==''){
+		//
+	}else{
+		alert('10 Entrevistas máximo');
+	}
+
+
+var as = 1;
+$.each( <?php echo json_encode($cap2_p2_d_7n->result()); ?>, function(i, data) {
+	   $('#P2_D_7_Nro_' +  as).val(data.P2_D_7_Nro);
+	   $('#P2_D_7_SumNro_' +  as).val(data.P2_D_7_SumNro);
+	   $('#P2_D_7_1DocRef_' +  as).val(data.P2_D_7_1DocRef);
+	   as++;
+}); 
+
+});
+
+//p2_d
+$.each( <?php echo json_encode($cap2_p2_d->row()); ?>, function(fila, valor) {
+		if(fila == 'P2_D_2_Energ_CantSum'){
+	   			$('#' + fila).val(valor);
+	   			$('#' + fila).trigger('change');	
+        }else if(fila == 'P2_D_6_Agua_CantSum'){
+	   			$('#' + fila).val(valor);
+	   			$('#' + fila).trigger('change');	
+        }else{
+	   			$('#' + fila).val(valor);
+	    }
+});
+
+//p2_d_1n
+$.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
+	   	$('#P2_D_1_Cod_' + data.P2_D_1_Cod).val(data.P2_D_1_Cod_Est);
+	   	if(data.P2_D_1_Cod ==4)
+	   		$('#P2_D_1_Cod_O').val(data.P2_D_1_Cod_O);	   	
+}); 
+
+//p2_d_3n ----------JS
+
+//p2_d_5n
+$.each( <?php echo json_encode($cap2_p2_d_5n->result()); ?>, function(i, data) {
+	   	$('#P2_D_5_Cod_' + data.P2_D_5_Cod).val(data.P2_D_5_Cod_Est);
+	   	if(data.P2_D_1_Cod ==6)
+	   		$('#P2_D_5_Cod_O').val(data.P2_D_5_Cod_O);	   	
+}); 
+
+//p2_d_7n ----------JS
+
+//p2_d_9n
+$.each( <?php echo json_encode($cap2_p2_d_9n->result()); ?>, function(i, data) {
+	   	$('#P2_D_9_Nro_' + data.P2_D_9_Nro).val(data.P2_D_9_Cod);   	
+}); 
 
 $("#cap2_f").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             

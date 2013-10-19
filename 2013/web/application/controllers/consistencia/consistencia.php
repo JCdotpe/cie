@@ -43,8 +43,14 @@ class Consistencia extends CI_Controller {
 			$data['cap2_p2_b_10n'] = $this->cap2_model->get_p2_b_10n($id,$prd);
 			$data['cap2_p2_b_11n'] = $this->cap2_model->get_p2_b_11n($id,$prd);
 			$data['cap2_p2_b_12n'] = $this->cap2_model->get_p2_b_12n($id,$prd);
+			$data['cap2_p2_c'] = $this->cap2_model->get_p2_c($id,$prd);
 
-
+			$data['cap2_p2_d'] = $this->cap2_model->get_p2_d($id,$prd);
+			$data['cap2_p2_d_1n'] = $this->cap2_model->get_p2_d_1n($id,$prd);
+			$data['cap2_p2_d_3n'] = $this->cap2_model->get_p2_d_3n($id,$prd);
+			$data['cap2_p2_d_5n'] = $this->cap2_model->get_p2_d_5n($id,$prd);
+			$data['cap2_p2_d_7n'] = $this->cap2_model->get_p2_d_7n($id,$prd);
+			$data['cap2_p2_d_9n'] = $this->cap2_model->get_p2_d_9n($id,$prd);
 
 			$data['dptos'] = $this->ubigeo_model->get_dptos();
 
