@@ -431,7 +431,7 @@ $P2_B_11_Cod_9 = array(
 $P2_B_11_Cod_10 = array(
 	'name'	=> 'P2_B_11_Cod[]',
 	'id'	=> 'P2_B_11_Cod_10',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 	'class'	=> 'input1',
 );
 $P2_B_11_Cod_11 = array(
@@ -451,14 +451,14 @@ $P2_B_11_Cod_12 = array(
 $P2_B_11_Cod_e = array(
 	'name'	=> 'P2_B_11_Cod_e',
 	'id'	=> 'P2_B_11_Cod_e',
-	'maxlength'	=> 80,
+	'maxlength'	=> 1,
 	'class' => 'input200',
 );
 
 $P2_B_11_Cod_O = array(
 	'name'	=> 'P2_B_11_Cod_O',
 	'id'	=> 'P2_B_11_Cod_O',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 );
 
 // END P2_B_11N - Capitulo II / Sección B: Condición del terreno y acceso / 11. ¿Existen peligros antrópicos en esta localidad como: 
@@ -517,7 +517,7 @@ $P2_B_12_Cod_e = array(
 $P2_B_12_Cod_O = array(
 	'name'	=> 'P2_B_12_Cod_O',
 	'id'	=> 'P2_B_12_Cod_O',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 );
 
 // END P2_B_12N - Capitulo II / Sección B: Condición del terreno y acceso / 12. ¿Existe vulnerabilidad por factores de exposición como: 
@@ -759,7 +759,7 @@ $P2_D_5_Cod_6 = array(
 $P2_D_5_Cod_O = array(
 	'name'	=> 'P2_D_5_Cod_O',
 	'id'	=> 'P2_D_5_Cod_O',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 );
 
 // FIN TABLA P2_D_5N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 5. 	El abastecimiento de agua, ¿procede de: 
@@ -880,12 +880,81 @@ $P2_E_Obs = array(
 
 // TABLA P2_F - Capitulo II / Sección F: Eliminación de basura
 
-$P2_F_1_ElimBas = array(
-	'name'	=> 'P2_F_1_ElimBas',
-	'id'	=> 'P2_F_1_ElimBas',
+$P2_F_1_ElimBas_1 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
+
+$P2_F_1_ElimBas_2 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_3 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_4 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_5 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_6 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_7 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_8 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_8',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_9 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_9',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_F_1_ElimBas_10 = array(
+	'name'	=> 'P2_F_1_ElimBas[]',
+	'id'	=> 'P2_F_1_ElimBas_10',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+
+
+
+
+
 
 $P2_F_1_ElimBas_e = array(
 	'name'	=> 'P2_F_1_ElimBas_e',
@@ -927,11 +996,6 @@ $P2_G_2_Nro = array(
 	'maxlength'	=> 1,
 );
 
-$P2_G_2_Cod = array(
-	'name'	=> 'P2_G_2_Cod',
-	'id'	=> 'P2_G_2_Cod',
-	'maxlength'	=> 1,
-);
 
 $P2_G_2_Otro = array(
 	'name'	=> 'P2_G_2_Otro',
@@ -940,16 +1004,144 @@ $P2_G_2_Otro = array(
 	'class' => 'input200',
 );
 
-$P2_G_2A_EstPre = array(
-	'name'	=> 'P2_G_2A_EstPre',
-	'id'	=> 'P2_G_2A_EstPre',
+$P2_G_2_Cod_1 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
 );
 
-$P2_G_2B_snip = array(
-	'name'	=> 'P2_G_2B_snip',
-	'id'	=> 'P2_G_2B_snip',
+$P2_G_2A_EstPre_1 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_1',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_1 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_1',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+$P2_G_2_Cod_2 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_2 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_2 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_2',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+$P2_G_2_Cod_3 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_3 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_3',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_3 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_3',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+
+$P2_G_2_Cod_4 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_4 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_4',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_4 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_4',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+$P2_G_2_Cod_5 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_5 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_5',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_5 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_5',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+$P2_G_2_Cod_6 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_6 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_6',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_6 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_6',
+	'maxlength'	=> 6,
+	'class'	=> 'input6',
+);
+
+$P2_G_2_Cod_7 = array(
+	'name'	=> 'P2_G_2_Cod[]',
+	'id'	=> 'P2_G_2_Cod_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+$P2_G_2A_EstPre_7 = array(
+	'name'	=> 'P2_G_2A_EstPre[]',
+	'id'	=> 'P2_G_2A_EstPre_7',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
+);
+
+$P2_G_2B_snip_7 = array(
+	'name'	=> 'P2_G_2B_snip[]',
+	'id'	=> 'P2_G_2B_snip_7',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
 );
@@ -1255,8 +1447,8 @@ echo '
 												'.form_input($P2_B_12_Cod_3).' Cercanía a barranco o precipicio <br />	
 												'.form_input($P2_B_12_Cod_4).' Cercanía a cuartel militar o policial <br />	
 												'.form_input($P2_B_12_Cod_5).' Erosión fluvial de laderas <br />	
-												'.form_input($P2_B_12_Cod_6).' - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
-												'.form_input($P2_B_12_Cod_7).' Otro <br />	
+												'.form_input($P2_B_12_Cod_6).'Otro - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
+												'.form_input($P2_B_12_Cod_7).' NINGUNO <br />	
 											</td>
 										</tr>
 									</tbody>
@@ -1620,17 +1812,16 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_F_1_ElimBas).' Arrojada al camión/triciclo municipal?. <br />
-											'.form_input($P2_F_1_ElimBas).' Arrojada al camión/informal?. <br />
-											'.form_input($P2_F_1_ElimBas).' Depositada en contenedor? <br />
-											'.form_input($P2_F_1_ElimBas).' Acumulada en calles/campo abierto? <br />
-											'.form_input($P2_F_1_ElimBas).' Reciclada? <br />
-											'.form_input($P2_F_1_ElimBas).' Quemada? <br />
-											'.form_input($P2_F_1_ElimBas).' Enterrada? <br />
-											'.form_input($P2_F_1_ElimBas).' Usada como alimento para animales? <br />
-											'.form_input($P2_F_1_ElimBas).' Separada para el compost? <br />
-											'.form_input($P2_F_1_ElimBas).' Otra forma? <br />
-											'.form_input($P2_F_1_ElimBas).' - Especifique '.form_input($P2_F_1_ElimBas_e).' 
+											'.form_input($P2_F_1_ElimBas_1).' Arrojada al camión/triciclo municipal?. <br />
+											'.form_input($P2_F_1_ElimBas_2).' Arrojada al camión/informal?. <br />
+											'.form_input($P2_F_1_ElimBas_3).' Depositada en contenedor? <br />
+											'.form_input($P2_F_1_ElimBas_4).' Acumulada en calles/campo abierto? <br />
+											'.form_input($P2_F_1_ElimBas_5).' Reciclada? <br />
+											'.form_input($P2_F_1_ElimBas_6).' Quemada? <br />
+											'.form_input($P2_F_1_ElimBas_7).' Enterrada? <br />
+											'.form_input($P2_F_1_ElimBas_8).' Usada como alimento para animales? <br />
+											'.form_input($P2_F_1_ElimBas_9).' Separada para el compost? <br />
+											'.form_input($P2_F_1_ElimBas_10).' Otra forma? - Especifique '.form_input($P2_F_1_ElimBas_O).'<br />
 										</td>
 									</tr>
 								</tbody>
@@ -1662,58 +1853,60 @@ echo '
 											<table class="table table-bordered">
 												<thead>
 													<tr>
-														<td rowspan="2" style="text-align:center">Instituciones</td>
+														<td style="text-align:center">Instituciones</td>
 														<td style="text-align:center">2A. ¿cuenta con estudio de pre-inversión?</td>
-														<td rowspan="2" style="text-align:center">2B. ¿cuál es el código snip?</td>
+														<td style="text-align:center">2B. ¿cuál es el código snip?</td>
 													</tr>
 													<tr>
+														<td></td>
 														<th style="text-align:center">1. Si, 2. No</th>
+														<td></td>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
 														<td>
-															1.Gobierno nacional / proyectos especiales</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															1.Gobierno nacional / proyectos especiales '.form_input($P2_G_2_Cod_1).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_1).'</td>
+														<td>'.form_input($P2_G_2B_snip_1).'</td>
 													</tr>
 													<tr>
 														<td>
-															2.Gobierno regional / local</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															2.Gobierno regional / local '.form_input($P2_G_2_Cod_2).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_2).'</td>
+														<td>'.form_input($P2_G_2B_snip_2).'</td>
 													</tr>
 													<tr>
 														<td>
-															3.Apafa / autoconstrucción</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															3.Apafa / autoconstrucción '.form_input($P2_G_2_Cod_3).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_3).'</td>
+														<td>'.form_input($P2_G_2B_snip_3).'</td>
 													</tr>
 													<tr>
 														<td>
-															4.Entidades cooperantes</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															4.Entidades cooperantes '.form_input($P2_G_2_Cod_4).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_4).'</td>
+														<td>'.form_input($P2_G_2B_snip_4).'</td>
 													</tr>
 													<tr>
 														<td>
-															5.Organismos sin fines de lucro</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															5.Organismos sin fines de lucro'.form_input($P2_G_2_Cod_5).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_5).'</td>
+														<td>'.form_input($P2_G_2B_snip_5).'</td>
 													</tr>
 													<tr>
 														<td>
-															6.Empresa privada</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+															6.Empresa privada '.form_input($P2_G_2_Cod_6).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_6).'</td>
+														<td>'.form_input($P2_G_2B_snip_6).'</td>
 													</tr>
 													<tr>
 														<td>
-															7.Otro (Especifique)
+															7.Otro (Especifique) '.form_input($P2_G_2_Cod_7).'
 															'.form_input($P2_G_2_Otro).'
 														</td>
-														<td>'.form_input($P2_G_2A_EstPre).'</td>
-														<td>'.form_input($P2_G_2B_snip).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_7).'</td>
+														<td>'.form_input($P2_G_2B_snip_7).'</td>
 													</tr>
 												</tbody>
 											</table>
@@ -1763,14 +1956,14 @@ $.each( <?php echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) 
 //p2_b_11n
 $.each( <?php echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
 	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
-	   	if(data.P2_B_11_Cod ==7)
+	   	if(data.P2_B_11_Cod == 11)
 	   		$('#P2_B_11_Cod_O').val(data.P2_B_11_Cod_O);
 }); 
 
 //p2_b_12n
 $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
 	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
-	   	if(data.P2_B_12_Cod ==7)
+	   	if(data.P2_B_12_Cod ==6)
 	   		$('#P2_B_12_Cod_O').val(data.P2_B_12_Cod_O);
 }); 
 
@@ -1867,7 +2060,7 @@ $.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
 //p2_d_5n
 $.each( <?php echo json_encode($cap2_p2_d_5n->result()); ?>, function(i, data) {
 	   	$('#P2_D_5_Cod_' + data.P2_D_5_Cod).val(data.P2_D_5_Cod_Est);
-	   	if(data.P2_D_1_Cod ==6)
+	   	if(data.P2_D_5_Cod == 6)
 	   		$('#P2_D_5_Cod_O').val(data.P2_D_5_Cod_O);	   	
 }); 
 
@@ -1877,6 +2070,36 @@ $.each( <?php echo json_encode($cap2_p2_d_5n->result()); ?>, function(i, data) {
 $.each( <?php echo json_encode($cap2_p2_d_9n->result()); ?>, function(i, data) {
 	   	$('#P2_D_9_Nro_' + data.P2_D_9_Nro).val(data.P2_D_9_Cod);   	
 }); 
+
+//p2_e
+$.each( <?php echo json_encode($cap2_p2_e->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
+
+//p2_f
+$.each( <?php echo json_encode($cap2_p2_f->result()); ?>, function(i, data) {
+	   	$('#P2_F_1_ElimBas_' + data.P2_F_1_ElimBas).val(data.P2_F_1_ElimBas_e);
+	   	if(data.P2_F_1_ElimBas ==10)
+	   		$('#P2_F_1_ElimBas_O').val(data.P2_F_1_ElimBas_O);	   	
+}); 
+
+
+//p2_g
+$.each( <?php echo json_encode($cap2_p2_g->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+});
+
+//p2_g_2n
+$.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
+	   	$('#P2_G_2_Cod_' + data.P2_G_2_Nro).val(data.P2_G_2_Cod);
+	   	$('#P2_G_2A_EstPre_' + data.P2_G_2_Nro).val(data.P2_G_2A_EstPre);
+	   	$('#P2_G_2B_snip_' + data.P2_G_2_Nro).val(data.P2_G_2B_snip);
+	   	if(data.P2_G_2_Nro == 7)
+	   		$('#P2_G_2_Otro').val(data.P2_G_2_Otro);	  
+});
+
+
+
 
 $("#cap2_f").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
@@ -1906,8 +2129,9 @@ $("#cap2_f").validate({
 		      validator.focusInvalid();
 		    },
 		    submitHandler: function(form) {
-				    	var car_data = $("#cap2_f").serializeArray();
-					    car_data.push(
+		    		alert(1);
+				    	var cap2_data = $("#cap2_f").serializeArray();
+					    cap2_data.push(
 					        {name: 'ajax',value:1},
 					        {name: 'id_local',value:$("input[name='id_local']").val()},      
 					        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
@@ -1918,7 +2142,7 @@ $("#cap2_f").validate({
 				        $.ajax({
 				            url: CI.site_url + "/consistencia/cap2",
 				            type:'POST',
-				            data:car_data,
+				            data:cap2_data,
 				            dataType:'json',
 				            success:function(json){
 								alert(json.msg);
