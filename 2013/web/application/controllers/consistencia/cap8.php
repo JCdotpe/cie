@@ -31,9 +31,9 @@ class Cap8 extends CI_Controller {
 
 			$x= array("P8_2_Tipo" => $fila->P8_2_Tipo,
 			"P8_2_Nro" => $fila->P8_2_Nro,
-			"P8_area" => $fila->P8_area,
-			"P8_altura" => $fila->P8_altura,
-			"P8_longitud" => $fila->P8_longitud,
+			"P8_area" => round($fila->P8_area),
+			"P8_altura" => round($fila->P8_altura),
+			"P8_longitud" => round($fila->P8_longitud),
 			"P8_ejecuto" => $fila->P8_ejecuto,
 			"P8_ejecuto_O" => $fila->P8_ejecuto_O,
 			"P8_Est_E" => $fila->P8_Est_E,

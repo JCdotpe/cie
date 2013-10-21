@@ -299,17 +299,8 @@ echo '
 
 
 							<div class="panel" style="background:#DDD;">
-								<div id="panel_edificaciones" style="margin-top:10px;margin-bottom:10px;">
-									<div class="btn-group">
-										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li class="combo_ins7 active"><a href="" data-toggle="dropdown"> Edificación Nro:01</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:02</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:03</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:04</a></li>
-											<li class="combo_ins7"><a href="" data-toggle="dropdown"> Edificación Nro:05</a></li>
-										</ul>
-									</div>
+								<div id="panel_edificaciones_vii" style="margin-top:10px;margin-bottom:10px;">
+									
 								</div>
 							</div>	  
 
@@ -772,3 +763,60 @@ echo '
 ';
 
  ?>
+
+<script type="text/javascript">
+
+$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
+
+		$('#panel_edificaciones_vii > div').remove('.btn-group');
+		var asd ='<div class="btn-group">';
+			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+			asd+='<ul class="dropdown-menu">';
+		if (data.P5_Tot_E > 0)
+		{
+			for (var i=1; i<=data.P5_Tot_E; i++) {
+				asd+='<li id="' + i +'.cmb_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
+			}			
+		}
+		asd+='</ul>';
+		asd+='</div>';
+
+		$('#panel_edificaciones_vii').html(asd);
+});
+
+	$('#panel_edificaciones_vii').on('click','.combo_ins1',function(event){
+
+		val= $(this).attr('id');
+		array=val.split(".")
+		//Limpiar_Datos();
+		//Get_Edif_VII(array[0],array[1]);
+		$('#panel_edificaciones_vii > div > ul > li.combo_ins1').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	function Get_Edif_VII(tipo_edi,numero){
+
+		$('#P8_2_Nro').val(tipo_edi+' - '+numero);
+		
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap8/cap8_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,tipo:tipo_edi,nro:numero}, function(data, textStatus) {
+
+			$.each(data, function(index, val) {				
+				$('#P8_area').val(val.P8_area);
+				$('#P8_altura').val(val.P8_altura);
+				$('#P8_longitud').val(val.P8_longitud);
+				$('#P8_ejecuto').val(val.P8_ejecuto);
+				$('#P8_ejecuto_O').val(val.P8_ejecuto_O);
+				$('#P8_Est_E').val(val.P8_Est_E);
+				$('#P8_Ant').val(val.P8_Ant);
+				$('#P8_Est_PaLo').val(val.P8_Est_PaLo);
+				$('#P8_RecTec').val(val.P8_RecTec);
+				$('#P8_Obs').val(val.P8_Obs);
+			});
+
+		});
+	}
+
+
+
+
+</script>
