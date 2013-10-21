@@ -28,7 +28,7 @@ $('#fotos input').remove('.input98p');
 var asd = '';
 var as = 1;
 $.each( <?php echo json_encode($cap9_f->result()); ?>, function(i, data) {
-	   asd+='<input type="text" class="input98p" disabled="disabled" name="P9_F_Url_Foto' + '_' + as + '" id="P9_F_Url_Foto' + '_' + as + '" value="'+ data.P9_F_Url_Foto +'" >';
+	   asd+='<input type="text" class="input3" disabled="disabled" value="' + as + '"  /> <input type="text" class="input90p" disabled="disabled" name="P9_F_Url_Foto' + '_' + as + '" id="P9_F_Url_Foto' + '_' + as + '" value="'+ data.P9_F_Url_Foto +'" > <br /> <br />';
 	   as++;
 }); 
 $('#fotos').append(asd);

@@ -163,8 +163,8 @@ $PC_B_2_CantEv = array(
 $PC_C_2_Rfinal_fecha = array(
 	'name'	=> 'PC_C_2_Rfinal_fecha',
 	'id'	=> 'PC_C_2_Rfinal_fecha',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 10,
+	'class' => 'input10',
 );
 
 // FIN DETALLE - Sección C: Entrevista y Supervision
@@ -280,8 +280,8 @@ $PC_C_2_Rfinal_resul_O = array(
 $PC_D_EvT_dni = array(
 	'name'	=> 'PC_D_EvT_dni',
 	'id'	=> 'PC_D_EvT_dni',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 8,
+	'class' => 'input8',
 );
 
 $PC_D_EvT_Nomb = array(
@@ -294,8 +294,8 @@ $PC_D_EvT_Nomb = array(
 $PC_D_JBri_dni = array(
 	'name'	=> 'PC_D_JBri_dni',
 	'id'	=> 'PC_D_JBri_dni',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 8,
+	'class' => 'input8',
 );
 
 $PC_D_JBri_Nomb = array(
@@ -308,8 +308,8 @@ $PC_D_JBri_Nomb = array(
 $PC_D_CProv_dni = array(
 	'name'	=> 'PC_D_CProv_dni',
 	'id'	=> 'PC_D_CProv_dni',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 8,
+	'class' => 'input8',
 );
 
 $PC_D_CProv_Nomb = array(
@@ -322,8 +322,8 @@ $PC_D_CProv_Nomb = array(
 $PC_D_CDep_dni = array(
 	'name'	=> 'PC_D_CDep_dni',
 	'id'	=> 'PC_D_CDep_dni',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 8,
+	'class' => 'input8',
 );
 
 $PC_D_CDep_Nomb = array(
@@ -336,8 +336,8 @@ $PC_D_CDep_Nomb = array(
 $PC_D_SupN_dni = array(
 	'name'	=> 'PC_D_SupN_dni',
 	'id'	=> 'PC_D_SupN_dni',
-	'maxlength'	=> 200,
-	'width' => 300,
+	'maxlength'	=> 8,
+	'class' => 'input8',
 );
 
 $PC_D_SupN_Nomb = array(
@@ -533,9 +533,9 @@ echo '
 								<h5 class="panel-title">Sección C: Entrevista y Supervision</h5> 
 							</div>
 
-							<h6>1. Evaluación y Supervisión</h6>
+							<p>Número de visitas: '.form_input($pcar_num).'</p>
 
-							'.form_input($pcar_num).'
+							<h6>1. Evaluación y Supervisión</h6>
 
 							<table class="table table-bordered"  id="pcar_c_n">
 								<thead>
@@ -604,7 +604,7 @@ echo '
 									</tr>
 									<tr>
 										<td>Resultado: </td>
-										<td>'.form_input($PC_C_2_Rfinal_resul).' '.form_input($PC_C_2_Rfinal_resul_O).'</td>
+										<td>'.form_input($PC_C_2_Rfinal_resul).' - Especifique '.form_input($PC_C_2_Rfinal_resul_O).'</td>
 									</tr>
 								</tbody>
 							</table>
@@ -831,17 +831,17 @@ $('#pcar_c_n tr').remove('.entrev');
 	if(ahua >= 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_NroVis[]" id="PC_C_1_NroVis_' + i + '" value="' + i + '" ></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" ><div class="help-block error"><input type="text" class="span12 embc' + i + '" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hini[]" id="PC_C_1_Jb_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embe' + i + '" name="PC_C_1_Jb_Hfin[]" id="PC_C_1_Jb_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" ><div class="help-block error"><input type="text" class="span12 embc' + i + '" name="PC_C_1_Jb_Res_O' + '_' + i + '" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_NroVis[]" id="PC_C_1_NroVis_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input200 embc' + i + '" maxlength="80" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hini[]" id="PC_C_1_Jb_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hfin[]" id="PC_C_1_Jb_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input200 embc' + i + '" maxlength="80" name="PC_C_1_Jb_Res_O' + '_' + i + '" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
 	    asd += '</tr>';
 	    $('#pcar_c_n > tbody').append(asd);
 	  }

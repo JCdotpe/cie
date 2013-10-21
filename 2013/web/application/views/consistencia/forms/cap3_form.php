@@ -39,7 +39,7 @@ $RutaFoto = array(
 $Observaciones = array(
 	'name'	=> 'Observaciones',
 	'id'	=> 'Observaciones',
-	'class' => 'textarea98',	
+	'class' => 'textarea98p',	
 );
 
 $CodigoPuntoGPS = array(
