@@ -815,7 +815,7 @@ echo '
 											<label style="float:left;">Predio N°</label>
 										</th>
 										<th>
-											'.form_input($Nro_Pred).'
+											'.form_input($pr).'
 										</th>
 									</tr>
 								</thead>
