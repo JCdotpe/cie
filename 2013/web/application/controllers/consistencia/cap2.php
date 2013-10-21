@@ -40,7 +40,6 @@ class Cap2 extends CI_Controller {
 		}		
 	}
 
-
 	public function index()
 	{
 		$is_ajax = $this->input->post('ajax');

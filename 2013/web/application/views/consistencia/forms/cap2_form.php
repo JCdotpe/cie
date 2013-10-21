@@ -2129,7 +2129,6 @@ $("#cap2_f").validate({
 		      validator.focusInvalid();
 		    },
 		    submitHandler: function(form) {
-		    		alert(1);
 				    	var cap2_data = $("#cap2_f").serializeArray();
 					    cap2_data.push(
 					        {name: 'ajax',value:1},
