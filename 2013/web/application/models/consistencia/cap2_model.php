@@ -1,6 +1,31 @@
 <?php 
 class Cap2_model extends CI_MODEL{
 //CAR
+    function consulta_cap2($id,$pr,$tb){
+        $this->db->where('id_local', $id );
+        $this->db->where('Nro_Pred', $pr );
+        $q = $this->db->get($tb);
+        return $q;
+    }
+
+    function insert_cap2($data,$tb){
+        $this->db->insert($tb, $data);
+        return $this->db->affected_rows() > 0;
+    }    
+    
+    function update_cap2($id,$pr,$data,$tb){
+        $this->db->where('id_local',$id);
+        $this->db->where('Nro_Pred',$pr);
+        $this->db->update($tb, $data);
+        return $this->db->affected_rows() > 0;
+    }
+    function delete_cap2($id,$pr,$tb){
+        $this->db->where('id_local',$id);
+        $this->db->where('Nro_Pred',$pr);
+        $this->db->delete($tb);
+        return $this->db->affected_rows() > 0;
+    }
+
 	//A
     function get_p2_a($id,$pr){
         $this->db->where('id_local', $id );
@@ -8,6 +33,7 @@ class Cap2_model extends CI_MODEL{
         $q = $this->db->get('P2_A');
         return $q;
     }
+
 
     //B
     function get_p2_b($id,$pr){
