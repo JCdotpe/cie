@@ -11,7 +11,7 @@
 
 $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
-	'id'	=> 'Nro_Ed',
+	'id'	=> 'Nro_Ed_VII',
 	'maxlength'	=> 2,
 	'class' => 'input2',	
 	'disabled' => 'disabled',	
@@ -789,28 +789,56 @@ $.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 		val= $(this).attr('id');
 		array=val.split(".")
 		//Limpiar_Datos();
-		//Get_Edif_VII(array[0],array[1]);
+		Get_Edif_VII(array[0]);
 		$('#panel_edificaciones_vii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
 	});
 
-	function Get_Edif_VII(tipo_edi,numero){
+	function Get_Edif_VII(numero){
 
-		$('#P8_2_Nro').val(tipo_edi+' - '+numero);
-		
-		$.getJSON(urlRoot('index.php')+'/consistencia/cap8/cap8_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,tipo:tipo_edi,nro:numero}, function(data, textStatus) {
+		$('#Nro_Ed_VII').val('E-'+numero);
+
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap7/cap7_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,edi:numero}, function(data, textStatus) {
 
 			$.each(data, function(index, val) {				
-				$('#P8_area').val(val.P8_area);
-				$('#P8_altura').val(val.P8_altura);
-				$('#P8_longitud').val(val.P8_longitud);
-				$('#P8_ejecuto').val(val.P8_ejecuto);
-				$('#P8_ejecuto_O').val(val.P8_ejecuto_O);
-				$('#P8_Est_E').val(val.P8_Est_E);
-				$('#P8_Ant').val(val.P8_Ant);
-				$('#P8_Est_PaLo').val(val.P8_Est_PaLo);
-				$('#P8_RecTec').val(val.P8_RecTec);
-				$('#P8_Obs').val(val.P8_Obs);
+				$('#P7_1_2').val(val.P7_1_2);
+				$('#P7_1_3').val(val.P7_1_3);
+				$('#P7_1_4').val(val.P7_1_4);
+				$('#P7_1_5').val(val.P7_1_5);
+				$('#P7_1_6').val(val.P7_1_6);
+				$('#P7_1_7').val(val.P7_1_7);
+				$('#P7_1_8').val(val.P7_1_8);
+				$('#P7_1_9').val(val.P7_1_9);
+				$('#P7_1_9A').val(val.P7_1_9A);
+				$('#P7_1_9B').val(val.P7_1_9B);
+				$('#P7_1_9C').val(val.P7_1_9C);
+				$('#P7_1_9D').val(val.P7_1_9D);
+				$('#P7_1_10').val(val.P7_1_10);
+				$('#P7_1_11').val(val.P7_1_11);
+				$('#P7_1_12').val(val.P7_1_12);
+				$('#P7_1_13').val(val.P7_1_13);
+				$('#P7_1_14').val(val.P7_1_14);
+				$('#P7_1_15').val(val.P7_1_15);
+				$('#P7_1_15A').val(val.P7_1_15A);
+				$('#P7_1_15B').val(val.P7_1_15B);
+				$('#P7_1_15C').val(val.P7_1_15C);
+				$('#P7_1_15D').val(val.P7_1_15D);
+				$('#P7_1_16').val(val.P7_1_16);
+				$('#P7_1_17').val(val.P7_1_17);
+				$('#P7_1_18').val(val.P7_1_18);
+				$('#P7_1_19').val(val.P7_1_19);
+				$('#P7_1_20').val(val.P7_1_20);
+				$('#P7_1_21').val(val.P7_1_21);
+				$('#P7_1_22').val(val.P7_1_22);
+				$('#P7_1_23').val(val.P7_1_23);
+				$('#P7_1_24').val(val.P7_1_24);
+				$('#P7_1_25').val(val.P7_1_25);
+				$('#P7_1_26').val(val.P7_1_26);
+				$('#P7_1_27').val(val.P7_1_27);
+				$('#P7_1_28').val(val.P7_1_28);
+				$('#P7_2_1').val(val.P7_2_1);
+				$('#P7_2_2').val(val.P7_2_2);
+				$('#P7_Obs').val(val.P7_Obs);
 			});
 
 		});
