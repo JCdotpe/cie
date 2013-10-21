@@ -76,8 +76,8 @@ $PC_A_7Dir_2_Nomb = array(
 $PC_A_7Dir_3_Nro = array(
 	'name'	=> 'PC_A_7Dir_3_Nro',
 	'id'	=> 'PC_A_7Dir_3_Nro',
-	'maxlength'	=> 3,
-	'class' => 'input3',
+	'maxlength'	=> 4,
+	'class' => 'input4',
 );
 
 $PC_A_7Dir_4_Piso = array(
@@ -267,7 +267,6 @@ $PC_C_2_Rfinal_resul = array(
 	'name'	=> 'PC_C_2_Rfinal_resul',
 	'id'	=> 'PC_C_2_Rfinal_resul',
 	'class' => 'input1',
-	'disabled' => 'disabled',
 );
 
 $PC_C_2_Rfinal_resul_O = array(

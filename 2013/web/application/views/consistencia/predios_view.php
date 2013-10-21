@@ -9,6 +9,157 @@ $pr_view = ($pr == 0)? 'No se encontraron' : $pr;
 
 <script type="text/javascript">
 $(function(){
+
+
+// jQuery Validator
+
+
+
+$.extend(jQuery.validator.messages, {
+     required: "Campo obligatorio",
+    // remote: "Please fix this field.",
+     email: "Ingrese un email válido",
+    // url: "Please enter a valid URL.",
+     date: "Ingrese una fecha válida",
+    // dateISO: "Please enter a valid date (ISO).",
+     number: "Solo se permiten números",
+     digits: "Solo se permiten números",
+    range: jQuery.validator.format("Por favor ingrese un valor  entre {0} y {1}."),
+    // creditcard: "Please enter a valid credit card number.",
+    // equalTo: "Please enter the same value again.",
+    // accept: "Please enter a value with a valid extension.",
+    // maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    // minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    // rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    // range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    // max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
+$.validator.addMethod("year", function(value, element, param) {
+    return this.optional(element) || ( value > 1950 && value <= CI.year ) ;
+}, "Ingrese un año válido");
+$.validator.addMethod("valueEquals", function (value, element, param) {
+    return param == value;
+}, "Acepta la declaración de veracidad?");
+
+$.validator.addMethod("peruDate",function(value, element) {
+    return value.match(/^\d\d?\-\d\d?\-\d\d\d\d$/);
+}, "Ingrese fecha: dd-mm-yyyy");
+
+ $.validator.addMethod("validName", function(value, element) {
+    return this.optional(element) || /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/.test(value);
+}, "Caracteres no permitidos"); 
+
+ $.validator.addMethod("lettersonly", function(value, element) {
+    return this.optional(element) || /^[a-z]+$/i.test(value);
+}, "Solo se permiten letras"); 
+
+ $.validator.addMethod("exactlength", function(value, element, param) {
+    return this.optional(element) || value.length == param;
+}, jQuery.format("Ingrese {0} caracteres."));
+
+ $.validator.addMethod("valueNotEquals", function(value, element, arg){
+    return arg != value;
+}, "Seleccione un valor");
+
+ $.validator.addMethod("val3", function(value, element,arg){
+    var length = arg.length;
+    var flag = false;
+    for(var i = 0; i < length; i++) {
+        if(arg[i] == value)
+          flag = true;
+    }
+   return flag;
+}, "Seleccione un valor entre {0}, {1} y {2}");
+
+ $.validator.addMethod("valdia", function(value, element){
+    var dias = new Array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','99')
+    var length = dias.length;
+    var flag = false;
+    for(var i = 0; i < length; i++) {
+        if(dias[i] == value)
+          flag = true;
+    }
+   return flag;
+}, "Seleccione un día válido");
+
+
+ $.validator.addMethod("valmes", function(value, element){
+    var dias = new Array('01','02','03','04','05','06','07','08','09','10','11','12','99');
+    var length = dias.length;
+    var flag = false;
+    for(var i = 0; i < length; i++) {
+        if(dias[i] == value)
+          flag = true;
+    }
+   return flag;
+}, "Seleccione un mes válido");
+
+
+ $.validator.addMethod("valmescen", function(value, element){
+    var dias = new Array('08','09');
+    var length = dias.length;
+    var flag = false;
+    for(var i = 0; i < length; i++) {
+        if(dias[i] == value)
+          flag = true;
+    }
+   return flag;
+}, "Seleccione un mes válido(08,09)");
+
+$.validator.addMethod("valnone", function(value, element, arg){
+    var flag = true;
+    if(value == 1){
+        for(var i = 0; i<=arg.length; i++){
+            if($('#' + arg[i]).val() == 1)
+              flag = false;
+        }
+    }
+    return flag;
+ }, "Si ya selecciono una alternativa no debe seleccionar este item");  
+
+
+$.validator.addMethod("valzero", function(value, element, arg){
+    flag = false;
+    if(value == 0){
+        for(var i = 0; i<=arg.length; i++){
+               if($('#' + arg[i]).val() == 1)
+               flag = true;
+        }
+    }else{
+      flag = true;
+    }
+    return flag;
+ }, "Debe ingresar al menos una opción, no pueden ser 0 todas las opciones.");  
+
+
+ $.validator.addMethod("valrango", function(value, element,arg){
+    var flag = false;
+        if(((value >= arg[0] && value<=arg[1]) || value == arg[2]) && value!='')
+          flag = true;
+   return flag;
+}, "Seleccione un valor entre {0}, {1} o {2}");
+
+
+ $.validator.addMethod("valjango", function(value, element,arg){
+    var flag = false;
+        if((value >= arg[0] && value<=arg[1]) || value == arg[2])
+          flag = true;
+   return flag;
+}, "Seleccione un valor entre {0}, {1} o {2}");
+
+
+ $.validator.addMethod("valrucc", function(value, element,arg){
+    var flag = false;
+        if((value >= arg[0] && value<=arg[1]) || value == arg[2] || value == arg[3] || value == arg[4] && value!='')
+          flag = true;
+   return flag;
+}, "Seleccione un valor entre {0}, {1} o {2}, {3}, {4}");
+
+
+
+// jQuery Validator
+
 	// function(i, data){
 	// 	function( fila, valor )
   $.each( <?php echo json_encode($predios->result()); ?>, function(i, data) {
