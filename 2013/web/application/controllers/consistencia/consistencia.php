@@ -11,6 +11,7 @@ class Consistencia extends CI_Controller {
 		$this->lang->load('tank_auth');	
 		$this->load->model('regs_model');		
 		$this->load->model('consistencia/car_model');		
+		$this->load->model('consistencia/cap1_model');		
 		$this->load->model('consistencia/cap2_model');		
 		$this->load->model('consistencia/cap3_model');		
 		$this->load->model('consistencia/principal_model');		
@@ -36,6 +37,20 @@ class Consistencia extends CI_Controller {
 			$data['predios'] = $this->principal_model->get_predios($id);
 			$data['car_i'] = $this->car_model->get_car($id,$prd);
 			$data['car_n'] = $this->car_model->get_car_n($id,$prd);
+
+
+			$data['cap1_p1_a'] = $this->cap1_model->get_p1_a($id,$prd);
+			$data['cap1_p1_a_2n'] = $this->cap1_model->get_p1_a_2n($id,$prd);
+			$data['cap1_p1_a_2_8n'] = $this->cap1_model->get_p1_a_2_8n($id,$prd);
+			$data['cap1_p1_a_2_9n'] = $this->cap1_model->get_p1_a_2_9n($id,$prd);
+			$data['cap1_p1_b'] = $this->cap1_model->get_p1_b($id,$prd);
+			$data['cap1_p1_c'] = $this->cap1_model->get_p1_c($id,$prd);
+			$data['cap1_p1_c_20n'] = $this->cap1_model->get_p1_c_20n($id,$prd);
+
+
+
+
+
 
 			$data['cap2_p2_a'] = $this->cap2_model->get_p2_a($id,$prd);
 			$data['cap2_p2_b'] = $this->cap2_model->get_p2_b($id,$prd);
