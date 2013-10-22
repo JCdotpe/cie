@@ -81,7 +81,7 @@ class Cap4 extends CI_Controller {
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
 				// inserta nuevo registro
-					if($this->cap4_model->insert_ca($c_data) > 0){
+					if($this->cap4_model->insert_cap4($c_data) > 0){
 						$flag = 1;
 						$msg = 'Se ha registrado satisfactoriamente el P4';
 					}else{

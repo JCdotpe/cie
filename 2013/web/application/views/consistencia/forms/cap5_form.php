@@ -120,6 +120,10 @@ $P5_TotAmb = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap5_f');
+
+echo form_open($this->uri->uri_string(),$attr);
+
 echo '
 
 <div id="cap_5" class="panel panel-info">
@@ -174,7 +178,8 @@ echo '
 	  	    			</div>
 
 ';
-
+echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+echo form_close();
  ?>
 
 <script type="text/javascript">
@@ -196,13 +201,13 @@ $('#P5_cantNroPiso').change(function(event) {
 		var asd = '<table id="cap5_detalle" class="table table-bordered">';
 		asd+='<thead><tr>';
 		asd+='<thead><tr>';
-		asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" name="P5_NroPiso' + '_p_' + i + '" id="P5_NroPiso' + '_p_' + i + '" value="" ></th>';
+		asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" readonly="true" name="P5_NroPiso[]" id="P5_NroPiso' + '_p_' + i + '" value="' + i + '" ></th>';
 		asd+='</tr></thead>';
 		asd+='<tbody id="piso' + i + '">';
-		asd+='<tr><td colspan="2"><input type="text" class="input98p" disabled="disabled" name="P5_Foto' + '_p_' + i + '" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
+		asd+='<tr><td colspan="2"><input type="text" class="input98p" readonly="true" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
 			for (var j=1;j<=edi;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro' + '_p_' + i  + '_e_' + j + '" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb' + '_p_' + i + '_a_' + j + '" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
 			}
 		asd+='</tbody></table>';
 		$('#cap_5').append(asd);
@@ -215,9 +220,9 @@ $('#P5_cantNroPiso').change(function(event) {
 			
 			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:data.id_local,predio:data.Nro_Pred,piso:data.P5_NroPiso}, function(data, textStatus) {
 					var ad = 1;
-					$.each(data, function(index, val) {
-						$('#P5_Ed_Nro' + '_p_' + val.P5_NroPiso + '_e_' + ad).val(val.P5_Ed_Nro);
-						$('#P5_TotAmb' + '_p_' + val.P5_NroPiso + '_a_' + ad).val(val.P5_TotAmb);
+					$.each(data, function(i, valor) {
+						$('#P5_Ed_Nro' + '_p_' + valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
+						$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
 						ad++;
 					});
 			});
@@ -237,8 +242,8 @@ $('#P5_Tot_E').change(function(event) {
 	for(var i=1; i<=n_pisos;i++){
 		var asd = "";
 			for (var j=1;j<=ahua;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro' + '_p_' + i  + '_e_' + j + '" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb' + '_p_' + i + '_a_' + j + '" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
 			}
 		$('tbody#piso'+i).append(asd);
 	}
@@ -246,15 +251,65 @@ $('#P5_Tot_E').change(function(event) {
 	for (var i=1; i<=n_pisos;i++){
 		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,piso:i}, function(data, textStatus) {
 				var ad = 1;
-				$.each(data, function(index, val) {
-					$('#P5_Ed_Nro' + '_p_' + val.P5_NroPiso + '_e_' + ad).val(val.P5_Ed_Nro);
-					$('#P5_TotAmb' + '_p_' + val.P5_NroPiso + '_a_' + ad).val(val.P5_TotAmb);
+				$.each( data, function(i, valor) {
+					$('#P5_Ed_Nro' + '_p_' +  valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
+					$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
 					ad++;
 				});
 		});
 	}
 });
 
+
+$("#cap5_f").validate({	
+	    rules: {
+		//FIN RULES
+	    },
+
+	    messages: {   
+		//FIN MESSAGES
+	    },
+	    errorPlacement: function(error, element) {
+	        $(element).next().after(error);
+	    },
+	    invalidHandler: function(form, validator) {
+	      var errors = validator.numberOfInvalids();
+	      if (errors) {
+	        var message = errors == 1
+	          ? 'Por favor corrige estos errores:\n'
+	          : 'Por favor corrige los ' + errors + ' errores.\n';
+	        var errors = "";
+	        if (validator.errorList.length > 0) {
+	            for (x=0;x<validator.errorList.length;x++) {
+	                errors += "\n\u25CF " + validator.errorList[x].message;
+	            }
+	        }
+	        alert(message + errors);
+	      }
+	      validator.focusInvalid();
+	    },
+	    submitHandler: function(form) {
+			    	var cap5_data = $("#cap5_f").serializeArray();
+				    cap5_data.push(
+				        {name: 'ajax',value:1},
+				        {name: 'id_local',value:$("input[name='id_local']").val()},      
+				        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+				    );
+					
+			        var bcar = $( "#cap4_f :submit" );
+			         bcar.attr("disabled", "disabled");
+			        $.ajax({
+			            url: CI.site_url + "/consistencia/cap5",
+			            type:'POST',
+			            data:cap5_data,
+			            dataType:'json',
+			            success:function(json){
+							alert(json.msg);
+							bcar.removeAttr('disabled');
+			            }
+			        });     			          	
+	    }       
+}); 
 
 
 });

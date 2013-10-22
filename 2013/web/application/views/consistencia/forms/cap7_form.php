@@ -14,7 +14,7 @@ $Nro_Ed = array(
 	'id'	=> 'Nro_Ed_VII',
 	'maxlength'	=> 2,
 	'class' => 'input2',	
-	'disabled' => 'disabled',	
+	'readonly' => 'true',
 );
 
 $P7_1_2 = array(
@@ -269,15 +269,15 @@ $P7_2_1 = array(
 	'class' => 'input1',	
 );
 
-$p7_2_2 = array(
-	'name'	=> 'p7_2_2',
-	'id'	=> 'p7_2_2',
+$P7_2_2 = array(
+	'name'	=> 'P7_2_2',
+	'id'	=> 'P7_2_2',
 	'class'	=> 'textarea98p',
 );
 
-$P7_OBS = array(
-	'name'	=> 'P7_OBS',
-	'id'	=> 'P7_OBS',
+$P7_Obs = array(
+	'name'	=> 'P7_Obs',
+	'id'	=> 'P7_Obs',
 	'class'	=> 'textarea98p',
 );
 
@@ -289,6 +289,11 @@ $P7_OBS = array(
 // CAP 7
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+
+
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap7_f');
+
+echo form_open($this->uri->uri_string(),$attr); 
 
 echo '
 
@@ -318,7 +323,7 @@ echo '
 	  	    						<td>
 	  	    							<strong>Código de la edificación</strong>
 	  	    						</td>
-	  	    						<td>'.form_input($Nro_Ed).'</td>
+	  	    						<td>E - '.form_input($Nro_Ed).'</td>
 	  	    					</tr>
 	  	    					<tr>
 	  	    						<td>2.</td>
@@ -748,7 +753,7 @@ echo '
 	  	    						<td>
 	  	    								<div class="panel">
 
-												'.form_textarea($p7_2_2).'
+												'.form_textarea($P7_2_2).'
 											</div>
 	  	    						</td>
 	  	    					</tr>
@@ -756,17 +761,20 @@ echo '
 	  	    			</table>
 		  	    			<div class="panel">
 		  	    				<label> Observaciones</label>
-								'.form_textarea($P7_OBS).'
+								'.form_textarea($P7_Obs).'
 							</div>
 	  	    			</div>
 
 ';
-
+echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+echo form_close();
  ?>
 
 <script type="text/javascript">
 
-$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
+$(document).ready(function(){
+
+	$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 
 		$('#panel_edificaciones_vii > div').remove('.btn-group');
 		var asd ='<div class="btn-group">';
@@ -782,13 +790,12 @@ $.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 		asd+='</div>';
 
 		$('#panel_edificaciones_vii').html(asd);
-});
+	});
 
 	$('#panel_edificaciones_vii').on('click','.combo_ins1',function(event){
 
 		val= $(this).attr('id');
 		array=val.split(".")
-		//Limpiar_Datos();
 		Get_Edif_VII(array[0]);
 		$('#panel_edificaciones_vii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
@@ -796,55 +803,110 @@ $.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 
 	function Get_Edif_VII(numero){
 
-		$('#Nro_Ed_VII').val('E-'+numero);
+		$('#Nro_Ed_VII').val(numero);
 
 		$.getJSON(urlRoot('index.php')+'/consistencia/cap7/cap7_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,edi:numero}, function(data, textStatus) {
 
-			$.each(data, function(index, val) {				
-				$('#P7_1_2').val(val.P7_1_2);
-				$('#P7_1_3').val(val.P7_1_3);
-				$('#P7_1_4').val(val.P7_1_4);
-				$('#P7_1_5').val(val.P7_1_5);
-				$('#P7_1_6').val(val.P7_1_6);
-				$('#P7_1_7').val(val.P7_1_7);
-				$('#P7_1_8').val(val.P7_1_8);
-				$('#P7_1_9').val(val.P7_1_9);
-				$('#P7_1_9A').val(val.P7_1_9A);
-				$('#P7_1_9B').val(val.P7_1_9B);
-				$('#P7_1_9C').val(val.P7_1_9C);
-				$('#P7_1_9D').val(val.P7_1_9D);
-				$('#P7_1_10').val(val.P7_1_10);
-				$('#P7_1_11').val(val.P7_1_11);
-				$('#P7_1_12').val(val.P7_1_12);
-				$('#P7_1_13').val(val.P7_1_13);
-				$('#P7_1_14').val(val.P7_1_14);
-				$('#P7_1_15').val(val.P7_1_15);
-				$('#P7_1_15A').val(val.P7_1_15A);
-				$('#P7_1_15B').val(val.P7_1_15B);
-				$('#P7_1_15C').val(val.P7_1_15C);
-				$('#P7_1_15D').val(val.P7_1_15D);
-				$('#P7_1_16').val(val.P7_1_16);
-				$('#P7_1_17').val(val.P7_1_17);
-				$('#P7_1_18').val(val.P7_1_18);
-				$('#P7_1_19').val(val.P7_1_19);
-				$('#P7_1_20').val(val.P7_1_20);
-				$('#P7_1_21').val(val.P7_1_21);
-				$('#P7_1_22').val(val.P7_1_22);
-				$('#P7_1_23').val(val.P7_1_23);
-				$('#P7_1_24').val(val.P7_1_24);
-				$('#P7_1_25').val(val.P7_1_25);
-				$('#P7_1_26').val(val.P7_1_26);
-				$('#P7_1_27').val(val.P7_1_27);
-				$('#P7_1_28').val(val.P7_1_28);
-				$('#P7_2_1').val(val.P7_2_1);
-				$('#P7_2_2').val(val.P7_2_2);
-				$('#P7_Obs').val(val.P7_Obs);
+			$.each( data, function(fila, valor) {
+				   	$('#' + fila).val(valor);
 			});
+
+			// $.each(data, function(index, val) {				
+			// 	$('#P7_1_2').val(val.P7_1_2);
+			// 	$('#P7_1_3').val(val.P7_1_3);
+			// 	$('#P7_1_4').val(val.P7_1_4);
+			// 	$('#P7_1_5').val(val.P7_1_5);
+			// 	$('#P7_1_6').val(val.P7_1_6);
+			// 	$('#P7_1_7').val(val.P7_1_7);
+			// 	$('#P7_1_8').val(val.P7_1_8);
+			// 	$('#P7_1_9').val(val.P7_1_9);
+			// 	$('#P7_1_9A').val(val.P7_1_9A);
+			// 	$('#P7_1_9B').val(val.P7_1_9B);
+			// 	$('#P7_1_9C').val(val.P7_1_9C);
+			// 	$('#P7_1_9D').val(val.P7_1_9D);
+			// 	$('#P7_1_10').val(val.P7_1_10);
+			// 	$('#P7_1_11').val(val.P7_1_11);
+			// 	$('#P7_1_12').val(val.P7_1_12);
+			// 	$('#P7_1_13').val(val.P7_1_13);
+			// 	$('#P7_1_14').val(val.P7_1_14);
+			// 	$('#P7_1_15').val(val.P7_1_15);
+			// 	$('#P7_1_15A').val(val.P7_1_15A);
+			// 	$('#P7_1_15B').val(val.P7_1_15B);
+			// 	$('#P7_1_15C').val(val.P7_1_15C);
+			// 	$('#P7_1_15D').val(val.P7_1_15D);
+			// 	$('#P7_1_16').val(val.P7_1_16);
+			// 	$('#P7_1_17').val(val.P7_1_17);
+			// 	$('#P7_1_18').val(val.P7_1_18);
+			// 	$('#P7_1_19').val(val.P7_1_19);
+			// 	$('#P7_1_20').val(val.P7_1_20);
+			// 	$('#P7_1_21').val(val.P7_1_21);
+			// 	$('#P7_1_22').val(val.P7_1_22);
+			// 	$('#P7_1_23').val(val.P7_1_23);
+			// 	$('#P7_1_24').val(val.P7_1_24);
+			// 	$('#P7_1_25').val(val.P7_1_25);
+			// 	$('#P7_1_26').val(val.P7_1_26);
+			// 	$('#P7_1_27').val(val.P7_1_27);
+			// 	$('#P7_1_28').val(val.P7_1_28);
+			// 	$('#P7_2_1').val(val.P7_2_1);
+			// 	$('#P7_2_2').val(val.P7_2_2);
+			// 	$('#P7_Obs').val(val.P7_Obs);
+			// });
 
 		});
 	}
 
 
+	$("#cap7_f").validate({
+	    rules: {
+		//FIN RULES
+	    },
 
+	    messages: {   
+		//FIN MESSAGES
+	    },
+	    errorPlacement: function(error, element) {
+	        $(element).next().after(error);
+	    },
+	    invalidHandler: function(form, validator) {
+	      var errors = validator.numberOfInvalids();
+	      if (errors) {
+	        var message = errors == 1
+	          ? 'Por favor corrige estos errores:\n'
+	          : 'Por favor corrige los ' + errors + ' errores.\n';
+	        var errors = "";
+	        if (validator.errorList.length > 0) {
+	            for (x=0;x<validator.errorList.length;x++) {
+	                errors += "\n\u25CF " + validator.errorList[x].message;
+	            }
+	        }
+	        alert(message + errors);
+	      }
+	      validator.focusInvalid();
+	    },
+	    submitHandler: function(form) {
+			    	var cap7_data = $("#cap7_f").serializeArray();
+				    cap7_data.push(
+				        {name: 'ajax',value:1},
+				        {name: 'id_local',value:$("input[name='id_local']").val()},      
+				        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+				    );
+					
+			        var bcar = $( "#cap7_f :submit" );
+			         bcar.attr("disabled", "disabled");
+			        $.ajax({
+			            url: CI.site_url + "/consistencia/cap7",
+			            type:'POST',
+			            data:cap7_data,
+			            dataType:'json',
+			            success:function(json){
+							alert(json.msg);
+							bcar.removeAttr('disabled');
+			            }
+			        });
+		}
+	});
+
+
+});
 
 </script>
