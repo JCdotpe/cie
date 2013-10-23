@@ -15,4 +15,11 @@ class P313nimputar_model extends CI_MODEL{
         return $this->db->insert_id();
     }
 
+    function insert($registros) {
+            
+        $q = $this->db->insert('P3_1_3N_Imputar',$registros);
+        return ($q);
+    }    
+
+
 }

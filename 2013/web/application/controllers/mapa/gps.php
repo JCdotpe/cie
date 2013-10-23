@@ -12,6 +12,8 @@ class Gps extends CI_Controller {
 		$this->load->model('visor/Procedure_model');
 		$this->load->model('segmentaciones/operativa_model');
 
+		$this->load->library('session');
+
 	}
 
 	public function index(){
@@ -28,7 +30,9 @@ class Gps extends CI_Controller {
 
 	public function last(){
 
-		$this->load->view('mapa/puntos_gps.php');
+	      $data['user_id'] = $this->session->userdata('user_id');
+
+		$this->load->view('mapa/puntos_gps.php', $data);
 
 	}
 }

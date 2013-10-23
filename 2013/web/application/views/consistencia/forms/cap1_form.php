@@ -774,35 +774,44 @@ echo '
 																	<th style="text-align:center;">(l)</th>
 																</tr>
 															</thead>
-															<tbody id="table_ies">
-															<tr>
-															<td style="text-align:center;">'.form_input($P1_A_2_9_NroCMod).'</td>
-															<td>'.form_input($P1_A_2_9A_CMod).'</td>
-															<td>'.form_input($P1_A_2_9B_CodLocal).'</td>
-															<td>'.form_input($P1_A_2_9C_Nivel).'</td>
-															<td>'.form_input($P1_A_2_9D_Car).'</td>
-															<td>'.form_input($P1_A_2_9E_NroAnex).'</td>
-															<td>'.form_input($P1_A_2_9F_CantAnex).'</td>
-															<td>'.form_input($P1_A_2_9G_T1_Talu).'</td>
-															<td>'.form_input($P1_A_2_9H_T1_Taul).'</td>
-															<td>'.form_input($P1_A_2_9I_T2_Talu).'</td>
-															<td>'.form_input($P1_A_2_9J_T2_Taul).'</td>
-															<td>'.form_input($P1_A_2_9K_T3_Talu).'</td>
-															<td>'.form_input($P1_A_2_9L_T3_Taul).'</td>
-															</tr>
-															<tr>
-																<td colspan="2">Nombre asignado al anexo. N° '.form_input($P1_A_2_9_AnexNro).'</td>
-																<td colspan="5">'.form_input($P1_A_2_9_AnexNomb).'</td>
-																<td>'.form_input($P1_A_2_9G_T1_Talu).'</td>
-																<td>'.form_input($P1_A_2_9H_T1_Taul).'</td>
-																<td>'.form_input($P1_A_2_9I_T2_Talu).'</td>
-																<td>'.form_input($P1_A_2_9J_T2_Taul).'</td>																
-																<td>'.form_input($P1_A_2_9K_T3_Talu).'</td>
-																<td>'.form_input($P1_A_2_9L_T3_Taul).'</td>																
-															</tr>
 															</tbody>
-
 														</table>
+
+														<div class="cod_mod">
+
+															<div class="padre" style="border: 1px solid #ccc">
+																		'.form_input($P1_A_2_9_NroCMod).'
+																		'.form_input($P1_A_2_9A_CMod).'
+																		'.form_input($P1_A_2_9B_CodLocal).'
+																		'.form_input($P1_A_2_9C_Nivel).'
+																		'.form_input($P1_A_2_9D_Car).'
+																		'.form_input($P1_A_2_9E_NroAnex).'
+																		'.form_input($P1_A_2_9F_CantAnex).'
+																		'.form_input($P1_A_2_9G_T1_Talu).'
+																		'.form_input($P1_A_2_9H_T1_Taul).'
+																		'.form_input($P1_A_2_9I_T2_Talu).'
+																		'.form_input($P1_A_2_9J_T2_Taul).'
+																		'.form_input($P1_A_2_9K_T3_Talu).'
+																		'.form_input($P1_A_2_9L_T3_Taul).'
+
+																<div class="hijo">
+																		'.form_input($P1_A_2_9_AnexNro).'
+																		'.form_input($P1_A_2_9_AnexNomb).'
+																		'.form_input($P1_A_2_9G_T1_Talu).'
+																		'.form_input($P1_A_2_9H_T1_Taul).'
+																		'.form_input($P1_A_2_9I_T2_Talu).'
+																		'.form_input($P1_A_2_9J_T2_Taul).'																
+																		'.form_input($P1_A_2_9K_T3_Talu).'
+																		'.form_input($P1_A_2_9L_T3_Taul).'
+																</div><!-- end padre-->
+
+															</div><!-- end padre-->
+
+														</div><!-- end cod_mod-->
+
+														<br />
+														<br />
+														<br />
 
 														<div class="panel">
 																<label>Observaciones:</label>

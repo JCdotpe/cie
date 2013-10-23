@@ -238,7 +238,7 @@
           var myOptions = {
             zoom: 6,
             center: new google.maps.LatLng(-7.1663,-71.455078),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
             zoomControl: true,
             zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE,
@@ -281,7 +281,8 @@
             {name: 'LatitudPunto',value:$( "#latitud" ).val()},
             {name: 'LongitudPunto',value:$( "#longitud" ).val()},
             {name: 'id_local',value:$( "#local" ).val()},
-            {name: 'Nro_Pred',value:$( "#predio" ).val()}
+            {name: 'Nro_Pred',value:$( "#predio" ).val()},
+            {name: 'user_id',value:$( "#user_id" ).val()}
         );
         form_data = $.param(form_data);
 
@@ -290,12 +291,10 @@
             url: urlRoot('index.php') +"/visor/gps/updateP313nimputar",
             data: form_data,
             success: function(response){
-
-                alert("Coordenadas actualizadas");
+                alert("La solicitud de actualización de coordenadas han sido enviado para su validación.");
             },
             error: function(error) {
-
-                alert("Se perdio la conexión, revise su conexión a internet.");
+                alert("Una actualización de coordenadas ya ha sido enviada o revise su conexión a internet. Por favor comunicarse con el área de informática.");
             }
         });
     }
@@ -326,7 +325,7 @@
 
         $('#save_edit').click(function(){
 
-            if (confirm("¿Esta seguro que desea solicitar una actualización de coordenadas para el local "+ $('#local').val()+" ?")){
+            if (confirm("Se enviará una solicitud para actualizar las coordenas del LOCAL: "+ $('#local').val()+" - PREDIO: "+ $('#predio').val()+"\n\nSolo se permite una solicitud por local escolar, desea continuar?")){
               reg_form_activo();
             }
 
@@ -497,6 +496,7 @@
       <h5>Actualizar Coordenadas <span id="id_local"></span></h5>
     </div>
 
+    <input type="text" class="edit_gps" id="user_id" style="width:155px" value="<?php echo $user_id ?> ">
     <label>Local Escolar:</label>
     <input type="text" class="edit_gps" id="local" style="width:155px">
     <label>Predio:</label>

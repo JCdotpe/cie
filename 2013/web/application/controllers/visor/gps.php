@@ -71,10 +71,11 @@ class Gps extends REST_Controller{
           'id_local'  => trim($this->post('id_local')),
           'Nro_Pred'  => trim($this->post('Nro_Pred')),
           'LatitudPunto'  => $this->post('LatitudPunto'),
-          'LongitudPunto'  => $this-> post('LongitudPunto')
+          'LongitudPunto'  => $this-> post('LongitudPunto'),
+          'user_id'  => $this-> post('user_id'),
           );
 
-      $flag = $this->P313nimputar_model->update($this->post('id_local'),$this->post('Nro_Pred'),$registros);
+      $flag = $this->P313nimputar_model->insert($registros);
     }
 
 
