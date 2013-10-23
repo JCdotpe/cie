@@ -114,16 +114,11 @@ $P1_A_2_9_Nro = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_9_AnexNro = array(
-	'name'	=> 'P1_A_2_9_AnexNro',
-	'id'	=> 'P1_A_2_9_AnexNro',
-	'maxlength'	=> 1,
-);
-
 $P1_A_2_9_AnexNomb = array(
 	'name'	=> 'P1_A_2_9_AnexNomb',
 	'id'	=> 'P1_A_2_9_AnexNomb',
-	'maxlength'	=> 1,
+	'maxlength'	=> 200,
+	'class' => 'input200',	
 );
 
 $P1_A_2_1_NomIE = array(
@@ -207,7 +202,7 @@ $P1_A_2_8_Can_CMod_IE = array(
 $P1_A_2_Obs = array(
 	'name'	=> 'P1_A_2_Obs',
 	'id'	=> 'P1_A_2_Obs',
-	'class' => 'textarea98',	
+	'class' => 'textarea98p',	
 );
 
 $P1_A_1_Cant_IE = array(
@@ -368,12 +363,6 @@ $P1_A_2_9_Nro = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_9_AnexNro = array(
-	'name'	=> 'P1_A_2_9_AnexNro',
-	'id'	=> 'P1_A_2_9_AnexNro',
-	'maxlength'	=> 1,
-);
-
 $P1_C_20_Nro = array(
 	'name'	=> 'P1_C_20_Nro',
 	'id'	=> 'P1_C_20_Nro',
@@ -395,8 +384,12 @@ $P1_A_2_9_Nro = array(
 $P1_A_2_9_AnexNro = array(
 	'name'	=> 'P1_A_2_9_AnexNro',
 	'id'	=> 'P1_A_2_9_AnexNro',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
+
+
+
 
 // TABLA P1_C - Capitulo I
 
@@ -781,7 +774,18 @@ echo '
 																	<th style="text-align:center;">(l)</th>
 																</tr>
 															</thead>
-															<tbody id="table_ies"><tr><td style="text-align:center;">'.form_input($P1_A_2_9_NroCMod).'</td><td>'.form_input($P1_A_2_9A_CMod).'</td><td>'.form_input($P1_A_2_9B_CodLocal).'</td><td>'.form_input($P1_A_2_9C_Nivel).'</td><td>'.form_input($P1_A_2_9D_Car).'</td><td>'.form_input($P1_A_2_9E_NroAnex).'</td><td>'.form_input($P1_A_2_9F_CantAnex).'</td><td>'.form_input($P1_A_2_9G_T1_Talu).'</td><td>'.form_input($P1_A_2_9H_T1_Taul).'</td><td>'.form_input($P1_A_2_9I_T2_Talu).'</td><td>'.form_input($P1_A_2_9J_T2_Taul).'</td><td>'.form_input($P1_A_2_9K_T3_Talu).'</td><td>'.form_input($P1_A_2_9L_T3_Taul).'</td></tr></tbody>
+															<tbody id="table_ies"><tr><td style="text-align:center;">'.form_input($P1_A_2_9_NroCMod).'</td><td>'.form_input($P1_A_2_9A_CMod).'</td><td>'.form_input($P1_A_2_9B_CodLocal).'</td><td>'.form_input($P1_A_2_9C_Nivel).'</td><td>'.form_input($P1_A_2_9D_Car).'</td><td>'.form_input($P1_A_2_9E_NroAnex).'</td><td>'.form_input($P1_A_2_9F_CantAnex).'</td><td>'.form_input($P1_A_2_9G_T1_Talu).'</td><td>'.form_input($P1_A_2_9H_T1_Taul).'</td><td>'.form_input($P1_A_2_9I_T2_Talu).'</td><td>'.form_input($P1_A_2_9J_T2_Taul).'</td><td>'.form_input($P1_A_2_9K_T3_Talu).'</td><td>'.form_input($P1_A_2_9L_T3_Taul).'</td></tr>
+															<tr>
+																<td colspan="2">Nombre asignado al anexo. N° '.form_input($P1_A_2_9_AnexNro).'</td>
+																<td colspan="5">'.form_input($P1_A_2_9_AnexNomb).'</td>
+																<td>'.form_input($P1_A_2_9G_T1_Talu).'</td>
+																<td>'.form_input($P1_A_2_9H_T1_Taul).'</td>
+																<td>'.form_input($P1_A_2_9I_T2_Talu).'</td>
+																<td>'.form_input($P1_A_2_9J_T2_Taul).'</td>																
+																<td>'.form_input($P1_A_2_9K_T3_Talu).'</td>
+																<td>'.form_input($P1_A_2_9L_T3_Taul).'</td>																
+															</tr>
+															</tbody>
 
 														</table>
 
