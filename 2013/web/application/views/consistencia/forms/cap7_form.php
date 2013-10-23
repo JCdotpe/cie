@@ -783,7 +783,7 @@ $(document).ready(function(){
 		if (data.P5_Tot_E > 0)
 		{
 			for (var i=1; i<=data.P5_Tot_E; i++) {
-				asd+='<li id="' + i +'.cmb_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
+				asd+='<li id="' + i +'.cmb7_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
 			}			
 		}
 		asd+='</ul>';

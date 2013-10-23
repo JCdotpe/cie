@@ -172,6 +172,18 @@ class Cap5 extends CI_Controller {
 
 	}
 
+	public function cap5n_for_p6_2()
+	{
+		$codigo = $this->input->get('codigo');
+		$predio = $this->input->get('predio');
+		$edif = $this->input->get('edi');
+
+		$data = $this->cap5_model->get_cap5n_for_p6_2($codigo,$predio,$edif);
+
+		echo json_encode($data->result());
+
+	}
+
 }
 
 /* End of file welcome.php */

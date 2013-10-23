@@ -18,7 +18,7 @@ class Cap5_model extends CI_MODEL{
 	}
 
 	public function get_cap5_n($id,$pr,$piso)
-    {
+	{
 		$this->db->where('id_local', $id );
 		$this->db->where('Nro_Pred', $pr );
 		$this->db->where('P5_NroPiso', $piso );
@@ -60,6 +60,15 @@ class Cap5_model extends CI_MODEL{
 		$this->db->where('P5_Ed_Nro',$nroedif);
 		$this->db->update('P5_N', $data);
 		return $this->db->affected_rows() > 0;
+	}
+
+	public function get_cap5n_for_p6_2($id,$pr,$nroedif)
+	{
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$this->db->where('P5_Ed_Nro', $nroedif );
+		$q = $this->db->get('P5_N');
+		return $q;
 	}
 
 }
