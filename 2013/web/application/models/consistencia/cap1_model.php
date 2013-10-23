@@ -45,7 +45,39 @@ class Cap1_model extends CI_MODEL{
     ////////////////////////////////////////////////////////////////////////////////
 
 
+    ///////////////////////////////////////////////////////////////////////////////
+    //COD MOD
+    // function delete_cap1_ie($id,$pr,$ie,$tb){
+    //     $this->db->where('id_local',$id);
+    //     $this->db->where('Nro_Pred',$pr);
+    //     $this->db->where('P1_A_2_NroIE',$ie);
+    //     $this->db->delete($tb);
+    //     return $this->db->affected_rows() > 0;
+    // }
+    // function update_cap1_ie($id,$pr,$ie,$data,$tb){
+    //     $this->db->where('id_local',$id);
+    //     $this->db->where('Nro_Pred',$pr);
+    //     $this->db->where('P1_A_2_NroIE',$ie);
+    //     $this->db->update($tb,$data);
+    //     return $this->db->affected_rows() > 0;
+    // }
+    function get_cap1_codmod($id,$pr,$ie){
+        $this->db->where('id_local', $id );
+        $this->db->where('Nro_Pred', $pr );
+        $this->db->where('P1_A_2_NroIE',$ie);
+        $q = $this->db->get('P1_A_2_8N');
+        return $q;
+    }  
 
+    function delete_cap1_codmod($id,$pr,$ie,$cm,$tb){
+        $this->db->where('id_local',$id);
+        $this->db->where('Nro_Pred',$pr);
+        $this->db->where('P1_A_2_NroIE',$ie);
+        $this->db->where('P1_A_2_9_NroCMod',$cm);
+        $this->db->delete($tb);
+        return $this->db->affected_rows() > 0;
+    }   
+    ////////////////////////////////////////////////////////////////////////////////
 
     function get_p1_a($id,$pr){
         $this->db->where('id_local', $id );

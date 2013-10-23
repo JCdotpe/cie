@@ -40,9 +40,13 @@ class Consistencia extends CI_Controller {
 
 
 			$data['cap1_p1_a'] = $this->cap1_model->get_p1_a($id,$prd);
+			//ie
 			$data['cap1_p1_a_2n'] = $this->cap1_model->get_p1_a_2n($id,$prd);
+			//cm
 			$data['cap1_p1_a_2_8n'] = $this->cap1_model->get_p1_a_2_8n($id,$prd);
+			//ax
 			$data['cap1_p1_a_2_9n'] = $this->cap1_model->get_p1_a_2_9n($id,$prd);
+			
 			$data['cap1_p1_b'] = $this->cap1_model->get_p1_b($id,$prd);
 			$data['cap1_p1_c'] = $this->cap1_model->get_p1_c($id,$prd);
 			$data['cap1_p1_c_20n'] = $this->cap1_model->get_p1_c_20n($id,$prd);

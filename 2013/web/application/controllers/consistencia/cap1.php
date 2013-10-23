@@ -112,14 +112,12 @@ class Cap1 extends CI_Controller {
 			if($my_nro_ies > 0){
 				//es igual
 				if($my_nro_ies == $nro_ies) {
-						$flag = 1;
-						$msg = 'No se realizaron modificaciones.';	
+					//nothing
 				//reducir ies
 				}elseif($my_nro_ies > $nro_ies){
 						//borrar ies sobrantes
 						for($i=$my_nro_ies; $i!=$nro_ies; $i--){
 							$this->del_ie($id,$pr,$i);
-							// $aaa = 'ahua' . $i;
 						}
 				//aumentar
 				}elseif($my_nro_ies < $nro_ies){
@@ -136,8 +134,6 @@ class Cap1 extends CI_Controller {
 						$cap1_p1_a_2n_data['P1_A_2_NroIE'] =  $i;
 						$this->cap1_model->insert_cap1($cap1_p1_a_2n_data,'P1_A_2N');
 					}			
-					$flag = 1;
-					$msg = 'Se ha registrado satisfactoriamente el nro de I.E.';				
 
 			}	
 
@@ -165,6 +161,14 @@ class Cap1 extends CI_Controller {
 		$this->cap1_model->delete_cap1_ie($id,$pr,$ie,'P1_A_2N');
 	}
 
+	private function del_codmod($id,$pr,$ie,$cm){
+		$this->cap1_model->delete_cap1_codmod($id,$pr,$ie,$cm,'P1_C_20N');
+		$this->cap1_model->delete_cap1_codmod($id,$pr,$ie,$cm,'P1_C');
+		$this->cap1_model->delete_cap1_codmod($id,$pr,$ie,$cm,'P1_A_2_9N');
+		$this->cap1_model->delete_cap1_codmod($id,$pr,$ie,$cm,'P1_A_2_8N');
+	}
+
+
 
 	public function ies()
 	{
@@ -174,14 +178,33 @@ class Cap1 extends CI_Controller {
 		if($is_ajax){
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			//nie
 			$ie = $this->input->post('P1_A_2_NroIE');
+			//ncodmod
+			$nro_cms = $this->input->post('P1_A_2_8_Can_CMod_IE');	
+
 			$cap1_p1_a_2n = $this->principal_model->get_fields('P1_A_2N');
-				
+			$cap1_p1_a_2_8n = $this->principal_model->get_fields('P1_A_2_8N');
+
+			//pre save ie
 			foreach ($cap1_p1_a_2n as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
 					$cap1_p1_a_2n_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}	
+
+			//pre insert codmod
+			$cap1_p1_a_2_8n_data['id_local'] =  $id;
+			$cap1_p1_a_2_8n_data['Nro_Pred'] =  $pr;			
+			$cap1_p1_a_2_8n_data['P1_A_2_NroIE'] =  $ie;			
+			foreach ($cap1_p1_a_2_8n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
+					$cap1_p1_a_2_8n_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////
+			//IE
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
@@ -193,6 +216,39 @@ class Cap1 extends CI_Controller {
 				$flag = 0;
 				$msg = 'Ocurrió un error 00x-IE-i-' . $ie;		
 			}
+
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////
+			//COD MOD
+			$my_nro_cms = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();
+			//tiene alguna ie?
+			if($my_nro_cms > 0){
+				//es igual
+				if($my_nro_cms == $nro_cms) {
+					//nothing
+				//reducir codmod
+				}elseif($my_nro_cms > $nro_cms){
+						//borrar ies sobrantes
+						for($i=$my_nro_cms; $i!=$nro_cms; $i--){
+							$this->del_codmod($id,$pr,$ie,$i);
+						}
+				//aumentar
+				}elseif($my_nro_cms < $nro_cms){
+						//agregar ies faltantes
+						for($i=$my_nro_cms; $i!=$nro_cms; $i++){
+							$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i+1;
+							$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
+						}
+				}
+
+			//ingresar primera vez IES
+			}else{
+					for($i=1; $i <= $nro_cms; $i++){
+						$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i;
+						$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
+					}			
+			}	
+
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
