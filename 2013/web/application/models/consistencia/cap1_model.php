@@ -28,14 +28,20 @@ class Cap1_model extends CI_MODEL{
         $this->db->delete($tb);
         return $this->db->affected_rows() > 0;
     }
-    function update_cap1_ie($id,$pr,$ie,$tb){
+    function update_cap1_ie($id,$pr,$ie,$data,$tb){
         $this->db->where('id_local',$id);
         $this->db->where('Nro_Pred',$pr);
         $this->db->where('P1_A_2_NroIE',$ie);
-        $this->db->update($tb);
+        $this->db->update($tb,$data);
         return $this->db->affected_rows() > 0;
     }
-
+    function get_cap1_ie($id,$pr,$ie){
+        $this->db->where('id_local', $id );
+        $this->db->where('Nro_Pred', $pr );
+        $this->db->where('P1_A_2_NroIE',$ie);
+        $q = $this->db->get('P1_A_2N');
+        return $q;
+    }  
     ////////////////////////////////////////////////////////////////////////////////
 
 

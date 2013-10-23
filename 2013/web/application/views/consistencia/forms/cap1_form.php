@@ -11,6 +11,7 @@ $P1_A_2_NroIE = array(
 	'name'	=> 'P1_A_2_NroIE',
 	'id'	=> 'P1_A_2_NroIE',
 	'class' => 'input2',
+	'readonly' =>'true',
 	'maxlength'	=> 2,
 );
 
@@ -629,17 +630,21 @@ echo '
 
 
 
-		<div class="btn-toolbar" style="margin: 0;">
-              <div class="btn-group" id="gies">
+					<div class="btn-toolbar" style="margin: 0;">
+		              <div class="btn-group" id="gies">
 
-              </div>
-            </div>
+		              </div>
+		            </div>
 
 
 							<div id="panel-list-ie">
 							
-								<div style="margin-top: 10px; display: block;" id="ie_educa">
+								<div style="margin-top: 10px; display: block;" id="ie_educa">';
 								
+				$attr = array('class' => 'form-vertical form-auth','id' => 'cap1_ie');
+
+				echo form_open($this->uri->uri_string(),$attr); 
+				echo '
 										<table class="table table-bordered">
 											<thead>
 												<tr><th colspan="2">2. Institución educativa N° <span>'.form_input($P1_A_2_NroIE).'</span></th>
@@ -717,10 +722,24 @@ echo '
 												</tr>
 											</tbody>
 
-										</table>
+										</table>';
+
+
+						echo form_submit('send', 'Guardar','class="btn btn-primary"');
+						echo form_close(); 
 
 
 
+
+
+
+
+
+
+
+
+
+						echo '
 										<div class="panel"><!-- N CODIGOS -->
 											<label>2.9 Códigos modulares asignados a la institución educativa:</label>
 
@@ -1033,287 +1052,290 @@ echo '
 ///////////////////////////////////////////////////////////
 
 
-// echo '
 
-// <div style="background:#DDD;" class="panel" id="panel-anexo">
+
+echo '
+
+<div style="background:#DDD;" class="panel" id="panel-anexo">
 									
-// 			<strong>Número de Anexos '.form_input($P1_A_2_1_NomIE).'</strong>
+			<strong>Número de Anexos '.form_input($P1_A_2_1_NomIE).'</strong>
 
-// </div>
+</div>
 
-// ';
+';
 
 
-// echo '
 
-// <div class="panel panel-info"><!-- PANEL SECCION C N ANEXOS-->
+echo '
+
+<div class="panel panel-info"><!-- PANEL SECCION C N ANEXOS-->
 							
-// 							<div class="panel-heading">
-// 								<h5 style="text-transform: uppercase;" class="panel-title">Sección C: Anexos de la institución educativa</h5>
-// 							</div>
+							<div class="panel-heading">
+								<h5 style="text-transform: uppercase;" class="panel-title">Sección C: Anexos de la institución educativa</h5>
+							</div>
 
-// 							<div class="panel">
-// 									Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
-// 							</div>
+							<div class="panel">
+									Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
+							</div>
 
-// 							<div id="panel-list-anexo">
+							<div id="panel-list-anexo">
 
-// 								<div style="height:100px;" class="panel">
-// 									<div style="float:left; margin-left:150px;" class="panel">
-// 										<label>Número de Anexo</label>
-// 										'.form_input($P1_A_2_9_Nro).'
-// 									</div>
-// 									<div style="float:left; margin-left:150px;" class="panel">
-// 										<label>Codigo Modular</label>
-// 										'.form_input($P1_A_2_9_NroCMod).'
-// 									</div>
-// 								</div>
+								<div style="height:100px;" class="panel">
+									<div style="float:left; margin-left:150px;" class="panel">
+										<label>Número de Anexo</label>
+										'.form_input($P1_A_2_9_Nro).'
+									</div>
+									<div style="float:left; margin-left:150px;" class="panel">
+										<label>Codigo Modular</label>
+										'.form_input($P1_A_2_9_NroCMod).'
+									</div>
+								</div>
 
-// 								<div class="panel">
-// 									<div class="panel">
-// 										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
-// 										'.form_input($P1_C_1_CodLoc_Anex).'
-// 									</div>
+								<div class="panel">
+									<div class="panel">
+										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
+										'.form_input($P1_C_1_CodLoc_Anex).'
+									</div>
 
-// 								</div><!--END PANEL -->
+								</div><!--END PANEL -->
 
-// ';
-
-
-// echo '
-
-// <div class="panel panel-info">
+';
 
 
-// 								<ul class="list-group">
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($P1_C_2_ProvCod).' </li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_input($P1_C_3_DistCod).'</li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
-// 								</ul>
+echo '
 
-// 						</div>
-
-// ';
+<div class="panel panel-info">
 
 
-// echo '
+								<ul class="list-group">
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($P1_C_2_ProvCod).' </li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_input($P1_C_3_DistCod).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
+								</ul>
 
-// <div class="panel">
-// 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
+						</div>
 
-// 								  	<label class="checkbox-inline">
-// 										'.form_input($P1_C_6Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
-// 									</label>
-// 						</div>
-
-// ';
-
-
-// echo '
-
-// <table class="table table-bordered">
-// 							<thead>
-
-// 								<tr>
-// 									<th>Nombre de la via</th>
-// 									<th>N° de Puerta</th>
-// 									<th>Piso</th>
-// 									<th>Mz.</th>
-// 									<th>Lote</th>
-// 									<th>Sector</th>
-// 									<th>Zona</th>
-// 									<th>Etapa</th>
-// 									<th>Km</th>
-// 								</tr>
-
-// 							</thead>
-// 							<tbody>
-
-// 								<tr>
-// 									<td>'.form_input($P1_C_6Dir_2_Nomb).'</td>
-// 									<td>'.form_input($P1_C_6Dir_Nro).'</td>
-// 									<td>'.form_input($P1_C_6Dir_4_Piso).'</td>
-// 									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
-// 									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
-// 									<td>'.form_input($P1_C_6Dir_7_Sect).'</td>
-// 									<td>'.form_input($P1_C_6Dir_8_Zona).'</td>
-// 									<td>'.form_input($P1_C_6Dir_9_Et).'</td>
-// 									<td>'.form_input($P1_C_6Dir_10_Km).'</td>
-// 								</tr>
-
-// 							</tbody>
-// 						</table>
-
-// ';
-
-// echo '
-
-// <ul class="list-group">
-
-// 							<li class="list-group-item">
-// 								9. Referencia de la dirección del local escolar
-// 								'.form_input($P1_C_7_RefDir).'
-// 							</li>
-// 						</ul>
-
-// ';
+';
 
 
-// echo '
+echo '
+
+<div class="panel">
+									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
+
+								  	<label class="checkbox-inline">
+										'.form_input($P1_C_6Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
+									</label>
+						</div>
+
+';
 
 
-// 								<table style="margin-top:20px;" class="table table-bordered">
-// 									<tbody><tr>
-// 										<td>8.</td>
-// 										<td><strong>¿Cuál es el código del inmueble del anexo 01?</strong><br>
-// 											(Este código se encuentra en la constancia MARGESI)</td>
-// 										<td>
-// 											'.form_input($P1_C_8_InmTip).' 1. No tiene constancia , 2. No sabe 
-// 											<br />
-// 											'.form_input($P1_C_8_InmCod).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>9.</td>
-// 										<td>
-// 											<strong>¿Quien es el propietario del predio?</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_9_Prop).'  1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
-// 											'.form_input($P1_C_9_Prop_O).' Especifique
+echo '
 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>10.</td>
-// 										<td>
-// 											<strong>¿El antecedente registral que tiene el predio es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_10_AntReg_Cod).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>11.</td>
-// 										<td><strong>¿Cuál es el número del antecedente registral?</strong></td>
-// 										<td>
-// 											<label>N° de antecedente registral</label>
-// 											'.form_input($P1_C_11_AntReg_Nro).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>12.</td>
-// 										<td>
-// 											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_12_Tipo_TProp).' <br />
-// 											'.form_input($P1_C_12_Tipo_TProp_O).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>13.</td>
-// 										<td><strong>¿En qué fecha se emitió el título no inscrito?</strong></td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_C_13_FecTit).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>14.</td>
-// 										<td>
-// 											<strong>¿El Documento de poseíón que tiene es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_14_DocPos).' <br />
-// 											'.form_input($P1_C_14_DocPos_O).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>15.</td>
-// 										<td><strong>¿En qué fecha se emitió el documento de posesión?</strong></td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_C_15_DocPos_Fech).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>16.</td>
-// 										<td><strong>¿Cuál es el area del terreno que ocupa el predio?</strong></td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_C_16_At_Pred).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>17.</td>
-// 										<td><strong>¿Cual es el area del terrreno que ocupa el local escolar?</strong></td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_C_17_At_Local).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>18.</td>
-// 										<td><strong>¿El predio es compartido con otros locales escolares, otras instituciones o servicios?</strong></td>
-// 										<td>
-// 											'.form_input($P1_C_18_Comp).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>19.</td>
-// 										<td><strong>¿Con cuántos locales escolares, otras instituciones o servicios comparten el predio?</strong></td>
-// 										<td>
-// 											<label>N°</label>
-// 											'.form_input($P1_C_19_CompCan).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>20.</td>
-// 										<td>
-// 											<strong>¿Cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong>
-// 											<br>(Diligencie según respuesta en pregunta 18)
-// 										</td>
-// 										<td>
-// 											'.form_textarea($P1_C_Obs).'
-// 										</td>
-// 									</tr>
-// 								</tbody></table>
+<table class="table table-bordered">
+							<thead>
+
+								<tr>
+									<th>Nombre de la via</th>
+									<th>N° de Puerta</th>
+									<th>Piso</th>
+									<th>Mz.</th>
+									<th>Lote</th>
+									<th>Sector</th>
+									<th>Zona</th>
+									<th>Etapa</th>
+									<th>Km</th>
+								</tr>
+
+							</thead>
+							<tbody>
+
+								<tr>
+									<td>'.form_input($P1_C_6Dir_2_Nomb).'</td>
+									<td>'.form_input($P1_C_6Dir_Nro).'</td>
+									<td>'.form_input($P1_C_6Dir_4_Piso).'</td>
+									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
+									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
+									<td>'.form_input($P1_C_6Dir_7_Sect).'</td>
+									<td>'.form_input($P1_C_6Dir_8_Zona).'</td>
+									<td>'.form_input($P1_C_6Dir_9_Et).'</td>
+									<td>'.form_input($P1_C_6Dir_10_Km).'</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+';
+
+echo '
+
+<ul class="list-group">
+
+							<li class="list-group-item">
+								9. Referencia de la dirección del local escolar
+								'.form_input($P1_C_7_RefDir).'
+							</li>
+						</ul>
+
+';
+
+
+echo '
+
+
+								<table style="margin-top:20px;" class="table table-bordered">
+									<tbody><tr>
+										<td>8.</td>
+										<td><strong>¿Cuál es el código del inmueble del anexo 01?</strong><br>
+											(Este código se encuentra en la constancia MARGESI)</td>
+										<td>
+											'.form_input($P1_C_8_InmTip).' 1. No tiene constancia , 2. No sabe 
+											<br />
+											'.form_input($P1_C_8_InmCod).'
+										</td>
+									</tr>
+									<tr>
+										<td>9.</td>
+										<td>
+											<strong>¿Quien es el propietario del predio?</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_9_Prop).'  1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
+											'.form_input($P1_C_9_Prop_O).' Especifique
+
+										</td>
+									</tr>
+									<tr>
+										<td>10.</td>
+										<td>
+											<strong>¿El antecedente registral que tiene el predio es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_10_AntReg_Cod).'
+										</td>
+									</tr>
+									<tr>
+										<td>11.</td>
+										<td><strong>¿Cuál es el número del antecedente registral?</strong></td>
+										<td>
+											<label>N° de antecedente registral</label>
+											'.form_input($P1_C_11_AntReg_Nro).'
+										</td>
+									</tr>
+									<tr>
+										<td>12.</td>
+										<td>
+											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_12_Tipo_TProp).' <br />
+											'.form_input($P1_C_12_Tipo_TProp_O).'
+										</td>
+									</tr>
+									<tr>
+										<td>13.</td>
+										<td><strong>¿En qué fecha se emitió el título no inscrito?</strong></td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_C_13_FecTit).'
+										</td>
+									</tr>
+									<tr>
+										<td>14.</td>
+										<td>
+											<strong>¿El Documento de poseíón que tiene es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_14_DocPos).' <br />
+											'.form_input($P1_C_14_DocPos_O).'
+										</td>
+									</tr>
+									<tr>
+										<td>15.</td>
+										<td><strong>¿En qué fecha se emitió el documento de posesión?</strong></td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_C_15_DocPos_Fech).'
+										</td>
+									</tr>
+									<tr>
+										<td>16.</td>
+										<td><strong>¿Cuál es el area del terreno que ocupa el predio?</strong></td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_C_16_At_Pred).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td>17.</td>
+										<td><strong>¿Cual es el area del terrreno que ocupa el local escolar?</strong></td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_C_17_At_Local).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td>18.</td>
+										<td><strong>¿El predio es compartido con otros locales escolares, otras instituciones o servicios?</strong></td>
+										<td>
+											'.form_input($P1_C_18_Comp).'
+										</td>
+									</tr>
+									<tr>
+										<td>19.</td>
+										<td><strong>¿Con cuántos locales escolares, otras instituciones o servicios comparten el predio?</strong></td>
+										<td>
+											<label>N°</label>
+											'.form_input($P1_C_19_CompCan).'
+										</td>
+									</tr>
+									<tr>
+										<td>20.</td>
+										<td>
+											<strong>¿Cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong>
+											<br>(Diligencie según respuesta en pregunta 18)
+										</td>
+										<td>
+											'.form_textarea($P1_C_Obs).'
+										</td>
+									</tr>
+								</tbody></table>
 
 						
-// 							<div><!--END PANEL LIST ANEXO-->
+							<div><!--END PANEL LIST ANEXO-->
 		
-// 		</div><!-- END SECCIOM C -->
+		</div><!-- END SECCIOM C -->
 
 
-// 	</div>
+	</div>
 
-// </div>
+</div>
 
-// ';
+';
 
 
  ?>
@@ -1324,26 +1346,38 @@ echo '
 
 $(function(){
 
+//inicio
+$.each( <?php echo json_encode($cap1_p1_a->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
+//ies
 btnies(<?php echo $cap1_p1_a_2n->num_rows(); ?>);
 
+//ie 1
+var ie1=<?php echo json_encode($cap1_p1_a_2n->result()); ?>;
+$.each( ie1[0], function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
 
 
+
+//print btn ies
 function btnies(n){
 	$('#gies').empty();	
 	var gies_str;
 	for(var i=1; i<=n; i++){
-		gies_str += '<button>' + i + '</button>';
+		active = (i==1)? 'class="btn ienro active"' : 'class="btn ienro"';
+		gies_str += '<button ' + active + '>' + i + '</button>';
 	}
 	$('#gies').append(gies_str);
 }
 
-
+//generar ie
 $("#addIE").click(function(){
 
 				var tnroies = $("#P1_A_1_Cant_IE").val();
 
-				// if(tnroies !='' && tnroies >= 0){
-
+				if(tnroies !='' && tnroies >= 0){
 			        var addie_data = {
 			            id_local: $("input[name='id_local']").val(),
 			            Nro_Pred: $("input[name='Nro_Pred']").val(),
@@ -1363,17 +1397,98 @@ $("#addIE").click(function(){
 								btnies(json.nro);
 				            }
 				        });  
-				 // }else{
-				 // 	alert('Ingresar al menos una institución educativa');
-				 // }  
+				 }else{
+				 	alert('Ingresar al menos una institución educativa');
+				 }  
 });
 
+//ie update
+$("#cap1_ie").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+
+				var cap1_ie_data = $("#cap1_ie").serializeArray();
+				cap1_ie_data.push(
+					    {name: 'ajax',value:1},
+					    {name: 'id_local',value:$("input[name='id_local']").val()},      
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}    
+				);
+						
+				var bcar = $( "#cap1_ie :submit" );
+				    bcar.attr("disabled", "disabled");
+				    $.ajax({
+				            url: CI.site_url + "/consistencia/cap1/ies",
+				            type:'POST',
+				            data:cap1_ie_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+				            }
+				    });  
+			}
+});  
 
 
 
+$('.ienro').click(function(){
+	myie = $(this);
+	nro = myie.text();
+
+	$('.ienro').removeClass("active");
+	myie.addClass("active");
+	//reset
+	$('#cap1_ie')[0].reset();
 
 
+		var get_ie_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			P1_A_2_NroIE: nro,
+			ajax:1
+		};		
 
+		// var baddie = $(this);
+		// 	baddie.attr("disabled", "disabled");
+			$.ajax({
+				url: CI.site_url + "/consistencia/cap1/get_ie",
+				type:'POST',
+				data:get_ie_data,
+				dataType:'json',
+				success:function(json){
+					$.each( json.ie, function(fila, valor) {
+					   	$('#' + fila).val(valor);
+					}); 				
+				}
+			}); 
+
+
+}); 
 
 
 

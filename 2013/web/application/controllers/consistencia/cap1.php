@@ -74,6 +74,8 @@ class Cap1 extends CI_Controller {
 				}
 			}	
 			//IES
+			$cap1_p1_a_2n_data['id_local'] =  $id;
+			$cap1_p1_a_2n_data['Nro_Pred'] =  $pr;			
 			foreach ($cap1_p1_a_2n as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
 					$cap1_p1_a_2n_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
@@ -83,7 +85,7 @@ class Cap1 extends CI_Controller {
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';	
 
-			$aaa = 'test';
+			// $aaa = 'test';
 			$my_nro_ies = $this->cap1_model->get_p1_a_2n($id,$pr)->num_rows();
 			$my_head_ie = $this->cap1_model->get_p1_a($id,$pr)->num_rows();
 			
@@ -123,8 +125,6 @@ class Cap1 extends CI_Controller {
 				}elseif($my_nro_ies < $nro_ies){
 						//agregar ies faltantes
 						for($i=$my_nro_ies; $i!=$nro_ies; $i++){
-							$cap1_p1_a_2n_data['id_local'] =  $id;
-							$cap1_p1_a_2n_data['Nro_Pred'] =  $pr;
 							$cap1_p1_a_2n_data['P1_A_2_NroIE'] =  $i+1;
 							$this->cap1_model->insert_cap1($cap1_p1_a_2n_data,'P1_A_2N');
 						}
@@ -133,8 +133,6 @@ class Cap1 extends CI_Controller {
 			//ingresar primera vez IES
 			}else{
 					for($i=1; $i <= $nro_ies; $i++){
-						$cap1_p1_a_2n_data['id_local'] =  $id;
-						$cap1_p1_a_2n_data['Nro_Pred'] =  $pr;
 						$cap1_p1_a_2n_data['P1_A_2_NroIE'] =  $i;
 						$this->cap1_model->insert_cap1($cap1_p1_a_2n_data,'P1_A_2N');
 					}			
@@ -147,7 +145,7 @@ class Cap1 extends CI_Controller {
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
 			$datos['nro'] = $nro_ies;	
-			$datos['aaa'] = $aaa;	
+			// $datos['aaa'] = $aaa;	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
 
@@ -171,11 +169,60 @@ class Cap1 extends CI_Controller {
 	public function ies()
 	{
 
+		$is_ajax = $this->input->post('ajax');
 
+		if($is_ajax){
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+			$cap1_p1_a_2n = $this->principal_model->get_fields('P1_A_2N');
+				
+			foreach ($cap1_p1_a_2n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
+					$cap1_p1_a_2n_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			$flag = 0;
+			$msg = 'Error inesperado, por favor intentalo nuevamente';
+
+			if($this->cap1_model->update_cap1_ie($id,$pr,$ie,$cap1_p1_a_2n_data,'P1_A_2N') > 0){
+				$flag = 1;
+				$msg = 'Se ha actualizado satisfactoriamente la IE Nro - ' . $ie ;
+			}else{
+				$flag = 0;
+				$msg = 'Ocurrió un error 00x-IE-i-' . $ie;		
+			}
+
+			$datos['flag'] = $flag;	
+			$datos['msg'] = $msg;	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}			
 	}
 
 
+	public function get_ie()
+	{
+		$is_ajax = $this->input->post('ajax');
 
+		if($is_ajax){		
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+
+			$datos['ie'] = $this->cap1_model->get_cap1_ie($id,$pr,$ie)->row();	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}	
+	}
 
 
 
