@@ -252,6 +252,7 @@ class Cap1 extends CI_Controller {
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
+			$datos['nro_cms'] = $nro_cms;	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
 
@@ -272,6 +273,7 @@ class Cap1 extends CI_Controller {
 			$ie = $this->input->post('P1_A_2_NroIE');
 
 			$datos['ie'] = $this->cap1_model->get_cap1_ie($id,$pr,$ie)->row();	
+			$datos['nro_cms'] = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
 

@@ -777,35 +777,9 @@ echo '
 															</tbody>
 														</table>
 
-														<div class="cod_mod">
+														<div class="cod_mod" id="cod_mod">
 
-															<div class="padre" style="border: 1px solid #ccc">
-																		'.form_input($P1_A_2_9_NroCMod).'
-																		'.form_input($P1_A_2_9A_CMod).'
-																		'.form_input($P1_A_2_9B_CodLocal).'
-																		'.form_input($P1_A_2_9C_Nivel).'
-																		'.form_input($P1_A_2_9D_Car).'
-																		'.form_input($P1_A_2_9E_NroAnex).'
-																		'.form_input($P1_A_2_9F_CantAnex).'
-																		'.form_input($P1_A_2_9G_T1_Talu).'
-																		'.form_input($P1_A_2_9H_T1_Taul).'
-																		'.form_input($P1_A_2_9I_T2_Talu).'
-																		'.form_input($P1_A_2_9J_T2_Taul).'
-																		'.form_input($P1_A_2_9K_T3_Talu).'
-																		'.form_input($P1_A_2_9L_T3_Taul).'
 
-																<div class="hijo">
-																		'.form_input($P1_A_2_9_AnexNro).'
-																		'.form_input($P1_A_2_9_AnexNomb).'
-																		'.form_input($P1_A_2_9G_T1_Talu).'
-																		'.form_input($P1_A_2_9H_T1_Taul).'
-																		'.form_input($P1_A_2_9I_T2_Talu).'
-																		'.form_input($P1_A_2_9J_T2_Taul).'																
-																		'.form_input($P1_A_2_9K_T3_Talu).'
-																		'.form_input($P1_A_2_9L_T3_Taul).'
-																</div><!-- end padre-->
-
-															</div><!-- end padre-->
 
 														</div><!-- end cod_mod-->
 
@@ -1352,42 +1326,45 @@ echo '
 
 $(function(){
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-//inicio
-$.each( <?php echo json_encode($cap1_p1_a->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
-}); 
-
-//ies
-btnies(<?php echo $cap1_p1_a_2n->num_rows(); ?>);
-//ie 1
-var ie1=<?php echo json_encode($cap1_p1_a_2n->result()); ?>;
-$.each( ie1[0], function(fila, valor) {
-	   	$('#' + fila).val(valor);
-}); 
-
-
-//cod mod
-
-//cod mod 1
-var ie1=<?php echo json_encode($cap1_p1_a_2_8n->result()); ?>;
-$.each( ie1[0], function(fila, valor) {
-	   	$('#' + fila).val(valor);
-}); 
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-
 //print btn ies
 function btnies(n){
 	$('#gies').empty();	
-	var gies_str;
+	var gies_str = '';
 	for(var i=1; i<=n; i++){
 		active = (i==1)? 'class="btn ienro active"' : 'class="btn ienro"';
 		gies_str += '<button ' + active + '>' + i + '</button>';
 	}
 	$('#gies').append(gies_str);
+	$('.btn.ienro.active').trigger('click');
 }
 
+//print codmod table
+function gen_cms(n){
+	$('#cod_mod').empty();	
+	var cm_str = '';
+	for(var i=1; i<=n; i++){
+		cm_str += '<div class="cmp' + i + '" style="border: 1px solid #ccc">';
+		cm_str += '<input id="P1_A_2_9_NroCMod" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9_NroCMod">';
+		cm_str += '<input id="P1_A_2_9A_CMod" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod">';
+		cm_str += '<input id="P1_A_2_9B_CodLocal" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal">';
+		cm_str += '<input id="P1_A_2_9C_Nivel" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel">';
+		cm_str += '<input id="P1_A_2_9D_Car" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car">';
+		cm_str += '<input id="P1_A_2_9E_NroAnex" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex">';
+		cm_str += '<input id="P1_A_2_9F_CantAnex" class="input2" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex">';
+		cm_str += '<input id="P1_A_2_9G_T1_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu">';
+		cm_str += '<input id="P1_A_2_9H_T1_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul">';
+		cm_str += '<input id="P1_A_2_9I_T2_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu">';
+		cm_str += '<input id="P1_A_2_9J_T2_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul">';
+		cm_str += '<input id="P1_A_2_9K_T3_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu">';
+		cm_str += '<input id="P1_A_2_9L_T3_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul">';
+		cm_str += '</div>';
+	}
+	$('#cod_mod').append(cm_str);
+}
+
+
+//Generar IE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //generar ie
 $("#addIE").click(function(){
 
@@ -1410,13 +1387,52 @@ $("#addIE").click(function(){
 				            success:function(json){
 								alert(json.msg);
 								baddie.removeAttr('disabled');
-								btnies(json.nro);
+								btnies(json.nro);						
 				            }
 				        });  
 				 }else{
 				 	alert('Ingresar al menos una institución educativa');
 				 }  
 });
+
+
+//LOAD IE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on("click",'.ienro',function() {
+	myie = $(this);
+	nro = myie.text();
+
+	$('.ienro').removeClass("active");
+	myie.addClass("active");
+	//reset
+	$('#cap1_ie')[0].reset();
+
+		var get_ie_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			P1_A_2_NroIE: nro,
+			ajax:1
+		};		
+
+		$.ajax({
+			url: CI.site_url + "/consistencia/cap1/get_ie",
+			type:'POST',
+			cache:false,
+			data:get_ie_data,
+			dataType:'json',
+			success:function(json){
+				$.each( json.ie, function(fila, valor) {
+					   $('#' + fila).val(valor);
+				}); 	
+
+				//cod mod
+				gen_cms(json.nro_cms);									
+			}
+		}); 
+
+}); 
+
+
 
 //ie update
 $("#cap1_ie").validate({
@@ -1466,43 +1482,21 @@ $("#cap1_ie").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								gen_cms(json.nro_cms);
 				            }
 				    });  
 			}
 });  
 
 
-
-$(document).on("click",'.ienro',function() {
-	myie = $(this);
-	nro = myie.text();
-
-	$('.ienro').removeClass("active");
-	myie.addClass("active");
-	//reset
-	$('#cap1_ie')[0].reset();
-
-		var get_ie_data = {
-			id_local: $("input[name='id_local']").val(),
-			Nro_Pred: $("input[name='Nro_Pred']").val(),
-			P1_A_2_NroIE: nro,
-			ajax:1
-		};		
-
-		$.ajax({
-			url: CI.site_url + "/consistencia/cap1/get_ie",
-			type:'POST',
-			cache:false,
-			data:get_ie_data,
-			dataType:'json',
-			success:function(json){
-				$.each( json.ie, function(fila, valor) {
-					   $('#' + fila).val(valor);
-				}); 				
-			}
-		}); 
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+//inicio
+$.each( <?php echo json_encode($cap1_p1_a->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
 }); 
+
+//ies
+btnies(<?php echo $cap1_p1_a_2n->num_rows(); ?>);
 
 
 
