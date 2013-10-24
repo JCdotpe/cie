@@ -33,6 +33,24 @@ class Cap8_model extends CI_MODEL{
 		$this->db->update('P8', $data);
 		return $this->db->affected_rows() > 0;
 	}
+
+	function get_cant_p8_for_p5($id,$pr,$tipo)
+	{
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$this->db->where('P8_2_Tipo', $tipo );
+		$q = $this->db->get('P8');
+		return $q;
+	}
+
+	function delete_p8_from_p5($id,$pr,$tipo,$nro){
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );       
+		$this->db->where('P8_2_Tipo', $tipo );
+		$this->db->where('P8_2_Nro', $nro );
+		$this->db->delete('P8');
+		return $this->db->affected_rows() > 0;
+	}
 }
 
 ?>

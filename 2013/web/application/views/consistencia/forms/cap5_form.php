@@ -206,7 +206,7 @@ $('#P5_cantNroPiso').change(function(event) {
 		asd+='<tbody id="piso' + i + '">';
 		asd+='<tr><td colspan="2"><input type="text" class="input98p" readonly="true" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
 			for (var j=1;j<=edi;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
 				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
 			}
 		asd+='</tbody></table>';

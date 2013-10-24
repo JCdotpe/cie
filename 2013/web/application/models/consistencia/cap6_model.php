@@ -138,6 +138,30 @@ class Cap6_model extends CI_MODEL{
 		return $this->db->affected_rows() > 0;
 	}
 
+	function get_cant_p6_1_for_p5($id,$pr)
+	{
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$q = $this->db->get('P6_1');
+		return $q;
+	}
+
+	function delete_p6_1_from_p5($id,$pr,$edi){
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );       
+		$this->db->where('Nro_Ed', $edi );
+		$this->db->delete('P6_1');
+		return $this->db->affected_rows() > 0;
+	}
+
+	function delete_p6_2_from_p5($id,$pr,$edi){
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );       
+		$this->db->where('P5_Ed_Nro', $edi );
+		$this->db->delete('P6_2');
+		return $this->db->affected_rows() > 0;
+	}
+
 }
 
 ?>
