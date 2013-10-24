@@ -248,11 +248,13 @@ class Cap1 extends CI_Controller {
 						$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
 					}			
 			}	
-
+			//ultimos cms para generar
+			$now_cms =  $this->cap1_model->get_cap1_codmod($id,$pr,$ie);
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
-			$datos['nro_cms'] = $nro_cms;	
+			$datos['nro_cms'] = $now_cms->num_rows();	
+			$datos['cms'] = $now_cms->result();	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
 
@@ -273,7 +275,11 @@ class Cap1 extends CI_Controller {
 			$ie = $this->input->post('P1_A_2_NroIE');
 
 			$datos['ie'] = $this->cap1_model->get_cap1_ie($id,$pr,$ie)->row();	
-			$datos['nro_cms'] = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();	
+			//ultimos cms para generar
+			$cms = $this->cap1_model->get_cap1_codmod($id,$pr,$ie);	
+
+			$datos['cms'] = $cms->result();
+			$datos['nro_cms'] = $cms->num_rows();	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
 
@@ -282,6 +288,114 @@ class Cap1 extends CI_Controller {
 		}	
 	}
 
+public function cm()
+	{
 
+		$is_ajax = $this->input->post('ajax');
+
+		if($is_ajax){
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			//nie
+			$ie = $this->input->post('P1_A_2_NroIE');
+			//ncodmod
+
+			$fields = $this->principal_model->get_fields('P1_A_2_8N');
+
+			$fields_n = $this->principal_model->get_fields('P1_A_2_9N');
+
+			//pre save cm
+			$cap1_p1_a_2_8n_data['id_local'] = $id;
+			$cap1_p1_a_2_8n_data['Nro_Pred'] = $pr;
+			$cap1_p1_a_2_8n_data['P1_A_2_NroIE'] = $ie;
+
+			foreach ($fields as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
+					$cap1_p1_a_2_8n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			//pre insert ax
+			$cap1_p1_a_2_9n_data['id_local'] = $id;
+			$cap1_p1_a_2_9n_data['Nro_Pred'] = $pr;
+			$cap1_p1_a_2_9n_data['P1_A_2_NroIE'] = $ie;
+
+			foreach ($fields_n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
+					$cap1_p1_a_2_9n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////
+			//CM
+
+			$flag = 0;
+			$msg = 'Error inesperado, por favor intentalo nuevamente';
+
+
+			$cc = 0;
+			foreach($cap1_p1_a_2_8n['P1_A_2_9_NroCMod'] as &$z){
+
+						foreach ($fields as $a=>$b) {
+							if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','user_id','last_ip','user_agent','created','modified'))){							
+								$cap1_p1_a_2_8n_data[$b] = ($cap1_p1_a_2_8n[$b][$cc] == '') ? NULL : $cap1_p1_a_2_8n[$b][$cc];
+							}	
+						}
+
+						$cm = $cap1_p1_a_2_8n['P1_A_2_9_NroCMod'][$cc];
+						$nro_axs = $cap1_p1_a_2_8n['P1_A_2_9F_CantAnex'][$cc];
+						
+					    $this->cap1_model->update_cap1_cm($id,$pr,$ie,$cm,$cap1_p1_a_2_8n_data,'P1_A_2_8N');			
+					    $cc++;
+
+						// //////////////////////////////////////////////////////////////////////////////////////////////////
+						// //AX
+						// $my_nro_ax = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();
+						// //tiene alguna ie?
+						// if($my_nro_cms > 0){
+						// 	//es igual
+						// 	if($my_nro_cms == $nro_cms) {
+						// 		//nothing
+						// 	//reducir codmod
+						// 	}elseif($my_nro_cms > $nro_cms){
+						// 			//borrar ies sobrantes
+						// 			for($i=$my_nro_cms; $i!=$nro_cms; $i--){
+						// 				$this->del_codmod($id,$pr,$ie,$i);
+						// 			}
+						// 	//aumentar
+						// 	}elseif($my_nro_cms < $nro_cms){
+						// 			//agregar ies faltantes
+						// 			for($i=$my_nro_cms; $i!=$nro_cms; $i++){
+						// 				$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i+1;
+						// 				$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
+						// 			}
+						// 	}
+
+						// //ingresar primera vez IES
+						// }else{
+						// 		for($i=1; $i <= $nro_cms; $i++){
+						// 			$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i;
+						// 			$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
+						// 		}			
+						// }						    
+
+			}	
+
+			$flag = 1;
+			$msg = 'Se ha actualizado satisfactoriamente los Códigos Modulares';
+
+
+
+
+
+			$datos['flag'] = $flag;	
+			$datos['msg'] = $msg;	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}			
+	}
 
 }

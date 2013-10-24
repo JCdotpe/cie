@@ -203,6 +203,8 @@ $P1_A_2_Obs = array(
 	'name'	=> 'P1_A_2_Obs',
 	'id'	=> 'P1_A_2_Obs',
 	'class' => 'textarea98p',	
+	'rows' => 2,	
+
 );
 
 $P1_A_1_Cant_IE = array(
@@ -715,8 +717,11 @@ echo '
 												</tr>
 											</tbody>
 
-										</table>';
-
+										</table>
+														<div class="panel">
+																<label>Observaciones:</label>
+																'.form_textarea($P1_A_2_Obs).'
+														</div>';
 
 						echo form_submit('send', 'Guardar','class="btn btn-primary"');
 						echo form_close(); 
@@ -730,7 +735,9 @@ echo '
 
 
 
+				$attr = array('class' => 'form-vertical form-auth','id' => 'cap1_cm');
 
+				echo form_open($this->uri->uri_string(),$attr); 
 
 						echo '
 										<div class="panel"><!-- N CODIGOS -->
@@ -787,13 +794,18 @@ echo '
 														<br />
 														<br />
 
-														<div class="panel">
-																<label>Observaciones:</label>
-																'.form_textarea($P1_A_2_Obs).'
-														</div>
 
-										</div><!-- end panel ncodigod-->
+
+										</div><!-- end panel ncodigod-->';
+
+
+
+						echo form_submit('send', 'Guardar','class="btn btn-primary"');
+						echo form_close(); 
+
+						echo '
 								</div><!-- END IE EDUCA -->
+
 								
 							</div>
 		</div>
@@ -1339,28 +1351,84 @@ function btnies(n){
 }
 
 //print codmod table
-function gen_cms(n){
+function gen_cms(n,re){
 	$('#cod_mod').empty();	
 	var cm_str = '';
+
+	//Generar codigos modulares
 	for(var i=1; i<=n; i++){
-		cm_str += '<div class="cmp' + i + '" style="border: 1px solid #ccc">';
-		cm_str += '<input id="P1_A_2_9_NroCMod" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9_NroCMod">';
-		cm_str += '<input id="P1_A_2_9A_CMod" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod">';
-		cm_str += '<input id="P1_A_2_9B_CodLocal" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal">';
-		cm_str += '<input id="P1_A_2_9C_Nivel" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel">';
-		cm_str += '<input id="P1_A_2_9D_Car" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car">';
-		cm_str += '<input id="P1_A_2_9E_NroAnex" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex">';
-		cm_str += '<input id="P1_A_2_9F_CantAnex" class="input2" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex">';
-		cm_str += '<input id="P1_A_2_9G_T1_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu">';
-		cm_str += '<input id="P1_A_2_9H_T1_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul">';
-		cm_str += '<input id="P1_A_2_9I_T2_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu">';
-		cm_str += '<input id="P1_A_2_9J_T2_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul">';
-		cm_str += '<input id="P1_A_2_9K_T3_Talu" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu">';
-		cm_str += '<input id="P1_A_2_9L_T3_Taul" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul">';
+		cm_str += '<div class="cmp' + i + ' codmod" id="cmp' + i + '" style="border: 1px solid #ccc">';
+		cm_str += '<input id="P1_A_2_9_NroCMod_' + i + '" class="input7" type="text" readonly maxlength="7" value="" name="P1_A_2_9_NroCMod[]">';
+		cm_str += '<input id="P1_A_2_9A_CMod_' + i + '" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod[]">';
+		cm_str += '<input id="P1_A_2_9B_CodLocal_' + i + '" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal[]">';
+		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel[]">';
+		cm_str += '<input id="P1_A_2_9D_Car_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car[]">';
+		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]">';
+		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]">';
+		cm_str += '<input id="P1_A_2_9G_T1_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu[]">';
+		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]">';
+		cm_str += '<input id="P1_A_2_9I_T2_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu[]">';
+		cm_str += '<input id="P1_A_2_9J_T2_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul[]">';
+		cm_str += '<input id="P1_A_2_9K_T3_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu[]">';
+		cm_str += '<input id="P1_A_2_9L_T3_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul[]">';
+		//cm_str += '<button class="btn btncm btncm_nro' + i + '" type="button">Generar Anexos</button>';
 		cm_str += '</div>';
 	}
 	$('#cod_mod').append(cm_str);
+
+	//Cargar codigos modulares
+	var as = 1;
+	$.each( re, function(i, data) {						
+		$('#P1_A_2_9_NroCMod_' +  as).val(data.P1_A_2_9_NroCMod);
+		$('#P1_A_2_9A_CMod_' +  as).val(data.P1_A_2_9A_CMod);
+		$('#P1_A_2_9B_CodLocal_' +  as).val(data.P1_A_2_9B_CodLocal);
+		$('#P1_A_2_9C_Nivel_' +  as).val(data.P1_A_2_9C_Nivel);
+		$('#P1_A_2_9D_Car_' +  as).val(data.P1_A_2_9D_Car);
+		$('#P1_A_2_9E_NroAnex_' +  as).val(data.P1_A_2_9E_NroAnex);
+		$('#P1_A_2_9F_CantAnex_' +  as).val(data.P1_A_2_9F_CantAnex);
+		//data
+		$('#P1_A_2_9F_CantAnex_' +  as).attr('data-cm', data.P1_A_2_9F_CantAnex);
+		$('#P1_A_2_9G_T1_Talu_' +  as).val(data.P1_A_2_9G_T1_Talu);
+		$('#P1_A_2_9H_T1_Taul_' +  as).val(data.P1_A_2_9H_T1_Taul);
+		$('#P1_A_2_9I_T2_Talu_' +  as).val(data.P1_A_2_9I_T2_Talu);
+		$('#P1_A_2_9J_T2_Taul_' +  as).val(data.P1_A_2_9J_T2_Taul);
+		$('#P1_A_2_9K_T3_Talu_' +  as).val(data.P1_A_2_9K_T3_Talu);
+		$('#P1_A_2_9L_T3_Taul_' +  as).val(data.P1_A_2_9L_T3_Taul);
+		as++;
+	}); 	
+	
+	//Cargar Anexos por cod mod
+	////////////////////////////////////////
+
 }
+
+
+//print axs
+$(document).on("change",'.anx',function() {
+	var son = $(this);
+	var par = son.parent();
+	$('.anexo',par).remove();    
+	var as = 1;
+	var ax_str = '';
+	var dcm = son.data("cm");
+	for(var i=1; i<=son.val(); i++){
+		    ax_str += '<div class="ax' + i + ' anexo">';
+		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
+		    ax_str += '</div>';
+		   as++;
+	}	
+	par.append(ax_str);
+
+});
+
+
 
 
 //Generar IE
@@ -1396,7 +1464,7 @@ $("#addIE").click(function(){
 });
 
 
-//LOAD IE
+//boton IE NRO
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).on("click",'.ienro',function() {
 	myie = $(this);
@@ -1424,9 +1492,8 @@ $(document).on("click",'.ienro',function() {
 				$.each( json.ie, function(fila, valor) {
 					   $('#' + fila).val(valor);
 				}); 	
-
 				//cod mod
-				gen_cms(json.nro_cms);									
+				gen_cms(json.nro_cms,json.cms);									
 			}
 		}); 
 
@@ -1434,7 +1501,7 @@ $(document).on("click",'.ienro',function() {
 
 
 
-//ie update
+//guardar ie
 $("#cap1_ie").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 			//FIN RULES
@@ -1482,7 +1549,65 @@ $("#cap1_ie").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
-								gen_cms(json.nro_cms);
+								gen_cms(json.nro_cms,json.cms);						
+				            }
+				    });  
+			}
+});  
+
+
+
+
+//cm update
+$("#cap1_cm").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+
+				var cap1_cm_data = $("#cap1_cm").serializeArray();
+				cap1_cm_data.push(
+					    {name: 'ajax',value:1},
+					    {name: 'id_local',value:$("input[name='id_local']").val()},      
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},   
+					    {name: 'P1_A_2_NroIE',value:$("#P1_A_2_NroIE").val()}    
+				);
+						
+				var bcar = $( "#cap1_cm :submit" );
+				    bcar.attr("disabled", "disabled");
+				    $.ajax({
+				            url: CI.site_url + "/consistencia/cap1/cm",
+				            type:'POST',
+				            cache:false,
+				            data:cap1_cm_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+								// gen_cms(json.nro_cms,json.cms);						
 				            }
 				    });  
 			}
