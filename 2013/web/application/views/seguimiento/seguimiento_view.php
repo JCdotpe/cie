@@ -28,9 +28,13 @@
 
 <div class="row-fluid">
 	<div class="row-fluid">
+
 		<div id="ap-content" class="span12">
+
 			<div class="row-fluid well top-conv">
+
 				<?php echo form_open('','id="frm_seguimiento"'); ?>
+
 				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Sede Operativa', 'sedeoperativa', $label_class); ?>
@@ -46,11 +50,11 @@
 					<div class="control-group">
 						<?php echo form_label('Provincia Operativa', 'provincia_ope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" style="width:180px;" onChange="cargarDist();"'); ?>
+							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" style="width:180px;" onChange="cargarRutas();"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<!-- <div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Distrito', 'distrito', $label_class); ?>
 						<div class="controls">
@@ -66,7 +70,7 @@
 							?>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Código de Ruta', 'rutas', $label_class); ?>
@@ -104,16 +108,16 @@
 			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
-			colNames:['Periodo', 'Código de Local', 'Estado', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Detalle'],
+			colNames:['Periodo', 'Código de Local', 'Resultado de ET', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Cedulas'],
 			colModel:[
-				{name:'periodo',index:'periodo', align:"center"},
-				{name:'codigo_de_local',index:'codigo_de_local', align:"center"},
-				{name:'estado',index:'estado', align:"center"},
-				{name:'entrada_informacion',index:'entrada_informacion', align:"center"},
-				{name:'datos_gps',index:'datos_gps', align:"center"},
-				{name:'foto_ruta',index:'foto_ruta', align:"center"},
-				{name:'avance',index:'avance', align:"center"},
-				{name:'detalle',index:'detalle', align:"center"}
+				{name:'periodo',index:'periodo',width:50, align:"center"},
+				{name:'codigo_de_local',index:'codigo_de_local',width:80, align:"center"},
+				{name:'estado',index:'estado', width:100,align:"center"},
+				{name:'entrada_informacion',index:'entrada_informacion',width:120, align:"center"},
+				{name:'datos_gps',index:'datos_gps', width:100, align:"center"},
+				{name:'foto_ruta',index:'foto_ruta', width:80, align:"center"},
+				{name:'avance',index:'avance', width:80, align:"center"},
+				{name:'detalle',index:'detalle', width:80,  align:"center"}
 			],
 			pager: '#pager2',
 			rowNum:20,
@@ -124,19 +128,32 @@
 				var ids = jQuery("#list2").jqGrid('getDataIDs');
 				for(var i=0;i < ids.length;i++){
 					var cl = ids[i];
-					be = "<input type='button' value='Registrar Avance' onclick=saveavance('"+cl+"') />";
+					be = "<input type='button' value='Avance Diario' onclick=saveavance('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{avance:be});
-					be = "<input type='button' value='Registrar Detalle' onclick=savedetalle('"+cl+"') />";
+					be = "<input type='button' value='Diligenciadas' onclick=savedetalle('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{detalle:be});
 				}
 			},
 			sortorder: "asc",
-			caption:"Lista de Locales"
+			caption:"Resumen de Trabajo de Campo del Evaluador Técnico"
 		});
+		
+
+		jQuery("#list2").jqGrid('setGroupHeaders', {
+		  useColSpanStyle: true, 
+		  groupHeaders:[
+			{startColumnName: 'entrada_informacion', numberOfColumns: 3, titleText: 'TABLET'},
+			{startColumnName: 'avance', numberOfColumns: 2, titleText: 'Registrar'}
+		  ]	
+		});
+
+
+
+
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
 
-		cargarRutas();
+		//cargarRutas();
 		cargarPeriodo();
 	});
 </script>
@@ -170,7 +187,7 @@
 		'onclick' => 'frm_ValidarAvance()',
 		'type' => 'button',
 		'content' => 'Agregar',		
-		'class' => 'btn btn-primary'
+		'class' => 'btn btn-inverse'
 	);
 
 
@@ -187,7 +204,7 @@
 <div id="add-avance-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Registro de Avance</h3>
+			<h3 id="myModalLabel">Registro de Resumen del Trabajo de Campo del Evaluador</h3>
 		</div>
  
 		<div class="modal-body">
@@ -203,7 +220,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="success">
+						<tr class="well">
 							<td>
 								<input type="text" id="codigo" name="codigo" value="" readonly="true" class="span1">
 							</td>
@@ -237,7 +254,7 @@
 			url:'registro_seguimiento/ver_datos_avance',
 			datatype: "json",
 			height: 200,
-			colNames:['Nro de Avance', 'Código de Local', 'Estado', 'Fecha de Visita', 'Fecha y Hora de Registro'],
+			colNames:['Nro de Visita', 'Código de Local', 'Estado', 'Fecha de Visita', 'Fecha y Hora de Registro'],
 			colModel:[
 				{name:'nro_visita',index:'nro_visita', align:"center"},
 				{name:'codlocal',index:'codlocal', align:"center"},
@@ -346,7 +363,7 @@
 		'onclick' => 'frm_ValidarDetalle()',
 		'type' => 'button',
 		'content' => 'Agregar',		
-		'class' => 'btn btn-primary'
+		'class' => 'btn btn-inverse'
 	);
 
 
@@ -363,7 +380,7 @@
 <div id="add-detalle-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Registro de Detalle</h3>
+			<h3 id="myModalLabel">Registro de Cedulas Diligenciadas</h3>
 		</div>
  
 		<div class="modal-body">
@@ -379,7 +396,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="success">
+						<tr class="well">
 							<td>
 								<input type="text" id="codigo_dt" name="codigo_dt" value="" readonly="true" class="span1">
 							</td>

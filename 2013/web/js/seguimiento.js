@@ -68,8 +68,9 @@ function cargarCentroPoblado()
 	});
 }
 
-/*function cargarRutas()
+function cargarRutas()
 {
+	
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerrutas';
 	var id_depa = $("#sedeoperativa").val();
 	var id_prov = $("#provincia_ope").val();
@@ -87,12 +88,13 @@ function cargarCentroPoblado()
 			});
 
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+			//$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
 			if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
+			verdatos();
 		}
 	});
-}*/
+}
 
 /*function cargarPeriodo()
 {
@@ -120,7 +122,7 @@ function cargarCentroPoblado()
 	});
 }*/
 
-function cargarRutas()
+/*function cargarRutas()
 {
 	$("#rutas").empty();
 
@@ -136,7 +138,7 @@ function cargarRutas()
 	}
 
 	$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-}
+}*/
 
 function cargarPeriodo()
 {
@@ -154,8 +156,8 @@ function verdatos()
 {
 	var codsede = $("#sedeoperativa").val();
 	var codprov = $("#provincia_ope").val();
-	var coddist = $("#distrito").val();
-	var codcentrop = $("#centropoblado").val();
+/*	var coddist = $("#distrito").val();
+	var codcentrop = $("#centropoblado").val();*/
 	var codruta = $("#rutas").val();
 	var nroperiodo = $("#periodo").val();
 
@@ -184,7 +186,7 @@ function verdatos()
 	// 		break;
 	// }
 
-	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }

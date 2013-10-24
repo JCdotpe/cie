@@ -87,7 +87,7 @@ class Registro_Seguimiento extends CI_Controller {
 
 	public function obtenerrutas()
 	{
-		$rutas = $this->operativa_model->get_rutas($_POST['id_sede'],$_POST['id_prov'],$_POST['id_dist'],$_POST['id_cp']);
+		$rutas = $this->operativa_model->get_rutas($_POST['id_sede'],$_POST['id_prov']);
 		$return_arr['datos']=array();
 		foreach($rutas->result() as $filas)
 		{
@@ -132,7 +132,7 @@ class Registro_Seguimiento extends CI_Controller {
 			$where1 = "WHERE COD_SEDE_OPERATIVA='$sede' and COD_PROV_OPERATIVA='$prov'";
 		}
 		
-		if(isset($_GET['coddist'])) { 
+		/*if(isset($_GET['coddist'])) { 
 			$dist = $this->input->get('coddist');
 			if ($dist != -1)
 			{
@@ -146,7 +146,7 @@ class Registro_Seguimiento extends CI_Controller {
 			{
 				$where1 = $where1." and cod_ccpp='$centrop'";
 			}
-		}
+		}*/
 
 		if(isset($_GET['codruta'])) { 
 			$ruta = $this->input->get('codruta');

@@ -30,9 +30,9 @@ class Operativa_Model extends CI_Model {
 		return $q;
 	}
 
-	function get_rutas($codsede_ope, $codprov_ope, $coddist, $centrop)
+	function get_rutas($codsede_ope, $codprov_ope)
 	{
-		$sql = "SELECT DISTINCT r.idruta FROM rutas r left join Padlocal pl on r.codlocal=pl.codigo_de_local left join codigo_territorial ct on pl.cod_ubigeo=ct.ubigeo WHERE ct.cod_sede_operativa = '$codsede_ope' and ct.cod_prov_operativa = '$codprov_ope' and ct.ccdi='$coddist' and pl.ccpp_cie = '$centrop' ORDER BY r.idruta";
+		$sql = "SELECT DISTINCT r.idruta FROM rutas r left join Padlocal pl on r.codlocal=pl.codigo_de_local WHERE pl.cod_sede_operativa = '$codsede_ope' and pl.cod_prov_operativa = '$codprov_ope' ORDER BY r.idruta";
 		$q = $this->db->query($sql);
 		return $q;
 	}
