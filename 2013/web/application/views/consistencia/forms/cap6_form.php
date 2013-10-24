@@ -20,7 +20,8 @@ $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed_VI',
 	'maxlength'	=> 2,
-	'class' => 'input2',	
+	'class' => 'input2',
+	'readonly' => 'true',
 );
 
 $P6_1_3 = array(
@@ -222,7 +223,8 @@ $P5_NroPiso = array(
 	'name'	=> 'P5_NroPiso',
 	'id'	=> 'P5_NroPiso',
 	'maxlength'	=> 2,
-	'class' => 'input2',	
+	'class' => 'input2',
+	'readonly' => 'true',	
 );
 
 $P5_Ed_Nro = array(
@@ -234,7 +236,8 @@ $P6_2_1 = array(
 	'name'	=> 'P6_2_1',
 	'id'	=> 'P6_2_1',
 	'maxlength'	=> 2,
-	'class' => 'input2',		
+	'class' => 'input2',
+	'readonly' => 'true',		
 );
 
 $P6_2_3 = array(
@@ -952,32 +955,32 @@ echo '
 								<tr id="P6_1_8ID_5">
 									<td>8E</td>
 									<td>EL QUINTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p5" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								<tr id="P6_1_8ID_6">
 									<td>8F</td>
 									<td>EL SEXTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p6" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								<tr id="P6_1_8ID_7">
 									<td>8G</td>
 									<td>EL SEPTIMO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p7" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								<tr id="P6_1_8ID_8">
 									<td>8H</td>
 									<td>EL OCTAVO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p8" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								<tr id="P6_1_8ID_9">
 									<td>8I</td>
 									<td>EL NOVENO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p9" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								<tr id="P6_1_8ID_10">
 									<td>8J</td>
 									<td>EL DECIMO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p10" maxlength="1" class="input1" value="" ></td>
 								</tr>
 								
 								<tr>
@@ -1156,7 +1159,7 @@ echo '
 							</div>
 
 
-
+						<div id="cap6_2_f" >
 							<div style="background: none repeat scroll 0% 0% rgb(221, 221, 221);" id="visualizar_ambientes" class="panel">
 								<strong>Visualizar Ambientes</strong>
 								<div style="margin-top: 10px; margin-bottom: 10px;" id="panel_ambientes_vi">
@@ -2139,7 +2142,8 @@ echo '
 
 
 		  	    			</div>
-
+						</div>
+						<!-- cierre cap6_2_f-->
 
 
 							<table class="table table-bordered">
@@ -2505,6 +2509,9 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
+		$('#cap6_2_f input').val('');
+		$('#P6_2_1').val(array[0]);
+		$('#P5_NroPiso').val(array[2]);
 		Get_P6_2(array[0],array[2]);
 		Get_P6_2_4N(array[0],array[2]);
 		$('#panel_ambientes_vi > div > ul > li.combo_ins1').removeClass('active');
