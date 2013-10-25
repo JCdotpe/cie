@@ -56,8 +56,9 @@ class Cap5 extends CI_Controller {
 			$tot_ld = $this->input->post('P5_Tot_LD');
 			$tot_cte = $this->input->post('P5_Tot_CTE');
 			$tot_mc = $this->input->post('P5_Tot_MC');
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			
+
+
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 			//p5
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
@@ -96,9 +97,10 @@ class Cap5 extends CI_Controller {
 
 			}
 
+
 			////////////////////////////////////////////////////////////////cap6
 			//edificaciones
-			$my_nro_p6 = $this->cap6_model->get_cant_p6_1_for_p5($id,$pr)->num_rows();
+			$my_nro_p6 = $this->cap6_model->get_cant_p6_1_for_p5($id,$pr);
 
 			if($my_nro_p6 > 0){
 				//es igual
@@ -109,7 +111,6 @@ class Cap5 extends CI_Controller {
 					//borrar Edif sobrantes
 					for($i=$my_nro_p6; $i!=$tot_e; $i--){
 						$this->cap6_model->delete_p6_1_from_p5($id,$pr,$i);
-						$this->cap6_model->delete_p6_2_from_p5($id,$pr,$i);
 					}
 				}
 			}
@@ -117,55 +118,140 @@ class Cap5 extends CI_Controller {
 
 			////////////////////////////////////////////////////////////////cap8
 			//pisos
-			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'P')->num_rows();
+			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'P');
 			$this->del_p8_from_p5($my_nro_p8,$tot_p,$id,$pr,'P');
 			
 			//losa deportiva
-			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'LD')->num_rows();
+			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'LD');
 			$this->del_p8_from_p5($my_nro_p8,$tot_ld,$id,$pr,'LD');
 
 			//cisternas y tanques
-			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'CTE')->num_rows();
+			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'CTE');
 			$this->del_p8_from_p5($my_nro_p8,$tot_cte,$id,$pr,'CTE');
 
 			//muro de contencion
-			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'MC')->num_rows();
+			$my_nro_p8 = $this->cap8_model->get_cant_p8_for_p5($id,$pr,'MC');
 			$this->del_p8_from_p5($my_nro_p8,$tot_mc,$id,$pr,'MC');
 
+
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			$my_nro_p5_f = $this->cap5_model->get_cap5_f($id,$pr)->num_rows();
-
-
 			//P5_F
 			foreach ($fields_f as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 					$edi_f[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}
-
 			$c_data_f['id_local'] = $id;
 			$c_data_f['Nro_Pred'] = $pr;
-			if($cantpisos > 0){
+			
+			$my_nro_p5_f = $this->cap5_model->get_cant_p5f($id,$pr);
+
+			if($my_nro_p5_f > 0){
+				//es igual actualiza
+				if($my_nro_p5_f == $cantpisos) {
+					//nothing
+				//reducir pisos
+				}elseif($my_nro_p5_f > $cantpisos){
+					//borrar pisos sobrantes
+					for($i=$my_nro_p5_f; $i!=$cantpisos; $i--){
+						$this->cap5_model->delete_cap5_f($id,$pr,$i);
+					}
+					
+				}
+			}
+			
+			if ($cantpisos > 0){
 				$cc = 0;
 				foreach($edi_f['P5_NroPiso'] as &$z){
 						
-						foreach ($fields_f as $a=>$b) {
+					foreach ($fields_f as $a=>$b) {
+						
+						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 							
-							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-								
-								$c_data_f[$b] = ($edi_f[$b][$cc] == '') ? NULL : $edi_f[$b][$cc];	
-								
-							}
+							$c_data_f[$b] = ($edi_f[$b][$cc] == '') ? NULL : $edi_f[$b][$cc];	
+							
 						}
+					}
+
+					$hay_datos = $this->cap5_model->get_cant_p5f_v2($id,$pr,$edi_f['P5_NroPiso'][$cc])->num_rows();
+
+					if ($hay_datos > 0) {
 						$this->cap5_model->update_cap5_f($id,$pr,$edi_f['P5_NroPiso'][$cc],$c_data_f);
-					    $cc++;
+					}else{
+						$this->cap5_model->insert_cap5_f($c_data_f);
+					}
+					
+					$cc++;
 				}
 			}
 
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 			//P5_N
+			foreach ($fields_n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
+					$edi_n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}
+
+			$c_data_n['id_local'] = $id;
+			$c_data_n['Nro_Pred'] = $pr;
+
+			//pregunto cantidad y comparo luego elimno lo que sobra.
+			$my_nro_p5_n = $this->cap5_model->get_cap5_n($id,$pr,1)->num_rows();
+
+			if ($my_nro_p5_n > 0){
+				if($my_nro_p5_n == $tot_e) {
+					//nothing
+				//reducir p5_n
+				}elseif($my_nro_p5_n > $tot_e){
+					//borrar sobrantes
+					for($i=$my_nro_p5_n; $i!=$tot_e; $i--){
+						$this->cap5_model->delete_p5n_for_edif($id,$pr,$i);
+					}
+				}
+			}
+
+			if ($cantpisos > 0) {
+				//solo inserta o actualiza.
+				$cc = 0;
+				for ($i=0; $i<$cantpisos ; $i++) {
+					$c_data_n['P5_NroPiso'] = $i+1;
+
+					for($j=0; $j<$tot_e; $j++){
+						$c_data_n['P5_Ed_Nro'] = $j+1;
+
+						$hay_datos = $this->cap5_model->get_cant_p5n($id,$pr,$c_data_n['P5_NroPiso'],$c_data_n['P5_Ed_Nro'])->num_rows();
+
+						foreach ($fields_n as $a=>$b) {
+							
+							if(!in_array($b, array('id_local','Nro_Pred','P5_NroPiso','P5_Ed_Nro','user_id','last_ip','user_agent','created','modified'))){
+								
+								$c_data_n[$b] = ($edi_n[$b][$cc] == '') ? NULL : $edi_n[$b][$cc];	
+								
+							}
+						}
+
+						if ($hay_datos > 0){
+							$this->cap5_model->update_cap5_n($id,$pr,$c_data_n['P5_NroPiso'],$c_data_n['P5_Ed_Nro'],$c_data_n);	
+						}else{
+							$this->cap5_model->insert_cap5_n($c_data_n);	
+						}
+
+						//ambientes
+						$hay_ambientes = $this->cap6_model->get_cant_p6_2_for_p5($id,$pr,$c_data_n['P5_Ed_Nro'],$c_data_n['P5_NroPiso']);
+
+						$nro_amb = $c_data_n['P5_TotAmb'];
+						if ($hay_ambientes > $nro_amb){
+							//borrar sobrantes
+							for($i=$hay_ambientes; $i!=$nro_amb; $i--){
+								$this->cap6_model->delete_p6_2_from_p5($id,$pr,$c_data_n['P5_Ed_Nro'],$c_data_n['P5_NroPiso'],$i);
+							}
+						}
+
+						$cc++;
+					}
+				}
+			}
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
@@ -191,6 +277,17 @@ class Cap5 extends CI_Controller {
 				}
 			}
 		}
+	}
+
+	public function cap5_f()
+	{
+		$codigo = $this->input->get('codigo');
+		$predio = $this->input->get('predio');
+
+		$data = $this->cap5_model->get_cap5_f($codigo,$predio);
+
+		echo json_encode($data->result());
+
 	}
 
 	public function cap5_n()

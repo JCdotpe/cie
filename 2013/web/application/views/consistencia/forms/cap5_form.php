@@ -83,12 +83,12 @@ $P5_NroPiso = array(
 	'class' => 'input1',	
 );
 
-$P5_Foto = array(
-	'name'	=> 'P5_Foto',
-	'id'	=> 'P5_Foto',
-	'disabled' => 'disabled',
-	'class' => 'input98p',
-);
+// $P5_Foto = array(
+// 	'name'	=> 'P5_Foto',
+// 	'id'	=> 'P5_Foto',
+// 	'disabled' => 'disabled',
+// 	'class' => 'input98p',
+// );
 
 $P5_Escala = array(
 	'name'	=> 'P5_Escala',
@@ -204,7 +204,7 @@ $('#P5_cantNroPiso').change(function(event) {
 		asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" readonly="true" name="P5_NroPiso[]" id="P5_NroPiso' + '_p_' + i + '" value="' + i + '" ></th>';
 		asd+='</tr></thead>';
 		asd+='<tbody id="piso' + i + '">';
-		asd+='<tr><td colspan="2"><input type="text" class="input98p" readonly="true" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
+		asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
 			for (var j=1;j<=edi;j++){
 				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
 				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
@@ -242,7 +242,7 @@ $('#P5_Tot_E').change(function(event) {
 	for(var i=1; i<=n_pisos;i++){
 		var asd = "";
 			for (var j=1;j<=ahua;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
 				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
 			}
 		$('tbody#piso'+i).append(asd);
