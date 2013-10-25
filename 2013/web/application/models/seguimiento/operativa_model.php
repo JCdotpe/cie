@@ -8,7 +8,12 @@ class Operativa_Model extends CI_Model {
 		$q = $this->db->query($query);
 		return $q;
 	}
-
+	function Get_Sede()
+	{
+		$query="SELECT os.cod_sede_operativa,os.sede_operativa from Operativa_Sede os  ORDER BY os.sede_operativa";
+		$q = $this->db->query($query);
+		return $q;
+	}
 	function Get_ProvbySedeOpe($codsede_ope)
 	{
 		$query="SELECT cod_prov_operativa, prov_operativa_ugel FROM operativa_prov WHERE cod_sede_operativa = '$codsede_ope'";

@@ -10,6 +10,7 @@ class Reporte_avance_odei extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 		$this->load->model('seguimiento/seguimiento_model');
+		$this->load->model('seguimiento/operativa_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect();
@@ -38,6 +39,7 @@ class Reporte_avance_odei extends CI_Controller {
 		$data['option'] = 4;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Avance por ODEI';
+		$data['Sede'] = $this->operativa_model->Get_Sede();
 		$data['main_content'] = 'seguimiento/reporte_avance_odei_view';
 
 		$this->load->view('backend/includes/template', $data);
@@ -45,12 +47,20 @@ class Reporte_avance_odei extends CI_Controller {
 
 	public function view_resultado()
 	{
+		$sede = $this->input->get('vsede');
+		$prov = $this->input->get('vprov');
+		
 		$periodo = $this->input->get('vperiodo');
-		if ($periodo!=99){
+		/*if ($periodo!=99){
 			$data = $this->seguimiento_model->get_avance_odei($periodo);
 		}else{
 			$data = $this->seguimiento_model->get_avance_odei_total();
 		}
+		*/
+
+		$data = $this->seguimiento_model->get_avance_odeiST($sede,$prov,$periodo);	
+
+		
 
 		$i=0;
 		echo "[";
@@ -59,20 +69,21 @@ class Reporte_avance_odei extends CI_Controller {
 
 			if($i>0){echo",";}
 
-			$x= array("detadepen" => $fila->detadepen,
-			"LocEscolares" => $fila->LocEscolares,
-			"LocEscolar_Censado" => $fila->LocEscolar_Censado,
-			"LocEscolar_Censado_Porc" => is_null($fila->LocEscolar_Censado_Porc) ? '' : $fila->LocEscolar_Censado_Porc,
-			"Completa" => is_null($fila->Completa) ? '' : $fila->Completa,
-			"Completa_Porc" => is_null($fila->Completa_Porc) ? '' : $fila->Completa_Porc,
-			"Incompleta" => is_null($fila->Incompleta) ? '' : $fila->Incompleta,
-			"Incompleta_Porc" => is_null($fila->Incompleta_Porc) ? '' : $fila->Incompleta_Porc,
-			"Rechazo" => is_null($fila->Rechazo) ? '' : $fila->Rechazo,
-			"Rechazo_Porc" => is_null($fila->Rechazo_Porc) ? '' : $fila->Rechazo_Porc,
-			"Desocupada" => is_null($fila->Desocupada) ? '' : $fila->Desocupada,
-			"Desocupada_Porc" => is_null($fila->Desocupada_Porc) ? '' : $fila->Desocupada_Porc,
-			"Otro" => is_null($fila->Otro) ? '' : $fila->Otro,
-			"Otro_Porc" => is_null($fila->Otro_Porc) ? '' : $fila->Otro_Porc
+			$x= array("Sede" => $fila->Sede,
+			"Prov" => $fila->Prov,
+			"LocEscolares" => $fila->LocaProg,
+			"LocEscolar_Censado" => $fila->TotalVisitados,
+			"LocEscolar_Censado_Porc" => is_null($fila->PorAvance) ? '' : $fila->PorAvance,
+			"Completa" => is_null($fila->Tcompletos) ? '' : $fila->Tcompletos,
+			"Completa_Porc" => is_null($fila->Porcompletos) ? '' : $fila->Porcompletos,
+			"Incompleta" => is_null($fila->TIncompleto) ? '' : $fila->TIncompleto,
+			"Incompleta_Porc" => is_null($fila->PorInc) ? '' : $fila->PorInc,
+			"Rechazo" => is_null($fila->TRechazo) ? '' : $fila->TRechazo,
+			"Rechazo_Porc" => is_null($fila->PorRechazo) ? '' : $fila->PorRechazo,
+			"Desocupada" => is_null($fila->TLocal_Cerrado) ? '' : $fila->TLocal_Cerrado,
+			"Desocupada_Porc" => is_null($fila->PorLocal_Cerrado) ? '' : $fila->PorLocal_Cerrado,
+			"Otro" => is_null($fila->TOtros) ? '' : $fila->TOtros,
+			"Otro_Porc" => is_null($fila->PorOtros) ? '' : $fila->PorOtros
 			);
 
 			$jsonData = my_json_encode($x);

@@ -147,6 +147,15 @@ class Seguimiento_Model extends CI_Model {
 		$q=$this->db->query("Seguimiento_Ubigeo_Cedula ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo,$tipo));
 		return $q;
 	}
+		function get_avance_odeiST($vsede,$cod_prov,$periodo)
+	{
+		$q=$this->db->query("sp_AvanceSedeProv ?, ?, ?", array($vsede,$cod_prov,$periodo));
+
+		//echo $q;
+
+		return $q;
+	}
+
 
 }
 /* End of file welcome.php */
