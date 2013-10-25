@@ -25,8 +25,7 @@ $P3_1_3_NroPtos = array(
 $P3_1_4_ArchGPS = array(
 	'name'	=> 'P3_1_4_ArchGPS',
 	'id'	=> 'P3_1_4_ArchGPS',
-	'class' => 'input98p',	
-	'disabled' => 'disabled',		
+	'class' => 'input98p',		
 );
 
 $RutaFoto = array(
@@ -74,7 +73,9 @@ $AltitudPuntof = array(
 // CAPITULO 3
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap3_f');
 
+echo form_open($this->uri->uri_string(),$attr); 
 echo '
 
 <div class="panel panel-info">
@@ -187,7 +188,8 @@ echo '
 						</div>
 
 ';
-
+echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+echo form_close(); 
 ?>
 
 
@@ -229,6 +231,64 @@ $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
 	   }
 	   as++;
 }); 
+
+
+
+$("#cap3_f").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			    P3_1_1_LugGeoref: {
+			            required: true,
+			         },  
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+				    	var cap3_data = $("#cap3_f").serializeArray();
+					    cap3_data.push(
+					        {name: 'ajax',value:1},
+					        {name: 'id_local',value:$("input[name='id_local']").val()},      
+					        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+					    );
+						
+				        var bcar = $( "#cap3_f :submit" );
+				         bcar.attr("disabled", "disabled");
+				        $.ajax({
+				            url: CI.site_url + "/consistencia/cap3",
+				            type:'POST',
+				            data:cap3_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+				            }
+				        });     			          	
+		    }       
+}); 
+
+
+
+
 
 
 }); 
