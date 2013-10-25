@@ -353,14 +353,6 @@ public function cm()
 							}
 						}
 
-						foreach ($cap1_p1_a_2_9n_fx[$cc] as $a=>$b) {
-							//quitar _1
-							$subb = substr($b,0,-2);
-							if(!in_array($subb, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
-								$cap1_p1_a_2_9n[$subb] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
-							}
-						}	
-
 					$ll++;
 					}
 					//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -381,6 +373,16 @@ public function cm()
 										$cap1_p1_a_2_9n_data['P1_A_2_NroIE'] = $ie;
 										$cap1_p1_a_2_9n_data['P1_A_2_9_NroCMod'] = $cm;
 
+										//get arrays de Anexos segun Cod Mod
+										foreach ($cap1_p1_a_2_9n_fx[$cc] as $a=>$b) {
+											//quitar _1
+											$subb = substr($b,0,-2);
+											if(!in_array($subb, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
+												$cap1_p1_a_2_9n[$subb] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+											}
+										}	
+
+										//Preparar Array de Anexos
 										foreach ($fields_n as $a=>$b) {
 											if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
 												$cap1_p1_a_2_9n_data[$b] = ($cap1_p1_a_2_9n[$b][$o] == '') ? NULL : $cap1_p1_a_2_9n[$b][$o];
@@ -389,7 +391,7 @@ public function cm()
 
 										//campos repetidos ax
 										$cap1_p1_a_2_9n_data['P1_A_2_9_Nro'] = $cap1_p1_a_2_9n_data['P1_A_2_9_AnexNro'];
-
+										//Insertar Anexos
 									    $this->cap1_model->insert_cap1($cap1_p1_a_2_9n_data,'P1_A_2_9N');			
 										
 							}
