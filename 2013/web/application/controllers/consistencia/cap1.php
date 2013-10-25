@@ -168,6 +168,11 @@ class Cap1 extends CI_Controller {
 		$this->cap1_model->delete_cap1_codmod($id,$pr,$ie,$cm,'P1_A_2_8N');
 	}
 
+	private function del_ax($id,$pr,$ie,$cm){
+		$this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_C_20N');
+		$this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_C');
+		$this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_A_2_9N');
+	}
 
 
 	public function ies()
@@ -315,23 +320,13 @@ public function cm()
 				}
 			}	
 
-			//pre insert ax
-			$cap1_p1_a_2_9n_data['id_local'] = $id;
-			$cap1_p1_a_2_9n_data['Nro_Pred'] = $pr;
-			$cap1_p1_a_2_9n_data['P1_A_2_NroIE'] = $ie;
-
-			foreach ($fields_n as $a=>$b) {
-				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
-					$cap1_p1_a_2_9n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
-				}
-			}	
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//CM
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
-
+			$cm = null;
 
 			$cc = 0;
 			foreach($cap1_p1_a_2_8n['P1_A_2_9_NroCMod'] as &$z){
@@ -343,49 +338,73 @@ public function cm()
 						}
 
 						$cm = $cap1_p1_a_2_8n['P1_A_2_9_NroCMod'][$cc];
-						$nro_axs = $cap1_p1_a_2_8n['P1_A_2_9F_CantAnex'][$cc];
 						
 					    $this->cap1_model->update_cap1_cm($id,$pr,$ie,$cm,$cap1_p1_a_2_8n_data,'P1_A_2_8N');			
-					    $cc++;
+					    
 
-						// //////////////////////////////////////////////////////////////////////////////////////////////////
-						// //AX
-						// $my_nro_ax = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();
-						// //tiene alguna ie?
-						// if($my_nro_cms > 0){
-						// 	//es igual
-						// 	if($my_nro_cms == $nro_cms) {
-						// 		//nothing
-						// 	//reducir codmod
-						// 	}elseif($my_nro_cms > $nro_cms){
-						// 			//borrar ies sobrantes
-						// 			for($i=$my_nro_cms; $i!=$nro_cms; $i--){
-						// 				$this->del_codmod($id,$pr,$ie,$i);
-						// 			}
-						// 	//aumentar
-						// 	}elseif($my_nro_cms < $nro_cms){
-						// 			//agregar ies faltantes
-						// 			for($i=$my_nro_cms; $i!=$nro_cms; $i++){
-						// 				$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i+1;
-						// 				$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
-						// 			}
-						// 	}
+					//////////////////////////////////////////////////////////////////////////////////////////////////
+					//PRE AX		  
+					$ll = 0;
+					foreach($cap1_p1_a_2_8n['P1_A_2_9_NroCMod'] as &$z){	  
+						foreach ($fields_n as $a=>$b) {
+							$ccx = $ll+1;
+							if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){							
+								$cap1_p1_a_2_9n_fx[$ll][] = $b . '_' . $ccx;
+							}
+						}
 
-						// //ingresar primera vez IES
-						// }else{
-						// 		for($i=1; $i <= $nro_cms; $i++){
-						// 			$cap1_p1_a_2_8n_data['P1_A_2_9_NroCMod'] =  $i;
-						// 			$this->cap1_model->insert_cap1($cap1_p1_a_2_8n_data,'P1_A_2_8N');
-						// 		}			
-						// }						    
+						foreach ($cap1_p1_a_2_9n_fx[$cc] as $a=>$b) {
+							//quitar _1
+							$subb = substr($b,0,-2);
+							if(!in_array($subb, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
+								$cap1_p1_a_2_9n[$subb] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+							}
+						}	
+
+					$ll++;
+					}
+					//////////////////////////////////////////////////////////////////////////////////////////////////
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////
+					//AX	
+						$this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_A_2_9N');
+
+						$nro_axs = $cap1_p1_a_2_8n['P1_A_2_9F_CantAnex'][$cc];
+
+						if($nro_axs > 0){
+							//insert axs por cod mod
+							for($o = 0; $o<=$nro_axs-1;$o++){
+										$cap1_p1_a_2_9n_data = null;
+										//data insert ax
+										$cap1_p1_a_2_9n_data['id_local'] = $id;
+										$cap1_p1_a_2_9n_data['Nro_Pred'] = $pr;
+										$cap1_p1_a_2_9n_data['P1_A_2_NroIE'] = $ie;
+										$cap1_p1_a_2_9n_data['P1_A_2_9_NroCMod'] = $cm;
+
+										foreach ($fields_n as $a=>$b) {
+											if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
+												$cap1_p1_a_2_9n_data[$b] = ($cap1_p1_a_2_9n[$b][$o] == '') ? NULL : $cap1_p1_a_2_9n[$b][$o];
+											}
+										}	
+
+										//campos repetidos ax
+										$cap1_p1_a_2_9n_data['P1_A_2_9_Nro'] = $cap1_p1_a_2_9n_data['P1_A_2_9_AnexNro'];
+
+									    $this->cap1_model->insert_cap1($cap1_p1_a_2_9n_data,'P1_A_2_9N');			
+										
+							}
+
+						}
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////
+
+					$cc++;									    
 
 			}	
 
+
 			$flag = 1;
 			$msg = 'Se ha actualizado satisfactoriamente los Códigos Modulares';
-
-
-
 
 
 			$datos['flag'] = $flag;	
