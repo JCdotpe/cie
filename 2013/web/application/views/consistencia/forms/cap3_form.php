@@ -98,6 +98,7 @@ echo '
 										<td>
 											<label>
 												'.form_input($P3_1_1_LugGeoref).'
+												<div class="help-block error"></div>
 											</label>
 										</td>
 									</tr>
