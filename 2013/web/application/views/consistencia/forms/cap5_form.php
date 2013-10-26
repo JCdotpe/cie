@@ -214,11 +214,14 @@ $('#P5_cantNroPiso').change(function(event) {
 	}
 
 	var as = 1;
-	$.each( <?php echo json_encode($cap5_f->result()); ?>, function(i, data) {
-			$('#P5_NroPiso' + '_p_' + as).val(data.P5_NroPiso);
-			$('#P5_Foto' + '_p_' + as).val(data.P5_Foto);
+	$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_f/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
+
+		$.each(data, function(i, datos) {
+
+			$('#P5_NroPiso' + '_p_' + as).val(datos.P5_NroPiso);
+			$('#P5_Foto' + '_p_' + as).val(datos.P5_Foto);
 			
-			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:data.id_local,predio:data.Nro_Pred,piso:data.P5_NroPiso}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:datos.id_local,predio:datos.Nro_Pred,piso:datos.P5_NroPiso}, function(data, textStatus) {
 					var ad = 1;
 					$.each(data, function(i, valor) {
 						$('#P5_Ed_Nro' + '_p_' + valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
@@ -228,6 +231,8 @@ $('#P5_cantNroPiso').change(function(event) {
 			});
 
 			as++;
+		});
+
 	});
 
 });
@@ -258,6 +263,7 @@ $('#P5_Tot_E').change(function(event) {
 				});
 		});
 	}
+	
 });
 
 
@@ -303,13 +309,13 @@ $("#cap5_f").validate({
 			            type:'POST',
 			            data:cap5_data,
 			            dataType:'json',
-			            success:function(json){
+			            success:function(json){							
 							alert(json.msg);
 							bcar.removeAttr('disabled');
 			            }
 			        });     			          	
-	    }       
-}); 
+	    }	    
+});
 
 
 });

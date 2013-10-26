@@ -279,6 +279,17 @@ class Cap5 extends CI_Controller {
 		}
 	}
 
+	public function cap5_i()
+	{
+		$codigo = $this->input->get('codigo');
+		$predio = $this->input->get('predio');
+
+		$data = $this->cap5_model->get_cap5($codigo,$predio);
+
+		echo json_encode($data->result());
+
+	}
+
 	public function cap5_f()
 	{
 		$codigo = $this->input->get('codigo');

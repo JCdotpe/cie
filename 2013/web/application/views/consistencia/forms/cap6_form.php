@@ -2366,6 +2366,33 @@ echo form_close();
 
 $(document).ready(function(){
 
+	$('#ctab6').bind('click', function (e) {
+        //e.target(window.alert("hello"))
+
+        $.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
+
+	        $.each( data, function(i, datos) {
+
+				$('#Cant_Edif_6').val(datos.P5_Tot_E);
+
+				$('#panel_edificaciones_vi > div').remove('.btn-group');
+				var asd ='<div class="btn-group">';
+					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+					asd+='<ul class="dropdown-menu">';
+				if (datos.P5_Tot_E > 0)
+				{
+					for (var i=1; i<=datos.P5_Tot_E; i++) {
+						asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
+					}			
+				}
+				asd+='</ul>';
+				asd+='</div>';
+
+				$('#panel_edificaciones_vi').html(asd);
+			});
+		});
+    });
+
 	ocultar_preg_8();
 
 	function ocultar_preg_8(){
@@ -2382,25 +2409,25 @@ $(document).ready(function(){
 		};
 	}
 
-	$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
+	// $.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
 
-		$('#Cant_Edif_6').val(data.P5_Tot_E);
+	// 	$('#Cant_Edif_6').val(data.P5_Tot_E);
 
-		$('#panel_edificaciones_vi > div').remove('.btn-group');
-		var asd ='<div class="btn-group">';
-			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
-			asd+='<ul class="dropdown-menu">';
-		if (data.P5_Tot_E > 0)
-		{
-			for (var i=1; i<=data.P5_Tot_E; i++) {
-				asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
-			}			
-		}
-		asd+='</ul>';
-		asd+='</div>';
+	// 	$('#panel_edificaciones_vi > div').remove('.btn-group');
+	// 	var asd ='<div class="btn-group">';
+	// 		asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+	// 		asd+='<ul class="dropdown-menu">';
+	// 	if (data.P5_Tot_E > 0)
+	// 	{
+	// 		for (var i=1; i<=data.P5_Tot_E; i++) {
+	// 			asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
+	// 		}			
+	// 	}
+	// 	asd+='</ul>';
+	// 	asd+='</div>';
 
-		$('#panel_edificaciones_vi').html(asd);
-	});
+	// 	$('#panel_edificaciones_vi').html(asd);
+	// });
 
 
 	$('#panel_edificaciones_vi').on('click','.combo_ins1',function(event){
