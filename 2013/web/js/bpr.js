@@ -118,10 +118,11 @@ function Form_Validar()
 	id_cap = $("#capitulo").val();
 	id_sec = $("#seccion").val();
 	id_pre = $("#pregunta").val();
-
+	nom = $("#nombrecompleto").val();
+	nrodni = $("#nrodni").val();
 	cons = $("#consulta").val();
 
-	if (id_sede == -1 || id_prov == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1)
+	if (id_sede == -1 || id_prov == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1 || nrodni == "" || nom == "")
 	{
 		alert("Faltan Seleccionar Datos!");
 		return false;

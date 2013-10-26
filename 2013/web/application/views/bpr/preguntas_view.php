@@ -165,6 +165,7 @@
 				</div>
 				<div class="span3">
 					<div class="control-group">
+						<span class="obligatorio">*</span>
 						<?php echo form_label('Nro DNI', 'dni', $label_class); ?>
 						<div class="controls">
 							<?php echo form_input($txtDni); ?>
@@ -174,6 +175,7 @@
 				<div>
 					<div class="span7">
 						<div class="control-group">
+							<span class="obligatorio">*</span>
 							<?php echo form_label('Consulta', 'cons', $label_class); ?>
 							<div class="controls">
 								<?php echo form_textarea($txtConsulta); ?>

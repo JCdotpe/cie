@@ -10,11 +10,13 @@ function cargarProvBySede()
 		dataType:'json',
 		success: function(json_data){
 			$("#provincia_ope").empty();
+			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$.each(json_data, function(i, data){
 				$("#provincia_ope").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
 			
-			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
+			
+			$("#provincia_ope").prepend("<option value='99' selected='true'>Todos</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			verdatos();
