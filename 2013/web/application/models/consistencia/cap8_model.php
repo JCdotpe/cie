@@ -34,13 +34,17 @@ class Cap8_model extends CI_MODEL{
 		return $this->db->affected_rows() > 0;
 	}
 
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////cap5
 	function get_cant_p8_for_p5($id,$pr,$tipo)
 	{
+		$this->db->select_max('P8_2_Nro');
 		$this->db->where('id_local', $id );
 		$this->db->where('Nro_Pred', $pr );
 		$this->db->where('P8_2_Tipo', $tipo );
 		$q = $this->db->get('P8');
-		return $q;
+		if ($q->num_rows() > 0) $row = $q->row();
+		return $row->P8_2_Nro;
 	}
 
 	function delete_p8_from_p5($id,$pr,$tipo,$nro){

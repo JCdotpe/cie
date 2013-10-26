@@ -1387,7 +1387,7 @@ function gen_cms(n,re){
 		$('#P1_A_2_9E_NroAnex_' +  as).val(data.P1_A_2_9E_NroAnex);
 		$('#P1_A_2_9F_CantAnex_' +  as).val(data.P1_A_2_9F_CantAnex);
 		//data
-		$('#P1_A_2_9F_CantAnex_' +  as).attr('data-cm', data.P1_A_2_9F_CantAnex);
+		$('#P1_A_2_9F_CantAnex_' +  as).attr('data-cm', data.P1_A_2_9_NroCMod);
 		$('#P1_A_2_9G_T1_Talu_' +  as).val(data.P1_A_2_9G_T1_Talu);
 		$('#P1_A_2_9H_T1_Taul_' +  as).val(data.P1_A_2_9H_T1_Taul);
 		$('#P1_A_2_9I_T2_Talu_' +  as).val(data.P1_A_2_9I_T2_Talu);
@@ -1408,12 +1408,13 @@ $(document).on("change",'.anx',function() {
 	var son = $(this);
 	var par = son.parent();
 	$('.anexo',par).remove();    
+	var dcm = son.data("cm");
+
 	var as = 1;
 	var ax_str = '';
-	var dcm = son.data("cm");
 	for(var i=1; i<=son.val(); i++){
 		    ax_str += '<div class="ax' + i + ' anexo">';
-		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
 		    ax_str +='<input type="text" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
 		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
 		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
