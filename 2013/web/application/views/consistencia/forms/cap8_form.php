@@ -192,7 +192,7 @@ echo '
 												</tr>
 												<tr>
 													</tr><tr>
-														<td> '.form_input($P8_area).' </td>
+														<td> '.form_input($P8_area).' <div class="help-block error"></div> </td>
 														<td> 00 </td>
 													</tr>
 												
@@ -233,7 +233,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_ejecuto).' (Especifique) '.form_input($P8_ejecuto_O).'
+		  	    							'.form_input($P8_ejecuto).' <div class="help-block error"></div> (Especifique) '.form_input($P8_ejecuto_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f7_edi">
@@ -243,7 +243,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_E).'
+		  	    							'.form_input($P8_Est_E).' <div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f8_edi">
@@ -253,7 +253,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Ant).'
+		  	    							'.form_input($P8_Ant).' <div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f9_edi">
@@ -263,7 +263,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_PaLo).'
+		  	    							'.form_input($P8_Est_PaLo).' <div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f10_edi">
@@ -273,7 +273,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_RecTec).'
+		  	    							'.form_input($P8_RecTec).' <div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f11_edi">
@@ -549,7 +549,22 @@ $(document).ready(function(){
 
 	$("#cap8_f").validate({
 	    rules: {
-		//FIN RULES
+				P8_area: {
+						digits: true,
+			            required: true,
+			        },  
+				P8_ejecuto: {
+			    		range: [1,6],
+			    },  	
+				P8_Est_E: {
+			    		range: [1,4],
+			    },  	
+				P8_Ant: {
+			    		range: [1,3],
+			    }, 		
+				P8_RecTec: {
+			    		range: [1,3],
+			    }, 				    	    		    
 	    },
 
 	    messages: {   

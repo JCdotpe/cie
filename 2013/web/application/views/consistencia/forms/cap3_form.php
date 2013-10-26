@@ -238,8 +238,6 @@ $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
 $("#cap3_f").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 			    P3_1_1_LugGeoref: {
-			    		range:[1,2],
-			    		maxlength: 1, 
 			            required: true,
 			        },  
 				P3_1_4_ArchGPS: {
