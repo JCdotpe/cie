@@ -445,7 +445,7 @@ echo '
 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
 
 								  	<label class="checkbox-inline">
-										'.form_input($PC_A_7Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
+										'.form_input($PC_A_7Dir_1_Tvia).' <div class="help-block error"></div> 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
 									</label>
 						</div>
 
@@ -495,7 +495,7 @@ echo '
 							<li class="list-group-item">
 								8. La dirección del colegio del local escolar del DOC.CIE.03.06
 								<label class="checkbox-inline">
-									'.form_input($PC_A_8_DirVerif).'
+									'.form_input($PC_A_8_DirVerif).' <div class="help-block error">
 								</label>
 							</li>
 							<li class="list-group-item">
@@ -651,31 +651,31 @@ echo '
 								<tbody>
 									<tr>
 										<td>Evaluador Técnico</td>
-										<td>'.form_input($PC_D_EvT_dni).'</td>
-										<td>'.form_input($PC_D_EvT_Nomb).'</td>
+										<td>'.form_input($PC_D_EvT_dni).' <div class="help-block error"></div></td>
+										<td>'.form_input($PC_D_EvT_Nomb).'<div class="help-block error"></div></td>
 									</tr>
 
 									<tr>
 										<td>Jefe de Brigada</td>
-										<td>'.form_input($PC_D_JBri_dni).'</td>
+										<td>'.form_input($PC_D_JBri_dni).' <div class="help-block error"></div></td>
 										<td>'.form_input($PC_D_JBri_Nomb).'</td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Provincial</td>
-										<td>'.form_input($PC_D_CProv_dni).'</td>
+										<td>'.form_input($PC_D_CProv_dni).' <div class="help-block error"></div></td>
 										<td>'.form_input($PC_D_CProv_Nomb).'</td>
 									</tr>
 
 									<tr>
 										<td>Coordinador Departamental</td>
-										<td>'.form_input($PC_D_CDep_dni).'</td>
+										<td>'.form_input($PC_D_CDep_dni).' <div class="help-block error"></div></td>
 										<td>'.form_input($PC_D_CDep_Nomb).'</td>
 									</tr>
 
 									<tr>
 										<td>Supervisor Nacional</td>
-										<td>'.form_input($PC_D_SupN_dni).'</td>
+										<td>'.form_input($PC_D_SupN_dni).' <div class="help-block error"></div></td>
 										<td>'.form_input($PC_D_SupN_Nomb).'</td>
 									</tr>
 
@@ -836,11 +836,11 @@ $('#pcar_c_n tr').remove('.entrev');
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input200 embc' + i + '" maxlength="80" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input10 embc' + i + '" maxlength="80" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hini[]" id="PC_C_1_Jb_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hfin[]" id="PC_C_1_Jb_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input200 embc' + i + '" maxlength="80" name="PC_C_1_Jb_Res_O' + '_' + i + '" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input10 embc' + i + '" maxlength="80" name="PC_C_1_Jb_Res_O' + '_' + i + '" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
 	    asd += '</tr>';
 	    $('#pcar_c_n > tbody').append(asd);
 	  }
@@ -870,8 +870,39 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 $('#pcar_num').trigger('change');
 
 $("#car_f").validate({
-		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
+		    rules: {  
+		    	
+				PC_A_7Dir_1_Tvia: {
+			    		range: [1,7],
+			    		required: true,
+			        },  				    	
+				PC_A_8_DirVerif: {
+			    		range: [1,2],
+			    		required: true,
+			        },  			                     			         		         		         		                  	         		         	         	          		                                                                             		    	
+				PC_C_2_Rfinal_resul: {
+			    		range: [1,5],
+			    		required: true,
+			        },  		             			         		         		         		                  	         		         	         	          		                                                                             
+				PC_D_EvT_dni: {
+			    		digits: true,
+			    		required: true,
+			        },  
+				PC_D_EvT_Nomb: {
+			    		required: true,
+			        },  			        
+				PC_D_JBri_dni: {
+			    		digits: true,
+			    	},  
+			    PC_D_CProv_dni: {
+			    		digits: true,
+			    	},  
+			    PC_D_CDep_dni: {
+			    		digits: true,
+			    	},  
+			    PC_D_SupN_dni: {
+			    		digits: true,
+			    	},  
 		    },
 
 		    messages: {   
