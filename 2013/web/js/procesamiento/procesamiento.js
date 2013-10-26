@@ -10,13 +10,11 @@ function cargarProvBySede()
 		dataType:'json',
 		success: function(json_data){
 			$("#provincia_ope").empty();
-			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$.each(json_data, function(i, data){
 				$("#provincia_ope").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
 			});
 			
-			
-			$("#provincia_ope").prepend("<option value='99' selected='true'>Todos</value>");
+			$("#provincia_ope").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
 			verdatos();
@@ -70,9 +68,8 @@ function cargarCentroPoblado()
 	});
 }
 
-function cargarRutas()
+/*function cargarRutas()
 {
-	
 	var doLoginMethodUrl = 'registro_seguimiento/obtenerrutas';
 	var id_depa = $("#sedeoperativa").val();
 	var id_prov = $("#provincia_ope").val();
@@ -90,13 +87,12 @@ function cargarRutas()
 			});
 
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-			//$("#periodo").empty().append("<option value='-1' selected='true'></value>");
+			$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
 			if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
-			verdatos();
 		}
 	});
-}
+}*/
 
 /*function cargarPeriodo()
 {
@@ -124,7 +120,7 @@ function cargarRutas()
 	});
 }*/
 
-/*function cargarRutas()
+function cargarRutas()
 {
 	$("#rutas").empty();
 
@@ -140,7 +136,7 @@ function cargarRutas()
 	}
 
 	$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-}*/
+}
 
 function cargarPeriodo()
 {
@@ -158,8 +154,8 @@ function verdatos()
 {
 	var codsede = $("#sedeoperativa").val();
 	var codprov = $("#provincia_ope").val();
-/*	var coddist = $("#distrito").val();
-	var codcentrop = $("#centropoblado").val();*/
+	var coddist = $("#distrito").val();
+	var codcentrop = $("#centropoblado").val();
 	var codruta = $("#rutas").val();
 	var nroperiodo = $("#periodo").val();
 
@@ -188,7 +184,7 @@ function verdatos()
 	// 		break;
 	// }
 
-	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }
@@ -368,46 +364,38 @@ function consultar_codigo()
 }
 
 
-function Validar_Fotos()
+function Validar_Cedulas()
 {
 	var codigo = $("#codigolocal").val();
-	var repo = document.getElementsByName("estado_repo");
-	var estado_repo ="";
-  
-	for(i=0;i<repo.length;i++){
-		if(repo[i].checked){
-			estado_repo = repo[i].value;
-			break;
-		}
-	}
+	var ficha01 = $("#ficha01").val();
+	var ficha01A = $("#ficha01A").val();
+	var ficha01B = $("#ficha01B").val();
 
-	if (codigo == "" || estado_repo == "")
+
+	if (codigo == "" || ficha01 == "" || ficha01A == "" || ficha01B == "" )
 	{
 		alert("Faltan Datos!");
 		return false;
 	}else{
-		registar_detalle_fotos(estado_repo);
+		registar_detalle_cedulas();
 	}
 }
 
-function registar_detalle_fotos(estado)
+function registar_detalle_cedulas()
 {
 	var bsub = $( ":submit" );
-	var form_data = $('#frm_seguimiento_mant').serializeArray();
-
-	form_data.push(
-		{name: 'estado_repo',value:estado}
-	);
+	var form_data = $('#frm_dig_udra').serializeArray();
 	form_data = $.param(form_data);
 
 	$.ajax({
 		type: "POST", 
-		url: urlRoot('index.php')+"/seguimiento/mantenimiento_fotos/registro",
+		url: urlRoot('index.php')+"/procesamiento/dudra/registro",
 		data: form_data,
 		success: function(response){
 			$("#codigolocal").val('');
-			$("#observaciones").val('');			
-			$("input:radio").attr("checked", false);
+			$("#ficha01").val('');	
+			$("#ficha01A").val('');		
+			$("#ficha01B").val('');
 			alert("Datos Registrados!");
 		}
 	});
