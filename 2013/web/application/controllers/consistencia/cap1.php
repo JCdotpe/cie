@@ -293,7 +293,7 @@ class Cap1 extends CI_Controller {
 		}	
 	}
 
-public function cm()
+	public function cm()
 	{
 
 		$is_ajax = $this->input->post('ajax');
@@ -359,7 +359,8 @@ public function cm()
 
 					//////////////////////////////////////////////////////////////////////////////////////////////////
 					//AX	
-						$this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_A_2_9N');
+						$this->del_ax($id,$pr,$ie,$cm);
+						// $this->cap1_model->delete_cap1_ax($id,$pr,$ie,$cm,'P1_A_2_9N');
 
 						$nro_axs = $cap1_p1_a_2_8n['P1_A_2_9F_CantAnex'][$cc];
 
@@ -392,7 +393,17 @@ public function cm()
 										//campos repetidos ax
 										$cap1_p1_a_2_9n_data['P1_A_2_9_Nro'] = $cap1_p1_a_2_9n_data['P1_A_2_9_AnexNro'];
 										//Insertar Anexos
-									    $this->cap1_model->insert_cap1($cap1_p1_a_2_9n_data,'P1_A_2_9N');			
+									    $this->cap1_model->insert_cap1($cap1_p1_a_2_9n_data,'P1_A_2_9N');		
+
+									    ////////////////////////////////////////////////////////////////////////////////////
+									    //Info Anexos
+										$cap1_p1_c_data['id_local'] = $id;
+										$cap1_p1_c_data['Nro_Pred'] = $pr;
+										$cap1_p1_c_data['P1_A_2_NroIE'] = $ie;
+										$cap1_p1_c_data['P1_A_2_9_NroCMod'] = $cm;									    
+										$cap1_p1_c_data['P1_A_2_9_Nro'] = $cap1_p1_a_2_9n_data['P1_A_2_9_Nro'];		
+										//Insertar Info Anexo							    
+									    $this->cap1_model->insert_cap1($cap1_p1_c_data,'P1_C');		
 										
 							}
 
@@ -410,6 +421,7 @@ public function cm()
 
 
 			$datos['flag'] = $flag;	
+			$datos['nrocms'] = $cc;	
 			$datos['msg'] = $msg;	
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);
@@ -418,5 +430,151 @@ public function cm()
 			show_404();;
 		}			
 	}
+
+
+	public function get_ax()
+	{
+		$is_ajax = $this->input->post('ajax');
+
+		if($is_ajax){		
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+			$cm = $this->input->post('P1_A_2_9_NroCMod');
+			$ax = $this->cap1_model->get_cap1_ax($id,$pr,$ie,$cm);
+			$datos['axs'] = $ax->result();
+			$datos['nroaxs'] = $ax->num_rows();
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}	
+	}
+
+	public function get_axi()
+	{
+		$is_ajax = $this->input->post('ajax');
+
+		if($is_ajax){		
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+			$cm = $this->input->post('P1_A_2_9_NroCMod');
+			$ax = $this->input->post('P1_A_2_9_Nro');
+			$axi = $this->cap1_model->get_cap1_axi($id,$pr,$ie,$cm,$ax);
+			// $axic = $this->cap1_model->get_cap1_axic($id,$pr,$ie,$cm,$ax);
+			$datos['axi'] = $axi->result();
+			// $datos['axic'] = $axic->result();
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}	
+	}
+
+	public function get_ax_c()
+	{
+		$is_ajax = $this->input->post('ajax');
+
+		if($is_ajax){		
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+			$cm = $this->input->post('P1_A_2_9_NroCMod');
+			$ax = $this->input->post('P1_A_2_9_Nro');
+			$axic = $this->cap1_model->get_cap1_axic($id,$pr,$ie,$cm,$ax);
+			$datos['axic'] = $axic->result();
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}	
+	}
+
+
+	public function ax(){
+		$is_ajax = $this->input->post('ajax');
+		if($is_ajax){
+
+			$fields = $this->principal_model->get_fields('P1_C');
+			$fields_n = $this->principal_model->get_fields('P1_C_20N');
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ie = $this->input->post('P1_A_2_NroIE');
+			$cm = $this->input->post('P1_A_2_9_NroCMod');
+			$ax = $this->input->post('P1_A_2_9_Nro');
+
+			foreach ($fields as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
+					$P1_C_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			foreach ($fields_n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){						
+					$P1_C_20N[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}	
+			}
+
+			// $c_data['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data['created'] = date('Y-m-d H:i:s');
+			// $c_data['last_ip'] =  $this->input->ip_address();
+			// $c_data['user_agent'] = $this->agent->agent_string();
+
+
+			$flag = 0;
+			$msg = 'Error inesperado, por favor intentalo nuevamente';
+
+			// actualiza
+			if($this->cap1_model->update_cap1_ax($id,$pr,$ie,$cm,$ax,$P1_C_data) > 0){
+				$flag = 1;
+				$msg = 'Se ha actualizado satisfactoriamente el Anexo Nro - ' . $ax ;
+			}else{
+				$flag = 0;
+				$msg = 'Ocurrió un error 00x-AX-u-' . $ax;		
+			}
+
+
+			//delete ax20n
+			$this->cap1_model->delete_cap1_ax_c($id,$pr,$ie,$cm,$ax,'P1_C_20N');
+			//insert
+			$P1_C_20N_data['id_local'] = $id;
+			$P1_C_20N_data['Nro_Pred'] = $pr;	
+			$P1_C_20N_data['P1_A_2_NroIE'] = $ie;	
+			$P1_C_20N_data['P1_A_2_9_NroCMod'] = $cm;	
+			$P1_C_20N_data['P1_A_2_9_Nro'] = $ax;	
+
+			if($P1_C_20N['P1_C_20_Nro'] > 0){
+				$cc = 0;
+				foreach($P1_C_20N['P1_C_20_Nro'] as &$z){
+
+						foreach ($fields_n as $a=>$b) {
+							if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){							
+								$P1_C_20N_data[$b] = ($P1_C_20N[$b][$cc] == '') ? NULL : $P1_C_20N[$b][$cc];
+							}	
+						}
+					    $this->cap1_model->insert_cap1($P1_C_20N_data,'P1_C_20N');			
+					    $cc++;
+				}
+			}
+
+
+			$datos['flag'] = $flag;	
+			$datos['msg'] = $msg;	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);		
+
+		}else{
+			show_404();;
+		}		
+	}
+
 
 }

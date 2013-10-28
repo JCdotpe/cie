@@ -738,6 +738,7 @@ $("#PC_A_1_Dep").change(function(event) {
         var urlx = null;
 
         sel = $("#PC_A_2_Prov");
+        selcap1 = $("#P1_C_2_ProvCod");
         urlx = CI.site_url + "/ajaxx/consistencia_ajax/get_ajax_prov/" + $(this).val();
 
         var form_data = {
@@ -752,11 +753,14 @@ $("#PC_A_1_Dep").change(function(event) {
             dataType:'json',
             success:function(json_data){
                 sel.empty();
+                selcap1.empty();
                 // sel.append('<option value="-1">-</option>');
                 $.each(json_data, function(i, data){
                     	sel.append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
+                    	selcap1.append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
                 });
                 sel.trigger('change');     	  
+                selcap1.trigger('change');     	  
             }
         });           
 });

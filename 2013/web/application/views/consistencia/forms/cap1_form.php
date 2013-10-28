@@ -6,7 +6,8 @@
 // CAP 1
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
-
+$provArray = array(-1 => ' -'); 
+$distArray = array(-1 => ' -'); 
 $P1_A_2_NroIE = array(
 	'name'	=> 'P1_A_2_NroIE',
 	'id'	=> 'P1_A_2_NroIE',
@@ -20,6 +21,7 @@ $P1_A_2_9_NroCMod = array(
 	'id'	=> 'P1_A_2_9_NroCMod',
 	'maxlength'	=> 7,
 	'class' => 'input7',	
+	'readonly' => true,	
 );
 
 $P1_A_2_9A_CMod = array(
@@ -112,6 +114,7 @@ $P1_A_2_9_Nro = array(
 	'name'	=> 'P1_A_2_9_Nro',
 	'id'	=> 'P1_A_2_9_Nro',
 	'maxlength'	=> 1,
+	'readonly'	=> true,
 );
 
 $P1_A_2_9_AnexNomb = array(
@@ -359,29 +362,29 @@ $P1_B_2_PredCol = array(
 	'maxlength'	=> 1,
 );
 
-$P1_A_2_9_Nro = array(
-	'name'	=> 'P1_A_2_9_Nro',
-	'id'	=> 'P1_A_2_9_Nro',
-	'maxlength'	=> 1,
-);
+// $P1_A_2_9_Nro = array(
+// 	'name'	=> 'P1_A_2_9_Nro',
+// 	'id'	=> 'P1_A_2_9_Nro',
+// 	'maxlength'	=> 1,
+// );
 
-$P1_C_20_Nro = array(
-	'name'	=> 'P1_C_20_Nro',
-	'id'	=> 'P1_C_20_Nro',
-	'maxlength'	=> 1,
-);
+// $P1_C_20_Nro = array(
+// 	'name'	=> 'P1_C_20_Nro',
+// 	'id'	=> 'P1_C_20_Nro',
+// 	'maxlength'	=> 2,
+// );
 
-$P1_C_20_NombComp = array(
-	'name'	=> 'P1_C_20_NombComp',
-	'id'	=> 'P1_C_20_NombComp',
-	'maxlength'	=> 1,
-);
+// $P1_C_20_NombComp = array(
+// 	'name'	=> 'P1_C_20_NombComp',
+// 	'id'	=> 'P1_C_20_NombComp',
+// 	'maxlength'	=> 80,
+// );
 
-$P1_A_2_9_Nro = array(
-	'name'	=> 'P1_A_2_9_Nro',
-	'id'	=> 'P1_A_2_9_Nro',
-	'maxlength'	=> 1,
-);
+// $P1_A_2_9_Nro = array(
+// 	'name'	=> 'P1_A_2_9_Nro',
+// 	'id'	=> 'P1_A_2_9_Nro',
+// 	'maxlength'	=> 1,
+// );
 
 $P1_A_2_9_AnexNro = array(
 	'name'	=> 'P1_A_2_9_AnexNro',
@@ -398,7 +401,7 @@ $P1_A_2_9_AnexNro = array(
 $P1_C_1_CodLoc_Anex = array(
 	'name'	=> 'P1_C_1_CodLoc_Anex',
 	'id'	=> 'P1_C_1_CodLoc_Anex',
-	'maxlength'	=> 1,
+	'maxlength'	=> 6,
 );
 
 $P1_C_2_ProvCod = array(
@@ -803,6 +806,27 @@ echo '
 						echo form_submit('send', 'Guardar','class="btn btn-primary"');
 						echo form_close(); 
 
+
+
+
+
+					echo '
+					<h3>Códigos Modulares</h3>
+					<div class="btn-toolbar" style="margin: 0;">
+		              <div class="btn-group" id="gcmod">
+
+		              </div>
+		            </div>';						
+
+					echo '
+					<h3>Anexos</h3>
+					<div class="btn-toolbar" style="margin: 0;">
+		              <div class="btn-group" id="gaxs">
+
+		              </div>
+		            </div>';	
+
+
 						echo '
 								</div><!-- END IE EDUCA -->
 
@@ -1056,279 +1080,293 @@ echo '
 
 // ';
 
+$attr = array('class' => 'hide form-vertical form-auth','id' => 'cap1_ax');
+
+echo form_open($this->uri->uri_string(),$attr); 
 
 
-// echo '
+echo '
 
-// <div class="panel panel-info"><!-- PANEL SECCION C N ANEXOS-->
+<div class="panel panel-info"><!-- PANEL SECCION C N ANEXOS-->
 							
-// 							<div class="panel-heading">
-// 								<h5 style="text-transform: uppercase;" class="panel-title">Sección C: Anexos de la institución educativa</h5>
-// 							</div>
+							<div class="panel-heading">
+								<h5 style="text-transform: uppercase;" class="panel-title">Sección C: Anexos de la institución educativa</h5>
+							</div>
 
-// 							<div class="panel">
-// 									Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
-// 							</div>
+							<div class="panel">
+									Evaluador: Diligencie esta sección sólo si en la columna (f) de la pregunta 2.9 Sección A, declaro tener 1 o mas anexos
+							</div>
 
-// 							<div id="panel-list-anexo">
+							<div id="panel-list-anexo">
 
-// 								<div style="height:100px;" class="panel">
-// 									<div style="float:left; margin-left:150px;" class="panel">
-// 										<label>Número de Anexo</label>
-// 										'.form_input($P1_A_2_9_Nro).'
-// 									</div>
-// 									<div style="float:left; margin-left:150px;" class="panel">
-// 										<label>Codigo Modular</label>
-// 										'.form_input($P1_A_2_9_NroCMod).'
-// 									</div>
-// 								</div>
+								<div style="height:100px;" class="panel">
+									<div style="float:left; margin-left:150px;" class="panel">
+										<label>Número de Anexo</label>
+										'.form_input($P1_A_2_9_Nro).'
+									</div>
+									<div style="float:left; margin-left:150px;" class="panel">
+										<label>Codigo Modular</label>
+										'.form_input($P1_A_2_9_NroCMod).'
+									</div>
+								</div>
 
-// 								<div class="panel">
-// 									<div class="panel">
-// 										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
-// 										'.form_input($P1_C_1_CodLoc_Anex).'
-// 									</div>
+								<div class="panel">
+									<div class="panel">
+										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
+										'.form_input($P1_C_1_CodLoc_Anex).'
+									</div>
 
-// 								</div><!--END PANEL -->
+								</div><!--END PANEL -->
 
-// ';
-
-
-// echo '
-
-// <div class="panel panel-info">
+';
 
 
-// 								<ul class="list-group">
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_input($P1_C_2_ProvCod).' </li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_input($P1_C_3_DistCod).'</li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
-// 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
-// 								</ul>
+echo '
 
-// 						</div>
-
-// ';
+<div class="panel panel-info">
 
 
-// echo '
+								<ul class="list-group">
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_dropdown('P1_C_2_ProvCod', $provArray, FALSE,'class="input200" id="P1_C_2_ProvCod"').' </li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_dropdown('P1_C_3_DistCod', $distArray, FALSE,'class="input200" id="P1_C_3_DistCod"').'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
+								</ul>
 
-// <div class="panel">
-// 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
+						</div>
 
-// 								  	<label class="checkbox-inline">
-// 										'.form_input($P1_C_6Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
-// 									</label>
-// 						</div>
-
-// ';
-
-
-// echo '
-
-// <table class="table table-bordered">
-// 							<thead>
-
-// 								<tr>
-// 									<th>Nombre de la via</th>
-// 									<th>N° de Puerta</th>
-// 									<th>Piso</th>
-// 									<th>Mz.</th>
-// 									<th>Lote</th>
-// 									<th>Sector</th>
-// 									<th>Zona</th>
-// 									<th>Etapa</th>
-// 									<th>Km</th>
-// 								</tr>
-
-// 							</thead>
-// 							<tbody>
-
-// 								<tr>
-// 									<td>'.form_input($P1_C_6Dir_2_Nomb).'</td>
-// 									<td>'.form_input($P1_C_6Dir_Nro).'</td>
-// 									<td>'.form_input($P1_C_6Dir_4_Piso).'</td>
-// 									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
-// 									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
-// 									<td>'.form_input($P1_C_6Dir_7_Sect).'</td>
-// 									<td>'.form_input($P1_C_6Dir_8_Zona).'</td>
-// 									<td>'.form_input($P1_C_6Dir_9_Et).'</td>
-// 									<td>'.form_input($P1_C_6Dir_10_Km).'</td>
-// 								</tr>
-
-// 							</tbody>
-// 						</table>
-
-// ';
-
-// echo '
-
-// <ul class="list-group">
-
-// 							<li class="list-group-item">
-// 								9. Referencia de la dirección del local escolar
-// 								'.form_input($P1_C_7_RefDir).'
-// 							</li>
-// 						</ul>
-
-// ';
+';
 
 
-// echo '
+echo '
+
+<div class="panel">
+									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
+
+								  	<label class="checkbox-inline">
+										'.form_input($P1_C_6Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
+									</label>
+						</div>
+
+';
 
 
-// 								<table style="margin-top:20px;" class="table table-bordered">
-// 									<tbody><tr>
-// 										<td>8.</td>
-// 										<td><strong>¿Cuál es el código del inmueble del anexo 01?</strong><br>
-// 											(Este código se encuentra en la constancia MARGESI)</td>
-// 										<td>
-// 											'.form_input($P1_C_8_InmTip).' 1. No tiene constancia , 2. No sabe 
-// 											<br />
-// 											'.form_input($P1_C_8_InmCod).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>9.</td>
-// 										<td>
-// 											<strong>¿Quien es el propietario del predio?</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_9_Prop).'  1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
-// 											'.form_input($P1_C_9_Prop_O).' Especifique
+echo '
 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>10.</td>
-// 										<td>
-// 											<strong>¿El antecedente registral que tiene el predio es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_10_AntReg_Cod).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>11.</td>
-// 										<td><strong>¿Cuál es el número del antecedente registral?</strong></td>
-// 										<td>
-// 											<label>N° de antecedente registral</label>
-// 											'.form_input($P1_C_11_AntReg_Nro).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>12.</td>
-// 										<td>
-// 											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_12_Tipo_TProp).' <br />
-// 											'.form_input($P1_C_12_Tipo_TProp_O).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>13.</td>
-// 										<td><strong>¿En qué fecha se emitió el título no inscrito?</strong></td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_C_13_FecTit).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>14.</td>
-// 										<td>
-// 											<strong>¿El Documento de poseíón que tiene es:</strong>
-// 											<br>(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_C_14_DocPos).' <br />
-// 											'.form_input($P1_C_14_DocPos_O).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>15.</td>
-// 										<td><strong>¿En qué fecha se emitió el documento de posesión?</strong></td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_C_15_DocPos_Fech).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>16.</td>
-// 										<td><strong>¿Cuál es el area del terreno que ocupa el predio?</strong></td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_C_16_At_Pred).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>17.</td>
-// 										<td><strong>¿Cual es el area del terrreno que ocupa el local escolar?</strong></td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_C_17_At_Local).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>18.</td>
-// 										<td><strong>¿El predio es compartido con otros locales escolares, otras instituciones o servicios?</strong></td>
-// 										<td>
-// 											'.form_input($P1_C_18_Comp).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>19.</td>
-// 										<td><strong>¿Con cuántos locales escolares, otras instituciones o servicios comparten el predio?</strong></td>
-// 										<td>
-// 											<label>N°</label>
-// 											'.form_input($P1_C_19_CompCan).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td>20.</td>
-// 										<td>
-// 											<strong>¿Cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong>
-// 											<br>(Diligencie según respuesta en pregunta 18)
-// 										</td>
-// 										<td>
-// 											'.form_textarea($P1_C_Obs).'
-// 										</td>
-// 									</tr>
-// 								</tbody></table>
+<table class="table table-bordered">
+							<thead>
+
+								<tr>
+									<th>Nombre de la via</th>
+									<th>N° de Puerta</th>
+									<th>Piso</th>
+									<th>Mz.</th>
+									<th>Lote</th>
+									<th>Sector</th>
+									<th>Zona</th>
+									<th>Etapa</th>
+									<th>Km</th>
+								</tr>
+
+							</thead>
+							<tbody>
+
+								<tr>
+									<td>'.form_input($P1_C_6Dir_2_Nomb).'</td>
+									<td>'.form_input($P1_C_6Dir_Nro).'</td>
+									<td>'.form_input($P1_C_6Dir_4_Piso).'</td>
+									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
+									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
+									<td>'.form_input($P1_C_6Dir_7_Sect).'</td>
+									<td>'.form_input($P1_C_6Dir_8_Zona).'</td>
+									<td>'.form_input($P1_C_6Dir_9_Et).'</td>
+									<td>'.form_input($P1_C_6Dir_10_Km).'</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+';
+
+echo '
+
+<ul class="list-group">
+
+							<li class="list-group-item">
+								9. Referencia de la dirección del local escolar
+								'.form_input($P1_C_7_RefDir).'
+							</li>
+						</ul>
+
+';
+
+
+echo '
+
+
+								<table style="margin-top:20px;" class="table table-bordered">
+									<tbody><tr>
+										<td>8.</td>
+										<td><strong>¿Cuál es el código del inmueble del anexo 01?</strong><br>
+											(Este código se encuentra en la constancia MARGESI)</td>
+										<td>
+											'.form_input($P1_C_8_InmTip).' 1. No tiene constancia , 2. No sabe 
+											<br />
+											'.form_input($P1_C_8_InmCod).'
+										</td>
+									</tr>
+									<tr>
+										<td>9.</td>
+										<td>
+											<strong>¿Quien es el propietario del predio?</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_9_Prop).'  1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
+											'.form_input($P1_C_9_Prop_O).' Especifique
+
+										</td>
+									</tr>
+									<tr>
+										<td>10.</td>
+										<td>
+											<strong>¿El antecedente registral que tiene el predio es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_10_AntReg_Cod).'
+										</td>
+									</tr>
+									<tr>
+										<td>11.</td>
+										<td><strong>¿Cuál es el número del antecedente registral?</strong></td>
+										<td>
+											<label>N° de antecedente registral</label>
+											'.form_input($P1_C_11_AntReg_Nro).'
+										</td>
+									</tr>
+									<tr>
+										<td>12.</td>
+										<td>
+											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_12_Tipo_TProp).' <br />
+											'.form_input($P1_C_12_Tipo_TProp_O).'
+										</td>
+									</tr>
+									<tr>
+										<td>13.</td>
+										<td><strong>¿En qué fecha se emitió el título no inscrito?</strong></td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_C_13_FecTit).'
+										</td>
+									</tr>
+									<tr>
+										<td>14.</td>
+										<td>
+											<strong>¿El Documento de poseíón que tiene es:</strong>
+											<br>(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_C_14_DocPos).' <br />
+											'.form_input($P1_C_14_DocPos_O).'
+										</td>
+									</tr>
+									<tr>
+										<td>15.</td>
+										<td><strong>¿En qué fecha se emitió el documento de posesión?</strong></td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_C_15_DocPos_Fech).'
+										</td>
+									</tr>
+									<tr>
+										<td>16.</td>
+										<td><strong>¿Cuál es el area del terreno que ocupa el predio?</strong></td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_C_16_At_Pred).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td>17.</td>
+										<td><strong>¿Cual es el area del terrreno que ocupa el local escolar?</strong></td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_C_17_At_Local).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td>18.</td>
+										<td><strong>¿El predio es compartido con otros locales escolares, otras instituciones o servicios?</strong></td>
+										<td>
+											'.form_input($P1_C_18_Comp).'
+										</td>
+									</tr>
+									<tr>
+										<td>19.</td>
+										<td><strong>¿Con cuántos locales escolares, otras instituciones o servicios comparten el predio?</strong></td>
+										<td>
+											<label>N°</label>
+											'.form_input($P1_C_19_CompCan).'
+										</td>
+									</tr>
+									<tr>
+										<td>20.</td>
+										<td>
+											<strong>¿Cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong>
+											<br>(Diligencie según respuesta en pregunta 18)
+										</td>
+
+										<td>
+										<ul id="ax20n">
+											
+										</ul>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td>
+											'.form_textarea($P1_C_Obs).'
+										</td>									
+									</tr>
+								</tbody></table>
 
 						
-// 							<div><!--END PANEL LIST ANEXO-->
+							<div><!--END PANEL LIST ANEXO-->
 		
-// 		</div><!-- END SECCIOM C -->
+		</div><!-- END SECCIOM C -->
 
 
-// 	</div>
+	</div>
 
-// </div>
+</div>
 
-// ';
-
+';
+echo form_submit('send', 'Guardar','class="btn btn-primary"');
+echo form_close(); 
 
  ?>
 
@@ -1349,6 +1387,252 @@ function btnies(n){
 	$('#gies').append(gies_str);
 	$('.btn.ienro.active').trigger('click');
 }
+
+
+//print axs
+$(document).on("change",'.anx',function() {
+	var son = $(this);
+	var par = son.parent();
+	$('.anexo',par).remove();    
+	var dcm = son.data("cm");
+	var as = 1;
+	var ax_str = '';
+	for(var i=1; i<=son.val(); i++){
+		    ax_str += '<div class="ax' + i + ' anexo">';
+		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
+		    ax_str += '</div>';
+		   as++;
+	}	
+	par.append(ax_str);
+
+	//Llenar Anexos x Cod Mod
+	var cm_data = {
+		id_local: $("input[name='id_local']").val(),
+		Nro_Pred: $("input[name='Nro_Pred']").val(),
+		P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
+		P1_A_2_9_NroCMod: dcm,
+		ajax:1
+	};						
+
+	$.ajax({
+		url: CI.site_url + "/consistencia/cap1/get_ax",
+		type:'POST',
+		data:cm_data,
+		dataType:'json',
+		success:function(json){
+			var dd = 1;
+			$.each( json.axs, function(i, data) {
+				$('#P1_A_2_9_AnexNro_' + dcm + '_' + dd).val(data.P1_A_2_9_AnexNro);
+				$('#P1_A_2_9_AnexNomb_' + dcm + '_' + dd).val(data.P1_A_2_9_AnexNomb);
+				$('#P1_A_2_9G_T1_Talu_' + dcm + '_' + dd).val(data.P1_A_2_9G_T1_Talu);
+				$('#P1_A_2_9H_T1_Taul_' + dcm + '_' + dd).val(data.P1_A_2_9H_T1_Taul);
+				$('#P1_A_2_9I_T2_Talu_' + dcm + '_' + dd).val(data.P1_A_2_9I_T2_Talu);
+				$('#P1_A_2_9J_T2_Taul_' + dcm + '_' + dd).val(data.P1_A_2_9J_T2_Taul);
+				$('#P1_A_2_9K_T3_Talu_' + dcm + '_' + dd).val(data.P1_A_2_9K_T3_Talu);
+				$('#P1_A_2_9L_T3_Taul_' + dcm + '_' + dd).val(data.P1_A_2_9L_T3_Taul);
+				dd++;
+			}); 
+		}
+	});  
+
+});
+
+//print btn cmod
+function btncmod(n){
+	$('#gcmod').empty();	
+	var gcmod_str = '';
+	for(var i=1; i<=n; i++){
+		active = (i==1)? 'class="btn cmbnro active"' : 'class="btn cmbnro"';
+		gcmod_str += '<button ' + active + '>' + i + '</button>';
+	}
+	$('#gcmod').append(gcmod_str);
+	$('.btn.cmbnro.active').trigger('click');
+}
+
+//combo prov AX
+$("#P1_C_2_ProvCod").change(function(event) {
+        var sel = null;
+        var dep = null;
+        var urlx = null;
+        dep = $("#PC_A_1_Dep");
+        sel = $("#P1_C_3_DistCod");
+        urlx = CI.site_url + "/ajaxx/consistencia_ajax/get_ajax_dist/" + dep.val() + "/" + $(this).val();  
+           
+        var form_data = {
+            prov: $(this).val(),
+            dep: dep.val(),
+            ajax:1
+        };
+
+        $.ajax({
+            url: urlx,
+            type:'POST',
+            data:form_data,
+            dataType:'json',
+            success:function(json_data){
+                sel.empty();
+                // sel.append('<option value="-1">-</option>');
+                $.each(json_data, function(i, data){
+                    	sel.append('<option value="' + data.CCDI + '">' + data.Nombre + '</option>');
+                });   	                
+            }
+        });           
+});
+
+//AX 20N
+
+
+
+
+$("#P1_C_19_CompCan").change(function(event) {
+
+	$("#ax20n").empty();
+	for(var i=1; i<=$(this).val(); i++){
+		$("#ax20n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_C_20_Nro_' + i + '" value="' + i + '" name="P1_C_20_Nro[]"><input type="text" maxlength="1" id="P1_C_20_NombComp_' + i + '" value="" name="P1_C_20_NombComp[]"></li>')
+	}
+	var as = 1;
+
+	//Llenar Anexos x Cod Mod
+	var axc_data = {
+		id_local: $("input[name='id_local']").val(),
+		Nro_Pred: $("input[name='Nro_Pred']").val(),
+		P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
+		P1_A_2_9_NroCMod: $("#P1_A_2_9_NroCMod").val(),
+		P1_A_2_9_Nro: $("#P1_A_2_9_Nro").val(),
+		ajax:1
+	};						
+
+	$.ajax({
+		url: CI.site_url + "/consistencia/cap1/get_ax_c",
+		type:'POST',
+		data:axc_data,
+		dataType:'json',
+		success:function(json){
+			$.each( json.axic, function(i, data) {
+				$('#P1_C_20_Nro_' +  as).val(data.P1_C_20_Nro);
+				$('#P1_C_20_NombComp_' +  as).val(data.P1_C_20_NombComp);			
+				as++;							
+			}); 	
+		}
+	});  
+
+});
+
+
+
+//boton ANEXO NRO
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on("click",'.axnro',function() {
+	var myax = $(this);
+	var nrocm = $('.btn.cmbnro.active').text();
+	var nroax = myax.text();
+	$('.axnro').removeClass("active");
+	myax.addClass("active");
+	//reset form
+	// $('#cap1_ie')[0].reset();
+
+		var get_ax_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
+			P1_A_2_9_NroCMod: nrocm,
+			P1_A_2_9_Nro: nroax,
+			ajax:1
+		};		
+
+		$.ajax({
+			url: CI.site_url + "/consistencia/cap1/get_axi",
+			type:'POST',
+			cache:false,
+			data:get_ax_data,
+			dataType:'json',
+			success:function(json){
+				//reset - show form ax
+				$('#cap1_ax').show();
+				$('#cap1_ax')[0].reset();
+
+ 				//Llenar anexo			
+				$.each( json.axi[0], function(fila, valor) {
+					if(fila != 'id_local' && fila != 'Nro_Pred' && fila != 'P1_A_2_NroIE'){							
+						   	if(fila == 'P1_C_2_ProvCod' || fila == 'P1_C_19_CompCan'){
+						   		$('#' + fila).val(valor);
+						   		$('#' + fila).trigger('change');
+							}else if(fila == 'P1_C_3_DistCod'){
+                                var interval_DI_cp1 = setInterval(function(){
+	                                if($('#P1_C_3_DistCod option:nth-child(2)').length){
+	                                    clearInterval(interval_DI_cp1);
+	                                    $('#P1_C_3_DistCod').val(valor);
+	                                 }
+                            	}, 1000);        
+                            }else{
+						   		$('#' + fila).val(valor);
+							}
+					}						
+				}); 	
+
+
+
+			}
+		}); 
+
+}); 
+
+//print btn axs
+function btnax(n){
+	$('#gaxs').empty();	
+	var gaxs_str = '';
+	for(var i=1; i<=n; i++){
+		active = (i==100)? 'class="btn axnro active"' : 'class="btn axnro"';
+		gaxs_str += '<button type="button" ' + active + '>' + i + '</button>';
+	}
+	$('#gaxs').append(gaxs_str);
+	//$('.btn.axnro.active').trigger('click');
+}
+
+
+//boton CM NRO
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on("click",'.cmbnro',function() {
+	var myie = $(this);
+	var nro = myie.text();
+
+	$('.cmbnro').removeClass("active");
+	myie.addClass("active");
+	//reset form
+	// $('#cap1_ie')[0].reset();
+
+		var get_cm_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
+			P1_A_2_9_NroCMod: nro,
+			ajax:1
+		};		
+
+		$.ajax({
+			url: CI.site_url + "/consistencia/cap1/get_ax",
+			type:'POST',
+			cache:false,
+			data:get_cm_data,
+			dataType:'json',
+			success:function(json){
+				btnax(json.nroaxs);	
+				//reset - hide form ax
+				$('#cap1_ax').hide();
+				$('#cap1_ax')[0].reset();											
+			}
+		}); 
+
+}); 
+
+
 
 //print codmod table
 function gen_cms(n,re){
@@ -1394,40 +1678,19 @@ function gen_cms(n,re){
 		$('#P1_A_2_9J_T2_Taul_' +  as).val(data.P1_A_2_9J_T2_Taul);
 		$('#P1_A_2_9K_T3_Talu_' +  as).val(data.P1_A_2_9K_T3_Talu);
 		$('#P1_A_2_9L_T3_Taul_' +  as).val(data.P1_A_2_9L_T3_Taul);
+		//Trigger Llenar Anexos
+		$('#P1_A_2_9F_CantAnex_' +  as).trigger('change');
 		as++;
+
 	}); 	
 	
-	//Cargar Anexos por cod mod
+	//Cargar Cod Mod buttons para Anexos
 	////////////////////////////////////////
-
+	btncmod(n);
 }
 
 
-//print axs
-$(document).on("change",'.anx',function() {
-	var son = $(this);
-	var par = son.parent();
-	$('.anexo',par).remove();    
-	var dcm = son.data("cm");
 
-	var as = 1;
-	var ax_str = '';
-	for(var i=1; i<=son.val(); i++){
-		    ax_str += '<div class="ax' + i + ' anexo">';
-		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
-		    ax_str += '</div>';
-		   as++;
-	}	
-	par.append(ax_str);
-
-});
 
 
 
@@ -1608,11 +1871,74 @@ $("#cap1_cm").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								btncmod(json.nrocms);
 								// gen_cms(json.nro_cms,json.cms);						
 				            }
 				    });  
 			}
 });  
+
+
+
+//ax update
+$("#cap1_ax").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+
+				var cap1_cm_data = $("#cap1_ax").serializeArray();
+				cap1_cm_data.push(
+					    {name: 'ajax',value:1},
+					    {name: 'id_local',value:$("input[name='id_local']").val()},      
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},   
+					    {name: 'P1_A_2_NroIE',value:$("#P1_A_2_NroIE").val()}
+				);
+						
+				var bcar = $( "#cap1_ax :submit" );
+				    bcar.attr("disabled", "disabled");
+				    $.ajax({
+				            url: CI.site_url + "/consistencia/cap1/ax",
+				            type:'POST',
+				            cache:false,
+				            data:cap1_cm_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+								// gen_cms(json.nro_cms,json.cms);						
+				            }
+				    });  
+			}
+});  
+
+
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
