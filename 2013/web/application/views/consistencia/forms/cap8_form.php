@@ -175,7 +175,7 @@ echo '
 		  	    							<strong>Código de la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_2_Tipo).' - '.form_input($P8_2_Nro).'
+		  	    							'.form_input($P8_2_Tipo).' - '.form_input($P8_2_Nro).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f2_edi">
@@ -192,7 +192,7 @@ echo '
 												</tr>
 												<tr>
 													</tr><tr>
-														<td> '.form_input($P8_area).' </td>
+														<td> '.form_input($P8_area).'<div class="help-block error"></div> </td>
 														<td> 00 </td>
 													</tr>
 												
@@ -205,7 +205,7 @@ echo '
 		  	    							<strong>Longitud del Muro de Contención</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							En metros '.form_input($P8_longitud).'
+		  	    							En metros '.form_input($P8_longitud).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f4_edi">
@@ -214,7 +214,7 @@ echo '
 		  	    							<strong>Altura del Muro de Contención</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							En metros '.form_input($P8_altura).'
+		  	    							En metros '.form_input($P8_altura).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f5_edi">
@@ -223,7 +223,7 @@ echo '
 		  	    							<strong>Predio en el que se ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($Nro_Pred).'
+		  	    							'.form_input($Nro_Pred).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f6_edi">
@@ -233,7 +233,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_ejecuto).' (Especifique) '.form_input($P8_ejecuto_O).'
+		  	    							'.form_input($P8_ejecuto).'<div class="help-block error"></div> (Especifique) '.form_input($P8_ejecuto_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f7_edi">
@@ -243,7 +243,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_E).'
+		  	    							'.form_input($P8_Est_E).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f8_edi">
@@ -253,7 +253,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Ant).'
+		  	    							'.form_input($P8_Ant).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f9_edi">
@@ -263,7 +263,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_PaLo).'
+		  	    							'.form_input($P8_Est_PaLo).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f10_edi">
@@ -273,7 +273,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_RecTec).'
+		  	    							'.form_input($P8_RecTec).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f11_edi">
@@ -415,10 +415,10 @@ $(document).ready(function(){
 				cont_3='<strong>Predio en el que se ubica la edificación</strong>';
 				cont_4='<td>2.4</td>'+
 						'<td><strong>Estado de conservación de la edificación</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Est_E); ?></td>';
+						'<td><?php echo form_input($P8_Est_E); ?><div class="help-block error"></div></td>';
 				cont_5='<td>2.5</td>'+
 						'<td><strong>¿Cuál es la  antigüedad de la edificación?</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Ant); ?></td>';
+						'<td><?php echo form_input($P8_Ant); ?><div class="help-block error"></div></td>';
 			break;
 
 			case 'LD':
@@ -429,10 +429,10 @@ $(document).ready(function(){
 				cont_3='<strong>Predio en el que se ubica la edificación</strong>';
 				cont_4='<td>2.4</td>'+
 						'<td><strong>Estado de conservación de la edificación</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Est_E); ?></td>';
+						'<td><?php echo form_input($P8_Est_E); ?><div class="help-block error"></div></td>';
 				cont_5='<td>2.5</td>'+
 						'<td><strong>¿Cuál es la  antigüedad de la edificación?</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Ant); ?></td>';
+						'<td><?php echo form_input($P8_Ant); ?><div class="help-block error"></div></td>';
 			break;
 
 			case 'CTE':
@@ -443,10 +443,10 @@ $(document).ready(function(){
 				cont_3='<strong>Predio en el que se ubica la edificación</strong>';
 				cont_4='<td>2.4</td>'+
 						'<td><strong>¿Cuál es la  antigüedad de la edificación?</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Ant); ?></td>';
+						'<td><?php echo form_input($P8_Ant); ?><div class="help-block error"></div></td>';
 				cont_5='<td>2.5</td>'+
 						'<td><strong>Estado de conservación de la edificación</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Est_E); ?></td>';
+						'<td><?php echo form_input($P8_Est_E); ?><div class="help-block error"></div></td>';
 			break;
 
 			case 'MC':
@@ -457,10 +457,10 @@ $(document).ready(function(){
 				cont_3='<strong>Predio en el que se ubica el Muro de Contención</strong>';
 				cont_4='<td>2.5</td>'+
 						'<td><strong>Estado de Conservación</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Est_E); ?></td>';
+						'<td><?php echo form_input($P8_Est_E); ?><div class="help-block error"></div></td>';
 				cont_5='<td>2.6</td>'+
 						'<td><strong>¿Cuál es la  antigüedad de la edificación?</strong><label>(Acepte sólo un código)</label></td>'+
-						'<td><?php echo form_input($P8_Ant); ?></td>';
+						'<td><?php echo form_input($P8_Ant); ?><div class="help-block error"></div></td>';
 			break;
 		}
 
@@ -519,20 +519,6 @@ $(document).ready(function(){
 					$('#' + fila).val(valor);
 				}				   	
 			});
-
-			// $.each(data, function(index, val) {
-			// 	$('#P8_area').val(val.P8_area);
-			// 	$('#P8_altura').val(val.P8_altura);
-			// 	$('#P8_longitud').val(val.P8_longitud);
-			// 	$('#P8_ejecuto').val(val.P8_ejecuto);
-			// 	$('#P8_ejecuto_O').val(val.P8_ejecuto_O);
-			// 	$('#P8_Est_E').val(val.P8_Est_E);
-			// 	$('#P8_Ant').val(val.P8_Ant);
-			// 	$('#P8_Est_PaLo').val(val.P8_Est_PaLo);
-			// 	$('#P8_RecTec').val(val.P8_RecTec);
-			// 	$('#P8_Obs').val(val.P8_Obs);
-			// });
-
 		});
 	}
 
@@ -555,7 +541,48 @@ $(document).ready(function(){
 
 	$("#cap8_f").validate({
 	    rules: {
-		//FIN RULES
+			P8_2_Nro:{
+				digits:true,
+				required: true,
+			},
+			P8_area:{
+				digits:true,
+			},
+			Nro_Pred:{
+				digits:true,
+				required: true,
+			},
+			//Patio
+			P8_ejecuto:{
+				digits:true,
+				range:[0,6],
+			},
+			P8_Est_E:{
+				digits:true,
+				range:[0,4],
+			},
+			P8_Ant:{
+				digits:true,
+				range:[0,3],
+			},
+			P8_RecTec:{
+				digits:true,
+				range:[0,3],
+			},
+
+			//Cisterna - tanque
+			P8_Est_PaLo:{
+				digits:true,
+				range:[0,5],
+			},
+
+			//Muro de Contencion
+			P8_longitud:{
+				digits:true,
+			},
+			P8_altura:{
+				digits:true,
+			},
 	    },
 
 	    messages: {   

@@ -148,7 +148,7 @@ echo '
 		  	    						<td><strong>De cuántos tramos está conformado el lindero frente con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							'.form_input($P4_2_CantTram_Lfrente).'
+		  	    							'.form_input($P4_2_CantTram_Lfrente).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -184,7 +184,7 @@ echo '
 		  	    						<td><strong>De cuántos tramos está conformado el lindero derecho con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							'.form_input($P4_2_CantTram_Lderecho).'
+		  	    							'.form_input($P4_2_CantTram_Lderecho).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -220,7 +220,7 @@ echo '
 		  	    						<td><strong>De cuántos tramos está conformado el lindero fondo con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							'.form_input($P4_2_CantTram_Lfondo).'
+		  	    							'.form_input($P4_2_CantTram_Lfondo).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -256,7 +256,7 @@ echo '
 		  	    						<td><strong>De cuántos tramos está conformado el lindero izquierdo con o sin cerco</strong></td>
 		  	    						<td>
 		  	    							<label>Nº total de tramos:</label>
-		  	    							'.form_input($P4_2_CantTram_Lizq).'
+		  	    							'.form_input($P4_2_CantTram_Lizq).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -497,7 +497,59 @@ $(function(){
 
 	$("#cap4_f").validate({
 		    rules: {
-			//FIN RULES
+				P4_2_CantTram_Lfrente: {
+					digits:true,
+					range:[1,99],
+					required: true,
+				},
+				P4_2_CantTram_Lderecho: {
+					digits:true,
+					range:[1,99],
+					required: true,
+				},
+				P4_2_CantTram_Lfondo: {
+					digits:true,
+					range:[1,99],
+					required: true,
+				},
+				P4_2_CantTram_Lizq: {
+					digits:true,
+					range:[1,99],
+					required: true,
+				},
+				'P4_2_LindTipo[]':{
+					digits:true,
+					range:[1,4],
+				},
+				'P4_2_1A_i[]':{
+					digits:true,
+					range:[1,99],
+				},
+				'P4_2_1A_f[]':{
+					digits:true,
+					range:[1,99],
+				},
+				'P4_2_1B_LongTramo[]':{
+					digits:true,
+					range:[1,999],
+				},
+				'P4_2_1C_Cerco[]':{
+					digits:true,
+					range:[1,999],
+				},
+				'P4_2_1D_Estruc[]':{
+					digits:true,
+					range:[1,999],
+				},
+				'P4_2_1E_EstCons[]':{
+					digits:true,
+					range:[1,999],
+				},
+				'P4_2_1F_Opin[]':{
+					digits:true,
+					range:[1,999],
+				},
+
 		    },
 
 		    messages: {   

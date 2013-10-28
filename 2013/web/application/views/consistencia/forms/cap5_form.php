@@ -136,43 +136,45 @@ echo '
 		  	    			<table class="table table-bordered">
 		  	    				<tbody><tr>
 		  	    					<th>EDIFICACIONES</th>
-		  	    					<td>'.form_input($P5_Tot_E).'</td>
+		  	    					<td>'.form_input($P5_Tot_E).'<div class="help-block error"></div></td>
 		  	    				</tr>
 		  	    				<tr>
 		  	    					<th>PATIOS</th>
-		  	    					<td>'.form_input($P5_Tot_P).'</td>
+		  	    					<td>'.form_input($P5_Tot_P).'<div class="help-block error"></div></td>
 		  	    				</tr>		  	    				
 		  	    				<tr>
 		  	    					<th>LOZAS DEPORTIVAS</th>
-		  	    					<td>'.form_input($P5_Tot_LD).'</td>
+		  	    					<td>'.form_input($P5_Tot_LD).'<div class="help-block error"></div></td>
 		  	    				</tr>		  	    				
 		  	    				<tr>
 		  	    					<th>CISTERNA - TANQUE ELEVADO</th>
-		  	    					<td>'.form_input($P5_Tot_CTE).'</td>
+		  	    					<td>'.form_input($P5_Tot_CTE).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	    				
 		  	    				<tr>
 		  	    					<th>MURO DE CONTENCIÓN</th>
-		  	    					<td>'.form_input($P5_Tot_MC).'</td>
+		  	    					<td>'.form_input($P5_Tot_MC).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	  		  	    				
 		  	    				<tr>
 		  	    					<th>PORTADA DE INGRESO, PORTÓN</th>
-		  	    					<td>'.form_input($P5_Tot_P1).'</td>
+		  	    					<td>'.form_input($P5_Tot_P1).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	 		  	    				
 		  	    				<tr>
 		  	    					<th>RAMPA</th>
-		  	    					<td>'.form_input($P5_Tot_R).'</td>
+		  	    					<td>'.form_input($P5_Tot_R).'<div class="help-block error"></div></td>
 		  	    				</tr>				  	    				
 		  	    				<tr>
 		  	    					<th>OPINIÓN</th>
-		  	    					<td>'.form_input($P5_Opin).'</td>
+		  	    					<td>'.form_input($P5_Opin).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	    				
 		  	    			</tbody></table>
 
 		  	    			<h3>Pisos</h3>	  	    				
 
-	  	    				<p>Número de pisos: '.form_input($P5_cantNroPiso).'</p>
+	  	    				<p>Número de pisos: '.form_input($P5_cantNroPiso).'<div class="help-block error"></div></p>
 
-	  	    				
+	  	    				<table id="cap5_detalle" class="table table-bordered">
+
+	  	    				</table>
 
 
 	  	    			</div>
@@ -207,7 +209,7 @@ $('#P5_cantNroPiso').change(function(event) {
 		asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
 			for (var j=1;j<=edi;j++){
 				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
 			}
 		asd+='</tbody></table>';
 		$('#cap_5').append(asd);
@@ -269,7 +271,48 @@ $('#P5_Tot_E').change(function(event) {
 
 $("#cap5_f").validate({	
 	    rules: {
-		//FIN RULES
+			P5_Tot_E: {
+				digits:true,
+				range:[0,99],
+				required: true,
+			},
+			P5_Tot_P: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Tot_LD: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Tot_CTE: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Tot_MC: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Tot_P1: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Tot_R: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_Opin: {
+				digits:true,
+				range:[0,99],
+			},
+			P5_cantNroPiso: {
+				digits:true,
+				range:[0,99],
+				required: true,
+			},
+			'P5_TotAmb[]':{
+				digits:true,
+				range:[0,99],
+			},
 	    },
 
 	    messages: {   

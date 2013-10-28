@@ -323,7 +323,7 @@ echo '
 	  	    						<td>
 	  	    							<strong>Código de la edificación</strong>
 	  	    						</td>
-	  	    						<td>E - '.form_input($Nro_Ed).'</td>
+	  	    						<td>E - '.form_input($Nro_Ed).'<div class="help-block error"></div></td>
 	  	    					</tr>
 	  	    					<tr>
 	  	    						<td>2.</td>
@@ -332,7 +332,7 @@ echo '
 	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-										'.form_input($P7_1_2).'
+										'.form_input($P7_1_2).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -342,7 +342,7 @@ echo '
 	  	    							<br>(acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-										'.form_input($P7_1_3).'
+										'.form_input($P7_1_3).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -352,7 +352,7 @@ echo '
 	  	    							<br>(Acepte un solo código)
 	  	    						</td>
 	  	    						<td>
-										'.form_input($P7_1_4).'
+										'.form_input($P7_1_4).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -368,7 +368,7 @@ echo '
 	  	    							<strong>Estado de conservación de las columnas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_5).'	
+	  	    							'.form_input($P7_1_5).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -377,7 +377,7 @@ echo '
 	  	    							<strong>Estado de conservación de los muros portantes</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_6).'	
+	  	    							'.form_input($P7_1_6).'<div class="help-block error"></div>	
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -386,7 +386,7 @@ echo '
 	  	    							<strong>Estado de conservación de las vigas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_7).'		
+	  	    							'.form_input($P7_1_7).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -395,7 +395,7 @@ echo '
 	  	    							<strong>Estado de conservación de la losa del entrepiso</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_8).'	
+	  	    							'.form_input($P7_1_8).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -404,7 +404,7 @@ echo '
 	  	    							<strong>El tipo de techo es:</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_9).'
+	  	    							'.form_input($P7_1_9).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -413,7 +413,7 @@ echo '
 	  	    							<strong>Estado de conservación del techo de material noble</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_9A).'
+	  	    							'.form_input($P7_1_9A).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -422,7 +422,7 @@ echo '
 	  	    							<strong>Cobertura final del techo</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_9B).'
+	  	    							'.form_input($P7_1_9B).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -431,7 +431,7 @@ echo '
 	  	    							<strong>Estado de conservación del techo de cobertura liviana</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_9C).'
+	  	    							'.form_input($P7_1_9C).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -440,7 +440,7 @@ echo '
 	  	    							<strong>Detalle cobertura liviana del techo</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_9D).'
+	  	    							'.form_input($P7_1_9D).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -456,7 +456,7 @@ echo '
 	  	    							<strong>Hay presencia de columnas "T" / placas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_10).'
+	  	    							'.form_input($P7_1_10).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -465,7 +465,7 @@ echo '
 	  	    							<strong> Hay efectos de columna corta</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_11).'
+	  	    							'.form_input($P7_1_11).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -483,7 +483,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_12).'
+	  	    							'.form_input($P7_1_12).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -493,7 +493,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_13).'
+	  	    							'.form_input($P7_1_13).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -503,7 +503,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_14).'
+	  	    							'.form_input($P7_1_14).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -513,7 +513,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_15).'
+	  	    							'.form_input($P7_1_15).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -523,7 +523,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_15A).'
+	  	    							'.form_input($P7_1_15A).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -533,7 +533,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_15B).'
+	  	    							'.form_input($P7_1_15B).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -543,7 +543,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_15C).'
+	  	    							'.form_input($P7_1_15C).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -553,7 +553,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_15D).'
+	  	    							'.form_input($P7_1_15D).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -570,7 +570,7 @@ echo '
 	  	    							<label>(Ambas direcciones)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_16).'
+	  	    							'.form_input($P7_1_16).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -587,7 +587,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_17).'
+	  	    							'.form_input($P7_1_17).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -597,7 +597,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_18).'
+	  	    							'.form_input($P7_1_18).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -607,7 +607,7 @@ echo '
 		  	    							<label> (Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_19).'
+	  	    							'.form_input($P7_1_19).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -617,7 +617,7 @@ echo '
 		  	    							<label> (Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_20).'
+	  	    							'.form_input($P7_1_20).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -633,7 +633,7 @@ echo '
 	  	    							<strong>Las conexiones están en buen estado</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_21).'
+	  	    							'.form_input($P7_1_21).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -642,7 +642,7 @@ echo '
 	  	    							<strong>Presenta arriostramiento lateral</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_22).'
+	  	    							'.form_input($P7_1_22).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -659,7 +659,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_23).'
+	  	    							'.form_input($P7_1_23).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -669,7 +669,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_24).'
+	  	    							'.form_input($P7_1_24).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -686,7 +686,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_25).'
+	  	    							'.form_input($P7_1_25).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -696,7 +696,7 @@ echo '
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
-	  	    							'.form_input($P7_1_26).'
+	  	    							'.form_input($P7_1_26).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -712,7 +712,7 @@ echo '
 	  	    							<strong>Hay presencia de mochetas</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								'.form_input($P7_1_27).'
+	  	    								'.form_input($P7_1_27).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -721,7 +721,7 @@ echo '
 	  	    							<strong>¿Hay adobe reforzado (caña, malla, etc.)?</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								'.form_input($P7_1_28).'
+	  	    								'.form_input($P7_1_28).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    				</tbody>
@@ -742,7 +742,7 @@ echo '
 	  	    							<strong>En base a los resultados obtenidos en la evaluación, ¿ Cuál es la intervención a realizar en la edificación?</strong>
 	  	    						</td>
 	  	    						<td>
-	  	    								'.form_input($P7_2_1).'
+	  	    								'.form_input($P7_2_1).'<div class="help-block error"></div>
 	  	    						</td>
 	  	    					</tr>
 	  	    					<tr>
@@ -753,7 +753,7 @@ echo '
 	  	    						<td>
 	  	    								<div class="panel">
 
-												'.form_textarea($P7_2_2).'
+												'.form_textarea($P7_2_2).'<div class="help-block error"></div>
 											</div>
 	  	    						</td>
 	  	    					</tr>
@@ -863,7 +863,154 @@ $(document).ready(function(){
 
 	$("#cap7_f").validate({
 	    rules: {
-		//FIN RULES
+			Nro_Ed:{
+				digits:true,
+				required: true,
+			},
+			P7_1_2:{
+				digits:true,
+				range:[0,5],
+			},
+			P7_1_3:{
+				digits:true,
+				range:[0,3],
+			},
+			P7_1_4:{
+				digits:true,
+				range:[0,8],
+			},
+			P7_1_5:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_6:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_7:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_8:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_9:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_9A:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_9B:{
+				digits:true,
+				range:[0,6],
+			},
+			P7_1_9C:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_9D:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_10:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_11:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_12:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_13:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_14:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_15:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_15A:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_15B:{
+				digits:true,
+				range:[0,6],
+			},
+			P7_1_15C:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_15D:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_16:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_17:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_18:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_19:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_20:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_21:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_22:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_23:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_24:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_25:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_26:{
+				digits:true,
+				range:[0,4],
+			},
+			P7_1_27:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_1_28:{
+				digits:true,
+				range:[0,2],
+			},
+			P7_2_1:{
+				digits:true,
+				range:[0,3],
+			},
 	    },
 
 	    messages: {   

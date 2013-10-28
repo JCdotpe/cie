@@ -35,7 +35,9 @@ $P6_1_4 = array(
 	'name'	=> 'P6_1_4',
 	'id'	=> 'P6_1_4',
 	'maxlength'	=> 2,
-	'class' => 'input2',	
+	'class' => 'input2',
+	'readonly' => 'true',
+	'value' => $pr,
 );
 
 $P6_1_5 = array(
@@ -876,7 +878,7 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Verificar Cap. V</label>
-		  	    							'.form_input($Cant_Edif_6).'
+		  	    							'.form_input($Cant_Edif_6).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -899,7 +901,7 @@ echo '
 								<tr>
 									<td>2</td>
 									<td>CÓDIGO DE LA EDIFICACIÓN</td>
-									<td>E - '.form_input($Nro_Ed).'</td>
+									<td>E - '.form_input($Nro_Ed).'<div class="help-block error"></div></td>
 								</tr>
 								<tr>
 									<td>3</td>
@@ -909,84 +911,84 @@ echo '
 								<tr>
 									<td>4</td>
 									<td>PREDIO EN EL QUE SE UBICA LA EDIFICACIÓN</td>
-									<td>'.form_input($P6_1_4).'</td>
+									<td>'.form_input($P6_1_4).'<div class="help-block error"></div></td>
 								</tr>	
 								<tr>
 									<td>5</td>
 									<td>¿ESTA EDIFICACIÓN ES PARTE DEL PATRIMONIO CULTURAL INMUEBLE RECONOCIDO POR EL MINISTERIO DE CULTURA?</td>
-									<td>'.form_input($P6_1_5).'</td>
+									<td>'.form_input($P6_1_5).'<div class="help-block error"></div></td>
 								</tr>	
 								<tr>
 									<td>6</td>
 									<td>¿LA EDIFICACIÓN FUE INSPECCIONADA POR DEFENSA CIVIL?</td>
-									<td>'.form_input($P6_1_6).'</td>
+									<td>'.form_input($P6_1_6).'<div class="help-block error"></div></td>
 								</tr>	
 								<tr>
 									<td>7</td>
 									<td>¿LA EDIFICACIÓN SE ENCUENTRA DECLARADA INHABITABLE (ALTO RIESGO)?</td>
-									<td>'.form_input($P6_1_7).'</td>
+									<td>'.form_input($P6_1_7).'<div class="help-block error"></div></td>
 								</tr>	
 								<tr>
 									<td>8</td>
 									<td>Nº DE PISOS DE ESTA EDIFICACIÓN</td>
-									<td>'.form_input($P6_1_8ID).'</td>
+									<td>'.form_input($P6_1_8ID).'<div class="help-block error"></div></td>
 								</tr>
 								
 								<tr id="P6_1_8ID_1">
 									<td>8A</td>
 									<td>EL PRIMER PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p1" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p1" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>									
 								<tr id="P6_1_8ID_2">
 									<td>8B</td>
 									<td>EL SEGUNDO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p2" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p2" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>	
 								<tr id="P6_1_8ID_3">
 									<td>8C</td>
 									<td>EL TERCER PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p3" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p3" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>	
 								<tr id="P6_1_8ID_4">
 									<td>8D</td>
 									<td>EL CUARTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p4" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_5">
 									<td>8E</td>
 									<td>EL QUINTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p5" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p5" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_6">
 									<td>8F</td>
 									<td>EL SEXTO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p6" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p6" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_7">
 									<td>8G</td>
 									<td>EL SEPTIMO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p7" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p7" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_8">
 									<td>8H</td>
 									<td>EL OCTAVO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p8" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p8" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_9">
 									<td>8I</td>
 									<td>EL NOVENO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p9" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p9" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								<tr id="P6_1_8ID_10">
 									<td>8J</td>
 									<td>EL DECIMO PISO CUMPLE CON LA NORMA DE ACCESIBILIDAD PARA PERSONAS CON DISCAPACIDAD</td>
-									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p10" maxlength="1" class="input1" value="" ></td>
+									<td><input type="text" name="P6_1_8_Accesibilidad[]" id="P6_1_8ID_p10" maxlength="1" class="input1" value="" ><div class="help-block error"></div></td>
 								</tr>
 								
 								<tr>
 									<td>9</td>
 									<td>¿CUÁNTOS NIVELES O MODALIDADES HACEN USO DE ESTA EDIFICACIÓN?</td>
-									<td>'.form_input($P6_1_9).'</td>
+									<td>'.form_input($P6_1_9).'<div class="help-block error"></div></td>
 								</tr>
 								</tbody>	
 							</table>
@@ -1017,6 +1019,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op1" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1027,6 +1030,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op2" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1037,6 +1041,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op3" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1047,6 +1052,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op4" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1057,6 +1063,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op5" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1067,6 +1074,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op6" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1077,6 +1085,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op7" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1087,6 +1096,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op8" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1097,6 +1107,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op9" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1107,6 +1118,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op10" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1117,6 +1129,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op11" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1127,6 +1140,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op12" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1137,6 +1151,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op13" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1147,6 +1162,7 @@ echo '
 			  	    								<td>
 			  	    									<label class="checkbox">
 															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op14" class="input1" value="" >
+															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1181,11 +1197,11 @@ echo '
 		  	    					<tr>
 		  	    						<td>
 		  	    							<label>1. Ambiente Nº</label>
-		  	    							'.form_input($P6_2_1).'
+		  	    							'.form_input($P6_2_1).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>2. Piso N°</label>
-		  	    							'.form_input($P5_NroPiso).'
+		  	    							'.form_input($P5_NroPiso).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1196,7 +1212,7 @@ echo '
 		  	    						<td>3.</td>
 		  	    						<td>¿EL AMBIENTE ESTÁ EN USO ACTUALMENTE?</td>
 		  	    					<td>
-		  	    						'.form_input($P6_2_3).'
+		  	    						'.form_input($P6_2_3).'<div class="help-block error"></div>
 		  	    					</td>
 		  	    				</tr></tbody>
 		  	    				<tbody>
@@ -1225,294 +1241,294 @@ echo '
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op1" maxlength="1" class="input1" value="" >
-			  	    									1. Inicial cuna
+			  	    									1. Inicial cuna <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op1" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op1" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op2" maxlength="1" class="input1" value="" >
-			  	    									2. Inicial jardín
+			  	    									2. Inicial jardín <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op2" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op2" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op3" maxlength="1" class="input1" value="" >
-			  	    									3. Inicial cuna jardín
+			  	    									3. Inicial cuna jardín <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op3" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op3" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op4" maxlength="1" class="input1" value="" >
-			  	    									4. Primaria
+			  	    									4. Primaria <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op4" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op4" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op5" maxlength="1" class="input1" value="" >
-			  	    									5. Secundaria
+			  	    									5. Secundaria <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op5" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op5" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op6" maxlength="1" class="input1" value="" >
-			  	    									6. Educación básica alternativa (EBA)
+			  	    									6. Educación básica alternativa (EBA) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op6" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op6" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op7" maxlength="1" class="input1" value="" >
-			  	    									7. Educación básica especial (EBE)
+			  	    									7. Educación básica especial (EBE) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op7" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op7" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op8" maxlength="1" class="input1" value="" >
-			  	    									8. Educación superior de formación artistica (esfa)
+			  	    									8. Educación superior de formación artistica (esfa) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op8" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op8" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op9" maxlength="1" class="input1" value="" >
-			  	    									9. Instituto superior tecnológico (ist)
+			  	    									9. Instituto superior tecnológico (ist) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op9" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op9" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op10" maxlength="1" class="input1" value="" >
-			  	    									10. Instituto superior pedagógico (isp)
+			  	    									10. Instituto superior pedagógico (isp) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op10" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op10" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op11" maxlength="1" class="input1" value="" >
-			  	    									11. Centro de educación técnico productivo (cetpro)
+			  	    									11. Centro de educación técnico productivo (cetpro) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op11" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op11" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op12" maxlength="1" class="input1" value="" >
-			  	    									12. Progrma no escolarizado de educación inicial (pronoei)
+			  	    									12. Progrma no escolarizado de educación inicial (pronoei) <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op12" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op12" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op13" maxlength="1" class="input1" value="" >
-			  	    									13. Sala de educación temprana
+			  	    									13. Sala de educación temprana <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op13" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op13" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
 		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op14" maxlength="1" class="input1" value="" >
-			  	    									14. Ludoteca
+			  	    									14. Ludoteca <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op14" maxlength="1" class="input1" value="" >
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op14" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" >
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1530,7 +1546,7 @@ echo '
 		  	    						<label>(Acepte sólo un código)</label>
 		  	    					</td>
 		  	    					<td>
-		  	    						'.form_input($P6_2_5).'
+		  	    						'.form_input($P6_2_5).'<div class="help-block error"></div>
 		  	    					</td>
 		  	    				</tr></tbody>
 		  	    			</table>
@@ -1555,7 +1571,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_6).'
+			  	    						'.form_input($P6_2_6).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso4">
@@ -1565,7 +1581,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_7).'
+			  	    						'.form_input($P6_2_7).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso5">
@@ -1575,7 +1591,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_8).'
+			  	    						'.form_input($P6_2_8).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso6">
@@ -1585,7 +1601,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_9).'
+			  	    						'.form_input($P6_2_9).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso7">
@@ -1595,7 +1611,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_10).'
+			  	    						'.form_input($P6_2_10).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1618,7 +1634,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_11).'
+		  	    							'.form_input($P6_2_11).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1640,7 +1656,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_12).'
+		  	    							'.form_input($P6_2_12).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1662,7 +1678,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_13).' - Especifique '.form_input($P6_2_13_O).'
+		  	    							'.form_input($P6_2_13).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_13_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1691,27 +1707,27 @@ echo '
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>1. Turcos (piso)</td>
-		  	    									<td>'.form_input($P6_2_14_1).'</td>
+		  	    									<td>'.form_input($P6_2_14_1).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>2. Letrinas</td>
-		  	    									<td>'.form_input($P6_2_14_2).'</td>
+		  	    									<td>'.form_input($P6_2_14_2).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>3. Inodoros de adultos accesibles (discapacidad)</td>
-		  	    									<td>'.form_input($P6_2_14_3).'</td>
+		  	    									<td>'.form_input($P6_2_14_3).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>4. Inodoros de adultos</td>
-		  	    									<td>'.form_input($P6_2_14_4).'</td>
+		  	    									<td>'.form_input($P6_2_14_4).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>5. Inodoros de niños accesibles (discapacidad)</td>
-		  	    									<td>'.form_input($P6_2_14_5).'</td>
+		  	    									<td>'.form_input($P6_2_14_5).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>6. Inodoros de niños</td>
-		  	    									<td>'.form_input($P6_2_14_6).'</td>
+		  	    									<td>'.form_input($P6_2_14_6).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    							</tbody></table>
 
@@ -1735,7 +1751,7 @@ echo '
 		  	    						</td>
 		  	    						<td>
 		  	    							<label>Total</label>
-											'.form_input($P6_2_14a).'
+											'.form_input($P6_2_14a).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr>
@@ -1753,11 +1769,11 @@ echo '
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>1. Lavaderos o lavatorios</td>
-		  	    									<td>'.form_input($P6_2_14b_1).'</td>
+		  	    									<td>'.form_input($P6_2_14b_1).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>2. Lavaderos o lavatorios operativos</td>
-		  	    									<td>'.form_input($P6_2_14b_2).'</td>
+		  	    									<td>'.form_input($P6_2_14b_2).'<div class="help-block error"></div></td>
 		  	    								</tr>
 		  	    							</tbody></table>
 		  	    						</td>
@@ -1792,11 +1808,11 @@ echo '
 			  	    							</thead>
 			  	    							<tbody>
 			  	    									<td>
-				  	    									<label>
-																'.form_input($P6_2_15_O).' - Especifique
+				  	    									<label>'.form_input($P6_2_15).' <div class="help-block error"></div>
+																Especifique - '.form_input($P6_2_15_O).' 
 															</label>
 				  	    								</td>
-														<td>'.form_input($P6_2_15a).'</td>
+														<td>'.form_input($P6_2_15a).'<div class="help-block error"></div></td>
 			  	    								</tr>
 			  	    							</tbody>
 			  	    						</table>
@@ -1830,19 +1846,19 @@ echo '
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" value="option3"> 1-->
-																'.form_input($P6_2_16a_b).' 
+																'.form_input($P6_2_16a_b).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" value="option3"> 2-->
-																'.form_input($P6_2_16a_r).'  
+																'.form_input($P6_2_16a_r).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
 																<!--<input type="checkbox" id="inlineCheckbox3" > 3-->
-																'.form_input($P6_2_16a_m).'  
+																'.form_input($P6_2_16a_m).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1852,17 +1868,17 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16b_b).'   
+																'.form_input($P6_2_16b_b).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16b_r).' 
+																'.form_input($P6_2_16b_r).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16b_m).'  
+																'.form_input($P6_2_16b_m).'<div class="help-block error"></div> 
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1872,17 +1888,17 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16c_b).'   
+																'.form_input($P6_2_16c_b).'<div class="help-block error"></div>  
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16c_r).'  
+																'.form_input($P6_2_16c_r).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16c_m).'  
+																'.form_input($P6_2_16c_m).'<div class="help-block error"></div> 
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1892,39 +1908,39 @@ echo '
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16d_b).' 
+																'.form_input($P6_2_16d_b).'<div class="help-block error"></div> 
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16d_r).' 
+																'.form_input($P6_2_16d_r).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16d_m).' 
+																'.form_input($P6_2_16d_m).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 			  	    										<label>
-				  	    										5. Otro material - Especifique '.form_input($P6_2_16e_O).' 
+				  	    										5. Otro material - Especifique '.form_input($P6_2_16e_O).'<div class="help-block error"></div>
 				  	    									<label>
 														</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16e_b).' 
+																'.form_input($P6_2_16e_b).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16e_r).' 
+																'.form_input($P6_2_16e_r).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
-																'.form_input($P6_2_16e_m).' 
+																'.form_input($P6_2_16e_m).'<div class="help-block error"></div>
 															<!--</label>-->
 				  	    								</td>
 			  	    								</tr>
@@ -1932,6 +1948,7 @@ echo '
 			  	    									<td>
 			  	    										<label class="checkbox">
 																'.form_input($P6_2_16f).' 6. No tiene
+																<div class="help-block error"></div>
 															</label>
 
 				  	    								</td>
@@ -1973,19 +1990,19 @@ echo '
 		  	    								<tbody>
 		  	    									<tr>
 			  	    									<td>1. Buen estado</td>
-			  	    									<td>'.form_input($P6_2_17a).'  </td>
+			  	    									<td>'.form_input($P6_2_17a).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>2. Oxidado</td>
-			  	    									<td>'.form_input($P6_2_17b).' </td>
+			  	    									<td>'.form_input($P6_2_17b).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>3. Deteriorado</td>
-			  	    									<td>'.form_input($P6_2_17c).' </td>
+			  	    									<td>'.form_input($P6_2_17c).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>4. No tiene</td>
-			  	    									<td>'.form_input($P6_2_17d).' </td>
+			  	    									<td>'.form_input($P6_2_17d).'<div class="help-block error"></div>td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
@@ -2015,78 +2032,84 @@ echo '
 			  	    								<tr>
 			  	    									<td>
 				  	    									'.form_input($P6_2_18a).'  1. Metalica
+				  	    									<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18a_b).' 
+				  	    									'.form_input($P6_2_18a_b).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18a_r).' 
+				  	    									'.form_input($P6_2_18a_r).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18a_m).' 
+				  	    									'.form_input($P6_2_18a_m).' <div class="help-block error"></div>
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									'.form_input($P6_2_18b).' 2. Madera
+				  	    									<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18b_b).' 
+				  	    									'.form_input($P6_2_18b_b).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18b_r).' 
+				  	    									'.form_input($P6_2_18b_r).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18b_m).' 
+				  	    									'.form_input($P6_2_18b_m).' <div class="help-block error"></div>
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									'.form_input($P6_2_18c).'  3. Aluminio
+				  	    									<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18c_b).' 
+				  	    									'.form_input($P6_2_18c_b).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18c_r).' 
+				  	    									'.form_input($P6_2_18c_r).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18c_m).' 
+				  	    									'.form_input($P6_2_18c_m).' <div class="help-block error"></div>
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									'.form_input($P6_2_18d).'  4. Malla
+				  	    									<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18d_b).' 
+				  	    									'.form_input($P6_2_18d_b).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18d_r).'
+				  	    									'.form_input($P6_2_18d_r).' <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18d_m).'  
+				  	    									'.form_input($P6_2_18d_m).'  <div class="help-block error"></div>
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									'.form_input($P6_2_18e).' 	5. Otro material
+				  	    									<div class="help-block error"></div>
 																<br /> '.form_input($P6_2_18e_O).' (Especifique)
 			  	    									</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18e_b).'  
+				  	    									'.form_input($P6_2_18e_b).'<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18e_r).'  
+				  	    									'.form_input($P6_2_18e_r).'<div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
-				  	    									'.form_input($P6_2_18e_m).'  
+				  	    									'.form_input($P6_2_18e_m).'<div class="help-block error"></div>
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
 				  	    									<label class="checkbox">
 																'.form_input($P6_2_18f).' 6. No tiene
+																<div class="help-block error"></div>
 															</label>
 				  	    								</td>
 				  	    								<td>
@@ -2121,15 +2144,15 @@ echo '
 		  	    								<tbody>
 		  	    									<tr>
 			  	    									<td>1. Completos</td>
-			  	    									<td>'.form_input($P6_2_19a).'</td>
+			  	    									<td>'.form_input($P6_2_19a).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>2. Con roturas</td>
-			  	    									<td>'.form_input($P6_2_19b).'</td>
+			  	    									<td>'.form_input($P6_2_19b).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>3. Sin vidrios</td>
-			  	    									<td>'.form_input($P6_2_19c).'</td>
+			  	    									<td>'.form_input($P6_2_19c).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
@@ -2162,7 +2185,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación tiene instalaciones eléctricas interiores</strong></td>
 										<td>
-											'.form_input($P6_3_1).'
+											'.form_input($P6_3_1).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="seccioncp1a">
@@ -2174,7 +2197,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P6_3_1A).'
+											'.form_input($P6_3_1A).'<div class="help-block error"></div>
 										</td>
 									</tr>
 								</tbody>
@@ -2196,7 +2219,7 @@ echo '
 											<br>(verificar)
 										</td>
 										<td>
-											'.form_input($P6_3_2).'
+											'.form_input($P6_3_2).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp2a">
@@ -2207,7 +2230,7 @@ echo '
 											<strong>Es de fácil acceso</strong>
 										</td>
 										<td>
-											'.form_input($P6_3_2A).'
+											'.form_input($P6_3_2A).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp2b">
@@ -2218,7 +2241,7 @@ echo '
 											<strong>Tiene un gabinete adecuado</strong>
 										</td>
 										<td>
-											'.form_input($P6_3_2B).'
+											'.form_input($P6_3_2B).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp2c">
@@ -2229,7 +2252,7 @@ echo '
 											<strong>Tiene interruptores electromagnéticos</strong>
 										</td>
 										<td>
-											'.form_input($P6_3_2C).'
+											'.form_input($P6_3_2C).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp2d">
@@ -2240,7 +2263,7 @@ echo '
 											<strong>Tiene interruptores diferenciales</strong>
 										</td>
 										<td>
-											'.form_input($P6_3_2D).'
+											'.form_input($P6_3_2D).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp3">
@@ -2252,7 +2275,7 @@ echo '
 											<br>(Verificar)
 										</td>
 										<td>
-											'.form_input($P6_3_3).'
+											'.form_input($P6_3_3).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="distribucionp3a">
@@ -2264,7 +2287,7 @@ echo '
 										</td>
 										<td>
 											<label>Año</label>
-											'.form_input($P6_3_3A).'
+											'.form_input($P6_3_3A).'<div class="help-block error"></div>
 										</td>
 									</tr>
 								</tbody>
@@ -2287,7 +2310,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación cuenta con red interna de agua</strong></td>
 										<td>
-											'.form_input($P6_4_1).'
+											'.form_input($P6_4_1).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="secciondp1a">
@@ -2298,7 +2321,7 @@ echo '
 											<strong>La instalación es empotrada</strong>
 										</td>
 										<td>
-											'.form_input($P6_4_1A).'
+											'.form_input($P6_4_1A).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -2309,7 +2332,7 @@ echo '
 											<strong>Esta edificación cuenta con red interna de desague</strong>
 										</td>
 										<td>
-											'.form_input($P6_4_2).'
+											'.form_input($P6_4_2).'<div class="help-block error"></div>
 										</td>
 									</tr>
 								</tbody>
@@ -2332,7 +2355,7 @@ echo '
 										</td>
 										<td><strong>Esta edificación tiene instaladas canaletas aéreas y bajadas pluviales</strong></td>
 										<td>
-											'.form_input($P6_5_1).'
+											'.form_input($P6_5_1).'<div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr id="seccionep1a">
@@ -2344,7 +2367,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P6_5_1A).'
+											'.form_input($P6_5_1A).'<div class="help-block error"></div>
 										</td>
 									</tr>
 								</tbody>
@@ -2575,17 +2598,395 @@ $(document).ready(function(){
 
 	$("#cap6_f").validate({
 		rules: {
-			
-			P3_1_1_LugGeoref:{
-				range:[1,2],
-				maxlength: 1,
+			//Seccion A
+			Cant_Edif_6:{
+				digits:true,
+				range:[1,99],
 				required: true,
 			},
-
-			P3_1_4_ArchGPS:{
-				maxlength: 255,
+			Nro_Ed:{
+				digits:true,
+				range:[1,99],
+				required: true,
 			},
-			
+			P6_1_4:{
+				digits:true,
+				range:[1,10],
+				required: true,
+			},
+			P6_1_5:{
+				digits:true,
+				range:[1,2],
+				required: true,
+			},
+			P6_1_6:{
+				digits:true,
+				range:[1,2],
+				required: true,
+			},
+			P6_1_7:{
+				digits:true,
+				range:[1,2],
+				required: true,
+			},
+			P6_1_8:{
+				digits:true,
+				range:[1,10],
+				required: true,
+			},
+			'P6_1_8_Accesibilidad[]':{
+				digits:true,
+				range:[0,2],
+			},
+			P6_1_9:{
+				digits:true,
+				range:[1,14],
+				required: true,
+			},
+			'P6_1_10_e[]':{
+				digits:true,
+				range:[0,1],
+			},
+
+			//Seccion B
+			P5_NroPiso:{
+				digits:true,
+				range:[1,99],
+				required: true,
+			},
+			P6_2_1:{
+				digits:true,
+				range:[1,99],
+				required: true,
+			},
+			'P6_2_4Mod[]':{
+				digits:true,
+				range:[0,1],
+			},
+			'P6_2_4Turno_M[]':{
+				digits:true,
+				range:[0,1],
+			},
+			'P6_2_4Turno_T[]':{
+				digits:true,
+				range:[0,1],
+			},
+			'P6_2_4Turno_N[]':{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_5:{
+				digits:true,
+				range:[1,5],
+			},
+			P6_2_6:{
+				digits:true,
+				range:[1,7],
+			},
+			P6_2_7:{
+				digits:true,
+				range:[1,7],
+			},
+			P6_2_8:{
+				digits:true,
+				range:[1,6],
+			},
+			P6_2_9:{
+				digits:true,
+				range:[1,17],
+			},
+			P6_2_10:{
+				digits:true,
+				range:[1,8],
+			},
+			P6_2_11:{
+				digits:true,
+				range:[1,11],
+			},
+			P6_2_12:{
+				digits:true,
+				range:[1,8],
+			},
+			P6_2_13:{
+				digits:true,
+				range:[1,16],
+			},
+			P6_2_14_1:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14_2:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14_3:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14_4:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14_5:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14_6:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14a:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14b_1:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_14b_2:{
+				digits:true,
+				range:[0,999],
+			},
+			P6_2_15:{
+				digits:true,
+				range:[0,7],
+			},
+			P6_2_15a:{
+				digits:true,
+				range:[0,3],
+			},
+			P6_2_16a_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16a_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16a_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16b_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16b_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16b_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16c_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16c_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16c_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16d_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16d_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16d_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16e_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16e_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16e_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_16f:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_17a:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_17b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_17c:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_17d:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18a:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_18a_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18a_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18a_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18b:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_18b_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18b_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18b_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18c:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_18c_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18c_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18c_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18d:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_18d_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18d_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18d_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18e:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_18e_b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18e_r:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18e_m:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_18f:{
+				digits:true,
+				range:[0,1],
+			},
+			P6_2_19a:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_19b:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_2_19c:{
+				digits:true,
+				range:[0,9999],
+			},
+			P6_3_1:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_1A:{
+				digits:true,
+				range:[0,4],
+			},
+			P6_3_2:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_2A:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_2B:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_2C:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_2D:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_3:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_3_3A:{
+				digits:true,
+				year:true,
+			},
+			P6_4_1:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_4_1A:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_4_2:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_5_1:{
+				digits:true,
+				range:[0,2],
+			},
+			P6_5_1A:{
+				digits:true,
+				range:[0,3],
+			},
 		},
 
 		messages: {
