@@ -9,6 +9,7 @@ class Procedure extends REST_Controller{
     $this->load->library('tank_auth');
     $this->lang->load('tank_auth');
     $this->load->model('visor/procedure_model');
+    $this->load->library('session');
     $this->load->helper('my');
 
   }
@@ -178,8 +179,8 @@ class Procedure extends REST_Controller{
         }else{
 
             header_json();
-
-            $data = $this->procedure_model->query_by_Local($this->get('id_local'));
+           
+            $data = $this->procedure_model->query_by_Local($this->session->userdata('user_id'),$this->get('id_local'));
             $res="";
             $i=0;
             echo "[";

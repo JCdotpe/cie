@@ -275,7 +275,10 @@
                         "bLengthChange": false,
                         "sPaginationType": "full_numbers",
                         "bScrollCollapse": false,
-                        "sScrollY": "360px"
+                        "sScrollY": "360px",
+                        "oLanguage": {
+                            "sEmptyTable": "El codigo no pertenece a su Sede Operativa"
+                        }
                     } );
 
         });    
@@ -357,7 +360,7 @@
                         <label>Codigo de Local</label>
                         <div class="controls">
                             <?php /*echo form_dropdown('ruta', $regArray, '#', 'id="ruta"');*/ ?>
-                            <input id="cod_local" style="width:50px;float:left;" type="text" class="form-control">
+                            <input id="cod_local" style="width:50px;float:left;" maxlength="6" type="text" class="form-control">
                             <?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-left:15px;"'); ?>
                         </div>
 
