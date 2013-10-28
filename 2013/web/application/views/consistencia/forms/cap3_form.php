@@ -239,6 +239,7 @@ $("#cap3_f").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 			    P3_1_1_LugGeoref: {
 			            required: true,
+			            range: [1,2],
 			        },  
 				P3_1_4_ArchGPS: {
 			    		maxlength: 255, 

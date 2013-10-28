@@ -1179,7 +1179,7 @@ echo '
 												<strong>¿El Clima que predomina en esta localidad es:</strong>
 											</td>
 											<td>
-												'.form_input($P2_A_1_Clima).'
+												'.form_input($P2_A_1_Clima).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1188,7 +1188,7 @@ echo '
 												<strong>¿La intensidad de la lluvia en esta localidad es:</strong>
 											</td>
 											<td>
-												'.form_input($P2_A_2_Lluv).'
+												'.form_input($P2_A_2_Lluv).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1198,9 +1198,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												'.form_input($P2_A_2A_Lluv_Mini).'
+												'.form_input($P2_A_2A_Lluv_Mini).' <div class="help-block error"></div>
 												<label>Mes de término</label>
-												'.form_input($P2_A_2A_Lluv_Mfin).'
+												'.form_input($P2_A_2A_Lluv_Mfin).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1209,7 +1209,7 @@ echo '
 												<strong>¿En esta localidad se producen heladas/friajes?</strong>
 											</td>
 											<td>
-												'.form_input($P2_A_3_Hel).'
+												'.form_input($P2_A_3_Hel).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1219,9 +1219,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												'.form_input($P2_A_3A_Hel_Mini).'
+												'.form_input($P2_A_3A_Hel_Mini).' <div class="help-block error"></div>
 												<label>Mes de término</label>
-												'.form_input($P2_A_3A_Hel_Mfin).'
+												'.form_input($P2_A_3A_Hel_Mfin).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1230,7 +1230,7 @@ echo '
 												<strong>¿En esta localidad cae granizada?</strong>
 											</td>
 											<td>
-												'.form_input($P2_A_4_Gra).'
+												'.form_input($P2_A_4_Gra).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1240,9 +1240,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												'.form_input($P2_A_4A_Gra_Mini).'
+												'.form_input($P2_A_4A_Gra_Mini).' <div class="help-block error"></div>
 												<label>Mes de término</label>
-												'.form_input($P2_A_4A_Gra_Mfin).'
+												'.form_input($P2_A_4A_Gra_Mfin).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1251,7 +1251,7 @@ echo '
 												<strong>¿En esta localidad se forman vendavales?</strong>
 											</td>
 											<td>
-												'.form_input($P2_A_5_Vend).'
+												'.form_input($P2_A_5_Vend).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1261,7 +1261,7 @@ echo '
 												<br>(Acepte solo un código)
 											</td>
 											<td>
-												'.form_input($P2_A_5A_Vend_Tip).'
+												'.form_input($P2_A_5A_Vend_Tip).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1271,9 +1271,9 @@ echo '
 											</td>
 											<td>
 												<label>Mes de inicio</label>
-												'.form_input($P2_A_5B_Vend_Mini).'
+												'.form_input($P2_A_5B_Vend_Mini).' <div class="help-block error"></div>
 												<label>Mes de término</label>
-												'.form_input($P2_A_5B_Vend_Mfin).'
+												'.form_input($P2_A_5B_Vend_Mfin).' <div class="help-block error"></div>
 											</td>
 										</tr>
 									</tbody>
@@ -1295,7 +1295,7 @@ echo '
 												<br>(Acepte un solo código)
 											</td>
 											<td>
-												'.form_input($P2_B_1_Topo).'
+												'.form_input($P2_B_1_Topo).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1305,20 +1305,20 @@ echo '
 												<br>(Acepte un solo código)
 											</td>
 											<td>
-												'.form_input($P2_B_2_Suelo).' - Especifique '.form_input($P2_B_2_Suelo_O).'
+												'.form_input($P2_B_2_Suelo).' <div class="help-block error"></div> - Especifique '.form_input($P2_B_2_Suelo_O).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
 											<td>3.</td>
 											<td><strong>¿A qué profundidad se encuentra la napa freatica del local escolar?</strong></td>
 											<td>
-												'.form_input($P2_B_3_Prof).'
+												'.form_input($P2_B_3_Prof).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
 											<td>4.</td>
 											<td><strong>¿Cuál es la capital del distrito mas accesible al local escolar?</strong></td>
-											<td>'.form_input($P2_B_4_CapAcc).'</td>
+											<td>'.form_input($P2_B_4_CapAcc).' <div class="help-block error"></div></td>
 										</tr>
 										<tr>
 											<td>5.</td>
@@ -1327,16 +1327,16 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												'.form_input($P2_B_5_1).' 1. Terrestre <br />
-												'.form_input($P2_B_5_2).' 2. Fluvial / lacustre / marítimo<br />
-												'.form_input($P2_B_5_3).' 3. Aereo
+												'.form_input($P2_B_5_1).' <div class="help-block error"></div> 1. Terrestre <br />
+												'.form_input($P2_B_5_2).' <div class="help-block error"></div> 2. Fluvial / lacustre / marítimo<br />
+												'.form_input($P2_B_5_3).' <div class="help-block error"></div> 3. Aereo
 											</td>
 										</tr>
 										<tr>
 											<td>5A.</td>
 											<td><strong>¿El uso mas frecuente es?</strong></td>
 											<td>
-												'.form_input($P2_B_5A_Uso).' 
+												'.form_input($P2_B_5A_Uso).'  <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1346,10 +1346,10 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												'.form_input($P2_B_5B_1).' 1. Camino de herradura <br />
-												'.form_input($P2_B_5B_2).' 2. Trocha carrozable <br />
-												'.form_input($P2_B_5B_3).' 3. Carretera afirmada <br />
-												'.form_input($P2_B_5B_4).' 4. Vía asfaltada <br />												
+												'.form_input($P2_B_5B_1).' <div class="help-block error"></div> 1. Camino de herradura <br />
+												'.form_input($P2_B_5B_2).' <div class="help-block error"></div> 2. Trocha carrozable <br />
+												'.form_input($P2_B_5B_3).' <div class="help-block error"></div> 3. Carretera afirmada <br />
+												'.form_input($P2_B_5B_4).' <div class="help-block error"></div> 4. Vía asfaltada <br />												
 											</td>
 										</tr>
 										<tr>
@@ -1357,8 +1357,8 @@ echo '
 											<td><strong>¿Cuál es el tiempo total de recorrido de la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div style="height:60px; width:130px; margin-left:130px;" class="panel">
-													'.form_input($P2_B_6_Trec_H).' Horas <br />	
-													'.form_input($P2_B_6_Trec_M).' Minutos <br />	
+													'.form_input($P2_B_6_Trec_H).' <div class="help-block error"></div> Horas <br />	
+													'.form_input($P2_B_6_Trec_M).' <div class="help-block error"></div> Minutos <br />	
 												</div>
 											</td>
 										</tr>
@@ -1367,8 +1367,8 @@ echo '
 											<td><strong>¿Cuál es el tiempo del recorrido en el tramo mas dificultoso desde la capital del distrito mas accesible al local escolar?</strong></td>
 											<td>
 												<div style="height:60px; width:130px; margin-left:130px;" class="panel">
-													'.form_input($P2_B_7_Ttramo_H).' Horas <br />		
-													'.form_input($P2_B_7_Ttramo_M).' Minutos <br />												
+													'.form_input($P2_B_7_Ttramo_H).' <div class="help-block error"></div> Horas <br />		
+													'.form_input($P2_B_7_Ttramo_M).' <div class="help-block error"></div> Minutos <br />												
 												</div>
 											</td>
 										</tr>
@@ -1376,7 +1376,7 @@ echo '
 											<td>8.</td>
 											<td><strong>¿Existen peligros asociados ala ubicación de esta localidad?</strong></td>
 											<td>
-												'.form_input($P2_B_8_Pelig).' 
+												'.form_input($P2_B_8_Pelig).' <div class="help-block error"></div>
 											</td>
 										</tr>
 										<tr>
@@ -1386,16 +1386,16 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_9_Cod_1).' Sismos <br />	
-													'.form_input($P2_B_9_Cod_2).' Tsunami u oleaje anómalos <br />													
-													'.form_input($P2_B_9_Cod_3).' Lluvias <br />	
-													'.form_input($P2_B_9_Cod_4).' Heladas <br />													
-													'.form_input($P2_B_9_Cod_5).' Sequías <br />	
-													'.form_input($P2_B_9_Cod_6).' Granizadas <br />													
-													'.form_input($P2_B_9_Cod_7).' Nevadas <br />	
-													'.form_input($P2_B_9_Cod_8).' Vendavales <br />													
-													'.form_input($P2_B_9_Cod_9).' Actividades volcánicas <br />	
-													'.form_input($P2_B_9_Cod_10).' NINGUNO																																																																																										
+													'.form_input($P2_B_9_Cod_1).'  <div class="help-block error"></div> Sismos <br />	
+													'.form_input($P2_B_9_Cod_2).'  <div class="help-block error"></div> Tsunami u oleaje anómalos <br />													
+													'.form_input($P2_B_9_Cod_3).'  <div class="help-block error"></div> Lluvias <br />	
+													'.form_input($P2_B_9_Cod_4).'  <div class="help-block error"></div> Heladas <br />													
+													'.form_input($P2_B_9_Cod_5).'  <div class="help-block error"></div> Sequías <br />	
+													'.form_input($P2_B_9_Cod_6).'  <div class="help-block error"></div> Granizadas <br />													
+													'.form_input($P2_B_9_Cod_7).'  <div class="help-block error"></div> Nevadas <br />	
+													'.form_input($P2_B_9_Cod_8).'  <div class="help-block error"></div> Vendavales <br />													
+													'.form_input($P2_B_9_Cod_9).'  <div class="help-block error"></div> Actividades volcánicas <br />	
+													'.form_input($P2_B_9_Cod_10).' <div class="help-block error"></div> NINGUNO																																																																																										
 											</td>
 										</tr>
 										<tr>
@@ -1405,13 +1405,13 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_10_Cod_1).' Inundaciones <br />	
-													'.form_input($P2_B_10_Cod_2).' Deslizamientos <br />													
-													'.form_input($P2_B_10_Cod_3).' Huaycos / Aluviones / Aludes <br />	
-													'.form_input($P2_B_10_Cod_4).' Derrumbes <br />													
-													'.form_input($P2_B_10_Cod_5).' Desertificaciones <br />	
-													'.form_input($P2_B_10_Cod_6).' Salinización de los suelos <br />												
-													'.form_input($P2_B_10_Cod_7).' NINGUNO
+													'.form_input($P2_B_10_Cod_1).' <div class="help-block error"></div> Inundaciones <br />	
+													'.form_input($P2_B_10_Cod_2).' <div class="help-block error"></div> Deslizamientos <br />													
+													'.form_input($P2_B_10_Cod_3).' <div class="help-block error"></div> Huaycos / Aluviones / Aludes <br />	
+													'.form_input($P2_B_10_Cod_4).' <div class="help-block error"></div> Derrumbes <br />													
+													'.form_input($P2_B_10_Cod_5).' <div class="help-block error"></div> Desertificaciones <br />	
+													'.form_input($P2_B_10_Cod_6).' <div class="help-block error"></div> Salinización de los suelos <br />												
+													'.form_input($P2_B_10_Cod_7).' <div class="help-block error"></div> NINGUNO
 											</td>
 										</tr>
 										<tr>
@@ -1421,17 +1421,17 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-													'.form_input($P2_B_11_Cod_1).' Contaminación ambiental <br />	
-													'.form_input($P2_B_11_Cod_2).' Incendios, quemas <br />													
-													'.form_input($P2_B_11_Cod_3).' Explosiones <br />	
-													'.form_input($P2_B_11_Cod_4).' Derrame de sustancias tóxicas <br />													
-													'.form_input($P2_B_11_Cod_5).' Fuga de gases <br />	
-													'.form_input($P2_B_11_Cod_6).' Zonas aereoportuarias <br />											
-													'.form_input($P2_B_11_Cod_7).' Zonas industriales <br />	
-													'.form_input($P2_B_11_Cod_8).' Crianza de animales <br />													
-													'.form_input($P2_B_11_Cod_9).' Subversiónes / conflictos <br />												
-													'.form_input($P2_B_11_Cod_10).' Rellenos sanitarios <br />												
-													'.form_input($P2_B_11_Cod_11).' Otro - Especifique '.form_input($P2_B_11_Cod_O).' <br /> 
+													'.form_input($P2_B_11_Cod_1).' <div class="help-block error"></div> Contaminación ambiental <br />	
+													'.form_input($P2_B_11_Cod_2).' <div class="help-block error"></div> Incendios, quemas <br />													
+													'.form_input($P2_B_11_Cod_3).' <div class="help-block error"></div> Explosiones <br />	
+													'.form_input($P2_B_11_Cod_4).' <div class="help-block error"></div> Derrame de sustancias tóxicas <br />													
+													'.form_input($P2_B_11_Cod_5).' <div class="help-block error"></div> Fuga de gases <br />	
+													'.form_input($P2_B_11_Cod_6).' <div class="help-block error"></div> Zonas aereoportuarias <br />											
+													'.form_input($P2_B_11_Cod_7).' <div class="help-block error"></div> Zonas industriales <br />	
+													'.form_input($P2_B_11_Cod_8).' <div class="help-block error"></div> Crianza de animales <br />													
+													'.form_input($P2_B_11_Cod_9).' <div class="help-block error"></div> Subversiónes / conflictos <br />												
+													'.form_input($P2_B_11_Cod_10).' <div class="help-block error"></div> Rellenos sanitarios <br />												
+													'.form_input($P2_B_11_Cod_11).' <div class="help-block error"></div> Otro - Especifique '.form_input($P2_B_11_Cod_O).' <div class="help-block error"></div> <br /> 
 													'.form_input($P2_B_11_Cod_12).' NINGUNO
 											</td>
 										</tr>
@@ -1442,13 +1442,13 @@ echo '
 												<br>(Acepte uno o mas códigos)
 											</td>
 											<td>
-												'.form_input($P2_B_12_Cod_1).' Cercanía lecho de río, quebrada <br />	
-												'.form_input($P2_B_12_Cod_2).' Cercanía a vía ferrea <br />	
-												'.form_input($P2_B_12_Cod_3).' Cercanía a barranco o precipicio <br />	
-												'.form_input($P2_B_12_Cod_4).' Cercanía a cuartel militar o policial <br />	
-												'.form_input($P2_B_12_Cod_5).' Erosión fluvial de laderas <br />	
-												'.form_input($P2_B_12_Cod_6).'Otro - Especifique '.form_input($P2_B_12_Cod_O).' <br />	
-												'.form_input($P2_B_12_Cod_7).' NINGUNO <br />	
+												'.form_input($P2_B_12_Cod_1).' <div class="help-block error"></div> Cercanía lecho de río, quebrada <br />	
+												'.form_input($P2_B_12_Cod_2).' <div class="help-block error"></div> Cercanía a vía ferrea <br />	
+												'.form_input($P2_B_12_Cod_3).' <div class="help-block error"></div> Cercanía a barranco o precipicio <br />	
+												'.form_input($P2_B_12_Cod_4).' <div class="help-block error"></div> Cercanía a cuartel militar o policial <br />	
+												'.form_input($P2_B_12_Cod_5).' <div class="help-block error"></div> Erosión fluvial de laderas <br />	
+												'.form_input($P2_B_12_Cod_6).' <div class="help-block error"></div> Otro - Especifique '.form_input($P2_B_12_Cod_O).' <div class="help-block error"></div> <br />	
+												'.form_input($P2_B_12_Cod_7).' <div class="help-block error"></div> NINGUNO <br />	
 											</td>
 										</tr>
 									</tbody>
@@ -1478,19 +1478,19 @@ echo '
 													<tr>
 														<td>1.	Energía eléctrica?</td>
 														<td>
-															'.form_input($P2_C_1Locl_1_Energ).'
+															'.form_input($P2_C_1Locl_1_Energ).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>2.	Agua potable?</td>
 														<td>
-															'.form_input($P2_C_1Locl_2_Agua).'
+															'.form_input($P2_C_1Locl_2_Agua).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>3.	Alcantarillado?	</td>
 														<td>
-															'.form_input($P2_C_1Locl_3_Alc).'
+															'.form_input($P2_C_1Locl_3_Alc).' <div class="help-block error"></div>
 														</td>
 													</tr>
 												</tbody>
@@ -1510,19 +1510,19 @@ echo '
 													<tr>
 														<td>Telefonía fija?</td>
 														<td>
-															'.form_input($P2_C_1Locl_4_Tfija).'
+															'.form_input($P2_C_1Locl_4_Tfija).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>Telefonía móvil?</td>
 														<td>
-															'.form_input($P2_C_1Locl_5_Tmov).'
+															'.form_input($P2_C_1Locl_5_Tmov).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>Internet?</td>
 														<td>
-															'.form_input($P2_C_1Locl_6_Int).'
+															'.form_input($P2_C_1Locl_6_Int).' <div class="help-block error"></div>
 														</td>
 													</tr>
 												</tbody>
@@ -1547,19 +1547,19 @@ echo '
 													<tr>
 														<td>1.	Energía eléctrica?</td>
 														<td>
-															'.form_input($P2_C_2LocE_1_Energ).'
+															'.form_input($P2_C_2LocE_1_Energ).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>2.	Agua potable?</td>
 														<td>
-															'.form_input($P2_C_2LocE_2_Agua).'
+															'.form_input($P2_C_2LocE_2_Agua).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>3.	Alcantarillado?	</td>
 														<td>
-															'.form_input($P2_C_2LocE_3_Alc).'
+															'.form_input($P2_C_2LocE_3_Alc).' <div class="help-block error"></div>
 														</td>
 													</tr>
 												</tbody>
@@ -1580,19 +1580,19 @@ echo '
 													<tr>
 														<td>Telefonía fija?</td>
 														<td>
-															'.form_input($P2_C_2LocE_4_Tfija).'
+															'.form_input($P2_C_2LocE_4_Tfija).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>Telefonía móvil?</td>
 														<td>
-															'.form_input($P2_C_2LocE_5_Tmov).'
+															'.form_input($P2_C_2LocE_5_Tmov).' <div class="help-block error"></div>
 														</td>
 													</tr>
 													<tr>
 														<td>Internet?</td>
 														<td>
-															'.form_input($P2_C_2LocE_6_Int).'
+															'.form_input($P2_C_2LocE_6_Int).' <div class="help-block error"></div>
 														</td>
 													</tr>
 												</tbody>
@@ -1620,10 +1620,10 @@ echo '
 											(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_D_1_Cod_1).' Red pública <br />
-											'.form_input($P2_D_1_Cod_2).' Generador o motor <br />
-											'.form_input($P2_D_1_Cod_3).' Panel solar <br />
-											'.form_input($P2_D_1_Cod_4).' - Especifique '.form_input($P2_D_1_Cod_O).'
+											'.form_input($P2_D_1_Cod_1).' <div class="help-block error"></div> Red pública <br />
+											'.form_input($P2_D_1_Cod_2).' <div class="help-block error"></div> Generador o motor <br />
+											'.form_input($P2_D_1_Cod_3).' <div class="help-block error"></div> Panel solar <br />
+											'.form_input($P2_D_1_Cod_4).' <div class="help-block error"></div> - Especifique '.form_input($P2_D_1_Cod_O).' <div class="help-block error"></div>
 										</td>
 
 									</tr>
@@ -1643,7 +1643,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												'.form_input($P2_D_2_Energ_CantSum).'
+												'.form_input($P2_D_2_Energ_CantSum).' <div class="help-block error"></div>
 											</div>
 										</td>
 									</tr>
@@ -1671,7 +1671,7 @@ echo '
 									<tr>
 										<td>4.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio eléctrico?</strong></td>
-										<td>'.form_input($P2_D_4_Energ_Emp).'</td>
+										<td>'.form_input($P2_D_4_Energ_Emp).' <div class="help-block error"></div></td>
 									</tr>
 									<tr>
 										<td>5.</td>
@@ -1679,12 +1679,12 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_D_5_Cod_1).' Red pública <br />
-											'.form_input($P2_D_5_Cod_2).' Pilón de uso público (agua potable) <br />
-											'.form_input($P2_D_5_Cod_3).' Camión cisterna u otro similar <br />
-											'.form_input($P2_D_5_Cod_4).' Pozo <br />
-											'.form_input($P2_D_5_Cod_5).' Río, acequia, manantial o similar <br />
-											'.form_input($P2_D_5_Cod_6).' Otro - Especifique '.form_input($P2_D_5_Cod_O).'
+											'.form_input($P2_D_5_Cod_1).' <div class="help-block error"></div> Red pública <br />
+											'.form_input($P2_D_5_Cod_2).' <div class="help-block error"></div> Pilón de uso público (agua potable) <br />
+											'.form_input($P2_D_5_Cod_3).' <div class="help-block error"></div> Camión cisterna u otro similar <br />
+											'.form_input($P2_D_5_Cod_4).' <div class="help-block error"></div> Pozo <br />
+											'.form_input($P2_D_5_Cod_5).' <div class="help-block error"></div> Río, acequia, manantial o similar <br />
+											'.form_input($P2_D_5_Cod_6).' <div class="help-block error"></div> Otro - Especifique '.form_input($P2_D_5_Cod_O).' <div class="help-block error"></div>
 										</td>
 									</tr>
 
@@ -1704,7 +1704,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												'.form_input($P2_D_6_Agua_CantSum).' 
+												'.form_input($P2_D_6_Agua_CantSum).' <div class="help-block error"></div>
 											</div>
 										</td>
 									</tr>
@@ -1733,7 +1733,7 @@ echo '
 									<tr>
 										<td>8.</td>
 										<td><strong>¿Cuál es el nombre de la empresa que suministra el servicio de agua?</strong></td>
-										<td>'.form_input($P2_D_8_Agua_Emp).'</td>
+										<td>'.form_input($P2_D_8_Agua_Emp).' <div class="help-block error"></div></td>
 									</tr>
 									<tr>
 										<td>9.</td>
@@ -1741,13 +1741,13 @@ echo '
 											<br>(Acepte solo un código)
 										</td>
 										<td>
-											'.form_input($P2_D_9_Nro_1).' Red pública? <br />
-											'.form_input($P2_D_9_Nro_2).' Tanque séptico y pozo percolador? <br />
-											'.form_input($P2_D_9_Nro_3).' Pozo con tratamiento (cal, ceniza y otro)? <br />
-											'.form_input($P2_D_9_Nro_4).' Pozo sin tratamiento alguno? <br />
-											'.form_input($P2_D_9_Nro_5).' Río, acequia, manantial o canal?<br />
-											'.form_input($P2_D_9_Nro_6).' Zanja filtrante?.<br />
-											'.form_input($P2_D_9_Nro_7).' NO TIENE<br />
+											'.form_input($P2_D_9_Nro_1).' <div class="help-block error"></div> Red pública? <br />
+											'.form_input($P2_D_9_Nro_2).' <div class="help-block error"></div> Tanque séptico y pozo percolador? <br />
+											'.form_input($P2_D_9_Nro_3).' <div class="help-block error"></div> Pozo con tratamiento (cal, ceniza y otro)? <br />
+											'.form_input($P2_D_9_Nro_4).' <div class="help-block error"></div> Pozo sin tratamiento alguno? <br />
+											'.form_input($P2_D_9_Nro_5).' <div class="help-block error"></div> Río, acequia, manantial o canal?<br />
+											'.form_input($P2_D_9_Nro_6).' <div class="help-block error"></div> Zanja filtrante?.<br />
+											'.form_input($P2_D_9_Nro_7).' <div class="help-block error"></div> NO TIENE<br />
 										</td>
 									</tr>
 
@@ -1765,7 +1765,7 @@ echo '
 										<td>1.</td>
 										<td><strong>¿El local escolar, cuenta con pararrayos?</strong></td>
 										<td>
-											'.form_input($P2_E_1_Prayo).'
+											'.form_input($P2_E_1_Prayo).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1774,7 +1774,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Cantidad</label>
-												'.form_input($P2_E_2_Ptierra).'
+												'.form_input($P2_E_2_Ptierra).' <div class="help-block error"></div>
 											</div>
 										</td>
 									</tr>
@@ -1784,7 +1784,7 @@ echo '
 										<td>
 											<div class="panel">
 												<label>Año</label>
-												'.form_input($P2_E_3_Ano).'
+												'.form_input($P2_E_3_Ano).' <div class="help-block error"></div>
 											</div>
 										</td>
 									</tr>
@@ -1793,8 +1793,8 @@ echo '
 							</table>
 
 							<div class="panel">
-								<label>Observaciones:</label>
-								'.form_textarea($P2_E_Obs).' 
+								<label>Observaciones:</label> 
+								'.form_textarea($P2_E_Obs).' <div class="help-block error"></div>
 							</div>
 
 
@@ -1812,16 +1812,16 @@ echo '
 											<br>(Acepte uno o más códigos)
 										</td>
 										<td>
-											'.form_input($P2_F_1_ElimBas_1).' Arrojada al camión/triciclo municipal?. <br />
-											'.form_input($P2_F_1_ElimBas_2).' Arrojada al camión/informal?. <br />
-											'.form_input($P2_F_1_ElimBas_3).' Depositada en contenedor? <br />
-											'.form_input($P2_F_1_ElimBas_4).' Acumulada en calles/campo abierto? <br />
-											'.form_input($P2_F_1_ElimBas_5).' Reciclada? <br />
-											'.form_input($P2_F_1_ElimBas_6).' Quemada? <br />
-											'.form_input($P2_F_1_ElimBas_7).' Enterrada? <br />
-											'.form_input($P2_F_1_ElimBas_8).' Usada como alimento para animales? <br />
-											'.form_input($P2_F_1_ElimBas_9).' Separada para el compost? <br />
-											'.form_input($P2_F_1_ElimBas_10).' Otra forma? - Especifique '.form_input($P2_F_1_ElimBas_O).'<br />
+											'.form_input($P2_F_1_ElimBas_1).' <div class="help-block error"></div> Arrojada al camión/triciclo municipal?. <br />
+											'.form_input($P2_F_1_ElimBas_2).' <div class="help-block error"></div> Arrojada al camión/informal?. <br />
+											'.form_input($P2_F_1_ElimBas_3).' <div class="help-block error"></div> Depositada en contenedor? <br />
+											'.form_input($P2_F_1_ElimBas_4).' <div class="help-block error"></div> Acumulada en calles/campo abierto? <br />
+											'.form_input($P2_F_1_ElimBas_5).' <div class="help-block error"></div> Reciclada? <br />
+											'.form_input($P2_F_1_ElimBas_6).' <div class="help-block error"></div> Quemada? <br />
+											'.form_input($P2_F_1_ElimBas_7).' <div class="help-block error"></div> Enterrada? <br />
+											'.form_input($P2_F_1_ElimBas_8).' <div class="help-block error"></div> Usada como alimento para animales? <br />
+											'.form_input($P2_F_1_ElimBas_9).' <div class="help-block error"></div> Separada para el compost? <br />
+											'.form_input($P2_F_1_ElimBas_10).' <div class="help-block error"></div> Otra forma? - Especifique '.form_input($P2_F_1_ElimBas_O).' <div class="help-block error"></div><br />
 										</td>
 									</tr>
 								</tbody>
@@ -1840,7 +1840,7 @@ echo '
 											<strong>¿En el local escolar existen obras en ejecución?</strong>
 										</td>
 										<td>
-											'.form_input($P2_G_1_ObEjec).'
+											'.form_input($P2_G_1_ObEjec).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1866,47 +1866,47 @@ echo '
 												<tbody>
 													<tr>
 														<td>
-															1.Gobierno nacional / proyectos especiales '.form_input($P2_G_2_Cod_1).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_1).'</td>
-														<td>'.form_input($P2_G_2B_snip_1).'</td>
+															1.Gobierno nacional / proyectos especiales '.form_input($P2_G_2_Cod_1).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_1).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_1).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															2.Gobierno regional / local '.form_input($P2_G_2_Cod_2).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_2).'</td>
-														<td>'.form_input($P2_G_2B_snip_2).'</td>
+															2.Gobierno regional / local '.form_input($P2_G_2_Cod_2).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_2).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_2).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															3.Apafa / autoconstrucción '.form_input($P2_G_2_Cod_3).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_3).'</td>
-														<td>'.form_input($P2_G_2B_snip_3).'</td>
+															3.Apafa / autoconstrucción '.form_input($P2_G_2_Cod_3).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_3).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_3).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															4.Entidades cooperantes '.form_input($P2_G_2_Cod_4).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_4).'</td>
-														<td>'.form_input($P2_G_2B_snip_4).'</td>
+															4.Entidades cooperantes '.form_input($P2_G_2_Cod_4).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_4).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_4).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															5.Organismos sin fines de lucro'.form_input($P2_G_2_Cod_5).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_5).'</td>
-														<td>'.form_input($P2_G_2B_snip_5).'</td>
+															5.Organismos sin fines de lucro'.form_input($P2_G_2_Cod_5).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_5).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_5).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															6.Empresa privada '.form_input($P2_G_2_Cod_6).'</td>
-														<td>'.form_input($P2_G_2A_EstPre_6).'</td>
-														<td>'.form_input($P2_G_2B_snip_6).'</td>
+															6.Empresa privada '.form_input($P2_G_2_Cod_6).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2A_EstPre_6).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_6).' <div class="help-block error"></div></td>
 													</tr>
 													<tr>
 														<td>
-															7.Otro (Especifique) '.form_input($P2_G_2_Cod_7).'
-															'.form_input($P2_G_2_Otro).'
+															7.Otro (Especifique) '.form_input($P2_G_2_Cod_7).' <div class="help-block error"></div>
+															'.form_input($P2_G_2_Otro).' <div class="help-block error"></div>
 														</td>
-														<td>'.form_input($P2_G_2A_EstPre_7).'</td>
-														<td>'.form_input($P2_G_2B_snip_7).'</td>
+														<td>'.form_input($P2_G_2A_EstPre_7).' <div class="help-block error"></div></td>
+														<td>'.form_input($P2_G_2B_snip_7).' <div class="help-block error"></div></td>
 													</tr>
 												</tbody>
 											</table>
@@ -1917,7 +1917,7 @@ echo '
 
 							<div class="panel">
 								<label>Observaciones:</label>
-								'.form_textarea($P2_G_Obs).'
+								'.form_textarea($P2_G_Obs).' <div class="help-block error"></div>
 							</div>
 
 						</div>
@@ -2103,7 +2103,440 @@ $.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
 
 $("#cap2_f").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
+				P2_A_1_Clima: {
+			        required: true,
+			        range: [1,3],
+			    },  
+				P2_A_2_Lluv: {
+			        required: true,
+			        range: [1,3],
+			    },  		
+				P2_A_2A_Lluv_Mini: {
+			        required: true,
+			        range: [1,12],
+			    },  	
+				P2_A_2A_Lluv_Mfin: {
+			        required: true,
+			        range: [1,12],
+			    },  		
+				P2_A_3_Hel: {
+			        required: true,
+			        range: [1,2],
+			    }, 
+				P2_A_3A_Hel_Mini: {
+			        required: true,
+			        range: [1,12],
+			    }, 			
+				P2_A_3A_Hel_Mfin: {
+			        required: true,
+			        range: [1,12],
+			    }, 		
+				P2_A_4_Gra: {
+			        required: true,
+			        range: [1,2],
+			    }, 	
+				P2_A_4A_Gra_Mini: {
+			        range: [1,12],
+			    }, 	
+				P2_A_4A_Gra_Mfin: {
+			        range: [1,12],
+			    }, 				    			    	
+				P2_A_5_Vend: {
+			        range: [1,2],
+			    }, 				    	    			         				    	    			    	    
+				P2_A_5A_Vend_Tip: {
+			        range: [1,2],
+			    }, 		
+				P2_A_5B_Vend_Mini: {
+			        range: [1,2],
+			    }, 		
+				P2_A_5B_Vend_Mfin: {
+			        range: [1,2],
+			    }, 		
+				P2_B_1_Topo: {
+			        range: [1,4],
+			    }, 		
+				P2_B_2_Suelo: {
+			        range: [1,4],
+			    }, 	
+				P2_B_3_Prof: {
+			        range: [1,4],
+			    }, 		
+				P2_B_5_1: {
+			        range: [0,1],
+			    }, 	
+				P2_B_5_2: {
+			        range: [0,1],
+			    }, 
+				P2_B_5_3: {
+			        range: [0,1],
+			    }, 			    
+				P2_B_5B_3: {
+			        range: [0,1],
+			    }, 		
+				P2_B_5A_Uso: {
+			        range: [1,2],
+			    }, 		
+				P2_B_5B_1: {
+			        range: [0,1],
+			    }, 		
+				P2_B_5B_2: {
+			        range: [0,1],
+			    }, 		
+				P2_B_5B_3: {
+			        range: [0,1],
+			    }, 				
+				P2_B_5B_4: {
+			        range: [0,1],
+			    }, 	
+				P2_B_6_Trec_H: {
+			        range: [0,999],
+			    }, 		
+				P2_B_6_Trec_M: {
+			        range: [0,999],
+			    }, 				    	    		
+				P2_B_7_Ttramo_H: {
+			        range: [0,999],
+			    }, 				    		        		    		    		    	    			    			    		    			    		    		    	    		    
+				P2_B_7_Ttramo_M: {
+			        range: [0,999],
+			    }, 	
+
+				P2_B_8_Pelig: {
+			        range: [1,2],
+			    }, 		
+
+
+				P2_B_9_Cod_1: {
+			        range: [0,1],
+			    }, 		
+				P2_B_9_Cod_2: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_3: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_4: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_5: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_6: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_7: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_8: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_9: {
+			        range: [0,1],
+			    }, 			
+				P2_B_9_Cod_10: {
+			        range: [0,1],
+			    }, 	
+
+				P2_B_10_Cod_1: {
+			        range: [0,1],
+			    }, 		
+				P2_B_10_Cod_2: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_3: {
+			        range: [0,1],
+			    }, 				    	    	
+				P2_B_10_Cod_4: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_5: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_6: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_7: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_8: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_9: {
+			        range: [0,1],
+			    }, 			
+				P2_B_10_Cod_10: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_1: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_2: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_3: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_4: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_5: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_6: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_7: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_8: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_9: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_10: {
+			        range: [0,1],
+			    }, 						    			    			    			    			    			    			    			    			    	    	    	    	    	    	    	    	    			    
+				P2_B_11_Cod_11: {
+			        range: [0,1],
+			    }, 		
+				P2_B_11_Cod_1: {
+			        range: [0,1],
+			    }, 
+				P2_B_11_Cod_2: {
+			        range: [0,1],
+			    }, 			 
+				P2_B_11_Cod_3: {
+			        range: [0,1],
+			    }, 	
+				P2_B_11_Cod_4: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_5: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_6: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_7: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_8: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_9: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_10: {
+			        range: [0,1],
+			    }, 			
+				P2_B_11_Cod_11: {
+			        range: [0,1],
+			    }, 				    	    	    	    	    	    	    	    		       		
+				P2_B_11_Cod_12: {
+			        range: [0,1],
+			    }, 		
+				P2_B_12_Cod_1: {
+			        range: [0,1],
+			    }, 		
+				P2_B_12_Cod_2: {
+			        range: [0,1],
+			    }, 			 
+				P2_B_12_Cod_3: {
+			        range: [0,1],
+			    }, 			 
+				P2_B_12_Cod_4: {
+			        range: [0,1],
+			    }, 			 
+				P2_B_12_Cod_5: {
+			        range: [0,1],
+			    }, 			 
+				P2_B_12_Cod_6: {
+			        range: [0,1],
+			    }, 			                		    		    		    		    
+				P2_B_12_Cod_7: {
+			        range: [0,1],
+			    }, 			
+				P2_C_1Locl_1_Energ: {
+			        range: [1,2],
+			    }, 			    	    
+				P2_C_1Locl_2_Agua: {
+			        range: [1,2],
+			    }, 		
+				P2_C_1Locl_3_Alc: {
+			        range: [1,2],
+			    }, 			
+				P2_C_1Locl_4_Tfija: {
+			        range: [1,2],
+			    }, 		
+				P2_C_1Locl_5_Tmov: {
+			        range: [1,2],
+			    }, 		
+				P2_C_1Locl_6_Int: {
+			        range: [1,2],
+			    }, 			
+				P2_C_2LocE_1_Energ: {
+			        range: [1,2],
+			    }, 			
+				P2_C_2LocE_2_Agua: {
+			        range: [1,2],
+			    }, 		
+				P2_C_2LocE_3_Alc: {
+			        range: [1,2],
+			    }, 		
+				P2_C_2LocE_4_Tfija: {
+			        range: [1,2],
+			    }, 	
+				P2_C_2LocE_5_Tmov: {
+			        range: [1,2],
+			    }, 		
+				P2_C_2LocE_6_Int: {
+			        range: [1,2],
+			    }, 		
+				P2_D_1_Cod_1: {
+			        range: [0,1],
+			    }, 		
+				P2_D_1_Cod_2: {
+			        range: [0,1],
+			    }, 			
+				P2_D_1_Cod_3: {
+			        range: [0,1],
+			    }, 				    	    		    		    	    			    		    			    	    	    		    		    	    	    
+				P2_D_1_Cod_4: {
+			        range: [0,1],
+			    }, 		
+
+				P2_D_5_Cod_1: {
+			        range: [0,1],
+			    }, 	
+				P2_D_5_Cod_2: {
+			        range: [0,1],
+			    },			
+				P2_D_5_Cod_3: {
+			        range: [0,1],
+			    },			        		
+				P2_D_5_Cod_4: {
+			        range: [0,1],
+			    },			
+				P2_D_5_Cod_5: {
+			        range: [0,1],
+			    },			        
+				P2_D_5_Cod_6: {
+			        range: [0,1],
+			    }, 		
+				P2_D_9_Nro_1: {
+			        range: [0,1],
+			    }, 			
+				P2_D_9_Nro_2: {
+			        range: [0,1],
+			    }, 			
+				P2_D_9_Nro_3: {
+			        range: [0,1],
+			    }, 			
+				P2_D_9_Nro_4: {
+			        range: [0,1],
+			    }, 			
+				P2_D_9_Nro_5: {
+			        range: [0,1],
+			    }, 			
+				P2_D_9_Nro_6: {
+			        range: [0,1],
+			    }, 				    	    	    	    	    
+				P2_D_9_Nro_7: {
+			        range: [0,1],
+			    }, 	
+			    // E	
+				P2_E_1_Prayo: {
+			        range: [1,2],
+			    }, 	
+				P2_E_2_Ptierra: {
+			        range: [0,99],
+			    }, 		
+				P2_E_3_Ano: {
+			        range: [1950,2013],
+			    }, 				    	    			    		    	    		    	    		    					    
+			    // F
+				P2_F_1_ElimBas_1: {
+			        range: [0,1],
+			    }, 	
+				P2_F_1_ElimBas_2: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_3: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_4: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_5: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_6: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_6: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_7: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_8: {
+			        range: [0,1],
+			    }, 				
+				P2_F_1_ElimBas_9: {
+			        range: [0,1],
+			    }, 				                                    
+				P2_F_1_ElimBas_10: {
+			        range: [0,1],
+			    }, 			  
+			    // G
+				P2_G_1_ObEjec: {
+			        range: [1,2],
+			    }, 	
+				P2_G_2_Cod_1: {
+			        range: [0,1],
+			    }, 	
+				P2_G_2_Cod_2: {
+			        range: [0,1],
+			    }, 			
+				P2_G_2_Cod_3: {
+			        range: [0,1],
+			    }, 			
+				P2_G_2_Cod_4: {
+			        range: [0,1],
+			    }, 			
+				P2_G_2_Cod_5: {
+			        range: [0,1],
+			    }, 			
+				P2_G_2_Cod_6: {
+			        range: [0,1],
+			    }, 			                    
+				P2_G_2_Cod_7: {
+			        range: [0,1],
+			    }, 				    			    
+				P2_G_2A_EstPre_1: {
+			        range: [1,2],
+			    }, 		
+				P2_G_2A_EstPre_2: {
+			        range: [1,2],
+			    }, 				
+				P2_G_2A_EstPre_3: {
+			        range: [1,2],
+			    }, 				
+				P2_G_2A_EstPre_4: {
+			        range: [1,2],
+			    }, 				
+				P2_G_2A_EstPre_5: {
+			        range: [1,2],
+			    }, 				
+				P2_G_2A_EstPre_6: {
+			        range: [1,2],
+			    }, 				
+				P2_G_2A_EstPre_7: {
+			        range: [1,2],
+			    }, 		
+			    	                        			    			      						    
 		    },
 
 		    messages: {   
