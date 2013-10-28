@@ -2367,15 +2367,15 @@ echo form_close();
 $(document).ready(function(){
 
 	$('#ctab6').bind('click', function (e) {
-        //e.target(window.alert("hello"))
 
         $.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
+
+        	$('#panel_edificaciones_vi > div').remove('.btn-group');
 
 	        $.each( data, function(i, datos) {
 
 				$('#Cant_Edif_6').val(datos.P5_Tot_E);
-
-				$('#panel_edificaciones_vi > div').remove('.btn-group');
+				
 				var asd ='<div class="btn-group">';
 					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 					asd+='<ul class="dropdown-menu">';
@@ -2575,7 +2575,17 @@ $(document).ready(function(){
 
 	$("#cap6_f").validate({
 		rules: {
-			//FIN RULES
+			
+			P3_1_1_LugGeoref:{
+				range:[1,2],
+				maxlength: 1,
+				required: true,
+			},
+
+			P3_1_4_ArchGPS:{
+				maxlength: 255,
+			},
+			
 		},
 
 		messages: {

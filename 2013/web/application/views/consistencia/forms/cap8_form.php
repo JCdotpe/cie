@@ -192,7 +192,7 @@ echo '
 												</tr>
 												<tr>
 													</tr><tr>
-														<td> '.form_input($P8_area).' <div class="help-block error"></div> </td>
+														<td> '.form_input($P8_area).' </td>
 														<td> 00 </td>
 													</tr>
 												
@@ -233,7 +233,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_ejecuto).' <div class="help-block error"></div> (Especifique) '.form_input($P8_ejecuto_O).'
+		  	    							'.form_input($P8_ejecuto).' (Especifique) '.form_input($P8_ejecuto_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f7_edi">
@@ -243,7 +243,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_E).' <div class="help-block error"></div>
+		  	    							'.form_input($P8_Est_E).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f8_edi">
@@ -253,7 +253,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Ant).' <div class="help-block error"></div>
+		  	    							'.form_input($P8_Ant).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f9_edi">
@@ -263,7 +263,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_Est_PaLo).' <div class="help-block error"></div>
+		  	    							'.form_input($P8_Est_PaLo).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f10_edi">
@@ -273,7 +273,7 @@ echo '
 		  	    							<label>(Acepte sólo un código)</label>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P8_RecTec).' <div class="help-block error"></div>
+		  	    							'.form_input($P8_RecTec).'
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f11_edi">
@@ -301,30 +301,36 @@ $(document).ready(function(){
 	$('#datos_otros_ed > tbody > tr#f4_edi').hide();
 	$('#datos_otros_ed > tbody > tr#f9_edi').hide();
 
+	$('#ctab8').bind('click', function (e) {
 
-	$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
 
-		$('#panel_tipo_edificaciones_viii > div').remove('.btn-group');
-		var asd ='<div class="btn-group">';
-			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
-			asd+='<ul class="dropdown-menu">';
-		if (data.P5_Tot_P > 0){
-			asd+='<li id="' + data.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
-		}
-		if (data.P5_Tot_LD > 0){
-			asd+='<li id="' + data.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
-		}
-		if (data.P5_Tot_CTE > 0){
-			asd+='<li id="' + data.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
-		}
-		if (data.P5_Tot_MC > 0){
-			asd+='<li id="' + data.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
-		}
-		asd+='</ul>';
-		asd+='</div>';
+			$('#panel_tipo_edificaciones_viii > div').remove('.btn-group');
 
-		$('#panel_tipo_edificaciones_viii').html(asd);
+			$.each(data, function(i, datos) {
+			
+				var asd ='<div class="btn-group">';
+					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+					asd+='<ul class="dropdown-menu">';
+				if (datos.P5_Tot_P > 0){
+					asd+='<li id="' + datos.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
+				}
+				if (datos.P5_Tot_LD > 0){
+					asd+='<li id="' + datos.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
+				}
+				if (datos.P5_Tot_CTE > 0){
+					asd+='<li id="' + datos.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
+				}
+				if (datos.P5_Tot_MC > 0){
+					asd+='<li id="' + datos.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
+				}
+				asd+='</ul>';
+				asd+='</div>';
 
+				$('#panel_tipo_edificaciones_viii').html(asd);
+
+			});
+		});
 	});
 
 
@@ -549,22 +555,7 @@ $(document).ready(function(){
 
 	$("#cap8_f").validate({
 	    rules: {
-				P8_area: {
-						digits: true,
-			            required: true,
-			        },  
-				P8_ejecuto: {
-			    		range: [1,6],
-			    },  	
-				P8_Est_E: {
-			    		range: [1,4],
-			    },  	
-				P8_Ant: {
-			    		range: [1,3],
-			    }, 		
-				P8_RecTec: {
-			    		range: [1,3],
-			    }, 				    	    		    
+		//FIN RULES
 	    },
 
 	    messages: {   

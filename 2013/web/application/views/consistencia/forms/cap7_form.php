@@ -774,22 +774,27 @@ echo form_close();
 
 $(document).ready(function(){
 
-	$.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
+	$('#ctab7').bind('click', function (e) {
 
-		$('#panel_edificaciones_vii > div').remove('.btn-group');
-		var asd ='<div class="btn-group">';
-			asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
-			asd+='<ul class="dropdown-menu">';
-		if (data.P5_Tot_E > 0)
-		{
-			for (var i=1; i<=data.P5_Tot_E; i++) {
-				asd+='<li id="' + i +'.cmb7_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
-			}			
-		}
-		asd+='</ul>';
-		asd+='</div>';
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
 
-		$('#panel_edificaciones_vii').html(asd);
+		 		$('#panel_edificaciones_vii > div').remove('.btn-group');
+
+			 	$.each(data, function(i, datos) {
+					var asd ='<div class="btn-group">';
+						asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
+						asd+='<ul class="dropdown-menu">';
+					if (datos.P5_Tot_E > 0)
+					{
+						for (var i=1; i<=datos.P5_Tot_E; i++) {
+							asd+='<li id="' + i +'.cmb7_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
+						}			
+					}
+					asd+='</ul>';
+					asd+='</div>';
+					$('#panel_edificaciones_vii').html(asd);
+				});
+		});
 	});
 
 	$('#panel_edificaciones_vii').on('click','.combo_ins1',function(event){
