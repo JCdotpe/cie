@@ -2,7 +2,7 @@
 <?php 
 $pr_view = ($pr == 0)? 'No se encontraron' : $pr;
  ?>
-<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr_view; ?></h4>
+<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr_view; ?><button type="button" class="btn btn-success" id="prbtn">+</button></h4>
 
 <ul id="predios" class="predios_views">
 </ul>
@@ -175,6 +175,10 @@ $.validator.addMethod("valzero", function(value, element, arg){
 }); 
 </script>
 <?php 
+
+if($pr!=0){
+
+
 echo form_hidden('id_local', $cod); 
 echo form_hidden('Nro_Pred', $pr); 
 ?>
@@ -239,5 +243,73 @@ echo form_hidden('Nro_Pred', $pr);
 	</div>
 </div>
 
+<?php 
+}else{
+
+/////////////////////////////////////////////////////////////////////////////////
+//PREDIOS
+
+$P1_B_1_TPred = array(
+  'name'  => 'P1_B_1_TPred',
+  'id'  => 'P1_B_1_TPred',
+  'maxlength' => 1,
+);
+
+$P1_B_2_PredCol = array(
+  'name'  => 'P1_B_2_PredCol',
+  'id'  => 'P1_B_2_PredCol',
+  'maxlength' => 1,
+);
 
 
+
+echo'
+      <div id="prediosini" class="hide">';
+
+$attr = array('class' => 'form-vertical form-auth','id' => 'predios_f');
+echo form_open($this->uri->uri_string(),$attr); 
+
+echo'
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td style="text-align:center;">1.</td>
+                    <td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
+                    <td>
+                      <label>N° de predios</label>
+                      '.form_input($P1_B_1_TPred).'
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;">2.</td>
+                    <td><strong>¿Los predios son colindantes?</strong></td>
+                    <td>
+                      '.form_input($P1_B_2_PredCol).'
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;">2A.</td>
+                    <td><strong>¿cuales son los predios no colindantes?</strong></td>
+                    <td>
+                      <label>N° de predio</label>
+                      '.form_input($P1_B_2_PredCol).'
+                    </td>
+                  </tr>
+                </tbody>
+            </table>';
+
+echo form_submit('send', 'Guardar','class="btn btn-primary"');
+echo form_close(); 
+echo '</div>';
+} 
+?>
+
+<script type="text/javascript">
+$(function(){
+
+$('#prbtn').click(function(){
+      $('#prediosini').toggle();
+  });
+
+}); 
+</script>

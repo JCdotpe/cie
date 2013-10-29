@@ -839,226 +839,200 @@ echo '
 
 
 
-// echo '
+echo '
 
-// <div class="panel panel-info">
-// 					<!-- PANEL SECCION B N PREDIOS-->
-// 					<div class="panel-heading">
-// 						<h5 style="text-transform: uppercase;" class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
-// 					</div>
+<div class="panel panel-info">
+					<!-- PANEL SECCION B N PREDIOS-->
+					<div class="panel-heading">
+						<h5 style="text-transform: uppercase;" class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
+					</div>
 
-// 					<div id="panel-list-predio">
+					<div id="panel-list-predio">
 
-// 						<table class="table table-bordered">
-// 								<tbody>
-// 									<tr>
-// 										<td style="text-align:center;">1.</td>
-// 										<td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
-// 										<td>
-// 											<label>N° de predios</label>
-// 											'.form_input($P1_B_1_TPred).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">2.</td>
-// 										<td><strong>¿Los predios son colindantes?</strong></td>
-// 										<td>
-// 											'.form_input($P1_B_2_PredCol).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">2A.</td>
-// 										<td><strong>¿cuales son los predios no colindantes?</strong></td>
-// 										<td>
-// 											<label>N° de predio</label>
-// 											'.form_input($P1_B_2_PredCol).'
-// 										</td>
-// 									</tr>
-// 								</tbody>
-// 						</table>
 
-// 						<table class="table table-bordered" id="table_predios" style="display: table;">
-// 								<thead>
-// 									<tr>
-// 										<th colspan="2">
-// 											<label style="float:left;">Predio N°</label>
-// 										</th>
-// 										<th>
-// 											'.form_input($pr).'
-// 										</th>
-// 									</tr>
-// 								</thead>
-// 								<tbody>
-// 									<tr>
-// 										<td style="text-align:center;">3.</td>
-// 										<td>
-// 											<strong>¿Cuál es el código del inmueble del predio 01?</strong><br>
-// 											(Este código se encuentranen la constancia MARGESI)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_B_3_InmCod).'
-// 											<br>
 
-// 											<label class="checkbox-inline">
-// 												'.form_input($P1_B_3_InmTip).' 1. No tiene constancia, 2. No sabe
-// 											</label>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.1</td>
-// 										<td>
-// 											<strong>¿Quién es el propietario del predio?</strong><br>
-// 											(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_B_3_1_Prop).' <br />
-// 											'.form_input($P1_B_3_1_Prop_O).'
+						<table class="table table-bordered" id="table_predios" style="display: table;">
+								<thead>
+									<tr>
+										<th colspan="2">
+											<label style="float:left;">Predio N°</label>
+										</th>
+										<th>
+											'.form_input($pr).'
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align:center;">3.</td>
+										<td>
+											<strong>¿Cuál es el código del inmueble del predio 01?</strong><br>
+											(Este código se encuentranen la constancia MARGESI)
+										</td>
+										<td>
+											'.form_input($P1_B_3_InmCod).'
+											<br>
 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.2</td>
-// 										<td>
-// 											<strong>¿El antecedente registral que tiene el predio es?</strong><br>
-// 											(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_B_3_2_AntReg_Cod).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.3</td>
-// 										<td>
-// 											<strong>¿Cuál es el número del antecedente registral?</strong><br>
+											<label class="checkbox-inline">
+												'.form_input($P1_B_3_InmTip).' 1. No tiene constancia, 2. No sabe
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.1</td>
+										<td>
+											<strong>¿Quién es el propietario del predio?</strong><br>
+											(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_B_3_1_Prop).' <br />
+											'.form_input($P1_B_3_1_Prop_O).'
 
-// 										</td>
-// 										<td>
-// 											<label>N° de antecedente registral</label>
-// 											'.form_input($P1_B_3_3_AntReg_Nro).'
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.4</td>
-// 										<td>
-// 											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong><br>
-// 											(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_B_3_4_Tipo_TProp).' <br />
-// 											'.form_input($P1_B_3_4_Tipo_TProp_O).' 
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.2</td>
+										<td>
+											<strong>¿El antecedente registral que tiene el predio es?</strong><br>
+											(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_B_3_2_AntReg_Cod).'
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.3</td>
+										<td>
+											<strong>¿Cuál es el número del antecedente registral?</strong><br>
 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.5</td>
-// 										<td>
-// 											<strong>¿En que fecha se emitio el título no inscrito?</strong><br>
+										</td>
+										<td>
+											<label>N° de antecedente registral</label>
+											'.form_input($P1_B_3_3_AntReg_Nro).'
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.4</td>
+										<td>
+											<strong>¿El Título de propiedad no inscrito que tiene el predio es:</strong><br>
+											(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_B_3_4_Tipo_TProp).' <br />
+											'.form_input($P1_B_3_4_Tipo_TProp_O).' 
 
-// 										</td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_B_3_5_FecTit).' 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.6</td>
-// 										<td>
-// 											<strong>¿El documento de posesión que tiene el predio es:</strong><br>
-// 											(Acepte sólo un código)
-// 										</td>
-// 										<td>
-// 											'.form_input($P1_B_3_6_DocPos).'  <br />
-// 											'.form_input($P1_B_3_6_DocPos_O).' 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.7</td>
-// 										<td>
-// 											<strong>¿En qué fecha se emitió el documento de posesión?</strong><br>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.5</td>
+										<td>
+											<strong>¿En que fecha se emitio el título no inscrito?</strong><br>
 
-// 										</td>
-// 										<td>
-// 											<label>Fecha</label>
-// 											'.form_input($P1_B_3_5_FecTit).' 
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.8</td>
-// 										<td>
-// 											<strong>¿Cuál es el area del terreno que ocupa el predio?</strong><br>
+										</td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_B_3_5_FecTit).' 
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.6</td>
+										<td>
+											<strong>¿El documento de posesión que tiene el predio es:</strong><br>
+											(Acepte sólo un código)
+										</td>
+										<td>
+											'.form_input($P1_B_3_6_DocPos).'  <br />
+											'.form_input($P1_B_3_6_DocPos_O).' 
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.7</td>
+										<td>
+											<strong>¿En qué fecha se emitió el documento de posesión?</strong><br>
 
-// 										</td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_B_3_8_At_Pred).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.9</td>
-// 										<td>
-// 											<strong>¿Cuál es el area del terreno que ocupa el local escolar en este predio?</strong><br>
+										</td>
+										<td>
+											<label>Fecha</label>
+											'.form_input($P1_B_3_5_FecTit).' 
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.8</td>
+										<td>
+											<strong>¿Cuál es el area del terreno que ocupa el predio?</strong><br>
 
-// 										</td>
-// 										<td>
-// 											<label>Area en m2</label>
-// 											<table class="table table-bordered">
-// 												<tbody><tr>
-// 													<th style="text-align:center;">Enteros</th>
-// 													<th style="text-align:center;">Decimales</th>
-// 												</tr>
-// 												<tr>
-// 													<td>'.form_input($P1_B_3_9_At_Local).'</td>
-// 													<td>00</td>
-// 												</tr>
-// 											</tbody></table>
-// 										</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.10</td>
-// 										<td>
-// 											<strong>¿El predio es compartido con otros locales escolares , otras instituciones o servicios?</strong>
-// 										</td>
-// 										<td>'.form_input($P1_B_3_10_Comp).'</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.11</td>
-// 										<td>
-// 											<strong>¿Con cuántos locales escolares otras instituciones o servicios comparten el predio?</strong>
-// 										</td>
-// 										<td>'.form_input($P1_B_3_11_CompCan).'</td>
-// 									</tr>
-// 									<tr>
-// 										<td style="text-align:center;">3.12</td>
-// 										<td>
-// 											<strong>¿cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong><br>
-// 											(Diligencie, según respuesta en pregunta 3.11)
-// 										</td>
-// 										<td>
-// 											'.form_textarea($P1_B_3_12_NombComp).'
-// 										</td>
-// 									</tr>
-// 								</tbody>
-// 						</table>
+										</td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_B_3_8_At_Pred).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.9</td>
+										<td>
+											<strong>¿Cuál es el area del terreno que ocupa el local escolar en este predio?</strong><br>
 
-// 						<div class="panel">
-// 							<label>Observaciones:</label>
-// 							'.form_textarea($P1_B_3_Obs).'
-// 						</div>
+										</td>
+										<td>
+											<label>Area en m2</label>
+											<table class="table table-bordered">
+												<tbody><tr>
+													<th style="text-align:center;">Enteros</th>
+													<th style="text-align:center;">Decimales</th>
+												</tr>
+												<tr>
+													<td>'.form_input($P1_B_3_9_At_Local).'</td>
+													<td>00</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.10</td>
+										<td>
+											<strong>¿El predio es compartido con otros locales escolares , otras instituciones o servicios?</strong>
+										</td>
+										<td>'.form_input($P1_B_3_10_Comp).'</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.11</td>
+										<td>
+											<strong>¿Con cuántos locales escolares otras instituciones o servicios comparten el predio?</strong>
+										</td>
+										<td>'.form_input($P1_B_3_11_CompCan).'</td>
+									</tr>
+									<tr>
+										<td style="text-align:center;">3.12</td>
+										<td>
+											<strong>¿cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong><br>
+											(Diligencie, según respuesta en pregunta 3.11)
+										</td>
+										<td>
+											'.form_textarea($P1_B_3_12_NombComp).'
+										</td>
+									</tr>
+								</tbody>
+						</table>
 
-// 					</div>
+						<div class="panel">
+							<label>Observaciones:</label>
+							'.form_textarea($P1_B_3_Obs).'
+						</div>
 
-// 		</div>
+					</div>
 
-// ';
+		</div>
+
+';
 
 
 ///////////////////////////////////////////////////////////
