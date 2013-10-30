@@ -2,7 +2,59 @@
 <?php 
 $pr_view = ($pr == 0)? 'No se encontraron' : $pr;
  ?>
-<h4>Codigo de local: <?php echo $cod; ?> - Predio <?php echo $pr_view; ?><button type="button" class="btn btn-success" id="prbtn">+</button></h4>
+<h4>Codigo de local: <?php echo $cod; ?> <button type="button" class="btn btn-success" id="prbtn">+</button> - Predio <?php echo $pr_view; ?></h4>
+
+
+<?php 
+/////////////////////////////////////////////////////////////////////////////////
+//PREDIOS
+
+// $P1_B_1_TPred = array(
+//   'name'  => 'P1_B_1_TPred',
+//   'id'  => 'P1_B_1_TPred',
+//   'maxlength' => 1,
+// );
+
+$P1_B_2A_PredNoCol = array(
+  'name'  => 'P1_B_2A_PredNoCol',
+  'id'  => 'P1_B_2A_PredNoCol',
+  'maxlength' => 1,
+);
+
+
+
+echo'
+      <div id="prediosini" class="hide">';
+
+$attr = array('class' => 'form-vertical form-auth','id' => 'predios_add');
+echo form_open($this->uri->uri_string(),$attr); 
+
+echo'
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td style="text-align:center;">1.</td>
+                    <td><strong>AGREGAR NUEVO PREDIO</strong></td>
+                    <td>
+                      <label>El predio es colindante</label>
+                      <select id="P1_B_2A_PredNoCol" class="input200 valid" name="P1_B_2A_PredNoCol">
+                      <option value="0">Si</option>
+                      <option value="1">No</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>';
+
+echo form_submit('send', 'Agregar','class="btn btn-primary"');
+echo form_close(); 
+echo '</div>';
+
+?>
+
+
+
+
 
 <ul id="predios" class="predios_views">
 </ul>
@@ -176,6 +228,7 @@ $.validator.addMethod("valzero", function(value, element, arg){
 </script>
 <?php 
 
+
 if($pr!=0){
 
 
@@ -246,70 +299,72 @@ echo form_hidden('Nro_Pred', $pr);
 <?php 
 }else{
 
-/////////////////////////////////////////////////////////////////////////////////
-//PREDIOS
-
-$P1_B_1_TPred = array(
-  'name'  => 'P1_B_1_TPred',
-  'id'  => 'P1_B_1_TPred',
-  'maxlength' => 1,
-);
-
-$P1_B_2_PredCol = array(
-  'name'  => 'P1_B_2_PredCol',
-  'id'  => 'P1_B_2_PredCol',
-  'maxlength' => 1,
-);
-
-
-
-echo'
-      <div id="prediosini" class="hide">';
-
-$attr = array('class' => 'form-vertical form-auth','id' => 'predios_f');
-echo form_open($this->uri->uri_string(),$attr); 
-
-echo'
-            <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <td style="text-align:center;">1.</td>
-                    <td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
-                    <td>
-                      <label>N° de predios</label>
-                      '.form_input($P1_B_1_TPred).'
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center;">2.</td>
-                    <td><strong>¿Los predios son colindantes?</strong></td>
-                    <td>
-                      '.form_input($P1_B_2_PredCol).'
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center;">2A.</td>
-                    <td><strong>¿cuales son los predios no colindantes?</strong></td>
-                    <td>
-                      <label>N° de predio</label>
-                      '.form_input($P1_B_2_PredCol).'
-                    </td>
-                  </tr>
-                </tbody>
-            </table>';
-
-echo form_submit('send', 'Guardar','class="btn btn-primary"');
-echo form_close(); 
-echo '</div>';
 } 
 ?>
 
+
+
+
 <script type="text/javascript">
+
+//PREDIOS ADD
 $(function(){
 
 $('#prbtn').click(function(){
       $('#prediosini').toggle();
   });
+
+
+$("#predios_add").validate({
+        rules: {                                                                                                                                                                                                   
+              
+        },
+
+        messages: {   
+      //FIN MESSAGES
+        },
+        errorPlacement: function(error, element) {
+            $(element).next().after(error);
+        },
+        invalidHandler: function(form, validator) {
+          var errors = validator.numberOfInvalids();
+          if (errors) {
+            var message = errors == 1
+              ? 'Por favor corrige estos errores:\n'
+              : 'Por favor corrige los ' + errors + ' errores.\n';
+            var errors = "";
+            if (validator.errorList.length > 0) {
+                for (x=0;x<validator.errorList.length;x++) {
+                    errors += "\n\u25CF " + validator.errorList[x].message;
+                }
+            }
+            alert(message + errors);
+          }
+          validator.focusInvalid();
+        },
+        submitHandler: function(form) {
+
+                var pradd_data = {
+                  id_local: $("input[name='id_local']").val(),
+                  P1_B_2A_PredNoCol: $("#P1_B_2A_PredNoCol").val(),
+                  ajax:1
+                };    
+            
+                var bcar = $( "#predios_add :submit" );
+                 bcar.attr("disabled", "disabled");
+                $.ajax({
+                    url: CI.site_url + "/consistencia/consistencia/add_predio",
+                    type:'POST',
+                    data:pradd_data,
+                    dataType:'json',
+                    success:function(json){
+                        bcar.removeAttr('disabled');
+                        alert(json.msg);
+                        location.reload();
+                    }
+                });                       
+        }       
+}); 
 
 }); 
 </script>

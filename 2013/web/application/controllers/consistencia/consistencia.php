@@ -34,7 +34,26 @@ class Consistencia extends CI_Controller {
 			$prd = (is_null($pr))? 1 : $pr;
 			$data['nav'] = TRUE;
 			$data['title'] = 'Predios';
+			//PREDIOS
 			$data['predios'] = $this->principal_model->get_predios($id);
+
+			//si no tiene ningun predio
+			if($data['predios']->num_rows() == 0){
+				$pr_data['id_local'] = $id;	
+				$pr_data['Nro_Pred'] = $prd;	
+				$pr_data['P1_B_2A_PredNoCol'] = 0;
+				//inserto el principal
+ 				$this->principal_model->insert_pr($pr_data,'P1_B_2A_N');	
+
+ 				$data['predios'] = $this->principal_model->get_predios($id);	
+ 			}	
+
+
+ 			//Get Predio INFO
+ 			$data['predio'] = $this->principal_model->get_predio($id,$prd);
+ 			$data['predio_n'] = $this->principal_model->get_predio_n($id,$prd);
+
+
 			$data['car_i'] = $this->car_model->get_car($id,$prd);
 			$data['car_n'] = $this->car_model->get_car_n($id,$prd);
 
@@ -102,4 +121,150 @@ class Consistencia extends CI_Controller {
 	}	
 
 
+	public function add_predio()
+	{
+		$is_ajax = $this->input->post('ajax');
+		if($is_ajax){
+
+			//id
+			$id = $this->input->post('id_local');
+			$predios = $this->principal_model->get_predios($id)->num_rows();
+			//pcar
+			// $c_data['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data['created'] = date('Y-m-d H:i:s');
+			// $c_data['last_ip'] =  $this->input->ip_address();
+			// $c_data['user_agent'] = $this->agent->agent_string();
+
+			$c_data['id_local'] = $id;
+			$c_data['Nro_Pred'] = $predios + 1;
+			$c_data['P1_B_2A_PredNoCol'] = $this->input->post('P1_B_2A_PredNoCol');
+				// inserta nuevo registro
+			if($this->principal_model->insert_pr($c_data,'P1_B_2A_N') > 0){
+				$flag = 1;
+				$msg = 'Se ha registrado satisfactoriamente el Predio';
+			}else{
+				$flag = 0;
+				$msg = 'Ocurrió un error 00x-Predio-i' . $predios + 1;		
+			}
+
+			$datos['flag'] = $flag;	
+			$datos['msg'] = $msg;	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);		
+
+		}else{
+			show_404();;
+		}
+
+	}
+
+public function predio(){
+		$is_ajax = $this->input->post('ajax');
+		if($is_ajax){
+
+			$fields = $this->principal_model->get_fields('P1_B_3N');
+			$fields_n = $this->principal_model->get_fields('P1_B_3_12N');
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+
+			$P1_B_3N['id_local'] = $id;
+			$P1_B_3N['Nro_Pred'] = $pr;	
+
+			foreach ($fields as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
+					$P1_B_3N[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
+
+			foreach ($fields_n as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){						
+					$P1_B_3_12N[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}	
+			}
+
+			// $c_data['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data['created'] = date('Y-m-d H:i:s');
+			// $c_data['last_ip'] =  $this->input->ip_address();
+			// $c_data['user_agent'] = $this->agent->agent_string();
+
+
+			$flag = 0;
+			$msg = 'Error inesperado, por favor intentalo nuevamente';
+			if ($this->principal_model->get_predio($id,$pr)->num_rows() == 0) {
+				$c_data['id_local'] = $id;
+				$c_data['Nro_Pred'] = $pr;
+				// inserta nuevo registro
+					if($this->principal_model->insert_pr($P1_B_3N,'P1_B_3N') > 0){
+						$flag = 1;
+						$msg = 'Se ha registrado satisfactoriamente el Predio Nro - ' . $pr ;
+					}else{
+						$flag = 0;
+						$msg = 'Ocurrió un error 00x-PR-i-' . $ax;			
+					}
+
+			} else {
+				// actualiza
+					if($this->principal_model->update_pr($id,$pr,$P1_B_3N) > 0){
+						$flag = 1;
+						$msg = 'Se ha actualizado satisfactoriamente el Predio Nro - ' . $pr ;
+					}else{
+						$flag = 0;
+						$msg = 'Ocurrió un error 00x-PR-u-' . $ax;			
+					}
+
+			}
+
+
+
+
+			//delete ax20n
+			$this->principal_model->delete_predio_n($id,$pr);
+			//insert
+			$P1_B_3_12N_data['id_local'] = $id;
+			$P1_B_3_12N_data['Nro_Pred'] = $pr;	
+
+			$cc = 0;
+
+			if($P1_B_3_12N['P1_B_3_12_Nro'] > 0){
+				foreach($P1_B_3_12N['P1_B_3_12_Nro'] as &$z){	
+							foreach ($fields_n as $a=>$b) {
+								if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
+									$P1_B_3_12N_data[$b] = ($P1_B_3_12N[$b][$cc] == '') ? NULL : $P1_B_3_12N[$b][$cc];
+								}	
+							}
+						    $this->principal_model->insert_pr($P1_B_3_12N_data,'P1_B_3_12N');			
+						    $cc++;
+				}
+			}
+
+			$datos['flag'] = $flag;	
+			$datos['msg'] = $msg;	
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);		
+
+		}else{
+			show_404();;
+		}		
+	}
+
+
+	public function get_predio_c()
+	{
+		$is_ajax = $this->input->post('ajax');
+
+		if($is_ajax){		
+
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+
+			$axic = $this->principal_model->get_predio_n($id,$pr);
+			$datos['prc'] = $axic->result();
+			$data['datos'] = $datos;
+			$this->load->view('backend/json/json_view', $data);
+
+		}else{
+			show_404();;
+		}	
+	}	
 }

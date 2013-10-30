@@ -807,26 +807,6 @@ echo '
 						echo form_close(); 
 
 
-
-
-
-					echo '
-					<h3>Códigos Modulares</h3>
-					<div class="btn-toolbar" style="margin: 0;">
-		              <div class="btn-group" id="gcmod">
-
-		              </div>
-		            </div>';						
-
-					echo '
-					<h3>Anexos</h3>
-					<div class="btn-toolbar" style="margin: 0;">
-		              <div class="btn-group" id="gaxs">
-
-		              </div>
-		            </div>';	
-
-
 						echo '
 								</div><!-- END IE EDUCA -->
 
@@ -835,13 +815,38 @@ echo '
 		</div>
 
 ';
+                  // <tr>
+                  //   <td style="text-align:center;">2A.</td>
+                  //   <td><strong>¿cuales son los predios no colindantes?</strong></td>
+                  //   <td>
+                  //     <label>N° de predio</label>
+                  //     '.form_input($P1_B_2_PredCol).'
+                  //   </td>
+                  // </tr>
+
+
+
+
+
+///////////////////////////////////////////////////////////
+
+// SECCION B
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
 
 
 
 
 echo '
 
-<div class="panel panel-info">
+<div class="panel panel-info">';
+
+$attr = array('class' => 'form-vertical form-auth','id' => 'predio_i');
+
+echo form_open($this->uri->uri_string(),$attr); 
+echo '
+
 					<!-- PANEL SECCION B N PREDIOS-->
 					<div class="panel-heading">
 						<h5 style="text-transform: uppercase;" class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
@@ -849,7 +854,26 @@ echo '
 
 					<div id="panel-list-predio">
 
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td style="text-align:center;">1.</td>
+                    <td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
+                    <td>
+                      <label>N° de predios</label>
+                      '.form_input($P1_B_1_TPred).'
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;">2.</td>
+                    <td><strong>¿Los predios son colindantes?</strong></td>
+                    <td>
+                      '.form_input($P1_B_2_PredCol).'
+                    </td>
+                  </tr>
 
+                </tbody>
+            </table>
 
 						<table class="table table-bordered" id="table_predios" style="display: table;">
 								<thead>
@@ -1008,16 +1032,19 @@ echo '
 										<td>
 											<strong>¿Con cuántos locales escolares otras instituciones o servicios comparten el predio?</strong>
 										</td>
-										<td>'.form_input($P1_B_3_11_CompCan).'</td>
+										
+										<td>'.form_input($P1_B_3_11_CompCan).' <ul id="pred_n"></ul></td>
+
+
+
+
+
 									</tr>
 									<tr>
 										<td style="text-align:center;">3.12</td>
 										<td>
 											<strong>¿cuáles son los nombres de los locales escolares, otras instituciones o servicios con los que comparte el predio?</strong><br>
 											(Diligencie, según respuesta en pregunta 3.11)
-										</td>
-										<td>
-											'.form_textarea($P1_B_3_12_NombComp).'
 										</td>
 									</tr>
 								</tbody>
@@ -1028,11 +1055,14 @@ echo '
 							'.form_textarea($P1_B_3_Obs).'
 						</div>
 
-					</div>
-
+					</div>';
+echo form_submit('send', 'Guardar','class="btn btn-primary"');
+echo form_close(); 					
+echo '
 		</div>
 
 ';
+
 
 
 ///////////////////////////////////////////////////////////
@@ -1053,7 +1083,21 @@ echo '
 // </div>
 
 // ';
+					echo '
+					<h3>Códigos Modulares</h3>
+					<div class="btn-toolbar" style="margin: 0;">
+		              <div class="btn-group" id="gcmod">
 
+		              </div>
+		            </div>';						
+
+					echo '
+					<h3>Anexos</h3>
+					<div class="btn-toolbar" style="margin: 0;">
+		              <div class="btn-group" id="gaxs">
+
+		              </div>
+		            </div>';	
 $attr = array('class' => 'hide form-vertical form-auth','id' => 'cap1_ax');
 
 echo form_open($this->uri->uri_string(),$attr); 
@@ -1909,8 +1953,92 @@ $("#cap1_ax").validate({
 			}
 });  
 
+//PREDIO N
+$("#P1_B_3_11_CompCan").change(function(event) {
+
+	$("#pred_n").empty();
+	for(var i=1; i<=$(this).val(); i++){
+		$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" maxlength="1" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
+	}
 
 
+	//Llenar Anexos x Cod Mod
+	var prc_data = {
+		id_local: $("input[name='id_local']").val(),
+		Nro_Pred: $("input[name='Nro_Pred']").val(),
+		ajax:1
+	};						
+
+	$.ajax({
+		url: CI.site_url + "/consistencia/consistencia/get_predio_c",
+		type:'POST',
+		data:prc_data,
+		dataType:'json',
+		success:function(json){
+			var as = 1;
+			$.each( json.prc, function(i, data) {
+				$('#P1_B_3_12_Nro_' +  as).val(data.P1_B_3_12_Nro);
+				$('#P1_B_3_12_NombComp_' +  as).val(data.P1_B_3_12_NombComp);			
+				as++;							
+			}); 	
+		}
+	});  
+
+});
+
+//PREDIO
+$("#predio_i").validate({
+		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+			//FIN RULES
+		    },
+
+		    messages: {   
+			//FIN MESSAGES
+		    },
+		    errorPlacement: function(error, element) {
+		        $(element).next().after(error);
+		    },
+		    invalidHandler: function(form, validator) {
+		      var errors = validator.numberOfInvalids();
+		      if (errors) {
+		        var message = errors == 1
+		          ? 'Por favor corrige estos errores:\n'
+		          : 'Por favor corrige los ' + errors + ' errores.\n';
+		        var errors = "";
+		        if (validator.errorList.length > 0) {
+		            for (x=0;x<validator.errorList.length;x++) {
+		                errors += "\n\u25CF " + validator.errorList[x].message;
+		            }
+		        }
+		        alert(message + errors);
+		      }
+		      validator.focusInvalid();
+		    },
+		    submitHandler: function(form) {
+
+				var cap1_pri_data = $("#predio_i").serializeArray();
+				cap1_pri_data.push(
+					    {name: 'ajax',value:1},
+					    {name: 'id_local',value:$("input[name='id_local']").val()},      
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}
+				);
+						
+				var bcar = $( "#predio_i :submit" );
+				    bcar.attr("disabled", "disabled");
+				    $.ajax({
+				            url: CI.site_url + "/consistencia/consistencia/predio",
+				            type:'POST',
+				            cache:false,
+				            data:cap1_pri_data,
+				            dataType:'json',
+				            success:function(json){
+								alert(json.msg);
+								bcar.removeAttr('disabled');
+								// gen_cms(json.nro_cms,json.cms);						
+				            }
+				    });  
+			}
+});  
 
 
 
@@ -1919,6 +2047,16 @@ $("#cap1_ax").validate({
 //inicio
 $.each( <?php echo json_encode($cap1_p1_a->row()); ?>, function(fila, valor) {
 	   	$('#' + fila).val(valor);
+}); 
+
+
+$.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
+		if(fila == 'P1_B_3_11_CompCan'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');
+		}else{
+	   		$('#' + fila).val(valor);
+		}
 }); 
 
 //ies
