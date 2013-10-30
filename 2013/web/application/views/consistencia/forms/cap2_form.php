@@ -1981,7 +1981,7 @@ $('#p2_d_3_n tr').remove('.sumin');
 	if(ahua >= 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumin">';
-	    asd +='<td><input type="text" class="input2 embc' + i + '" name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
 	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_3_SumNro[]" id="P2_D_3_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_3_1DocRef[]" id="P2_D_3_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd += '</tr>';
@@ -2012,7 +2012,7 @@ $('#p2_d_7_n tr').remove('.sumina');
 	if(ahua >= 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumina">';
-	    asd +='<td><input type="text" class="input2 embc' + i + '" name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
+	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
 	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_7_SumNro[]" id="P2_D_7_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_7_1DocRef[]" id="P2_D_7_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd += '</tr>';
@@ -2157,10 +2157,10 @@ $("#cap2_f").validate({
 			        range: [1,4],
 			    }, 		
 				P2_B_2_Suelo: {
-			        range: [1,4],
+			        range: [1,6],
 			    }, 	
 				P2_B_3_Prof: {
-			        range: [1,4],
+			        range: [1,2],
 			    }, 		
 				P2_B_5_1: {
 			        range: [0,1],
@@ -2207,157 +2207,22 @@ $("#cap2_f").validate({
 			    }, 		
 
 
-				P2_B_9_Cod_1: {
-			        range: [0,1],
-			    }, 		
-				P2_B_9_Cod_2: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_3: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_4: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_5: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_6: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_7: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_8: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_9: {
-			        range: [0,1],
-			    }, 			
-				P2_B_9_Cod_10: {
-			        range: [0,1],
-			    }, 	
-
-				P2_B_10_Cod_1: {
-			        range: [0,1],
-			    }, 		
-				P2_B_10_Cod_2: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_3: {
-			        range: [0,1],
-			    }, 				    	    	
-				P2_B_10_Cod_4: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_5: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_6: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_7: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_8: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_9: {
-			        range: [0,1],
-			    }, 			
-				P2_B_10_Cod_10: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_1: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_2: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_3: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_4: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_5: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_6: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_7: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_8: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_9: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_10: {
-			        range: [0,1],
-			    }, 						    			    			    			    			    			    			    			    			    	    	    	    	    	    	    	    	    			    
-				P2_B_11_Cod_11: {
-			        range: [0,1],
-			    }, 		
-				P2_B_11_Cod_1: {
+				'P2_B_9_Cod[]': {
 			        range: [0,1],
 			    }, 
-				P2_B_11_Cod_2: {
+
+				'P2_B_10_Cod[]': {
 			        range: [0,1],
-			    }, 			 
-				P2_B_11_Cod_3: {
+			    }, 
+
+				'P2_B_11_Cod[]': {
+			        range: [0,1],
+			    }, 			    
+			
+				'P2_B_12_Cod[]': {
 			        range: [0,1],
 			    }, 	
-				P2_B_11_Cod_4: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_5: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_6: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_7: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_8: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_9: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_10: {
-			        range: [0,1],
-			    }, 			
-				P2_B_11_Cod_11: {
-			        range: [0,1],
-			    }, 				    	    	    	    	    	    	    	    		       		
-				P2_B_11_Cod_12: {
-			        range: [0,1],
-			    }, 		
-				P2_B_12_Cod_1: {
-			        range: [0,1],
-			    }, 		
-				P2_B_12_Cod_2: {
-			        range: [0,1],
-			    }, 			 
-				P2_B_12_Cod_3: {
-			        range: [0,1],
-			    }, 			 
-				P2_B_12_Cod_4: {
-			        range: [0,1],
-			    }, 			 
-				P2_B_12_Cod_5: {
-			        range: [0,1],
-			    }, 			 
-				P2_B_12_Cod_6: {
-			        range: [0,1],
-			    }, 			                		    		    		    		    
-				P2_B_12_Cod_7: {
-			        range: [0,1],
-			    }, 			
+		
 				P2_C_1Locl_1_Energ: {
 			        range: [1,2],
 			    }, 			    	    
@@ -2394,58 +2259,27 @@ $("#cap2_f").validate({
 				P2_C_2LocE_6_Int: {
 			        range: [1,2],
 			    }, 		
-				P2_D_1_Cod_1: {
-			        range: [0,1],
-			    }, 		
-				P2_D_1_Cod_2: {
-			        range: [0,1],
-			    }, 			
-				P2_D_1_Cod_3: {
-			        range: [0,1],
-			    }, 				    	    		    		    	    			    		    			    	    	    		    		    	    	    
-				P2_D_1_Cod_4: {
+
+				'P2_D_1_Cod[]': {
 			        range: [0,1],
 			    }, 		
 
-				P2_D_5_Cod_1: {
-			        range: [0,1],
-			    }, 	
-				P2_D_5_Cod_2: {
-			        range: [0,1],
-			    },			
-				P2_D_5_Cod_3: {
-			        range: [0,1],
-			    },			        		
-				P2_D_5_Cod_4: {
-			        range: [0,1],
-			    },			
-				P2_D_5_Cod_5: {
-			        range: [0,1],
-			    },			        
-				P2_D_5_Cod_6: {
+				'P2_D_5_Cod[]': {
 			        range: [0,1],
 			    }, 		
-				P2_D_9_Nro_1: {
+
+				'P2_D_9_Nro[]': {
+			        range: [0,1],
+			    }, 		
+
+				'P2_D_3_1DocRef[]': {
 			        range: [0,1],
 			    }, 			
-				P2_D_9_Nro_2: {
+
+				'P2_D_7_1DocRef[]': {
 			        range: [0,1],
-			    }, 			
-				P2_D_9_Nro_3: {
-			        range: [0,1],
-			    }, 			
-				P2_D_9_Nro_4: {
-			        range: [0,1],
-			    }, 			
-				P2_D_9_Nro_5: {
-			        range: [0,1],
-			    }, 			
-				P2_D_9_Nro_6: {
-			        range: [0,1],
-			    }, 				    	    	    	    	    
-				P2_D_9_Nro_7: {
-			        range: [0,1],
-			    }, 	
+			    }, 				    	    		    
+	
 			    // E	
 				P2_E_1_Prayo: {
 			        range: [1,2],
@@ -2457,85 +2291,27 @@ $("#cap2_f").validate({
 			        range: [1950,2013],
 			    }, 				    	    			    		    	    		    	    		    					    
 			    // F
-				P2_F_1_ElimBas_1: {
+
+				'P2_F_1_ElimBas[]': {
 			        range: [0,1],
-			    }, 	
-				P2_F_1_ElimBas_2: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_3: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_4: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_5: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_6: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_6: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_7: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_8: {
-			        range: [0,1],
-			    }, 				
-				P2_F_1_ElimBas_9: {
-			        range: [0,1],
-			    }, 				                                    
-				P2_F_1_ElimBas_10: {
-			        range: [0,1],
-			    }, 			  
+			    },
+
 			    // G
+
 				P2_G_1_ObEjec: {
 			        range: [1,2],
-			    }, 	
-				P2_G_2_Cod_1: {
+			    }, 				    
+
+			    
+
+				'P2_G_2_Cod[]': {
 			        range: [0,1],
-			    }, 	
-				P2_G_2_Cod_2: {
-			        range: [0,1],
-			    }, 			
-				P2_G_2_Cod_3: {
-			        range: [0,1],
-			    }, 			
-				P2_G_2_Cod_4: {
-			        range: [0,1],
-			    }, 			
-				P2_G_2_Cod_5: {
-			        range: [0,1],
-			    }, 			
-				P2_G_2_Cod_6: {
-			        range: [0,1],
-			    }, 			                    
-				P2_G_2_Cod_7: {
-			        range: [0,1],
-			    }, 				    			    
-				P2_G_2A_EstPre_1: {
+			    },
+	
+				'P2_G_2A_EstPre[]': {
 			        range: [1,2],
-			    }, 		
-				P2_G_2A_EstPre_2: {
-			        range: [1,2],
-			    }, 				
-				P2_G_2A_EstPre_3: {
-			        range: [1,2],
-			    }, 				
-				P2_G_2A_EstPre_4: {
-			        range: [1,2],
-			    }, 				
-				P2_G_2A_EstPre_5: {
-			        range: [1,2],
-			    }, 				
-				P2_G_2A_EstPre_6: {
-			        range: [1,2],
-			    }, 				
-				P2_G_2A_EstPre_7: {
-			        range: [1,2],
-			    }, 		
+			    },	
+
 			    	                        			    			      						    
 		    },
 
