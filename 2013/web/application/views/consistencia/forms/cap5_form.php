@@ -209,7 +209,7 @@ $('#P5_cantNroPiso').change(function(event) {
 		asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
 			for (var j=1;j<=edi;j++){
 				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
 			}
 		asd+='</tbody></table>';
 		$('#cap_5').append(asd);
@@ -250,7 +250,7 @@ $('#P5_Tot_E').change(function(event) {
 		var asd = "";
 			for (var j=1;j<=ahua;j++){
 				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ></td></tr>';
+				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
 			}
 		$('tbody#piso'+i).append(asd);
 	}
@@ -312,6 +312,7 @@ $("#cap5_f").validate({
 			'P5_TotAmb[]':{
 				digits:true,
 				range:[0,99],
+				required:true,
 			},
 	    },
 
@@ -345,7 +346,7 @@ $("#cap5_f").validate({
 				        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
 				    );
 					
-			        var bcar = $( "#cap4_f :submit" );
+			        var bcar = $( "#cap5_f :submit" );
 			         bcar.attr("disabled", "disabled");
 			        $.ajax({
 			            url: CI.site_url + "/consistencia/cap5",

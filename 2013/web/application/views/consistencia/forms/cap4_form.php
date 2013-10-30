@@ -302,13 +302,12 @@ echo form_close();
 
 <script type="text/javascript">
 
-$(function(){
+$(document).ready(function(){
 
 	//cap4
 	$.each( <?php echo json_encode($cap4_i->row()); ?>, function(fila, valor) {
 		   $('#' + fila).val(valor);
 	});
-
 
 	//cap4 N
 		/**** FRENTE *****/
@@ -317,19 +316,20 @@ $(function(){
 		$('#lindero_frente tr').remove('.entrev');
 		var ahua = $(this).val();
 		if(ahua > 0 && ahua<=99){
+			var asd = '';
 			for(var i=1; i<=ahua;i++){
-				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1 embc' + i + '" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t1_' + i + '" value="1" >';
-				asd +='<td><input type="text" class="input1 embc' + i + '" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 embc' + i + '" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd += '</tr>';
-				$('#lindero_frente > tbody').append(asd);
+				asd += '<tr class="entrev">';
+				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t1_' + i + '" value="1" >';
+				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd += '</tr>';				
 			}
+			$('#lindero_frente > tbody').html(asd);
 		}else if(ahua==''){
 			//
 		}else{
@@ -365,14 +365,14 @@ $(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1 embc' + i + '" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t2_' + i + '" value="2" >';
-				asd +='<td><input type="text" class="input1 embc' + i + '" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 embc' + i + '" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t2_' + i + '" value="2" >';
+				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd += '</tr>';
 				$('#lindero_derecha > tbody').append(asd);
 			}
@@ -411,14 +411,14 @@ $(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1 embc' + i + '" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t3_' + i + '" value="3" >';
-				asd +='<td><input type="text" class="input1 embc' + i + '" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 embc' + i + '" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t3_' + i + '" value="3" >';
+				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd += '</tr>';
 				$('#lindero_fondo > tbody').append(asd);
 			}
@@ -457,14 +457,14 @@ $(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1 embc' + i + '" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t4_' + i + '" value="4" >';
-				asd +='<td><input type="text" class="input1 embc' + i + '" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" class="input2 embc' + i + '" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 embc' + i + '" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t4_' + i + '" value="4" >';
+				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input1" maxlength="1" name="P4_2_1F_Opin[]" id="P4_2_1F_Opin' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd += '</tr>';
 				$('#lindero_izquierda > tbody').append(asd);
 			}
@@ -492,8 +492,6 @@ $(function(){
 	});
 	$('#P4_2_CantTram_Lizq').trigger('change');
 	/*************/
-
-
 
 	$("#cap4_f").validate({
 		    rules: {
@@ -524,30 +522,33 @@ $(function(){
 				'P4_2_1A_i[]':{
 					digits:true,
 					range:[1,99],
+					required: true,
 				},
 				'P4_2_1A_f[]':{
 					digits:true,
 					range:[1,99],
+					required: true,
 				},
 				'P4_2_1B_LongTramo[]':{
 					digits:true,
-					range:[1,999],
+					range:[1,9999],
+					required: true,
 				},
 				'P4_2_1C_Cerco[]':{
 					digits:true,
-					range:[1,999],
+					range:[1,9],
 				},
 				'P4_2_1D_Estruc[]':{
 					digits:true,
-					range:[1,999],
+					range:[1,9],
 				},
 				'P4_2_1E_EstCons[]':{
 					digits:true,
-					range:[1,999],
+					range:[1,9],
 				},
 				'P4_2_1F_Opin[]':{
 					digits:true,
-					range:[1,999],
+					range:[1,9],
 				},
 
 		    },
