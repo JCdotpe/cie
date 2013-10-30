@@ -267,7 +267,7 @@ function repregunta_bpr(codigo_cuestionario)
 	var nrodni = $("#nrodni_"+codigo_cuestionario).val();
 	var consulta = $("#consulta_"+codigo_cuestionario).val();
 
-	if (consulta=='') { alert("Ingrese su Consulta!"); return false; }
+	if (consulta=='' || nombre ="" || nrodni="") { alert("Ingrese su Consulta!"); return false; }
 
 	$.ajax({
 		type: "POST", 

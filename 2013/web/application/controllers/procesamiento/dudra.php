@@ -9,8 +9,7 @@ class dudra extends CI_Controller {
 		$this->load->library('security');
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
-		$this->load->model('seguimiento/operativa_model');
-		$this->load->model('seguimiento/seguimiento_model');
+		
 		$this->load->model('procesamiento/dudra_model');
 		//User is logged in
 		if (!$this->tank_auth->is_logged_in()) {
@@ -68,8 +67,67 @@ class dudra extends CI_Controller {
 			$show = 'Error al Grabar. Recargue la Pagina y Vuelva a Intentarlo.';
 		}else{
 			$show = 'Datos Grabados Satisfactoriamente.';
+
+			
 		}
+
+
 	}
+
+	public function ver_datos()
+	{
+	$show = 'Entraste';
+
+		$this->load->helper('form');
+
+		$page = $this->input->get('page',TRUE); 
+		$limit = $this->input->get('rows',TRUE);
+		$sidx = $this->input->get('sidx',TRUE);
+		$sord = $this->input->get('sord',TRUE);
+
+		$where1="";
+
+		if(isset($_GET['codsede'])) { 
+			$sede = $this->input->get('codsede');
+		}
+
+	
+		if(!$sidx) $sidx =1;
+
+		$count = $this->dudra_model->nro_locales_for_udra($where1);
+
+ 		//En base al numero de registros se obtiene el numero de paginas
+		if( $count > 0 ) {
+			$total_pages = ceil($count/$limit);
+		} else {
+			$total_pages = 0;
+		}
+		if ($page > $total_pages) $page=$total_pages;
+
+		$row_final = $page * $limit;
+		$row_inicio = $row_final - $limit;
+
+		$resultado = $this->dudra_model->get_locales_for_udra($sidx, $sord, $row_inicio, $row_final, $where1);
+
+		$respuesta->page = $page;
+		$respuesta->total = $total_pages;
+		$respuesta->records = $count;
+		$i=0;		
+		foreach ($resultado->result() as $fila)
+		{
+			$respuesta->rows[$i]['id'] = $fila->id_local;
+			$respuesta->rows[$i]['cell'] = array($fila->id_local,$fila->cnt_01,$fila->cnt_01A, $fila->cnt_01B, $fila->fecha_reg);
+			$i++;			
+		}
+
+		$jsonData = json_encode($respuesta);
+		echo $jsonData;
+	}
+
+
+
+
+
 	
 }
 

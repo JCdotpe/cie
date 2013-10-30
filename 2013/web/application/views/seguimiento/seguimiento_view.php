@@ -108,7 +108,7 @@
 			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
-			colNames:['Periodo', 'Código de Local', 'Resultado de ET', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Cedulas'],
+			colNames:['Periodo', 'Código de Local', 'Resultado de ET', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Cedulas','Datos'],
 			colModel:[
 				{name:'periodo',index:'periodo',width:50, align:"center"},
 				{name:'codigo_de_local',index:'codigo_de_local',width:80, align:"center"},
@@ -117,7 +117,8 @@
 				{name:'datos_gps',index:'datos_gps', width:100, align:"center"},
 				{name:'foto_ruta',index:'foto_ruta', width:80, align:"center"},
 				{name:'avance',index:'avance', width:80, align:"center"},
-				{name:'detalle',index:'detalle', width:80,  align:"center"}
+				{name:'detalle',index:'detalle', width:80,  align:"center"},
+				{name:'datos',index:'datos', width:80,  align:"center"}
 			],
 			pager: '#pager2',
 			rowNum:20,
@@ -132,6 +133,9 @@
 					jQuery("#list2").jqGrid('setRowData',ids[i],{avance:be});
 					be = "<input type='button' value='Diligenciadas' onclick=savedetalle('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{detalle:be});
+					be = "<input type='button' value='Enviados' onclick=saveData('"+cl+"') />";
+					jQuery("#list2").jqGrid('setRowData',ids[i],{datos:be});
+
 				}
 			},
 			sortorder: "asc",
@@ -143,7 +147,7 @@
 		  useColSpanStyle: true, 
 		  groupHeaders:[
 			{startColumnName: 'entrada_informacion', numberOfColumns: 3, titleText: 'TABLET'},
-			{startColumnName: 'avance', numberOfColumns: 2, titleText: 'Registrar'}
+			{startColumnName: 'avance', numberOfColumns: 3, titleText: 'Registrar'}
 		  ]	
 		});
 
@@ -152,6 +156,7 @@
 
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
+		
 
 		//cargarRutas();
 		cargarPeriodo();
@@ -360,7 +365,7 @@
 	$btnAgregar = array(
 		'name' => 'agregar_dt',
 		'id' => 'agregar_dt',
-		'onclick' => 'frm_ValidarDetalle()',
+		'onclick' => 'frm_ValidarEnvio()',
 		'type' => 'button',
 		'content' => 'Agregar',		
 		'class' => 'btn btn-inverse'
@@ -392,6 +397,127 @@
 							<th>CEDULA</th>
 							<th>CANTIDAD</th>
 							<th>FECHA</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="well">
+							<td>
+								<input type="text" id="codigo_dt" name="codigo_dt" value="" readonly="true" class="span1">
+							</td>
+							<td><?php echo form_dropdown('cedula', $cedArray, '#', 'id="cedula"'); ?></td>
+							<td><?php echo form_input($txtCantidad); ?></td>
+							<td><?php echo form_input($txtFechaDetalle); ?></td>
+							<td>
+								<?php echo form_button($btnAgregar); ?>		
+								<input type="hidden" id="usuario_dt" name="usuario_dt" value="<?php echo $user_id; ?>">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="controls">
+					<div id="grid_content_detail" class="span8">
+						<table id="list4"></table>
+						<div id="pager4"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>		
+	</div>
+</div>
+<?php echo form_close(); ?>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		jQuery("#list4").jqGrid({
+			type:"POST",
+			url:urlRoot('index.php')+'/seguimiento/registro_seguimiento/ver_datos_detalle',
+			datatype: "json",
+			height: 200,
+			colNames:['Código de Local', 'Cédula', 'Cantidad', 'Fecha de Visita', 'Fecha y Hora de Registro'],
+			colModel:[
+				{name:'codlocal',index:'codlocal', align:"center"},
+				{name:'cedula',index:'cedula', align:"center"},
+				{name:'cantidad',index:'cantidad', align:"center"},
+				{name:'fecha_avance',index:'fecha_avance', align:"center"},
+				{name:'fecha_hora',index:'fecha_registro', align:"center"}
+			],
+			pager: '#pager4',
+			rowNum:10,
+			rowList:[10,15,20],
+			sortname: 'convert(datetime,fecha_avance,103)',
+			viewrecords: true,
+			sortorder: "asc",
+			caption:"Detalles"
+		});
+		jQuery("#list4").jqGrid('navGrid','#pager4',{edit:false,add:false,del:false,search:false});
+		$("#list4").setGridWidth($('#grid_content_detail').width(), true);
+
+		cargarCedula();
+	});
+</script>
+
+<?php
+	$cedArray = array();
+
+	$txtGPS = array(
+	'name'	=> 'cantGPS',
+	'id'	=> 'cantGPS',
+	'value' => set_value('cantGPS'),
+	'onkeypress' => 'return validar_numeros(event)',
+	'maxlength'	=> 2,
+	'style' => 'width:50px'
+	);
+
+	$txtCantFotos = array(
+	'name'	=> 'CantFotos',
+	'id'	=> 'CantFotos',
+	'value' => set_value('CantFotos'),
+	'onKeyUp' => 'return validar_numeros(event))',
+	'maxlength'	=> 2,
+	'style' => 'width:50px'
+	);
+	$txtCantDatos = array(
+	'name'	=> 'CantDatos',
+	'id'	=> 'CantDatos',
+	'value' => set_value('CantDatos'),
+	'onKeyUp' => 'return validar_numeros(event))',
+	'maxlength'	=> 2,
+	'style' => 'width:50px'
+	);
+
+	$btnAgregar = array(
+		'name' => 'agregar_dt',
+		'id' => 'agregar_dt',
+		'onclick' => 'frm_ValidarEnvio()',
+		'type' => 'button',
+		'content' => 'Agregar',		
+		'class' => 'btn btn-inverse'
+	);
+
+
+	$attr = array('class' => 'form-val','id' => 'frm_detalle', 'style' => 'overflow: auto;');
+	echo form_open('', $attr);
+?>
+
+<!-- Modal save patrimonio -->
+<div id="add-envio-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Registro de Datos Enviados</h3>
+		</div>
+ 
+		<div class="modal-body">
+			<div class="span8">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Código DE Local</th>
+							<th>Datos de Cedula</th>
+							<th>Fotos</th>
+							<th>Puntos GPS</th>
 							<th></th>
 						</tr>
 					</thead>

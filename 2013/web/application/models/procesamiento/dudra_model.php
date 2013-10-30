@@ -72,6 +72,9 @@ class dudra_model extends CI_MODEL{
 
     }
 
+
+
+
     function get_mov_udra($cod)
     {
         $this->db->select('*');
@@ -102,5 +105,33 @@ class dudra_model extends CI_MODEL{
         $q = $this->db->get('udra');
         return $q;
     }
+    public function nro_locales_for_udra($condicion1)
+    {
+        $sql = "SELECT count(id_local) as NroRegistros FROM fichas_Udra $condicion1";
+        $q = $this->db->query($sql);
+        $row = $q->first_row();
+        return $row->NroRegistros;
+    }
+
+        public function get_locales_for_udra($ord, $ascdesc, $inicio, $final, $condicion1)
+    {
+        $sql="SELECT * FROM (  SELECT ROW_NUMBER() OVER (ORDER BY fecha_reg asc) as row,id_local,cnt_01,cnt_01A,cnt_01B ,convert(varchar(10),fecha_reg,103) as fecha_reg  FROM fichas_Udra $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+        $q=$this->db->query($sql);
+        return $q;
+    }
+
+
+        public function get_Udra_Reporte()
+    {
+         $this->db->select('*');
+        $this->db->where('codigo_act', $cod );
+        $this->db->order_by('codigo_act','asc');
+        $q = $this->db->get('v_activo_movimientos');
+        return $q;
+    }
+
+
+
+
 
 }

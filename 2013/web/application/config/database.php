@@ -60,7 +60,7 @@ $active_record = TRUE;
 		// $db['conexion_A']['username'] = 'mrvixio';
 		// $db['conexion_A']['password'] = 'mrvixio2';
 
-		$db['conexion_A']['hostname'] = 'ESTEJUANO-PC\SQLEXPRESS';// Suck
+		$db['conexion_A']['hostname'] = '127.0.0.1';// local
 		$db['conexion_A']['username'] = 'sa';
 		$db['conexion_A']['password'] = '123456';		
 		$db['conexion_A']['database'] = 'CIE2013';

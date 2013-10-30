@@ -105,7 +105,8 @@ class Preguntas extends CI_Controller {
 				'cargo'=> $this->input->post('id_cargo'),
 				'nombre'=> utf8_decode($this->input->post('nombrecompleto')),
 				'dni'=> $this->input->post('nrodni'),
-				'consulta'=> utf8_decode($this->input->post('consulta'))
+				'consulta'=> utf8_decode($this->input->post('consulta')),
+				'nrocel'=>$this->input->post('nrocel')
 			);
 
 		$flag = $this->bpr_model->insert_reg($c_data);
