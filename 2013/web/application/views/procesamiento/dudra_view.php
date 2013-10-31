@@ -51,8 +51,20 @@
 		'onclick' => 'Validar_Cedulas()',
 		'type' => 'button',
 		'content' => 'Registrar',
-		'class' => 'btn btn-primary btn-sm'
+		'class' => 'btn btn-inverse btn-sm'
 	);
+
+	$btnExportar = array(
+		'name' => 'btnExportar',
+		'id' => 'btnExportar',
+		'onclick' => 'exportReport()',
+		'type' => 'button',
+		'content' => 'Reporte Udra',
+		'class' => 'btn btn-inverse btn-sm'
+	);
+
+
+
 
 ?>
 
@@ -94,7 +106,7 @@
 						</div>
 					</div>
 				</div>
-					<div class="span2">
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('', '', $label_class); ?>
 						<div class="controls">
@@ -102,45 +114,60 @@
 						</div>
 					</div>
 				</div>
+				<div class="span2">
+					<div class="control-group">
+						<?php echo form_label('', '', $label_class); ?>
+						<div class="controls">
+							<?php echo form_button($btnExportar); ?>
+						</div>
+					</div>
+				</div>
+
+
 				<?php echo form_close(); ?>
 			</div>
 		
-		<!--
+		
 		<div class="row-fluid">
 			<div id="grid_content" class="span12">
 				<table id="list2"></table>
 				<div id="pager2"></div>
 			</div>
 		</div>
-		-->
+		
 	</div>
 </div>
-<!--
+
 <script type="text/javascript">
 
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
 			type:"POST",
-			url:'mantenimiento_fotos/ver_datos',
+			url:'dudra/ver_datos',
 			datatype: "json",
 			height: 200,
-			colNames:['Código de Local', 'Repositorio', 'Fecha de FTP', 'Fecha de STORAGE'],
+			colNames:['Código de Local', 'Cedula 01', 'Cedula 01A', 'Cedula 01B', 'Fecha de Registro'],
 			colModel:[
 				{name:'id_local',index:'id_local', align:"center"},
-				{name:'repositorio',index:'repositorio', align:"center"},
-				{name:'fecha_ftp',index:'fecha_ftp', align:"center"},
-				{name:'fecha_storage',index:'fecha_storage', align:"center"}
+				{name:'cnt_01',index:'cnt_01', align:"center"},
+				{name:'cnt_01A',index:'cnt_01A', align:"center"},
+				{name:'cnt_01B',index:'cnt_01B', align:"center"},
+				{name:'fecha_reg',index:'fecha_reg', align:"center"}
 			],
 			pager: '#pager2',
 			rowNum:10,
 			rowList:[10,15,20],
-			sortname: 'id_local',
+			sortname: 'fecha_reg',
 			viewrecords: true,
 			sortorder: "asc",
-			caption:"Lista de Locales con Fotos"
+			caption:"Registro de UDRA"
 		});
-		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
+		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:true,add:false,del:true,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
+		ver_datos();
+
+
+
 	});
 
-</script>-->
+</script>

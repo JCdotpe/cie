@@ -272,6 +272,15 @@ function savedetalle(values)
 	$("#add-detalle-modal").modal('show');
 }
 
+
+function saveData(values)
+{
+	$('#codigo_dt').val(values);
+	ver_detalle(values);
+	$("#add-detalle-modal").modal('show');
+}
+
+
 function ver_detalle(codigo)
 {
 	jQuery("#list4").jqGrid('setGridParam',{url:urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos_detalle?codigo="+codigo,page:1}).trigger("reloadGrid");
@@ -311,6 +320,25 @@ function frm_ValidarDetalle()
 
 	registrar_detalle();
 }
+
+function frm_ValidarEnvio()
+{
+	var fecha = $("#fecha_detalle").val();
+	var cedula = $("#cedula").val();
+	var codigo = $("#codigo_dt").val();
+	
+	if (cedula == -1 || fecha == "")
+	{
+		alert("Cuidado, Faltan Datos!");
+		return false;
+	}
+
+	if (fecha.length<10){ alert("Fecha Incompleta"); return false; }
+
+	registrar_detalle();
+}
+
+
 
 function registrar_detalle()
 {

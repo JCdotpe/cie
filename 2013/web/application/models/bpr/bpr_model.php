@@ -12,7 +12,7 @@ class Bpr_Model extends CI_Model {
 
 	function insert_reg($data)
 	{	
-		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".str_replace("'", "''",$data['consulta'])."',getdate(),0)";
+		$query="INSERT INTO BPR_Cuestionario VALUES(".$data['id_cuestionario'].",1,'".$data['cedula']."','".$data['cod_cap']."','".$data['cod_sec']."','".$data['cod_preg']."','".$data['cod_sede_operativa']."','".$data['cod_prov_operativa']."',".$data['cargo'].",'".$data['nombre']."','".$data['dni']."','".str_replace("'", "''",$data['consulta'])."',getdate(),0,'".$data['nrocel']."')";
 		$this->db->query($query);
 		return $this->db->affected_rows();
 	}

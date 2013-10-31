@@ -122,11 +122,22 @@ function Form_Validar()
 	nrodni = $("#nrodni").val();
 	cons = $("#consulta").val();
 
-	if (id_sede == -1 || id_prov == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1 || nrodni == "" || nom == "")
+	if (id_sede == -1 || id_prov == -1 || id_cargo == -1 || id_cedula == -1 || id_cap == -1 || id_sec == -1 || id_pre == -1 )
 	{
 		alert("Faltan Seleccionar Datos!");
 		return false;
 	}
+
+	
+	if ( nrodni == "" || nom == "")
+	{
+		alert("Es necesario ingresar los datos de Contacto");
+		return false;
+	}
+
+	
+
+
 
 	if (cons == "") { alert("Ingrese Consulta que desea realizar!");  return false; }
 

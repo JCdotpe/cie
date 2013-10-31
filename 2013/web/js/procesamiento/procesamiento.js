@@ -150,41 +150,33 @@ function cargarPeriodo()
 	$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 }
 
-function verdatos()
+
+
+
+function exportExcel()
+	{
+		var sede = $('#sedeoperativa').val();
+		var prov = $('#provincia_ope').val();
+		var codper = $('#periodo').val();
+
+		if (codper == -1)
+		{ 
+			alert("Ud. No ha realizado ninguna búsqueda"); 
+		}else{
+			document.forms[0].method='POST';
+			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionODEI_Avance?periodo="+codper+"&sede="+sede+"&prov="+prov;
+			document.forms[0].target='_blank';
+			document.forms[0].submit();
+		}
+	}
+
+
+
+
+function ver_datos()
 {
-	var codsede = $("#sedeoperativa").val();
-	var codprov = $("#provincia_ope").val();
-	var coddist = $("#distrito").val();
-	var codcentrop = $("#centropoblado").val();
-	var codruta = $("#rutas").val();
-	var nroperiodo = $("#periodo").val();
 
-	//if (nroperiodo=='-1' && intervalo == 5){ intervalo=4; }
-
-	//var condicion;
-
-	// switch(intervalo)
-	// {
-	// 	case 0: condicion = "registro_seguimiento/ver_datos";
-	// 		break;
-
-	// 	case 1: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov;
-	// 		break;
-
-	// 	case 2:	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist;
-	// 		break;
-
-	// 	case 3: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
-	// 		break;
-
-	// 	case 4: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
-	// 		break;
-
-	// 	case 5: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
-	// 		break;
-	// }
-
-	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	condicion = urlRoot('index.php')+"/procesamiento/dudra/ver_datos";
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }
@@ -425,6 +417,24 @@ function cargarProv()
 		}
 	});
 }
+
+
+
+
+function exportReport()
+	{
+		
+			document.forms[0].method='POST';
+			document.forms[0].action=urlRoot('index.php')+"/procesamiento/csvExport/ExportacionODEI_Avance?periodo="+codper+"&sede="+sede+"&prov="+prov;
+			document.forms[0].target='_blank';
+			document.forms[0].submit();
+		
+	}
+
+
+
+
+
 
 
 //*******************************************************

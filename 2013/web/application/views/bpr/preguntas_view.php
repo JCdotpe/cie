@@ -52,10 +52,22 @@
 		'name'	=> 'nrodni',
 		'id'	=> 'nrodni',
 		'value' => set_value('nrodni'),		
-		'style' => 'width: 100px;',
+		'style' => 'width: 80px;',
 		'onkeypress' => 'return validar_numeros(event)',
 		'maxlength' => 8
 	);
+
+	$txtCel = array(
+		'name'	=> 'nrocel',
+		'id'	=> 'nrocel',
+		'value' => set_value('nrocel'),		
+		'style' => 'width: 80px;',
+		'onkeypress' => 'return validar_numeros(event)',
+		'maxlength' => 8
+	);
+
+
+
 
 	$txtConsulta =array(
 		'name'	=> 'consulta',
@@ -159,26 +171,39 @@
 					<div class="control-group">
 						<?php echo form_label('Nombre Completo', 'nombre', $label_class); ?>
 						<div class="controls">
+							<span class="obligatorio">*</span>
 							<?php echo form_input($txtNombre); ?>
 						</div>
 					</div>
 				</div>
 				<div class="span3">
 					<div class="control-group">
-						<span class="obligatorio">*</span>
 						<?php echo form_label('Nro DNI', 'dni', $label_class); ?>
 						<div class="controls">
+							<span class="obligatorio">*</span>
 							<?php echo form_input($txtDni); ?>
 						</div>
 					</div>
 				</div>
+
+				<div class="span3">
+					<div class="control-group">
+						<?php echo form_label('Nro Telefonico', 'nrocel', $label_class); ?>
+						<div class="controls">
+							
+							<?php echo form_input($txtCel); ?>
+						</div>
+					</div>
+				</div>
+
 				<div>
 					<div class="span7">
 						<div class="control-group">
-							<span class="obligatorio">*</span>
+							
 							<?php echo form_label('Consulta', 'cons', $label_class); ?>
 							<div class="controls">
 								<?php echo form_textarea($txtConsulta); ?>
+								<span class="obligatorio">*</span>
 							</div>
 						</div>
 					</div>
