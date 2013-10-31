@@ -606,6 +606,9 @@ $P1_C_Obs = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 
 $boss_p = ($predio_b->row()->P1_B_2A_PredNoCol == 0 && $pr!=1)? 'hide' : '';
+
+
+//pr principal
 $boss_p_ct = ($pr!=1)? 'hide' : '';
 echo '<div id="crest1" class="' . $boss_p . '">';
 
@@ -1404,6 +1407,7 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
+
 
 //print btn ies
 function btnies(n){

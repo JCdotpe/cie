@@ -62,6 +62,32 @@ echo '</div>';
 <script type="text/javascript">
 $(function(){
 
+  
+  $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+          event.preventDefault();
+          return false;
+      }
+  });
+
+
+  $('input,select,textarea').keydown( function(e) {
+      var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+      if(key == 13)
+      $(this).trigger('change');
+   }); 
+
+  $('input,select,textarea').keyup( function(e) {
+    var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+    var inputs = $(this).closest('form').find(':input:enabled');
+    if(key == 13) {
+      inputs.eq( inputs.index(this)+1).focus(); 
+      
+    }
+    else if (key == 27) {
+      inputs.eq( inputs.index(this)-1).focus(); 
+    }
+  }); 
 
 // jQuery Validator
 
