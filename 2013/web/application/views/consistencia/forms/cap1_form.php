@@ -605,6 +605,9 @@ $P1_C_Obs = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
+$boss_p = ($predio_b->row()->P1_B_2A_PredNoCol == 0 && $pr!=1)? 'hide' : '';
+$boss_p_ct = ($pr!=1)? 'hide' : '';
+echo '<div id="crest1" class="' . $boss_p . '">';
 
 echo '
 
@@ -827,7 +830,7 @@ echo '
 
 
 
-
+echo '</div>';
 ///////////////////////////////////////////////////////////
 
 // SECCION B
@@ -852,9 +855,11 @@ echo '
 						<h5 style="text-transform: uppercase;" class="panel-title">Sección B: Predio o predios ocupados por el local escolar</h5>
 					</div>
 
-					<div id="panel-list-predio">
+					<div id="panel-list-predio">';
 
-            <table class="table table-bordered">
+ 		echo '<div id="crest1" class="' . $boss_p_ct . '">';
+
+           echo ' <table class="table table-bordered">
                 <tbody>
                   <tr>
                     <td style="text-align:center;">1.</td>
@@ -873,16 +878,18 @@ echo '
                   </tr>
 
                 </tbody>
-            </table>
+            </table>';
 
-						<table class="table table-bordered" id="table_predios" style="display: table;">
+        echo '</div>';
+
+			echo '			<table class="table table-bordered" id="table_predios" style="display: table;">
 								<thead>
 									<tr>
 										<th colspan="2">
 											<label style="float:left;">Predio N°</label>
 										</th>
 										<th>
-											'.form_input($pr).'
+											'.$pr.'
 										</th>
 									</tr>
 								</thead>
@@ -1083,6 +1090,8 @@ echo '
 // </div>
 
 // ';
+
+echo '<div id="crest2" class="' . $boss_p . '">';
 					echo '
 					<h3>Códigos Modulares</h3>
 					<div class="btn-toolbar" style="margin: 0;">
@@ -1097,7 +1106,10 @@ echo '
 		              <div class="btn-group" id="gaxs">
 
 		              </div>
-		            </div>';	
+		            </div>';
+
+echo '</div>';
+
 $attr = array('class' => 'hide form-vertical form-auth','id' => 'cap1_ax');
 
 echo form_open($this->uri->uri_string(),$attr); 
@@ -1385,7 +1397,6 @@ echo '
 ';
 echo form_submit('send', 'Guardar','class="btn btn-primary"');
 echo form_close(); 
-
  ?>
 
 
@@ -2046,6 +2057,11 @@ $("#predio_i").validate({
 /////////////////////////////////////////////////////////////////////////////////////////////
 //inicio
 $.each( <?php echo json_encode($cap1_p1_a->row()); ?>, function(fila, valor) {
+	   	$('#' + fila).val(valor);
+}); 
+
+//tabla count
+$.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 	   	$('#' + fila).val(valor);
 }); 
 

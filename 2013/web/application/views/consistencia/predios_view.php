@@ -235,12 +235,82 @@ if($pr!=0){
 echo form_hidden('id_local', $cod); 
 echo form_hidden('Nro_Pred', $pr); 
 ?>
+
+
+<?php if($predio_b->row()->P1_B_2A_PredNoCol == 0 && $pr!=1){
+  ?>
+
+<div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
+  <div class="span12" id="insidetabs" style="text-align:center">
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs" style="text-align:center">
+      <!--   <li id="ctab"><a href="#tabc" data-toggle="tab">Carátula</a></li> -->
+        <li id="ctab1"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
+<!--         <li id="ctab2"><a href="#tab2" data-toggle="tab">Capítulo II</a></li>
+        <li id="ctab3"><a href="#tab3" data-toggle="tab">Capítulo III</a></li>
+        <li id="ctab4"><a href="#tab4" data-toggle="tab">Capítulo IV</a></li>
+        <li id="ctab5"><a href="#tab5" data-toggle="tab">Capítulo V</a></li>
+        <li id="ctab6"><a href="#tab6" data-toggle="tab">Capítulo VI</a></li>
+        <li id="ctab7"><a href="#tab7" data-toggle="tab">Capítulo VII</a></li>
+        <li id="ctab8"><a href="#tab8" data-toggle="tab">Capítulo VIII</a></li>
+        <li id="ctab9"><a href="#tab9" data-toggle="tab">Capítulo IX</a></li> -->
+      </ul>
+      <div class="tab-content">
+<!--         <div class="tab-pane" id="tabc">
+          <p><?php //$this->load->view('consistencia/forms/car_form'); ?></p>
+        </div>   -->
+
+        <div class="tab-pane" id="tab1">
+          <p><?php $this->load->view('consistencia/forms/cap1_form'); ?></p>
+        </div>  
+<!-- 
+        <div class="tab-pane" id="tab2">
+          <p><?php //$this->load->view('consistencia/forms/cap2_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab3">
+          <p><?php //$this->load->view('consistencia/forms/cap3_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab4">
+          <p><?php //$this->load->view('consistencia/forms/cap4_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab5">
+          <p><?php //$this->load->view('consistencia/forms/cap5_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab6">
+          <p><?php //$this->load->view('consistencia/forms/cap6_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab7">
+          <p><?php //$this->load->view('consistencia/forms/cap7_form'); ?></p>
+        </div>
+
+        <div class="tab-pane" id="tab8">
+          <p><?php //$this->load->view('consistencia/forms/cap8_form'); ?></p>
+        </div>  
+
+        <div class="tab-pane" id="tab9">
+          <p><?php //$this->load->view('consistencia/forms/cap9_form'); ?></p>
+        </div>  --> 
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php } elseif($predio_b->row()->P1_B_2A_PredNoCol == 1 || $pr == 1){
+  ?>
+
 <div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
 		  <ul class="nav nav-tabs" style="text-align:center">
-		    <li id="ctab2"><a href="#tabc" data-toggle="tab">Carátula</a></li>
-		    <li id="ctab2"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
+		    <li id="ctab"><a href="#tabc" data-toggle="tab">Carátula</a></li>
+		    <li id="ctab1"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
 		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Capítulo II</a></li>
 		    <li id="ctab3"><a href="#tab3" data-toggle="tab">Capítulo III</a></li>
 		    <li id="ctab4"><a href="#tab4" data-toggle="tab">Capítulo IV</a></li>
@@ -297,9 +367,9 @@ echo form_hidden('Nro_Pred', $pr);
 </div>
 
 <?php 
-}else{
-
-} 
+}
+//end if pr=0
+}
 ?>
 
 

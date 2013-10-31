@@ -6,6 +6,13 @@ class Principal_model extends CI_MODEL{
         $q = $this->db->get('P1_B_2A_N');
         return $q;
     }
+    //predio base
+    function get_predio_base($id,$pr){
+        $this->db->where('id_local',$id);
+        $this->db->where('Nro_Pred',$pr);
+        $q = $this->db->get('P1_B_2A_N');
+        return $q;
+    }
 
     //predio i
     function get_predio($id,$pr){

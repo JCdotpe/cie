@@ -50,6 +50,9 @@ class Consistencia extends CI_Controller {
 
 
  			//Get Predio INFO
+ 			$data['predio_b'] = $this->principal_model->get_predio_base($id,$prd);
+
+
  			$data['predio'] = $this->principal_model->get_predio($id,$prd);
  			$data['predio_n'] = $this->principal_model->get_predio_n($id,$prd);
 
@@ -162,14 +165,19 @@ public function predio(){
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
 
+			$fields_ct = $this->principal_model->get_fields('P1_B');
+
 			$fields = $this->principal_model->get_fields('P1_B_3N');
 			$fields_n = $this->principal_model->get_fields('P1_B_3_12N');
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
 
-			$P1_B_3N['id_local'] = $id;
-			$P1_B_3N['Nro_Pred'] = $pr;	
+			foreach ($fields_ct as $a=>$b) {
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
+					$P1_B[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+				}
+			}	
 
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
@@ -192,8 +200,8 @@ public function predio(){
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->principal_model->get_predio($id,$pr)->num_rows() == 0) {
-				$c_data['id_local'] = $id;
-				$c_data['Nro_Pred'] = $pr;
+				$P1_B_3N['id_local'] = $id;
+				$P1_B_3N['Nro_Pred'] = $pr;
 				// inserta nuevo registro
 					if($this->principal_model->insert_pr($P1_B_3N,'P1_B_3N') > 0){
 						$flag = 1;
@@ -214,10 +222,18 @@ public function predio(){
 					}
 
 			}
-
-
-
-
+			if($pr == 1){
+				//P1_B predios counter
+				if ($this->principal_model->get_prct($id,$pr)->num_rows() == 0) {
+					$P1_B['id_local'] = $id;
+					$P1_B['Nro_Pred'] = $pr;
+					// inserta nuevo registro
+					$this->principal_model->insert_pr($P1_B,'P1_B');
+				} else {
+					// actualiza
+					$this->principal_model->update_prct($id,$pr,$P1_B);
+				}
+			}
 			//delete ax20n
 			$this->principal_model->delete_predio_n($id,$pr);
 			//insert
