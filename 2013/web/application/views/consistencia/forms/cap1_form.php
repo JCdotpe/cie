@@ -113,8 +113,10 @@ $P1_A_2_9L_T3_Taul = array(
 $P1_A_2_9_Nro = array(
 	'name'	=> 'P1_A_2_9_Nro',
 	'id'	=> 'P1_A_2_9_Nro',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
 	'readonly'	=> true,
+	'class' => 'input2',
+
 );
 
 $P1_A_2_9_AnexNomb = array(
@@ -221,13 +223,15 @@ $P1_A_1_Cant_IE = array(
 $P1_B_1_TPred = array(
 	'name'	=> 'P1_B_1_TPred',
 	'id'	=> 'P1_B_1_TPred',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P1_B_2_PredCol = array(
 	'name'	=> 'P1_B_2_PredCol',
 	'id'	=> 'P1_B_2_PredCol',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 
@@ -237,7 +241,7 @@ $P1_B_2_PredCol = array(
 $P1_B_2A_PredNoCol = array(
 	'name'	=> 'P1_B_2A_PredNoCol',
 	'id'	=> 'P1_B_2A_PredNoCol',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
 );
 
 $P1_B_3_12_Nro = array(
@@ -249,13 +253,13 @@ $P1_B_3_12_Nro = array(
 $P1_B_3_12_NombComp = array(
 	'name'	=> 'P1_B_3_12_NombComp',
 	'id'	=> 'P1_B_3_12_NombComp',
-	'maxlength'	=> 1,
 );
 
 $P1_B_3_InmCod = array(
 	'name'	=> 'P1_B_3_InmCod',
 	'id'	=> 'P1_B_3_InmCod',
-	'maxlength'	=> 1,
+	'maxlength'	=> 12,
+	'class' => 'input12',	
 );
 
 
@@ -263,24 +267,27 @@ $P1_B_3_InmTip = array(
 	'name'	=> 'P1_B_3_InmTip',
 	'id'	=> 'P1_B_3_InmTip',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_B_3_1_Prop = array(
 	'name'	=> 'P1_B_3_1_Prop',
 	'id'	=> 'P1_B_3_1_Prop',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_B_3_1_Prop_O = array(
 	'name'	=> 'P1_B_3_1_Prop_O',
 	'id'	=> 'P1_B_3_1_Prop_O',
-	'maxlength'	=> 1,
+	'maxlength'	=> 255,
 );
 
 $P1_B_3_2_AntReg_Cod = array(
 	'name'	=> 'P1_B_3_2_AntReg_Cod',
 	'id'	=> 'P1_B_3_2_AntReg_Cod',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_B_3_3_AntReg_Nro = array(
@@ -292,7 +299,8 @@ $P1_B_3_3_AntReg_Nro = array(
 $P1_B_3_4_Tipo_TProp = array(
 	'name'	=> 'P1_B_3_4_Tipo_TProp',
 	'id'	=> 'P1_B_3_4_Tipo_TProp',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P1_B_3_4_Tipo_TProp_O = array(
@@ -304,63 +312,65 @@ $P1_B_3_4_Tipo_TProp_O = array(
 $P1_B_3_5_FecTit = array(
 	'name'	=> 'P1_B_3_5_FecTit',
 	'id'	=> 'P1_B_3_5_FecTit',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',
 );
 
 $P1_B_3_6_DocPos = array(
 	'name'	=> 'P1_B_3_6_DocPos',
 	'id'	=> 'P1_B_3_6_DocPos',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',
 );
 
 $P1_B_3_6_DocPos_O = array(
 	'name'	=> 'P1_B_3_6_DocPos_O',
 	'id'	=> 'P1_B_3_6_DocPos_O',
-	'maxlength'	=> 1,
+	'maxlength'	=> 255,
 );
 
 $P1_B_3_7_DocPos_Fech = array(
 	'name'	=> 'P1_B_3_7_DocPos_Fech',
 	'id'	=> 'P1_B_3_7_DocPos_Fech',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',
 );
 
 $P1_B_3_8_At_Pred = array(
 	'name'	=> 'P1_B_3_8_At_Pred',
 	'id'	=> 'P1_B_3_8_At_Pred',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',
 );
 
 $P1_B_3_9_At_Local = array(
 	'name'	=> 'P1_B_3_9_At_Local',
 	'id'	=> 'P1_B_3_9_At_Local',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',
 );
 
 $P1_B_3_10_Comp = array(
 	'name'	=> 'P1_B_3_10_Comp',
 	'id'	=> 'P1_B_3_10_Comp',
+	'class' => 'input1',
 	'maxlength'	=> 1,
 );
 
 $P1_B_3_11_CompCan = array(
 	'name'	=> 'P1_B_3_11_CompCan',
 	'id'	=> 'P1_B_3_11_CompCan',
-	'maxlength'	=> 1,
+	'class' => 'input2',
+	'maxlength'	=> 2,
 );
 
 
 $P1_B_3_Obs = array(
 	'name'	=> 'P1_B_3_Obs',
 	'id'	=> 'P1_B_3_Obs',
-	'maxlength'	=> 1,
+	'class' => 'textarea98p',
 );
 
-$P1_B_2_PredCol = array(
-	'name'	=> 'P1_B_2_PredCol',
-	'id'	=> 'P1_B_2_PredCol',
-	'maxlength'	=> 1,
-);
 
 // $P1_A_2_9_Nro = array(
 // 	'name'	=> 'P1_A_2_9_Nro',
@@ -402,6 +412,7 @@ $P1_C_1_CodLoc_Anex = array(
 	'name'	=> 'P1_C_1_CodLoc_Anex',
 	'id'	=> 'P1_C_1_CodLoc_Anex',
 	'maxlength'	=> 6,
+	'class' => 'input6',	
 );
 
 $P1_C_2_ProvCod = array(
@@ -432,66 +443,74 @@ $P1_C_6Dir_1_Tvia = array(
 	'name'	=> 'P1_C_6Dir_1_Tvia',
 	'id'	=> 'P1_C_6Dir_1_Tvia',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_6Dir_2_Nomb = array(
 	'name'	=> 'P1_C_6Dir_2_Nomb',
 	'id'	=> 'P1_C_6Dir_2_Nomb',
-	'maxlength'	=> 1,
+	'maxlength'	=> 255,
 );
 
 $P1_C_6Dir_Nro = array(
 	'name'	=> 'P1_C_6Dir_Nro',
 	'id'	=> 'P1_C_6Dir_Nro',
-	'maxlength'	=> 1,
+	'maxlength'	=> 4,
+	'class' => 'input4',	
 );
 
 $P1_C_6Dir_4_Piso = array(
 	'name'	=> 'P1_C_6Dir_4_Piso',
 	'id'	=> 'P1_C_6Dir_4_Piso',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_5_Mz = array(
 	'name'	=> 'P1_C_6Dir_5_Mz',
 	'id'	=> 'P1_C_6Dir_5_Mz',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_6_Lt = array(
 	'name'	=> 'P1_C_6Dir_6_Lt',
 	'id'	=> 'P1_C_6Dir_6_Lt',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_7_Sect = array(
 	'name'	=> 'P1_C_6Dir_7_Sect',
 	'id'	=> 'P1_C_6Dir_7_Sect',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_8_Zona = array(
 	'name'	=> 'P1_C_6Dir_8_Zona',
 	'id'	=> 'P1_C_6Dir_8_Zona',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_9_Et = array(
 	'name'	=> 'P1_C_6Dir_9_Et',
 	'id'	=> 'P1_C_6Dir_9_Et',
-	'maxlength'	=> 1,
+	'maxlength'	=> 3,
+	'class' => 'input3',	
 );
 
 $P1_C_6Dir_10_Km = array(
 	'name'	=> 'P1_C_6Dir_10_Km',
 	'id'	=> 'P1_C_6Dir_10_Km',
-	'maxlength'	=> 1,
+	'maxlength'	=> 4,
+	'class' => 'input4',	
 );
 
 $P1_C_7_RefDir = array(
 	'name'	=> 'P1_C_7_RefDir',
 	'id'	=> 'P1_C_7_RefDir',
-	'maxlength'	=> 1,
 );
 
 $P1_C_8_InmCod = array(
@@ -504,96 +523,105 @@ $P1_C_8_InmTip = array(
 	'name'	=> 'P1_C_8_InmTip',
 	'id'	=> 'P1_C_8_InmTip',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_9_Prop = array(
 	'name'	=> 'P1_C_9_Prop',
 	'id'	=> 'P1_C_9_Prop',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_9_Prop_O = array(
 	'name'	=> 'P1_C_9_Prop_O',
 	'id'	=> 'P1_C_9_Prop_O',
-	'maxlength'	=> 1,
 );
 
 $P1_C_10_AntReg_Cod = array(
 	'name'	=> 'P1_C_10_AntReg_Cod',
 	'id'	=> 'P1_C_10_AntReg_Cod',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_11_AntReg_Nro = array(
 	'name'	=> 'P1_C_11_AntReg_Nro',
 	'id'	=> 'P1_C_11_AntReg_Nro',
-	'maxlength'	=> 1,
+	'maxlength'	=> 12,
+	'class' => 'input12',	
 );
 
 $P1_C_12_Tipo_TProp = array(
 	'name'	=> 'P1_C_12_Tipo_TProp',
 	'id'	=> 'P1_C_12_Tipo_TProp',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',	
 );
 
 $P1_C_12_Tipo_TProp_O = array(
 	'name'	=> 'P1_C_12_Tipo_TProp_O',
 	'id'	=> 'P1_C_12_Tipo_TProp_O',
-	'maxlength'	=> 1,
 );
 
 $P1_C_13_FecTit = array(
 	'name'	=> 'P1_C_13_FecTit',
 	'id'	=> 'P1_C_13_FecTit',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',	
 );
 
 $P1_C_14_DocPos = array(
 	'name'	=> 'P1_C_14_DocPos',
 	'id'	=> 'P1_C_14_DocPos',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_14_DocPos_O = array(
 	'name'	=> 'P1_C_14_DocPos_O',
 	'id'	=> 'P1_C_14_DocPos_O',
-	'maxlength'	=> 1,
 );
 
 $P1_C_15_DocPos_Fech = array(
 	'name'	=> 'P1_C_15_DocPos_Fech',
 	'id'	=> 'P1_C_15_DocPos_Fech',
-	'maxlength'	=> 1,
+	'maxlength'	=> 10,
+	'class' => 'input10',	
 );
 
 $P1_C_16_At_Pred = array(
 	'name'	=> 'P1_C_16_At_Pred',
 	'id'	=> 'P1_C_16_At_Pred',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',	
 );
 
 $P1_C_17_At_Local = array(
 	'name'	=> 'P1_C_17_At_Local',
 	'id'	=> 'P1_C_17_At_Local',
-	'maxlength'	=> 1,
+	'maxlength'	=> 7,
+	'class' => 'input7',	
 );
 
 $P1_C_18_Comp = array(
 	'name'	=> 'P1_C_18_Comp',
 	'id'	=> 'P1_C_18_Comp',
 	'maxlength'	=> 1,
+	'class' => 'input1',	
 );
 
 $P1_C_19_CompCan = array(
 	'name'	=> 'P1_C_19_CompCan',
 	'id'	=> 'P1_C_19_CompCan',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
+	'class' => 'input2',		
 );
 
 $P1_C_Obs = array(
 	'name'	=> 'P1_C_Obs',
 	'id'	=> 'P1_C_Obs',
-	'maxlength'	=> 1,
+	'class' => 'textarea98p',	
 );
 
 // TABLA P1_C - Capitulo I
@@ -673,11 +701,11 @@ echo '
 													<td>
 														<div class="panel">
 															<label>D.N.I.</label>
-															'.form_input($P1_A_2_3_DocTip).'
+															'.form_input($P1_A_2_3_DocTip).' <div class="help-block error"></div>
 														</div>
 														<div class="panel">
 															<label>Carnet del Extranjero</label>
-															'.form_input($P1_A_2_3_DocNro).'
+															'.form_input($P1_A_2_3_DocNro).' <div class="help-block error"></div>
 														</div>
 													</td>
 												</tr>
@@ -686,11 +714,11 @@ echo '
 													<td>
 														<div class="panel">
 															<label>La Institucion Educativa?</label>
-															'.form_input($P1_A_2_4_TelfIE).'
+															'.form_input($P1_A_2_4_TelfIE).' <div class="help-block error"></div>
 														</div>
 														<div class="panel">
 															<label>Director?</label>
-															'.form_input($P1_A_2_4_TelfDir).'
+															'.form_input($P1_A_2_4_TelfDir).' <div class="help-block error"></div>
 														</div>
 													</td>
 												</tr>
@@ -699,11 +727,11 @@ echo '
 													<td>
 														<div class="panel">
 															<label>La Institucion Educativa?</label>
-															'.form_input($P1_A_2_5_EmailIE).'
+															'.form_input($P1_A_2_5_EmailIE).' <div class="help-block error"></div>
 														</div>
 														<div class="panel">
 															<label>Director?</label>
-															'.form_input($P1_A_2_5_EmailDir).'
+															'.form_input($P1_A_2_5_EmailDir).' <div class="help-block error"></div>
 														</div>
 													</td>
 												</tr>
@@ -720,7 +748,7 @@ echo '
 													<td>
 														<div class="panel">
 															<label>N° de Códigos Modulares</label>
-															'.form_input($P1_A_2_8_Can_CMod_IE).'
+															'.form_input($P1_A_2_8_Can_CMod_IE).' <div class="help-block error"></div>
 														</div>
 													</td>
 												</tr>
@@ -755,16 +783,16 @@ echo '
 												<table class="table table-bordered">
 															<thead>
 																<tr>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">N° Ord.</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">Codigo Modular</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">Codigo local escolar</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">Nivel o Modalidad</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">Caracteristica</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">Numero de anexo</th>
-																	<th style="text-align:center;vertical-align:middle;" rowspan="2">¿Cuantos ANexos tiene?</th>
-																	<th style="text-align:center; border:1px solid #333;" colspan="2">1er. Turno</th>
-																	<th style="text-align:center; border:1px solid #333;" colspan="2">2do. Turno</th>
-																	<th style="text-align:center; border:1px solid #333;" colspan="2">3er. Turno</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">N° Ord.</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">Codigo Modular</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">Codigo local escolar</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">Nivel o Modalidad</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">Caracteristica</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">Numero de anexo</th>
+																	<th style="text-align:center;vertical-align:middle;" rowspan="2" width="70px">¿Cuantos ANexos tiene?</th>
+																	<th style="text-align:center; border:1px solid #333;" colspan="2" width="70px">1er. Turno</th>
+																	<th style="text-align:center; border:1px solid #333;" colspan="2" width="70px">2do. Turno</th>
+																	<th style="text-align:center; border:1px solid #333;" colspan="2" width="70px">3er. Turno</th>
 																</tr>
 																<tr>
 																	<th style="text-align:center;">Total Alumnos</th>
@@ -869,14 +897,14 @@ echo '
                     <td><strong>¿Cuantos predios ocupa el local escolar?</strong></td>
                     <td>
                       <label>N° de predios</label>
-                      '.form_input($P1_B_1_TPred).'
+                      '.form_input($P1_B_1_TPred).' <div class="help-block error"></div>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align:center;">2.</td>
                     <td><strong>¿Los predios son colindantes?</strong></td>
                     <td>
-                      '.form_input($P1_B_2_PredCol).'
+                      '.form_input($P1_B_2_PredCol).' 1. Si, 2. No<div class="help-block error"></div>
                     </td>
                   </tr>
 
@@ -904,11 +932,11 @@ echo '
 											(Este código se encuentranen la constancia MARGESI)
 										</td>
 										<td>
-											'.form_input($P1_B_3_InmCod).'
-											<br>
+											'.form_input($P1_B_3_InmCod).' <div class="help-block error"></div>
+											<br> 
 
 											<label class="checkbox-inline">
-												'.form_input($P1_B_3_InmTip).' 1. No tiene constancia, 2. No sabe
+												'.form_input($P1_B_3_InmTip).' <div class="help-block error"></div> 1. No tiene constancia, 2. No sabe
 											</label>
 										</td>
 									</tr>
@@ -919,8 +947,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_B_3_1_Prop).' <br />
-											'.form_input($P1_B_3_1_Prop_O).'
+											'.form_input($P1_B_3_1_Prop).' <div class="help-block error"></div> <br />
+											Especifique - '.form_input($P1_B_3_1_Prop_O).'
 
 										</td>
 									</tr>
@@ -931,7 +959,7 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_B_3_2_AntReg_Cod).'
+											'.form_input($P1_B_3_2_AntReg_Cod).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -942,7 +970,7 @@ echo '
 										</td>
 										<td>
 											<label>N° de antecedente registral</label>
-											'.form_input($P1_B_3_3_AntReg_Nro).'
+											'.form_input($P1_B_3_3_AntReg_Nro).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -952,8 +980,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_B_3_4_Tipo_TProp).' <br />
-											'.form_input($P1_B_3_4_Tipo_TProp_O).' 
+											'.form_input($P1_B_3_4_Tipo_TProp).' <div class="help-block error"></div> <br />
+											Especifique - '.form_input($P1_B_3_4_Tipo_TProp_O).' 
 
 										</td>
 									</tr>
@@ -965,7 +993,7 @@ echo '
 										</td>
 										<td>
 											<label>Fecha</label>
-											'.form_input($P1_B_3_5_FecTit).' 
+											'.form_input($P1_B_3_5_FecTit).'  <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -975,8 +1003,8 @@ echo '
 											(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_B_3_6_DocPos).'  <br />
-											'.form_input($P1_B_3_6_DocPos_O).' 
+											'.form_input($P1_B_3_6_DocPos).' <div class="help-block error"></div> <br />
+											Especifique - '.form_input($P1_B_3_6_DocPos_O).' 
 										</td>
 									</tr>
 									<tr>
@@ -987,7 +1015,7 @@ echo '
 										</td>
 										<td>
 											<label>Fecha</label>
-											'.form_input($P1_B_3_5_FecTit).' 
+											'.form_input($P1_B_3_5_FecTit).'  <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1004,7 +1032,7 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td>'.form_input($P1_B_3_8_At_Pred).'</td>
+													<td>'.form_input($P1_B_3_8_At_Pred).' <div class="help-block error"></div></td>
 													<td>00</td>
 												</tr>
 											</tbody></table>
@@ -1024,7 +1052,7 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td>'.form_input($P1_B_3_9_At_Local).'</td>
+													<td>'.form_input($P1_B_3_9_At_Local).' <div class="help-block error"></div></td>
 													<td>00</td>
 												</tr>
 											</tbody></table>
@@ -1035,7 +1063,7 @@ echo '
 										<td>
 											<strong>¿El predio es compartido con otros locales escolares , otras instituciones o servicios?</strong>
 										</td>
-										<td>'.form_input($P1_B_3_10_Comp).'</td>
+										<td>'.form_input($P1_B_3_10_Comp).' <div class="help-block error"></div></td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">3.11</td>
@@ -1043,7 +1071,7 @@ echo '
 											<strong>¿Con cuántos locales escolares otras instituciones o servicios comparten el predio?</strong>
 										</td>
 										
-										<td>'.form_input($P1_B_3_11_CompCan).' <ul id="pred_n"></ul></td>
+										<td>'.form_input($P1_B_3_11_CompCan).' <div class="help-block error"></div> <ul id="pred_n"></ul></td>
 
 
 
@@ -1146,7 +1174,7 @@ echo '
 								<div class="panel">
 									<div class="panel">
 										<strong>1. ¿Cuál es el código del local escolar del anexo? </strong>
-										'.form_input($P1_C_1_CodLoc_Anex).'
+										'.form_input($P1_C_1_CodLoc_Anex).' <div class="help-block error"></div>
 									</div>
 
 								</div><!--END PANEL -->
@@ -1177,7 +1205,7 @@ echo '
 									<div class="panel-heading">7. Dirección del local escolar (Para tipo de via circule solo un codigo)</div>
 
 								  	<label class="checkbox-inline">
-										'.form_input($P1_C_6Dir_1_Tvia).' 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
+										'.form_input($P1_C_6Dir_1_Tvia).' <div class="help-block error"></div> 1. Avenida , 2. Jiron , 3. Calle , 4. Pasaje , 5. Carretera, 6. Autopista , 7. Otro
 									</label>
 						</div>
 
@@ -1243,7 +1271,7 @@ echo '
 										<td><strong>¿Cuál es el código del inmueble del anexo 01?</strong><br>
 											(Este código se encuentra en la constancia MARGESI)</td>
 										<td>
-											'.form_input($P1_C_8_InmTip).' 1. No tiene constancia , 2. No sabe 
+											'.form_input($P1_C_8_InmTip).' <div class="help-block error"></div> 1. No tiene constancia , 2. No sabe 
 											<br />
 											'.form_input($P1_C_8_InmCod).'
 										</td>
@@ -1255,7 +1283,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_C_9_Prop).'  1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
+											'.form_input($P1_C_9_Prop).'  <div class="help-block error"></div> 1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
 											'.form_input($P1_C_9_Prop_O).' Especifique
 
 										</td>
@@ -1267,7 +1295,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_C_10_AntReg_Cod).'
+											'.form_input($P1_C_10_AntReg_Cod).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1285,7 +1313,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_C_12_Tipo_TProp).' <br />
+											'.form_input($P1_C_12_Tipo_TProp).' <div class="help-block error"></div> <br />
 											'.form_input($P1_C_12_Tipo_TProp_O).'
 										</td>
 									</tr>
@@ -1294,7 +1322,7 @@ echo '
 										<td><strong>¿En qué fecha se emitió el título no inscrito?</strong></td>
 										<td>
 											<label>Fecha</label>
-											'.form_input($P1_C_13_FecTit).'
+											'.form_input($P1_C_13_FecTit).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1304,7 +1332,7 @@ echo '
 											<br>(Acepte sólo un código)
 										</td>
 										<td>
-											'.form_input($P1_C_14_DocPos).' <br />
+											'.form_input($P1_C_14_DocPos).' <div class="help-block error"></div> <br />
 											'.form_input($P1_C_14_DocPos_O).'
 										</td>
 									</tr>
@@ -1313,7 +1341,7 @@ echo '
 										<td><strong>¿En qué fecha se emitió el documento de posesión?</strong></td>
 										<td>
 											<label>Fecha</label>
-											'.form_input($P1_C_15_DocPos_Fech).'
+											'.form_input($P1_C_15_DocPos_Fech).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1327,7 +1355,7 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td>'.form_input($P1_C_16_At_Pred).'</td>
+													<td>'.form_input($P1_C_16_At_Pred).' <div class="help-block error"></div></td>
 													<td>00</td>
 												</tr>
 											</tbody></table>
@@ -1344,7 +1372,7 @@ echo '
 													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
-													<td>'.form_input($P1_C_17_At_Local).'</td>
+													<td>'.form_input($P1_C_17_At_Local).' <div class="help-block error"></div></td>
 													<td>00</td>
 												</tr>
 											</tbody></table>
@@ -1354,7 +1382,7 @@ echo '
 										<td>18.</td>
 										<td><strong>¿El predio es compartido con otros locales escolares, otras instituciones o servicios?</strong></td>
 										<td>
-											'.form_input($P1_C_18_Comp).'
+											'.form_input($P1_C_18_Comp).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1362,7 +1390,7 @@ echo '
 										<td><strong>¿Con cuántos locales escolares, otras instituciones o servicios comparten el predio?</strong></td>
 										<td>
 											<label>N°</label>
-											'.form_input($P1_C_19_CompCan).'
+											'.form_input($P1_C_19_CompCan).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1381,7 +1409,7 @@ echo '
 
 
 									<tr>
-										<td>
+										<td colspan="3">
 											'.form_textarea($P1_C_Obs).'
 										</td>									
 									</tr>
@@ -1432,14 +1460,14 @@ $(document).on("change",'.anx',function() {
 	var ax_str = '';
 	for(var i=1; i<=son.val(); i++){
 		    ax_str += '<div class="ax' + i + ' anexo">';
-		    ax_str +='<input type="text" class="input2" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
+		    ax_str +='<span class="prev_anexo">Nombre asignado al anexo N°</span> <input type="text" class="input2" style="margin-left: 15px" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
+		    ax_str +='<input type="text" style="margin-left: 34px; margin-right: 48px; width: 381px !important" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" style="margin-left: 0; margin-right:19px" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:19px" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:20px" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:0" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
 		    ax_str += '</div>';
 		   as++;
 	}	
@@ -1674,20 +1702,20 @@ function gen_cms(n,re){
 
 	//Generar codigos modulares
 	for(var i=1; i<=n; i++){
-		cm_str += '<div class="cmp' + i + ' codmod" id="cmp' + i + '" style="border: 1px solid #ccc">';
-		cm_str += '<input id="P1_A_2_9_NroCMod_' + i + '" class="input7" type="text" readonly maxlength="7" value="" name="P1_A_2_9_NroCMod[]">';
-		cm_str += '<input id="P1_A_2_9A_CMod_' + i + '" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod[]">';
-		cm_str += '<input id="P1_A_2_9B_CodLocal_' + i + '" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal[]">';
-		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel[]">';
-		cm_str += '<input id="P1_A_2_9D_Car_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car[]">';
-		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]">';
-		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]">';
-		cm_str += '<input id="P1_A_2_9G_T1_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu[]">';
-		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]">';
-		cm_str += '<input id="P1_A_2_9I_T2_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu[]">';
-		cm_str += '<input id="P1_A_2_9J_T2_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul[]">';
-		cm_str += '<input id="P1_A_2_9K_T3_Talu_' + i + '" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu[]">';
-		cm_str += '<input id="P1_A_2_9L_T3_Taul_' + i + '" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul[]">';
+		cm_str += '<div class="cmp' + i + ' codmod" id="cmp' + i + '" style="border: 1px solid #ccc; text-align: left">';
+		cm_str += '<input id="P1_A_2_9_NroCMod_' + i + '" style="margin-left: 10px; margin-right:10px" class="input7" type="text" readonly maxlength="7" value="" name="P1_A_2_9_NroCMod[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9A_CMod_' + i + '" style="margin-left: 10px; margin-right:20px" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9B_CodLocal_' + i + '" style="margin-left: 10px; margin-right:20px" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9D_Car_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" style="margin-left: 10px; margin-right:42px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" style="margin-left: 10px; margin-right:34px" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9G_T1_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" style="margin-left: 10px; margin-right:15px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9I_T2_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9J_T2_Taul_' + i + '" style="margin-left: 10px; margin-right:16px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9K_T3_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9L_T3_Taul_' + i + '" style="margin-left: 10px; margin-right:0px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul[]"> <div class="help-block error"></div>';
 		//cm_str += '<button class="btn btncm btncm_nro' + i + '" type="button">Generar Anexos</button>';
 		cm_str += '</div>';
 	}
@@ -1801,7 +1829,27 @@ $(document).on("click",'.ienro',function() {
 //guardar ie
 $("#cap1_ie").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
+				P1_A_2_3_DocTip: {
+			        digits: true,
+			    },  
+				P1_A_2_3_DocNro: {
+			        digits: true,
+			    },  
+				P1_A_2_4_TelfIE: {
+			        digits: true,
+			    },  		
+				P1_A_2_4_TelfDir: {
+			        digits: true,
+			    },  	
+				P1_A_2_5_EmailIE: {
+			        email: true,
+			    },  	
+				P1_A_2_5_EmailDir: {
+			        email: true,
+			    },  				    		    	
+				P1_A_2_8_Can_CMod_IE: {
+			        digits: true,
+			    },  			    	    	    
 		    },
 
 		    messages: {   
@@ -1858,7 +1906,42 @@ $("#cap1_ie").validate({
 //cm update
 $("#cap1_cm").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
+				'P1_A_2_9A_CMod[]': {
+			        digits: true,
+			    },  
+				'P1_A_2_9B_CodLocal[]': {
+			        digits: true,
+			    },  	
+				'P1_A_2_9C_Nivel[]': {
+			        digits: true,
+			    },  	
+				'P1_A_2_9D_Car[]': {
+			        digits: true,
+			    },  			    		    		    
+				'P1_A_2_9E_NroAnex[]': {
+			        digits: true,
+			    },  						    
+				'P1_A_2_9F_CantAnex[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9G_T1_Talu[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9H_T1_Taul[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9I_T2_Talu[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9J_T2_Taul[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9K_T3_Talu[]': {
+			        digits: true,
+			    },  							    
+				'P1_A_2_9L_T3_Taul[]': {
+			        digits: true,
+			    },  							    
 		    },
 
 		    messages: {   
@@ -1915,9 +1998,42 @@ $("#cap1_cm").validate({
 
 //ax update
 $("#cap1_ax").validate({
-		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
-		    },
+		    rules: {  
+
+				P1_C_1_CodLoc_Anex: {
+			        digits: true,
+			    }, 	
+				P1_C_6Dir_1_Tvia: {
+			        range:[1,7],
+			    }, 			    	 
+				P1_C_8_InmTip: {
+			        range:[1,2],
+			    }, 	
+				P1_C_9_Prop: {
+			        range:[1,5],
+			    }, 		
+				P1_C_10_AntReg_Cod: {
+			        range:[1,5],
+			    }, 				    		    
+				P1_C_12_Tipo_TProp: {
+			        range:[1,10],
+			    }, 	
+				P1_C_14_DocPos: {
+			        range:[1,10],
+			    }, 				 
+				P1_C_16_At_Pred: {
+			        digits: true,
+			    }, 					       
+				P1_C_17_At_Local: {
+			        digits: true,
+			    }, 		
+				P1_C_18_Comp: {
+			        range:[1,2],
+			    }, 			
+				P1_C_19_CompCan: {
+			        range:[0,99],
+			    }, 				    		    	    		    
+			},
 
 		    messages: {   
 			//FIN MESSAGES
@@ -1973,7 +2089,7 @@ $("#P1_B_3_11_CompCan").change(function(event) {
 
 	$("#pred_n").empty();
 	for(var i=1; i<=$(this).val(); i++){
-		$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" maxlength="1" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
+		$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
 	}
 
 
@@ -2004,7 +2120,52 @@ $("#P1_B_3_11_CompCan").change(function(event) {
 //PREDIO
 $("#predio_i").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
-			//FIN RULES
+				P1_B_1_TPred: {
+			        range:[1,99],
+			    }, 
+				P1_B_2_PredCol: {
+			        range:[1,2],
+			    }, 		
+				P1_B_3_InmCod: {
+			        digits: true,
+			    }, 				
+				P1_B_3_InmTip: {
+			        digits: true,
+			        range:[1,2],
+			    }, 		
+				P1_B_3_1_Prop: {
+			        digits: true,
+			        range:[1,5],
+			    }, 		
+				P1_B_3_2_AntReg_Cod: {
+			        digits: true,
+			        range:[1,5],
+			    }, 				    		    			    	    
+				P1_B_3_3_AntReg_Nro: {
+			        digits: true,
+			    }, 	
+				P1_B_3_4_Tipo_TProp: {
+			        digits: true,
+			        range:[1,10],
+			    }, 		
+				P1_B_3_6_DocPos: {
+			        digits: true,
+			        range:[1,10],
+			    }, 		
+				P1_B_3_8_At_Pred: {
+			        digits: true,
+			    }, 			
+				P1_B_3_9_At_Local: {
+			        digits: true,
+			    }, 		
+				P1_B_3_10_Comp: {
+			        digits: true,
+			        range:[1,2],
+			    }, 		
+				P1_B_3_11_CompCan: {
+			        digits: true,
+			        range:[1,99],
+			    }, 				    		    			    	    	    	    			    
 		    },
 
 		    messages: {   

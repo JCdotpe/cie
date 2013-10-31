@@ -662,6 +662,10 @@ ul.predios_views li.active, ul.predios_views li:hover{
   width: 75px !important;
 }
 
+.input12{
+  width: 86px !important;
+}
+
 .input200{
   width: 200px !important;
 }
@@ -672,4 +676,14 @@ ul.predios_views li.active, ul.predios_views li:hover{
 
 .textarea98p{
   width: 98.5% !important;
+}
+
+.codmod .help-block, .codmod .error{
+  display: inline-block;
+
+}
+
+.prev_anexo{
+  padding-left: 10px;
+  font-size: 70%;
 }
