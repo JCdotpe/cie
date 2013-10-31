@@ -26,6 +26,7 @@
 	$txtF01 = array(
 		'name'	=> 'ficha01',
 		'id'	=> 'ficha01',
+		'onkeypress' => 'return validar_numeros(event)',
 		'value' => set_value('ficha01'),		
 		'style' => 'width: 60px;',
 		'maxlength' => 4
@@ -34,16 +35,26 @@
 	$txtF01A = array(
 		'name'	=> 'ficha01A',
 		'id'	=> 'ficha01A',
-		'value' => set_value('ficha01A'),		
+		'value' => set_value('ficha01A'),
+		'onkeypress' => 'return validar_numeros(event)',		
 		'style' => 'width: 60px;',
 		'maxlength' => 4
 	);
 	$txtF01B = array(
 		'name'	=> 'ficha01B',
 		'id'	=> 'ficha01B',
-		'value' => set_value('ficha01B'),		
+		'value' => set_value('ficha01B'),	
+		'onkeypress' => 'return validar_numeros(event)',	
 		'style' => 'width: 60px;',
 		'maxlength' => 4
+	);
+	$txtResut = array(
+		'name'	=> 'result',
+		'id'	=> 'result',
+		'value' => set_value('result'),
+		'onkeypress' => 'return validar_numeros(event)',
+		'style' => 'width: 60px;',
+		'maxlength' => 1
 	);
 	$btnGrabar = array(
 		'name' => 'guardar',
@@ -98,7 +109,7 @@
 						</div>
 					</div>
 				</div>
-					<div class="span2">
+				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('Cantidad Cedula 01B', 'F01B', $label_class); ?>
 						<div class="controls">
@@ -106,6 +117,16 @@
 						</div>
 					</div>
 				</div>
+				<div class="span2">
+					<div class="control-group">
+						<?php echo form_label('Resultado', 'result', $label_class); ?>
+						<div class="controls">
+							<?php echo form_input($txtResut); ?>
+						</div>
+					</div>
+				</div>
+
+
 				<div class="span2">
 					<div class="control-group">
 						<?php echo form_label('', '', $label_class); ?>
@@ -146,12 +167,13 @@
 			url:'dudra/ver_datos',
 			datatype: "json",
 			height: 200,
-			colNames:['Código de Local', 'Cedula 01', 'Cedula 01A', 'Cedula 01B', 'Fecha de Registro'],
+			colNames:['Código de Local', 'Cedula 01', 'Cedula 01A', 'Cedula 01B','Resultado', 'Fecha de Registro'],
 			colModel:[
 				{name:'id_local',index:'id_local', align:"center"},
 				{name:'cnt_01',index:'cnt_01', align:"center"},
 				{name:'cnt_01A',index:'cnt_01A', align:"center"},
 				{name:'cnt_01B',index:'cnt_01B', align:"center"},
+				{name:'res',index:'res', align:"center"},
 				{name:'fecha_reg',index:'fecha_reg', align:"center"}
 			],
 			pager: '#pager2',

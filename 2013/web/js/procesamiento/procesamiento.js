@@ -362,14 +362,24 @@ function Validar_Cedulas()
 	var ficha01 = $("#ficha01").val();
 	var ficha01A = $("#ficha01A").val();
 	var ficha01B = $("#ficha01B").val();
+	var Result = $("#result").val();
 
 
-	if (codigo == "" || ficha01 == "" || ficha01A == "" || ficha01B == "" )
+	if (codigo == "" || ficha01 == "" || ficha01A == "" || ficha01B == "" || Result=="")
 	{
 		alert("Faltan Datos!");
 		return false;
 	}else{
-		registar_detalle_cedulas();
+		if(Result>5)
+		{
+			alert("El resultado no puede ser mayor a 5");
+			return false;
+
+		}else
+		{
+		registar_detalle_cedulas();	
+		}
+		
 	}
 }
 
@@ -388,6 +398,7 @@ function registar_detalle_cedulas()
 			$("#ficha01").val('');	
 			$("#ficha01A").val('');		
 			$("#ficha01B").val('');
+			$("#result").val();
 			alert("Datos Registrados!");
 		}
 	});
