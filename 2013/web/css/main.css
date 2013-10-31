@@ -687,3 +687,7 @@ ul.predios_views li.active, ul.predios_views li:hover{
   padding-left: 10px;
   font-size: 70%;
 }
+
+input, textarea{
+  text-transform: uppercase;
+}

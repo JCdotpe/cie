@@ -63,6 +63,11 @@ echo '</div>';
 $(function(){
 
 
+  // $('input,select,textarea').attr('disabled','disabled');
+  // $('.btn-primary').hide();
+
+
+
   $(window).keydown(function(event){
       if(event.keyCode == 13) {
           event.preventDefault();
