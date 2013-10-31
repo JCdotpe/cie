@@ -62,7 +62,7 @@ echo '</div>';
 <script type="text/javascript">
 $(function(){
 
-  
+
   $(window).keydown(function(event){
       if(event.keyCode == 13) {
           event.preventDefault();
@@ -71,13 +71,19 @@ $(function(){
   });
 
 
-  $('input,select,textarea').keydown( function(e) {
+  // $('input,select,textarea').keydown( function(e) {
+$(document).on("keyup",'input,select,textarea',function(e) {    
       var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
       if(key == 13)
       $(this).trigger('change');
    }); 
 
-  $('input,select,textarea').keyup( function(e) {
+
+
+
+// $('input,select,textarea').keyup( function(e) {
+$(document).on("keyup",'input,select,textarea',function(e) {
+
     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
     var inputs = $(this).closest('form').find(':input:enabled');
     if(key == 13) {
