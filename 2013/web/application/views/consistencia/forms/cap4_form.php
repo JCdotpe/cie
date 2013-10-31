@@ -309,18 +309,35 @@ $(document).ready(function(){
 		   $('#' + fila).val(valor);
 	});
 
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	//Saltos de P4
+	$(document).on("change",'.cerco',function() {
+		var campo = $(this);
+		var cod = campo.attr('id');
+		array=cod.split("_");
+		if (campo.val() >= 2){
+			$('.cerco_' + array[4] + '_' + array[5]).val('');
+			$('.cerco_' + array[4] + '_' + array[5]).attr('disabled','disabled');
+		}else{
+			$('.cerco_' + array[4] + '_'+ array[5]).removeAttr('disabled');
+		}
+	});
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+
 	//cap4 N
 		/**** FRENTE *****/
 	$('#P4_2_CantTram_Lfrente').change(function(event) {
 
-		$('#lindero_frente tr').remove('.entrev');
+		$('#lindero_frente tr').remove('.lind');
 		var ahua = $(this).val();
 		if(ahua > 0 && ahua<=99){
 			var asd = '';
 			for(var i=1; i<=ahua;i++){
-				asd += '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t1_' + i + '" value="1" >';
-				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd += '<tr class="lind">';
+				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t1_' + i + '" value="1" tabindex="0" >';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -348,6 +365,8 @@ $(document).ready(function(){
 					$('#P4_2_1D_Estruc' + '_t1_' +  as).val(data.P4_2_1D_Estruc);
 					$('#P4_2_1E_EstCons' + '_t1_' +  as).val(data.P4_2_1E_EstCons);
 					$('#P4_2_1F_Opin' + '_t1_' +  as).val(data.P4_2_1F_Opin);
+					//ejecutar salto al cargar
+					$('#P4_2_1C_Cerco' + '_t1_' +  as).trigger('change');
 					as++;
 				}
 		});
@@ -360,13 +379,13 @@ $(document).ready(function(){
 	/**** DERECHA *****/
 	$('#P4_2_CantTram_Lderecho').change(function(event) {
 
-		$('#lindero_derecha tr').remove('.entrev');
+		$('#lindero_derecha tr').remove('.lind');
 		var ahua = $(this).val();
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
-				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t2_' + i + '" value="2" >';
-				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				var asd = '<tr class="lind">';
+				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t2_' + i + '" value="2" >';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -379,7 +398,7 @@ $(document).ready(function(){
 		}else if(ahua==''){
 			//
 		}else{
-			alert('99 Entrevistas máximo');
+			alert('Dato Incorrecto');
 		}
 
 
@@ -394,6 +413,8 @@ $(document).ready(function(){
 					$('#P4_2_1D_Estruc' + '_t2_' +  as).val(data.P4_2_1D_Estruc);
 					$('#P4_2_1E_EstCons' + '_t2_' +  as).val(data.P4_2_1E_EstCons);
 					$('#P4_2_1F_Opin' + '_t2_' +  as).val(data.P4_2_1F_Opin);
+					//ejecutar salto al cargar
+					$('#P4_2_1C_Cerco' + '_t2_' +  as).trigger('change');
 					as++;
 				}
 		});
@@ -406,13 +427,13 @@ $(document).ready(function(){
 	/**** FONDO *****/
 	$('#P4_2_CantTram_Lfondo').change(function(event) {
 
-		$('#lindero_fondo tr').remove('.entrev');
+		$('#lindero_fondo tr').remove('.lind');
 		var ahua = $(this).val();
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
-				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t3_' + i + '" value="3" >';
-				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				var asd = '<tr class="lind">';
+				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t3_' + i + '" value="3" >';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -425,7 +446,7 @@ $(document).ready(function(){
 		}else if(ahua==''){
 			//
 		}else{
-			alert('99 Entrevistas máximo');
+			alert('Dato Incorrecto');
 		}
 
 
@@ -440,6 +461,8 @@ $(document).ready(function(){
 					$('#P4_2_1D_Estruc' + '_t3_' +  as).val(data.P4_2_1D_Estruc);
 					$('#P4_2_1E_EstCons' + '_t3_' +  as).val(data.P4_2_1E_EstCons);
 					$('#P4_2_1F_Opin' + '_t3_' +  as).val(data.P4_2_1F_Opin);
+					//ejecutar salto al cargar
+					$('#P4_2_1C_Cerco' + '_t3_' +  as).trigger('change');
 					as++;
 				}
 		});
@@ -448,17 +471,16 @@ $(document).ready(function(){
 	/**************/
 
 
-
 	/**** IZQUIERDA *****/
 	$('#P4_2_CantTram_Lizq').change(function(event) {
 
-		$('#lindero_izquierda tr').remove('.entrev');
+		$('#lindero_izquierda tr').remove('.lind');
 		var ahua = $(this).val();
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
-				var asd = '<tr class="entrev">';
-				asd	+='<input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t4_' + i + '" value="4" >';
-				asd +='<td><input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				var asd = '<tr class="lind">';
+				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t4_' + i + '" value="4" >';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -471,7 +493,7 @@ $(document).ready(function(){
 		}else if(ahua==''){
 			//
 		}else{
-			alert('99 Entrevistas máximo');
+			alert('Dato Incorrecto');
 		}
 
 
@@ -486,6 +508,8 @@ $(document).ready(function(){
 					$('#P4_2_1D_Estruc' + '_t4_' +  as).val(data.P4_2_1D_Estruc);
 					$('#P4_2_1E_EstCons' + '_t4_' +  as).val(data.P4_2_1E_EstCons);
 					$('#P4_2_1F_Opin' + '_t4_' +  as).val(data.P4_2_1F_Opin);
+					//ejecutar salto al cargar
+					$('#P4_2_1C_Cerco' + '_t4_' +  as).trigger('change');
 					as++;
 				}
 		});
@@ -493,20 +517,10 @@ $(document).ready(function(){
 	$('#P4_2_CantTram_Lizq').trigger('change');
 	/*************/
 
-	//Saltos de P4
-	$('.cerco').change(function(event) {
-		val=$(this).attr('id');
-		array=val.split("_");
-		if ($(this).val() >= 2){
-			$('.cerco_' + array[4] + '_' + array[5]).val('');
-			$('.cerco_' + array[4] + '_' + array[5]).attr('readonly','readonly');
-		}else{
-			$('.cerco_' + array[4] + '_'+ array[5]).removeAttr('readonly');
-		}
-	});
-	$('.cerco').trigger('change');
 	
-
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	//Graba
 	$("#cap4_f").validate({
 		    rules: {
 				P4_2_CantTram_Lfrente: {

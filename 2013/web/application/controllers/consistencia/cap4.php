@@ -113,12 +113,14 @@ class Cap4 extends CI_Controller {
 
 						foreach ($fields_n as $a=>$b) {
 							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-								
-								$c_data_n[$b] = ($pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];	
-								
+								if (isset($pre_n[$b][$cc])){
+									$c_data_n[$b] = ($pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
+								}else{
+									$c_data_n[$b] = NULL;
+								}
 							}
 						}
-					    $this->cap4_model->insert_cap4_2n($c_data_n);			
+					    $this->cap4_model->insert_cap4_2n($c_data_n);
 					    $cc++;
 				}
 			}

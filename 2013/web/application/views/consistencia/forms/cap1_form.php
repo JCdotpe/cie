@@ -1977,7 +1977,7 @@ $("#cap1_cm").validate({
 				);
 						
 				var bcar = $( "#cap1_cm :submit" );
-				    bcar.attr("disabled", "disabled");
+					bcar.attr("disabled", "disabled");
 				    $.ajax({
 				            url: CI.site_url + "/consistencia/cap1/cm",
 				            type:'POST',
