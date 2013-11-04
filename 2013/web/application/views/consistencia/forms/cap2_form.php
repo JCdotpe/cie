@@ -2124,11 +2124,11 @@ $("#cap2_f").validate({
 			        range: [1,2],
 			    }, 
 				P2_A_3A_Hel_Mini: {
-			        required: true,
+			        // required: true,
 			        range: [1,12],
 			    }, 			
 				P2_A_3A_Hel_Mfin: {
-			        required: true,
+			        // required: true,
 			        range: [1,12],
 			    }, 		
 				P2_A_4_Gra: {
