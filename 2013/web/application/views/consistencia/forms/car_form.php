@@ -164,7 +164,8 @@ $PC_C_2_Rfinal_fecha = array(
 	'name'	=> 'PC_C_2_Rfinal_fecha',
 	'id'	=> 'PC_C_2_Rfinal_fecha',
 	'maxlength'	=> 10,
-	'class' => 'input10',
+	'class' => 'input10 fechap',
+	'readonly' => true,
 );
 
 // FIN DETALLE - Sección C: Entrevista y Supervision
@@ -474,8 +475,8 @@ echo '
 
 								<tr>
 									<td>'.form_input($PC_A_7Dir_2_Nomb).'</td>
-									<td>'.form_input($PC_A_7Dir_3_Nro).'</td>
-									<td>'.form_input($PC_A_7Dir_4_Piso).'</td>
+									<td>'.form_input($PC_A_7Dir_3_Nro).'<div class="help-block error"></div></td>
+									<td>'.form_input($PC_A_7Dir_4_Piso).'<div class="help-block error"></div></td>
 									<td>'.form_input($PC_A_7Dir_5_Mz).'</td>
 									<td>'.form_input($PC_A_7Dir_6_Lt).'</td>
 									<td>'.form_input($PC_A_7Dir_7_Sect).'</td>
@@ -495,7 +496,7 @@ echo '
 							<li class="list-group-item">
 								8. La dirección del colegio del local escolar del DOC.CIE.03.06
 								<label class="checkbox-inline">
-									'.form_input($PC_A_8_DirVerif).' <div class="help-block error">
+									'.form_input($PC_A_8_DirVerif).' <div class="help-block error"></div>
 								</label>
 							</li>
 							<li class="list-group-item">
@@ -517,7 +518,7 @@ echo '
 
 							<ul class="list-group">
 								<li class="list-group-item">1. Transcriba el codigo del local DOC.CIE.03.06 '.form_input($PC_B_1_CodLocal).'</li>
-								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal '.form_input($PC_B_2_CantEv).'</li>
+								<li class="list-group-item">2. Cuantos códigos de local escolar registrados en el DOC.CIE.03.06 se evaluaran en esta cedula censal '.form_input($PC_B_2_CantEv).'<div class="help-block error"></div></li>
 							</ul>
 
 						</div>
@@ -731,6 +732,9 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
+//datepicker
+
+
 
 //car
 $("#PC_A_1_Dep").change(function(event) {
@@ -835,10 +839,10 @@ $('#pcar_c_n tr').remove('.entrev');
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" readonly name="PC_C_1_NroVis[]" id="PC_C_1_NroVis_' + i + '" value="' + i + '" ></td>';
-	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"><input type="text" class="input10 embc' + i + '" maxlength="80" name="PC_C_1_Et_Res_O' + '_' + i + '" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + '" maxlength="10" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -877,7 +881,7 @@ $("#car_f").validate({
 		    rules: {  
 		    	
 				PC_A_7Dir_1_Tvia: {
-			    		range: [1,7],
+			    		valrango: [1,7,9],
 			    		required: true,
 			        },  				    	
 				PC_A_8_DirVerif: {
@@ -887,7 +891,24 @@ $("#car_f").validate({
 				PC_C_2_Rfinal_resul: {
 			    		range: [1,5],
 			    		required: true,
-			        },  		             			         		         		         		                  	         		         	         	          		                                                                             
+			        },  		   
+			    PC_A_7Dir_4_Piso: {
+			    		range: [0,9],
+			    		required: true,
+			    },             			
+			    PC_B_2_CantEv:{
+			    		range: [1,99],
+			    		required: true,
+			    },     
+			    PC_A_7Dir_3_Nro:{
+			    	required: true,
+			    },    		         	
+			    'PC_C_1_Et_Fecha[]':{
+			    	required:true,
+			    },	       
+			    'PC_C_1_Et_Fecha_Prox[]':{
+			    	required:true,
+			    },  		                  	         		         	         	          		                                                                             
 				PC_D_EvT_dni: {
 			    		digits: true,
 			    		required: true,
@@ -956,8 +977,7 @@ $("#car_f").validate({
 
 
 
-
-
+$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 
 }); 
 </script>

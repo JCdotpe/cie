@@ -62,7 +62,7 @@ echo '</div>';
 <script type="text/javascript">
 $(function(){
 
-
+    
   // $('input,select,textarea').attr('disabled','disabled');
   // $('.btn-primary').hide();
 
