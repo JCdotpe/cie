@@ -711,7 +711,7 @@ echo '
 								<tbody>
 									<tr>
 										<td class="' . $boss_p_ct . '">'.form_input($PC_E_1_TPred).'</td>
-										<td class="' . $boss_p_ct . '">'.form_input($PC_E_2_TPred_NoCol).'</td>
+										<td class="' . $boss_p_ct . '">'.form_input($PC_E_2_TPred_NoCol).'<div class="help-block error"></div></td>
 										<td>'.form_input($PC_E_3_TEdif).'</td>
 										<td>'.form_input($PC_E_4_TPat).'</td>
 										<td>'.form_input($PC_E_5_TLosa).'</td>
