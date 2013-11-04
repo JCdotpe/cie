@@ -917,7 +917,7 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 	   $('#PC_C_1_Jb_Hfin_' +  as).val(data.PC_C_1_Jb_Hfin);
 	   as++;
 }); 
-
+$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 });
 
 $('#pcar_num').trigger('change');
