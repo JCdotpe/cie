@@ -899,7 +899,7 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 	   $('#PC_C_1_Et_Res_' +  as).trigger('change');
 	   $('#PC_C_1_Et_Res_O_' +  as).val(data.PC_C_1_Et_Res_O);
 	   $('#PC_C_1_Jb_Res_' +  as).trigger('change');
-	   $('#PC_C_1_Jb_Res_O_' +  as).val(data.PC_C_1_Et_Res_O);
+	   $('#PC_C_1_Jb_Res_O_' +  as).val(data.PC_C_1_Jb_Res_O);
 	   $('#PC_C_1_Jb_Fecha_' +  as).val(data.PC_C_1_Jb_Fecha);
 	   $('#PC_C_1_Jb_Hini_' +  as).val(data.PC_C_1_Jb_Hini);
 	   $('#PC_C_1_Jb_Hfin_' +  as).val(data.PC_C_1_Jb_Hfin);
