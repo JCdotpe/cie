@@ -102,27 +102,33 @@ class Cap4 extends CI_Controller {
 			}
 
 			//p4_2n
-
 			$this->cap4_model->delete_cap4_2n($id,$pr);
 
 			$c_data_n['id_local'] = $id;
-			$c_data_n['Nro_Pred'] = $pr;	
+			$c_data_n['Nro_Pred'] = $pr;
 			if($cantidad_tramos > 0){
 				$cc = 0;
-				foreach($pre_n['P4_2_LindTipo'] as &$z){
-
-						foreach ($fields_n as $a=>$b) {
-							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-								if (isset($pre_n[$b][$cc])){
-									$c_data_n[$b] = ($pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
-								}else{
-									$c_data_n[$b] = NULL;
-								}
-							}
+				//foreach($pre_n['P4_2_LindTipo'] as &$z){
+				for ($i=0; $i<$cantidad_tramos; $i++){
+					if ( $cc<$p4_2n_num_fr ) {
+						$c_data_n['P4_2_LindTipo'] = 1;
+					}elseif ( $cc>=($p4_2n_num_fr) && $cc<($p4_2n_num_fr+$p4_2n_num_d) ){
+						$c_data_n['P4_2_LindTipo'] = 2;
+					}elseif ( $cc>=($p4_2n_num_fr+$p4_2n_num_d) && $cc<($p4_2n_num_fr+$p4_2n_num_d+$p4_2n_num_fo) ) {
+						$c_data_n['P4_2_LindTipo'] = 3;
+					}elseif ( $cc>=($p4_2n_num_fr+$p4_2n_num_d+$p4_2n_num_fo) && $cc<($p4_2n_num_fr+$p4_2n_num_d+$p4_2n_num_fo+$p4_2n_num_i) ) {
+						$c_data_n['P4_2_LindTipo'] = 4;
+					}
+					
+					foreach ($fields_n as $a=>$b) {
+						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified','P4_2_LindTipo'))){
+							$c_data_n[$b] = (!isset($pre_n[$b][$cc]) || $pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
 						}
-					    $this->cap4_model->insert_cap4_2n($c_data_n);
-					    $cc++;
+					}
+					$this->cap4_model->insert_cap4_2n($c_data_n);
+					$cc++;
 				}
+				//}
 			}
 
 
@@ -136,5 +142,4 @@ class Cap4 extends CI_Controller {
 		}
 
 	}
-
 }

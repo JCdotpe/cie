@@ -2673,6 +2673,10 @@ $(document).ready(function(){
 				range:[1,99],
 				required: true,
 			},
+			P6_2_3:{
+				digits:true,
+				range:[1,2],
+			},
 			'P6_2_4Mod[]':{
 				digits:true,
 				range:[0,1],

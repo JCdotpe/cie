@@ -318,9 +318,9 @@ $(document).ready(function(){
 		array=cod.split("_");
 		if (campo.val() >= 2){
 			$('.cerco_' + array[4] + '_' + array[5]).val('');
-			$('.cerco_' + array[4] + '_' + array[5]).attr('disabled','disabled');
+			$('.cerco_' + array[4] + '_' + array[5]).attr('readonly','readonly');
 		}else{
-			$('.cerco_' + array[4] + '_'+ array[5]).removeAttr('disabled');
+			$('.cerco_' + array[4] + '_'+ array[5]).removeAttr('readonly');
 		}
 	});
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -336,7 +336,7 @@ $(document).ready(function(){
 			var asd = '';
 			for(var i=1; i<=ahua;i++){
 				asd += '<tr class="lind">';
-				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t1_' + i + '" value="1" tabindex="0" >';
+				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
@@ -384,7 +384,7 @@ $(document).ready(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
-				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t2_' + i + '" value="2" >';
+				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -432,7 +432,7 @@ $(document).ready(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
-				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t3_' + i + '" value="3" >';
+				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -479,7 +479,7 @@ $(document).ready(function(){
 		if(ahua > 0 && ahua<=99){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
-				asd	+='<td><input type="hidden" class="input1" name="P4_2_LindTipo[]" id="P4_2_LindTipo' + '_t4_' + i + '" value="4" >';
+				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -542,10 +542,6 @@ $(document).ready(function(){
 					digits:true,
 					range:[1,99],
 					required: true,
-				},
-				'P4_2_LindTipo[]':{
-					digits:true,
-					range:[1,4],
 				},
 				'P4_2_1A_i[]':{
 					digits:true,
