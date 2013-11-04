@@ -2148,10 +2148,10 @@ $("#cap2_f").validate({
 			        range: [1,2],
 			    }, 		
 				P2_A_5B_Vend_Mini: {
-			        range: [1,2],
+			        range: [1,12],
 			    }, 		
 				P2_A_5B_Vend_Mfin: {
-			        range: [1,2],
+			        range: [1,12],
 			    }, 		
 				P2_B_1_Topo: {
 			        range: [1,4],
