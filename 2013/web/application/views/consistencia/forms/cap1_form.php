@@ -293,7 +293,7 @@ $P1_B_3_2_AntReg_Cod = array(
 $P1_B_3_3_AntReg_Nro = array(
 	'name'	=> 'P1_B_3_3_AntReg_Nro',
 	'id'	=> 'P1_B_3_3_AntReg_Nro',
-	'maxlength'	=> 20,
+	'maxlength'	=> 12,
 );
 
 $P1_B_3_4_Tipo_TProp = array(
