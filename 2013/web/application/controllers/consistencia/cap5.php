@@ -10,6 +10,7 @@ class Cap5 extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
 
+		$this->load->model('consistencia/car_model');
 		$this->load->model('consistencia/cap5_model');
 		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/cap8_model');
@@ -97,6 +98,14 @@ class Cap5 extends CI_Controller {
 
 			}
 
+			//Actualiza PCar
+			$car_data['PC_E_3_TEdif'] = $tot_e;
+			$car_data['PC_E_4_TPat'] = $tot_p;
+			$car_data['PC_E_5_TLosa'] = $tot_ld;
+			$car_data['PC_E_6_TCist'] = $tot_cte;
+			$car_data['PC_E_7_TMurCon'] = $tot_mc;
+
+			$this->car_model->update_car($id,$pr,$car_data);
 
 			////////////////////////////////////////////////////////////////cap6
 			//edificaciones
