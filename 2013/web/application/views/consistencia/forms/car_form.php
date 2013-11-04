@@ -359,7 +359,7 @@ $PC_E_2_TPred_NoCol = array(
 	'name'	=> 'PC_E_2_TPred_NoCol',
 	'id'	=> 'PC_E_2_TPred_NoCol',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_3_TEdif = array(
@@ -408,7 +408,7 @@ $pcar_num = array(
 );
 
 
-
+$boss_p_ct = ($pr!=1)? 'hide' : '';
 
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -699,8 +699,8 @@ echo '
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="text-align:center;">1.Total de predios</th>
-										<th style="text-align:center;">2.Total de predios no colindantes</th>
+										<th class="' . $boss_p_ct . '" style="text-align:center;">1.Total de predios</th>
+										<th class="' . $boss_p_ct . '" style="text-align:center;">2.Total de predios no colindantes</th>
 										<th style="text-align:center;">3.Total de edificaciones</th>
 										<th style="text-align:center;">4.Total de patios</th>
 										<th style="text-align:center;">5.Total de lozas deportivas</th>
@@ -710,8 +710,8 @@ echo '
 								</thead>
 								<tbody>
 									<tr>
-										<td>'.form_input($PC_E_1_TPred).'</td>
-										<td>'.form_input($PC_E_2_TPred_NoCol).'</td>
+										<td class="' . $boss_p_ct . '">'.form_input($PC_E_1_TPred).'</td>
+										<td class="' . $boss_p_ct . '">'.form_input($PC_E_2_TPred_NoCol).'</td>
 										<td>'.form_input($PC_E_3_TEdif).'</td>
 										<td>'.form_input($PC_E_4_TPat).'</td>
 										<td>'.form_input($PC_E_5_TLosa).'</td>
@@ -965,7 +965,9 @@ $("#car_f").validate({
 			    		range: [1,5],
 			    		// required: true,			    	
 			    },                    	
-
+			    PC_E_2_TPred_NoCol:{
+			    	required: true,
+			    },
 				PC_D_EvT_dni: {
 			    		digits: true,
 			    		required: true,
