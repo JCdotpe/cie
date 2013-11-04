@@ -753,10 +753,13 @@ $(document).on("change",'.car_res',function() {
 		 else if(tex == 'PC_C_1_Jb_Res_')
 		 	$('#PC_C_1_Jb_Res_O_' + nro).removeAttr('disabled');
 	}else{
-		 if(tex == 'PC_C_1_Et_Res_')
+		 if(tex == 'PC_C_1_Et_Res_'){
+		 	$('#PC_C_1_Et_Res_O_' + nro).val('');
 		 	$('#PC_C_1_Et_Res_O_' + nro).attr('disabled','disabled');
-		 else if(tex == 'PC_C_1_Jb_Res_')
+		 }else if(tex == 'PC_C_1_Jb_Res_'){
+		 	$('#PC_C_1_Jb_Res_O_' + nro).val('');
 		 	$('#PC_C_1_Jb_Res_O_' + nro).attr('disabled','disabled');	
+		 }
 	}
 
 });
