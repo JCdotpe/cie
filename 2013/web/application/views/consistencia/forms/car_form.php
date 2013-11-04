@@ -735,31 +735,31 @@ $(function(){
 //datepicker
 
 
-// $(document).on("change",'.car_res',function() {
-// 		var pre = $(this).attr('id');
-// 		var tex = pre.substring(0,14);
-// 		var nro;
+$(document).on("change",'.car_res',function() {
+		var pre = $(this).attr('id');
+		var tex = pre.substring(0,14);
+		var nro;
 
-// 		if(pre.length == 15){
-// 		 	nro = pre.substring(14,15);
-// 		}
-// 		else if(pre.length == 16){
-// 			nro = pre.substring(14,16);
-// 		}			
+		if(pre.length == 15){
+		 	nro = pre.substring(14,15);
+		}
+		else if(pre.length == 16){
+			nro = pre.substring(14,16);
+		}			
 
-// 	if($(this).val() == 5){
-// 		 if(tex == 'PC_C_1_Et_Res_')
-// 		 	$('#PC_C_1_Et_Res_O_' + nro).removeAttr('disabled');
-// 		 else if(tex == 'PC_C_1_Jb_Res_')
-// 		 	$('#PC_C_1_Jb_Res_O_' + nro).removeAttr('disabled');
-// 	}else{
-// 		 if(tex == 'PC_C_1_Et_Res_')
-// 		 	$('#PC_C_1_Et_Res_O_' + nro).attr('disabled','disabled');
-// 		 else if(tex == 'PC_C_1_Jb_Res_')
-// 		 	$('#PC_C_1_Jb_Res_O_' + nro).attr('disabled','disabled');	
-// 	}
+	if($(this).val() == 5){
+		 if(tex == 'PC_C_1_Et_Res_')
+		 	$('#PC_C_1_Et_Res_O_' + nro).removeAttr('disabled');
+		 else if(tex == 'PC_C_1_Jb_Res_')
+		 	$('#PC_C_1_Jb_Res_O_' + nro).removeAttr('disabled');
+	}else{
+		 if(tex == 'PC_C_1_Et_Res_')
+		 	$('#PC_C_1_Et_Res_O_' + nro).attr('disabled','disabled');
+		 else if(tex == 'PC_C_1_Jb_Res_')
+		 	$('#PC_C_1_Jb_Res_O_' + nro).attr('disabled','disabled');	
+	}
 
-// });
+});
 
 
 //car
@@ -870,11 +870,11 @@ $('#pcar_c_n tr').remove('.entrev');
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input1 embc' + i + ' car_res" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"></div><input type="text" class="input10 embc' + i + '"  maxlength="80" name="PC_C_1_Et_Res_O[]" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + ' car_res" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"></div><input type="text" class="input10 embc' + i + '" disabled="disabled"  maxlength="80" name="PC_C_1_Et_Res_O[]" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hini[]" id="PC_C_1_Jb_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embe' + i + '" maxlength="5" name="PC_C_1_Jb_Hfin[]" id="PC_C_1_Jb_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input1 embc' + i + ' car_res" maxlength="1" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" > - Especifique <div class="help-block error"></div><input type="text" class="input10 embc' + i + '"  maxlength="80" name="PC_C_1_Jb_Res_O[]" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
+	    asd +='<td><input type="text" class="input1 embc' + i + ' car_res" maxlength="1" name="PC_C_1_Jb_Res[]" id="PC_C_1_Jb_Res_' + i + '" value="" > - Especifique <div class="help-block error"></div><input type="text" class="input10 embc' + i + '" disabled="disabled" maxlength="80" name="PC_C_1_Jb_Res_O[]" id="PC_C_1_Jb_Res_O' + '_' + i + '" value="" ></div></td>';
 	    asd += '</tr>';
 	    $('#pcar_c_n > tbody').append(asd);
 	  }
@@ -893,6 +893,10 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 	   $('#PC_C_1_Et_Fecha_Prox_' +  as).val(data.PC_C_1_Et_Fecha_Prox);
 	   $('#PC_C_1_Et_Hora_Prox_' +  as).val(data.PC_C_1_Et_Hora_Prox);
 	   $('#PC_C_1_Et_Res_' +  as).val(data.PC_C_1_Et_Res);
+	   $('#PC_C_1_Et_Res_' +  as).trigger('change');
+	   $('#PC_C_1_Et_Res_O_' +  as).val(data.PC_C_1_Et_Res_O);
+	   $('#PC_C_1_Jb_Res_' +  as).trigger('change');
+	   $('#PC_C_1_Jb_Res_O_' +  as).val(data.PC_C_1_Et_Res_O);
 	   $('#PC_C_1_Jb_Fecha_' +  as).val(data.PC_C_1_Jb_Fecha);
 	   $('#PC_C_1_Jb_Hini_' +  as).val(data.PC_C_1_Jb_Hini);
 	   $('#PC_C_1_Jb_Hfin_' +  as).val(data.PC_C_1_Jb_Hfin);
@@ -942,10 +946,7 @@ $("#car_f").validate({
 			    'PC_C_1_Jb_Res[]':{
 			    		range: [1,5],
 			    		// required: true,			    	
-			    },          
-			    'PC_C_1_Et_Res_O[]'	:{
-			    		required: true,			    	
-			    },          	         	         	          		                                                                          
+			    },                    	         	         	          		                                                                          
 				PC_D_EvT_dni: {
 			    		digits: true,
 			    		required: true,

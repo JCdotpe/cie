@@ -107,7 +107,7 @@ class Car extends CI_Controller {
 
 						foreach ($fields_n as $a=>$b) {
 							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
-								$c_data_n[$b] = ($pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
+								$c_data_n[$b] = (!isset($pre_n[$b][$cc]) || $pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
 							}	
 						}
 					    $this->car_model->insert_car_n($c_data_n);			
