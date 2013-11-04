@@ -2420,6 +2420,7 @@ $(document).ready(function(){
 		for (var i=1; i<=10; i++){
 			$('#tabla_cap6_1 > tbody > tr#P6_1_8ID_'+i).hide();
 			$('#P6_1_8ID_p'+i).val('');
+			$('#P6_1_8ID_p'+i).attr('disabled','disabled');
 		};
 	}
 
@@ -2427,6 +2428,7 @@ $(document).ready(function(){
 
 		for (var i=1; i<=cant_pisos; i++){
 			$('#tabla_cap6_1 > tbody > tr#P6_1_8ID_'+i).show();
+			$('#P6_1_8ID_p'+i).removeAttr('disabled');
 		};
 	}
 
@@ -2595,16 +2597,15 @@ $(document).ready(function(){
 
 	///////////////////////////////////////////////////////////////////////////
 	//Saltos P6
-	// $('#P6_1_6').change(function(event) {
-	// 	if ($(this).val() >= 2){
-	// 		$('#P6_1_7').val('');
-	// 		$('#P6_1_7').attr('readonly','readonly');
-	// 		$('#P6_1_8').focus();
-	// 	}else{
-	// 		$('#P6_1_7').removeAttr('readonly');
-	// 	}
-	// });
-	// $('#P6_1_6').trigger('change');
+	$('#P6_1_6').change(function(event) {
+		if ($(this).val() >= 2){
+			$('#P6_1_7').val('');
+			$('#P6_1_7').attr('disabled','disabled');
+		}else{
+			$('#P6_1_7').removeAttr('disabled');
+		}
+	});
+	$('#P6_1_6').trigger('change');
 
 
 

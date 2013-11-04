@@ -108,13 +108,14 @@ class Cap6 extends CI_Controller {
 			$c_data_8n['Nro_Ed'] = $nroedif;
 			
 			$cc = 0;
-			foreach($P6_1_8n['P6_1_8_Accesibilidad'] as &$z){
-
+			//foreach($P6_1_8n['P6_1_8_Accesibilidad'] as &$z){
+			for ($i=0; $i<10 ; $i++){
+			
 					foreach ($fields_8n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 							
 							if ($b == 'P6_1_8_Accesibilidad')
-								$c_data_8n[$b] = ($P6_1_8n['P6_1_8_Accesibilidad'][$cc] == '') ? 0 : $P6_1_8n['P6_1_8_Accesibilidad'][$cc];
+								$c_data_8n[$b] = (!isset($P6_1_8n['P6_1_8_Accesibilidad'][$cc]) || $P6_1_8n['P6_1_8_Accesibilidad'][$cc] == '') ? 0 : $P6_1_8n['P6_1_8_Accesibilidad'][$cc];
 							
 							if ($b == 'P6_1_8ID')
 								$c_data_8n[$b] = $cc+1;
@@ -125,6 +126,7 @@ class Cap6 extends CI_Controller {
 
 				    $cc++;
 			}
+			//}
 			///////////////////////////////////////////////////////////////////////////
 
 			//P6_1_10N
