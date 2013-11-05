@@ -600,15 +600,15 @@ $P1_C_15_DocPos_Fech = array(
 $P1_C_16_At_Pred = array(
 	'name'	=> 'P1_C_16_At_Pred',
 	'id'	=> 'P1_C_16_At_Pred',
-	'maxlength'	=> 7,
-	'class' => 'input7',	
+	'maxlength'	=> 9,
+	'class' => 'input9',	
 );
 
 $P1_C_17_At_Local = array(
 	'name'	=> 'P1_C_17_At_Local',
 	'id'	=> 'P1_C_17_At_Local',
-	'maxlength'	=> 7,
-	'class' => 'input7',	
+	'maxlength'	=> 9,
+	'class' => 'input9',	
 );
 
 $P1_C_18_Comp = array(
@@ -1339,13 +1339,9 @@ echo '
 										<td>
 											<label>Area en m2</label>
 											<table class="table table-bordered">
-												<tbody><tr>
-													<th style="text-align:center;">Enteros</th>
-													<th style="text-align:center;">Decimales</th>
-												</tr>
+												<tbody>
 												<tr>
 													<td>'.form_input($P1_C_16_At_Pred).' <div class="help-block error"></div></td>
-													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
@@ -1356,13 +1352,9 @@ echo '
 										<td>
 											<label>Area en m2</label>
 											<table class="table table-bordered">
-												<tbody><tr>
-													<th style="text-align:center;">Enteros</th>
-													<th style="text-align:center;">Decimales</th>
-												</tr>
+												<tbody>
 												<tr>
 													<td>'.form_input($P1_C_17_At_Local).' <div class="help-block error"></div></td>
-													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
@@ -1788,7 +1780,7 @@ function gen_cms(n,re){
 		//Trigger Llenar Anexos
 		$('#P1_A_2_9F_CantAnex_' +  as).trigger('change');
 		$('#P1_A_2_9E_NroAnex_' + as).trigger('change');
-		
+
 		as++;
 
 	}); 	
