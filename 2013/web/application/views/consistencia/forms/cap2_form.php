@@ -2211,11 +2211,20 @@ $.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
 
 
 $("#cap2_f").validate({
-		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+		    rules: {           		
+
+				P2_D_2_Energ_CantSum:{
+					range: [0,10],
+					required:true,
+				},
+
 				P2_A_1_Clima: {
 			        required: true,
-			        range: [1,3],
+			        valrango: [1,3,9],
 			    },  
+				P2_B_4_CapAcc:{
+					validName:true,
+				},			    
 				P2_A_2_Lluv: {
 			        required: true,
 			        valrango: [1,3,9],
