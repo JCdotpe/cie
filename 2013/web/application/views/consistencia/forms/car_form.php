@@ -52,9 +52,9 @@ $PC_A_5_NucleoUrb = array(
 	'class' => 'input200',
 );
 
-$ugel = array(
-	'name'	=> 'ugel',
-	'id'	=> 'ugel',
+$PC_A_6_Ugel = array(
+	'name'	=> 'PC_A_6_Ugel',
+	'id'	=> 'PC_A_6_Ugel',
 	'maxlength'	=> 200,
 	'class' => 'input200',
 );
@@ -433,7 +433,7 @@ echo '
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '. form_dropdown('PC_A_3_Dist', $distArray, FALSE,'class="input200" id="PC_A_3_Dist"') .'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($PC_A_4_CentroP).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($PC_A_5_NucleoUrb).'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> '.form_input($ugel).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> '.form_input($PC_A_6_Ugel).'</li>
 								</ul>
 
 						</div>
