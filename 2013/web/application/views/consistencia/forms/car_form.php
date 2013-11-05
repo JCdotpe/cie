@@ -955,7 +955,7 @@ $("#car_f").validate({
 			    	required:true,
 			    },	       
 			    'PC_C_1_Et_Fecha_Prox[]':{
-			    	required:true,
+			    	//required:true,
 			    },  		              
 			    'PC_C_1_Et_Res[]':{
 			    		range: [1,5],
