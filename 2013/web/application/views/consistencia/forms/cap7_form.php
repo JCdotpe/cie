@@ -799,6 +799,8 @@ $(document).ready(function(){
 
 	$('#panel_edificaciones_vii').on('click','.combo_ins1',function(event){
 
+		$('#cap7_f')[0].reset(); //resetea form
+
 		val= $(this).attr('id');
 		array=val.split(".")
 		Get_Edif_VII(array[0]);

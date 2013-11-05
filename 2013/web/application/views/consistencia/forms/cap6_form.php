@@ -273,6 +273,7 @@ $P6_2_7_O = array(
 	'id'	=> 'P6_2_7_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_8 = array(
@@ -286,7 +287,8 @@ $P6_2_8_O = array(
 	'name'	=> 'P6_2_8_O',
 	'id'	=> 'P6_2_8_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_9 = array(
@@ -300,7 +302,8 @@ $P6_2_9_O = array(
 	'name'	=> 'P6_2_9_O',
 	'id'	=> 'P6_2_9_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_10 = array(
@@ -314,7 +317,8 @@ $P6_2_10_O = array(
 	'name'	=> 'P6_2_10_O',
 	'id'	=> 'P6_2_10_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_11 = array(
@@ -328,7 +332,8 @@ $P6_2_11_O = array(
 	'name'	=> 'P6_2_11_O',
 	'id'	=> 'P6_2_11_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_12 = array(
@@ -342,7 +347,8 @@ $P6_2_12_O = array(
 	'name'	=> 'P6_2_12_O',
 	'id'	=> 'P6_2_12_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_13 = array(
@@ -356,7 +362,8 @@ $P6_2_13_O = array(
 	'name'	=> 'P6_2_13_O',
 	'id'	=> 'P6_2_13_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_1 = array(
@@ -433,7 +440,8 @@ $P6_2_15_O = array(
 	'name'	=> 'P6_2_15_O',
 	'id'	=> 'P6_2_15_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',		
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_15a = array(
@@ -587,7 +595,8 @@ $P6_2_16e_O = array(
 	'name'	=> 'P6_2_16e_O',
 	'id'	=> 'P6_2_16e_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',			
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_16f = array(
@@ -769,7 +778,8 @@ $P6_2_18e_O = array(
 	'name'	=> 'P6_2_18e_O',
 	'id'	=> 'P6_2_18e_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',		
+	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_18f = array(
@@ -1599,7 +1609,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_9).'<div class="help-block error"></div>
+			  	    						'.form_input($P6_2_9).' '.form_input($P6_2_9_O).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso7">
@@ -2607,48 +2617,111 @@ $(document).ready(function(){
 	});
 	$('#P6_1_6').trigger('change');
 
-	
-	// $('#P6_2_5').change(function(event) {
 		
-	// 	var dato = $(this).val();
+	$('#P6_2_5').change(function(event) {
+		
+		var valor=$(this).val();
+		P6_2_5_remove();
+		
+		if (valor==1){
+			$('#P6_2_6').attr('disabled','disabled');
+			$('#P6_2_7').attr('disabled','disabled');
+			$('#P6_2_7_O').attr('disabled','disabled');
+			$('#P6_2_8').attr('disabled','disabled');
+			$('#P6_2_9').attr('disabled','disabled');
+			$('#P6_2_9_O').attr('disabled','disabled');
+			$('#P6_2_10').attr('disabled','disabled');
+			$('#P6_2_11').attr('disabled','disabled');
+			$('#P6_2_12').attr('disabled','disabled');
+			$('#P6_2_13').attr('disabled','disabled');
+			$('#P6_2_13_O').attr('disabled','disabled');
+			$('#P6_2_14_1').attr('disabled','disabled');
+			$('#P6_2_14_2').attr('disabled','disabled');
+			$('#P6_2_14_3').attr('disabled','disabled');
+			$('#P6_2_14_4').attr('disabled','disabled');
+			$('#P6_2_14_5').attr('disabled','disabled');
+			$('#P6_2_14_6').attr('disabled','disabled');
+			$('#P6_2_14a').attr('disabled','disabled');
+			$('#P6_2_14b_1').attr('disabled','disabled');
+			$('#P6_2_14b_2').attr('disabled','disabled');
+		}else if (valor==2){
+			//nothing
+		}else if (valor==3){
+			$('#P6_2_6').attr('disabled','disabled');
+			$('#P6_2_7').attr('disabled','disabled');
+			$('#P6_2_7_O').attr('disabled','disabled');
+			$('#P6_2_8').attr('disabled','disabled');
+			$('#P6_2_9').attr('disabled','disabled');
+			$('#P6_2_9_O').attr('disabled','disabled');
+			$('#P6_2_10').attr('disabled','disabled');
+		}else if (valor==4){
+			$('#P6_2_6').attr('disabled','disabled');
+			$('#P6_2_7').attr('disabled','disabled');
+			$('#P6_2_7_O').attr('disabled','disabled');
+			$('#P6_2_8').attr('disabled','disabled');
+			$('#P6_2_9').attr('disabled','disabled');
+			$('#P6_2_9_O').attr('disabled','disabled');
+			$('#P6_2_10').attr('disabled','disabled');
+			$('#P6_2_11').attr('disabled','disabled');
+		}else if (valor==5){
+			$('#P6_2_6').attr('disabled','disabled');
+			$('#P6_2_7').attr('disabled','disabled');
+			$('#P6_2_7_O').attr('disabled','disabled');
+			$('#P6_2_8').attr('disabled','disabled');
+			$('#P6_2_9').attr('disabled','disabled');
+			$('#P6_2_9_O').attr('disabled','disabled');
+			$('#P6_2_10').attr('disabled','disabled');
+			$('#P6_2_11').attr('disabled','disabled');
+			$('#P6_2_12').attr('disabled','disabled');
+		}
+	});
+	$('#P6_2_5').trigger('change');
 
-	// 	switch(dato){
-	// 		case 1:
-	// 			$('#P6_2_6').attr('disabled','disabled');
-	// 			$('#P6_2_7').attr('disabled','disabled');
-	// 			$('#P6_2_8').attr('disabled','disabled');
-	// 			$('#P6_2_9').attr('disabled','disabled');
-	// 			$('#P6_2_10').attr('disabled','disabled');
-	// 			$('#P6_2_11').attr('disabled','disabled');
-	// 			$('#P6_2_12').attr('disabled','disabled');
-	// 			$('#P6_2_13').attr('disabled','disabled');
-	// 			$('#P6_2_14_1').attr('disabled','disabled');
-	// 			$('#P6_2_14_2').attr('disabled','disabled');
-	// 			$('#P6_2_14_3').attr('disabled','disabled');	
-	// 			break;
+	function P6_2_5_remove(){
+		$('#P6_2_6').removeAttr('disabled');
+		$('#P6_2_7').removeAttr('disabled');
+		$('#P6_2_7_O').removeAttr('disabled');
+		$('#P6_2_8').removeAttr('disabled');
+		$('#P6_2_9').removeAttr('disabled');
+		$('#P6_2_9_O').removeAttr('disabled');
+		$('#P6_2_10').removeAttr('disabled');
+		$('#P6_2_11').removeAttr('disabled');
+		$('#P6_2_12').removeAttr('disabled');
+		$('#P6_2_13').removeAttr('disabled');
+		$('#P6_2_13_O').removeAttr('disabled');
+		$('#P6_2_14_1').removeAttr('disabled');
+		$('#P6_2_14_2').removeAttr('disabled');
+		$('#P6_2_14_3').removeAttr('disabled');
+		$('#P6_2_14_4').removeAttr('disabled');
+		$('#P6_2_14_5').removeAttr('disabled');
+		$('#P6_2_14_6').removeAttr('disabled');
+		$('#P6_2_14a').removeAttr('disabled');
+		$('#P6_2_14b_1').removeAttr('disabled');
+		$('#P6_2_14b_2').removeAttr('disabled');
 
-	// 		case 2:
-	// 			break;
+		$('#P6_2_6').val('');
+		$('#P6_2_7').val('');
+		$('#P6_2_7_O').val('');
+		$('#P6_2_8').val('');
+		$('#P6_2_9').val('');
+		$('#P6_2_9_O').val('');
+		$('#P6_2_10').val('');
+		$('#P6_2_11').val('');
+		$('#P6_2_12').val('');
+		$('#P6_2_13').val('');
+		$('#P6_2_13_O').val('');
+		$('#P6_2_14_1').val('');
+		$('#P6_2_14_2').val('');
+		$('#P6_2_14_3').val('');
+		$('#P6_2_14_4').val('');
+		$('#P6_2_14_5').val('');
+		$('#P6_2_14_6').val('');
+		$('#P6_2_14a').val('');
+		$('#P6_2_14b_1').val('');
+		$('#P6_2_14b_2').val('');
+	}
 
-	// 		case 3:
-	// 			break;
-
-	// 		case 4:
-	// 			break;
-
-	// 		case 5:
-	// 			break;
-
-	// 	}
-
-	// 	if ($(this).val() >= 2){
-	// 		$('#P6_1_7').val('');
-	// 		$('#P6_1_7').attr('disabled','disabled');
-	// 	}else{
-	// 		$('#P6_1_7').removeAttr('disabled');
-	// 	}
-	// });
-	// $('#P6_2_5').trigger('change');
+	
 
 
 

@@ -337,7 +337,7 @@ $(document).ready(function(){
 			for(var i=1; i<=ahua;i++){
 				asd += '<tr class="lind">';
 				asd	+='<td>';
-				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="2" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -388,7 +388,7 @@ $(document).ready(function(){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
-				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="2" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6 long" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -438,7 +438,7 @@ $(document).ready(function(){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
-				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="2" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -487,7 +487,7 @@ $(document).ready(function(){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
-				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
+				asd +='<input type="text" class="input1" readonly="true" maxlength="2" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" readonly="true" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input6" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
