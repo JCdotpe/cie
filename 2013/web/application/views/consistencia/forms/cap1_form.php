@@ -2189,10 +2189,10 @@ $("#predio_i").validate({
 			        required:false,
 			    }, 		
 				P1_B_3_8_At_Pred: {
-			        digits: true,
+			        number: true,
 			    }, 			
 				P1_B_3_9_At_Local: {
-			        digits: true,
+			        number: true,
 			    }, 		
 				P1_B_3_10_Comp: {
 			        digits: true,
