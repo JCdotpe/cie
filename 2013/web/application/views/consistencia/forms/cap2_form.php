@@ -2211,8 +2211,28 @@ $.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
 
 
 $("#cap2_f").validate({
-		    rules: {           		
-
+		    rules: {      
+		    	P2_G_2_Otro:{
+		    		required:true,
+		    	},
+				P2_F_1_ElimBas_O:{
+		    		required:true,
+		    	},
+		    	P2_D_5_Cod_O:{
+		    		required:true,
+		    	},
+		    	P2_D_1_Cod_O:{
+		    		required:true,
+		    	},
+				P2_B_12_Cod_O:{
+		    		required:true,
+		    	},
+		    	P2_B_2_Suelo_O:{
+		    		required:true,
+		    	},
+		    	P2_B_11_Cod_O:{
+		    		required:true,
+		    	},
 				P2_D_2_Energ_CantSum:{
 					range: [0,10],
 					required:true,
