@@ -1033,14 +1033,7 @@ echo '
 										</td>
 										<td>
 											<label>Area en m2</label>
-											<table class="table table-bordered">
-												<tbody><tr>
-													<th style="text-align:center;">Enteros</th>
-												</tr>
-												<tr>
-													<td>'.form_input($P1_B_3_8_At_Pred).' <div class="help-block error"></div></td>
-												</tr>
-											</tbody></table>
+											'.form_input($P1_B_3_8_At_Pred).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1050,15 +1043,8 @@ echo '
 
 										</td>
 										<td>
-											<label>Area en m2</label>
-											<table class="table table-bordered">
-												<tbody><tr>
-													<th style="text-align:center;">Enteros</th>
-												</tr>
-												<tr>
-													<td>'.form_input($P1_B_3_9_At_Local).' <div class="help-block error"></div></td>
-												</tr>
-											</tbody></table>
+											<label>Area en m2</label> 
+											'.form_input($P1_B_3_9_At_Local).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
