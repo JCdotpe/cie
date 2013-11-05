@@ -2160,7 +2160,7 @@ $("#cap2_f").validate({
 			        valrango: [1,6,9],
 			    }, 	
 				P2_B_3_Prof: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_B_5_1: {
 			        range: [0,1],

@@ -144,7 +144,7 @@ $P1_A_2_2_Direc = array(
 $P1_A_2_3_DocTip = array(
 	'name'	=> 'P1_A_2_3_DocTip',
 	'id'	=> 'P1_A_2_3_DocTip',
-	'maxlength'	=> 8,
+	'maxlength'	=> 1,
 	'class' => 'input8',	
 );
 
@@ -339,7 +339,7 @@ $P1_B_3_7_DocPos_Fech = array(
 $P1_B_3_8_At_Pred = array(
 	'name'	=> 'P1_B_3_8_At_Pred',
 	'id'	=> 'P1_B_3_8_At_Pred',
-	'maxlength'	=> 7,
+	'maxlength'	=> 9,
 	'class' => 'input7',
 );
 
@@ -686,7 +686,7 @@ echo '
 													<td>
 														<strong>2.1¿Cuál es el nombre de la institución educativa?</strong>
 													</td>
-													<td>'.form_input($P1_A_2_1_NomIE).'</td>
+													<td>'.form_input($P1_A_2_1_NomIE).'<div class="help-block error"></div></td>
 												</tr>
 												<tr>
 													<td>
@@ -700,11 +700,11 @@ echo '
 													</td>
 													<td>
 														<div class="panel">
-															<label>D.N.I.</label>
+															<label>Tipo Documento</label>
 															'.form_input($P1_A_2_3_DocTip).' <div class="help-block error"></div>
 														</div>
 														<div class="panel">
-															<label>Carnet del Extranjero</label>
+															<label>NRO D.N.I. o Carnet del Extranjero</label>
 															'.form_input($P1_A_2_3_DocNro).' <div class="help-block error"></div>
 														</div>
 													</td>
@@ -1830,10 +1830,12 @@ $(document).on("click",'.ienro',function() {
 $("#cap1_ie").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 				P1_A_2_3_DocTip: {
-			        digits: true,
-			    },  
+					valrango: [1,2,9],
+			    },  		    
 				P1_A_2_3_DocNro: {
-			        digits: true,
+		            digits:true,
+		            valrango: [1,9999999998,9999999999],
+		            maxlength: 10, 
 			    },  
 				P1_A_2_4_TelfIE: {
 			        digits: true,
