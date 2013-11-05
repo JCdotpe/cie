@@ -784,7 +784,7 @@ $(document).ready(function(){
 					var asd ='<div class="btn-group">';
 						asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 						asd+='<ul class="dropdown-menu">';
-					if (datos.P5_Tot_E > 0)
+					if (datos.P5_Tot_E > 0 && datos.P5_Tot_E < 99)
 					{
 						for (var i=1; i<=datos.P5_Tot_E; i++) {
 							asd+='<li id="' + i +'.cmb7_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
@@ -873,7 +873,7 @@ $(document).ready(function(){
 			},
 			P7_1_3:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 			P7_1_4:{
 				digits:true,

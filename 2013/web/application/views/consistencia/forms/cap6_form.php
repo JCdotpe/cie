@@ -27,7 +27,7 @@ $Nro_Ed = array(
 $P6_1_3 = array(
 	'name'	=> 'P6_1_3',
 	'id'	=> 'P6_1_3',
-	'maxlength'	=> 7,
+	'maxlength'	=> 6,
 	'class' => 'input7',
 );
 
@@ -1579,7 +1579,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_7).'<div class="help-block error"></div>
+			  	    						'.form_input($P6_2_7).' '.form_input($P6_2_7_O).'<div class="help-block error"></div>
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso5">
@@ -2400,7 +2400,7 @@ $(document).ready(function(){
 				var asd ='<div class="btn-group">';
 					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 					asd+='<ul class="dropdown-menu">';
-				if (datos.P5_Tot_E > 0)
+				if (datos.P5_Tot_E > 0 && datos.P5_Tot_E < 99)
 				{
 					for (var i=1; i<=datos.P5_Tot_E; i++) {
 						asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
@@ -2477,7 +2477,7 @@ $(document).ready(function(){
 			Nro_Ed_VI = $('#Nro_Ed_VI').val();
 			Get_Edif_VI_8n(Nro_Ed_VI);
 			mostrar_preg_8(ahua);
-		}else if(ahua==''){
+		}else if(ahua=='' || ahua==99){
 			//
 		}else{
 			alert('10 Pisos máximo');
@@ -2624,43 +2624,49 @@ $(document).ready(function(){
 				range:[1,99],
 				required: true,
 			},
+			P6_1_3:{
+				digits:true,
+				valrango:[1,999998,999999],
+				required: true,
+			},
 			P6_1_4:{
 				digits:true,
-				range:[1,10],
+				valrango:[1,98,99],
 				required: true,
 			},
 			P6_1_5:{
 				digits:true,
-				range:[1,2],
+				valrango:[1,2,9],
 				required: true,
 			},
 			P6_1_6:{
 				digits:true,
-				range:[1,2],
+				valrango:[1,2,9],
 				required: true,
 			},
 			P6_1_7:{
 				digits:true,
-				range:[1,2],
-				required: true,
+				valrango:[1,2,9],
 			},
 			P6_1_8:{
 				digits:true,
-				range:[1,10],
+				valrango:[1,10,99],
 				required: true,
 			},
 			'P6_1_8_Accesibilidad[]':{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_1_9:{
 				digits:true,
-				range:[1,14],
+				valrango:[1,14,99],
 				required: true,
 			},
 			'P6_1_10_e[]':{
 				digits:true,
-				range:[0,1],
+				maxlength: 1,
+				valrango:[0,1,9],
+				required: true,
 			},
 
 			//Seccion B
@@ -2676,35 +2682,36 @@ $(document).ready(function(){
 			},
 			P6_2_3:{
 				digits:true,
-				range:[1,2],
+				valrango:[1,2,9],
 			},
 			'P6_2_4Mod[]':{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
+				required:true,
 			},
 			'P6_2_4Turno_M[]':{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			'P6_2_4Turno_T[]':{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			'P6_2_4Turno_N[]':{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_5:{
 				digits:true,
-				range:[1,5],
+				valrango:[1,5,9],
 			},
 			P6_2_6:{
 				digits:true,
-				range:[1,7],
+				valrango:[1,7,9],
 			},
 			P6_2_7:{
 				digits:true,
-				range:[1,7],
+				valrango:[1,7,9],
 			},
 			P6_2_8:{
 				digits:true,

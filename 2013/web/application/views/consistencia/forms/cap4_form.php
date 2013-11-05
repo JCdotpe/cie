@@ -332,14 +332,14 @@ $(document).ready(function(){
 
 		$('#lindero_frente tr').remove('.lind');
 		var ahua = $(this).val();
-		if(ahua > 0 && ahua<=99){
+		if(ahua > 0 && ahua<=98){
 			var asd = '';
 			for(var i=1; i<=ahua;i++){
 				asd += '<tr class="lind">';
 				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t1_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t1_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6 long" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t1_' + i + '" value=""><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t1_' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t1_' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t1_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -347,7 +347,7 @@ $(document).ready(function(){
 				asd += '</tr>';				
 			}
 			$('#lindero_frente > tbody').html(asd);
-		}else if(ahua==''){
+		}else if(ahua=='' || ahua==99){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -384,13 +384,13 @@ $(document).ready(function(){
 
 		$('#lindero_derecha tr').remove('.lind');
 		var ahua = $(this).val();
-		if(ahua > 0 && ahua<=99){
+		if(ahua > 0 && ahua<=98){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t2_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t2_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6 long" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6 long" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t2_' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t2_' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t2_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -398,7 +398,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_derecha > tbody').append(asd);
 			}
-		}else if(ahua==''){
+		}else if(ahua=='' || ahua==99){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -434,13 +434,13 @@ $(document).ready(function(){
 
 		$('#lindero_fondo tr').remove('.lind');
 		var ahua = $(this).val();
-		if(ahua > 0 && ahua<=99){
+		if(ahua > 0 && ahua<=98){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t3_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t3_' + i + '" value="" > - <input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t3_' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t3_' + i + '" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t3_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -448,7 +448,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_fondo > tbody').append(asd);
 			}
-		}else if(ahua==''){
+		}else if(ahua=='' || ahua==99){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -483,13 +483,13 @@ $(document).ready(function(){
 
 		$('#lindero_izquierda tr').remove('.lind');
 		var ahua = $(this).val();
-		if(ahua > 0 && ahua<=99){
+		if(ahua > 0 && ahua<=98){
 			for(var i=1; i<=ahua;i++){
 				var asd = '<tr class="lind">';
 				asd	+='<td>';
 				asd +='<input type="text" class="input1" readonly="true" maxlength="1" name="P4_2_1A_NroTramo[]" id="P4_2_1A_NroTramo' + '_t4_' + i + '" value="' + i + '" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input2" readonly="true" maxlength="2" name="P4_2_1A_i[]" id="P4_2_1A_i' + '_t4_' + i + '" value="" > - <input type="text" readonly="true" class="input2" maxlength="2" name="P4_2_1A_f[]" id="P4_2_1A_f' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
-				asd +='<td><input type="text" class="input6" maxlength="6" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
+				asd +='<td><input type="text" class="input6" maxlength="4" name="P4_2_1B_LongTramo[]" id="P4_2_1B_LongTramo' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco" maxlength="1" name="P4_2_1C_Cerco[]" id="P4_2_1C_Cerco' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t4_' + i + '" maxlength="1" name="P4_2_1D_Estruc[]" id="P4_2_1D_Estruc' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
 				asd +='<td><input type="text" class="input1 cerco' + '_t4_' + i +'" maxlength="1" name="P4_2_1E_EstCons[]" id="P4_2_1E_EstCons' + '_t4_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -497,7 +497,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_izquierda > tbody').append(asd);
 			}
-		}else if(ahua==''){
+		}else if(ahua=='' || ahua==99){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -573,54 +573,52 @@ $(document).ready(function(){
 		    rules: {
 				P4_2_CantTram_Lfrente: {
 					digits:true,
-					range:[1,99],
+					valrango:[1,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lderecho: {
 					digits:true,
-					range:[1,99],
+					valrango:[1,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lfondo: {
 					digits:true,
-					range:[1,99],
+					range:[1,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lizq: {
 					digits:true,
-					range:[1,99],
+					range:[1,98,99],
 					required: true,
 				},
 				'P4_2_1A_i[]':{
 					digits:true,
 					range:[1,99],
-					required: true,
 				},
 				'P4_2_1A_f[]':{
 					digits:true,
 					range:[1,99],
-					required: true,
 				},
 				'P4_2_1B_LongTramo[]':{
 					digits:true,
-					range:[1,9999],
-					required: true,
+					valrango:[1,9998,9999],
+					required:true,
 				},
 				'P4_2_1C_Cerco[]':{
 					digits:true,
-					range:[1,2],
+					valrango:[1,2,9],
 				},
 				'P4_2_1D_Estruc[]':{
 					digits:true,
-					range:[1,4],
+					valrango:[1,4,9],
 				},
 				'P4_2_1E_EstCons[]':{
 					digits:true,
-					range:[1,4],
+					valrango:[1,4,9],
 				},
 				'P4_2_1F_Opin[]':{
 					digits:true,
-					range:[1,3],
+					valrango:[1,3,9],
 				},
 
 		    },

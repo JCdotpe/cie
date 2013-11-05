@@ -61,7 +61,8 @@ $P5_Tot_R = array(
 $P5_Opin = array(
 	'name'	=> 'P5_Opin',
 	'id'	=> 'P5_Opin',
-	'maxlength'	=> 2,
+	'style' => 'text-transform: uppercase;',
+	'maxlength'	=> 1,
 	'class' => 'input2',			
 );
 
@@ -168,9 +169,9 @@ echo '
 		  	    				</tr>			  	    				
 		  	    			</tbody></table>
 
-		  	    			<h3>Pisos</h3>	  	    				
+							<h3>Pisos</h3>
 
-	  	    				<p>Número de pisos: '.form_input($P5_cantNroPiso).'<div class="help-block error"></div></p>
+							<div><p style="display:inline;">Número de pisos: </p> '.form_input($P5_cantNroPiso).'<div class="help-block error"></div> </div>
 
 	  	    				<table id="cap5_detalle" class="table table-bordered">
 
@@ -199,6 +200,9 @@ $('#P5_cantNroPiso').change(function(event) {
 	$('#cap_5 table').remove('#cap5_detalle');
 	var ahua = $(this).val();
 	var edi = document.getElementById('P5_Tot_E').value;
+	
+	if (edi==99 || ahua==99) return false;
+
 	for(var i=1; i<=ahua;i++){
 		var asd = '<table id="cap5_detalle" class="table table-bordered">';
 		asd+='<thead><tr>';
@@ -245,6 +249,12 @@ $('#P5_Tot_E').change(function(event) {
 	$('#cap5_detalle > tbody > tr').remove('.detalle');
 	var ahua = $(this).val();
 	var n_pisos = $('#P5_cantNroPiso').val();
+
+	if (ahua==99){
+		$('#cap_5 table').remove('#cap5_detalle');
+		$('#P5_cantNroPiso').val('');
+		return false;	
+	}
 	
 	for(var i=1; i<=n_pisos;i++){
 		var asd = "";
@@ -273,40 +283,39 @@ $("#cap5_f").validate({
 	    rules: {
 			P5_Tot_E: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 				required: true,
 			},
 			P5_Tot_P: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Tot_LD: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Tot_CTE: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Tot_MC: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Tot_P1: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Tot_R: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 			},
 			P5_Opin: {
-				digits:true,
-				range:[0,99],
+				valtexto:['M','R','D','E',9],
 			},
 			P5_cantNroPiso: {
 				digits:true,
-				range:[0,99],
+				valrango:[1,98,99],
 				required: true,
 			},
 			'P5_TotAmb[]':{

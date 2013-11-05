@@ -245,6 +245,13 @@ $.validator.addMethod("valzero", function(value, element, arg){
    return flag;
 }, "Seleccione un valor entre {0}, {1} o {2}, {3}, {4}");
 
+$.validator.addMethod("valtexto", function(value, element,arg){
+   var flag = false;
+       if(value.toUpperCase() == arg[0] || value.toUpperCase() == arg[1] || value.toUpperCase() == arg[2] || value.toUpperCase() == arg[3] || value.toUpperCase() == arg[4])
+         flag = true;
+  return flag;
+}, "Seleccione un valor entre {0}, {1} o {2}, {3}, {4}");
+
 
 
 // jQuery Validator

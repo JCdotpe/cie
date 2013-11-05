@@ -312,16 +312,16 @@ $(document).ready(function(){
 				var asd ='<div class="btn-group">';
 					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 					asd+='<ul class="dropdown-menu">';
-				if (datos.P5_Tot_P > 0){
+				if (datos.P5_Tot_P > 0 && datos.P5_Tot_P < 99){
 					asd+='<li id="' + datos.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
 				}
-				if (datos.P5_Tot_LD > 0){
+				if (datos.P5_Tot_LD > 0 && datos.P5_Tot_LD < 99){
 					asd+='<li id="' + datos.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
 				}
-				if (datos.P5_Tot_CTE > 0){
+				if (datos.P5_Tot_CTE > 0 && datos.P5_Tot_CTE < 99){
 					asd+='<li id="' + datos.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
 				}
-				if (datos.P5_Tot_MC > 0){
+				if (datos.P5_Tot_MC > 0 && datos.P5_Tot_MC < 99){
 					asd+='<li id="' + datos.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
 				}
 				asd+='</ul>';
