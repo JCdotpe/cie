@@ -1544,7 +1544,8 @@ $(document).on("change",'.p1cme',function() {
 
 //print btn cmod
 function btncmod(n){
-	$('#gcmod').empty();	
+	$('#gcmod').empty();
+	$('#gaxs').empty();
 	var gcmod_str = '';
 	for(var i=1; i<=n; i++){
 		active = (i==1)? 'class="btn cmbnro active"' : 'class="btn cmbnro"';
