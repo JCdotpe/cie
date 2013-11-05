@@ -2152,7 +2152,7 @@ $("#predio_i").validate({
 			    }, 		
 				P1_B_3_6_DocPos: {
 			        digits: true,
-			        range:[1,10],
+			        valrango:[1,10,99],
 			    }, 		
 				P1_B_3_8_At_Pred: {
 			        digits: true,
