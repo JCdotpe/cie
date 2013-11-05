@@ -348,7 +348,7 @@ $P6_2_12_O = array(
 $P6_2_13 = array(
 	'name'	=> 'P6_2_13',
 	'id'	=> 'P6_2_13',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
 	'class' => 'input1',	
 );
 
@@ -2606,6 +2606,49 @@ $(document).ready(function(){
 		}
 	});
 	$('#P6_1_6').trigger('change');
+
+	
+	// $('#P6_2_5').change(function(event) {
+		
+	// 	var dato = $(this).val();
+
+	// 	switch(dato){
+	// 		case 1:
+	// 			$('#P6_2_6').attr('disabled','disabled');
+	// 			$('#P6_2_7').attr('disabled','disabled');
+	// 			$('#P6_2_8').attr('disabled','disabled');
+	// 			$('#P6_2_9').attr('disabled','disabled');
+	// 			$('#P6_2_10').attr('disabled','disabled');
+	// 			$('#P6_2_11').attr('disabled','disabled');
+	// 			$('#P6_2_12').attr('disabled','disabled');
+	// 			$('#P6_2_13').attr('disabled','disabled');
+	// 			$('#P6_2_14_1').attr('disabled','disabled');
+	// 			$('#P6_2_14_2').attr('disabled','disabled');
+	// 			$('#P6_2_14_3').attr('disabled','disabled');	
+	// 			break;
+
+	// 		case 2:
+	// 			break;
+
+	// 		case 3:
+	// 			break;
+
+	// 		case 4:
+	// 			break;
+
+	// 		case 5:
+	// 			break;
+
+	// 	}
+
+	// 	if ($(this).val() >= 2){
+	// 		$('#P6_1_7').val('');
+	// 		$('#P6_1_7').attr('disabled','disabled');
+	// 	}else{
+	// 		$('#P6_1_7').removeAttr('disabled');
+	// 	}
+	// });
+	// $('#P6_2_5').trigger('change');
 
 
 
