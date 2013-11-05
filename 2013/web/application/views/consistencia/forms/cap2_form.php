@@ -2109,7 +2109,7 @@ $("#cap2_f").validate({
 			    },  
 				P2_A_2_Lluv: {
 			        required: true,
-			        range: [1,3,9],
+			        valrango: [1,3,9],
 			    },  		
 				P2_A_2A_Lluv_Mini: {
 			        required: true,
