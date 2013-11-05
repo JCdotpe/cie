@@ -1426,6 +1426,9 @@ echo form_close();
 $(function(){
 
 
+
+
+
 $('#P1_B_3_6_DocPos').change(function(event) {
 
 	if($(this).val() == 9){
@@ -1527,6 +1530,23 @@ $(document).on("change",'.anx',function() {
 			}); 
 		}
 	});  
+
+});
+
+//valid cm
+$(document).on("change",'.p1cme',function() {
+		var pre = $(this).attr('id');
+		var nro = pre.substring(18,19);
+
+	if($(this).val() == 0){
+		 	$('#P1_A_2_9F_CantAnex_' + nro).removeAttr('readonly');
+		 	$('#P1_A_2_9F_CantAnex_' + nro).trigger('change');		 	
+	}else{
+		 	$('#P1_A_2_9F_CantAnex_' + nro).val('');
+		 	$('#P1_A_2_9F_CantAnex_' + nro).attr('readonly','readonly');
+		 	$('#P1_A_2_9F_CantAnex_' + nro).trigger('change');		 	
+		 	
+	}
 
 });
 
@@ -1733,7 +1753,7 @@ function gen_cms(n,re){
 		cm_str += '<input id="P1_A_2_9B_CodLocal_' + i + '" style="margin-left: 10px; margin-right:20px" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="2" value="" name="P1_A_2_9C_Nivel[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9D_Car_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car[]"> <div class="help-block error"></div>';
-		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" style="margin-left: 10px; margin-right:42px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" style="margin-left: 10px; margin-right:42px" class="input1 p1cme" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" style="margin-left: 10px; margin-right:34px" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9G_T1_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" style="margin-left: 10px; margin-right:15px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]"> <div class="help-block error"></div>';
@@ -1758,6 +1778,7 @@ function gen_cms(n,re){
 		$('#P1_A_2_9F_CantAnex_' +  as).val(data.P1_A_2_9F_CantAnex);
 		//data
 		$('#P1_A_2_9F_CantAnex_' +  as).attr('data-cm', data.P1_A_2_9_NroCMod);
+		
 		$('#P1_A_2_9G_T1_Talu_' +  as).val(data.P1_A_2_9G_T1_Talu);
 		$('#P1_A_2_9H_T1_Taul_' +  as).val(data.P1_A_2_9H_T1_Taul);
 		$('#P1_A_2_9I_T2_Talu_' +  as).val(data.P1_A_2_9I_T2_Talu);
@@ -1766,6 +1787,8 @@ function gen_cms(n,re){
 		$('#P1_A_2_9L_T3_Taul_' +  as).val(data.P1_A_2_9L_T3_Taul);
 		//Trigger Llenar Anexos
 		$('#P1_A_2_9F_CantAnex_' +  as).trigger('change');
+		$('#P1_A_2_9E_NroAnex_' + as).trigger('change');
+		
 		as++;
 
 	}); 	
