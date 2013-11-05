@@ -2145,7 +2145,7 @@ $("#cap2_f").validate({
 			        range: [1,2],
 			    }, 				    	    			         				    	    			    	    
 				P2_A_5A_Vend_Tip: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_A_5B_Vend_Mini: {
 			        range: [1,12],
@@ -2157,7 +2157,7 @@ $("#cap2_f").validate({
 			        range: [1,4],
 			    }, 		
 				P2_B_2_Suelo: {
-			        range: [1,6],
+			        valrango: [1,6,9],
 			    }, 	
 				P2_B_3_Prof: {
 			        range: [1,2],
