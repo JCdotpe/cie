@@ -281,6 +281,7 @@ $P1_B_3_1_Prop_O = array(
 	'name'	=> 'P1_B_3_1_Prop_O',
 	'id'	=> 'P1_B_3_1_Prop_O',
 	'maxlength'	=> 255,
+	'disabled' => 'disabled',
 );
 
 $P1_B_3_2_AntReg_Cod = array(
@@ -307,6 +308,7 @@ $P1_B_3_4_Tipo_TProp_O = array(
 	'name'	=> 'P1_B_3_4_Tipo_TProp_O',
 	'id'	=> 'P1_B_3_4_Tipo_TProp_O',
 	'maxlength'	=> 255,
+	'disabled' => 'disabled',
 );
 
 $P1_B_3_5_FecTit = array(
@@ -328,6 +330,7 @@ $P1_B_3_6_DocPos_O = array(
 	'name'	=> 'P1_B_3_6_DocPos_O',
 	'id'	=> 'P1_B_3_6_DocPos_O',
 	'maxlength'	=> 255,
+	'disabled' => 'disabled',
 );
 
 $P1_B_3_7_DocPos_Fech = array(
@@ -570,7 +573,8 @@ $P1_C_13_FecTit = array(
 	'name'	=> 'P1_C_13_FecTit',
 	'id'	=> 'P1_C_13_FecTit',
 	'maxlength'	=> 10,
-	'class' => 'input10',	
+	'class' => 'input10 fechap',	
+	'readonly' => 'readonly',	
 );
 
 $P1_C_14_DocPos = array(
@@ -589,7 +593,8 @@ $P1_C_15_DocPos_Fech = array(
 	'name'	=> 'P1_C_15_DocPos_Fech',
 	'id'	=> 'P1_C_15_DocPos_Fech',
 	'maxlength'	=> 10,
-	'class' => 'input10',	
+	'class' => 'input10 fechap',	
+	'readonly' => 'readonly',	
 );
 
 $P1_C_16_At_Pred = array(
@@ -1437,6 +1442,42 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
+
+
+$('#P1_B_3_6_DocPos').change(function(event) {
+
+	if($(this).val() == 9){
+		$('#P1_B_3_6_DocPos_O').removeAttr('disabled');
+	}else{
+		$('#P1_B_3_6_DocPos_O').val('');
+		$('#P1_B_3_6_DocPos_O').attr('disabled','disabled');
+	}
+
+});
+
+
+$('#P1_B_3_4_Tipo_TProp').change(function(event) {
+
+	if($(this).val() == 9){
+		$('#P1_B_3_4_Tipo_TProp_O').removeAttr('disabled');
+	}else{
+		$('#P1_B_3_4_Tipo_TProp_O').val('');
+		$('#P1_B_3_4_Tipo_TProp_O').attr('disabled','disabled');
+	}
+
+});
+
+$('#P1_B_3_1_Prop').change(function(event) {
+
+	if($(this).val() == 5 || $(this).val() == 4){
+		$('#P1_B_3_1_Prop_O').removeAttr('disabled');
+	}else{
+		$('#P1_B_3_1_Prop_O').val('');
+		$('#P1_B_3_1_Prop_O').attr('disabled','disabled');
+	}
+
+});
+
 
 
 //print btn ies
