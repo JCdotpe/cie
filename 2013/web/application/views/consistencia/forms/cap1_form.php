@@ -1546,6 +1546,8 @@ $(document).on("change",'.p1cme',function() {
 function btncmod(n){
 	$('#gcmod').empty();
 	$('#gaxs').empty();
+	$('#cap1_ax').hide();
+	$('#cap1_ax')[0].reset();	
 	var gcmod_str = '';
 	for(var i=1; i<=n; i++){
 		active = (i==1)? 'class="btn cmbnro active"' : 'class="btn cmbnro"';
