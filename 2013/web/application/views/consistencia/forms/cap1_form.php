@@ -737,7 +737,7 @@ echo '
 												</tr>
 												<tr>
 													<td><strong>2.6¿Apellidos y Nombres del informante?</strong></td>
-													<td>'.form_input($P1_A_2_6_Informant).'</td>
+													<td>'.form_input($P1_A_2_6_Informant).' <div class="help-block error"></div></td>
 												</tr>
 												<tr>
 													<td><strong>2.7¿Cargo del informante?</strong></td>
@@ -1706,7 +1706,7 @@ function gen_cms(n,re){
 		cm_str += '<input id="P1_A_2_9_NroCMod_' + i + '" style="margin-left: 10px; margin-right:10px" class="input7" type="text" readonly maxlength="7" value="" name="P1_A_2_9_NroCMod[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9A_CMod_' + i + '" style="margin-left: 10px; margin-right:20px" class="input7" type="text" maxlength="7" value="" name="P1_A_2_9A_CMod[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9B_CodLocal_' + i + '" style="margin-left: 10px; margin-right:20px" class="input6" type="text" maxlength="6" value="" name="P1_A_2_9B_CodLocal[]"> <div class="help-block error"></div>';
-		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9C_Nivel[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9C_Nivel_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="2" value="" name="P1_A_2_9C_Nivel[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9D_Car_' + i + '" style="margin-left: 10px; margin-right:50px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9D_Car[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" style="margin-left: 10px; margin-right:42px" class="input1" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" style="margin-left: 10px; margin-right:34px" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]"> <div class="help-block error"></div>';
@@ -1838,9 +1838,11 @@ $("#cap1_ie").validate({
 		            maxlength: 10, 
 			    },  
 				P1_A_2_4_TelfIE: {
+					valrango: [1,9999999998,9999999999],
 			        digits: true,
 			    },  		
 				P1_A_2_4_TelfDir: {
+					valrango: [1,9999999998,9999999999],
 			        digits: true,
 			    },  	
 				P1_A_2_5_EmailIE: {
@@ -1848,7 +1850,11 @@ $("#cap1_ie").validate({
 			    },  	
 				P1_A_2_5_EmailDir: {
 			        email: true,
-			    },  				    		    	
+			    },  			
+				P1_A_2_6_Informant:{
+					validName:true,
+				},
+
 				P1_A_2_8_Can_CMod_IE: {
 			        digits: true,
 			    },  			    	    	    
@@ -1918,9 +1924,11 @@ $("#cap1_cm").validate({
 			        digits: true,
 			    },  	
 				'P1_A_2_9D_Car[]': {
+					valrango:[1,3,9],
 			        digits: true,
 			    },  			    		    		    
 				'P1_A_2_9E_NroAnex[]': {
+					valrango:[0,3,9],
 			        digits: true,
 			    },  						    
 				'P1_A_2_9F_CantAnex[]': {
