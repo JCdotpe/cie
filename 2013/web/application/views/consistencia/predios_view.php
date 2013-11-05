@@ -224,7 +224,7 @@ $.validator.addMethod("valzero", function(value, element, arg){
 
  $.validator.addMethod("valrango", function(value, element,arg){
     var flag = false;
-        if(((value >= arg[0] && value<=arg[1]) || value == arg[2]) && value!='')
+        if(((value >= arg[0] && value<=arg[1]) || value == arg[2]) || value=='')
           flag = true;
    return flag;
 }, "Seleccione un valor entre {0}, {1} o {2}");
