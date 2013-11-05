@@ -133,6 +133,7 @@ $P2_B_2_Suelo_O = array(
 	'id'	=> 'P2_B_2_Suelo_O',
 	'maxlength'	=> 80,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P2_B_3_Prof = array(
@@ -459,6 +460,7 @@ $P2_B_11_Cod_O = array(
 	'name'	=> 'P2_B_11_Cod_O',
 	'id'	=> 'P2_B_11_Cod_O',
 	'maxlength'	=> 80,
+	'disabled'	=> 'disabled',
 );
 
 // END P2_B_11N - Capitulo II / Sección B: Condición del terreno y acceso / 11. ¿Existen peligros antrópicos en esta localidad como: 
@@ -518,6 +520,7 @@ $P2_B_12_Cod_O = array(
 	'name'	=> 'P2_B_12_Cod_O',
 	'id'	=> 'P2_B_12_Cod_O',
 	'maxlength'	=> 80,
+	'disabled'	=> 'disabled',
 );
 
 // END P2_B_12N - Capitulo II / Sección B: Condición del terreno y acceso / 12. ¿Existe vulnerabilidad por factores de exposición como: 
@@ -685,6 +688,9 @@ $P2_D_1_Cod_Est = array(
 $P2_D_1_Cod_O = array(
 	'name'	=> 'P2_D_1_Cod_O',
 	'id'	=> 'P2_D_1_Cod_O',
+	'disabled'	=> 'disabled',
+	'maxlength'	=> 255,
+
 );
 
 // FIN TABLA P2_D_1N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar
@@ -760,6 +766,7 @@ $P2_D_5_Cod_O = array(
 	'name'	=> 'P2_D_5_Cod_O',
 	'id'	=> 'P2_D_5_Cod_O',
 	'maxlength'	=> 80,
+	'disabled'	=> 'disabled',
 );
 
 // FIN TABLA P2_D_5N - Capitulo II / Sección D: Conexión de los servicios basicos del local escolar / 5. 	El abastecimiento de agua, ¿procede de: 
@@ -967,6 +974,7 @@ $P2_F_1_ElimBas_O = array(
 	'name'	=> 'P2_F_1_ElimBas_O',
 	'id'	=> 'P2_F_1_ElimBas_O',
 	'class' => 'textarea98p',
+	'disabled' => 'disabled',
 );
 
 // FIN TABLA P2_F - Capitulo II / Sección F: Eliminación de basura
@@ -1002,6 +1010,7 @@ $P2_G_2_Otro = array(
 	'id'	=> 'P2_G_2_Otro',
 	'maxlength'	=> 80,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P2_G_2_Cod_1 = array(
@@ -1623,7 +1632,7 @@ echo '
 											'.form_input($P2_D_1_Cod_1).' <div class="help-block error"></div> Red pública <br />
 											'.form_input($P2_D_1_Cod_2).' <div class="help-block error"></div> Generador o motor <br />
 											'.form_input($P2_D_1_Cod_3).' <div class="help-block error"></div> Panel solar <br />
-											'.form_input($P2_D_1_Cod_4).' <div class="help-block error"></div> - Especifique '.form_input($P2_D_1_Cod_O).' <div class="help-block error"></div>
+											'.form_input($P2_D_1_Cod_4).' <div class="help-block error"></div> Otro - Especifique '.form_input($P2_D_1_Cod_O).' <div class="help-block error"></div>
 										</td>
 
 									</tr>
@@ -1933,6 +1942,89 @@ echo form_close();
 
 $(function(){
 
+
+
+
+$('#P2_G_2_Cod_7').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_G_2_Otro').removeAttr('disabled');
+	}else{
+		$('#P2_G_2_Otro').val('');
+		$('#P2_G_2_Otro').attr('disabled','disabled');
+	}
+
+});
+
+$('#P2_F_1_ElimBas_10').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_F_1_ElimBas_O').removeAttr('disabled');
+	}else{
+		$('#P2_F_1_ElimBas_O').val('');
+		$('#P2_F_1_ElimBas_O').attr('disabled','disabled');
+	}
+
+});
+
+$('#P2_D_5_Cod_6').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_D_5_Cod_O').removeAttr('disabled');
+	}else{
+		$('#P2_D_5_Cod_O').val('');
+		$('#P2_D_5_Cod_O').attr('disabled','disabled');
+	}
+
+});
+
+
+$('#P2_D_1_Cod_4').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_D_1_Cod_O').removeAttr('disabled');
+	}else{
+		$('#P2_D_1_Cod_O').val('');
+		$('#P2_D_1_Cod_O').attr('disabled','disabled');
+	}
+
+});
+
+$('#P2_B_12_Cod_6').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_B_12_Cod_O').removeAttr('disabled');
+	}else{
+		$('#P2_B_12_Cod_O').val('');
+		$('#P2_B_12_Cod_O').attr('disabled','disabled');
+	}
+
+});
+
+$('#P2_B_11_Cod_11').change(function(event) {
+
+	if($(this).val() == 1){
+		$('#P2_B_11_Cod_O').removeAttr('disabled');
+	}else{
+		$('#P2_B_11_Cod_O').val('');
+		$('#P2_B_11_Cod_O').attr('disabled','disabled');
+	}
+
+});
+
+$('#P2_B_2_Suelo').change(function(event) {
+
+	if($(this).val() == 6){
+		$('#P2_B_2_Suelo_O').removeAttr('disabled');
+	}else{
+		$('#P2_B_2_Suelo_O').val('');
+		$('#P2_B_2_Suelo_O').attr('disabled','disabled');
+	}
+
+});
+
+
+
 //p2_a
 $.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
 	   	$('#' + fila).val(valor);
@@ -1940,7 +2032,12 @@ $.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
 
 //p2_b
 $.each( <?php echo json_encode($cap2_p2_b->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
+		if(fila == 'P2_B_2_Suelo'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');
+		}else{
+	   		$('#' + fila).val(valor);
+		}	
 }); 
 
 //p2_b_9n
@@ -1956,15 +2053,19 @@ $.each( <?php echo json_encode($cap2_p2_b_10n->result()); ?>, function(i, data) 
 //p2_b_11n
 $.each( <?php echo json_encode($cap2_p2_b_11n->result()); ?>, function(i, data) {
 	   	$('#P2_B_11_Cod_' + data.P2_B_11_Cod).val(data.P2_B_11_Cod_e);
-	   	if(data.P2_B_11_Cod == 11)
+	   	if(data.P2_B_11_Cod == 11){
+	   		$('#P2_B_11_Cod_' + data.P2_B_11_Cod).trigger('change');
 	   		$('#P2_B_11_Cod_O').val(data.P2_B_11_Cod_O);
+	   	}
 }); 
 
 //p2_b_12n
 $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) {
 	   	$('#P2_B_12_Cod_' + data.P2_B_12_Cod).val(data.P2_B_12_Cod_e);
-	   	if(data.P2_B_12_Cod ==6)
+	   	if(data.P2_B_12_Cod ==6){
+	   		$('#P2_B_12_Cod_' + data.P2_B_12_Cod).trigger('change');
 	   		$('#P2_B_12_Cod_O').val(data.P2_B_12_Cod_O);
+	   	}
 }); 
 
 //p2_c
@@ -2051,8 +2152,10 @@ $.each( <?php echo json_encode($cap2_p2_d->row()); ?>, function(fila, valor) {
 //p2_d_1n
 $.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
 	   	$('#P2_D_1_Cod_' + data.P2_D_1_Cod).val(data.P2_D_1_Cod_Est);
-	   	if(data.P2_D_1_Cod ==4)
+	   	if(data.P2_D_1_Cod ==4){
+	   		$('#P2_D_1_Cod_' + data.P2_D_1_Cod).trigger('change');
 	   		$('#P2_D_1_Cod_O').val(data.P2_D_1_Cod_O);	   	
+	   	}
 }); 
 
 //p2_d_3n ----------JS
@@ -2060,8 +2163,10 @@ $.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
 //p2_d_5n
 $.each( <?php echo json_encode($cap2_p2_d_5n->result()); ?>, function(i, data) {
 	   	$('#P2_D_5_Cod_' + data.P2_D_5_Cod).val(data.P2_D_5_Cod_Est);
-	   	if(data.P2_D_5_Cod == 6)
-	   		$('#P2_D_5_Cod_O').val(data.P2_D_5_Cod_O);	   	
+	   	if(data.P2_D_5_Cod == 6){
+	   		$('#P2_D_5_Cod_' + data.P2_D_5_Cod).trigger('change');
+	   		$('#P2_D_5_Cod_O').val(data.P2_D_5_Cod_O);	 
+	   	}  	
 }); 
 
 //p2_d_7n ----------JS
@@ -2079,8 +2184,10 @@ $.each( <?php echo json_encode($cap2_p2_e->row()); ?>, function(fila, valor) {
 //p2_f
 $.each( <?php echo json_encode($cap2_p2_f->result()); ?>, function(i, data) {
 	   	$('#P2_F_1_ElimBas_' + data.P2_F_1_ElimBas).val(data.P2_F_1_ElimBas_e);
-	   	if(data.P2_F_1_ElimBas ==10)
+	   	if(data.P2_F_1_ElimBas ==10){
+	   		$('#P2_F_1_ElimBas_' + data.P2_F_1_ElimBas).trigger('change');
 	   		$('#P2_F_1_ElimBas_O').val(data.P2_F_1_ElimBas_O);	   	
+	   	}
 }); 
 
 
@@ -2094,8 +2201,10 @@ $.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
 	   	$('#P2_G_2_Cod_' + data.P2_G_2_Nro).val(data.P2_G_2_Cod);
 	   	$('#P2_G_2A_EstPre_' + data.P2_G_2_Nro).val(data.P2_G_2A_EstPre);
 	   	$('#P2_G_2B_snip_' + data.P2_G_2_Nro).val(data.P2_G_2B_snip);
-	   	if(data.P2_G_2_Nro == 7)
-	   		$('#P2_G_2_Otro').val(data.P2_G_2_Otro);	  
+	   	if(data.P2_G_2_Nro == 7){
+	   		$('#P2_G_2_Cod_' + data.P2_G_2_Nro).trigger('change');	
+	   		$('#P2_G_2_Otro').val(data.P2_G_2_Otro);	 
+	   	} 
 });
 
 

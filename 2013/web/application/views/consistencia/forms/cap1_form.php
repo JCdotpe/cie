@@ -2286,7 +2286,7 @@ $.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 
 
 $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
-		if(fila == 'P1_B_3_11_CompCan'){
+		if(fila == 'P1_B_3_11_CompCan' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_4_Tipo_TProp' || fila == 'P1_B_3_6_DocPos'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
 		}else{
