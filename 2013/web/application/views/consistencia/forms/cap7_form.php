@@ -784,7 +784,7 @@ $(document).ready(function(){
 					var asd ='<div class="btn-group">';
 						asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 						asd+='<ul class="dropdown-menu">';
-					if (datos.P5_Tot_E > 0 && datos.P5_Tot_E < 99)
+					if (datos.P5_Tot_E > 0)
 					{
 						for (var i=1; i<=datos.P5_Tot_E; i++) {
 							asd+='<li id="' + i +'.cmb7_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
@@ -815,47 +815,6 @@ $(document).ready(function(){
 			$.each( data, function(fila, valor) {
 				   	$('#' + fila).val(valor);
 			});
-
-			// $.each(data, function(index, val) {				
-			// 	$('#P7_1_2').val(val.P7_1_2);
-			// 	$('#P7_1_3').val(val.P7_1_3);
-			// 	$('#P7_1_4').val(val.P7_1_4);
-			// 	$('#P7_1_5').val(val.P7_1_5);
-			// 	$('#P7_1_6').val(val.P7_1_6);
-			// 	$('#P7_1_7').val(val.P7_1_7);
-			// 	$('#P7_1_8').val(val.P7_1_8);
-			// 	$('#P7_1_9').val(val.P7_1_9);
-			// 	$('#P7_1_9A').val(val.P7_1_9A);
-			// 	$('#P7_1_9B').val(val.P7_1_9B);
-			// 	$('#P7_1_9C').val(val.P7_1_9C);
-			// 	$('#P7_1_9D').val(val.P7_1_9D);
-			// 	$('#P7_1_10').val(val.P7_1_10);
-			// 	$('#P7_1_11').val(val.P7_1_11);
-			// 	$('#P7_1_12').val(val.P7_1_12);
-			// 	$('#P7_1_13').val(val.P7_1_13);
-			// 	$('#P7_1_14').val(val.P7_1_14);
-			// 	$('#P7_1_15').val(val.P7_1_15);
-			// 	$('#P7_1_15A').val(val.P7_1_15A);
-			// 	$('#P7_1_15B').val(val.P7_1_15B);
-			// 	$('#P7_1_15C').val(val.P7_1_15C);
-			// 	$('#P7_1_15D').val(val.P7_1_15D);
-			// 	$('#P7_1_16').val(val.P7_1_16);
-			// 	$('#P7_1_17').val(val.P7_1_17);
-			// 	$('#P7_1_18').val(val.P7_1_18);
-			// 	$('#P7_1_19').val(val.P7_1_19);
-			// 	$('#P7_1_20').val(val.P7_1_20);
-			// 	$('#P7_1_21').val(val.P7_1_21);
-			// 	$('#P7_1_22').val(val.P7_1_22);
-			// 	$('#P7_1_23').val(val.P7_1_23);
-			// 	$('#P7_1_24').val(val.P7_1_24);
-			// 	$('#P7_1_25').val(val.P7_1_25);
-			// 	$('#P7_1_26').val(val.P7_1_26);
-			// 	$('#P7_1_27').val(val.P7_1_27);
-			// 	$('#P7_1_28').val(val.P7_1_28);
-			// 	$('#P7_2_1').val(val.P7_2_1);
-			// 	$('#P7_2_2').val(val.P7_2_2);
-			// 	$('#P7_Obs').val(val.P7_Obs);
-			// });
 
 		});
 	}

@@ -201,8 +201,6 @@ $('#P5_cantNroPiso').change(function(event) {
 	var ahua = $(this).val();
 	var edi = document.getElementById('P5_Tot_E').value;
 	
-	if (edi==99 || ahua==99) return false;
-
 	for(var i=1; i<=ahua;i++){
 		var asd = '<table id="cap5_detalle" class="table table-bordered">';
 		asd+='<thead><tr>';
@@ -250,12 +248,6 @@ $('#P5_Tot_E').change(function(event) {
 	var ahua = $(this).val();
 	var n_pisos = $('#P5_cantNroPiso').val();
 
-	if (ahua==99){
-		$('#cap_5 table').remove('#cap5_detalle');
-		$('#P5_cantNroPiso').val('');
-		return false;	
-	}
-	
 	for(var i=1; i<=n_pisos;i++){
 		var asd = "";
 			for (var j=1;j<=ahua;j++){
@@ -283,39 +275,39 @@ $("#cap5_f").validate({
 	    rules: {
 			P5_Tot_E: {
 				digits:true,
-				valrango:[1,98,99],
+				range:[1,99],
 				required: true,
 			},
 			P5_Tot_P: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Tot_LD: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Tot_CTE: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Tot_MC: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Tot_P1: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Tot_R: {
 				digits:true,
-				valrango:[1,98,99],
+				valrango:[1,99,0],
 			},
 			P5_Opin: {
 				valtexto:['M','R','D','E',9],
 			},
 			P5_cantNroPiso: {
 				digits:true,
-				valrango:[1,98,99],
+				range:[1,99],
 				required: true,
 			},
 			'P5_TotAmb[]':{
