@@ -345,14 +345,14 @@ $P1_B_3_8_At_Pred = array(
 	'name'	=> 'P1_B_3_8_At_Pred',
 	'id'	=> 'P1_B_3_8_At_Pred',
 	'maxlength'	=> 9,
-	'class' => 'input7',
+	'class' => 'input9',
 );
 
 $P1_B_3_9_At_Local = array(
 	'name'	=> 'P1_B_3_9_At_Local',
 	'id'	=> 'P1_B_3_9_At_Local',
-	'maxlength'	=> 7,
-	'class' => 'input7',
+	'maxlength'	=> 9,
+	'class' => 'input9',
 );
 
 $P1_B_3_10_Comp = array(
@@ -1036,11 +1036,9 @@ echo '
 											<table class="table table-bordered">
 												<tbody><tr>
 													<th style="text-align:center;">Enteros</th>
-													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
 													<td>'.form_input($P1_B_3_8_At_Pred).' <div class="help-block error"></div></td>
-													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
@@ -1056,11 +1054,9 @@ echo '
 											<table class="table table-bordered">
 												<tbody><tr>
 													<th style="text-align:center;">Enteros</th>
-													<th style="text-align:center;">Decimales</th>
 												</tr>
 												<tr>
 													<td>'.form_input($P1_B_3_9_At_Local).' <div class="help-block error"></div></td>
-													<td>00</td>
 												</tr>
 											</tbody></table>
 										</td>
