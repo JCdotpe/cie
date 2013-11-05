@@ -2200,7 +2200,7 @@ $("#predio_i").validate({
 			    }, 		
 				P1_B_3_11_CompCan: {
 			        digits: true,
-			        range:[1,99],
+			        range:[0,99],
 			    }, 				    		    			    	    	    	    			    
 		    },
 
