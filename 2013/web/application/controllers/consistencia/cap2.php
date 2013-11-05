@@ -419,14 +419,16 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_d_7n_data['Nro_Pred'] = $pr;	
 
 			$cc = 0;
-			foreach($cap2_p2_d_7n_pre['P2_D_7_Nro'] as &$z){
-					foreach ($cap2_p2_d_7n as $a=>$b) {
-						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
-							$cap2_p2_d_7n_data[$b] = ($cap2_p2_d_7n_pre[$b][$cc] == '') ? NULL : $cap2_p2_d_7n_pre[$b][$cc];
-						}	
-					}
-					$this->cap2_model->insert_cap2($cap2_p2_d_7n_data,'P2_D_7N');			
-					$cc++;
+			if(isset($cap2_p2_d_7n_pre['P2_D_7_Nro'])){
+				foreach($cap2_p2_d_7n_pre['P2_D_7_Nro'] as &$z){
+						foreach ($cap2_p2_d_7n as $a=>$b) {
+							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
+								$cap2_p2_d_7n_data[$b] = ($cap2_p2_d_7n_pre[$b][$cc] == '') ? NULL : $cap2_p2_d_7n_pre[$b][$cc];
+							}	
+						}
+						$this->cap2_model->insert_cap2($cap2_p2_d_7n_data,'P2_D_7N');			
+						$cc++;
+				}
 			}
 
 
