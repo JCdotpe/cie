@@ -125,7 +125,7 @@ $.extend(jQuery.validator.messages, {
     // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
 $.validator.addMethod("year", function(value, element, param) {
-    return this.optional(element) || ( value > 1950 && value <= CI.year ) ;
+    return this.optional(element) || ( (value > 1950 && value <= CI.year) || value == 9999 ) ;
 }, "Ingrese un año válido");
 $.validator.addMethod("valueEquals", function (value, element, param) {
     return param == value;
