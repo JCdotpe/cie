@@ -2715,279 +2715,279 @@ $(document).ready(function(){
 			},
 			P6_2_8:{
 				digits:true,
-				range:[1,6],
+				valrango:[1,6,9],
 			},
 			P6_2_9:{
 				digits:true,
-				range:[1,17],
+				valrango:[1,17,9],
 			},
 			P6_2_10:{
 				digits:true,
-				range:[1,8],
+				valrango:[1,8,9],
 			},
 			P6_2_11:{
 				digits:true,
-				range:[1,11],
+				valrango:[1,11,9],
 			},
 			P6_2_12:{
 				digits:true,
-				range:[1,8],
+				valrango:[1,8,9],
 			},
 			P6_2_13:{
 				digits:true,
-				range:[1,16],
+				valrango:[1,16,9],
 			},
 			P6_2_14_1:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14_2:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14_3:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14_4:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14_5:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14_6:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14a:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14b_1:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_14b_2:{
 				digits:true,
-				range:[0,999],
+				valrango:[0,998,999],
 			},
 			P6_2_15:{
 				digits:true,
-				range:[0,7],
+				valrango:[1,7,9],
 			},
 			P6_2_15a:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 			P6_2_16a_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16a_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16a_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16b_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16b_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16b_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16c_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16c_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16c_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16d_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16d_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16d_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16e_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16e_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16e_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_16f:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_17a:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_17b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_17c:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_17d:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18a:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_18a_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18a_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18a_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18b:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_18b_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18b_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18b_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18c:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_18c_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18c_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18c_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18d:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_18d_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18d_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18d_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18e:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_18e_b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18e_r:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18e_m:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_18f:{
 				digits:true,
-				range:[0,1],
+				valrango:[0,1,9],
 			},
 			P6_2_19a:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_19b:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_2_19c:{
 				digits:true,
-				range:[0,9999],
+				valrango:[0,9998,9999],
 			},
 			P6_3_1:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_1A:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P6_3_2:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_2A:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_2B:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_2C:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_2D:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_3:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_3_3A:{
 				digits:true,
@@ -2995,23 +2995,23 @@ $(document).ready(function(){
 			},
 			P6_4_1:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_4_1A:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_4_2:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_5_1:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P6_5_1A:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 		},
 

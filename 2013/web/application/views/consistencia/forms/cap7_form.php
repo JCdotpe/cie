@@ -869,7 +869,7 @@ $(document).ready(function(){
 			},
 			P7_1_2:{
 				digits:true,
-				range:[0,5],
+				valrango:[1,5,9],
 			},
 			P7_1_3:{
 				digits:true,
@@ -877,127 +877,127 @@ $(document).ready(function(){
 			},
 			P7_1_4:{
 				digits:true,
-				range:[0,8],
+				valrango:[1,8,9],
 			},
 			P7_1_5:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_6:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_7:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_8:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_9:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_9A:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_9B:{
 				digits:true,
-				range:[0,6],
+				valrango:[1,6,9],
 			},
 			P7_1_9C:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_9D:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_10:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_11:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_12:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_13:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_14:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_15:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_15A:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_15B:{
 				digits:true,
-				range:[0,6],
+				valrango:[1,6,9],
 			},
 			P7_1_15C:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_15D:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_16:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_17:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_18:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_19:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_20:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_21:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_22:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_23:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_24:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_25:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_26:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P7_1_27:{
 				digits:true,
@@ -1005,11 +1005,11 @@ $(document).ready(function(){
 			},
 			P7_1_28:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_2_1:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 	    },
 

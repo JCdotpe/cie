@@ -26,12 +26,11 @@ $P8_2_Tipo = array(
 	'readonly' => 'true',
 );
 
-$Nro_Pred = array(
-	'name'	=> 'Nro_Pred',
-	'id'	=> 'Nro_Pred',
+$P8_predio = array(
+	'name'	=> 'P8_predio',
+	'id'	=> 'P8_predio',
 	'maxlength'	=> 2,
 	'class'	=> 'input2',
-	'disabled' => 'disabled',
 );
 
 $P8_2_Nro = array(
@@ -51,11 +50,13 @@ $P8_area = array(
 $P8_altura = array(
 	'name'	=> 'P8_altura',
 	'id'	=> 'P8_altura',
+	'maxlength'	=> 6,
 );
 
 $P8_longitud = array(
 	'name'	=> 'P8_longitud',
 	'id'	=> 'P8_longitud',
+	'maxlength'	=> 6,
 );
 
 $P8_ejecuto = array(
@@ -223,7 +224,7 @@ echo '
 		  	    							<strong>Predio en el que se ubica la edificación</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($Nro_Pred).'<div class="help-block error"></div>
+		  	    							'.form_input($P8_predio).'<div class="help-block error"></div>
 		  	    						</td>
 		  	    					</tr>
 		  	    					<tr id="f6_edi">
@@ -297,9 +298,19 @@ echo form_close();
 <script type="text/javascript">
 
 $(document).ready(function(){
-	$('#datos_otros_ed > tbody > tr#f3_edi').hide();	
+
+	//longitud
+	$('#datos_otros_ed > tbody > tr#f3_edi').hide();
+	$('#P8_longitud').attr('disabled','disabled');
+	
+	//altura
 	$('#datos_otros_ed > tbody > tr#f4_edi').hide();
+	$('#P8_altura').attr('disabled','disabled');
+
+	//tanque elevado
 	$('#datos_otros_ed > tbody > tr#f9_edi').hide();
+	$('#P8_Est_PaLo').attr('disabled','disabled');
+	
 
 	$('#ctab8').bind('click', function (e) {
 
@@ -475,20 +486,40 @@ $(document).ready(function(){
 
 		if (tipo!='CTE') { 
 			$('#datos_otros_ed > tbody > tr#f9_edi').hide();
+			$('#P8_Est_PaLo').attr('disabled','disabled');
 		}else{ 
-			$('#datos_otros_ed > tbody > tr#f9_edi').show(); 
+			$('#datos_otros_ed > tbody > tr#f9_edi').show();
+			$('#P8_Est_PaLo').removeAttr('disabled');
 		}
 
 		if (tipo=='MC') { 
+			//area
 			$('#datos_otros_ed > tbody > tr#f2_edi').hide();
+			$('#P8_area').attr('disabled','disabled');
+
+			//Longitud
 			$('#datos_otros_ed > tbody > tr#f3_edi').show();
+			$('#P8_longitud').removeAttr('disabled');
+			
+			//Altura
 			$('#datos_otros_ed > tbody > tr#f4_edi').show();
+			$('#P8_altura').removeAttr('disabled');
+
 			$('#f5_edi > td.f5_c1_edi').html('2.3');
 			$('#f6_edi > td.f6_c1_edi').html('2.4');
 		}else{ 
-			$('#datos_otros_ed > tbody > tr#f2_edi').show(); 
+			//area
+			$('#datos_otros_ed > tbody > tr#f2_edi').show();
+			$('#P8_area').removeAttr('disabled');
+			
+			//Longitud
 			$('#datos_otros_ed > tbody > tr#f3_edi').hide();
+			$('#P8_longitud').attr('disabled','disabled');
+
+			//Altura
 			$('#datos_otros_ed > tbody > tr#f4_edi').hide();
+			$('#P8_altura').attr('disabled','disabled');
+
 			$('#f5_edi > td.f5_c1_edi').html('2.2');
 			$('#f6_edi > td.f6_c1_edi').html('2.3');
 		}
@@ -547,41 +578,44 @@ $(document).ready(function(){
 			},
 			P8_area:{
 				digits:true,
+				valrango:[0,999998,999999],
 			},
-			Nro_Pred:{
+			P8_predio:{
 				digits:true,
 				required: true,
 			},
 			//Patio
 			P8_ejecuto:{
 				digits:true,
-				range:[0,6],
+				valrango:[1,6,9],
 			},
 			P8_Est_E:{
 				digits:true,
-				range:[0,4],
+				valrango:[1,4,9],
 			},
 			P8_Ant:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 			P8_RecTec:{
 				digits:true,
-				range:[0,3],
+				valrango:[1,3,9],
 			},
 
 			//Cisterna - tanque
 			P8_Est_PaLo:{
 				digits:true,
-				range:[0,5],
+				valrango:[1,5,9],
 			},
 
 			//Muro de Contencion
 			P8_longitud:{
 				digits:true,
+				valrango:[0,999998,999999],
 			},
 			P8_altura:{
 				digits:true,
+				valrango:[0,999998,999999],
 			},
 	    },
 
