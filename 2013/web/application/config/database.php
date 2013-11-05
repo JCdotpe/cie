@@ -12,6 +12,7 @@
 | EXPLANATION OF VARIABLES
 | -------------------------------------------------------------------
 |
+
 |	['hostname'] The hostname of your database server.
 |	['username'] The username used to connect to the database
 |	['password'] The password used to connect to the database
@@ -60,7 +61,7 @@ $active_record = TRUE;
 		// $db['conexion_A']['username'] = 'mrvixio';
 		// $db['conexion_A']['password'] = 'mrvixio2';
 
-		$db['conexion_A']['hostname'] = '127.0.0.1';// local
+		$db['conexion_A']['hostname'] = 'ESTEJUANO-PC\SQLEXPRESS';// local
 		$db['conexion_A']['username'] = 'sa';
 		$db['conexion_A']['password'] = '123456';		
 		$db['conexion_A']['database'] = 'CIE2013';
@@ -72,8 +73,8 @@ $active_record = TRUE;
 		$db['conexion_A']['cache_on'] = FALSE;
 		$db['conexion_A']['cachedir'] = '';
 		$db['conexion_A']['char_set'] = 'utf8';
-		//$db['conexion_A']['dbcollat'] = 'utf8_general_ci';
-		$db['conexion_A']['dbcollat'] = 'utf8';
+		$db['conexion_A']['dbcollat'] = 'utf8_general_ci';
+		// $db['conexion_A']['dbcollat'] = 'utf8';
 		$db['conexion_A']['swap_pre'] = '';
 		$db['conexion_A']['autoinit'] = TRUE;
 		$db['conexion_A']['stricton'] = FALSE;
