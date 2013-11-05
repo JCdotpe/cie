@@ -313,7 +313,8 @@ $P1_B_3_5_FecTit = array(
 	'name'	=> 'P1_B_3_5_FecTit',
 	'id'	=> 'P1_B_3_5_FecTit',
 	'maxlength'	=> 10,
-	'class' => 'input10',
+	'class' => 'input10 fechap',
+	'readonly' => true,
 );
 
 $P1_B_3_6_DocPos = array(
@@ -333,7 +334,8 @@ $P1_B_3_7_DocPos_Fech = array(
 	'name'	=> 'P1_B_3_7_DocPos_Fech',
 	'id'	=> 'P1_B_3_7_DocPos_Fech',
 	'maxlength'	=> 10,
-	'class' => 'input10',
+	'class' => 'input10 fechap',
+	'readonly' => true,
 );
 
 $P1_B_3_8_At_Pred = array(
@@ -1015,7 +1017,7 @@ echo '
 										</td>
 										<td>
 											<label>Fecha</label>
-											'.form_input($P1_B_3_5_FecTit).'  <div class="help-block error"></div>
+											'.form_input($P1_B_3_7_DocPos_Fech).'  <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
