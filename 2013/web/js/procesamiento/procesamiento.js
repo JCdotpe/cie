@@ -436,7 +436,7 @@ function exportReport()
 	{
 		
 			document.forms[0].method='POST';
-			document.forms[0].action=urlRoot('index.php')+"/procesamiento/csvExport/ExportacionODEI_Avance?periodo="+codper+"&sede="+sede+"&prov="+prov;
+			document.forms[0].action=urlRoot('index.php')+"/procesamiento/csvExport/ExportacionUD";
 			document.forms[0].target='_blank';
 			document.forms[0].submit();
 		

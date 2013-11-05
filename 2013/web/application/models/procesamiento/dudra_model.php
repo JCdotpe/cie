@@ -131,6 +131,14 @@ class dudra_model extends CI_MODEL{
     }
 
 
+      public function get_udra_digitacion()
+    {
+        $sql="SELECT * FROM V_UDRA_DIGITA ORDER BY sede_operativa,dpto_nombre desc";
+        $q=$this->db->query($sql);
+        return $q;
+    }
+
+
 
 
 
