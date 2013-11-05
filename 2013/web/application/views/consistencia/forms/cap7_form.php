@@ -1001,7 +1001,7 @@ $(document).ready(function(){
 			},
 			P7_1_27:{
 				digits:true,
-				range:[0,2],
+				valrango:[1,2,9],
 			},
 			P7_1_28:{
 				digits:true,
