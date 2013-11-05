@@ -1017,7 +1017,7 @@ $P2_G_2_Cod_1 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_1',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 
 $P2_G_2A_EstPre_1 = array(
@@ -1025,6 +1025,7 @@ $P2_G_2A_EstPre_1 = array(
 	'id'	=> 'P2_G_2A_EstPre_1',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_1 = array(
@@ -1032,19 +1033,21 @@ $P2_G_2B_snip_1 = array(
 	'id'	=> 'P2_G_2B_snip_1',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 $P2_G_2_Cod_2 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_2',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_2 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_2',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_2 = array(
@@ -1052,19 +1055,21 @@ $P2_G_2B_snip_2 = array(
 	'id'	=> 'P2_G_2B_snip_2',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 $P2_G_2_Cod_3 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_3',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_3 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_3',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_3 = array(
@@ -1072,6 +1077,7 @@ $P2_G_2B_snip_3 = array(
 	'id'	=> 'P2_G_2B_snip_3',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 
@@ -1079,13 +1085,14 @@ $P2_G_2_Cod_4 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_4',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_4 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_4',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_4 = array(
@@ -1093,19 +1100,21 @@ $P2_G_2B_snip_4 = array(
 	'id'	=> 'P2_G_2B_snip_4',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 $P2_G_2_Cod_5 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_5',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_5 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_5',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_5 = array(
@@ -1113,19 +1122,21 @@ $P2_G_2B_snip_5 = array(
 	'id'	=> 'P2_G_2B_snip_5',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 $P2_G_2_Cod_6 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_6',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_6 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_6',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_6 = array(
@@ -1133,19 +1144,21 @@ $P2_G_2B_snip_6 = array(
 	'id'	=> 'P2_G_2B_snip_6',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 $P2_G_2_Cod_7 = array(
 	'name'	=> 'P2_G_2_Cod[]',
 	'id'	=> 'P2_G_2_Cod_7',
 	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_7 = array(
 	'name'	=> 'P2_G_2A_EstPre[]',
 	'id'	=> 'P2_G_2A_EstPre_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
+	'readonly' => true,
 );
 
 $P2_G_2B_snip_7 = array(
@@ -1153,6 +1166,7 @@ $P2_G_2B_snip_7 = array(
 	'id'	=> 'P2_G_2B_snip_7',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
+	'readonly' => true,
 );
 
 // FIN TABLA P2_G_2N - Capitulo II / Sección G: Nuevas intervenciones en el local escolar
@@ -1943,7 +1957,21 @@ echo form_close();
 $(function(){
 
 
+//p2g2
+$('.p2g2').change(function(event) {	
+		var pre = $(this).attr('id');
+		var nro = pre.substring(11,12);
+	if($(this).val() == 1){
+		 	$('#P2_G_2A_EstPre_' + nro).removeAttr('readonly');
+		 	$('#P2_G_2B_snip_' + nro).removeAttr('readonly');
+	}else{
+		 $('#P2_G_2A_EstPre_' + nro).val('');
+		 $('#P2_G_2A_EstPre_' + nro).attr('readonly','readonly');
+		 $('#P2_G_2B_snip_' + nro).val('');
+		 $('#P2_G_2B_snip_' + nro).attr('readonly','readonly');		 
+	}
 
+});
 
 $('#P2_G_2_Cod_7').change(function(event) {
 
@@ -2201,8 +2229,8 @@ $.each( <?php echo json_encode($cap2_p2_g_2n->result()); ?>, function(i, data) {
 	   	$('#P2_G_2_Cod_' + data.P2_G_2_Nro).val(data.P2_G_2_Cod);
 	   	$('#P2_G_2A_EstPre_' + data.P2_G_2_Nro).val(data.P2_G_2A_EstPre);
 	   	$('#P2_G_2B_snip_' + data.P2_G_2_Nro).val(data.P2_G_2B_snip);
+	   	$('#P2_G_2_Cod_' + data.P2_G_2_Nro).trigger('change');	
 	   	if(data.P2_G_2_Nro == 7){
-	   		$('#P2_G_2_Cod_' + data.P2_G_2_Nro).trigger('change');	
 	   		$('#P2_G_2_Otro').val(data.P2_G_2_Otro);	 
 	   	} 
 });
