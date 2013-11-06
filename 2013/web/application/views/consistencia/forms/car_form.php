@@ -431,7 +431,7 @@ echo '
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> '. form_dropdown('PC_A_1_Dep', $depArray, FALSE,'class="input200" id="PC_A_1_Dep"') .' </li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '. form_dropdown('PC_A_2_Prov', $provArray, FALSE,'class="input200" id="PC_A_2_Prov"') .'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '. form_dropdown('PC_A_3_Dist', $distArray, FALSE,'class="input200" id="PC_A_3_Dist"') .'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($PC_A_4_CentroP).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($PC_A_4_CentroP).'<div class="help-block error"></div></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($PC_A_5_NucleoUrb).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> '.form_input($PC_A_6_Ugel).'</li>
 								</ul>
@@ -925,6 +925,10 @@ $('#pcar_num').trigger('change');
 $("#car_f").validate({
 		    rules: {  
 		    	
+				PC_A_4_CentroP: {
+						validName:true,
+			        },  	
+
 				PC_A_7Dir_1_Tvia: {
 			    		valrango: [1,7,9],
 			    		required: true,
