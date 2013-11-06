@@ -779,7 +779,6 @@ $P6_2_18e_O = array(
 	'id'	=> 'P6_2_18e_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_18f = array(
@@ -3004,41 +3003,6 @@ $(document).ready(function(){
 	$('#P6_2_13').trigger('change');
 
 
-	$('#P6_2_14_1').change(function(event) {
-		
-		var valor=$(this).val();
-		
-		$('#P6_2_13_O').attr('disabled','disabled');
-		$('#P6_2_13_O').val('');
-		if (valor==16) $('#P6_2_13_O').removeAttr('disabled');
-
-		//salto 15
-		if ((valor>2 && valor<=16) && valor!=''){
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
-		}else if(( valor>0 && valor <=2) && valor!='' ){
-			$('#P6_2_14_1').removeAttr('disabled');
-			$('#P6_2_14_2').removeAttr('disabled');
-			$('#P6_2_14_3').removeAttr('disabled');
-			$('#P6_2_14_4').removeAttr('disabled');
-			$('#P6_2_14_5').removeAttr('disabled');
-			$('#P6_2_14_6').removeAttr('disabled');
-			$('#P6_2_14a').removeAttr('disabled');
-			$('#P6_2_14b_1').removeAttr('disabled');
-			$('#P6_2_14b_2').removeAttr('disabled');
-		}
-	});
-	$('#P6_2_14_1').trigger('change');
-	
-
-
 	$('#P6_2_15').change(function(event) {
 		
 		var valor=$(this).val();
@@ -3140,6 +3104,31 @@ $(document).ready(function(){
 		}
 	});
 	$('#P6_2_16f').trigger('change');
+
+
+	$('#P6_2_18f').change(function(event) {
+		
+		var valor=$(this).val();
+
+		if (valor==1){
+
+			$('#P6_2_19a').val('');
+			$('#P6_2_19b').val('');
+			$('#P6_2_19c').val('');
+			
+			$('#P6_2_19a').attr('disabled','disabled');
+			$('#P6_2_19b').attr('disabled','disabled');
+			$('#P6_2_19c').attr('disabled','disabled');
+
+		}else{
+
+			$('#P6_2_19a').removeAttr('disabled');
+			$('#P6_2_19b').removeAttr('disabled');
+			$('#P6_2_19c').removeAttr('disabled');
+
+		}
+	});
+	$('#P6_2_18f').trigger('change');
 	
 
 
