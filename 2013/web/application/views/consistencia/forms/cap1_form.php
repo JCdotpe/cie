@@ -1418,19 +1418,27 @@ echo form_close();
 $(function(){
 
 
-$('#P1_B_3_2_AntReg_Cod').change(function(event) {
-	if($(this).val() == 5){
-		$('#P1_B_3_3_AntReg_Nro').val('');
-		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
+$('#P1_B_3_5_FecTit').change(function(event) {
+	if($(this).val() == ''){
+		$('#P1_B_3_6_DocPos').removeAttr('disabled');	
+		$('#P1_B_3_7_DocPos_Fech').removeAttr('disabled');	
+	}else{
+		$('#P1_B_3_6_DocPos').val('');
+		$('#P1_B_3_6_DocPos').trigger('change');
+		$('#P1_B_3_6_DocPos').attr('disabled','disabled');		
 
+		$('#P1_B_3_7_DocPos_Fech').val('');
+		$('#P1_B_3_7_DocPos_Fech').attr('disabled','disabled');	
+	}
+});
+
+$('#P1_B_3_3_AntReg_Nro').change(function(event) {
+	if($(this).val() == ''){
 		$('#P1_B_3_4_Tipo_TProp').removeAttr('disabled');	
 		$('#P1_B_3_5_FecTit').removeAttr('disabled');	
 		$('#P1_B_3_6_DocPos').removeAttr('disabled');	
 		$('#P1_B_3_7_DocPos_Fech').removeAttr('disabled');	
-
 	}else{
-		$('#P1_B_3_3_AntReg_Nro').removeAttr('disabled');	
-
 		$('#P1_B_3_4_Tipo_TProp').val('');
 		$('#P1_B_3_4_Tipo_TProp').trigger('change');
 		$('#P1_B_3_4_Tipo_TProp').attr('disabled','disabled');	
@@ -1444,8 +1452,22 @@ $('#P1_B_3_2_AntReg_Cod').change(function(event) {
 
 		$('#P1_B_3_7_DocPos_Fech').val('');
 		$('#P1_B_3_7_DocPos_Fech').attr('disabled','disabled');	
+	}
+});
+
+
+
+$('#P1_B_3_2_AntReg_Cod').change(function(event) {
+	if($(this).val() == 5){
+		$('#P1_B_3_3_AntReg_Nro').val('');
+		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
+
+	}else{
+		$('#P1_B_3_3_AntReg_Nro').removeAttr('disabled');	
 
 	}
+	$('#P1_B_3_3_AntReg_Nro').trigger('change');
+
 });
 
 
@@ -1453,9 +1475,15 @@ $('#P1_B_3_2_AntReg_Cod').change(function(event) {
 $('#P1_B_3_6_DocPos').change(function(event) {
 	if($(this).val() == 9){
 		$('#P1_B_3_6_DocPos_O').removeAttr('disabled');
+		$('#P1_B_3_7_DocPos_Fech').removeAttr('disabled');	
+	}else if($(this).val() == 10){
+		$('#P1_B_3_7_DocPos_Fech').val('');
+		$('#P1_B_3_7_DocPos_Fech').attr('disabled','disabled');			
 	}else{
 		$('#P1_B_3_6_DocPos_O').val('');
 		$('#P1_B_3_6_DocPos_O').attr('disabled','disabled');
+		$('#P1_B_3_7_DocPos_Fech').removeAttr('disabled');	
+
 	}
 });
 
@@ -1465,6 +1493,7 @@ $('#P1_B_3_4_Tipo_TProp').change(function(event) {
 		$('#P1_B_3_4_Tipo_TProp_O').removeAttr('disabled');
 		$('#P1_B_3_5_FecTit').removeAttr('disabled');
 	}else if($(this).val() == 10){
+		$('#P1_B_3_5_FecTit').val('');
 		$('#P1_B_3_5_FecTit').attr('disabled','disabled');
 		$('#P1_B_3_4_Tipo_TProp_O').val('');
 		$('#P1_B_3_4_Tipo_TProp_O').attr('disabled','disabled');		
