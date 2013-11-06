@@ -429,6 +429,11 @@ $('#prbtn').click(function(){
   });
 
 
+
+$("#predios_add").submit(function() {
+
+});
+
 $("#predios_add").validate({
         rules: {                                                                                                                                                                                                   
               
@@ -457,26 +462,27 @@ $("#predios_add").validate({
           validator.focusInvalid();
         },
         submitHandler: function(form) {
-
-                var pradd_data = {
-                  id_local: $("input[name='id_local']").val(),
-                  P1_B_2A_PredNoCol: $("#P1_B_2A_PredNoCol").val(),
-                  ajax:1
-                };    
-            
-                var bcar = $( "#predios_add :submit" );
-                 bcar.attr("disabled", "disabled");
-                $.ajax({
-                    url: CI.site_url + "/consistencia/consistencia/add_predio",
-                    type:'POST',
-                    data:pradd_data,
-                    dataType:'json',
-                    success:function(json){
-                        bcar.removeAttr('disabled');
-                        alert(json.msg);
-                        location.reload();
-                    }
-                });                       
+            if (confirm('Esta seguro de agregar el predio?')) {
+                    var pradd_data = {
+                      id_local: $("input[name='id_local']").val(),
+                      P1_B_2A_PredNoCol: $("#P1_B_2A_PredNoCol").val(),
+                      ajax:1
+                    };    
+                
+                    var bcar = $( "#predios_add :submit" );
+                     bcar.attr("disabled", "disabled");
+                    $.ajax({
+                        url: CI.site_url + "/consistencia/consistencia/add_predio",
+                        type:'POST',
+                        data:pradd_data,
+                        dataType:'json',
+                        success:function(json){
+                            bcar.removeAttr('disabled');
+                            alert(json.msg);
+                            location.reload();
+                        }
+                    });    
+            }
         }       
 }); 
 
