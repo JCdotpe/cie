@@ -2195,7 +2195,7 @@ $("#predio_i").validate({
 			        range:[1,5],
 			    }, 				    		    			    	    
 				P1_B_3_3_AntReg_Nro: {
-			        digits: true,
+			        // digits: true,
 			    }, 	
 				P1_B_3_4_Tipo_TProp: {
 			        digits: true,
@@ -2297,7 +2297,7 @@ $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
 //ies
 btnies(<?php echo $cap1_p1_a_2n->num_rows(); ?>);
 
-
+$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 
 }); 
 </script>
