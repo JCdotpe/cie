@@ -2465,7 +2465,8 @@ $("#cap2_f").validate({
 			    // G
 
 				P2_G_1_ObEjec: {
-			        range: [1,2],
+			        valrango: [1,2,9],
+			        required: true,
 			    }, 				    
 
 			    

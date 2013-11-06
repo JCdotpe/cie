@@ -1418,41 +1418,44 @@ echo form_close();
 $(function(){
 
 
+$('#P1_B_3_2_AntReg_Cod').change(function(event) {
+	if($(this).val() == 5){
+		$('#P1_B_3_3_AntReg_Nro').val('');
+		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
+	}else{
+		$('#P1_B_3_3_AntReg_Nro').removeAttr('disabled');	
+	}
+});
 
 
 
 $('#P1_B_3_6_DocPos').change(function(event) {
-
 	if($(this).val() == 9){
 		$('#P1_B_3_6_DocPos_O').removeAttr('disabled');
 	}else{
 		$('#P1_B_3_6_DocPos_O').val('');
 		$('#P1_B_3_6_DocPos_O').attr('disabled','disabled');
 	}
-
 });
 
 
 $('#P1_B_3_4_Tipo_TProp').change(function(event) {
-
 	if($(this).val() == 9){
 		$('#P1_B_3_4_Tipo_TProp_O').removeAttr('disabled');
 	}else{
 		$('#P1_B_3_4_Tipo_TProp_O').val('');
 		$('#P1_B_3_4_Tipo_TProp_O').attr('disabled','disabled');
 	}
-
 });
 
-$('#P1_B_3_1_Prop').change(function(event) {
 
+$('#P1_B_3_1_Prop').change(function(event) {
 	if($(this).val() == 5 || $(this).val() == 4){
 		$('#P1_B_3_1_Prop_O').removeAttr('disabled');
 	}else{
 		$('#P1_B_3_1_Prop_O').val('');
 		$('#P1_B_3_1_Prop_O').attr('disabled','disabled');
 	}
-
 });
 
 
