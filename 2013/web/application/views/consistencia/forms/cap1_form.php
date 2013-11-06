@@ -1481,6 +1481,7 @@ $('#P1_C_10_AntReg_Cod').change(function(event) {
 $('#P1_C_12_Tipo_TProp').change(function(event) {
 	if($(this).val() == 9){
 		$('#P1_C_12_Tipo_TProp_O').removeAttr('disabled');
+		if($('#P1_C_11_AntReg_Nro').val() == '')
 		$('#P1_C_13_FecTit').removeAttr('disabled');	
 	}else if($(this).val() == 10){
 		$('#P1_C_12_Tipo_TProp_O').val('');
@@ -1491,6 +1492,7 @@ $('#P1_C_12_Tipo_TProp').change(function(event) {
 	}else{
 		$('#P1_C_12_Tipo_TProp_O').val('');
 		$('#P1_C_12_Tipo_TProp_O').attr('disabled','disabled');
+		if($('#P1_C_11_AntReg_Nro').val() == '')
 		$('#P1_C_13_FecTit').removeAttr('disabled');	
 	}
 });
@@ -1498,6 +1500,7 @@ $('#P1_C_12_Tipo_TProp').change(function(event) {
 $('#P1_C_14_DocPos').change(function(event) {
 	if($(this).val() == 9){
 		$('#P1_C_14_DocPos_O').removeAttr('disabled');
+		if($('#P1_C_11_AntReg_Nro').val() == '')
 		$('#P1_C_15_DocPos_Fech').removeAttr('disabled');
 	}else if($(this).val() == 10){
 		$('#P1_C_14_DocPos_O').val('');
@@ -1508,6 +1511,7 @@ $('#P1_C_14_DocPos').change(function(event) {
 	}else{
 		$('#P1_C_14_DocPos_O').val('');
 		$('#P1_C_14_DocPos_O').attr('disabled','disabled');
+		if($('#P1_C_11_AntReg_Nro').val() == '')
 		$('#P1_C_15_DocPos_Fech').removeAttr('disabled');
 	}
 });
