@@ -272,8 +272,7 @@ $P6_2_7_O = array(
 	'name'	=> 'P6_2_7_O',
 	'id'	=> 'P6_2_7_O',
 	'maxlength'	=> 200,
-	'class' => 'input200',	
-	'disabled' => 'disabled',
+	'class' => 'input200',
 );
 
 $P6_2_8 = array(
@@ -288,7 +287,6 @@ $P6_2_8_O = array(
 	'id'	=> 'P6_2_8_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_9 = array(
@@ -333,7 +331,6 @@ $P6_2_11_O = array(
 	'id'	=> 'P6_2_11_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_12 = array(
@@ -348,7 +345,6 @@ $P6_2_12_O = array(
 	'id'	=> 'P6_2_12_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_13 = array(
@@ -363,7 +359,6 @@ $P6_2_13_O = array(
 	'id'	=> 'P6_2_13_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_14_1 = array(
@@ -441,7 +436,6 @@ $P6_2_15_O = array(
 	'id'	=> 'P6_2_15_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_15a = array(
@@ -596,7 +590,6 @@ $P6_2_16e_O = array(
 	'id'	=> 'P6_2_16e_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
-	'disabled' => 'disabled',
 );
 
 $P6_2_16f = array(
@@ -2584,7 +2577,9 @@ $(document).ready(function(){
 		$.getJSON(urlRoot('index.php')+'/consistencia/cap6/cap6_2_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,edi:$('#Nro_Ed_VI').val(),amb:ambiente,piso:piso}, function(data, textStatus) {
 
 			$.each( data, function(fila, valor) {
-				$('#' + fila).val(Math.round(valor));
+				$('#' + fila).val(valor);
+				//math.round();
+				if (fila=='P6_2_5') $('#P6_2_5').trigger('change');
 			});
 
 		});
