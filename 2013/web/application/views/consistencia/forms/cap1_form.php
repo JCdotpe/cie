@@ -316,7 +316,7 @@ $P1_B_3_5_FecTit = array(
 	'id'	=> 'P1_B_3_5_FecTit',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
-	'readonly' => true,
+	// 'readonly' => true,
 );
 
 $P1_B_3_6_DocPos = array(
@@ -338,7 +338,7 @@ $P1_B_3_7_DocPos_Fech = array(
 	'id'	=> 'P1_B_3_7_DocPos_Fech',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
-	'readonly' => true,
+	// 'readonly' => true,
 );
 
 $P1_B_3_8_At_Pred = array(
@@ -574,7 +574,7 @@ $P1_C_13_FecTit = array(
 	'id'	=> 'P1_C_13_FecTit',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',	
-	'readonly' => 'readonly',	
+	// 'readonly' => 'readonly',	
 );
 
 $P1_C_14_DocPos = array(
@@ -594,7 +594,7 @@ $P1_C_15_DocPos_Fech = array(
 	'id'	=> 'P1_C_15_DocPos_Fech',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',	
-	'readonly' => 'readonly',	
+	// 'readonly' => 'readonly',	
 );
 
 $P1_C_16_At_Pred = array(
@@ -1422,8 +1422,29 @@ $('#P1_B_3_2_AntReg_Cod').change(function(event) {
 	if($(this).val() == 5){
 		$('#P1_B_3_3_AntReg_Nro').val('');
 		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
+
+		$('#P1_B_3_4_Tipo_TProp').removeAttr('disabled');	
+		$('#P1_B_3_5_FecTit').removeAttr('disabled');	
+		$('#P1_B_3_6_DocPos').removeAttr('disabled');	
+		$('#P1_B_3_7_DocPos_Fech').removeAttr('disabled');	
+
 	}else{
 		$('#P1_B_3_3_AntReg_Nro').removeAttr('disabled');	
+
+		$('#P1_B_3_4_Tipo_TProp').val('');
+		$('#P1_B_3_4_Tipo_TProp').trigger('change');
+		$('#P1_B_3_4_Tipo_TProp').attr('disabled','disabled');	
+
+		$('#P1_B_3_5_FecTit').val('');
+		$('#P1_B_3_5_FecTit').attr('disabled','disabled');	
+
+		$('#P1_B_3_6_DocPos').val('');
+		$('#P1_B_3_6_DocPos').trigger('change');
+		$('#P1_B_3_6_DocPos').attr('disabled','disabled');		
+
+		$('#P1_B_3_7_DocPos_Fech').val('');
+		$('#P1_B_3_7_DocPos_Fech').attr('disabled','disabled');	
+
 	}
 });
 
@@ -1442,9 +1463,15 @@ $('#P1_B_3_6_DocPos').change(function(event) {
 $('#P1_B_3_4_Tipo_TProp').change(function(event) {
 	if($(this).val() == 9){
 		$('#P1_B_3_4_Tipo_TProp_O').removeAttr('disabled');
+		$('#P1_B_3_5_FecTit').removeAttr('disabled');
+	}else if($(this).val() == 10){
+		$('#P1_B_3_5_FecTit').attr('disabled','disabled');
+		$('#P1_B_3_4_Tipo_TProp_O').val('');
+		$('#P1_B_3_4_Tipo_TProp_O').attr('disabled','disabled');		
 	}else{
 		$('#P1_B_3_4_Tipo_TProp_O').val('');
 		$('#P1_B_3_4_Tipo_TProp_O').attr('disabled','disabled');
+		$('#P1_B_3_5_FecTit').removeAttr('disabled');
 	}
 });
 
@@ -2289,7 +2316,7 @@ $.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 
 
 $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
-		if(fila == 'P1_B_3_11_CompCan' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_4_Tipo_TProp' || fila == 'P1_B_3_6_DocPos'){
+		if(fila == 'P1_B_3_11_CompCan' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_4_Tipo_TProp' || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_2_AntReg_Cod'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
 		}else{
