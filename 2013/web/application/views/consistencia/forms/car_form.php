@@ -924,7 +924,9 @@ $('#pcar_num').trigger('change');
 
 $("#car_f").validate({
 		    rules: {  
-		    	
+		    	PC_A_6_Ugel:{
+		    		required:true,
+		    	},
 				PC_A_4_CentroP: {
 						validName:true,
 			        },  	
