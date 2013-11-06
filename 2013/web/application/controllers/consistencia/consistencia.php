@@ -19,6 +19,26 @@ class Consistencia extends CI_Controller {
 		$this->load->model('consistencia/cap4_model');
 		$this->load->model('consistencia/cap5_model');
 		$this->load->model('consistencia/cap9_model');
+		//User is logged in
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
+
+		//Check user privileges 
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
+
+		//If not author is the maintenance guy!
+		if (!$flag) {
+			show_404();
+			die();
+		}				
 	}
 
 	public function index()
