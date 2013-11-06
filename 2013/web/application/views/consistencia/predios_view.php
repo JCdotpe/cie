@@ -462,7 +462,8 @@ $("#predios_add").validate({
           validator.focusInvalid();
         },
         submitHandler: function(form) {
-            if (confirm('Esta seguro de agregar el predio?')) {
+            var strc = ($("#P1_B_2A_PredNoCol").val() == 0)? '' : 'NO '
+            if (confirm('Esta seguro de agregar el predio - ' + strc + ' COLINDANTE?')) {
                     var pradd_data = {
                       id_local: $("input[name='id_local']").val(),
                       P1_B_2A_PredNoCol: $("#P1_B_2A_PredNoCol").val(),
