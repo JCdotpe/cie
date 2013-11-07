@@ -69,6 +69,10 @@ class Cap3 extends CI_Controller {
 			if ($this->cap3_model->get_cap3($id,$pr)->num_rows() == 0) {
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
+				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['created'] = date('Y-m-d H:i:s');
+				$c_data['last_ip'] =  $this->input->ip_address();
+				$c_data['user_agent'] = $this->agent->agent_string();					
 				// inserta nuevo registro
 					if($this->cap3_model->insert_cap3($c_data) > 0){
 						$flag = 1;
@@ -79,6 +83,10 @@ class Cap3 extends CI_Controller {
 					}
 
 			} else {
+				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['modified'] = date('Y-m-d H:i:s');
+				$c_data['last_ip'] =  $this->input->ip_address();
+				$c_data['user_agent'] = $this->agent->agent_string();					
 				// actualiza
 					if($this->cap3_model->update_cap3($id,$pr,$c_data) > 0){
 						$flag = 1;

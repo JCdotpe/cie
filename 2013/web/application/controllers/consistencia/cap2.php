@@ -83,6 +83,11 @@ class Cap2 extends CI_Controller {
 
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_A')->num_rows() == 0) {
 				
+				$cap2_p2_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap2_p2_a_data['created'] = date('Y-m-d H:i:s');
+				$cap2_p2_a_data['last_ip'] =  $this->input->ip_address();
+				$cap2_p2_a_data['user_agent'] = $this->agent->agent_string();
+
 					if($this->cap2_model->insert_cap2($cap2_p2_a_data,'P2_A') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -93,6 +98,11 @@ class Cap2 extends CI_Controller {
 
 
 			} else {
+				$cap2_p2_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap2_p2_a_data['modified'] = date('Y-m-d H:i:s');
+				$cap2_p2_a_data['last_ip'] =  $this->input->ip_address();
+				$cap2_p2_a_data['user_agent'] = $this->agent->agent_string();
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_a_data,'P2_A')  > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -116,7 +126,12 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_b_data['Nro_Pred'] = $pr;
 
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_B')->num_rows() == 0) {
-				
+
+					$cap2_p2_b_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_b_data['created'] = date('Y-m-d H:i:s');
+					$cap2_p2_b_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_b_data['user_agent'] = $this->agent->agent_string();		
+
 					if($this->cap2_model->insert_cap2($cap2_p2_b_data,'P2_B') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -125,7 +140,11 @@ class Cap2 extends CI_Controller {
 						$msg = 'Ocurrió un error 00x-i-cap2_p2_b';		
 					}				
 			} else {
-				
+					$cap2_p2_b_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_b_data['modified'] = date('Y-m-d H:i:s');
+					$cap2_p2_b_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_b_data['user_agent'] = $this->agent->agent_string();		
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_b_data,'P2_B') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -147,6 +166,11 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_b_9n_data['id_local'] = $id;
 			$cap2_p2_b_9n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_b_9n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_b_9n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_b_9n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_b_9n_data['user_agent'] = $this->agent->agent_string();				
 			$cc = 0;
 			foreach($cap2_p2_b_9n_pre['P2_B_9_Cod'] as &$z){
 
@@ -175,6 +199,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_b_10n_data['id_local'] = $id;
 			$cap2_p2_b_10n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_b_10n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_b_10n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_b_10n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_b_10n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_b_10n_pre['P2_B_10_Cod'] as &$z){
 
@@ -202,6 +232,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_b_11n_data['id_local'] = $id;
 			$cap2_p2_b_11n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_b_11n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_b_11n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_b_11n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_b_11n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_b_11n_pre['P2_B_11_Cod'] as &$z){
 
@@ -232,6 +268,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_b_12n_data['id_local'] = $id;
 			$cap2_p2_b_12n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_b_12n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_b_12n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_b_12n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_b_12n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_b_12n_pre['P2_B_12_Cod'] as &$z){
 
@@ -263,8 +305,15 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_c_data['id_local'] = $id;
 			$cap2_p2_c_data['Nro_Pred'] = $pr;
 
+
+
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_C')->num_rows() == 0) {
-				
+
+					$cap2_p2_c_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_c_data['created'] = date('Y-m-d H:i:s');
+					$cap2_p2_c_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_c_data['user_agent'] = $this->agent->agent_string();	
+
 					if($this->cap2_model->insert_cap2($cap2_p2_c_data,'P2_C') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -273,7 +322,11 @@ class Cap2 extends CI_Controller {
 						$msg = 'Ocurrió un error 00x-i-cap2_p2_d';		
 					}				
 			} else {
-				
+					$cap2_p2_c_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_c_data['modified'] = date('Y-m-d H:i:s');
+					$cap2_p2_c_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_c_data['user_agent'] = $this->agent->agent_string();	
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_c_data,'P2_C') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -297,7 +350,10 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_d_data['Nro_Pred'] = $pr;
 
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_D')->num_rows() == 0) {
-				
+					$cap2_p2_d_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_d_data['created'] = date('Y-m-d H:i:s');
+					$cap2_p2_d_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_d_data['user_agent'] = $this->agent->agent_string();					
 					if($this->cap2_model->insert_cap2($cap2_p2_d_data,'P2_D') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -306,7 +362,11 @@ class Cap2 extends CI_Controller {
 						$msg = 'Ocurrió un error 00x-i-cap2_p2_d';		
 					}				
 			} else {
-				
+					$cap2_p2_d_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_d_data['modified'] = date('Y-m-d H:i:s');
+					$cap2_p2_d_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_d_data['user_agent'] = $this->agent->agent_string();	
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_d_data,'P2_D') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -329,6 +389,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_d_1n_data['id_local'] = $id;
 			$cap2_p2_d_1n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_d_1n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_d_1n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_d_1n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_d_1n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_d_1n_pre['P2_D_1_Cod'] as &$z){
 
@@ -361,6 +427,12 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_d_3n_data['id_local'] = $id;
 			$cap2_p2_d_3n_data['Nro_Pred'] = $pr;	
 
+			$cap2_p2_d_3n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_d_3n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_d_3n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_d_3n_data['user_agent'] = $this->agent->agent_string();	
+
+
 			$cc = 0;
 			if(isset($cap2_p2_d_3n_pre['P2_D_3_Nro'])){
 				foreach($cap2_p2_d_3n_pre['P2_D_3_Nro'] as &$z){
@@ -386,6 +458,11 @@ class Cap2 extends CI_Controller {
 			}	
 
 			$this->cap2_model->delete_cap2($id,$pr,'P2_D_5N');
+
+			$cap2_p2_d_5n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_d_5n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_d_5n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_d_5n_data['user_agent'] = $this->agent->agent_string();	
 
 			$cap2_p2_d_5n_data['id_local'] = $id;
 			$cap2_p2_d_5n_data['Nro_Pred'] = $pr;	
@@ -420,6 +497,11 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_d_7n_data['id_local'] = $id;
 			$cap2_p2_d_7n_data['Nro_Pred'] = $pr;	
 
+			$cap2_p2_d_7n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_d_7n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_d_7n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_d_7n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			if(isset($cap2_p2_d_7n_pre['P2_D_7_Nro'])){
 				foreach($cap2_p2_d_7n_pre['P2_D_7_Nro'] as &$z){
@@ -447,6 +529,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_d_9n_data['id_local'] = $id;
 			$cap2_p2_d_9n_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_d_9n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_d_9n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_d_9n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_d_9n_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_d_9n_pre['P2_D_9_Nro'] as &$z){
 
@@ -476,8 +564,13 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_e_data['id_local'] = $id;
 			$cap2_p2_e_data['Nro_Pred'] = $pr;
 
+
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_E')->num_rows() == 0) {
-				
+					$cap2_p2_e_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_e_data['created'] = date('Y-m-d H:i:s');
+					$cap2_p2_e_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_e_data['user_agent'] = $this->agent->agent_string();	
+
 					if($this->cap2_model->insert_cap2($cap2_p2_e_data,'P2_E') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -488,6 +581,11 @@ class Cap2 extends CI_Controller {
 
 
 			} else {
+					$cap2_p2_e_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_e_data['modified'] = date('Y-m-d H:i:s');
+					$cap2_p2_e_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_e_data['user_agent'] = $this->agent->agent_string();	
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_e_data,'P2_E')  > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -511,6 +609,12 @@ class Cap2 extends CI_Controller {
 
 			$cap2_p2_f_data['id_local'] = $id;
 			$cap2_p2_f_data['Nro_Pred'] = $pr;	
+
+			$cap2_p2_f_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_f_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_f_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_f_data['user_agent'] = $this->agent->agent_string();	
+
 			$cc = 0;
 			foreach($cap2_p2_f_pre['P2_F_1_ElimBas'] as &$z){
 
@@ -542,8 +646,15 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_g_data['id_local'] = $id;
 			$cap2_p2_g_data['Nro_Pred'] = $pr;
 
+
+
 			if ($this->cap2_model->consulta_cap2($id,$pr,'P2_G')->num_rows() == 0) {
 				
+					$cap2_p2_g_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_g_data['created'] = date('Y-m-d H:i:s');
+					$cap2_p2_g_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_g_data['user_agent'] = $this->agent->agent_string();			
+							
 					if($this->cap2_model->insert_cap2($cap2_p2_g_data,'P2_G') > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -554,6 +665,11 @@ class Cap2 extends CI_Controller {
 
 
 			} else {
+					$cap2_p2_g_data['user_id'] = $this->tank_auth->get_user_id();
+					$cap2_p2_g_data['modified'] = date('Y-m-d H:i:s');
+					$cap2_p2_g_data['last_ip'] =  $this->input->ip_address();
+					$cap2_p2_g_data['user_agent'] = $this->agent->agent_string();
+
 					if($this->cap2_model->update_cap2($id,$pr,$cap2_p2_g_data,'P2_G')  > 0){
 						$flag = 1;
 						$msg = 'Se ha actualizado satisfactoriamente Cap II';
@@ -577,6 +693,11 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_g_2n_data['id_local'] = $id;
 			$cap2_p2_g_2n_data['Nro_Pred'] = $pr;	
 
+			$cap2_p2_g_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap2_p2_g_2n_data['created'] = date('Y-m-d H:i:s');
+			$cap2_p2_g_2n_data['last_ip'] =  $this->input->ip_address();
+			$cap2_p2_g_2n_data['user_agent'] = $this->agent->agent_string();	
+			
 			$cc = 0;
 			if($cap2_p2_g_2n_pre['P2_G_2_Cod'] > 0){
 				foreach($cap2_p2_g_2n_pre['P2_G_2_Cod'] as &$z){
