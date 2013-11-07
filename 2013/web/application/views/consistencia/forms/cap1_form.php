@@ -1417,7 +1417,22 @@ echo form_close();
 
 <script type="text/javascript">
 
+
 $(function(){
+
+
+
+
+$('#P1_B_3_InmCod').change(function(event) {
+	if($(this).val() != ''){
+		$('#P1_B_3_InmTip').val('');
+		$('#P1_B_3_InmTip').attr('disabled','disabled');		
+	}else{
+		$('#P1_B_3_InmTip').removeAttr('disabled');	
+
+	}
+});
+
 //val predios header
 $('#P1_B_1_TPred').change(function(event) {
 	if($(this).val() == 1){
