@@ -2478,11 +2478,11 @@ $("#cap2_f").validate({
 			    }, 		
 
 				'P2_D_5_Cod[]': {
-			        valrango: [1,6,9],
+			        valrango: [0,1,9],
 			    }, 		
 
 				'P2_D_9_Nro[]': {
-			        valrango: [1,7,9],
+			        valrango: [0,1,9],
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
@@ -2506,7 +2506,7 @@ $("#cap2_f").validate({
 			    // F
 
 				'P2_F_1_ElimBas[]': {
-			        valrango: [1,10,99],
+			        valrango: [0,1,9],
 			    },
 
 			    // G
