@@ -83,7 +83,7 @@ $PC_A_7Dir_3_Nro = array(
 $PC_A_7Dir_4_Piso = array(
 	'name'	=> 'PC_A_7Dir_4_Piso',
 	'id'	=> 'PC_A_7Dir_4_Piso',
-	'maxlength'	=> 3,
+	'maxlength'	=> 2,
 	'class' => 'input3',
 );
 
@@ -947,7 +947,7 @@ $("#car_f").validate({
 			    		required: true,
 				},		        	   
 			    PC_A_7Dir_4_Piso: {
-			    		range: [0,9],
+			    		range: [0,10],
 			    		required: true,
 			    },             			
 			    PC_B_2_CantEv:{

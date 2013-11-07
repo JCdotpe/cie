@@ -158,7 +158,7 @@ $P1_A_2_3_DocNro = array(
 $P1_A_2_4_TelfIE = array(
 	'name'	=> 'P1_A_2_4_TelfIE',
 	'id'	=> 'P1_A_2_4_TelfIE',
-	'maxlength'	=> 10,
+	'maxlength'	=> 9,
 	'class' => 'input10',	
 );
 
@@ -2056,11 +2056,11 @@ $("#cap1_ie").validate({
 		            maxlength: 10, 
 			    },  
 				P1_A_2_4_TelfIE: {
-					valrango: [1,9999999998,9999999999],
+					valrango: [1,999999998,999999999],
 			        digits: true,
 			    },  		
 				P1_A_2_4_TelfDir: {
-					valrango: [1,9999999998,9999999999],
+					valrango: [1,999999998,999999999],
 			        digits: true,
 			    },  	
 				P1_A_2_5_EmailIE: {
