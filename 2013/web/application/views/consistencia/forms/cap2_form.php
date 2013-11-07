@@ -2233,7 +2233,12 @@ $.each( <?php echo json_encode($cap2_p2_d_9n->result()); ?>, function(i, data) {
 
 //p2_e
 $.each( <?php echo json_encode($cap2_p2_e->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
+		if(fila == 'P2_E_1_Prayo' || fila == 'P2_E_2_Ptierra'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');	
+        }else{	   
+	   		$('#' + fila).val(valor);
+	    }
 }); 
 
 //p2_f
