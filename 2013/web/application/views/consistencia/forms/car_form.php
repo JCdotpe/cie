@@ -733,6 +733,14 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
+	
+
+
+$('.caraaf').change(function(event) {
+	if($(this).val() == '2013-11-07')
+		$(this).val('');
+});
+
 //datepicker
 
 $('#PC_C_2_Rfinal_resul').change(function(event) {
@@ -883,7 +891,7 @@ $('#pcar_c_n tr').remove('.entrev');
 	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
-	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap caraaf" maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hora_Prox[]" id="PC_C_1_Et_Hora_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + ' car_res" maxlength="1" name="PC_C_1_Et_Res[]" id="PC_C_1_Et_Res_' + i + '" value="" > - Especifique <div class="help-block error"></div><input type="text" class="input10 embc' + i + '" readonly maxlength="80" name="PC_C_1_Et_Res_O[]" id="PC_C_1_Et_Res_O' + '_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Jb_Fecha[]" id="PC_C_1_Jb_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
