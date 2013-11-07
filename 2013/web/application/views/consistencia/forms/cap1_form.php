@@ -1418,8 +1418,16 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
+//val predios header
+$('#P1_B_1_TPred').change(function(event) {
+	if($(this).val() == 1){
+		$('#P1_B_2_PredCol').val('');
+		$('#P1_B_2_PredCol').attr('disabled','disabled');		
+	}else{
+		$('#P1_B_2_PredCol').removeAttr('disabled');	
 
-
+	}
+});
 
 //val anexo
 $('#P1_C_18_Comp').change(function(event) {
@@ -2462,7 +2470,7 @@ $.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 
 
 $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
-		if(fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' ||  fila == 'P1_B_3_3_AntReg_Nro' || fila == 'P1_B_3_4_Tipo_TProp' || fila == 'P1_B_3_5_FecTit' || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_10_Comp' || fila == 'P1_B_3_11_CompCan'){
+		if(fila == 'P1_B_1_TPred' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' ||  fila == 'P1_B_3_3_AntReg_Nro' || fila == 'P1_B_3_4_Tipo_TProp' || fila == 'P1_B_3_5_FecTit' || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_10_Comp' || fila == 'P1_B_3_11_CompCan'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
 		}else{
