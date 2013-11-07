@@ -1957,6 +1957,19 @@ echo form_close();
 $(function(){
 
 
+$('#P2_G_1_ObEjec').change(function(event) {
+
+	if($(this).val() == 2){	
+		$('.p2g2').val('');
+		$('.p2g2').attr('disabled','disabled');				
+	}else{
+		$('.p2g2').removeAttr('disabled');
+	}
+		$('.p2g2').trigger('change');
+
+});
+
+
 
 $('#P2_E_2_Ptierra').change(function(event) {
 
@@ -2253,7 +2266,12 @@ $.each( <?php echo json_encode($cap2_p2_f->result()); ?>, function(i, data) {
 
 //p2_g
 $.each( <?php echo json_encode($cap2_p2_g->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
+		if(fila == 'P2_G_1_ObEjec'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');	
+        }else{		
+	   		$('#' + fila).val(valor);
+	    }
 });
 
 //p2_g_2n

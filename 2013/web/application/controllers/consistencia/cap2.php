@@ -578,26 +578,27 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_g_2n_data['Nro_Pred'] = $pr;	
 
 			$cc = 0;
-			foreach($cap2_p2_g_2n_pre['P2_G_2_Cod'] as &$z){
-					foreach ($cap2_p2_g_2n as $a=>$b) {
-						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
-							if($b == 'P2_G_2_Nro')
-								$cap2_p2_g_2n_data[$b] = $cc+1;
-							if($b == 'P2_G_2_Cod')
-								$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];
-							if($b == 'P2_G_2A_EstPre')
-								$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];
-							if($b == 'P2_G_2B_snip')
-								$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];							
-							//otro		
-							if($b == 'P2_G_2_Otro')
-								$cap2_p2_g_2n_data[$b] = ($cc == 6)? $cap2_p2_g_2n_pre[$b] : NULL;		
-						}	
-					}
-					$this->cap2_model->insert_cap2($cap2_p2_g_2n_data,'P2_G_2N');			
-					$cc++;
+			if($cap2_p2_g_2n_pre['P2_G_2_Cod'] > 0){
+				foreach($cap2_p2_g_2n_pre['P2_G_2_Cod'] as &$z){
+						foreach ($cap2_p2_g_2n as $a=>$b) {
+							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
+								if($b == 'P2_G_2_Nro')
+									$cap2_p2_g_2n_data[$b] = $cc+1;
+								if($b == 'P2_G_2_Cod')
+									$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];
+								if($b == 'P2_G_2A_EstPre')
+									$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];
+								if($b == 'P2_G_2B_snip')
+									$cap2_p2_g_2n_data[$b] = ($cap2_p2_g_2n_pre[$b][$cc] == '') ? NULL : $cap2_p2_g_2n_pre[$b][$cc];							
+								//otro		
+								if($b == 'P2_G_2_Otro')
+									$cap2_p2_g_2n_data[$b] = ($cc == 6)? $cap2_p2_g_2n_pre[$b] : NULL;		
+							}	
+						}
+						$this->cap2_model->insert_cap2($cap2_p2_g_2n_data,'P2_G_2N');			
+						$cc++;
+				}
 			}
-
 
 
 			$datos['flag'] = $flag;	
