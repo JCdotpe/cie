@@ -54,30 +54,32 @@ class Cap7 extends CI_Controller {
 				}
 			}
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->cap7_model->consulta_cap7($id,$pr,$nroedif)->num_rows() == 0) {
+				$c_data['created'] = date('Y-m-d H:i:s');
+
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
 				// inserta nuevo registro
 					if($this->cap7_model->insert_cap7($c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P7';
+						$msg = 'Se ha registrado satisfactoriamente el Cap VII';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap7-i';
 					}
 
 			} else {
+				$c_data['modified'] = date('Y-m-d H:i:s');
 				// actualiza
 					if($this->cap7_model->update_cap7($id,$pr,$nroedif,$c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P7';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap VII';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap7-u';		

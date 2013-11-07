@@ -58,7 +58,7 @@ class Cap5 extends CI_Controller {
 			$tot_cte = $this->input->post('P5_Tot_CTE');
 			$tot_mc = $this->input->post('P5_Tot_MC');
 
-
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 			//p5
 			foreach ($fields as $a=>$b) {
@@ -67,30 +67,33 @@ class Cap5 extends CI_Controller {
 				}
 			}	
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->cap5_model->consulta_cap5($id,$pr)->num_rows() == 0) {
+				$c_data['created'] = date('Y-m-d H:i:s');
+
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
+
 				// inserta nuevo registro
 					if($this->cap5_model->insert_cap5($c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P5';
+						$msg = 'Se ha registrado satisfactoriamente el Cap V';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap5-i';
 					}
 
 			} else {
+				$c_data['modified'] = date('Y-m-d H:i:s');
 				// actualiza
 					if($this->cap5_model->update_cap5($id,$pr,$c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P5';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap V';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap5-u';		
@@ -99,6 +102,11 @@ class Cap5 extends CI_Controller {
 			}
 
 			//Actualiza PCar
+			$car_data['user_id'] = $this->tank_auth->get_user_id();
+			$car_data['last_ip'] =  $this->input->ip_address();
+			$car_data['user_agent'] = $this->agent->agent_string();
+			$car_data['modified'] = date('Y-m-d H:i:s');
+
 			$car_data['PC_E_3_TEdif'] = $tot_e;
 			$car_data['PC_E_4_TPat'] = $tot_p;
 			$car_data['PC_E_5_TLosa'] = $tot_ld;
@@ -144,12 +152,18 @@ class Cap5 extends CI_Controller {
 
 
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			//P5_F
 			foreach ($fields_f as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 					$edi_f[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}
+			
+			$c_data_f['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_f['last_ip'] =  $this->input->ip_address();
+			$c_data_f['user_agent'] = $this->agent->agent_string();
+			
 			$c_data_f['id_local'] = $id;
 			$c_data_f['Nro_Pred'] = $pr;
 			
@@ -185,8 +199,10 @@ class Cap5 extends CI_Controller {
 					$hay_datos = $this->cap5_model->get_cant_p5f_v2($id,$pr,$edi_f['P5_NroPiso'][$cc])->num_rows();
 
 					if ($hay_datos > 0) {
+						$c_data_f['modified'] = date('Y-m-d H:i:s');
 						$this->cap5_model->update_cap5_f($id,$pr,$edi_f['P5_NroPiso'][$cc],$c_data_f);
 					}else{
+						$c_data_f['created'] = date('Y-m-d H:i:s');
 						$this->cap5_model->insert_cap5_f($c_data_f);
 					}
 					
@@ -195,12 +211,17 @@ class Cap5 extends CI_Controller {
 			}
 
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			//P5_N
 			foreach ($fields_n as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 					$edi_n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}
+
+			$c_data_n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_n['last_ip'] =  $this->input->ip_address();
+			$c_data_n['user_agent'] = $this->agent->agent_string();
 
 			$c_data_n['id_local'] = $id;
 			$c_data_n['Nro_Pred'] = $pr;
@@ -241,8 +262,10 @@ class Cap5 extends CI_Controller {
 						}
 
 						if ($hay_datos > 0){
+							$c_data_n['modified'] = date('Y-m-d H:i:s');
 							$this->cap5_model->update_cap5_n($id,$pr,$c_data_n['P5_NroPiso'],$c_data_n['P5_Ed_Nro'],$c_data_n);	
 						}else{
+							$c_data_n['created'] = date('Y-m-d H:i:s');
 							$this->cap5_model->insert_cap5_n($c_data_n);	
 						}
 

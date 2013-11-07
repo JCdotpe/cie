@@ -602,28 +602,28 @@ $P6_2_16f = array(
 $P6_2_17a = array(
 	'name'	=> 'P6_2_17a',
 	'id'	=> 'P6_2_17a',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',	
 );
 
 $P6_2_17b = array(
 	'name'	=> 'P6_2_17b',
 	'id'	=> 'P6_2_17b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_17c = array(
 	'name'	=> 'P6_2_17c',
 	'id'	=> 'P6_2_17c',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_17d = array(
 	'name'	=> 'P6_2_17d',
 	'id'	=> 'P6_2_17d',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -784,21 +784,21 @@ $P6_2_18f = array(
 $P6_2_19a = array(
 	'name'	=> 'P6_2_19a',
 	'id'	=> 'P6_2_19a',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_19b = array(
 	'name'	=> 'P6_2_19b',
 	'id'	=> 'P6_2_19b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',			
 );
 
 $P6_2_19c = array(
 	'name'	=> 'P6_2_19c',
 	'id'	=> 'P6_2_19c',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',			
 );
 
@@ -2002,7 +2002,7 @@ echo '
 		  	    									</tr>
 		  	    									<tr>
 			  	    									<td>4. No tiene</td>
-			  	    									<td>'.form_input($P6_2_17d).'<div class="help-block error"></div>td>
+			  	    									<td>'.form_input($P6_2_17d).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
@@ -2594,6 +2594,8 @@ $(document).ready(function(){
 				$('#P6_2_4Turno_M_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_M);
 				$('#P6_2_4Turno_T_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_T);
 				$('#P6_2_4Turno_N_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_N);
+
+				$('#P6_2_4Mod_op'+datos.P6_2_4ID).trigger('change');
 			});
 
 		});
@@ -2781,6 +2783,94 @@ $(document).ready(function(){
 
 	///////////////////////////////////////////////////////////////////////////
 	//Saltos P6_2
+
+	$('#P6_2_4Mod_op1').change(function(event) {
+		P4_activacion(1,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op2').change(function(event) {
+		P4_activacion(2,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op3').change(function(event) {
+		P4_activacion(3,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op4').change(function(event) {
+		P4_activacion(4,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op5').change(function(event) {
+		P4_activacion(5,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op6').change(function(event) {
+		P4_activacion(6,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op7').change(function(event) {
+		P4_activacion(7,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op8').change(function(event) {
+		P4_activacion(8,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op9').change(function(event) {
+		P4_activacion(9,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op10').change(function(event) {
+		P4_activacion(10,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op11').change(function(event) {
+		P4_activacion(11,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op12').change(function(event) {
+		P4_activacion(12,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op13').change(function(event) {
+		P4_activacion(13,$(this).val());
+	});
+
+
+	$('#P6_2_4Mod_op14').change(function(event) {
+		P4_activacion(14,$(this).val());
+	});
+
+	function P4_activacion(nro,valor){
+
+		if (valor==0){
+			$('#P6_2_4Turno_M_op'+nro).val('');
+			$('#P6_2_4Turno_T_op'+nro).val('');
+			$('#P6_2_4Turno_N_op'+nro).val('');
+
+			$('#P6_2_4Turno_M_op'+nro).attr('readonly','readonly');
+			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
+			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
+		}else if (valor==1 || valor==9){
+			$('#P6_2_4Turno_M_op'+nro).removeAttr('readonly');
+			$('#P6_2_4Turno_T_op'+nro).removeAttr('readonly');
+			$('#P6_2_4Turno_N_op'+nro).removeAttr('readonly');
+		}
+	}
+
+
 	$('#P6_2_5').change(function(event) {
 		
 		var valor=$(this).val();
@@ -3534,19 +3624,19 @@ $(document).ready(function(){
 			},
 			P6_2_17a:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_17b:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_17c:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_17d:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_18a:{
 				digits:true,
@@ -3634,15 +3724,15 @@ $(document).ready(function(){
 			},
 			P6_2_19a:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_19b:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_2_19c:{
 				digits:true,
-				valrango:[0,9998,9999],
+				valrango:[0,98,99],
 			},
 			P6_3_1:{
 				digits:true,

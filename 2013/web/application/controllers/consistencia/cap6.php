@@ -12,6 +12,27 @@ class Cap6 extends CI_Controller {
 
 		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/principal_model');
+
+		//User is logged in
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
+
+		//Check user privileges 
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
+
+		//If not author is the maintenance guy!
+		if (!$flag) {
+			show_404();
+			die();
+		}
 	}
 
 	public function index()
@@ -69,53 +90,65 @@ class Cap6 extends CI_Controller {
 				}
 			}
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+
+			///////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////
+			//P6_1
+			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->cap6_model->consulta_cap6($id,$pr,$nroedif)->num_rows() == 0) {
+				$c_data['created'] = date('Y-m-d H:i:s');
+
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
 				// inserta nuevo registro
 					if($this->cap6_model->insert_cap6($c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P6_1';
+						$msg = 'Se ha registrado satisfactoriamente el Cap VI';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap6-i';
 					}
 
 			} else {
+				$c_data['modified'] = date('Y-m-d H:i:s');
 				// actualiza
 					if($this->cap6_model->update_cap6($id,$pr,$nroedif,$c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P6_1';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap VI';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap6-u';		
 					}
 			}
-			///////////////////////////////////////////////////////////////////////////
 
+
+			///////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////
 			//P6_1_8N
 			$this->cap6_model->delete_cap6_1_8n($id,$pr,$nroedif);
+
+			$c_data_8n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_8n['last_ip'] =  $this->input->ip_address();
+			$c_data_8n['user_agent'] = $this->agent->agent_string();
+			$c_data_8n['created'] = date('Y-m-d H:i:s');
 
 			$c_data_8n['id_local'] = $id;
 			$c_data_8n['Nro_Pred'] = $pr;
 			$c_data_8n['Nro_Ed'] = $nroedif;
 			
 			$cc = 0;
-			//foreach($P6_1_8n['P6_1_8_Accesibilidad'] as &$z){
 			for ($i=0; $i<10 ; $i++){
 			
 					foreach ($fields_8n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 							
 							if ($b == 'P6_1_8_Accesibilidad')
-								$c_data_8n[$b] = (!isset($P6_1_8n['P6_1_8_Accesibilidad'][$cc]) || $P6_1_8n['P6_1_8_Accesibilidad'][$cc] == '') ? 0 : $P6_1_8n['P6_1_8_Accesibilidad'][$cc];
+								$c_data_8n[$b] = (!isset($P6_1_8n['P6_1_8_Accesibilidad'][$cc]) || $P6_1_8n['P6_1_8_Accesibilidad'][$cc] == '') ? NULL : $P6_1_8n['P6_1_8_Accesibilidad'][$cc];
 							
 							if ($b == 'P6_1_8ID')
 								$c_data_8n[$b] = $cc+1;
@@ -126,11 +159,17 @@ class Cap6 extends CI_Controller {
 
 				    $cc++;
 			}
-			//}
-			///////////////////////////////////////////////////////////////////////////
 
+
+			///////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////
 			//P6_1_10N
 			$this->cap6_model->delete_cap6_1_10n($id,$pr,$nroedif);
+
+			$c_data_10n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_10n['last_ip'] =  $this->input->ip_address();
+			$c_data_10n['user_agent'] = $this->agent->agent_string();
+			$c_data_10n['created'] = date('Y-m-d H:i:s');
 
 			$c_data_10n['id_local'] = $id;
 			$c_data_10n['Nro_Pred'] = $pr;
@@ -143,7 +182,7 @@ class Cap6 extends CI_Controller {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 							
 							if ($b == 'P6_1_10_e')
-								$c_data_10n[$b] = ($P6_1_10N['P6_1_10_e'][$cc] == '') ? 0 : $P6_1_10N['P6_1_10_e'][$cc];
+								$c_data_10n[$b] = ($P6_1_10N['P6_1_10_e'][$cc] == '') ? NULL : $P6_1_10N['P6_1_10_e'][$cc];
 							
 							if ($b == 'P6_1_10')
 								$c_data_10n[$b] = $cc+1;
@@ -154,38 +193,53 @@ class Cap6 extends CI_Controller {
 
 				    $cc++;
 			}
-			///////////////////////////////////////////////////////////////////////////
 
+
+			///////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////
 			//P6_2
+			$c_data_2['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_2['last_ip'] =  $this->input->ip_address();
+			$c_data_2['user_agent'] = $this->agent->agent_string();
+			
+
 			if ($this->cap6_model->consulta_cap6_2($id,$pr,$nroedif,$p5_piso,$amb)->num_rows() == 0) {
+				$c_data_2['created'] = date('Y-m-d H:i:s');
 
 				$c_data_2['id_local'] = $id;
 				$c_data_2['Nro_Pred'] = $pr;
 				$c_data_2['P5_Ed_Nro'] = $nroedif;
-				
 				// inserta nuevo registro
 					if($this->cap6_model->insert_cap6_2($c_data_2) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P6_2';
+						$msg = 'Se ha registrado satisfactoriamente el Cap VI';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap6_2-i';
 					}
 
 			} else {
+				$c_data_2['modified'] = date('Y-m-d H:i:s');
 				// actualiza
 					if($this->cap6_model->update_cap6_2($id,$pr,$nroedif,$p5_piso,$amb,$c_data_2) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P6_2';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap VI';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap6_2-u';		
 					}
 			}
-			///////////////////////////////////////////////////////////////////////////
 
+
+			///////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////
 			//P6_2_4N
 			$this->cap6_model->delete_cap6_2_4n($id,$pr,$nroedif,$p5_piso,$amb);
+
+			$c_data_2_4n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_2_4n['last_ip'] =  $this->input->ip_address();
+			$c_data_2_4n['user_agent'] = $this->agent->agent_string();
+			$c_data_2_4n['created'] = date('Y-m-d H:i:s');
 
 			$c_data_2_4n['id_local'] = $id;
 			$c_data_2_4n['Nro_Pred'] = $pr;
@@ -194,15 +248,13 @@ class Cap6 extends CI_Controller {
 			$c_data_2_4n['P6_2_1'] = $amb;
 
 			$cc = 0;
-			foreach($P6_2_4N['P6_2_4Mod'] as &$z){
-
+			//foreach($P6_2_4N['P6_2_4Mod'] as &$z){
+			for ($i=0; $i<14; $i++){
+				
+					$c_data_2_4n['P6_2_4ID'] = $cc+1;
 					foreach ($fields_2_4n as $a=>$b) {
-						if(!in_array($b, array('id_local','Nro_Pred','P5_Ed_Nro','P5_NroPiso','P6_2_1','user_id','last_ip','user_agent','created','modified'))){
-							
-							$c_data_2_4n[$b] = ($P6_2_4N[$b][$cc] == '') ? 0 : $P6_2_4N[$b][$cc];
-							
-							if ($b == 'P6_2_4ID')
-								$c_data_2_4n[$b] = $cc+1;
+						if(!in_array($b, array('id_local','Nro_Pred','P5_Ed_Nro','P5_NroPiso','P6_2_1','P6_2_4ID','user_id','last_ip','user_agent','created','modified'))){
+							$c_data_2_4n[$b] = (!isset($P6_2_4N[$b][$cc]) || $P6_2_4N[$b][$cc] == '') ? NULL : $P6_2_4N[$b][$cc];
 						}
 					}
 					
@@ -210,7 +262,6 @@ class Cap6 extends CI_Controller {
 
 				    $cc++;
 			}
-			
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	

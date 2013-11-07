@@ -115,10 +115,6 @@ $P8_Obs = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-$attr = array('class' => 'form-vertical form-auth','id' => 'cap8_f');
-
-echo form_open($this->uri->uri_string(),$attr); 
-
 echo '
 
 <div class="panel panel-info">
@@ -161,8 +157,13 @@ echo '
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
-		  	    			</table>
+		  	    			</table>';
 
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap8_f');
+
+echo form_open($this->uri->uri_string(),$attr);
+
+echo '
 		  	    			<table id="datos_otros_ed" class="table table-bordered">
 		  	    				<thead>
 		  	    					<tr>
@@ -349,7 +350,7 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
-		Limpiar_Datos();
+		$('#cap8_f')[0].reset(); //resetea form
 		Get_Nro_Edif(array[0],array[1]);
 		$('#panel_tipo_edificaciones_viii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
@@ -532,7 +533,7 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
-		Limpiar_Datos();
+		$('#cap8_f')[0].reset(); //resetea form
 		Get_Datos_Edif(array[0],array[1]);
 		$('#panel_nro_tedificaciones_viii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
@@ -553,22 +554,6 @@ $(document).ready(function(){
 		});
 	}
 
-	function Limpiar_Datos(){
-		$('#P8_2_Tipo').val('');
-		$('#P8_2_Nro').val('');
-		$('#P8_area').val('');
-		$('#P8_altura').val('');
-		$('#P8_longitud').val('');
-		$('#P8_ejecuto').val('');
-		$('#P8_ejecuto_O').val('');
-		$('#P8_Est_E').val('');
-		$('#P8_Ant').val('');
-		$('#P8_Est_PaLo').val('');
-		$('#P8_RecTec').val('');
-		$('#P8_Obs').val('');
-	}
-
-
 
 	$("#cap8_f").validate({
 	    rules: {
@@ -583,6 +568,7 @@ $(document).ready(function(){
 			P8_predio:{
 				digits:true,
 				required: true,
+				exactlength: 2,
 			},
 			//Patio
 			P8_ejecuto:{

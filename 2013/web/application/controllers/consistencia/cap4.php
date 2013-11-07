@@ -70,20 +70,20 @@ class Cap4 extends CI_Controller {
 				}
 			}
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+			$c_data['user_id'] = $this->tank_auth->get_user_id();			
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->cap4_model->consulta_cap4($id,$pr)->num_rows() == 0) {
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
+				$c_data['created'] = date('Y-m-d H:i:s');
 				// inserta nuevo registro
 					if($this->cap4_model->insert_cap4($c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P4';
+						$msg = 'Se ha registrado satisfactoriamente el Cap IV';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap4-i';
@@ -91,9 +91,10 @@ class Cap4 extends CI_Controller {
 
 			} else {
 				// actualiza
+				$c_data['modified'] = date('Y-m-d H:i:s');
 					if($this->cap4_model->update_cap4($id,$pr,$c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P4';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap IV';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap4-u';		
@@ -104,8 +105,14 @@ class Cap4 extends CI_Controller {
 			//p4_2n
 			$this->cap4_model->delete_cap4_2n($id,$pr);
 
+			$c_data_n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_n['last_ip'] =  $this->input->ip_address();
+			$c_data_n['user_agent'] = $this->agent->agent_string();
+			$c_data_n['created'] = date('Y-m-d H:i:s');
+
 			$c_data_n['id_local'] = $id;
 			$c_data_n['Nro_Pred'] = $pr;
+
 			if($cantidad_tramos > 0){
 				$cc = 0;
 				//foreach($pre_n['P4_2_LindTipo'] as &$z){

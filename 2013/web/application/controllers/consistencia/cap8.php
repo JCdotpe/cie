@@ -55,30 +55,32 @@ class Cap8 extends CI_Controller {
 				}
 			}
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->cap8_model->consulta_cap8($id,$pr,$tipo,$nro)->num_rows() == 0) {
+				$c_data['created'] = date('Y-m-d H:i:s');
+
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
 				// inserta nuevo registro
 					if($this->cap8_model->insert_cap8($c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el P8';
+						$msg = 'Se ha registrado satisfactoriamente el Cap VIII';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap8-i';
 					}
 
 			} else {
+				$c_data['modified'] = date('Y-m-d H:i:s');
 				// actualiza
 					if($this->cap8_model->update_cap8($id,$pr,$tipo,$nro,$c_data) > 0){
 						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el P8';
+						$msg = 'Se ha actualizado satisfactoriamente el Cap VIII';
 					}else{
 						$flag = 0;
 						$msg = 'Ocurrió un error 00x-Cap8-u';		
