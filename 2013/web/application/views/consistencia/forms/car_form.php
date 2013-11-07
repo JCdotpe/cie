@@ -735,8 +735,7 @@ echo form_close();
 $(function(){
 	
 
-
-$('.caraaf').change(function(event) {
+$(document).on("change",'.caraaf',function() {
 	if($(this).val() == '2013-11-07')
 		$(this).val('');
 });
