@@ -2329,48 +2329,48 @@ $("#cap2_f").validate({
 			    },  		
 				P2_A_2A_Lluv_Mini: {
 			        required: true,
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    },  	
 				P2_A_2A_Lluv_Mfin: {
 			        required: true,
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    },  		
 				P2_A_3_Hel: {
 			        required: true,
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 
 				P2_A_3A_Hel_Mini: {
 			        // required: true,
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 			
 				P2_A_3A_Hel_Mfin: {
 			        // required: true,
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 		
 				P2_A_4_Gra: {
 			        required: true,
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 	
 				P2_A_4A_Gra_Mini: {
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 	
 				P2_A_4A_Gra_Mfin: {
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 				    			    	
 				P2_A_5_Vend: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 				    	    			         				    	    			    	    
 				P2_A_5A_Vend_Tip: {
 			        valrango: [1,2,9],
 			    }, 		
 				P2_A_5B_Vend_Mini: {
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 		
 				P2_A_5B_Vend_Mfin: {
-			        range: [1,12],
+			        valrango: [1,12,99],
 			    }, 		
 				P2_B_1_Topo: {
-			        range: [1,4],
+			        valrango: [1,4,9],
 			    }, 		
 				P2_B_2_Suelo: {
 			        valrango: [1,6,9],
@@ -2379,137 +2379,134 @@ $("#cap2_f").validate({
 			        valrango: [1,2,9],
 			    }, 		
 				P2_B_5_1: {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 	
 				P2_B_5_2: {
-			        range: [0,1],
+			         valrango: [0,1,9],
 			    }, 
 				P2_B_5_3: {
-			        range: [0,1],
-			    }, 			    
-				P2_B_5B_3: {
-			        range: [0,1],
-			    }, 		
+			         valrango: [0,1,9],
+			    }, 			    	
 				P2_B_5A_Uso: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_B_5B_1: {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 		
 				P2_B_5B_2: {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 		
 				P2_B_5B_3: {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 				
 				P2_B_5B_4: {
-			        range: [0,1],
+			       valrango: [0,1,9],
 			    }, 	
 				P2_B_6_Trec_H: {
-			        range: [0,999],
+			        valrango: [0,24,99],
 			    }, 		
 				P2_B_6_Trec_M: {
-			        range: [0,999],
+			        valrango: [0,59,99],
 			    }, 				    	    		
 				P2_B_7_Ttramo_H: {
-			        range: [0,999],
+			        valrango: [0,24,99],
 			    }, 				    		        		    		    		    	    			    			    		    			    		    		    	    		    
 				P2_B_7_Ttramo_M: {
-			        range: [0,999],
+			        valrango: [0,59,99],
 			    }, 	
 
 				P2_B_8_Pelig: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 
 
 				'P2_B_9_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 
 
 				'P2_B_10_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 
 
 				'P2_B_11_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 			    
 			
 				'P2_B_12_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 	
 		
 				P2_C_1Locl_1_Energ: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 			    	    
 				P2_C_1Locl_2_Agua: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_3_Alc: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 			
 				P2_C_1Locl_4_Tfija: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_5_Tmov: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_6_Int: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 			
 				P2_C_2LocE_1_Energ: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 			
 				P2_C_2LocE_2_Agua: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_3_Alc: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_4_Tfija: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 	
 				P2_C_2LocE_5_Tmov: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_6_Int: {
-			        range: [1,2],
+			       valrango: [1,2,9],
 			    }, 		
 
 				'P2_D_1_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,4,9],
 			    }, 		
 
 				'P2_D_5_Cod[]': {
-			        range: [0,1],
+			        valrango: [1,6,9],
 			    }, 		
 
 				'P2_D_9_Nro[]': {
-			        range: [0,1],
+			        valrango: [1,7,9],
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    }, 			
 
 				'P2_D_7_1DocRef[]': {
-			        range: [0,1],
+			       valrango: [0,1,9],
 			    }, 				    	    		    
 	
 			    // E	
 				P2_E_1_Prayo: {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    }, 	
 				P2_E_2_Ptierra: {
-			        range: [0,99],
+			        valrango: [0,98,99],
 			    }, 		
 				P2_E_3_Ano: {
-			        range: [1950,2013],
+			       year:true,
 			    }, 				    	    			    		    	    		    	    		    					    
 			    // F
 
 				'P2_F_1_ElimBas[]': {
-			        range: [0,1],
+			        valrango: [1,10,99],
 			    },
 
 			    // G
@@ -2522,11 +2519,11 @@ $("#cap2_f").validate({
 			    
 
 				'P2_G_2_Cod[]': {
-			        range: [0,1],
+			        valrango: [0,1,9],
 			    },
 	
 				'P2_G_2A_EstPre[]': {
-			        range: [1,2],
+			        valrango: [1,2,9],
 			    },	
 
 			    	                        			    			      						    

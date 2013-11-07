@@ -1719,6 +1719,8 @@ $(document).on("change",'.p1cme',function() {
 	}else{
 		 	$('#P1_A_2_9F_CantAnex_' + nro).val('');
 		 	$('#P1_A_2_9F_CantAnex_' + nro).attr('readonly','readonly');
+		 	$('#P1_A_2_9F_CantAnex_' + nro).attr('tabindex','-1');
+
 		 	$('#P1_A_2_9F_CantAnex_' + nro).trigger('change');		 	
 		 	
 	}
