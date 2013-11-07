@@ -13,7 +13,7 @@ $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed_VII',
 	'maxlength'	=> 2,
-	'class' => 'input2',	
+	'class' => 'input2',
 	'readonly' => 'true',
 );
 
@@ -21,21 +21,21 @@ $P7_1_2 = array(
 	'name'	=> 'P7_1_2',
 	'id'	=> 'P7_1_2',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
 );
 
 $P7_1_3 = array(
 	'name'	=> 'P7_1_3',
 	'id'	=> 'P7_1_3',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
 );
 
 $P7_1_4 = array(
 	'name'	=> 'P7_1_4',
 	'id'	=> 'P7_1_4',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
 );
 
 $P7_1_5 = array(
@@ -796,6 +796,7 @@ $(document).ready(function(){
 				});
 		});
 	});
+
 
 	$('#panel_edificaciones_vii').on('click','.combo_ins1',function(event){
 
