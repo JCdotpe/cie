@@ -66,14 +66,18 @@ class Car extends CI_Controller {
 					$pre_n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}	
 			}
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+
+
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->car_model->consulta_car($id,$pr)->num_rows() == 0) {
+
+				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['created'] = date('Y-m-d H:i:s');
+				$c_data['last_ip'] =  $this->input->ip_address();
+				$c_data['user_agent'] = $this->agent->agent_string();
+
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
 				// inserta nuevo registro
@@ -86,6 +90,10 @@ class Car extends CI_Controller {
 					}
 
 			} else {
+				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['modified'] =  date('Y-m-d H:i:s');
+				$c_data['last_ip'] =  $this->input->ip_address();
+				$c_data['user_agent'] = $this->agent->agent_string();				
 				// actualiza
 					if($this->car_model->update_car($id,$pr,$c_data) > 0){
 						$flag = 1;
@@ -98,6 +106,11 @@ class Car extends CI_Controller {
 			}
 
 			$this->car_model->delete_car_n($id,$pr);
+
+			$c_data_n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_n['created'] = date('Y-m-d H:i:s');
+			$c_data_n['last_ip'] =  $this->input->ip_address();
+			$c_data_n['user_agent'] = $this->agent->agent_string();
 
 			$c_data_n['id_local'] = $id;
 			$c_data_n['Nro_Pred'] = $pr;	

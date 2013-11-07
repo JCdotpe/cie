@@ -59,6 +59,11 @@ class Consistencia extends CI_Controller {
 
 			//si no tiene ningun predio
 			if($data['predios']->num_rows() == 0){
+				$pr_data['user_id'] = $this->tank_auth->get_user_id();
+				$pr_data['created'] = date('Y-m-d H:i:s');
+				$pr_data['last_ip'] =  $this->input->ip_address();
+				$pr_data['user_agent'] = $this->agent->agent_string();
+
 				$pr_data['id_local'] = $id;	
 				$pr_data['Nro_Pred'] = $prd;	
 				$pr_data['P1_B_2A_PredNoCol'] = 0;
@@ -153,10 +158,10 @@ class Consistencia extends CI_Controller {
 			$id = $this->input->post('id_local');
 			$predios = $this->principal_model->get_predios($id)->num_rows();
 			//pcar
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['created'] = date('Y-m-d H:i:s');
+			$c_data['last_ip'] =  $this->input->ip_address();
+			$c_data['user_agent'] = $this->agent->agent_string();
 
 			$c_data['id_local'] = $id;
 			$c_data['Nro_Pred'] = $predios + 1;
@@ -213,15 +218,17 @@ public function predio(){
 				}	
 			}
 
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			// $c_data['created'] = date('Y-m-d H:i:s');
-			// $c_data['last_ip'] =  $this->input->ip_address();
-			// $c_data['user_agent'] = $this->agent->agent_string();
+
 
 
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->principal_model->get_predio($id,$pr)->num_rows() == 0) {
+				$P1_B_3N['user_id'] = $this->tank_auth->get_user_id();
+				$P1_B_3N['created'] = date('Y-m-d H:i:s');
+				$P1_B_3N['last_ip'] =  $this->input->ip_address();
+				$P1_B_3N['user_agent'] = $this->agent->agent_string();			
+					
 				$P1_B_3N['id_local'] = $id;
 				$P1_B_3N['Nro_Pred'] = $pr;
 				// inserta nuevo registro
@@ -234,6 +241,10 @@ public function predio(){
 					}
 
 			} else {
+					$P1_B_3N['user_id'] = $this->tank_auth->get_user_id();
+					$P1_B_3N['modified'] =  date('Y-m-d H:i:s');
+					$P1_B_3N['last_ip'] =  $this->input->ip_address();
+					$P1_B_3N['user_agent'] = $this->agent->agent_string();						
 				// actualiza
 					if($this->principal_model->update_pr($id,$pr,$P1_B_3N) > 0){
 						$flag = 1;
@@ -249,11 +260,20 @@ public function predio(){
 			if($pr == 1){
 				//P1_B predios counter
 				if ($this->principal_model->get_prct($id,$pr)->num_rows() == 0) {
+					$P1_B['user_id'] = $this->tank_auth->get_user_id();
+					$P1_B['created'] = date('Y-m-d H:i:s');
+					$P1_B['last_ip'] =  $this->input->ip_address();
+					$P1_B['user_agent'] = $this->agent->agent_string();		
+									
 					$P1_B['id_local'] = $id;
 					$P1_B['Nro_Pred'] = $pr;
 					// inserta nuevo registro
 					$this->principal_model->insert_pr($P1_B,'P1_B');
 				} else {
+					$P1_B['user_id'] = $this->tank_auth->get_user_id();
+					$P1_B['modified'] = date('Y-m-d H:i:s');
+					$P1_B['last_ip'] =  $this->input->ip_address();
+					$P1_B['user_agent'] = $this->agent->agent_string();							
 					// actualiza
 					$this->principal_model->update_prct($id,$pr,$P1_B);
 				}
@@ -267,6 +287,11 @@ public function predio(){
 
 			//delete ax20n
 			$this->principal_model->delete_predio_n($id,$pr);
+
+			$P1_B_3_12N_data['user_id'] = $this->tank_auth->get_user_id();
+			$P1_B_3_12N_data['created'] = date('Y-m-d H:i:s');
+			$P1_B_3_12N_data['last_ip'] =  $this->input->ip_address();
+			$P1_B_3_12N_data['user_agent'] = $this->agent->agent_string();					
 			//insert
 			$P1_B_3_12N_data['id_local'] = $id;
 			$P1_B_3_12N_data['Nro_Pred'] = $pr;	

@@ -95,11 +95,23 @@ class Cap1 extends CI_Controller {
 			//HEAD IES
 
 			if($my_head_ie > 0){
+
+				$cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap1_p1_a_data['modified'] = date('Y-m-d H:i:s');
+				$cap1_p1_a_data['last_ip'] =  $this->input->ip_address();
+				$cap1_p1_a_data['user_agent'] = $this->agent->agent_string();
+
 				if($this->cap1_model->update_cap1($id,$pr,$cap1_p1_a_data,'P1_A') > 0){
 					$flag = 1;
 					$msg = 'Se ha actualizado satisfactoriamente el nro de I.E.';	
 				}
 			}else{
+
+				$cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap1_p1_a_data['created'] = date('Y-m-d H:i:s');
+				$cap1_p1_a_data['last_ip'] =  $this->input->ip_address();
+				$cap1_p1_a_data['user_agent'] = $this->agent->agent_string();
+
 				if($this->cap1_model->insert_cap1($cap1_p1_a_data,'P1_A') > 0){
 					$flag = 1;
 					$msg = 'Se ha registrado satisfactoriamente el nro de I.E.';					
@@ -109,6 +121,10 @@ class Cap1 extends CI_Controller {
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//IES
+			$cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2n_data['created'] = date('Y-m-d H:i:s');
+			$cap1_p1_a_2n_data['last_ip'] =  $this->input->ip_address();
+			$cap1_p1_a_2n_data['user_agent'] = $this->agent->agent_string();			
 			//tiene alguna ie?
 			if($my_nro_ies > 0){
 				//es igual
@@ -212,6 +228,11 @@ class Cap1 extends CI_Controller {
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//IE
 
+			$cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2n_data['modified'] = date('Y-m-d H:i:s');
+			$cap1_p1_a_2n_data['last_ip'] =  $this->input->ip_address();
+			$cap1_p1_a_2n_data['user_agent'] = $this->agent->agent_string();
+
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 
@@ -226,6 +247,11 @@ class Cap1 extends CI_Controller {
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//COD MOD
+			$cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2_8n_data['created'] = date('Y-m-d H:i:s');
+			$cap1_p1_a_2_8n_data['last_ip'] =  $this->input->ip_address();
+			$cap1_p1_a_2_8n_data['user_agent'] = $this->agent->agent_string();
+
 			$my_nro_cms = $this->cap1_model->get_cap1_codmod($id,$pr,$ie)->num_rows();
 			//tiene alguna ie?
 			if($my_nro_cms > 0){
@@ -315,6 +341,11 @@ class Cap1 extends CI_Controller {
 			$cap1_p1_a_2_8n_data['Nro_Pred'] = $pr;
 			$cap1_p1_a_2_8n_data['P1_A_2_NroIE'] = $ie;
 
+			$cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2_8n_data['modified'] = date('Y-m-d H:i:s');
+			$cap1_p1_a_2_8n_data['last_ip'] =  $this->input->ip_address();
+			$cap1_p1_a_2_8n_data['user_agent'] = $this->agent->agent_string();
+
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','user_id','last_ip','user_agent','created','modified'))){
 					$cap1_p1_a_2_8n[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
@@ -370,6 +401,11 @@ class Cap1 extends CI_Controller {
 							for($o = 0; $o<=$nro_axs-1;$o++){
 										$cap1_p1_a_2_9n_data = null;
 										//data insert ax
+										$cap1_p1_a_2_9n_data['user_id'] = $this->tank_auth->get_user_id();
+										$cap1_p1_a_2_9n_data['created'] = date('Y-m-d H:i:s');
+										$cap1_p1_a_2_9n_data['last_ip'] =  $this->input->ip_address();
+										$cap1_p1_a_2_9n_data['user_agent'] = $this->agent->agent_string();									
+
 										$cap1_p1_a_2_9n_data['id_local'] = $id;
 										$cap1_p1_a_2_9n_data['Nro_Pred'] = $pr;
 										$cap1_p1_a_2_9n_data['P1_A_2_NroIE'] = $ie;
@@ -398,6 +434,11 @@ class Cap1 extends CI_Controller {
 
 									    ////////////////////////////////////////////////////////////////////////////////////
 									    //Info Anexos
+										$cap1_p1_c_data['user_id'] = $this->tank_auth->get_user_id();
+										$cap1_p1_c_data['created'] = date('Y-m-d H:i:s');
+										$cap1_p1_c_data['last_ip'] =  $this->input->ip_address();
+										$cap1_p1_c_data['user_agent'] = $this->agent->agent_string();	
+
 										$cap1_p1_c_data['id_local'] = $id;
 										$cap1_p1_c_data['Nro_Pred'] = $pr;
 										$cap1_p1_c_data['P1_A_2_NroIE'] = $ie;
@@ -533,6 +574,11 @@ class Cap1 extends CI_Controller {
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 
+			$P1_C_data['user_id'] = $this->tank_auth->get_user_id();
+			$P1_C_data['modified'] = date('Y-m-d H:i:s');
+			$P1_C_data['last_ip'] =  $this->input->ip_address();
+			$P1_C_data['user_agent'] = $this->agent->agent_string();	
+
 			// actualiza
 			if($this->cap1_model->update_cap1_ax($id,$pr,$ie,$cm,$ax,$P1_C_data) > 0){
 				$flag = 1;
@@ -546,6 +592,11 @@ class Cap1 extends CI_Controller {
 			//delete ax20n
 			$this->cap1_model->delete_cap1_ax_c($id,$pr,$ie,$cm,$ax,'P1_C_20N');
 			//insert
+			$P1_C_20N_data['user_id'] = $this->tank_auth->get_user_id();
+			$P1_C_20N_data['created'] = date('Y-m-d H:i:s');
+			$P1_C_20N_data['last_ip'] =  $this->input->ip_address();
+			$P1_C_20N_data['user_agent'] = $this->agent->agent_string();
+
 			$P1_C_20N_data['id_local'] = $id;
 			$P1_C_20N_data['Nro_Pred'] = $pr;	
 			$P1_C_20N_data['P1_A_2_NroIE'] = $ie;	
