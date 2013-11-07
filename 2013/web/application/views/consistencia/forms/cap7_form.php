@@ -815,12 +815,396 @@ $(document).ready(function(){
 		$.getJSON(urlRoot('index.php')+'/consistencia/cap7/cap7_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,edi:numero}, function(data, textStatus) {
 
 			$.each( data, function(fila, valor) {
-				   	$('#' + fila).val(valor);
+				$('#' + fila).val(valor);
+				P7_call_saltos(fila);
 			});
 
 		});
 	}
 
+
+	function P7_call_saltos(campo){
+		switch(campo){
+			case 'P7_1_4': $('#P7_1_4').trigger('change');
+			break;
+
+			case 'P7_1_9': $('#P7_1_9').trigger('change');
+			break;
+
+			case 'P7_1_11': $('#P7_1_11').trigger('change');
+			break;
+
+			case 'P7_1_15': $('#P7_1_15').trigger('change');
+			break;
+
+			case 'P7_1_16': $('#P7_1_16').trigger('change');
+			break;
+		}
+	}
+
+
+	///////////////////////////////////////////////////////////////////////////
+	//Saltos P7
+
+	$('#P7_1_4').change(function(event){
+
+		var valor=$(this).val();
+
+		if (valor!=''){
+			$('#P7_1_5').val('');
+			$('#P7_1_6').val('');
+			$('#P7_1_7').val('');
+			$('#P7_1_8').val('');
+			$('#P7_1_9').val('');
+			$('#P7_1_9A').val('');
+			$('#P7_1_9B').val('');
+			$('#P7_1_9C').val('');
+			$('#P7_1_9D').val('');
+			$('#P7_1_10').val('');
+			$('#P7_1_11').val('');
+			$('#P7_1_12').val('');
+			$('#P7_1_13').val('');
+			$('#P7_1_14').val('');
+			$('#P7_1_15').val('');
+			$('#P7_1_15A').val('');
+			$('#P7_1_15B').val('');
+			$('#P7_1_15C').val('');
+			$('#P7_1_15D').val('');
+			$('#P7_1_16').val('');
+			$('#P7_1_17').val('');
+			$('#P7_1_18').val('');
+			$('#P7_1_19').val('');
+			$('#P7_1_20').val('');
+			$('#P7_1_21').val('');
+			$('#P7_1_22').val('');
+			$('#P7_1_23').val('');
+			$('#P7_1_24').val('');
+			$('#P7_1_25').val('');
+			$('#P7_1_26').val('');
+			$('#P7_1_27').val('');
+			$('#P7_1_28').val('');
+		}
+
+		switch(valor){
+			case '1':
+				$('#P7_1_5').removeAttr('disabled');
+				$('#P7_1_6').removeAttr('disabled');
+				$('#P7_1_7').removeAttr('disabled');
+				$('#P7_1_8').removeAttr('disabled');
+				$('#P7_1_9').removeAttr('disabled');
+				$('#P7_1_9A').removeAttr('disabled');
+				$('#P7_1_9B').removeAttr('disabled');
+				$('#P7_1_9C').removeAttr('disabled');
+				$('#P7_1_9D').removeAttr('disabled');
+				$('#P7_1_10').removeAttr('disabled');
+				$('#P7_1_11').removeAttr('disabled');
+				$('#P7_1_12').removeAttr('disabled');
+				$('#P7_1_13').removeAttr('disabled');
+				$('#P7_1_14').removeAttr('disabled');
+				$('#P7_1_15').removeAttr('disabled');
+				$('#P7_1_15A').removeAttr('disabled');
+				$('#P7_1_15B').removeAttr('disabled');
+				$('#P7_1_15C').removeAttr('disabled');
+				$('#P7_1_15D').removeAttr('disabled');
+				$('#P7_1_16').removeAttr('disabled');
+				$('#P7_1_17').removeAttr('disabled');
+				$('#P7_1_18').removeAttr('disabled');
+				$('#P7_1_19').removeAttr('disabled');
+				$('#P7_1_20').removeAttr('disabled');
+				$('#P7_1_21').removeAttr('disabled');
+				$('#P7_1_22').removeAttr('disabled');
+				$('#P7_1_23').removeAttr('disabled');
+				$('#P7_1_24').removeAttr('disabled');
+				$('#P7_1_25').removeAttr('disabled');
+				$('#P7_1_26').removeAttr('disabled');
+				$('#P7_1_27').removeAttr('disabled');
+				$('#P7_1_28').removeAttr('disabled');
+			break;
+
+			case '2':
+					$('#P7_1_5').attr('disabled','disabled');
+					$('#P7_1_6').attr('disabled','disabled');
+					$('#P7_1_7').attr('disabled','disabled');
+					$('#P7_1_8').attr('disabled','disabled');
+					$('#P7_1_9').attr('disabled','disabled');
+					$('#P7_1_9A').attr('disabled','disabled');
+					$('#P7_1_9B').attr('disabled','disabled');
+					$('#P7_1_9C').attr('disabled','disabled');
+					$('#P7_1_9D').attr('disabled','disabled');
+					$('#P7_1_10').attr('disabled','disabled');
+					$('#P7_1_11').attr('disabled','disabled');
+			break;
+
+			case '3':
+					$('#P7_1_5').attr('disabled','disabled');
+					$('#P7_1_6').attr('disabled','disabled');
+					$('#P7_1_7').attr('disabled','disabled');
+					$('#P7_1_8').attr('disabled','disabled');
+					$('#P7_1_9').attr('disabled','disabled');
+					$('#P7_1_9A').attr('disabled','disabled');
+					$('#P7_1_9B').attr('disabled','disabled');
+					$('#P7_1_9C').attr('disabled','disabled');
+					$('#P7_1_9D').attr('disabled','disabled');
+					$('#P7_1_10').attr('disabled','disabled');
+					$('#P7_1_11').attr('disabled','disabled');
+					$('#P7_1_12').attr('disabled','disabled');
+					$('#P7_1_13').attr('disabled','disabled');
+					$('#P7_1_14').attr('disabled','disabled');
+					$('#P7_1_15').attr('disabled','disabled');
+					$('#P7_1_15A').attr('disabled','disabled');
+					$('#P7_1_15B').attr('disabled','disabled');
+					$('#P7_1_15C').attr('disabled','disabled');
+					$('#P7_1_15D').attr('disabled','disabled');
+					$('#P7_1_16').attr('disabled','disabled');
+			break;
+
+			case '4':
+					$('#P7_1_5').attr('disabled','disabled');
+					$('#P7_1_6').attr('disabled','disabled');
+					$('#P7_1_7').attr('disabled','disabled');
+					$('#P7_1_8').attr('disabled','disabled');
+					$('#P7_1_9').attr('disabled','disabled');
+					$('#P7_1_9A').attr('disabled','disabled');
+					$('#P7_1_9B').attr('disabled','disabled');
+					$('#P7_1_9C').attr('disabled','disabled');
+					$('#P7_1_9D').attr('disabled','disabled');
+					$('#P7_1_10').attr('disabled','disabled');
+					$('#P7_1_11').attr('disabled','disabled');
+					$('#P7_1_12').attr('disabled','disabled');
+					$('#P7_1_13').attr('disabled','disabled');
+					$('#P7_1_14').attr('disabled','disabled');
+					$('#P7_1_15').attr('disabled','disabled');
+					$('#P7_1_15A').attr('disabled','disabled');
+					$('#P7_1_15B').attr('disabled','disabled');
+					$('#P7_1_15C').attr('disabled','disabled');
+					$('#P7_1_15D').attr('disabled','disabled');
+					$('#P7_1_16').attr('disabled','disabled');
+					$('#P7_1_17').attr('disabled','disabled');
+					$('#P7_1_18').attr('disabled','disabled');
+					$('#P7_1_19').attr('disabled','disabled');
+					$('#P7_1_20').attr('disabled','disabled');
+					$('#P7_1_21').attr('disabled','disabled');
+					$('#P7_1_22').attr('disabled','disabled');
+			break;
+
+			case '5':
+					$('#P7_1_5').attr('disabled','disabled');
+					$('#P7_1_6').attr('disabled','disabled');
+					$('#P7_1_7').attr('disabled','disabled');
+					$('#P7_1_8').attr('disabled','disabled');
+					$('#P7_1_9').attr('disabled','disabled');
+					$('#P7_1_9A').attr('disabled','disabled');
+					$('#P7_1_9B').attr('disabled','disabled');
+					$('#P7_1_9C').attr('disabled','disabled');
+					$('#P7_1_9D').attr('disabled','disabled');
+					$('#P7_1_10').attr('disabled','disabled');
+					$('#P7_1_11').attr('disabled','disabled');
+					$('#P7_1_12').attr('disabled','disabled');
+					$('#P7_1_13').attr('disabled','disabled');
+					$('#P7_1_14').attr('disabled','disabled');
+					$('#P7_1_15').attr('disabled','disabled');
+					$('#P7_1_15A').attr('disabled','disabled');
+					$('#P7_1_15B').attr('disabled','disabled');
+					$('#P7_1_15C').attr('disabled','disabled');
+					$('#P7_1_15D').attr('disabled','disabled');
+					$('#P7_1_16').attr('disabled','disabled');
+					$('#P7_1_17').attr('disabled','disabled');
+					$('#P7_1_18').attr('disabled','disabled');
+					$('#P7_1_19').attr('disabled','disabled');
+					$('#P7_1_20').attr('disabled','disabled');
+					$('#P7_1_21').attr('disabled','disabled');
+					$('#P7_1_22').attr('disabled','disabled');
+					$('#P7_1_23').attr('disabled','disabled');
+					$('#P7_1_24').attr('disabled','disabled');
+			break;
+
+			case '6':
+			case '7':
+			case '8':
+					$('#P7_1_5').attr('disabled','disabled');
+					$('#P7_1_6').attr('disabled','disabled');
+					$('#P7_1_7').attr('disabled','disabled');
+					$('#P7_1_8').attr('disabled','disabled');
+					$('#P7_1_9').attr('disabled','disabled');
+					$('#P7_1_9A').attr('disabled','disabled');
+					$('#P7_1_9B').attr('disabled','disabled');
+					$('#P7_1_9C').attr('disabled','disabled');
+					$('#P7_1_9D').attr('disabled','disabled');
+					$('#P7_1_10').attr('disabled','disabled');
+					$('#P7_1_11').attr('disabled','disabled');
+					$('#P7_1_12').attr('disabled','disabled');
+					$('#P7_1_13').attr('disabled','disabled');
+					$('#P7_1_14').attr('disabled','disabled');
+					$('#P7_1_15').attr('disabled','disabled');
+					$('#P7_1_15A').attr('disabled','disabled');
+					$('#P7_1_15B').attr('disabled','disabled');
+					$('#P7_1_15C').attr('disabled','disabled');
+					$('#P7_1_15D').attr('disabled','disabled');
+					$('#P7_1_16').attr('disabled','disabled');
+					$('#P7_1_17').attr('disabled','disabled');
+					$('#P7_1_18').attr('disabled','disabled');
+					$('#P7_1_19').attr('disabled','disabled');
+					$('#P7_1_20').attr('disabled','disabled');
+					$('#P7_1_21').attr('disabled','disabled');
+					$('#P7_1_22').attr('disabled','disabled');
+					$('#P7_1_23').attr('disabled','disabled');
+					$('#P7_1_24').attr('disabled','disabled');
+					$('#P7_1_25').attr('disabled','disabled');
+					$('#P7_1_26').attr('disabled','disabled');
+					$('#P7_1_27').attr('disabled','disabled');
+					$('#P7_1_28').attr('disabled','disabled');
+			break;
+		}
+	});
+	$('#P7_1_4').trigger('change');
+
+
+	$('#P7_1_9').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_9A').val('');
+			$('#P7_1_9B').val('');
+			$('#P7_1_9C').val('');
+			$('#P7_1_9D').val('');
+
+			$('#P7_1_9A').removeAttr('disabled');
+			$('#P7_1_9B').removeAttr('disabled');
+			$('#P7_1_9C').removeAttr('disabled');
+			$('#P7_1_9D').removeAttr('disabled');
+
+			switch(valor){
+				case '1':
+						$('#P7_1_9C').attr('disabled','disabled');
+						$('#P7_1_9D').attr('disabled','disabled');
+				break;
+
+				case '2':
+						$('#P7_1_9A').attr('disabled','disabled');
+						$('#P7_1_9B').attr('disabled','disabled');
+				break;
+			}
+		}
+	});
+	$('#P7_1_9').trigger('change');
+
+
+	$('#P7_1_11').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_12').attr('disabled','disabled');
+			$('#P7_1_13').attr('disabled','disabled');
+			$('#P7_1_14').attr('disabled','disabled');
+			$('#P7_1_15').attr('disabled','disabled');
+			$('#P7_1_15A').attr('disabled','disabled');
+			$('#P7_1_15B').attr('disabled','disabled');
+			$('#P7_1_15C').attr('disabled','disabled');
+			$('#P7_1_15D').attr('disabled','disabled');
+			$('#P7_1_16').attr('disabled','disabled');
+			$('#P7_1_17').attr('disabled','disabled');
+			$('#P7_1_18').attr('disabled','disabled');
+			$('#P7_1_19').attr('disabled','disabled');
+			$('#P7_1_20').attr('disabled','disabled');
+			$('#P7_1_21').attr('disabled','disabled');
+			$('#P7_1_22').attr('disabled','disabled');
+			$('#P7_1_23').attr('disabled','disabled');
+			$('#P7_1_24').attr('disabled','disabled');
+			$('#P7_1_25').attr('disabled','disabled');
+			$('#P7_1_26').attr('disabled','disabled');
+			$('#P7_1_27').attr('disabled','disabled');
+			$('#P7_1_28').attr('disabled','disabled');
+		}
+	});
+	$('#P7_1_11').trigger('change');
+
+
+	$('#P7_1_15').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_15A').val('');
+			$('#P7_1_15B').val('');
+			$('#P7_1_15C').val('');
+			$('#P7_1_15D').val('');
+			
+			switch(valor){
+				case '1':
+					$('#P7_1_15A').removeAttr('disabled');
+					$('#P7_1_15B').removeAttr('disabled');
+					$('#P7_1_15C').attr('disabled','disabled');
+					$('#P7_1_15D').attr('disabled','disabled');
+				break;
+
+				case '2':
+					$('#P7_1_15C').removeAttr('disabled');
+					$('#P7_1_15D').removeAttr('disabled');
+					$('#P7_1_15A').attr('disabled','disabled');
+					$('#P7_1_15B').attr('disabled','disabled');
+				break;
+			}
+		}
+	});
+	$('#P7_1_15').trigger('change');
+
+
+	$('#P7_1_16').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_17').attr('disabled','disabled');
+			$('#P7_1_18').attr('disabled','disabled');
+			$('#P7_1_19').attr('disabled','disabled');
+			$('#P7_1_20').attr('disabled','disabled');
+			$('#P7_1_21').attr('disabled','disabled');
+			$('#P7_1_22').attr('disabled','disabled');
+			$('#P7_1_23').attr('disabled','disabled');
+			$('#P7_1_24').attr('disabled','disabled');
+			$('#P7_1_25').attr('disabled','disabled');
+			$('#P7_1_26').attr('disabled','disabled');
+			$('#P7_1_27').attr('disabled','disabled');
+			$('#P7_1_28').attr('disabled','disabled');
+		}
+	});
+	$('#P7_1_16').trigger('change');
+
+
+	$('#P7_1_22').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_23').attr('disabled','disabled');
+			$('#P7_1_24').attr('disabled','disabled');
+			$('#P7_1_25').attr('disabled','disabled');
+			$('#P7_1_26').attr('disabled','disabled');
+			$('#P7_1_27').attr('disabled','disabled');
+			$('#P7_1_28').attr('disabled','disabled');
+		}
+	});
+	$('#P7_1_22').trigger('change');
+
+
+	$('#P7_1_24').change(function(event){
+
+		var valor=$(this).val();
+		
+		if (valor!=''){
+			$('#P7_1_25').attr('disabled','disabled');
+			$('#P7_1_26').attr('disabled','disabled');
+			$('#P7_1_27').attr('disabled','disabled');
+			$('#P7_1_28').attr('disabled','disabled');
+		}
+	});
+	$('#P7_1_24').trigger('change');
+
+
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
 
 	$("#cap7_f").validate({
 	    rules: {
@@ -839,6 +1223,7 @@ $(document).ready(function(){
 			P7_1_4:{
 				digits:true,
 				valrango:[1,8,9],
+				required:true,
 			},
 			P7_1_5:{
 				digits:true,
