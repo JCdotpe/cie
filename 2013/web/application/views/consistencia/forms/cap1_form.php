@@ -2353,6 +2353,7 @@ $("#P1_B_3_11_CompCan").change(function(event) {
 
 });
 
+
 //PREDIO
 $("#predio_i").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             

@@ -1957,6 +1957,33 @@ echo form_close();
 $(function(){
 
 
+
+$('#P2_E_2_Ptierra').change(function(event) {
+
+	if($(this).val() == 0){	
+		$('#P2_E_3_Ano').val('');
+		$('#P2_E_3_Ano').attr('disabled','disabled');				
+	}else{
+		$('#P2_E_3_Ano').removeAttr('disabled');
+	}
+});
+
+
+$('#P2_E_1_Prayo').change(function(event) {
+
+	if($(this).val() == 2){
+		$('#P2_E_2_Ptierra').val('');
+		$('#P2_E_2_Ptierra').attr('disabled','disabled');		
+		$('#P2_E_3_Ano').val('');
+		$('#P2_E_3_Ano').attr('disabled','disabled');				
+	}else{
+		$('#P2_E_2_Ptierra').removeAttr('disabled');
+		$('#P2_E_3_Ano').removeAttr('disabled');
+	}
+	$('#P2_E_2_Ptierra').trigger('change');			
+});
+
+
 //p2g2
 $('.p2g2').change(function(event) {	
 		var pre = $(this).attr('id');

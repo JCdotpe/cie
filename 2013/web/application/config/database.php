@@ -49,6 +49,7 @@
 $active_group = 'conexion_A';
 $active_record = TRUE;
 
+
 		/*$db['conexion_A']['hostname'] = '192.168.203.178';// Desarrollo
 		$db['conexion_A']['username'] = 'yechevarria';
 		$db['conexion_A']['password'] = 'inei1209';*/

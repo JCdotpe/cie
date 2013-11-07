@@ -33,6 +33,7 @@ class Cap1 extends CI_Controller {
 			}
 		}
 
+
 		//If not author is the maintenance guy!
 		if (!$flag) {
 			show_404();
