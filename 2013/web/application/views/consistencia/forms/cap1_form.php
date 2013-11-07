@@ -2158,7 +2158,7 @@ $("#cap1_cm").validate({
 					valrango:[0,3,9],
 			    },  						    
 				'P1_A_2_9F_CantAnex[]': {
-			       valrango:[1,3,9],
+			       valrango:[0,3,9],
 			    },  							    
 				'P1_A_2_9G_T1_Talu[]': {
 			        valrango:[1,998,999],
