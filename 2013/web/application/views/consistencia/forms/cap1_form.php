@@ -2143,42 +2143,40 @@ $("#cap1_ie").validate({
 $("#cap1_cm").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 				'P1_A_2_9A_CMod[]': {
-			        digits: true,
+			        valrango:[1,9999998,9999999],
 			    },  
 				'P1_A_2_9B_CodLocal[]': {
-			        digits: true,
+			        valrango:[1,999998,999999],
 			    },  	
 				'P1_A_2_9C_Nivel[]': {
-			        digits: true,
+			         valrango:[1,11,99],
 			    },  	
 				'P1_A_2_9D_Car[]': {
 					valrango:[1,3,9],
-			        digits: true,
 			    },  			    		    		    
 				'P1_A_2_9E_NroAnex[]': {
 					valrango:[0,3,9],
-			        digits: true,
 			    },  						    
 				'P1_A_2_9F_CantAnex[]': {
-			        digits: true,
+			       valrango:[1,3,9],
 			    },  							    
 				'P1_A_2_9G_T1_Talu[]': {
-			        digits: true,
+			        valrango:[1,998,999],
 			    },  							    
 				'P1_A_2_9H_T1_Taul[]': {
-			        digits: true,
+			         valrango:[1,998,999],
 			    },  							    
 				'P1_A_2_9I_T2_Talu[]': {
-			        digits: true,
+			        valrango:[1,998,999],
 			    },  							    
 				'P1_A_2_9J_T2_Taul[]': {
-			        digits: true,
+			        valrango:[1,998,999],
 			    },  							    
 				'P1_A_2_9K_T3_Talu[]': {
-			        digits: true,
+			        valrango:[1,998,999],
 			    },  							    
 				'P1_A_2_9L_T3_Taul[]': {
-			        digits: true,
+			        valrango:[1,998,999],
 			    },  							    
 		    },
 
@@ -2239,25 +2237,25 @@ $("#cap1_ax").validate({
 		    rules: {  
 
 				P1_C_1_CodLoc_Anex: {
-			        digits: true,
+			         valrango:[1,998,999],
 			    }, 	
 				P1_C_6Dir_1_Tvia: {
-			        range:[1,7],
+			        valrango:[1,7,9],
 			    }, 			    	 
 				P1_C_8_InmTip: {
-			        range:[1,2],
+			        valrango:[1,2,9],
 			    }, 	
 				P1_C_9_Prop: {
-			        range:[1,5],
+			        valrango:[1,5,9],
 			    }, 		
 				P1_C_10_AntReg_Cod: {
-			        range:[1,5],
+			        valrango:[1,5,9],
 			    }, 				    		    
 				P1_C_12_Tipo_TProp: {
-			        range:[1,10],
+			        valrango:[1,10,99],
 			    }, 	
 				P1_C_14_DocPos: {
-			        range:[1,10],
+			        valrango:[1,10,99],
 			    }, 				 
 				P1_C_16_At_Pred: {
 			        digits: true,
@@ -2266,10 +2264,10 @@ $("#cap1_ax").validate({
 			        digits: true,
 			    }, 		
 				P1_C_18_Comp: {
-			        range:[1,2],
+			        valrango:[1,2,9],
 			    }, 			
 				P1_C_19_CompCan: {
-			        range:[0,99],
+			        range:[1,98,99],
 			    }, 				    		    	    		    
 			},
 
@@ -2360,17 +2358,19 @@ $("#P1_B_3_11_CompCan").change(function(event) {
 $("#predio_i").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 				P1_B_1_TPred: {
+					required:true,
 			        range:[1,99],
 			    }, 
 				P1_B_2_PredCol: {
-			        range:[1,2],
+					required:true,
+			        valrango:[1,2,9],
 			    }, 		
 				P1_B_3_InmCod: {
 			        digits: true,
 			    }, 				
 				P1_B_3_InmTip: {
-			        digits: true,
-			        range:[1,2],
+					required:true,
+			        valrango:[1,2,9],
 			    }, 		
 				P1_B_3_1_Prop: {
 			        digits: true,
@@ -2400,11 +2400,11 @@ $("#predio_i").validate({
 			        number: true,
 			    }, 		
 				P1_B_3_10_Comp: {
-			        digits: true,
-			        range:[1,2],
+			        required: true,
+			        valrango:[1,2,9],
 			    }, 		
 				P1_B_3_11_CompCan: {
-			        digits: true,
+			        required: true,
 			        range:[0,99],
 			    }, 				    		    			    	    	    	    			    
 		    },
