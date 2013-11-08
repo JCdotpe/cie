@@ -288,7 +288,7 @@
 
         $.ajax({
             type: "POST",
-            url: urlRoot('index.php') +"/visor/gps/updateP313nimputar",
+            url: urlRoot('index.php') +"/visor/gps/updateP313nimputar_post",
             data: form_data,
             success: function(response){
                 alert("La solicitud de actualización de coordenadas han sido enviado para su validación.");
