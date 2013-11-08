@@ -2176,10 +2176,10 @@ $("#cap1_cm").validate({
 			       valrango:[0,3,9],
 			    },  							    
 				'P1_A_2_9G_T1_Talu[]': {
-			        valrango:[1,998,999],
+			        valrango:[0,998,999],
 			    },  							    
 				'P1_A_2_9H_T1_Taul[]': {
-			         valrango:[1,998,999],
+			         valrango:[0,998,999],
 			    },  							    
 				'P1_A_2_9I_T2_Talu[]': {
 			        valrango:[0,998,999],
