@@ -273,6 +273,7 @@ $P6_2_7_O = array(
 	'id'	=> 'P6_2_7_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_8 = array(
@@ -287,6 +288,7 @@ $P6_2_8_O = array(
 	'id'	=> 'P6_2_8_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_9 = array(
@@ -331,6 +333,7 @@ $P6_2_11_O = array(
 	'id'	=> 'P6_2_11_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_12 = array(
@@ -345,6 +348,7 @@ $P6_2_12_O = array(
 	'id'	=> 'P6_2_12_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_13 = array(
@@ -359,6 +363,7 @@ $P6_2_13_O = array(
 	'id'	=> 'P6_2_13_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_1 = array(
@@ -436,6 +441,7 @@ $P6_2_15_O = array(
 	'id'	=> 'P6_2_15_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_15a = array(
@@ -2942,19 +2948,19 @@ $(document).ready(function(){
 
 		$('#P6_2_6').val('');
 		$('#P6_2_7').val('');
-		$('#P6_2_7').trigger('change');
+		//$('#P6_2_7').trigger('change');
 		$('#P6_2_8').val('');
-		$('#P6_2_8').trigger('change');
+		//$('#P6_2_8').trigger('change');
 		$('#P6_2_9').val('');
-		$('#P6_2_9').trigger('change');
+		//$('#P6_2_9').trigger('change');
 		$('#P6_2_10').val('');
-		$('#P6_2_10').trigger('change');
+		//$('#P6_2_10').trigger('change');
 		$('#P6_2_11').val('');
-		$('#P6_2_11').trigger('change');
+		//$('#P6_2_11').trigger('change');
 		$('#P6_2_12').val('');
-		$('#P6_2_12').trigger('change');
+		//$('#P6_2_12').trigger('change');
 		$('#P6_2_13').val('');
-		$('#P6_2_13').trigger('change');
+		//$('#P6_2_13').trigger('change');
 		$('#P6_2_14_1').val('');
 		$('#P6_2_14_2').val('');
 		$('#P6_2_14_3').val('');
@@ -3023,19 +3029,19 @@ $(document).ready(function(){
 		$('#P6_2_14b_2').removeAttr('disabled');
 
 		$('#P6_2_7').val('');
-		$('#P6_2_7').trigger('change');
+		//$('#P6_2_7').trigger('change');
 		$('#P6_2_8').val('');
-		$('#P6_2_8').trigger('change');
+		//$('#P6_2_8').trigger('change');
 		$('#P6_2_9').val('');
-		$('#P6_2_9').trigger('change');
+		//$('#P6_2_9').trigger('change');
 		$('#P6_2_10').val('');
-		$('#P6_2_10').trigger('change');
+		//$('#P6_2_10').trigger('change');
 		$('#P6_2_11').val('');
-		$('#P6_2_11').trigger('change');
+		//$('#P6_2_11').trigger('change');
 		$('#P6_2_12').val('');
-		$('#P6_2_12').trigger('change');
+		//$('#P6_2_12').trigger('change');
 		$('#P6_2_13').val('');
-		$('#P6_2_13').trigger('change');
+		//$('#P6_2_13').trigger('change');
 		$('#P6_2_14_1').val('');
 		$('#P6_2_14_2').val('');
 		$('#P6_2_14_3').val('');
