@@ -637,21 +637,21 @@ $P6_2_18a = array(
 $P6_2_18a_b = array(
 	'name'	=> 'P6_2_18a_b',
 	'id'	=> 'P6_2_18a_b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18a_r = array(
 	'name'	=> 'P6_2_18a_r',
 	'id'	=> 'P6_2_18a_r',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18a_m = array(
 	'name'	=> 'P6_2_18a_m',
 	'id'	=> 'P6_2_18a_m',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -665,21 +665,21 @@ $P6_2_18b = array(
 $P6_2_18b_b = array(
 	'name'	=> 'P6_2_18b_b',
 	'id'	=> 'P6_2_18b_b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18b_r = array(
 	'name'	=> 'P6_2_18b_r',
 	'id'	=> 'P6_2_18b_r',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18b_m = array(
 	'name'	=> 'P6_2_18b_m',
 	'id'	=> 'P6_2_18b_m',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -693,21 +693,21 @@ $P6_2_18c = array(
 $P6_2_18c_b = array(
 	'name'	=> 'P6_2_18c_b',
 	'id'	=> 'P6_2_18c_b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18c_r = array(
 	'name'	=> 'P6_2_18c_r',
 	'id'	=> 'P6_2_18c_r',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18c_m = array(
 	'name'	=> 'P6_2_18c_m',
 	'id'	=> 'P6_2_18c_m',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -721,21 +721,21 @@ $P6_2_18d = array(
 $P6_2_18d_b = array(
 	'name'	=> 'P6_2_18d_b',
 	'id'	=> 'P6_2_18d_b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18d_r = array(
 	'name'	=> 'P6_2_18d_r',
 	'id'	=> 'P6_2_18d_r',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18d_m = array(
 	'name'	=> 'P6_2_18d_m',
 	'id'	=> 'P6_2_18d_m',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -749,21 +749,21 @@ $P6_2_18e = array(
 $P6_2_18e_b = array(
 	'name'	=> 'P6_2_18e_b',
 	'id'	=> 'P6_2_18e_b',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18e_r = array(
 	'name'	=> 'P6_2_18e_r',
 	'id'	=> 'P6_2_18e_r',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
 $P6_2_18e_m = array(
 	'name'	=> 'P6_2_18e_m',
 	'id'	=> 'P6_2_18e_m',
-	'maxlength'	=> 4,
+	'maxlength'	=> 2,
 	'class' => 'input4',		
 );
 
@@ -2019,7 +2019,7 @@ echo '
 		  	    							<table class="table table-bordered">
 			  	    							<thead>
 			  	    								<tr>
-			  	    									<td style="text-align:center;" rowspan="2">Tipo de puerta</td>
+			  	    									<td style="text-align:center;" rowspan="2">Tipo de ventana</td>
 				  	    								<td style="text-align:center;" colspan="3">16A. Estado de conservación</td>
 			  	    								</tr>
 			  	    								<tr>
@@ -3412,6 +3412,24 @@ $(document).ready(function(){
 
 		if (valor==1){
 
+			$('#P6_2_18a').val('');
+			$('#P6_2_18b').val('');
+			$('#P6_2_18c').val('');
+			$('#P6_2_18d').val('');
+			$('#P6_2_18e').val('');
+
+			$('#P6_2_18a').attr('readonly','readonly');
+			$('#P6_2_18b').attr('readonly','readonly');
+			$('#P6_2_18c').attr('readonly','readonly');
+			$('#P6_2_18d').attr('readonly','readonly');
+			$('#P6_2_18e').attr('readonly','readonly');
+
+			Preg18_activacion('a',0);
+			Preg18_activacion('b',0);
+			Preg18_activacion('c',0);
+			Preg18_activacion('d',0);
+			Preg18_activacion('e',0);
+
 			$('#P6_2_19a').val('');
 			$('#P6_2_19b').val('');
 			$('#P6_2_19c').val('');
@@ -3421,6 +3439,19 @@ $(document).ready(function(){
 			$('#P6_2_19c').attr('disabled','disabled');
 
 		}else{
+
+			$('#P6_2_18a').removeAttr('readonly');
+			$('#P6_2_18b').removeAttr('readonly');
+			$('#P6_2_18c').removeAttr('readonly');
+			$('#P6_2_18d').removeAttr('readonly');
+			$('#P6_2_18e').removeAttr('readonly');
+
+
+			$('#P6_2_18a').trigger('change');
+			$('#P6_2_18b').trigger('change');
+			$('#P6_2_18c').trigger('change');
+			$('#P6_2_18d').trigger('change');
+			$('#P6_2_18e').trigger('change');
 
 			$('#P6_2_19a').removeAttr('disabled');
 			$('#P6_2_19b').removeAttr('disabled');
