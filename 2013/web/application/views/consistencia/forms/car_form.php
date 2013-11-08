@@ -805,13 +805,14 @@ $("#PC_A_1_Dep").change(function(event) {
             success:function(json_data){
                 sel.empty();
                 selcap1.empty();
-                // sel.append('<option value="-1">-</option>');
+                $("#PC_A_3_Dist").empty();
+                 sel.append('<option value="-1">-</option>');
                 $.each(json_data, function(i, data){
                     	sel.append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
                     	selcap1.append('<option value="' + data.CCPP + '">' + data.Nombre + '</option>');
                 });
-                sel.trigger('change');     	  
-                selcap1.trigger('change');     	  
+                 // sel.trigger('change');     	  
+                 // selcap1.trigger('change');     	  
             }
         });           
 });
@@ -838,10 +839,11 @@ $("#PC_A_2_Prov").change(function(event) {
             dataType:'json',
             success:function(json_data){
                 sel.empty();
-                // sel.append('<option value="-1">-</option>');
+                sel.append('<option value="-1">-</option>');
                 $.each(json_data, function(i, data){
                     	sel.append('<option value="' + data.CCDI + '">' + data.Nombre + '</option>');
-                });   	                
+                });   	
+               // sel.trigger('change');                   
             }
         });           
 });
@@ -856,7 +858,7 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                                        if($('#PC_A_2_Prov option:nth-child(2)').length){
                                                             clearInterval(interval_PP);
                                                             $('#PC_A_2_Prov').val(valor);
-                                                            // $('#PC_A_2_Prov').trigger('change');
+                                                             $('#PC_A_2_Prov').trigger('change');
                                                         }
                                                     }, 1000); 
 
