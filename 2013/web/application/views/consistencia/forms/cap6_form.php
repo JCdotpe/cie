@@ -3202,9 +3202,10 @@ $(document).ready(function(){
 		$('#P6_2_12_O').val('');
 		if (valor==7) $('#P6_2_12_O').removeAttr('disabled');
 
+		$('#P6_2_13').attr('disabled','disabled');
+		
 		//salto 15
-		if (valor<8){
-			$('#P6_2_13').attr('disabled','disabled');
+		if (valor<8){			
 			$('#P6_2_14_1').attr('disabled','disabled');
 			$('#P6_2_14_2').attr('disabled','disabled');
 			$('#P6_2_14_3').attr('disabled','disabled');
