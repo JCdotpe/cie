@@ -733,9 +733,9 @@ echo form_close();
 <script type="text/javascript">
 
 $(function(){
-	
+
 $(document).on("change",'.caraaf, .carbbf',function() {
-	if($(this).val() == '2013-11-07')
+	if($(this).val() == '<?php echo date('Y-m-d'); ?>')
 		$(this).val('');
 });
 
