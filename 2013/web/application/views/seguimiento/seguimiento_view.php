@@ -29,68 +29,70 @@
 <div class="row-fluid">
 	<div class="row-fluid">
 
-		<div id="ap-content" class="span12">
+		<div class="form-span10 row-fluid well top-conv" style="margin-left:0px;">
 
-			<div class="row-fluid well top-conv">
+            <div class="span3" style="margin:0 auto; border-right:1px solid #CCC; width:340px;">
+
+                    <div style="font-weight:bold; padding:0 0 15px 0; font-size:14px;">1. Busqueda de Locales por numero de Local.</div>
+
+                    <div class="control-group">
+                     
+                        <label>Codigo de Local</label>
+                        <div class="controls">
+                            
+                            <input id="cod_local" style="width:50px;float:left;" type="text" class="form-control">
+                            <?php echo form_button('ver','Visualizar','class="btn btn-inverse" id="ver" onclick="verdatos(2)" style="margin-left:15px;"'); ?>
+                        </div>
+
+                    </div>
+
+            </div>		
+
+
+			    <div class="span2" style="width:640px;">
+			     <div style="font-weight:bold; padding:0 0 10px 0; font-size:14px;">2. Busqueda de Locales Escolares por Departamento y Provincia.</div>
 
 				<?php echo form_open('','id="frm_seguimiento"'); ?>
 
-				<div class="span2">
-					<div class="control-group">
+			
+					<div class="control-group" style="float:left">
 						<?php echo form_label('Sede Operativa', 'sedeoperativa', $label_class); ?>
 						<div class="controls">
 							<?php 
-								echo form_dropdown('sedeoperativa', $sedeArray, '#', 'id="sedeoperativa" style="width:180px;" onChange="cargarProvBySede();"');
-								#echo form_dropdown('sedeoperativa', $sedeArray, $selected_dpto, '" id="sedeoperativa" style="display:none"');
+								echo form_dropdown('sedeoperativa', $sedeArray, '#', 'id="sedeoperativa" style="width:140px" onChange="cargarProvBySede();"');
 							?>
 						</div>
 					</div>
-				</div>
-				<div class="span2">
-					<div class="control-group">
+			
+				
+					<div class="control-group;" style="float:left; margin-left:15px">
 						<?php echo form_label('Provincia Operativa', 'provincia_ope', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" style="width:180px;" onChange="cargarRutas();"'); ?>
+							<?php echo form_dropdown('provincia_ope', $provArray, '#', 'id="provincia_ope" style="width:140px; " onChange="cargarRutas();"'); ?>
 						</div>
 					</div>
-				</div>
-				<!-- <div class="span2">
-					<div class="control-group">
-						<?php echo form_label('Distrito', 'distrito', $label_class); ?>
-						<div class="controls">
-							<?php echo form_dropdown('distrito', $distArray, '#', 'id="distrito" style="width:180px;" onChange="cargarCentroPoblado();"'); ?>
-						</div>
-					</div>
-				</div>
-				<div class="span2">
-					<div class="control-group">
-						<?php echo form_label('Centro Poblado', 'centropoblado', $label_class); ?>
-						<div class="controls">
-							<?php echo form_dropdown('centropoblado', $centropArray, '#', 'id="centropoblado" style="width:180px;" onChange="verdatos();"');
-							?>
-						</div>
-					</div>
-				</div> -->
-				<div class="span2">
-					<div class="control-group">
+				
+				
+					<div class="control-group;" style="float:left; margin-left:15px">
 						<?php echo form_label('Código de Ruta', 'rutas', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:180px;" onChange="verdatos();"');
+							<?php echo form_dropdown('rutas', $rutasArray, '#', 'id="rutas" style="width:140px" onChange="verdatos(1);"');
 							?>
 						</div>
 					</div>
-				</div>
-				<div class="span2">
-					<div class="control-group">
+
+					<div class="control-group;" style="float:left; margin-left:15px">
 						<?php echo form_label('Periodo de Trabajo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;" onChange="verdatos();"');
+							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:140px;" onChange="verdatos(1);"');
 							?>
 						</div>
 					</div>
-				</div>
-			</div>
+				
+			
 			<?php echo form_close(); ?>
+
+			</div>
 		</div>
 		<div class="row-fluid">
 			<div id="grid_content" class="span12">
@@ -108,7 +110,7 @@
 			url:'registro_seguimiento/ver_datos',
 			datatype: "json",
 			height: 255,
-			colNames:['Periodo', 'Código de Local', 'Resultado de ET', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Cedulas','Datos'],
+			colNames:['Periodo', 'Código de Local', 'Resultado de ET', 'Entrada de Información', 'Datos GPS', 'Fotos', 'Avance', 'Cedulas'],
 			colModel:[
 				{name:'periodo',index:'periodo',width:50, align:"center"},
 				{name:'codigo_de_local',index:'codigo_de_local',width:80, align:"center"},
@@ -117,8 +119,8 @@
 				{name:'datos_gps',index:'datos_gps', width:100, align:"center"},
 				{name:'foto_ruta',index:'foto_ruta', width:80, align:"center"},
 				{name:'avance',index:'avance', width:80, align:"center"},
-				{name:'detalle',index:'detalle', width:80,  align:"center"},
-				{name:'datos',index:'datos', width:80,  align:"center"}
+				{name:'detalle',index:'detalle', width:80,  align:"center"}
+				
 			],
 			pager: '#pager2',
 			rowNum:20,
@@ -129,12 +131,11 @@
 				var ids = jQuery("#list2").jqGrid('getDataIDs');
 				for(var i=0;i < ids.length;i++){
 					var cl = ids[i];
-					be = "<input type='button' value='Avance Diario' onclick=saveavance('"+cl+"') />";
+					be = "<input type='button' value='Diario' onclick=saveavance('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{avance:be});
 					be = "<input type='button' value='Diligenciadas' onclick=savedetalle('"+cl+"') />";
 					jQuery("#list2").jqGrid('setRowData',ids[i],{detalle:be});
-					be = "<input type='button' value='Enviados' onclick=saveData('"+cl+"') />";
-					jQuery("#list2").jqGrid('setRowData',ids[i],{datos:be});
+					
 
 				}
 			},

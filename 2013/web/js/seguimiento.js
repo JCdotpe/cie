@@ -19,7 +19,7 @@ function cargarProvBySede()
 			$("#provincia_ope").prepend("<option value='99' selected='true'>Todos</value>");
 			$("#distrito").empty().append("<option value='-1' selected='true'></value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			verdatos();
+			verdatos(1);
 		}
 	});
 }
@@ -42,7 +42,7 @@ function cargarDist()
 			
 			$("#distrito").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			$("#centropoblado").empty().append("<option value='-1' selected='true'></value>");
-			verdatos();
+			verdatos(1);
 		}
 	});
 }
@@ -65,7 +65,7 @@ function cargarCentroPoblado()
 			});
 
 			$("#centropoblado").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-			verdatos();
+			verdatos(1);
 		}
 	});
 }
@@ -92,55 +92,12 @@ function cargarRutas()
 			$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 			//$("#periodo").empty().append("<option value='-1' selected='true'></value>");
 
-			if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
-			verdatos();
+			// if (id_cp=='-1'){ verdatos(2); }else{ verdatos(3); }
+			verdatos(1);
 		}
 	});
 }
 
-/*function cargarPeriodo()
-{
-	var doLoginMethodUrl = 'registro_seguimiento/obtenerperiodo';
-	var id_depa = $("#sedeoperativa").val();
-	var id_prov = $("#provincia_ope").val();
-	var id_dist = $("#distrito").val();
-	var id_cp = $("#centropoblado").val();
-	var id_ruta = $("#rutas").val();
-	$.ajax({
-		type: "POST",
-		url: doLoginMethodUrl,
-		data: "id_sede="+id_depa+"&id_prov="+id_prov+"&id_dist="+id_dist+"&id_cp="+id_cp+"&id_ruta="+id_ruta,
-		dataType:'json',
-		success: function(json_data){
-			$("#periodo").empty();
-			$.each(json_data, function(i, data){
-				$("#periodo").append('<option value="' + data.CODIGO + '">' + data.NOMBRE + '</option>');
-			});
-			
-			$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-
-			if (id_ruta=='-1'){ verdatos(3); }else{ verdatos(4); }
-		}
-	});
-}*/
-
-/*function cargarRutas()
-{
-	$("#rutas").empty();
-
-	for (var i = 1; i <= 90; i++)
-	{
-		if (i<10)
-		{
-			codigo = "0"+i.toString();			
-			$("#rutas").append('<option value="' + codigo + '">' + codigo + '</option>');
-		}else{
-			$("#rutas").append('<option value="' + i + '">' + i + '</option>');
-		}
-	}
-
-	$("#rutas").prepend("<option value='-1' selected='true'>Seleccione...</value>");
-}*/
 
 function cargarPeriodo()
 {
@@ -154,41 +111,22 @@ function cargarPeriodo()
 	$("#periodo").prepend("<option value='-1' selected='true'>Seleccione...</value>");
 }
 
-function verdatos()
+function verdatos(tipo)
 {
+
 	var codsede = $("#sedeoperativa").val();
 	var codprov = $("#provincia_ope").val();
-/*	var coddist = $("#distrito").val();
-	var codcentrop = $("#centropoblado").val();*/
 	var codruta = $("#rutas").val();
 	var nroperiodo = $("#periodo").val();
+	var cod_local = $("#cod_local").val();
 
-	//if (nroperiodo=='-1' && intervalo == 5){ intervalo=4; }
-
-	//var condicion;
-
-	// switch(intervalo)
-	// {
-	// 	case 0: condicion = "registro_seguimiento/ver_datos";
-	// 		break;
-
-	// 	case 1: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov;
-	// 		break;
-
-	// 	case 2:	condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist;
-	// 		break;
-
-	// 	case 3: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop;
-	// 		break;
-
-	// 	case 4: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta;
-	// 		break;
-
-	// 	case 5: condicion = "registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&coddist="+coddist+"&codcentrop="+codcentrop+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
-	// 		break;
-	// }
-
+	if (tipo==1)
+	{
 	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos?codsede="+codsede+"&codprov="+codprov+"&codruta="+codruta+"&nroperiodo="+nroperiodo;
+	}else{
+
+	condicion = urlRoot('index.php')+"/seguimiento/registro_seguimiento/ver_datos_local?cod_local="+cod_local;	
+	}
 
 	jQuery("#list2").jqGrid('setGridParam',{url:condicion,page:1}).trigger("reloadGrid");
 }

@@ -105,7 +105,7 @@ function ViewResultado(sede,prov,periodo)
 	//$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_odei/view_resultado/' , {vperiodo:periodo}, function(data, textStatus) {
 	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_odei/view_resultado/' , {vsede:sede,vprov:prov,vperiodo:periodo}, function(data, textStatus) {
 
-			table='<table id="lista" style="width:950px;" class="display">'+
+			table='<table id="lista" style="width:950px;" >'+
 			'<thead>'+
 				'<tr>'+
 					'<th>Sede</th>'+
