@@ -1956,6 +1956,44 @@ echo form_close();
 
 $(function(){
 
+$('#P2_A_3_Hel').change(function(event) {
+	if($(this).val() == 2){		
+		$('#P2_A_3A_Hel_Mini').val('');
+		$('#P2_A_3A_Hel_Mini').attr('disabled','disabled');				
+		$('#P2_A_3A_Hel_Mfin').val('');
+		$('#P2_A_3A_Hel_Mfin').attr('disabled','disabled');	
+	}else{
+		$('#P2_A_3A_Hel_Mini').removeAttr('disabled');
+		$('#P2_A_3A_Hel_Mfin').removeAttr('disabled');
+	}
+});
+
+$('#P2_A_4_Gra').change(function(event) {
+	if($(this).val() == 2){		
+		$('#P2_A_4A_Gra_Mini').val('');
+		$('#P2_A_4A_Gra_Mini').attr('disabled','disabled');				
+		$('#P2_A_4A_Gra_Mfin').val('');
+		$('#P2_A_4A_Gra_Mfin').attr('disabled','disabled');	
+	}else{
+		$('#P2_A_4A_Gra_Mini').removeAttr('disabled');
+		$('#P2_A_4A_Gra_Mfin').removeAttr('disabled');
+	}
+});
+
+$('#P2_A_5_Vend').change(function(event) {
+	if($(this).val() == 2){	
+		$('#P2_A_5A_Vend_Tip').val('');
+		$('#P2_A_5A_Vend_Tip').attr('disabled','disabled');			
+		$('#P2_A_5B_Vend_Mini').val('');
+		$('#P2_A_5B_Vend_Mini').attr('disabled','disabled');				
+		$('#P2_A_5B_Vend_Mfin').val('');
+		$('#P2_A_5B_Vend_Mfin').attr('disabled','disabled');	
+	}else{
+		$('#P2_A_5A_Vend_Tip').removeAttr('disabled');
+		$('#P2_A_5B_Vend_Mini').removeAttr('disabled');
+		$('#P2_A_5B_Vend_Mfin').removeAttr('disabled');
+	}
+});
 
 $('#P2_G_1_ObEjec').change(function(event) {
 
@@ -2095,7 +2133,13 @@ $('#P2_B_2_Suelo').change(function(event) {
 
 //p2_a
 $.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
+		if(fila == 'P2_A_5_Vend' || fila == 'P2_A_3_Hel' || fila == 'P2_A_4_Gra'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');
+		}else{
+	   		$('#' + fila).val(valor);
+		}	
+	   	
 }); 
 
 //p2_b
@@ -2386,6 +2430,7 @@ $("#cap2_f").validate({
 			    }, 
 				P2_B_5_3: {
 			         valrango: [0,1,9],
+			         valzero: ['P2_B_5_1','P2_B_5_2'],
 			    }, 			    	
 				P2_B_5A_Uso: {
 			        valrango: [1,2,9],
@@ -2401,6 +2446,7 @@ $("#cap2_f").validate({
 			    }, 				
 				P2_B_5B_4: {
 			       valrango: [0,1,9],
+			       valzero: ['P2_B_5B_1','P2_B_5B_2','P2_B_5B_3'],
 			    }, 	
 				P2_B_6_Trec_H: {
 			        valrango: [0,24,99],
