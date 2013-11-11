@@ -300,7 +300,7 @@ $P2_B_9_Cod_9 = array(
 	'class'	=> 'input1',
 );
 $P2_B_9_Cod_10 = array(
-	'name'	=> 'P2_B_9_Cod[]',
+	'name'	=> 'P2_B_9_Cod[9]',
 	'id'	=> 'P2_B_9_Cod_10',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -358,7 +358,7 @@ $P2_B_10_Cod_6 = array(
 	'class'	=> 'input1',
 );
 $P2_B_10_Cod_7 = array(
-	'name'	=> 'P2_B_10_Cod[]',
+	'name'	=> 'P2_B_10_Cod[6]',
 	'id'	=> 'P2_B_10_Cod_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -442,7 +442,7 @@ $P2_B_11_Cod_11 = array(
 	'class'	=> 'input1',
 );
 $P2_B_11_Cod_12 = array(
-	'name'	=> 'P2_B_11_Cod[]',
+	'name'	=> 'P2_B_11_Cod[11]',
 	'id'	=> 'P2_B_11_Cod_12',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -504,7 +504,7 @@ $P2_B_12_Cod_6 = array(
 	'class'	=> 'input1',
 );
 $P2_B_12_Cod_7 = array(
-	'name'	=> 'P2_B_12_Cod[]',
+	'name'	=> 'P2_B_12_Cod[6]',
 	'id'	=> 'P2_B_12_Cod_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -1455,7 +1455,7 @@ echo '
 													'.form_input($P2_B_11_Cod_9).' <div class="help-block error"></div> Subversiónes / conflictos <br />												
 													'.form_input($P2_B_11_Cod_10).' <div class="help-block error"></div> Rellenos sanitarios <br />												
 													'.form_input($P2_B_11_Cod_11).' <div class="help-block error"></div> Otro - Especifique '.form_input($P2_B_11_Cod_O).' <div class="help-block error"></div> <br /> 
-													'.form_input($P2_B_11_Cod_12).' NINGUNO
+													'.form_input($P2_B_11_Cod_12).' <div class="help-block error"></div> NINGUNO
 											</td>
 										</tr>
 										<tr>
@@ -2465,23 +2465,40 @@ $("#cap2_f").validate({
 			        valrango: [1,2,9],
 			    }, 		
 
-
 				'P2_B_9_Cod[]': {
 			        valrango: [0,1,9],
 			    }, 
-
+				'P2_B_9_Cod[9]': {
+					valrango: [0,1,9],
+			        valzero: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
+			    }, 
 				'P2_B_10_Cod[]': {
 			        valrango: [0,1,9],
+			    }, 
+				'P2_B_10_Cod[6]': {
+			        valrango: [0,1,9],
+			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5'],
 			    }, 
 
 				'P2_B_11_Cod[]': {
 			        valrango: [0,1,9],
-			    }, 			    
-			
-				'P2_B_12_Cod[]': {
+			    }, 
+
+				'P2_B_11_Cod[11]': {
+			        valrango: [0,1,9],
+			        valzero: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
+			    }, 	
+
+
+			    'P2_B_12_Cod[]': {
 			        valrango: [0,1,9],
 			    }, 	
-		
+
+				'P2_B_12_Cod[6]': {
+			        valrango: [0,1,9],
+			        valzero: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
+			    }, 		
+
 				P2_C_1Locl_1_Energ: {
 			        valrango: [1,2,9],
 			    }, 			    	    
