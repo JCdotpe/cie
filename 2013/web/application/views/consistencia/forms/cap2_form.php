@@ -673,7 +673,7 @@ $P2_D_1_Cod_3 = array(
 	'class'	=> 'input1',
 );
 $P2_D_1_Cod_4 = array(
-	'name'	=> 'P2_D_1_Cod[]',
+	'name'	=> 'P2_D_1_Cod[3]',
 	'id'	=> 'P2_D_1_Cod_4',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -750,7 +750,7 @@ $P2_D_5_Cod_5 = array(
 	'class'	=> 'input1',
 );
 $P2_D_5_Cod_6 = array(
-	'name'	=> 'P2_D_5_Cod[]',
+	'name'	=> 'P2_D_5_Cod[5]',
 	'id'	=> 'P2_D_5_Cod_6',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -839,7 +839,7 @@ $P2_D_9_Nro_6 = array(
 	'class'	=> 'input1',
 );
 $P2_D_9_Nro_7 = array(
-	'name'	=> 'P2_D_9_Nro[]',
+	'name'	=> 'P2_D_9_Nro[6]',
 	'id'	=> 'P2_D_9_Nro_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -951,7 +951,7 @@ $P2_F_1_ElimBas_9 = array(
 );
 
 $P2_F_1_ElimBas_10 = array(
-	'name'	=> 'P2_F_1_ElimBas[]',
+	'name'	=> 'P2_F_1_ElimBas[9]',
 	'id'	=> 'P2_F_1_ElimBas_10',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -1956,6 +1956,35 @@ echo form_close();
 
 $(function(){
 
+
+$('#P2_D_5_Cod_1').change(function(event) {
+	if($(this).val() != 1){		
+		$('#P2_D_6_Agua_CantSum').val('');
+		$('#P2_D_6_Agua_CantSum').attr('disabled','disabled');				
+		$('#P2_D_8_Agua_Emp').val('');
+		$('#P2_D_8_Agua_Emp').attr('disabled','disabled');	
+	}else{
+		$('#P2_D_6_Agua_CantSum').removeAttr('disabled');
+		$('#P2_D_8_Agua_Emp').removeAttr('disabled');
+	}
+	$('#P2_D_6_Agua_CantSum').trigger('change');
+});
+
+
+$('#P2_D_1_Cod_1').change(function(event) {
+	if($(this).val() != 1){		
+		$('#P2_D_2_Energ_CantSum').val('');
+		$('#P2_D_2_Energ_CantSum').attr('disabled','disabled');				
+		$('#P2_D_4_Energ_Emp').val('');
+		$('#P2_D_4_Energ_Emp').attr('disabled','disabled');	
+	}else{
+		$('#P2_D_2_Energ_CantSum').removeAttr('disabled');
+		$('#P2_D_4_Energ_Emp').removeAttr('disabled');
+	}
+	$('#P2_D_2_Energ_CantSum').trigger('change');
+});
+
+
 $('#P2_A_3_Hel').change(function(event) {
 	if($(this).val() == 2){		
 		$('#P2_A_3A_Hel_Mini').val('');
@@ -2264,10 +2293,14 @@ $.each( <?php echo json_encode($cap2_p2_d->row()); ?>, function(fila, valor) {
 //p2_d_1n
 $.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
 	   	$('#P2_D_1_Cod_' + data.P2_D_1_Cod).val(data.P2_D_1_Cod_Est);
+	   	if(data.P2_D_1_Cod ==1){
+	   		$('#P2_D_1_Cod_' + data.P2_D_1_Cod).trigger('change');
+	   	}	
 	   	if(data.P2_D_1_Cod ==4){
 	   		$('#P2_D_1_Cod_' + data.P2_D_1_Cod).trigger('change');
 	   		$('#P2_D_1_Cod_O').val(data.P2_D_1_Cod_O);	   	
 	   	}
+	   	
 }); 
 
 //p2_d_3n ----------JS
@@ -2275,6 +2308,9 @@ $.each( <?php echo json_encode($cap2_p2_d_1n->result()); ?>, function(i, data) {
 //p2_d_5n
 $.each( <?php echo json_encode($cap2_p2_d_5n->result()); ?>, function(i, data) {
 	   	$('#P2_D_5_Cod_' + data.P2_D_5_Cod).val(data.P2_D_5_Cod_Est);
+	   	if(data.P2_D_5_Cod ==1){
+	   		$('#P2_D_5_Cod_' + data.P2_D_5_Cod).trigger('change');
+	   	}	
 	   	if(data.P2_D_5_Cod == 6){
 	   		$('#P2_D_5_Cod_' + data.P2_D_5_Cod).trigger('change');
 	   		$('#P2_D_5_Cod_O').val(data.P2_D_5_Cod_O);	 
@@ -2537,15 +2573,30 @@ $("#cap2_f").validate({
 			    }, 		
 
 				'P2_D_1_Cod[]': {
-			        valrango: [0,4,9],
+			        valrango: [0,1,9],
 			    }, 		
+
+				'P2_D_1_Cod[3]': {
+			        valrango: [0,1,9],
+			        valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
+			    }, 	
 
 				'P2_D_5_Cod[]': {
 			        valrango: [0,1,9],
 			    }, 		
 
+				'P2_D_5_Cod[5]': {
+			        valrango: [0,1,9],
+			        valzero:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5'],
+			    }, 
+
 				'P2_D_9_Nro[]': {
 			        valrango: [0,1,9],
+			    }, 		
+
+				'P2_D_9_Nro[6]': {
+			        valrango: [0,1,9],
+			        valzero:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
@@ -2571,7 +2622,11 @@ $("#cap2_f").validate({
 				'P2_F_1_ElimBas[]': {
 			        valrango: [0,1,9],
 			    },
+				'P2_F_1_ElimBas[9]': {
+			        valrango: [0,1,9],
+			        valzero:['P2_F_1_ElimBas_1','P2_F_1_ElimBas_2','P2_F_1_ElimBas_3','P2_F_1_ElimBas_4','P2_F_1_ElimBas_5','P2_F_1_ElimBas_6','P2_F_1_ElimBas_7','P2_F_1_ElimBas_8','P2_F_1_ElimBas_9'],
 
+			    },
 			    // G
 
 				P2_G_1_ObEjec: {
