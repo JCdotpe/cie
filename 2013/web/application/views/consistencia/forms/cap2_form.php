@@ -1956,6 +1956,36 @@ echo form_close();
 
 $(function(){
 
+$('#P2_C_2LocE_1_Energ').change(function(event) {
+	if($(this).val() == 2){		
+		$('#P2_D_1_Cod_1').val('');
+		$('#P2_D_1_Cod_1').attr('readonly','readonly');				
+		$('#P2_D_1_Cod_2').val('');
+		$('#P2_D_1_Cod_2').attr('readonly','readonly');		
+		$('#P2_D_1_Cod_3').val('');
+		$('#P2_D_1_Cod_3').attr('readonly','readonly');		
+		$('#P2_D_1_Cod_4').val('');
+		$('#P2_D_1_Cod_4').attr('readonly','readonly');			
+		$('#P2_D_1_Cod_O').val('');
+		$('#P2_D_1_Cod_O').attr('readonly','readonly');	
+		$('#P2_D_2_Energ_CantSum').val('');
+		$('#P2_D_2_Energ_CantSum').attr('disabled','disabled');	
+		$('#P2_D_4_Energ_Emp').val('');
+		$('#P2_D_4_Energ_Emp').attr('disabled','disabled');	
+	}else{
+		$('#P2_D_1_Cod_1').removeAttr('readonly');
+		$('#P2_D_1_Cod_2').removeAttr('readonly');
+		$('#P2_D_1_Cod_3').removeAttr('readonly');
+		$('#P2_D_1_Cod_4').removeAttr('readonly');
+		$('#P2_D_1_Cod_O').removeAttr('readonly');
+		$('#P2_D_2_Energ_CantSum').removeAttr('disabled');
+		$('#P2_D_4_Energ_Emp').removeAttr('disabled');
+	}
+	$('#P2_D_1_Cod_1').trigger('change');
+	$('#P2_D_1_Cod_4').trigger('change');
+	$('#P2_D_2_Energ_CantSum').trigger('change');
+});
+
 
 $('#P2_D_5_Cod_1').change(function(event) {
 	if($(this).val() != 1){		
@@ -2211,7 +2241,12 @@ $.each( <?php echo json_encode($cap2_p2_b_12n->result()); ?>, function(i, data) 
 
 //p2_c
 $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
-	   	$('#' + fila).val(valor);
+		if(fila == 'P2_C_2LocE_1_Energ'){
+	   		$('#' + fila).val(valor);
+	   		$('#' + fila).trigger('change');
+		}else{
+	   		$('#' + fila).val(valor);
+		}	
 });
 
 
@@ -2576,10 +2611,10 @@ $("#cap2_f").validate({
 			        valrango: [0,1,9],
 			    }, 		
 
-				'P2_D_1_Cod[3]': {
-			        valrango: [0,1,9],
-			        valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
-			    }, 	
+				// 'P2_D_1_Cod[3]': {
+			 //        valrango: [0,1,9],
+			 //        valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
+			 //    }, 	
 
 				'P2_D_5_Cod[]': {
 			        valrango: [0,1,9],
