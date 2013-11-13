@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Consistencia extends CI_Controller {
-
+	public $level = 1;
 	function __construct()
 	{
 		parent::__construct();
@@ -29,6 +29,7 @@ class Consistencia extends CI_Controller {
 		$flag = FALSE;
 		foreach ($roles as $role) {
 			if($role->role_id == 16){
+				$this->level = $role->level;
 				$flag = TRUE;
 				break;
 			}
@@ -144,6 +145,7 @@ class Consistencia extends CI_Controller {
 			$data['cod'] = $id;
 			$real_prd = ($data['predios']->num_rows() > 0)? $prd : 0; 
 			$data['pr'] = $real_prd;
+			$data['level'] = $this->level;
 			$data['main_content'] = 'consistencia/predios_view';
 	  		$this->load->view('backend/includes/template', $data);
 	}	

@@ -62,9 +62,10 @@ echo '</div>';
 <script type="text/javascript">
 $(function(){
 
-    
-  // $('input,select,textarea').attr('disabled','disabled');
-  // $('.btn-primary').hide();
+  if(<?php echo $level ?> == 1){
+    $('input,select,textarea').attr('disabled','disabled');
+    $('.btn-primary').hide();
+  }
 
 
 
