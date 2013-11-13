@@ -3537,7 +3537,6 @@ $(document).ready(function(){
 			P6_2_14a:{
 				digits:true,
 				valrango:[0,998,999],
-				required:true,
 			},
 			P6_2_14b_1:{
 				digits:true,
