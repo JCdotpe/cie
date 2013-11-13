@@ -944,7 +944,7 @@ $("#car_f").validate({
 			    		required: true,
 			        },  				    	
 				PC_A_8_DirVerif: {
-			    		range: [1,2],
+			    		valrango: [1,2,9],
 			    		required: true,
 			        },  			                     			         		         		         		                  	         		         	         	          		                                                                             		    	
 				PC_C_2_Rfinal_resul: {
