@@ -56,7 +56,8 @@ $P6_1_7 = array(
 	'name'	=> 'P6_1_7',
 	'id'	=> 'P6_1_7',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
+	'disabled' => 'disabled',
 );
 
 $P6_1_8 = array(
@@ -93,7 +94,8 @@ $P6_3_1A = array(
 	'name'	=> 'P6_3_1A',
 	'id'	=> 'P6_3_1A',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
+	'disabled' => 'disabled',
 );
 
 $P6_3_2 = array(
@@ -101,6 +103,7 @@ $P6_3_2 = array(
 	'id'	=> 'P6_3_2',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_2A = array(
@@ -108,6 +111,7 @@ $P6_3_2A = array(
 	'id'	=> 'P6_3_2A',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_2B = array(
@@ -115,6 +119,7 @@ $P6_3_2B = array(
 	'id'	=> 'P6_3_2B',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_2C = array(
@@ -122,6 +127,7 @@ $P6_3_2C = array(
 	'id'	=> 'P6_3_2C',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_2D = array(
@@ -129,6 +135,7 @@ $P6_3_2D = array(
 	'id'	=> 'P6_3_2D',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_3 = array(
@@ -136,6 +143,7 @@ $P6_3_3 = array(
 	'id'	=> 'P6_3_3',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_3_3A = array(
@@ -143,6 +151,7 @@ $P6_3_3A = array(
 	'id'	=> 'P6_3_3A',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
+	'disabled' => 'disabled',
 );
 
 $P6_4_1 = array(
@@ -157,13 +166,14 @@ $P6_4_1A = array(
 	'id'	=> 'P6_4_1A',
 	'maxlength'	=> 1,
 	'class' => 'input1',		
+	'disabled' => 'disabled',
 );
 
 $P6_4_2 = array(
 	'name'	=> 'P6_4_2',
 	'id'	=> 'P6_4_2',
 	'maxlength'	=> 1,
-	'class' => 'input1',		
+	'class' => 'input1',	
 );
 
 $P6_5_1 = array(
@@ -178,6 +188,7 @@ $P6_5_1A = array(
 	'id'	=> 'P6_5_1A',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_Obs = array(
@@ -258,7 +269,8 @@ $P6_2_6 = array(
 	'name'	=> 'P6_2_6',
 	'id'	=> 'P6_2_6',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input1',
+	'disabled' => 'disabled',
 );
 
 $P6_2_7 = array(
@@ -266,6 +278,7 @@ $P6_2_7 = array(
 	'id'	=> 'P6_2_7',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_7_O = array(
@@ -281,6 +294,7 @@ $P6_2_8 = array(
 	'id'	=> 'P6_2_8',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_8_O = array(
@@ -296,6 +310,7 @@ $P6_2_9 = array(
 	'id'	=> 'P6_2_9',
 	'maxlength'	=> 2,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_9_O = array(
@@ -311,6 +326,7 @@ $P6_2_10 = array(
 	'id'	=> 'P6_2_10',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_10_O = array(
@@ -326,6 +342,7 @@ $P6_2_11 = array(
 	'id'	=> 'P6_2_11',
 	'maxlength'	=> 2,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_11_O = array(
@@ -341,6 +358,7 @@ $P6_2_12 = array(
 	'id'	=> 'P6_2_12',
 	'maxlength'	=> 1,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_12_O = array(
@@ -356,6 +374,7 @@ $P6_2_13 = array(
 	'id'	=> 'P6_2_13',
 	'maxlength'	=> 2,
 	'class' => 'input1',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_13_O = array(
@@ -371,13 +390,15 @@ $P6_2_14_1 = array(
 	'id'	=> 'P6_2_14_1',
 	'maxlength'	=> 9,
 	'class' => 'input9',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_2 = array(
 	'name'	=> 'P6_2_14_2',
 	'id'	=> 'P6_2_14_2',
 	'maxlength'	=> 9,
-	'class' => 'input9',			
+	'class' => 'input9',		
+	'disabled' => 'disabled',	
 );
 
 $P6_2_14_3 = array(
@@ -385,6 +406,7 @@ $P6_2_14_3 = array(
 	'id'	=> 'P6_2_14_3',
 	'maxlength'	=> 9,
 	'class' => 'input9',			
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_4 = array(
@@ -392,6 +414,7 @@ $P6_2_14_4 = array(
 	'id'	=> 'P6_2_14_4',
 	'maxlength'	=> 9,
 	'class' => 'input9',			
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_5 = array(
@@ -399,6 +422,7 @@ $P6_2_14_5 = array(
 	'id'	=> 'P6_2_14_5',
 	'maxlength'	=> 9,
 	'class' => 'input9',			
+	'disabled' => 'disabled',
 );
 
 $P6_2_14_6 = array(
@@ -406,6 +430,7 @@ $P6_2_14_6 = array(
 	'id'	=> 'P6_2_14_6',
 	'maxlength'	=> 9,
 	'class' => 'input9',			
+	'disabled' => 'disabled',
 );
 
 $P6_2_14a = array(
@@ -413,6 +438,7 @@ $P6_2_14a = array(
 	'id'	=> 'P6_2_14a',
 	'maxlength'	=> 9,
 	'class' => 'input9',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_14b_1 = array(
@@ -420,6 +446,7 @@ $P6_2_14b_1 = array(
 	'id'	=> 'P6_2_14b_1',
 	'maxlength'	=> 9,
 	'class' => 'input9',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_14b_2 = array(
@@ -427,6 +454,7 @@ $P6_2_14b_2 = array(
 	'id'	=> 'P6_2_14b_2',
 	'maxlength'	=> 9,
 	'class' => 'input9',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_15 = array(
@@ -1251,17 +1279,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1272,17 +1300,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1293,17 +1321,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1314,17 +1342,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1335,17 +1363,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1356,17 +1384,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1377,17 +1405,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1398,17 +1426,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1419,17 +1447,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1440,17 +1468,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1461,17 +1489,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1482,17 +1510,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1503,17 +1531,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1524,17 +1552,17 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+															<input type="text" name="P6_2_4Turno_M[]" id="P6_2_4Turno_M_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_T[]" id="P6_2_4Turno_T_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -2440,30 +2468,14 @@ $(document).ready(function(){
 		};
 	}
 
-	// $.each( <?php echo json_encode($cap5_i->result()); ?>, function(i, data) {
-
-	// 	$('#Cant_Edif_6').val(data.P5_Tot_E);
-
-	// 	$('#panel_edificaciones_vi > div').remove('.btn-group');
-	// 	var asd ='<div class="btn-group">';
-	// 		asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
-	// 		asd+='<ul class="dropdown-menu">';
-	// 	if (data.P5_Tot_E > 0)
-	// 	{
-	// 		for (var i=1; i<=data.P5_Tot_E; i++) {
-	// 			asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
-	// 		}			
-	// 	}
-	// 	asd+='</ul>';
-	// 	asd+='</div>';
-
-	// 	$('#panel_edificaciones_vi').html(asd);
-	// });
-
 
 	$('#panel_edificaciones_vi').on('click','.combo_ins1',function(event){
 
-		$('#cap6_f')[0].reset(); //resetea form
+		//resetea form
+		$('#cap6_f')[0].reset(); 
+		resetea_edificacion_P6_1();
+		resetea_ambiente_P6_2();
+		//
 
 		val= $(this).attr('id');
 		array=val.split(".")
@@ -2568,11 +2580,17 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
+		
+		//vuelve original
 		$('#cap6_2_f input').val('');
+		resetea_ambiente_P6_2();
+		//
 		$('#P6_2_1').val(array[0]);
 		$('#P5_NroPiso').val(array[2]);
+
 		Get_P6_2(array[0],array[2]);
-		Get_P6_2_4N(array[0],array[2]);
+		Get_P6_2_4N(array[0],array[2]);	
+
 		$('#panel_ambientes_vi > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
 
@@ -2600,15 +2618,25 @@ $(document).ready(function(){
 				$('#P6_2_4Turno_M_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_M);
 				$('#P6_2_4Turno_T_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_T);
 				$('#P6_2_4Turno_N_op'+datos.P6_2_4ID).val(datos.P6_2_4Turno_N);
-
+				
 				$('#P6_2_4Mod_op'+datos.P6_2_4ID).trigger('change');
 			});
 
 		});
 	}
 
+	function resetea_edificacion_P6_1 () {
+		$('#P6_1_6').trigger('change');
+		$('#P6_3_1').trigger('change');
+		$('#P6_4_1').trigger('change');
+		$('#P6_5_1').trigger('change');
+	}
+
 	function P6_1_call_saltos(campo){
 		switch(campo){
+			case 'P6_1_6':  $('#P6_1_6').trigger('change');
+			break;
+
 			case 'P6_3_1': $('#P6_3_1').trigger('change');
 			break;
 
@@ -2626,42 +2654,56 @@ $(document).ready(function(){
 		}
 	}
 
+	function resetea_ambiente_P6_2 () {
+		$('#P6_2_5').trigger('change');
+		for (var i = 1; i <= 14; i++) {
+			$('#P6_2_4Mod_op'+i).trigger('change');	
+		};
+		$('#P6_2_15').trigger('change');
+		$('#P6_2_16f').trigger('change');
+		$('#P6_2_18a').trigger('change');
+		$('#P6_2_18b').trigger('change');
+		$('#P6_2_18c').trigger('change');
+		$('#P6_2_18d').trigger('change');
+		$('#P6_2_18e').trigger('change');
+	}
+
 
 	function P6_2_call_saltos(campo){
 		switch(campo){
 			case 'P6_2_5': $('#P6_2_5').trigger('change');
 			break;
-
+			
 			case 'P6_2_6': $('#P6_2_6').trigger('change');
 			break;
-
+			
 			case 'P6_2_7': $('#P6_2_7').trigger('change');
 			break;
-
+			
 			case 'P6_2_8': $('#P6_2_8').trigger('change');
 			break;
-
+			
 			case 'P6_2_9': $('#P6_2_9').trigger('change');
 			break;
-
+			
 			case 'P6_2_10': $('#P6_2_10').trigger('change');
 			break;
-
+			
 			case 'P6_2_11': $('#P6_2_11').trigger('change');
 			break;
-
+			
 			case 'P6_2_12': $('#P6_2_12').trigger('change');
 			break;
-
+			
 			case 'P6_2_13': $('#P6_2_13').trigger('change');
 			break;
-
+			
 			case 'P6_2_15': $('#P6_2_15').trigger('change');
 			break;
-
+			
 			case 'P6_2_16f': $('#P6_2_16f').trigger('change');
 			break;
-
+			
 			case 'P6_2_18f': $('#P6_2_18f').trigger('change');
 			break;
 		}
@@ -2670,123 +2712,103 @@ $(document).ready(function(){
 	///////////////////////////////////////////////////////////////////////////
 	//Saltos P6_1
 	$('#P6_1_6').change(function(event) {
-		if ($(this).val() >= 2){
-			$('#P6_1_7').val('');
-			$('#P6_1_7').attr('disabled','disabled');
-		}else{
+
+		$('#P6_1_7').val('');
+		$('#P6_1_7').attr('disabled','disabled');
+
+		if ( $(this).val() == 1 ){
+
 			$('#P6_1_7').removeAttr('disabled');
+
 		}
 	});
-	$('#P6_1_6').trigger('change');
 
 
 	$('#P6_3_1').change(function(event) {
+
+		$('#P6_3_1A').val('');
+		$('#P6_3_2').val('');
 		
-		var valor=$(this).val();
+		$('#P6_3_2').trigger('change');
+		
+		$('#P6_3_1A').attr('disabled','disabled');
+		$('#P6_3_2').attr('disabled','disabled');
 
-		$('#P6_3_1A').removeAttr('disabled');
-		$('#P6_3_2').removeAttr('disabled');
-		$('#P6_3_2A').removeAttr('disabled');
-		$('#P6_3_2B').removeAttr('disabled');
-		$('#P6_3_2C').removeAttr('disabled');
-		$('#P6_3_2D').removeAttr('disabled');
-		$('#P6_3_3').removeAttr('disabled');
-		$('#P6_3_3A').removeAttr('disabled');
+		if ( $(this).val() == 1 ){
 
-		if (valor==2){
-			$('#P6_3_1A').val('');
-			$('#P6_3_2').val('');
-			$('#P6_3_2A').val('');
-			$('#P6_3_2B').val('');
-			$('#P6_3_2C').val('');
-			$('#P6_3_2D').val('');
-			$('#P6_3_3').val('');
-			$('#P6_3_3A').val('');	
-			
-			$('#P6_3_1A').attr('disabled','disabled');
-			$('#P6_3_2').attr('disabled','disabled');
-			$('#P6_3_2A').attr('disabled','disabled');
-			$('#P6_3_2B').attr('disabled','disabled');
-			$('#P6_3_2C').attr('disabled','disabled');
-			$('#P6_3_2D').attr('disabled','disabled');
-			$('#P6_3_3').attr('disabled','disabled');
-			$('#P6_3_3A').attr('disabled','disabled');	
+			$('#P6_3_1A').removeAttr('disabled');
+			$('#P6_3_2').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_3_1').trigger('change');
 
 
 	$('#P6_3_2').change(function(event) {
-		
-		var valor=$(this).val();
 
-		if (valor==2){
-			$('#P6_3_2A').val('');
-			$('#P6_3_2B').val('');
-			$('#P6_3_2C').val('');
-			$('#P6_3_2D').val('');
-			$('#P6_3_3').val('');
-			$('#P6_3_3A').val('');	
-			
-			$('#P6_3_2A').attr('disabled','disabled');
-			$('#P6_3_2B').attr('disabled','disabled');
-			$('#P6_3_2C').attr('disabled','disabled');
-			$('#P6_3_2D').attr('disabled','disabled');
-			$('#P6_3_3').attr('disabled','disabled');
-			$('#P6_3_3A').attr('disabled','disabled');	
-		}else if (valor!=''){
+		$('#P6_3_2A').val('');
+		$('#P6_3_2B').val('');
+		$('#P6_3_2C').val('');
+		$('#P6_3_2D').val('');
+		$('#P6_3_3').val('');
+		
+		$('#P6_3_3').trigger('change');
+
+		$('#P6_3_2A').attr('disabled','disabled');
+		$('#P6_3_2B').attr('disabled','disabled');
+		$('#P6_3_2C').attr('disabled','disabled');
+		$('#P6_3_2D').attr('disabled','disabled');
+		$('#P6_3_3').attr('disabled','disabled');
+
+		if ( $(this).val() == 1 ){
+
 			$('#P6_3_2A').removeAttr('disabled');
 			$('#P6_3_2B').removeAttr('disabled');
 			$('#P6_3_2C').removeAttr('disabled');
 			$('#P6_3_2D').removeAttr('disabled');
 			$('#P6_3_3').removeAttr('disabled');
-			$('#P6_3_3A').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_3_2').trigger('change');
 
 
 	$('#P6_3_3').change(function(event) {
 		
-		var valor=$(this).val();
+		$('#P6_3_3A').val('');
+		$('#P6_3_3A').attr('disabled','disabled');	
 
-		if (valor==2){
-			$('#P6_3_3A').val('');
-			$('#P6_3_3A').attr('disabled','disabled');	
-		}else if (valor!=''){
-			$('#P6_3_3A').removeAttr('disabled');	
+		if ( $(this).val() == 1 ){
+			
+			$('#P6_3_3A').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_3_3').trigger('change');
-
+	
 
 	$('#P6_4_1').change(function(event) {
 		
-		var valor=$(this).val();
-		
-		if (valor==2){
-			$('#P6_4_1A').val('');
-			$('#P6_4_1A').attr('disabled','disabled');	
-		}else if (valor!=''){
+		$('#P6_4_1A').val('');
+		$('#P6_4_1A').attr('disabled','disabled');
+
+		if ( $(this).val() == 1 ){
+			
 			$('#P6_4_1A').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_4_1').trigger('change');
 	
 
 	$('#P6_5_1').change(function(event) {
 		
-		var valor=$(this).val();
+		$('#P6_5_1A').val('');
+		$('#P6_5_1A').attr('disabled','disabled');
 
-		if (valor==2){
-			$('#P6_5_1A').val('');
-			$('#P6_5_1A').attr('disabled','disabled');	
-		}else if (valor!=''){
+		if ( $(this).val() == 1 ){
+
 			$('#P6_5_1A').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_5_1').trigger('change');
-
+	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	//Saltos P6_2
 
@@ -2861,7 +2883,8 @@ $(document).ready(function(){
 
 	function P4_activacion(nro,valor){
 
-		if (valor==0){
+		if ( valor == 0 ){
+
 			$('#P6_2_4Turno_M_op'+nro).val('');
 			$('#P6_2_4Turno_T_op'+nro).val('');
 			$('#P6_2_4Turno_N_op'+nro).val('');
@@ -2869,7 +2892,9 @@ $(document).ready(function(){
 			$('#P6_2_4Turno_M_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
-		}else if (valor==1 || valor==9){
+
+		}else if ( valor == 1 || valor == 9 ){
+
 			$('#P6_2_4Turno_M_op'+nro).removeAttr('readonly');
 			$('#P6_2_4Turno_T_op'+nro).removeAttr('readonly');
 			$('#P6_2_4Turno_N_op'+nro).removeAttr('readonly');
@@ -2878,89 +2903,11 @@ $(document).ready(function(){
 
 
 	$('#P6_2_5').change(function(event) {
-		
-		var valor=$(this).val();
-		if (valor!='') P6_2_5_remove();
-		
-		if (valor==1){
-			$('#P6_2_6').attr('disabled','disabled');
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
-		}else if (valor==2){
-			//nothing
-		}else if (valor==3){
-			$('#P6_2_6').attr('disabled','disabled');
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-		}else if (valor==4){
-			$('#P6_2_6').attr('disabled','disabled');
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-		}else if (valor==5){
-			$('#P6_2_6').attr('disabled','disabled');
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-		}
-	});
-	//$('#P6_2_5').trigger('change');
-
-	function P6_2_5_remove(){
-		$('#P6_2_6').removeAttr('disabled');
-		$('#P6_2_7').removeAttr('disabled');
-		$('#P6_2_8').removeAttr('disabled');
-		$('#P6_2_9').removeAttr('disabled');
-		$('#P6_2_10').removeAttr('disabled');
-		$('#P6_2_11').removeAttr('disabled');
-		$('#P6_2_12').removeAttr('disabled');
-		$('#P6_2_13').removeAttr('disabled');
-		$('#P6_2_14_1').removeAttr('disabled');
-		$('#P6_2_14_2').removeAttr('disabled');
-		$('#P6_2_14_3').removeAttr('disabled');
-		$('#P6_2_14_4').removeAttr('disabled');
-		$('#P6_2_14_5').removeAttr('disabled');
-		$('#P6_2_14_6').removeAttr('disabled');
-		$('#P6_2_14a').removeAttr('disabled');
-		$('#P6_2_14b_1').removeAttr('disabled');
-		$('#P6_2_14b_2').removeAttr('disabled');
 
 		$('#P6_2_6').val('');
-		$('#P6_2_7').val('');
-		//$('#P6_2_7').trigger('change');
-		$('#P6_2_8').val('');
-		//$('#P6_2_8').trigger('change');
-		$('#P6_2_9').val('');
-		//$('#P6_2_9').trigger('change');
-		$('#P6_2_10').val('');
-		//$('#P6_2_10').trigger('change');
 		$('#P6_2_11').val('');
-		//$('#P6_2_11').trigger('change');
 		$('#P6_2_12').val('');
-		//$('#P6_2_12').trigger('change');
 		$('#P6_2_13').val('');
-		//$('#P6_2_13').trigger('change');
 		$('#P6_2_14_1').val('');
 		$('#P6_2_14_2').val('');
 		$('#P6_2_14_3').val('');
@@ -2970,242 +2917,179 @@ $(document).ready(function(){
 		$('#P6_2_14a').val('');
 		$('#P6_2_14b_1').val('');
 		$('#P6_2_14b_2').val('');
-	}
+
+		$('#P6_2_6').trigger('change');
+		$('#P6_2_11').trigger('change');
+		$('#P6_2_12').trigger('change');
+		$('#P6_2_13').trigger('change');
+
+		$('#P6_2_6').attr('disabled','disabled');
+		$('#P6_2_11').attr('disabled','disabled');
+		$('#P6_2_12').attr('disabled','disabled');
+		$('#P6_2_13').attr('disabled','disabled');
+		$('#P6_2_14_1').attr('disabled','disabled');
+		$('#P6_2_14_2').attr('disabled','disabled');
+		$('#P6_2_14_3').attr('disabled','disabled');
+		$('#P6_2_14_4').attr('disabled','disabled');
+		$('#P6_2_14_5').attr('disabled','disabled');
+		$('#P6_2_14_6').attr('disabled','disabled');
+		$('#P6_2_14a').attr('disabled','disabled');
+		$('#P6_2_14b_1').attr('disabled','disabled');
+		$('#P6_2_14b_2').attr('disabled','disabled');
+		
+		if ( $(this).val() == 1 ){
+			//nothing
+		}else if ( $(this).val() == 2 ){
+			
+			$('#P6_2_6').removeAttr('disabled');
+
+		}else if ( $(this).val() == 3 ){
+
+			$('#P6_2_11').removeAttr('disabled');
+
+		}else if ( $(this).val() == 4 ){
+			
+			$('#P6_2_12').removeAttr('disabled');
+
+		}else if ( $(this).val() == 5 ){
+
+			$('#P6_2_13').removeAttr('disabled');
+
+		}
+	});
 
 
 	$('#P6_2_6').change(function(event) {
-		
-		var valor=$(this).val();
-		if (valor!='') P6_2_6_remove();
-		
-		if (valor>=1 && valor <= 3){
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
-		}else if (valor==4){
-			//nothing
-		}else if (valor==5){
-			$('#P6_2_7').attr('disabled','disabled');
-		}else if (valor==6){
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-		}else if (valor==7){
-			$('#P6_2_7').attr('disabled','disabled');
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-		}
-	});
-	//$('#P6_2_6').trigger('change');
-
-	function P6_2_6_remove(){
-		$('#P6_2_7').removeAttr('disabled');
-		$('#P6_2_8').removeAttr('disabled');
-		$('#P6_2_9').removeAttr('disabled');
-		$('#P6_2_10').removeAttr('disabled');
-		$('#P6_2_11').removeAttr('disabled');
-		$('#P6_2_12').removeAttr('disabled');
-		$('#P6_2_13').removeAttr('disabled');
-		$('#P6_2_14_1').removeAttr('disabled');
-		$('#P6_2_14_2').removeAttr('disabled');
-		$('#P6_2_14_3').removeAttr('disabled');
-		$('#P6_2_14_4').removeAttr('disabled');
-		$('#P6_2_14_5').removeAttr('disabled');
-		$('#P6_2_14_6').removeAttr('disabled');
-		$('#P6_2_14a').removeAttr('disabled');
-		$('#P6_2_14b_1').removeAttr('disabled');
-		$('#P6_2_14b_2').removeAttr('disabled');
 
 		$('#P6_2_7').val('');
-		//$('#P6_2_7').trigger('change');
 		$('#P6_2_8').val('');
-		//$('#P6_2_8').trigger('change');
 		$('#P6_2_9').val('');
-		//$('#P6_2_9').trigger('change');
 		$('#P6_2_10').val('');
-		//$('#P6_2_10').trigger('change');
-		$('#P6_2_11').val('');
-		//$('#P6_2_11').trigger('change');
-		$('#P6_2_12').val('');
-		//$('#P6_2_12').trigger('change');
-		$('#P6_2_13').val('');
-		//$('#P6_2_13').trigger('change');
-		$('#P6_2_14_1').val('');
-		$('#P6_2_14_2').val('');
-		$('#P6_2_14_3').val('');
-		$('#P6_2_14_4').val('');
-		$('#P6_2_14_5').val('');
-		$('#P6_2_14_6').val('');
-		$('#P6_2_14a').val('');
-		$('#P6_2_14b_1').val('');
-		$('#P6_2_14b_2').val('');
-	}
 
+		$('#P6_2_7').trigger('change');
+		$('#P6_2_8').trigger('change');
+		$('#P6_2_9').trigger('change');
+		$('#P6_2_10').trigger('change');
+
+		$('#P6_2_7').attr('disabled','disabled');
+		$('#P6_2_8').attr('disabled','disabled');
+		$('#P6_2_9').attr('disabled','disabled');
+		$('#P6_2_10').attr('disabled','disabled');
+		
+		if ( $(this).val() >=1 && $(this).val() <= 3 ){
+			//nothing
+		}else if ( $(this).val() == 4 ){
+
+			$('#P6_2_7').removeAttr('disabled');
+
+		}else if ( $(this).val() == 5 ){
+
+			$('#P6_2_8').removeAttr('disabled');
+
+		}else if ( $(this).val() == 6 ){
+
+			$('#P6_2_9').removeAttr('disabled');
+
+		}else if ( $(this).val() == 7 ){
+
+			$('#P6_2_10').removeAttr('disabled');
+
+		}
+	});
+	
 
 	$('#P6_2_7').change(function(event) {
-		
-		var valor=$(this).val();
-		
-		$('#P6_2_7_O').attr('disabled','disabled');
-		$('#P6_2_7_O').val('');
-		if (valor==7) $('#P6_2_7_O').removeAttr('disabled');
 
-		//salto 15
-		if (valor!=''){
-			$('#P6_2_8').attr('disabled','disabled');
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
-		}		
+		if ( $(this).val() == 7 ){
+			
+			$('#P6_2_7_O').removeAttr('disabled');
+
+		}else{
+
+			$('#P6_2_7_O').val('');
+			$('#P6_2_7_O').attr('disabled','disabled');
+		}
 	});
-	//$('#P6_2_7').trigger('change');
 
 
 	$('#P6_2_8').change(function(event) {
-		
-		var valor=$(this).val();
-		
-		$('#P6_2_8_O').attr('disabled','disabled');
-		$('#P6_2_8_O').val('');
-		if (valor==6) $('#P6_2_8_O').removeAttr('disabled');
 
-		//salto 15
-		if (valor!=''){
-			$('#P6_2_9').attr('disabled','disabled');
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
+		if ( $(this).val() == 6 ){
+
+			$('#P6_2_8_O').removeAttr('disabled');
+
+		}else{
+
+			$('#P6_2_8_O').val('');
+			$('#P6_2_8_O').attr('disabled','disabled');
 		}
 	});
-	//$('#P6_2_8').trigger('change');
 
 
 	$('#P6_2_9').change(function(event) {
 		
-		var valor=$(this).val();
-		
-		$('#P6_2_9_O').attr('disabled','disabled');
-		$('#P6_2_9_O').val('');
-		if (valor==17) $('#P6_2_9_O').removeAttr('disabled');
+		if ( $(this).val() == 17 ){
 
-		//salto 15
-		if (valor!=''){
-			$('#P6_2_10').attr('disabled','disabled');
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
+			$('#P6_2_9_O').removeAttr('disabled');
+
+		}else{
+			
+			$('#P6_2_9_O').val('');
+			$('#P6_2_9_O').attr('disabled','disabled');
+
 		}
 	});
-	//$('#P6_2_9').trigger('change');
 
 
 	$('#P6_2_10').change(function(event) {
 		
-		var valor=$(this).val();
-		
-		$('#P6_2_10_O').attr('disabled','disabled');
-		$('#P6_2_10_O').val('');
-		if (valor==8) $('#P6_2_10_O').removeAttr('disabled');
+		if ( $(this).val() == 8 ){
 
-		//salto 15
-		if (valor!=''){
-			$('#P6_2_11').attr('disabled','disabled');
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
+			$('#P6_2_10_O').removeAttr('disabled');
+
+		}else{
+			
+			$('#P6_2_10_O').val('');
+			$('#P6_2_10_O').attr('disabled','disabled');
+
 		}
+		
 	});
-	//$('#P6_2_10').trigger('change');
 
 
 	$('#P6_2_11').change(function(event) {
 		
-		var valor=$(this).val();
-		
-		$('#P6_2_11_O').attr('disabled','disabled');
-		$('#P6_2_11_O').val('');
-		if (valor==11) $('#P6_2_11_O').removeAttr('disabled');
+		if ( $(this).val() == 11 ){
 
-		//salto 15
-		if (valor!=''){
-			$('#P6_2_12').attr('disabled','disabled');
-			$('#P6_2_13').attr('disabled','disabled');
-			$('#P6_2_14_1').attr('disabled','disabled');
-			$('#P6_2_14_2').attr('disabled','disabled');
-			$('#P6_2_14_3').attr('disabled','disabled');
-			$('#P6_2_14_4').attr('disabled','disabled');
-			$('#P6_2_14_5').attr('disabled','disabled');
-			$('#P6_2_14_6').attr('disabled','disabled');
-			$('#P6_2_14a').attr('disabled','disabled');
-			$('#P6_2_14b_1').attr('disabled','disabled');
-			$('#P6_2_14b_2').attr('disabled','disabled');
+			$('#P6_2_11_O').removeAttr('disabled');
+
+		}else{
+			
+			$('#P6_2_11_O').val('');
+			$('#P6_2_11_O').attr('disabled','disabled');
+
 		}
 	});
-	//$('#P6_2_11').trigger('change');
 
 
 	$('#P6_2_12').change(function(event) {
 		
-		var valor=$(this).val();
-		
-		$('#P6_2_12_O').attr('disabled','disabled');
 		$('#P6_2_12_O').val('');
-		if (valor==7) $('#P6_2_12_O').removeAttr('disabled');
+		$('#P6_2_14_1').val('');
+		$('#P6_2_14_2').val('');
+		$('#P6_2_14_3').val('');
+		$('#P6_2_14_4').val('');
+		$('#P6_2_14_5').val('');
+		$('#P6_2_14_6').val('');
+		$('#P6_2_14a').val('');
+		$('#P6_2_14b_1').val('');
+		$('#P6_2_14b_2').val('');
 
-		$('#P6_2_13').attr('disabled','disabled');
+		$('#P6_2_12_O').attr('disabled','disabled');
 		
 		//salto 15
-		if (valor<8){			
+		if ( $(this).val() < 8 ){
+
 			$('#P6_2_14_1').attr('disabled','disabled');
 			$('#P6_2_14_2').attr('disabled','disabled');
 			$('#P6_2_14_3').attr('disabled','disabled');
@@ -3215,7 +3099,11 @@ $(document).ready(function(){
 			$('#P6_2_14a').attr('disabled','disabled');
 			$('#P6_2_14b_1').attr('disabled','disabled');
 			$('#P6_2_14b_2').attr('disabled','disabled');
-		}else if (valor!=''){
+
+			if ( $(this).val() == 7 ) $('#P6_2_12_O').removeAttr('disabled');
+
+		}else if ( $(this).val() == 8 ){
+
 			$('#P6_2_14_1').removeAttr('disabled');
 			$('#P6_2_14_2').removeAttr('disabled');
 			$('#P6_2_14_3').removeAttr('disabled');
@@ -3227,19 +3115,26 @@ $(document).ready(function(){
 			$('#P6_2_14b_2').removeAttr('disabled');
 		}
 	});
-	//$('#P6_2_12').trigger('change');
 
 
 	$('#P6_2_13').change(function(event) {
-		
-		var valor=$(this).val();
-		
-		$('#P6_2_13_O').attr('disabled','disabled');
+
 		$('#P6_2_13_O').val('');
-		if (valor==16) $('#P6_2_13_O').removeAttr('disabled');
+		$('#P6_2_14_1').val('');
+		$('#P6_2_14_2').val('');
+		$('#P6_2_14_3').val('');
+		$('#P6_2_14_4').val('');
+		$('#P6_2_14_5').val('');
+		$('#P6_2_14_6').val('');
+		$('#P6_2_14a').val('');
+		$('#P6_2_14b_1').val('');
+		$('#P6_2_14b_2').val('');
+
+		$('#P6_2_13_O').attr('disabled','disabled');
 
 		//salto 15
-		if ((valor>2 && valor<=16) && valor!=''){
+		if ( $(this).val() > 2 && $(this).val() <= 16 ){
+
 			$('#P6_2_14_1').attr('disabled','disabled');
 			$('#P6_2_14_2').attr('disabled','disabled');
 			$('#P6_2_14_3').attr('disabled','disabled');
@@ -3249,7 +3144,11 @@ $(document).ready(function(){
 			$('#P6_2_14a').attr('disabled','disabled');
 			$('#P6_2_14b_1').attr('disabled','disabled');
 			$('#P6_2_14b_2').attr('disabled','disabled');
-		}else if(( valor>0 && valor <=2) && valor!='' ){
+
+			if ( $(this).val() == 16 ) $('#P6_2_13_O').removeAttr('disabled');
+
+		}else if( $(this).val() > 0 && $(this).val() <= 2 ){
+			
 			$('#P6_2_14_1').removeAttr('disabled');
 			$('#P6_2_14_2').removeAttr('disabled');
 			$('#P6_2_14_3').removeAttr('disabled');
@@ -3261,29 +3160,29 @@ $(document).ready(function(){
 			$('#P6_2_14b_2').removeAttr('disabled');
 		}
 	});
-	//$('#P6_2_13').trigger('change');
 
 
 	$('#P6_2_15').change(function(event) {
 		
-		var valor=$(this).val();
-
 		$('#P6_2_15a').removeAttr('disabled');
 		$('#P6_2_15_O').attr('disabled','disabled');
-		if (valor==6){
+
+		if ( $(this).val() == 6){
+
+			$('#P6_2_15a').val('');
 			$('#P6_2_15a').attr('disabled','disabled');	
-		}else if (valor==7){
-			$('#P6_2_15_O').removeAttr('disabled');	
+
+		}else if ( $(this).val() == 7 ){
+
+			$('#P6_2_15_O').removeAttr('disabled');
+
 		}
 	});
-	//$('#P6_2_15').trigger('change');
 	
 
 	$('#P6_2_16f').change(function(event) {
 		
-		var valor=$(this).val();
-
-		if (valor==1){
+		if ( $(this).val() == 1 ){
 
 			$('#P6_2_16a_b').val('');
 			$('#P6_2_16a_r').val('');
@@ -3364,7 +3263,6 @@ $(document).ready(function(){
 			$('#P6_2_17d').removeAttr('disabled');
 		}
 	});
-	//$('#P6_2_16f').trigger('change');
 
 	$('#P6_2_18a').change(function(event) {
 		Preg18_activacion('a',$(this).val());
@@ -3388,27 +3286,27 @@ $(document).ready(function(){
 
 	function Preg18_activacion(letra,valor){
 
-		if (valor==0){
+		if ( valor == 0 ){
 			$('#P6_2_18'+letra+'_b').val('');
 			$('#P6_2_18'+letra+'_r').val('');
 			$('#P6_2_18'+letra+'_m').val('');
 			
 
-			$('#P6_2_18'+letra+'_b').attr('readonly','readonly');
-			$('#P6_2_18'+letra+'_r').attr('readonly','readonly');
-			$('#P6_2_18'+letra+'_m').attr('readonly','readonly');
+			$('#P6_2_18'+letra+'_b').attr('disabled','disabled');
+			$('#P6_2_18'+letra+'_r').attr('disabled','disabled');
+			$('#P6_2_18'+letra+'_m').attr('disabled','disabled');
 
-			if (letra=='e'){
+			if ( letra == 'e' ){
 				$('#P6_2_18e_O').val('');
-				$('#P6_2_18e_O').attr('readonly','readonly');	
+				$('#P6_2_18e_O').attr('disabled','disabled');	
 			}
 
-		}else if (valor==1 || valor==9){
-			$('#P6_2_18'+letra+'_b').removeAttr('readonly');
-			$('#P6_2_18'+letra+'_r').removeAttr('readonly');
-			$('#P6_2_18'+letra+'_m').removeAttr('readonly');
+		}else if ( valor == 1 || valor == 9 ){
+			$('#P6_2_18'+letra+'_b').removeAttr('disabled');
+			$('#P6_2_18'+letra+'_r').removeAttr('disabled');
+			$('#P6_2_18'+letra+'_m').removeAttr('disabled');
 
-			if (letra=='e') $('#P6_2_18e_O').removeAttr('readonly');
+			if ( letra == 'e' ) $('#P6_2_18e_O').removeAttr('disabled');
 		}
 	}
 
@@ -3425,11 +3323,11 @@ $(document).ready(function(){
 			$('#P6_2_18d').val('');
 			$('#P6_2_18e').val('');
 
-			$('#P6_2_18a').attr('readonly','readonly');
-			$('#P6_2_18b').attr('readonly','readonly');
-			$('#P6_2_18c').attr('readonly','readonly');
-			$('#P6_2_18d').attr('readonly','readonly');
-			$('#P6_2_18e').attr('readonly','readonly');
+			$('#P6_2_18a').attr('disabled','disabled');
+			$('#P6_2_18b').attr('disabled','disabled');
+			$('#P6_2_18c').attr('disabled','disabled');
+			$('#P6_2_18d').attr('disabled','disabled');
+			$('#P6_2_18e').attr('disabled','disabled');
 
 			Preg18_activacion('a',0);
 			Preg18_activacion('b',0);
@@ -3447,11 +3345,11 @@ $(document).ready(function(){
 
 		}else{
 
-			$('#P6_2_18a').removeAttr('readonly');
-			$('#P6_2_18b').removeAttr('readonly');
-			$('#P6_2_18c').removeAttr('readonly');
-			$('#P6_2_18d').removeAttr('readonly');
-			$('#P6_2_18e').removeAttr('readonly');
+			$('#P6_2_18a').removeAttr('disabled');
+			$('#P6_2_18b').removeAttr('disabled');
+			$('#P6_2_18c').removeAttr('disabled');
+			$('#P6_2_18d').removeAttr('disabled');
+			$('#P6_2_18e').removeAttr('disabled');
 
 
 			$('#P6_2_18a').trigger('change');
@@ -3467,7 +3365,6 @@ $(document).ready(function(){
 		}
 
 	});
-	//$('#P6_2_18f').trigger('change');
 
 
 	///////////////////////////////////////////////////////////////////////////
@@ -3517,6 +3414,7 @@ $(document).ready(function(){
 			'P6_1_8_Accesibilidad[]':{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_1_9:{
 				digits:true,
@@ -3570,50 +3468,62 @@ $(document).ready(function(){
 			P6_2_6:{
 				digits:true,
 				valrango:[1,7,9],
+				required:true,
 			},
 			P6_2_7:{
 				digits:true,
 				valrango:[1,7,9],
+				required:true,
 			},
 			P6_2_8:{
 				digits:true,
 				valrango:[1,6,9],
+				required:true,
 			},
 			P6_2_9:{
 				digits:true,
 				valrango:[1,17,9],
+				required:true,
 			},
 			P6_2_10:{
 				digits:true,
 				valrango:[1,8,9],
+				required:true,
 			},
 			P6_2_11:{
 				digits:true,
 				valrango:[1,11,9],
+				required:true,
 			},
 			P6_2_12:{
 				digits:true,
 				valrango:[1,8,9],
+				required:true,
 			},
 			P6_2_13:{
 				digits:true,
 				valrango:[1,16,9],
+				required:true,
 			},
 			P6_2_14_1:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14_2:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14_3:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14_4:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14_5:{
 				digits:true,
@@ -3622,202 +3532,252 @@ $(document).ready(function(){
 			P6_2_14_6:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14a:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14b_1:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14b_2:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_15:{
 				digits:true,
 				valrango:[1,7,9],
+				required:true,
 			},
 			P6_2_15a:{
 				digits:true,
 				valrango:[1,3,9],
+				required:true,
 			},
 			P6_2_16a_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16a_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16a_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16b_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16b_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16b_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16c_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16c_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16c_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16d_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16d_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16d_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16e_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16e_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16e_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_16f:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_17a:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_17b:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_17c:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_17d:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_18a:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_18a_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18a_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18a_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18b:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_18b_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18b_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18b_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18c:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_18c_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18c_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18c_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18d:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_18d_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18d_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18d_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18e:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_18e_b:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18e_r:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18e_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
 			},
 			P6_2_18f:{
 				digits:true,
 				valrango:[0,1,9],
+				required:true,
 			},
 			P6_2_19a:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_19b:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_2_19c:{
 				digits:true,
 				valrango:[0,98,99],
+				required:true,
 			},
 			P6_3_1:{
 				digits:true,
@@ -3827,34 +3787,42 @@ $(document).ready(function(){
 			P6_3_1A:{
 				digits:true,
 				valrango:[1,4,9],
+				required:true,	
 			},
 			P6_3_2:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_2A:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_2B:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_2C:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_2D:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_3:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_3_3A:{
 				digits:true,
 				year:true,
+				required:true,
 			},
 			P6_4_1:{
 				digits:true,
@@ -3868,6 +3836,7 @@ $(document).ready(function(){
 			P6_4_2:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_5_1:{
 				digits:true,
@@ -3877,6 +3846,7 @@ $(document).ready(function(){
 			P6_5_1A:{
 				digits:true,
 				valrango:[1,3,9],
+				required:true,
 			},
 		},
 
