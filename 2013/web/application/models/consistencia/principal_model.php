@@ -1,5 +1,19 @@
 <?php 
 class Principal_model extends CI_MODEL{
+
+    //Seguridad
+    function get_user_ubigeo($id){
+        $this->db->where('id',$id);
+        $q = $this->db->get('user_ubigeo');
+        return $q;
+    }
+    function get_padlocal($id){
+        $this->db->where('codigo_de_local',$id);
+        $q = $this->db->get('Padlocal');
+        return $q;
+    }
+
+
 	//predios
 	function get_predios($id){
         $this->db->where('id_local',$id);
