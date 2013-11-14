@@ -2081,12 +2081,12 @@ $("#cap1_ie").validate({
 		            maxlength: 10, 
 			    },  
 				P1_A_2_4_TelfIE: {
-					valrango: [1,999999998,999999999],
-			        digits: true,
+					// valrango: [1,999999998,999999999],
+			        // digits: true,
 			    },  		
 				P1_A_2_4_TelfDir: {
-					valrango: [1,999999998,999999999],
-			        digits: true,
+					// valrango: [1,999999998,999999999],
+			        // digits: true,
 			    },  	
 				P1_A_2_5_EmailIE: {
 			        email: true,
