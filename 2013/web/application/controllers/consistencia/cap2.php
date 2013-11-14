@@ -177,7 +177,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_b_9n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_B_9_Cod_e')
-								$cap2_p2_b_9n_data[$b] = $cap2_p2_b_9n_pre['P2_B_9_Cod'][$cc];
+								$cap2_p2_b_9n_data[$b] = ($cap2_p2_b_9n_pre['P2_B_9_Cod'][$cc] == '') ? NULL : $cap2_p2_b_9n_pre['P2_B_9_Cod'][$cc];
 							if($b == 'P2_B_9_Cod')
 								$cap2_p2_b_9n_data[$b] = $cc+1;
 						}	
@@ -211,7 +211,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_b_10n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_B_10_Cod_e')
-								$cap2_p2_b_10n_data[$b] = $cap2_p2_b_10n_pre['P2_B_10_Cod'][$cc];
+								$cap2_p2_b_10n_data[$b] = ($cap2_p2_b_10n_pre['P2_B_10_Cod'][$cc] == '') ? NULL : $cap2_p2_b_10n_pre['P2_B_10_Cod'][$cc];
 							if($b == 'P2_B_10_Cod')
 								$cap2_p2_b_10n_data[$b] = $cc+1;
 						}	
@@ -244,7 +244,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_b_11n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_B_11_Cod_e')
-								$cap2_p2_b_11n_data[$b] = $cap2_p2_b_11n_pre['P2_B_11_Cod'][$cc];
+								$cap2_p2_b_11n_data[$b] = ($cap2_p2_b_11n_pre['P2_B_11_Cod'][$cc] == '') ? NULL : $cap2_p2_b_11n_pre['P2_B_11_Cod'][$cc];
 							if($b == 'P2_B_11_Cod')
 								$cap2_p2_b_11n_data[$b] = $cc+1;
 							//otro		
@@ -280,7 +280,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_b_12n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_B_12_Cod_e')
-								$cap2_p2_b_12n_data[$b] = $cap2_p2_b_12n_pre['P2_B_12_Cod'][$cc];
+								$cap2_p2_b_12n_data[$b] = ($cap2_p2_b_12n_pre['P2_B_12_Cod'][$cc] == '') ? NULL : $cap2_p2_b_12n_pre['P2_B_12_Cod'][$cc];
 							if($b == 'P2_B_12_Cod')
 								$cap2_p2_b_12n_data[$b] = $cc+1;
 							//otro		
@@ -401,7 +401,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_d_1n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_D_1_Cod_Est')
-								$cap2_p2_d_1n_data[$b] = $cap2_p2_d_1n_pre['P2_D_1_Cod'][$cc];
+								$cap2_p2_d_1n_data[$b] = ($cap2_p2_d_1n_pre['P2_D_1_Cod'][$cc] == '') ? NULL : $cap2_p2_d_1n_pre['P2_D_1_Cod'][$cc];
 							if($b == 'P2_D_1_Cod')
 								$cap2_p2_d_1n_data[$b] = $cc+1;
 							//otro		
@@ -472,7 +472,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_d_5n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_D_5_Cod_Est')
-								$cap2_p2_d_5n_data[$b] = $cap2_p2_d_5n_pre['P2_D_5_Cod'][$cc];
+								$cap2_p2_d_5n_data[$b] = ($cap2_p2_d_5n_pre['P2_D_5_Cod'][$cc] == '') ? NULL : $cap2_p2_d_5n_pre['P2_D_5_Cod'][$cc];
 							if($b == 'P2_D_5_Cod')
 								$cap2_p2_d_5n_data[$b] = $cc+1;
 							//otro		
@@ -541,7 +541,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_d_9n as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_D_9_Cod')
-								$cap2_p2_d_9n_data[$b] = $cap2_p2_d_9n_pre['P2_D_9_Nro'][$cc];
+								$cap2_p2_d_9n_data[$b] = ($cap2_p2_d_9n_pre['P2_D_9_Nro'][$cc] == '') ? NULL : $cap2_p2_d_9n_pre['P2_D_9_Nro'][$cc];
 							if($b == 'P2_D_9_Nro')
 								$cap2_p2_d_9n_data[$b] = $cc+1;							
 						}	
@@ -621,7 +621,7 @@ class Cap2 extends CI_Controller {
 					foreach ($cap2_p2_f as $a=>$b) {
 						if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
 							if($b == 'P2_F_1_ElimBas_e')
-								$cap2_p2_f_data[$b] = $cap2_p2_f_pre['P2_F_1_ElimBas'][$cc];
+								$cap2_p2_f_data[$b] = ($cap2_p2_f_pre['P2_F_1_ElimBas'][$cc] == '') ? NULL : $cap2_p2_f_pre['P2_F_1_ElimBas'][$cc];
 							if($b == 'P2_F_1_ElimBas')
 								$cap2_p2_f_data[$b] = $cc+1;
 							//otro		
