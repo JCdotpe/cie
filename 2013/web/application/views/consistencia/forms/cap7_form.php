@@ -499,7 +499,7 @@ echo '
 	  	    					<tr>
 	  	    						<td>14.</td>
 	  	    						<td>
-	  	    							<strong> Estado de conservación de los elementos de confinamiento</strong>
+	  	    							<strong> Estado de conservación de la losa de entrepiso</strong>
 	  	    							<label>(Acepte sólo un código)</label>
 	  	    						</td>
 	  	    						<td>
