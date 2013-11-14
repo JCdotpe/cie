@@ -2043,7 +2043,7 @@ $('#P2_B_8_Pelig').change(function(event) {
 	}else{
 		$('#P2_B_9_Cod_1').removeAttr('readonly');		
 		$('#P2_B_9_Cod_2').removeAttr('readonly');
-		$('#P2_B_9_Cod_2').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_2').removeAttr('readonly');		
 		$('#P2_B_9_Cod_3').removeAttr('readonly');	
 		$('#P2_B_9_Cod_4').removeAttr('readonly');		
 		$('#P2_B_9_Cod_5').removeAttr('readonly');
