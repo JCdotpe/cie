@@ -211,7 +211,7 @@ $.validator.addMethod("valnone", function(value, element, arg){
 
 $.validator.addMethod("valzero", function(value, element, arg){
     flag = false;
-    if(value == 0){
+    if(value == 0 && (!element.readOnly)){
         for(var i = 0; i<=arg.length; i++){
                if($('#' + arg[i]).val() == 1)
                flag = true;
