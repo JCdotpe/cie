@@ -1956,6 +1956,139 @@ echo form_close();
 
 $(function(){
 
+
+
+
+$('#P2_B_8_Pelig').change(function(event) {
+	if($(this).val() == 2){		
+		$('#P2_B_9_Cod_1').val('');
+		$('#P2_B_9_Cod_1').attr('readonly','readonly');				
+		$('#P2_B_9_Cod_2').val('');
+		$('#P2_B_9_Cod_2').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_3').val('');
+		$('#P2_B_9_Cod_3').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_4').val('');
+		$('#P2_B_9_Cod_4').attr('readonly','readonly');			
+		$('#P2_B_9_Cod_5').val('');
+		$('#P2_B_9_Cod_5').attr('readonly','readonly');	
+		$('#P2_B_9_Cod_6').val('');
+		$('#P2_B_9_Cod_6').attr('readonly','readonly');				
+		$('#P2_B_9_Cod_7').val('');
+		$('#P2_B_9_Cod_7').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_8').val('');
+		$('#P2_B_9_Cod_8').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_9').val('');
+		$('#P2_B_9_Cod_9').attr('readonly','readonly');			
+		$('#P2_B_9_Cod_10').val('');
+		$('#P2_B_9_Cod_10').attr('readonly','readonly');		
+		
+		$('#P2_B_10_Cod_1').val('');
+		$('#P2_B_10_Cod_1').attr('readonly','readonly');	
+		$('#P2_B_10_Cod_2').val('');
+		$('#P2_B_10_Cod_2').attr('readonly','readonly');				
+		$('#P2_B_10_Cod_3').val('');
+		$('#P2_B_10_Cod_3').attr('readonly','readonly');		
+		$('#P2_B_10_Cod_4').val('');
+		$('#P2_B_10_Cod_4').attr('readonly','readonly');		
+		$('#P2_B_10_Cod_5').val('');
+		$('#P2_B_10_Cod_5').attr('readonly','readonly');			
+		$('#P2_B_10_Cod_6').val('');
+		$('#P2_B_10_Cod_6').attr('readonly','readonly');	
+		$('#P2_B_10_Cod_7').val('');
+		$('#P2_B_10_Cod_7').attr('readonly','readonly');	
+		
+		$('#P2_B_11_Cod_1').val('');
+		$('#P2_B_11_Cod_1').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_2').val('');
+		$('#P2_B_11_Cod_2').attr('readonly','readonly');				
+		$('#P2_B_11_Cod_3').val('');
+		$('#P2_B_11_Cod_3').attr('readonly','readonly');		
+		$('#P2_B_11_Cod_4').val('');
+		$('#P2_B_11_Cod_4').attr('readonly','readonly');		
+		$('#P2_B_11_Cod_5').val('');
+		$('#P2_B_11_Cod_5').attr('readonly','readonly');			
+		$('#P2_B_11_Cod_6').val('');
+		$('#P2_B_11_Cod_6').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_7').val('');
+		$('#P2_B_11_Cod_7').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_8').val('');
+		$('#P2_B_11_Cod_8').attr('readonly','readonly');		
+		$('#P2_B_11_Cod_9').val('');
+		$('#P2_B_11_Cod_9').attr('readonly','readonly');			
+		$('#P2_B_11_Cod_10').val('');
+		$('#P2_B_11_Cod_10').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_11').val('');
+		$('#P2_B_11_Cod_11').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_O').val('');
+		$('#P2_B_11_Cod_O').attr('readonly','readonly');	
+		$('#P2_B_11_Cod_12').val('');
+		$('#P2_B_11_Cod_12').attr('readonly','readonly');	
+
+		$('#P2_B_12_Cod_1').val('');
+		$('#P2_B_12_Cod_1').attr('readonly','readonly');		
+		$('#P2_B_12_Cod_2').val('');
+		$('#P2_B_12_Cod_2').attr('readonly','readonly');			
+		$('#P2_B_12_Cod_3').val('');
+		$('#P2_B_12_Cod_3').attr('readonly','readonly');	
+		$('#P2_B_12_Cod_4').val('');
+		$('#P2_B_12_Cod_4').attr('readonly','readonly');	
+		$('#P2_B_12_Cod_5').val('');
+		$('#P2_B_12_Cod_5').attr('readonly','readonly');		
+		$('#P2_B_12_Cod_6').val('');
+		$('#P2_B_12_Cod_6').attr('readonly','readonly');			
+		$('#P2_B_12_Cod_O').val('');
+		$('#P2_B_12_Cod_O').attr('readonly','readonly');	
+		$('#P2_B_12_Cod_7').val('');
+		$('#P2_B_12_Cod_7').attr('readonly','readonly');		
+	}else{
+		$('#P2_B_9_Cod_1').removeAttr('readonly');		
+		$('#P2_B_9_Cod_2').removeAttr('readonly');
+		$('#P2_B_9_Cod_2').attr('readonly','readonly');		
+		$('#P2_B_9_Cod_3').removeAttr('readonly');	
+		$('#P2_B_9_Cod_4').removeAttr('readonly');		
+		$('#P2_B_9_Cod_5').removeAttr('readonly');
+		$('#P2_B_9_Cod_6').removeAttr('readonly');		
+		$('#P2_B_9_Cod_7').removeAttr('readonly');	
+		$('#P2_B_9_Cod_8').removeAttr('readonly');	
+		$('#P2_B_9_Cod_9').removeAttr('readonly');		
+		$('#P2_B_9_Cod_10').removeAttr('readonly');		
+
+		$('#P2_B_10_Cod_1').removeAttr('readonly');		
+		$('#P2_B_10_Cod_2').removeAttr('readonly');				
+		$('#P2_B_10_Cod_3').removeAttr('readonly');		
+		$('#P2_B_10_Cod_4').removeAttr('readonly');		
+		$('#P2_B_10_Cod_5').removeAttr('readonly');			
+		$('#P2_B_10_Cod_6').removeAttr('readonly');	
+		$('#P2_B_10_Cod_7').removeAttr('readonly');	
+
+		$('#P2_B_11_Cod_1').removeAttr('readonly');	
+		$('#P2_B_11_Cod_2').removeAttr('readonly');				
+		$('#P2_B_11_Cod_3').removeAttr('readonly');	
+		$('#P2_B_11_Cod_4').removeAttr('readonly');	
+		$('#P2_B_11_Cod_5').removeAttr('readonly');			
+		$('#P2_B_11_Cod_6').removeAttr('readonly');	
+		$('#P2_B_11_Cod_7').removeAttr('readonly');	
+		$('#P2_B_11_Cod_8').removeAttr('readonly');		
+		$('#P2_B_11_Cod_9').removeAttr('readonly');		
+		$('#P2_B_11_Cod_10').removeAttr('readonly');	
+		$('#P2_B_11_Cod_11').removeAttr('readonly');	
+		$('#P2_B_11_Cod_O').removeAttr('readonly');	
+		$('#P2_B_11_Cod_12').removeAttr('readonly');	
+
+		$('#P2_B_12_Cod_1').removeAttr('readonly');		
+		$('#P2_B_12_Cod_2').removeAttr('readonly');		
+		$('#P2_B_12_Cod_3').removeAttr('readonly');	
+		$('#P2_B_12_Cod_4').removeAttr('readonly');	
+		$('#P2_B_12_Cod_5').removeAttr('readonly');		
+		$('#P2_B_12_Cod_6').removeAttr('readonly');			
+		$('#P2_B_12_Cod_O').removeAttr('readonly');	
+		$('#P2_B_12_Cod_7').removeAttr('readonly');	
+	}
+	$('#P2_B_11_Cod_11').trigger('change');
+	$('#P2_B_12_Cod_6').trigger('change');
+});
+
+
 $('#P2_C_2LocE_1_Energ').change(function(event) {
 	if($(this).val() == 2){		
 		$('#P2_D_1_Cod_1').val('');
