@@ -713,7 +713,7 @@ echo '
 															'.form_input($P1_A_2_3_DocTip).' <div class="help-block error"></div>
 														</div>
 														<div class="panel">
-															<label>NRO D.N.I. o Carnet del Extranjero</label>
+															<label>NRO D.N.I. o Carnet de Extranjería</label>
 															'.form_input($P1_A_2_3_DocNro).' <div class="help-block error"></div>
 														</div>
 													</td>
