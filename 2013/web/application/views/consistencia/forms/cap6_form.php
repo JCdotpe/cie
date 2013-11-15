@@ -491,20 +491,23 @@ $P6_2_16a_b = array(
 	'id'	=> 'P6_2_16a_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_16a_r = array(
 	'name'	=> 'P6_2_16a_r',
 	'id'	=> 'P6_2_16a_r',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16a_m = array(
 	'name'	=> 'P6_2_16a_m',
 	'id'	=> 'P6_2_16a_m',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16b = array(
@@ -518,21 +521,24 @@ $P6_2_16b_b = array(
 	'name'	=> 'P6_2_16b_b',
 	'id'	=> 'P6_2_16b_b',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16b_r = array(
 	'name'	=> 'P6_2_16b_r',
 	'id'	=> 'P6_2_16b_r',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16b_m = array(
 	'name'	=> 'P6_2_16b_m',
 	'id'	=> 'P6_2_16b_m',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16c = array(
@@ -546,21 +552,24 @@ $P6_2_16c_b = array(
 	'name'	=> 'P6_2_16c_b',
 	'id'	=> 'P6_2_16c_b',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16c_r = array(
 	'name'	=> 'P6_2_16c_r',
 	'id'	=> 'P6_2_16c_r',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16c_m = array(
 	'name'	=> 'P6_2_16c_m',
 	'id'	=> 'P6_2_16c_m',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16d = array(
@@ -574,21 +583,24 @@ $P6_2_16d_b = array(
 	'name'	=> 'P6_2_16d_b',
 	'id'	=> 'P6_2_16d_b',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16d_r = array(
 	'name'	=> 'P6_2_16d_r',
 	'id'	=> 'P6_2_16d_r',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16d_m = array(
 	'name'	=> 'P6_2_16d_m',
 	'id'	=> 'P6_2_16d_m',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16e = array(
@@ -602,21 +614,24 @@ $P6_2_16e_b = array(
 	'name'	=> 'P6_2_16e_b',
 	'id'	=> 'P6_2_16e_b',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16e_r = array(
 	'name'	=> 'P6_2_16e_r',
 	'id'	=> 'P6_2_16e_r',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16e_m = array(
 	'name'	=> 'P6_2_16e_m',
 	'id'	=> 'P6_2_16e_m',
 	'maxlength'	=> 4,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_16e_O = array(
@@ -624,6 +639,7 @@ $P6_2_16e_O = array(
 	'id'	=> 'P6_2_16e_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_16f = array(
@@ -638,27 +654,31 @@ $P6_2_17a = array(
 	'id'	=> 'P6_2_17a',
 	'maxlength'	=> 2,
 	'class' => 'input4',	
+	'disabled' => 'disabled',
 );
 
 $P6_2_17b = array(
 	'name'	=> 'P6_2_17b',
 	'id'	=> 'P6_2_17b',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_17c = array(
 	'name'	=> 'P6_2_17c',
 	'id'	=> 'P6_2_17c',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_17d = array(
 	'name'	=> 'P6_2_17d',
 	'id'	=> 'P6_2_17d',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18a = array(
@@ -673,20 +693,23 @@ $P6_2_18a_b = array(
 	'id'	=> 'P6_2_18a_b',
 	'maxlength'	=> 2,
 	'class' => 'input4',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_18a_r = array(
 	'name'	=> 'P6_2_18a_r',
 	'id'	=> 'P6_2_18a_r',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18a_m = array(
 	'name'	=> 'P6_2_18a_m',
 	'id'	=> 'P6_2_18a_m',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18b = array(
@@ -700,21 +723,24 @@ $P6_2_18b_b = array(
 	'name'	=> 'P6_2_18b_b',
 	'id'	=> 'P6_2_18b_b',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18b_r = array(
 	'name'	=> 'P6_2_18b_r',
 	'id'	=> 'P6_2_18b_r',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18b_m = array(
 	'name'	=> 'P6_2_18b_m',
 	'id'	=> 'P6_2_18b_m',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18c = array(
@@ -728,14 +754,16 @@ $P6_2_18c_b = array(
 	'name'	=> 'P6_2_18c_b',
 	'id'	=> 'P6_2_18c_b',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18c_r = array(
 	'name'	=> 'P6_2_18c_r',
 	'id'	=> 'P6_2_18c_r',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18c_m = array(
@@ -743,6 +771,7 @@ $P6_2_18c_m = array(
 	'id'	=> 'P6_2_18c_m',
 	'maxlength'	=> 2,
 	'class' => 'input4',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_18d = array(
@@ -756,21 +785,24 @@ $P6_2_18d_b = array(
 	'name'	=> 'P6_2_18d_b',
 	'id'	=> 'P6_2_18d_b',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18d_r = array(
 	'name'	=> 'P6_2_18d_r',
 	'id'	=> 'P6_2_18d_r',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18d_m = array(
 	'name'	=> 'P6_2_18d_m',
 	'id'	=> 'P6_2_18d_m',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18e = array(
@@ -784,21 +816,24 @@ $P6_2_18e_b = array(
 	'name'	=> 'P6_2_18e_b',
 	'id'	=> 'P6_2_18e_b',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18e_r = array(
 	'name'	=> 'P6_2_18e_r',
 	'id'	=> 'P6_2_18e_r',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18e_m = array(
 	'name'	=> 'P6_2_18e_m',
 	'id'	=> 'P6_2_18e_m',
 	'maxlength'	=> 2,
-	'class' => 'input4',		
+	'class' => 'input4',	
+	'disabled' => 'disabled',	
 );
 
 $P6_2_18e_O = array(
@@ -806,6 +841,7 @@ $P6_2_18e_O = array(
 	'id'	=> 'P6_2_18e_O',
 	'maxlength'	=> 200,
 	'class' => 'input200',
+	'disabled' => 'disabled',
 );
 
 $P6_2_18f = array(
@@ -820,20 +856,23 @@ $P6_2_19a = array(
 	'id'	=> 'P6_2_19a',
 	'maxlength'	=> 2,
 	'class' => 'input4',		
+	'disabled' => 'disabled',
 );
 
 $P6_2_19b = array(
 	'name'	=> 'P6_2_19b',
 	'id'	=> 'P6_2_19b',
 	'maxlength'	=> 2,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_19c = array(
 	'name'	=> 'P6_2_19c',
 	'id'	=> 'P6_2_19c',
 	'maxlength'	=> 2,
-	'class' => 'input4',			
+	'class' => 'input4',	
+	'disabled' => 'disabled',		
 );
 
 $P6_2_20Obs = array(
@@ -1874,7 +1913,7 @@ echo '
 			  	    							</thead>
 			  	    							<tbody>
 			  	    								<tr>
-			  	    									<td>
+			  	    									<td>'.form_input($P6_2_16a).'
 				  	    									1. Metalica
 				  	    								</td>
 				  	    								<td>
@@ -1897,7 +1936,7 @@ echo '
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
-			  	    									<td>
+			  	    									<td>'.form_input($P6_2_16b).'
 				  	    									2. Metálica con vidrio
 				  	    								</td>
 				  	    								<td>
@@ -1917,7 +1956,7 @@ echo '
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
-			  	    									<td>
+			  	    									<td>'.form_input($P6_2_16c).'
 				  	    									3. Madera
 				  	    								</td>
 				  	    								<td>
@@ -1937,7 +1976,7 @@ echo '
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
-			  	    									<td>
+			  	    									<td>'.form_input($P6_2_16d).'
 				  	    									4. Madera con vidrio
 				  	    								</td>
 				  	    								<td>
@@ -1958,7 +1997,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-			  	    										<label>
+			  	    										<label>'.form_input($P6_2_16e).'
 				  	    										5. Otro material - Especifique '.form_input($P6_2_16e_O).'<div class="help-block error"></div>
 				  	    									<label>
 														</td>
@@ -2660,12 +2699,19 @@ $(document).ready(function(){
 			$('#P6_2_4Mod_op'+i).trigger('change');	
 		};
 		$('#P6_2_15').trigger('change');
+		
+		// $('#P6_2_16a').trigger('change');
+		// $('#P6_2_16b').trigger('change');
+		// $('#P6_2_16c').trigger('change');
+		// $('#P6_2_16d').trigger('change');
+		// $('#P6_2_16e').trigger('change');
 		$('#P6_2_16f').trigger('change');
-		$('#P6_2_18a').trigger('change');
-		$('#P6_2_18b').trigger('change');
-		$('#P6_2_18c').trigger('change');
-		$('#P6_2_18d').trigger('change');
-		$('#P6_2_18e').trigger('change');
+
+		$('#P6_2_18f').trigger('change');
+		// $('#P6_2_18b').trigger('change');
+		// $('#P6_2_18c').trigger('change');
+		// $('#P6_2_18d').trigger('change');
+		// $('#P6_2_18e').trigger('change');
 	}
 
 
@@ -3178,91 +3224,127 @@ $(document).ready(function(){
 
 		}
 	});
+
+
+	$('#P6_2_16a').change(function(event) {
+		Preg16_activacion('a',$(this).val());
+	});
+
+	$('#P6_2_16b').change(function(event) {
+		Preg16_activacion('b',$(this).val());
+	});
+
+	$('#P6_2_16c').change(function(event) {
+		Preg16_activacion('c',$(this).val());
+	});
+
+	$('#P6_2_16d').change(function(event) {
+		Preg16_activacion('d',$(this).val());
+	});
+
+	$('#P6_2_16e').change(function(event) {
+		Preg16_activacion('e',$(this).val());
+	});
+
+	function Preg16_activacion(letra,valor){
+
+		if ( valor == 0 ){
+			$('#P6_2_16'+letra+'_b').val('');
+			$('#P6_2_16'+letra+'_r').val('');
+			$('#P6_2_16'+letra+'_m').val('');
+			
+
+			$('#P6_2_16'+letra+'_b').attr('disabled','disabled');
+			$('#P6_2_16'+letra+'_r').attr('disabled','disabled');
+			$('#P6_2_16'+letra+'_m').attr('disabled','disabled');
+
+			if ( letra == 'e' ){
+				$('#P6_2_16e_O').val('');
+				$('#P6_2_16e_O').attr('disabled','disabled');	
+			}
+
+		}else if ( valor == 1 || valor == 9 ){
+			$('#P6_2_16'+letra+'_b').removeAttr('disabled');
+			$('#P6_2_16'+letra+'_r').removeAttr('disabled');
+			$('#P6_2_16'+letra+'_m').removeAttr('disabled');
+
+			if ( letra == 'e' ) $('#P6_2_16e_O').removeAttr('disabled');
+		}
+	}
 	
 
 	$('#P6_2_16f').change(function(event) {
 		
-		if ( $(this).val() == 1 ){
+		//preg 17
+		$('#P6_2_17a').val('');
+		$('#P6_2_17b').val('');
+		$('#P6_2_17c').val('');
+		$('#P6_2_17d').val('');
 
-			$('#P6_2_16a_b').val('');
-			$('#P6_2_16a_r').val('');
-			$('#P6_2_16a_m').val('');
+		$('#P6_2_17a').attr('disabled','disabled');
+		$('#P6_2_17b').attr('disabled','disabled');
+		$('#P6_2_17c').attr('disabled','disabled');
+		$('#P6_2_17d').attr('disabled','disabled');
+		//
 
-			$('#P6_2_16b_b').val('');
-			$('#P6_2_16b_r').val('');
-			$('#P6_2_16b_m').val('');
+		switch ( $(this).val() ){
+			case '':
+				$('#P6_2_16a').removeAttr('disabled');
+				$('#P6_2_16b').removeAttr('disabled');
+				$('#P6_2_16c').removeAttr('disabled');
+				$('#P6_2_16d').removeAttr('disabled');
+				$('#P6_2_16e').removeAttr('disabled');
 
-			$('#P6_2_16c_b').val('');
-			$('#P6_2_16c_r').val('');
-			$('#P6_2_16c_m').val('');
+				$('#P6_2_16a').trigger('change');
+				$('#P6_2_16b').trigger('change');
+				$('#P6_2_16c').trigger('change');
+				$('#P6_2_16d').trigger('change');
+				$('#P6_2_16e').trigger('change');
+			break;
 
-			$('#P6_2_16d_b').val('');
-			$('#P6_2_16d_r').val('');
-			$('#P6_2_16d_m').val('');
+			case '0':
+				$('#P6_2_16a').removeAttr('disabled');
+				$('#P6_2_16b').removeAttr('disabled');
+				$('#P6_2_16c').removeAttr('disabled');
+				$('#P6_2_16d').removeAttr('disabled');
+				$('#P6_2_16e').removeAttr('disabled');
 
-			$('#P6_2_16e_b').val('');
-			$('#P6_2_16e_r').val('');
-			$('#P6_2_16e_m').val('');
-			$('#P6_2_16e_O').val('');
-		
-			
-			$('#P6_2_16a_b').attr('disabled','disabled');
-			$('#P6_2_16a_r').attr('disabled','disabled');
-			$('#P6_2_16a_m').attr('disabled','disabled');
-			
-			$('#P6_2_16b_b').attr('disabled','disabled');
-			$('#P6_2_16b_r').attr('disabled','disabled');
-			$('#P6_2_16b_m').attr('disabled','disabled');
+				$('#P6_2_16a').trigger('change');
+				$('#P6_2_16b').trigger('change');
+				$('#P6_2_16c').trigger('change');
+				$('#P6_2_16d').trigger('change');
+				$('#P6_2_16e').trigger('change');
 
-			$('#P6_2_16c_b').attr('disabled','disabled');
-			$('#P6_2_16c_r').attr('disabled','disabled');
-			$('#P6_2_16c_m').attr('disabled','disabled');
+				//preg 17
+				$('#P6_2_17a').removeAttr('disabled');
+				$('#P6_2_17b').removeAttr('disabled');
+				$('#P6_2_17c').removeAttr('disabled');
+				$('#P6_2_17d').removeAttr('disabled');
+			break;
 
-			$('#P6_2_16d_b').attr('disabled','disabled');
-			$('#P6_2_16d_r').attr('disabled','disabled');
-			$('#P6_2_16d_m').attr('disabled','disabled');
+			case '1':
+			case '9':
+				$('#P6_2_16a').val('');
+				$('#P6_2_16b').val('');
+				$('#P6_2_16c').val('');
+				$('#P6_2_16d').val('');
+				$('#P6_2_16e').val('');
 
-			$('#P6_2_16e_b').attr('disabled','disabled');
-			$('#P6_2_16e_r').attr('disabled','disabled');
-			$('#P6_2_16e_m').attr('disabled','disabled');
-			$('#P6_2_16e_O').attr('disabled','disabled');
+				$('#P6_2_16a').attr('disabled','disabled');
+				$('#P6_2_16b').attr('disabled','disabled');
+				$('#P6_2_16c').attr('disabled','disabled');
+				$('#P6_2_16d').attr('disabled','disabled');
+				$('#P6_2_16e').attr('disabled','disabled');
 
-			//preg 17
-			$('#P6_2_17a').attr('disabled','disabled');
-			$('#P6_2_17b').attr('disabled','disabled');
-			$('#P6_2_17c').attr('disabled','disabled');
-			$('#P6_2_17d').attr('disabled','disabled');
-
-		}else{
-
-			$('#P6_2_16a_b').removeAttr('disabled');
-			$('#P6_2_16a_r').removeAttr('disabled');
-			$('#P6_2_16a_m').removeAttr('disabled');
-			
-			$('#P6_2_16b_b').removeAttr('disabled');
-			$('#P6_2_16b_r').removeAttr('disabled');
-			$('#P6_2_16b_m').removeAttr('disabled');
-
-			$('#P6_2_16c_b').removeAttr('disabled');
-			$('#P6_2_16c_r').removeAttr('disabled');
-			$('#P6_2_16c_m').removeAttr('disabled');
-
-			$('#P6_2_16d_b').removeAttr('disabled');
-			$('#P6_2_16d_r').removeAttr('disabled');
-			$('#P6_2_16d_m').removeAttr('disabled');
-
-			$('#P6_2_16e_b').removeAttr('disabled');
-			$('#P6_2_16e_r').removeAttr('disabled');
-			$('#P6_2_16e_m').removeAttr('disabled');
-			$('#P6_2_16e_O').removeAttr('disabled');
-
-			//preg 17
-			$('#P6_2_17a').removeAttr('disabled');
-			$('#P6_2_17b').removeAttr('disabled');
-			$('#P6_2_17c').removeAttr('disabled');
-			$('#P6_2_17d').removeAttr('disabled');
+				Preg16_activacion('a',0);
+				Preg16_activacion('b',0);
+				Preg16_activacion('c',0);
+				Preg16_activacion('d',0);
+				Preg16_activacion('e',0);
+			break;
 		}
 	});
+
 
 	$('#P6_2_18a').change(function(event) {
 		Preg18_activacion('a',$(this).val());
@@ -3313,57 +3395,73 @@ $(document).ready(function(){
 
 	$('#P6_2_18f').change(function(event) {
 		
-		var valor=$(this).val();
+		//preg 19
+		$('#P6_2_19a').val('');
+		$('#P6_2_19b').val('');
+		$('#P6_2_19c').val('');
+		
+		$('#P6_2_19a').attr('disabled','disabled');
+		$('#P6_2_19b').attr('disabled','disabled');
+		$('#P6_2_19c').attr('disabled','disabled');
+		//
 
-		if (valor==1){
-
-			$('#P6_2_18a').val('');
-			$('#P6_2_18b').val('');
-			$('#P6_2_18c').val('');
-			$('#P6_2_18d').val('');
-			$('#P6_2_18e').val('');
-
-			$('#P6_2_18a').attr('disabled','disabled');
-			$('#P6_2_18b').attr('disabled','disabled');
-			$('#P6_2_18c').attr('disabled','disabled');
-			$('#P6_2_18d').attr('disabled','disabled');
-			$('#P6_2_18e').attr('disabled','disabled');
-
-			Preg18_activacion('a',0);
-			Preg18_activacion('b',0);
-			Preg18_activacion('c',0);
-			Preg18_activacion('d',0);
-			Preg18_activacion('e',0);
-
-			$('#P6_2_19a').val('');
-			$('#P6_2_19b').val('');
-			$('#P6_2_19c').val('');
-			
-			$('#P6_2_19a').attr('disabled','disabled');
-			$('#P6_2_19b').attr('disabled','disabled');
-			$('#P6_2_19c').attr('disabled','disabled');
-
-		}else{
-
-			$('#P6_2_18a').removeAttr('disabled');
-			$('#P6_2_18b').removeAttr('disabled');
-			$('#P6_2_18c').removeAttr('disabled');
-			$('#P6_2_18d').removeAttr('disabled');
-			$('#P6_2_18e').removeAttr('disabled');
+		switch ( $(this).val() ){
+			case '':
+				$('#P6_2_18a').removeAttr('disabled');
+				$('#P6_2_18b').removeAttr('disabled');
+				$('#P6_2_18c').removeAttr('disabled');
+				$('#P6_2_18d').removeAttr('disabled');
+				$('#P6_2_18e').removeAttr('disabled');
 
 
-			$('#P6_2_18a').trigger('change');
-			$('#P6_2_18b').trigger('change');
-			$('#P6_2_18c').trigger('change');
-			$('#P6_2_18d').trigger('change');
-			$('#P6_2_18e').trigger('change');
+				$('#P6_2_18a').trigger('change');
+				$('#P6_2_18b').trigger('change');
+				$('#P6_2_18c').trigger('change');
+				$('#P6_2_18d').trigger('change');
+				$('#P6_2_18e').trigger('change');
+			break;
 
-			$('#P6_2_19a').removeAttr('disabled');
-			$('#P6_2_19b').removeAttr('disabled');
-			$('#P6_2_19c').removeAttr('disabled');
+			case '0':
+				$('#P6_2_18a').removeAttr('disabled');
+				$('#P6_2_18b').removeAttr('disabled');
+				$('#P6_2_18c').removeAttr('disabled');
+				$('#P6_2_18d').removeAttr('disabled');
+				$('#P6_2_18e').removeAttr('disabled');
 
+
+				$('#P6_2_18a').trigger('change');
+				$('#P6_2_18b').trigger('change');
+				$('#P6_2_18c').trigger('change');
+				$('#P6_2_18d').trigger('change');
+				$('#P6_2_18e').trigger('change');
+
+				//preg 19
+				$('#P6_2_19a').removeAttr('disabled');
+				$('#P6_2_19b').removeAttr('disabled');
+				$('#P6_2_19c').removeAttr('disabled');
+			break;
+
+			case '1':
+			case '9':
+				$('#P6_2_18a').val('');
+				$('#P6_2_18b').val('');
+				$('#P6_2_18c').val('');
+				$('#P6_2_18d').val('');
+				$('#P6_2_18e').val('');
+
+				$('#P6_2_18a').attr('disabled','disabled');
+				$('#P6_2_18b').attr('disabled','disabled');
+				$('#P6_2_18c').attr('disabled','disabled');
+				$('#P6_2_18d').attr('disabled','disabled');
+				$('#P6_2_18e').attr('disabled','disabled');
+
+				Preg18_activacion('a',0);
+				Preg18_activacion('b',0);
+				Preg18_activacion('c',0);
+				Preg18_activacion('d',0);
+				Preg18_activacion('e',0);
+			break;
 		}
-
 	});
 
 
@@ -3558,6 +3656,11 @@ $(document).ready(function(){
 				valrango:[1,3,9],
 				required:true,
 			},
+			P6_2_16a:{
+				digits:true,
+				valrango:[0,1,9],
+				required:true,
+			},
 			P6_2_16a_b:{
 				digits:true,
 				valrango:[0,9998,9999],
@@ -3571,6 +3674,11 @@ $(document).ready(function(){
 			P6_2_16a_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
+			},
+			P6_2_16b:{
+				digits:true,
+				valrango:[0,1,9],
 				required:true,
 			},
 			P6_2_16b_b:{
@@ -3588,6 +3696,11 @@ $(document).ready(function(){
 				valrango:[0,9998,9999],
 				required:true,
 			},
+			P6_2_16c:{
+				digits:true,
+				valrango:[0,1,9],
+				required:true,
+			},
 			P6_2_16c_b:{
 				digits:true,
 				valrango:[0,9998,9999],
@@ -3603,6 +3716,11 @@ $(document).ready(function(){
 				valrango:[0,9998,9999],
 				required:true,
 			},
+			P6_2_16d:{
+				digits:true,
+				valrango:[0,1,9],
+				required:true,
+			},
 			P6_2_16d_b:{
 				digits:true,
 				valrango:[0,9998,9999],
@@ -3616,6 +3734,11 @@ $(document).ready(function(){
 			P6_2_16d_m:{
 				digits:true,
 				valrango:[0,9998,9999],
+				required:true,
+			},
+			P6_2_16e:{
+				digits:true,
+				valrango:[0,1,9],
 				required:true,
 			},
 			P6_2_16e_b:{
