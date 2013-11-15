@@ -133,12 +133,13 @@ class Seguimiento_Model extends CI_Model {
 	{
 		$sql="SELECT detadepen, LocEscolares, LocEscolar_Censado, LocEscolar_Censado_Porc, Completa, Completa_Porc, Incompleta, Incompleta_Porc, Rechazo, Rechazo_Porc, Desocupada, Desocupada_Porc, Otro, Otro_Porc FROM v_Seguimiento_Rpt_ResAvance_CIE_xODEI_Avance_Tot ORDER BY detadepen";
 		$q = $this->db->query($sql);
+
 		return $q;
 	}
 
-	function get_avance_ubigeo($cod_depa,$cod_prov,$periodo,$tipo)
+	function get_avance_ubigeo($cod_depa,$cod_prov,$periodo1,$periodo2,$tipo)
 	{
-		$q=$this->db->query("Seguimiento_Ubigeo ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo,$tipo));
+		$q=$this->db->query("Seguimiento_Ubigeo ?, ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo1,$periodo2,$tipo));
 		return $q;
 	}
 
@@ -147,9 +148,9 @@ class Seguimiento_Model extends CI_Model {
 		$q=$this->db->query("Seguimiento_Ubigeo_Cedula ?, ?, ?, ?", array($cod_depa,$cod_prov,$periodo,$tipo));
 		return $q;
 	}
-		function get_avance_odeiST($vsede,$cod_prov,$periodo)
+		function get_avance_odeiST($vsede,$cod_prov,$periodo,$periodo1,$periodo2)
 	{
-		$q=$this->db->query("sp_AvanceSedeProv ?, ?, ?", array($vsede,$cod_prov,$periodo));
+		$q=$this->db->query("sp_AvanceSedeProv ?, ?, ?, ?, ?", array($vsede,$cod_prov,$periodo,$periodo1,$periodo2));
 
 		//echo $q;
 

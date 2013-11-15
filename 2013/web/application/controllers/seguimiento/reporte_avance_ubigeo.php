@@ -64,32 +64,28 @@ class Reporte_avance_ubigeo extends CI_Controller {
 	{
 		$depa = $this->input->get('vdepa');
 		$prov = $this->input->get('vprov');
-		$periodo = $this->input->get('vperiodo');
-		
+		$periodo_min = $this->input->get('vperiodo1');
+		$periodo_max = $this->input->get('vperiodo2');
+
 		$tipo = 0;
 
-		if ($depa!=99 && $prov!=99 && $periodo!=99)
+		if ($depa!=99 && $prov!=99)
 		{
 			$tipo = 1;
-		}elseif ($depa!=99 && $prov!=99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99){
 			$tipo = 2;
-		}elseif ($depa!=99 && $prov==99 && $periodo!=99){
+		}elseif ($depa==99){
 			$tipo = 3;
-		}elseif ($depa!=99 && $prov==99 && $periodo==99){
-			$tipo = 4;
-		}elseif ($depa==99 && $periodo!=99){
-			$tipo = 5;
-		}elseif ($depa==99 && $periodo==99){
-			$tipo = 6;
 		}
-		$data = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo,$tipo);
+
+		$data = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo_min,$periodo_max,$tipo);
 
 		$i=0;
 		echo "[";
 
 		foreach ($data->result() as $fila ){
 			
-			$provincia = ($tipo!=5 && $tipo!=6) ? $fila->NombProv : '';
+			$provincia = ($tipo !=3) ? $fila->NombProv : '';
 
 			if($i>0){echo",";}
 

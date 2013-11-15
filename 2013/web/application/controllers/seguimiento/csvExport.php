@@ -303,16 +303,22 @@ class Csvexport extends CI_Controller {
 
 	public function ExportacionODEI_Avance()
 	{
+		$periodo_min = $this->input->get('vperiodo1');
+		$periodo_max = $this->input->get('vperiodo2');
+
 		$vSede = $this->input->get('sede');
 		$vprov = $this->input->get('prov');
-		$periodo = $this->input->get('periodo');
-
-		/*if ($periodo!=99){
-			$query = $this->seguimiento_model->get_avance_odei($periodo);
+		
+		if ( $periodo_min == 1 && $periodo_max == 14 ) {
+			$periodo = 99;
+		}else if ( $periodo_min == '' && $periodo_max == '' ){
+			$periodo = -1;
 		}else{
-			$query = $this->seguimiento_model->get_avance_odei_total();
-		}*/
-				$query = $this->seguimiento_model->get_avance_odeiST($vSede,$vprov,$periodo);  
+			$periodo = 1;
+		}
+
+		$query = $this->seguimiento_model->get_avance_odeiST($vSede,$vprov,$periodo,$periodo_min,$periodo_max);
+				
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
 
@@ -351,7 +357,7 @@ class Csvexport extends CI_Controller {
 			$sheet->getColumnDimension('N')->setWidth(6);
 			$sheet->getColumnDimension('O')->setWidth(5);
 			$sheet->getColumnDimension('P')->setWidth(5);
-			$sheet->getColumnDimension('Q')->setWidth(15);
+			$sheet->getColumnDimension('Q')->setWidth(5);
 			//$sheet->getColumnDimension('R')->setWidth(15);
 			
 
@@ -388,9 +394,9 @@ class Csvexport extends CI_Controller {
 					$sheet->setCellValue('B9','PERIODO:');
 					$sheet->mergeCells('B9:C9');
 
-					if ($periodo==99){ $periodo = "Todos"; }
+					//if ($periodo==99){ $periodo = "Todos"; }
 
-					$sheet->setCellValue('D9',$periodo);
+					$sheet->setCellValue('D9',$periodo_min.' - '.$periodo_max);
 					$sheet->mergeCells('D9:E9');
 
 					$sheet->getStyle('D9:C9')->getFont()->setname('Arial')->setSize(12);
@@ -517,22 +523,19 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($filas->Prov)));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocaProg);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->TotalVisitados);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->PorAvance);
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->PorAvance.'>=100,ROUND('.$filas->PorAvance.',0),'.$filas->PorAvance.')');
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Tcompletos);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Porcompletos);
+			  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Porcompletos.'>=100,ROUND('.$filas->Porcompletos.',0),'.$filas->Porcompletos.')');
 			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->TIncompleto);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->PorInc);
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->PorInc.'>=100,ROUND('.$filas->PorInc.',0),'.$filas->PorInc.')');
 			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->TRechazo);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->PorRechazo);
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->PorRechazo.'>=100,ROUND('.$filas->PorRechazo.',0),'.$filas->PorRechazo.')');
 			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->TLocal_Cerrado);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->PorLocal_Cerrado);
+			  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->PorLocal_Cerrado.'>=100,ROUND('.$filas->PorLocal_Cerrado.',0),'.$filas->PorLocal_Cerrado.')');
 			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->TOtros);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->PorOtros);
+			  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->PorOtros.'>=100,ROUND('.$filas->PorOtros.',0),'.$filas->PorOtros.')');
 			  		//$sheet->getCellByColumnAndRow(16, $row)->setValue('Hola');
 			  		//$sheet->setCellValue('Q'.$row,'=SUM(H'.$row.',J'.$row.',L'.$row.',N'.$row.',P'.$row.')');
-
-			  		//SUM(L'.$inicio_s.':L'.$fin_s.')
-			  		//=SUM(H14,J14,L14,N14,P14)
 
 				//}
 				 $col = 2;
@@ -936,25 +939,23 @@ class Csvexport extends CI_Controller {
 
 		$depa = $this->input->get('vdepa');
 		$prov = $this->input->get('vprov');
-		$periodo = $this->input->get('vperiodo');
+		$periodo_min = $this->input->get('vperiodo1');
+		$periodo_max = $this->input->get('vperiodo2');
 		
 		$tipo = 0;
 
-		if ($depa!=99 && $prov!=99 && $periodo!=99)
+		if ($depa!=99 && $prov!=99)
 		{
 			$tipo = 1;
-		}elseif ($depa!=99 && $prov!=99 && $periodo==99){
+		}elseif ($depa!=99 && $prov==99){
 			$tipo = 2;
-		}elseif ($depa!=99 && $prov==99 && $periodo!=99){
+		}elseif ($depa==99){
 			$tipo = 3;
-		}elseif ($depa!=99 && $prov==99 && $periodo==99){
-			$tipo = 4;
-		}elseif ($depa==99 && $periodo!=99){
-			$tipo = 5;
-		}elseif ($depa==99 && $periodo==99){
-			$tipo = 6;
 		}
-		$query = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo,$tipo);
+
+		//echo $tipo;
+
+		$query = $this->seguimiento_model->get_avance_ubigeo($depa,$prov,$periodo_min,$periodo_max,$tipo);
 				  
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
@@ -995,7 +996,6 @@ class Csvexport extends CI_Controller {
 			$sheet->getColumnDimension('O')->setWidth(5);
 			$sheet->getColumnDimension('P')->setWidth(5);
 			$sheet->getColumnDimension('Q')->setWidth(5);
-			$sheet->getColumnDimension('R')->setWidth(15);
 			
 			
 
@@ -1007,13 +1007,13 @@ class Csvexport extends CI_Controller {
 			$sheet->setCellValue('D3','INSTITUTO NACIONAL DE ESTADÍSTICA E INFORMATICA');
 			$sheet->mergeCells('D3:R3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
-			$sheet->mergeCells('D5:R5');
+			$sheet->mergeCells('D5:Q5');
 			$sheet->setCellValue('D7','REPORTE DE AVANCE DIARIO POR UBIGEO (MONITOREO)');
-			$sheet->mergeCells('D7:R7');
-			$sheet->getStyle('D3:R7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			$sheet->getStyle('D3:R7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
-			$sheet->getStyle('D3:R3')->getFont()->setname('Arial black')->setSize(16);
-			$sheet->getStyle('D5:R7')->getFont()->setname('Arial')->setSize(16);
+			$sheet->mergeCells('D7:Q7');
+			$sheet->getStyle('D3:Q7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('D3:Q7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
+			$sheet->getStyle('D3:Q3')->getFont()->setname('Arial black')->setSize(16);
+			$sheet->getStyle('D5:Q7')->getFont()->setname('Arial')->setSize(16);
 
 			// LOGO
 	          $objDrawing = new PHPExcel_Worksheet_Drawing();
@@ -1032,9 +1032,9 @@ class Csvexport extends CI_Controller {
 					$sheet->setCellValue('B9','PERIODO:');
 					$sheet->mergeCells('B9:C9');
 
-					if ($periodo==99){ $periodo = "Todos"; }
+					//if ($periodo==99){ $periodo = "Todos"; }
 
-					$sheet->setCellValue('D9',$periodo);
+					$sheet->setCellValue('D9',$periodo_min.' - '.$periodo_max);
 					$sheet->mergeCells('D9:E9');
 
 					$sheet->getStyle('D9:C9')->getFont()->setname('Arial')->setSize(12);
@@ -1107,23 +1107,21 @@ class Csvexport extends CI_Controller {
 							$sheet->setCellValue('Q'.($cab+2), '%');
 							$sheet->mergeCells('Q'.($cab+2).':Q'.($cab+2));
 
-					$sheet->setCellValue('R'.$cab,'RESULTADO VISITA (%)');
-					$sheet->mergeCells('R'.$cab.':R'.($cab+2));
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
-				$sheet->getStyle("B".$cab.":R".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
-				$sheet->getStyle("B".$cab.":R".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
-				$sheet->getStyle("B".$cab.":R".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
-				$sheet->getStyle("B".$cab.":R".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-				$sheet->getStyle("B".$cab.":R".($cab+2))->getFont()->setname('Arial')->setSize(9);
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->getFont()->setname('Arial')->setSize(9);
 
 
 
-		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":R".($cab+2));
+		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":Q".($cab+2));
 				$headStyle->applyFromArray($color_celda_cabeceras);
 
-				$sheet->getStyle("B".$cab.":R".($cab+2))->applyFromArray(array(
+				$sheet->getStyle("B".$cab.":Q".($cab+2))->applyFromArray(array(
 				'borders' => array(
 							'allborders' => array(
 											'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1136,10 +1134,10 @@ class Csvexport extends CI_Controller {
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+2);
 			
-			$sheet->getStyle("A".($cab+3).":R".$total)->getFont()->setname('Arial Narrow')->setSize(9);
+			$sheet->getStyle("A".($cab+3).":Q".$total)->getFont()->setname('Arial Narrow')->setSize(9);
 
 			//bordes cuerpo
-			$sheet->getStyle("B".($cab+3).":R".$total)->applyFromArray(array(
+			$sheet->getStyle("B".($cab+3).":Q".$total)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -1156,30 +1154,29 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$provincia = ($tipo!=5 && $tipo!=6) ? $filas->NombProv : '';
+			  		$provincia = ($tipo !=3) ? $filas->NombProv : '';
 			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->NombDpto)));
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($provincia)));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocEscolares);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->LocEscolar_Censado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->LocEscolar_Censado_Porc);
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->LocEscolar_Censado_Porc.'>=100,ROUND('.$filas->LocEscolar_Censado_Porc.',0),'.$filas->LocEscolar_Censado_Porc.')');
 			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Completa);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Completa_Porc);
+			  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Completa_Porc.'>=100,ROUND('.$filas->Completa_Porc.',0),'.$filas->Completa_Porc.')');
 			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->Incompleta);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->Incompleta_Porc);
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->Incompleta_Porc.'>=100,ROUND('.$filas->Incompleta_Porc.',0),'.$filas->Incompleta_Porc.')');
 			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->Rechazo);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->Rechazo_Porc);
+			  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->Rechazo_Porc.'>=100,ROUND('.$filas->Rechazo_Porc.',0),'.$filas->Rechazo_Porc.')');
 			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->Desocupada);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->Desocupada_Porc);
+			  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->Desocupada_Porc.'>=100,ROUND('.$filas->Desocupada_Porc.',0),'.$filas->Desocupada_Porc.')');
 			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->Otro);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->Otro_Porc);
-			  		$sheet->setCellValue('R'.$row,'=SUM(I'.$row.',K'.$row.',M'.$row.',O'.$row.',Q'.$row.')');
+			  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->Otro_Porc.'>=100,ROUND('.$filas->Otro_Porc.',0),'.$filas->Otro_Porc.')');
 
 
 				//}
 				 $col = 2;
 				 //dar formato de color intercalado a cada fila
 				 if($cambio){
-			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":R".$row);
+			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":Q".$row);
 			        
 					$fila_color->applyFromArray(
 					    array(
@@ -1194,9 +1191,9 @@ class Csvexport extends CI_Controller {
 				
 			}
 
-			$sheet->getStyle('B'.($cab+2).':R'.$total)->getAlignment()->setWrapText(true)->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+			$sheet->getStyle('B'.($cab+2).':Q'.$total)->getAlignment()->setWrapText(true)->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 
-			$sheet->getStyle('D'.($cab+2).':R'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('D'.($cab+2).':Q'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
  		// CUERPO
 
@@ -1204,21 +1201,21 @@ class Csvexport extends CI_Controller {
 			$celda_s = $total+1 ; // inicio de pie de resumenes
 			$sheet->setCellValue('B'.$celda_s,'TOTALES');
 			$sheet->mergeCells('B'.$celda_s.':D'.$celda_s);
-			$sheet->mergeCells('H'.$celda_s.':R'.$celda_s);
+			$sheet->mergeCells('H'.$celda_s.':Q'.$celda_s);
 			
 			$inicio_s = $cab+3 ; // inicio suma  de resumenes	
 			$fin_s = $total ; // fin suma de resumenes	
 
 			$sheet->setCellValue('E'. $celda_s ,'=IF(SUM(E'.$inicio_s.':E'.$fin_s.')>0,SUM(E'.$inicio_s.':E'.$fin_s.')," ")');
 			$sheet->setCellValue('F'. $celda_s ,'=IF(SUM(F'.$inicio_s.':F'.$fin_s.')>0,SUM(F'.$inicio_s.':F'.$fin_s.')," ")');
-			$sheet->setCellValue('G'. $celda_s ,'=IF(SUM(G'.$inicio_s.':G'.$fin_s.')>0,SUM(G'.$inicio_s.':G'.$fin_s.')," ")');
+			$sheet->setCellValue('G'. $celda_s ,'=ROUND((F'.$celda_s.'*100)/E'.$celda_s.',2)');
 
 			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
 	     	$sheet->getStyle('H'.$celda_s)->applyFromArray($color_celda_cabeceras);
-	     	$sheet->getStyle('B'.$celda_s.':R'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+	     	$sheet->getStyle('B'.$celda_s.':Q'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
 			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 
-			$sheet->getStyle('B'.$celda_s.':R'.$celda_s)->applyFromArray(array(
+			$sheet->getStyle('B'.$celda_s.':Q'.$celda_s)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)

@@ -18,7 +18,8 @@
 	}
 	$provArray = array(-1 => '');
 
-	$periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
+	//$periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
+
 ?>
 
 <div class="row-fluid">
@@ -49,7 +50,8 @@
 					<div class="control-group">
 						<?php echo form_label('Periodo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo"'); ?>
+							<input type="text" id="periodo_min" class="span4" maxlength="2" onkeypress="return validar_numeros(event)" name="periodo_min"> - 
+							<input type="text" id="periodo_max" class="span4" maxlength="2" onkeypress="return validar_numeros(event)" name="periodo_max">
 						</div>
 					</div>
 				</div>
@@ -59,7 +61,8 @@
 			</div>
 			<input type="hidden" name="cod_depa" id="cod_depa" value="" />
 			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
-			<input type="hidden" name="cod_per" id="cod_per" value="" />
+			<input type="hidden" name="cod_per1" id="cod_per1" value="" />
+			<input type="hidden" name="cod_per2" id="cod_per2" value="" />
 			<?php echo form_close(); ?>
 		</div>
 		<div id="grid_content" class="span12">
@@ -75,19 +78,21 @@ function Reportar()
 {
 	var depa = $('#departamento').val();
 	var prov = $('#provincia').val();
-	var periodo = $('#periodo').val();
+	var periodo_min = $('#periodo_min').val();
+	var periodo_max = $('#periodo_max').val();
 
 	$("#cod_depa").val(depa);
 	$("#cod_prov").val(prov);
-	$("#cod_per").val(periodo);
+	$("#cod_per1").val(periodo_min);
+	$("#cod_per2").val(periodo_max);
 
-	ViewResultado(depa,prov,periodo)
+	ViewResultado(depa,prov,periodo_min,periodo_max)
 
 }
 
-function ViewResultado(depa,prov,periodo)
+function ViewResultado(depa,prov,periodo1,periodo2)
 {
-	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_ubigeo/view_resultado/' , {vdepa:depa,vprov:prov,vperiodo:periodo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_ubigeo/view_resultado/' , {vdepa:depa,vprov:prov,vperiodo1:periodo1,vperiodo2:periodo2}, function(data, textStatus) {
 
 			table='<table id="lista" style="width:950px;" class="display">'+
 			'<thead>'+
@@ -150,14 +155,15 @@ function ViewResultado(depa,prov,periodo)
 	{
 		var coddepa = $("#cod_depa").val();
 		var codprov = $("#cod_prov").val();
-		var codper = $("#cod_per").val();
+		var codper1 = $("#cod_per1").val();
+		var codper2 = $("#cod_per2").val();
 
-		if (codper == -1)
+		if (coddepa == -1)
 		{ 
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 			document.forms[0].method='POST';
-			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionUbigeo_Avance?vperiodo="+codper+"&vdepa="+coddepa+"&vprov="+codprov;
+			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionUbigeo_Avance?vperiodo1="+codper1+"&vperiodo2="+codper2+"&vdepa="+coddepa+"&vprov="+codprov;
 			document.forms[0].target='_blank';
 			document.forms[0].submit();
 		}

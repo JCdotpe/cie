@@ -10,7 +10,7 @@
 </style>
 <?php
 	$label_class =  array('class' => 'control-label');   
-    $periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
+    //$periodoArray = array(-1 => 'Seleccione...', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', 7 => '7', 8 => '8', 9 => '9', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 99 => 'Todos');
     $SedeArray =array(-1=>'Seleccione...',99 => 'Todos');
     
 	foreach($Sede->result() as $filas)
@@ -63,8 +63,8 @@
 					<div class="control-group">
 						<?php echo form_label('Periodo de Trabajo', 'periodo', $label_class); ?>
 						<div class="controls">
-							<?php echo form_dropdown('periodo', $periodoArray, '#', 'id="periodo" style="width:100px;"');
-							?>
+							<input type="text" id="periodo_min" class="span4" maxlength="2" onkeypress="return validar_numeros(event)" name="periodo_min"> - 
+							<input type="text" id="periodo_max" class="span4" maxlength="2" onkeypress="return validar_numeros(event)" name="periodo_max">
 						</div>
 					</div>
 				</div>
@@ -85,25 +85,26 @@ function Reportar()
 {
 	var sede = $('#sedeoperativa').val();
 	var prov = $('#provincia_ope').val();
-	var periodo = $('#periodo').val();
+	var periodo_min = $('#periodo_min').val();
+	var periodo_max = $('#periodo_max').val();
 
 	/*$("#sedeoperativa").val(sede);
 	$("#provincia_ope").val(prov);
 	$("#cod_per").val(periodo);
 */
-	ViewResultado(sede,prov,periodo)
+	ViewResultado(sede,prov,periodo_min,periodo_max)
 
 }
 
 
-function ViewResultado(sede,prov,periodo)
+function ViewResultado(sede,prov,periodo1,periodo2)
 {		
 	
 
 
 
 	//$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_odei/view_resultado/' , {vperiodo:periodo}, function(data, textStatus) {
-	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_odei/view_resultado/' , {vsede:sede,vprov:prov,vperiodo:periodo}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/seguimiento/reporte_avance_odei/view_resultado/' , {vsede:sede,vprov:prov,vperiodo1:periodo1,vperiodo2:periodo2}, function(data, textStatus) {
 
 			table='<table id="lista" style="width:950px;" >'+
 			'<thead>'+
@@ -166,14 +167,15 @@ function ViewResultado(sede,prov,periodo)
 	{
 		var sede = $('#sedeoperativa').val();
 		var prov = $('#provincia_ope').val();
-		var codper = $('#periodo').val();
+		var periodo_min = $('#periodo_min').val();
+		var periodo_max = $('#periodo_max').val();
 
-		if (codper == -1)
+		if (sede == -1)
 		{ 
 			alert("Ud. No ha realizado ninguna búsqueda"); 
 		}else{
 			document.forms[0].method='POST';
-			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionODEI_Avance?periodo="+codper+"&sede="+sede+"&prov="+prov;
+			document.forms[0].action=urlRoot('index.php')+"/seguimiento/csvExport/ExportacionODEI_Avance?vperiodo1="+periodo_min+"&vperiodo2="+periodo_max+"&sede="+sede+"&prov="+prov;
 			document.forms[0].target='_blank';
 			document.forms[0].submit();
 		}

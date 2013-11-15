@@ -50,7 +50,8 @@ class Reporte_avance_odei extends CI_Controller {
 		$sede = $this->input->get('vsede');
 		$prov = $this->input->get('vprov');
 		
-		$periodo = $this->input->get('vperiodo');
+		$periodo_min = $this->input->get('vperiodo1');
+		$periodo_max = $this->input->get('vperiodo2');
 		/*if ($periodo!=99){
 			$data = $this->seguimiento_model->get_avance_odei($periodo);
 		}else{
@@ -58,7 +59,15 @@ class Reporte_avance_odei extends CI_Controller {
 		}
 		*/
 
-		$data = $this->seguimiento_model->get_avance_odeiST($sede,$prov,$periodo);	
+		if ( $periodo_min == 1 && $periodo_max == 14 ) {
+			$periodo = 99;
+		}else if ( $periodo_min == '' && $periodo_max == '' ){
+			$periodo = -1;
+		}else{
+			$periodo = 1;
+		}
+
+		$data = $this->seguimiento_model->get_avance_odeiST($sede,$prov,$periodo,$periodo_min,$periodo_max);	
 
 		
 
