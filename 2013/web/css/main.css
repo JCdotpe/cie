@@ -695,3 +695,9 @@ ul.predios_views li.active, ul.predios_views li:hover{
 input, textarea{
   text-transform: uppercase;
 }
+
+.fix_span_inline {
+    display: inline-block !important;
+    margin: 0 10px 0 0 !important;
+    width: auto !important;
+}
