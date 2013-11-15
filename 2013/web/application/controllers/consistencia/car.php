@@ -55,7 +55,7 @@ class Car extends CI_Controller {
 
 			//pcar
 			foreach ($fields as $a=>$b) {
-				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified','PC_E_3_TEdif','PC_E_4_TPat','PC_E_5_TLosa','PC_E_6_TCist','PC_E_7_TMurCon'))){
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified','PC_E_1_TPred','PC_E_3_TEdif','PC_E_4_TPat','PC_E_5_TLosa','PC_E_6_TCist','PC_E_7_TMurCon'))){
 					$c_data[$b] = ($this->input->post($b) == '') ? NULL :  $this->input->post($b);
 				}
 			}	
