@@ -69,6 +69,7 @@ $P8_ejecuto = array(
 $P8_ejecuto_O = array(
 	'name'	=> 'P8_ejecuto_O',
 	'id'	=> 'P8_ejecuto_O',
+	'disabled' => 'disabled',
 );
 
 $P8_Est_E = array(
@@ -350,7 +351,12 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
-		$('#cap8_f')[0].reset(); //resetea form
+
+		//resetea form
+		$('#cap8_f')[0].reset(); 
+		$('#P8_ejecuto').trigger('change');
+		//
+
 		Get_Nro_Edif(array[0],array[1]);
 		$('#panel_tipo_edificaciones_viii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
@@ -533,7 +539,12 @@ $(document).ready(function(){
 
 		val= $(this).attr('id');
 		array=val.split(".")
-		$('#cap8_f')[0].reset(); //resetea form
+		
+		//resetea form
+		$('#cap8_f')[0].reset(); 
+		$('#P8_ejecuto').trigger('change');
+		//
+
 		Get_Datos_Edif(array[0],array[1]);
 		$('#panel_nro_tedificaciones_viii > div > ul > li.combo_ins1').removeClass('active');
 		$(this).addClass('active');
@@ -549,10 +560,25 @@ $(document).ready(function(){
 			$.each( data, function(fila, valor) {
 				if (fila=='P8_area' || fila=='P8_altura' || fila=='P8_longitud'){ $('#' + fila).val(Math.round(valor)); }else{
 					$('#' + fila).val(valor);
-				}				   	
+				}
+				if (fila == 'P8_ejecuto') $('#P8_ejecuto').trigger('change');
 			});
 		});
 	}
+
+	$('#P8_ejecuto').change(function(event){
+
+		$('#P8_ejecuto_O').attr('disabled','disabled');
+
+		if ( $('#P8_2_Tipo').val() == 'CTE' || $('#P8_2_Tipo').val() == 'MC' ) {
+			
+			$('#P8_ejecuto_O').val('');
+			if ( $('#P8_ejecuto').val() == 7 ) {
+				$('#P8_ejecuto_O').removeAttr('disabled');
+			}
+
+		}
+	});
 
 
 	$("#cap8_f").validate({
@@ -573,7 +599,7 @@ $(document).ready(function(){
 			//Patio
 			P8_ejecuto:{
 				digits:true,
-				valrango:[1,6,9],
+				valrango:[1,7,9],
 			},
 			P8_Est_E:{
 				digits:true,
