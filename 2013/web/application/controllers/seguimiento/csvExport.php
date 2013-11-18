@@ -523,17 +523,35 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($filas->Prov)));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocaProg);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->TotalVisitados);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->PorAvance.'>=100,ROUND('.$filas->PorAvance.',0),'.$filas->PorAvance.')');
-			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Tcompletos);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Porcompletos.'>=100,ROUND('.$filas->Porcompletos.',0),'.$filas->Porcompletos.')');
-			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->TIncompleto);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->PorInc.'>=100,ROUND('.$filas->PorInc.',0),'.$filas->PorInc.')');
-			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->TRechazo);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->PorRechazo.'>=100,ROUND('.$filas->PorRechazo.',0),'.$filas->PorRechazo.')');
-			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->TLocal_Cerrado);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->PorLocal_Cerrado.'>=100,ROUND('.$filas->PorLocal_Cerrado.',0),'.$filas->PorLocal_Cerrado.')');
-			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->TOtros);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->PorOtros.'>=100,ROUND('.$filas->PorOtros.',0),'.$filas->PorOtros.')');
+
+			  		if ( $filas->TotalVisitados > 0 ) {
+
+				  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->PorAvance.'>=100,ROUND('.$filas->PorAvance.',0),'.$filas->PorAvance.')');
+				  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Tcompletos);
+				  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Porcompletos.'>=100,ROUND('.$filas->Porcompletos.',0),'.$filas->Porcompletos.')');
+				  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->TIncompleto);
+				  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->PorInc.'>=100,ROUND('.$filas->PorInc.',0),'.$filas->PorInc.')');
+				  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->TRechazo);
+				  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->PorRechazo.'>=100,ROUND('.$filas->PorRechazo.',0),'.$filas->PorRechazo.')');
+				  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->TLocal_Cerrado);
+				  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->PorLocal_Cerrado.'>=100,ROUND('.$filas->PorLocal_Cerrado.',0),'.$filas->PorLocal_Cerrado.')');
+				  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->TOtros);
+				  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->PorOtros.'>=100,ROUND('.$filas->PorOtros.',0),'.$filas->PorOtros.')');
+			  	
+			  		}else{
+			  			
+			  			$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->PorAvance);
+				  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Tcompletos);
+				  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Porcompletos);
+				  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->TIncompleto);
+				  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->PorInc);
+				  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->TRechazo);
+				  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->PorRechazo);
+				  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->TLocal_Cerrado);
+				  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->PorLocal_Cerrado);
+				  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->TOtros);
+				  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->PorOtros);
+			  		}
 			  		//$sheet->getCellByColumnAndRow(16, $row)->setValue('Hola');
 			  		//$sheet->setCellValue('Q'.$row,'=SUM(H'.$row.',J'.$row.',L'.$row.',N'.$row.',P'.$row.')');
 
@@ -1159,17 +1177,34 @@ class Csvexport extends CI_Controller {
 			  		$sheet->getCellByColumnAndRow(3, $row)->setValue(utf8_encode(trim($provincia)));
 			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->LocEscolares);
 			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->LocEscolar_Censado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->LocEscolar_Censado_Porc.'>=100,ROUND('.$filas->LocEscolar_Censado_Porc.',0),'.$filas->LocEscolar_Censado_Porc.')');
-			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Completa);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Completa_Porc.'>=100,ROUND('.$filas->Completa_Porc.',0),'.$filas->Completa_Porc.')');
-			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->Incompleta);
-			  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->Incompleta_Porc.'>=100,ROUND('.$filas->Incompleta_Porc.',0),'.$filas->Incompleta_Porc.')');
-			  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->Rechazo);
-			  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->Rechazo_Porc.'>=100,ROUND('.$filas->Rechazo_Porc.',0),'.$filas->Rechazo_Porc.')');
-			  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->Desocupada);
-			  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->Desocupada_Porc.'>=100,ROUND('.$filas->Desocupada_Porc.',0),'.$filas->Desocupada_Porc.')');
-			  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->Otro);
-			  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->Otro_Porc.'>=100,ROUND('.$filas->Otro_Porc.',0),'.$filas->Otro_Porc.')');
+			  		if ( $filas->LocEscolar_Censado > 0 ) {
+
+				  		$sheet->getCellByColumnAndRow(6, $row)->setValue('=IF('.$filas->LocEscolar_Censado_Porc.'>=100,ROUND('.$filas->LocEscolar_Censado_Porc.',0),'.$filas->LocEscolar_Censado_Porc.')');
+				  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Completa);
+				  		$sheet->getCellByColumnAndRow(8, $row)->setValue('=IF('.$filas->Completa_Porc.'>=100,ROUND('.$filas->Completa_Porc.',0),'.$filas->Completa_Porc.')');
+				  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->Incompleta);
+				  		$sheet->getCellByColumnAndRow(10, $row)->setValue('=IF('.$filas->Incompleta_Porc.'>=100,ROUND('.$filas->Incompleta_Porc.',0),'.$filas->Incompleta_Porc.')');
+				  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->Rechazo);
+				  		$sheet->getCellByColumnAndRow(12, $row)->setValue('=IF('.$filas->Rechazo_Porc.'>=100,ROUND('.$filas->Rechazo_Porc.',0),'.$filas->Rechazo_Porc.')');
+				  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->Desocupada);
+				  		$sheet->getCellByColumnAndRow(14, $row)->setValue('=IF('.$filas->Desocupada_Porc.'>=100,ROUND('.$filas->Desocupada_Porc.',0),'.$filas->Desocupada_Porc.')');
+				  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->Otro);
+				  		$sheet->getCellByColumnAndRow(16, $row)->setValue('=IF('.$filas->Otro_Porc.'>=100,ROUND('.$filas->Otro_Porc.',0),'.$filas->Otro_Porc.')');
+
+			  		}else{
+
+				  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->LocEscolar_Censado_Porc);
+				  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Completa);
+				  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Completa_Porc);
+				  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->Incompleta);
+				  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->Incompleta_Porc);
+				  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->Rechazo);
+				  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->Rechazo_Porc);
+				  		$sheet->getCellByColumnAndRow(13, $row)->setValue($filas->Desocupada);
+				  		$sheet->getCellByColumnAndRow(14, $row)->setValue($filas->Desocupada_Porc);
+				  		$sheet->getCellByColumnAndRow(15, $row)->setValue($filas->Otro);
+				  		$sheet->getCellByColumnAndRow(16, $row)->setValue($filas->Otro_Porc);
+			  		}
 
 
 				//}
