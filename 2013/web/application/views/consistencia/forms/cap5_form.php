@@ -63,7 +63,8 @@ $P5_Opin = array(
 	'id'	=> 'P5_Opin',
 	'style' => 'text-transform: uppercase;',
 	'maxlength'	=> 1,
-	'class' => 'input2',			
+	'class' => 'input2',
+	'disabled' => 'disabled',
 );
 
 // FIN TABLA P5 - Capitulo V
@@ -163,7 +164,7 @@ echo '
 		  	    					<th>RAMPA</th>
 		  	    					<td>'.form_input($P5_Tot_R).'<div class="help-block error"></div></td>
 		  	    				</tr>				  	    				
-		  	    				<tr>
+		  	    				<tr style="visibility:hidden">
 		  	    					<th>OPINIÓN</th>
 		  	    					<td>'.form_input($P5_Opin).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	    				
