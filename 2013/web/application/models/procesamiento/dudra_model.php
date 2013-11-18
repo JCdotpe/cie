@@ -12,7 +12,7 @@ class dudra_model extends CI_MODEL{
 
 	public function insert_cedulas($data)
 	{
-		$sql="INSERT INTO fichas_Udra (id_local, cnt_01, cnt_01A, cnt_01B, idUser,resultado) VALUES ('".$data['id_local']."', ".$data['cnt_01'].", '".$data['cnt_01A']."', '".$data['cnt_01B']."', '".$data['idUser']."', '".$data['result']."') ";
+		$sql="INSERT INTO fichas_Udra (id_local, cnt_01, cnt_01A, cnt_01B, cod_legajo, idUser,resultado) VALUES ('".$data['id_local']."', ".$data['cnt_01'].", '".$data['cnt_01A']."', '".$data['cnt_01B']."', '".$data['cod_legajo']."', '".$data['idUser']."', '".$data['result']."') ";
 		//echo $sql;
 		$this->db->query($sql);
 		 return $this->db->affected_rows() > 0;
@@ -115,7 +115,7 @@ class dudra_model extends CI_MODEL{
 
         public function get_locales_for_udra($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-        $sql="SELECT * FROM (  SELECT ROW_NUMBER() OVER (ORDER BY fecha_reg desc) as row,id_local,cnt_01,cnt_01A,cnt_01B ,convert(varchar(10),fecha_reg,103) as fecha_reg ,resultado=case resultado when 1 then 'Completo' when 2 then 'Incompleto' when 3 then 'Rechazo' when 4 then'Local Cerrado' when 5 then 'OTROS' ELSE 'ERROR' end FROM fichas_Udra $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+        $sql="SELECT * FROM (  SELECT ROW_NUMBER() OVER (ORDER BY fecha_reg desc) as row,id_local,cnt_01,cnt_01A,cnt_01B, cod_legajo ,convert(varchar(10),fecha_reg,103) as fecha_reg ,resultado=case resultado when 1 then 'Completo' when 2 then 'Incompleto' when 3 then 'Rechazo' when 4 then'Local Cerrado' when 5 then 'OTROS' ELSE 'ERROR' end FROM fichas_Udra $condicion1) a WHERE a.row > $inicio and a.row <= $final";
         $q=$this->db->query($sql);
         return $q;
     }

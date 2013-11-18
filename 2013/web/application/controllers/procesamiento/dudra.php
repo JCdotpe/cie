@@ -57,6 +57,7 @@ class dudra extends CI_Controller {
 				'cnt_01'=> $this->input->post('ficha01'),
 				'cnt_01A'=> $this->input->post('ficha01A'),
 				'cnt_01B'=> $this->input->post('ficha01B'),
+				'cod_legajo'=> strtoupper($this->input->post('legajo')),
 				'result'=> $this->input->post('result'),
 				'idUser'=> $idUser	
 			);
@@ -117,7 +118,7 @@ class dudra extends CI_Controller {
 		foreach ($resultado->result() as $fila)
 		{
 			$respuesta->rows[$i]['id'] = $fila->id_local;
-			$respuesta->rows[$i]['cell'] = array($fila->id_local,$fila->cnt_01,$fila->cnt_01A, $fila->cnt_01B, $fila->resultado, $fila->fecha_reg);
+			$respuesta->rows[$i]['cell'] = array($fila->id_local,$fila->cnt_01,$fila->cnt_01A, $fila->cnt_01B, $fila->cod_legajo, $fila->resultado, $fila->fecha_reg);
 			$i++;			
 		}
 

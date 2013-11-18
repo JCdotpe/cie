@@ -362,10 +362,11 @@ function Validar_Cedulas()
 	var ficha01 = $("#ficha01").val();
 	var ficha01A = $("#ficha01A").val();
 	var ficha01B = $("#ficha01B").val();
+	var legajo = $("#legajo").val();
 	var Result = $("#result").val();
 
 
-	if (codigo == "" || ficha01 == "" || ficha01A == "" || ficha01B == "" || Result=="")
+	if (codigo == "" || ficha01 == "" || ficha01A == "" || ficha01B == ""  || legajo == "" || Result=="")
 	{
 		alert("Faltan Datos!");
 		return false;
@@ -398,8 +399,10 @@ function registar_detalle_cedulas()
 			$("#ficha01").val('');	
 			$("#ficha01A").val('');		
 			$("#ficha01B").val('');
-			$("#result").val();
+			$("#legajo").val('');
+			$("#result").val('');
 			alert("Datos Registrados!");
+			$("#list2").trigger("reloadGrid");
 		}
 	});
 }

@@ -56,13 +56,20 @@
 		'style' => 'width: 60px;',
 		'maxlength' => 1
 	);
+	$txtLegajo = array(
+		'name'	=> 'legajo',
+		'id'	=> 'legajo',
+		'value' => set_value('legajo'),
+		'style' => 'width: 60px;',
+		'maxlength' => 6
+	);
 	$btnGrabar = array(
 		'name' => 'guardar',
 		'id' => 'guardar',
 		'onclick' => 'Validar_Cedulas()',
 		'type' => 'button',
 		'content' => 'Registrar',
-		'class' => 'btn btn-inverse btn-sm'
+		'class' => 'btn btn-inverse btn-sm pull-right'
 	);
 
 	$btnExportar = array(
@@ -71,7 +78,7 @@
 		'onclick' => 'exportReport()',
 		'type' => 'button',
 		'content' => 'Reporte Udra',
-		'class' => 'btn btn-inverse btn-sm'
+		'class' => 'btn btn-inverse btn-sm pull-right'
 	);
 
 
@@ -119,15 +126,24 @@
 				</div>
 				<div class="span2">
 					<div class="control-group">
+						<?php echo form_label('Codigo de Legajo', 'Codigo de Legajo', $label_class); ?>
+						<div class="controls">
+							<?php echo form_input($txtLegajo); ?>
+						</div>
+					</div>
+				</div>
+				<div class="span2">
+					<div class="control-group">
 						<?php echo form_label('Resultado', 'result', $label_class); ?>
 						<div class="controls">
 							<?php echo form_input($txtResut); ?>
 						</div>
 					</div>
 				</div>
+				
 
-
-				<div class="span2">
+				<div>
+				<div class="span11">
 					<div class="control-group">
 						<?php echo form_label('', '', $label_class); ?>
 						<div class="controls">
@@ -135,28 +151,29 @@
 						</div>
 					</div>
 				</div>
-				<div class="span2">
-					<div class="control-group">
-						<?php echo form_label('', '', $label_class); ?>
-						<div class="controls">
-							<?php echo form_button($btnExportar); ?>
-						</div>
-					</div>
 				</div>
-
 
 				<?php echo form_close(); ?>
 			</div>
-		
-		
-		<div class="row-fluid">
+		</div>	
+		<div>
 			<div id="grid_content" class="span12">
 				<table id="list2"></table>
 				<div id="pager2"></div>
 			</div>
 		</div>
+		<div>
+			<div class="span12">
+				<div class="control-group">
+					<?php echo form_label('', '', $label_class); ?>
+					<div class="controls">
+						<?php echo form_button($btnExportar); ?>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-	</div>
+	
 </div>
 
 <script type="text/javascript">
@@ -167,12 +184,13 @@
 			url:'dudra/ver_datos',
 			datatype: "json",
 			height: 200,
-			colNames:['Código de Local', 'Cedula 01', 'Cedula 01A', 'Cedula 01B','Resultado', 'Fecha de Registro'],
+			colNames:['Código de Local', 'Cedula 01', 'Cedula 01A', 'Cedula 01B','Código de Legajo', 'Resultado', 'Fecha de Registro'],
 			colModel:[
 				{name:'id_local',index:'id_local', align:"center"},
 				{name:'cnt_01',index:'cnt_01', align:"center"},
 				{name:'cnt_01A',index:'cnt_01A', align:"center"},
 				{name:'cnt_01B',index:'cnt_01B', align:"center"},
+				{name:'cod_legajo',index:'cod_legajo', align:"center"},
 				{name:'res',index:'res', align:"center"},
 				{name:'fecha_reg',index:'fecha_reg', align:"center"}
 			],
