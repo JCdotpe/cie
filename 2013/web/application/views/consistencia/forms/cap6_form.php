@@ -676,7 +676,7 @@ $P6_2_17c = array(
 $P6_2_17d = array(
 	'name'	=> 'P6_2_17d',
 	'id'	=> 'P6_2_17d',
-	'maxlength'	=> 2,
+	'maxlength'	=> 1,
 	'class' => 'input4',	
 	'disabled' => 'disabled',	
 );
@@ -2753,6 +2753,9 @@ $(document).ready(function(){
 			
 			case 'P6_2_16f': $('#P6_2_16f').trigger('change');
 			break;
+
+			case 'P6_2_17d': $('#P6_2_17d').trigger('change');
+			break;
 			
 			case 'P6_2_18f': $('#P6_2_18f').trigger('change');
 			break;
@@ -3351,10 +3354,11 @@ $(document).ready(function(){
 				$('#P6_2_16e').trigger('change');
 
 				//preg 17
-				$('#P6_2_17a').removeAttr('disabled');
-				$('#P6_2_17b').removeAttr('disabled');
-				$('#P6_2_17c').removeAttr('disabled');
+				// $('#P6_2_17a').removeAttr('disabled');
+				// $('#P6_2_17b').removeAttr('disabled');
+				// $('#P6_2_17c').removeAttr('disabled');
 				$('#P6_2_17d').removeAttr('disabled');
+				$('#P6_2_17d').trigger('change');
 			break;
 
 			case '1':
@@ -3378,6 +3382,28 @@ $(document).ready(function(){
 				Preg16_activacion('e',0);
 			break;
 		}
+	});
+
+
+	$('#P6_2_17d').change(function(event) {
+
+		if ( $(this).val() == 0 || $(this).val() == '' ){
+
+			$('#P6_2_17a').removeAttr('disabled');
+			$('#P6_2_17b').removeAttr('disabled');
+			$('#P6_2_17c').removeAttr('disabled');
+
+		}else if( $(this).val() == 1 || $(this).val() == 9 ){
+			$('#P6_2_17a').val('');
+			$('#P6_2_17b').val('');
+			$('#P6_2_17c').val('');
+
+			$('#P6_2_17a').attr('disabled','disabled');
+			$('#P6_2_17b').attr('disabled','disabled');
+			$('#P6_2_17c').attr('disabled','disabled');
+			
+		}
+
 	});
 
 
@@ -3814,7 +3840,7 @@ $(document).ready(function(){
 			},
 			P6_2_17d:{
 				digits:true,
-				valrango:[0,98,99],
+				valrango:[0,1,9],
 				required:true,
 			},
 			P6_2_18a:{
