@@ -939,7 +939,7 @@ $("#car_f").validate({
 						validName:true,
 						required:true,
 			        },  	
-			    PC_A_5_NucleoUrb{
+			    PC_A_5_NucleoUrb:{
 						required:true,
 			       },
 				PC_A_7Dir_1_Tvia: {

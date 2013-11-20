@@ -2397,8 +2397,14 @@ $("#predio_i").validate({
 			        valrango:[1,5,9],
 			    }, 				    		    			    	    
 				P1_B_3_3_AntReg_Nro: {
-			        // digits: true,
+			        required:true,
 			    }, 	
+			    P1_B_3_7_DocPos_Fech:{
+			    	required:true,
+			    },
+			    P1_B_3_5_FecTit:{
+			        required:true,
+			    },
 				P1_B_3_4_Tipo_TProp: {
 			        digits: true,
 			        range:[1,10],
