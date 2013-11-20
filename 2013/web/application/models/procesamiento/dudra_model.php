@@ -123,7 +123,7 @@ class dudra_model extends CI_MODEL{
 
         public function get_Udra_Reporte()
     {
-         $this->db->select('*');
+        $this->db->select('*');
         $this->db->where('codigo_act', $cod );
         $this->db->order_by('codigo_act','asc');
         $q = $this->db->get('v_activo_movimientos');
@@ -135,6 +135,15 @@ class dudra_model extends CI_MODEL{
     {
         $sql="SELECT * FROM V_UDRA_DIGITA ORDER BY sede_operativa,dpto_nombre desc";
         $q=$this->db->query($sql);
+        return $q;
+    }
+
+
+    public function get_Udra_Consistencia($cod)
+    {
+        $this->db->select('*');
+        $this->db->where('id_local', $cod );
+        $q = $this->db->get('fichas_Udra');
         return $q;
     }
 
