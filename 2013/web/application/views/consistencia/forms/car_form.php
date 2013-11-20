@@ -937,8 +937,11 @@ $("#car_f").validate({
 		    	},
 				PC_A_4_CentroP: {
 						validName:true,
+						required:true,
 			        },  	
-
+			    PC_A_5_NucleoUrb{
+						required:true,
+			       },
 				PC_A_7Dir_1_Tvia: {
 			    		valrango: [1,7,9],
 			    		required: true,
