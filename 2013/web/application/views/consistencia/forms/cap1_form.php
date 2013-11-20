@@ -2341,34 +2341,35 @@ $("#cap1_ax").validate({
 //PREDIO N
 $("#P1_B_3_11_CompCan").change(function(event) {
 
-	$("#pred_n").empty();
-	for(var i=1; i<=$(this).val(); i++){
-		$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
-	}
-
-
-	//Llenar Anexos x Cod Mod
-	var prc_data = {
-		id_local: $("input[name='id_local']").val(),
-		Nro_Pred: $("input[name='Nro_Pred']").val(),
-		ajax:1
-	};						
-
-	$.ajax({
-		url: CI.site_url + "/consistencia/consistencia/get_predio_c",
-		type:'POST',
-		data:prc_data,
-		dataType:'json',
-		success:function(json){
-			var as = 1;
-			$.each( json.prc, function(i, data) {
-				$('#P1_B_3_12_Nro_' +  as).val(data.P1_B_3_12_Nro);
-				$('#P1_B_3_12_NombComp_' +  as).val(data.P1_B_3_12_NombComp);			
-				as++;							
-			}); 	
+if($(this).val() != '99'){
+		$("#pred_n").empty();
+		for(var i=1; i<=$(this).val(); i++){
+			$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
 		}
-	});  
 
+
+		//Llenar Anexos x Cod Mod
+		var prc_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			ajax:1
+		};						
+
+		$.ajax({
+			url: CI.site_url + "/consistencia/consistencia/get_predio_c",
+			type:'POST',
+			data:prc_data,
+			dataType:'json',
+			success:function(json){
+				var as = 1;
+				$.each( json.prc, function(i, data) {
+					$('#P1_B_3_12_Nro_' +  as).val(data.P1_B_3_12_Nro);
+					$('#P1_B_3_12_NombComp_' +  as).val(data.P1_B_3_12_NombComp);			
+					as++;							
+				}); 	
+			}
+		});  
+}
 });
 
 
@@ -2429,7 +2430,7 @@ $("#predio_i").validate({
 			    }, 		
 				P1_B_3_11_CompCan: {
 			        required: true,
-			        range:[0,99],
+			        valrango:[0,98,99],
 			    }, 				    		    			    	    	    	    			    
 		    },
 
