@@ -1597,7 +1597,7 @@ $('#P1_B_3_3_AntReg_Nro').change(function(event) {
 
 
 $('#P1_B_3_2_AntReg_Cod').change(function(event) {
-	if($(this).val() == 5){
+	if($(this).val() == 5 || $(this).val() == 9){
 		$('#P1_B_3_3_AntReg_Nro').val('');
 		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
 
