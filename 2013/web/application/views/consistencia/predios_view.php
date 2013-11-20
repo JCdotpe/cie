@@ -134,7 +134,7 @@ $.validator.addMethod("requerido", function(value, element, arg) {
 }, "El campo es requerido");
 $.validator.addMethod("minor", function(value, element, arg) {
     flag = false;
-    if(value < $('#' + arg[0]).val()){
+    if(value <= $('#' + arg[0]).val()){
       flag = true;
     }
     return flag;
