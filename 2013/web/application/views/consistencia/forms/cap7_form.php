@@ -1162,7 +1162,7 @@ $(document).ready(function(){
 			},
 			P7_1_8:{
 				digits:true,
-				valrango:[1,4,9],
+				valrango:[1,5,9],
 				required: true,
 			},
 			P7_1_9:{
@@ -1212,7 +1212,7 @@ $(document).ready(function(){
 			},
 			P7_1_14:{
 				digits:true,
-				valrango:[1,4,9],
+				valrango:[1,5,9],
 				required: true,
 			},
 			P7_1_15:{
