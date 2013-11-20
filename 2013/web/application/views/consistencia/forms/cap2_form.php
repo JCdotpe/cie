@@ -2416,7 +2416,7 @@ $('#p2_d_3_n tr').remove('.sumin');
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumin">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_3_SumNro[]" id="P2_D_3_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 cld2 embc' + i + '" name="P2_D_3_SumNro[]" id="P2_D_3_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_3_1DocRef[]" id="P2_D_3_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd += '</tr>';
 	    $('#p2_d_3_n > tbody').append(asd);
@@ -2438,6 +2438,19 @@ $.each( <?php echo json_encode($cap2_p2_d_3n->result()); ?>, function(i, data) {
 
 });
 
+$(document).on("change",'.cld2',function() {
+	var pre = $(this).attr('id');
+	var nro = pre.substring(14,15);	
+	if($(this).val() != ''){
+		$('#P2_D_3_1DocRef_' + nro).val('');
+		$('#P2_D_3_1DocRef_' + nro).attr('disabled','disabled');
+	}else{
+		$('#P2_D_3_1DocRef_' + nro).removeAttr('disabled');	
+	}
+});
+
+
+
 
 //p2_d_7n -----------------------------------------------------------JS
 $('#P2_D_6_Agua_CantSum').change(function(event) {
@@ -2447,7 +2460,7 @@ $('#p2_d_7_n tr').remove('.sumina');
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumina">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
-	    asd +='<td><input type="text" class="span12 embc' + i + '" name="P2_D_7_SumNro[]" id="P2_D_7_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="span12 cld6 embc' + i + '" name="P2_D_7_SumNro[]" id="P2_D_7_SumNro_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" name="P2_D_7_1DocRef[]" id="P2_D_7_1DocRef_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd += '</tr>';
 	    $('#p2_d_7_n > tbody').append(asd);
@@ -2468,6 +2481,20 @@ $.each( <?php echo json_encode($cap2_p2_d_7n->result()); ?>, function(i, data) {
 }); 
 
 });
+
+
+$(document).on("change",'.cld6',function() {
+	var pre = $(this).attr('id');
+	var nro = pre.substring(14,15);	
+	if($(this).val() != ''){
+		$('#P2_D_7_1DocRef_' + nro).val('');
+		$('#P2_D_7_1DocRef_' + nro).attr('disabled','disabled');
+	}else{
+		$('#P2_D_7_1DocRef_' + nro).removeAttr('disabled');	
+	}
+});
+
+
 
 //p2_d
 $.each( <?php echo json_encode($cap2_p2_d->row()); ?>, function(fila, valor) {

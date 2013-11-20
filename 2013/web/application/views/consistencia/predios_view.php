@@ -125,9 +125,24 @@ $.extend(jQuery.validator.messages, {
     // max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+$.validator.addMethod("requerido", function(value, element, arg) {
+    flag = false;
+    if(value != '' || element.disabled){
+      flag = true;
+    }
+    return flag;
+}, "El campo es requerido");
+$.validator.addMethod("minor", function(value, element, arg) {
+    flag = false;
+    if(value < $('#' + arg[0]).val()){
+      flag = true;
+    }
+    return flag;
+}, "Debe ser menor que la pregunta {1}");
 $.validator.addMethod("year", function(value, element, param) {
     return this.optional(element) || ( (value > 1950 && value <= CI.year) || value == 9999 ) ;
 }, "Ingrese un año válido");
+
 $.validator.addMethod("valueEquals", function (value, element, param) {
     return param == value;
 }, "Acepta la declaración de veracidad?");

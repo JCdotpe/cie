@@ -2274,9 +2274,12 @@ $("#cap1_ax").validate({
 			    }, 				 
 				P1_C_16_At_Pred: {
 			        digits: true,
+			        requerido:true,
 			    }, 					       
 				P1_C_17_At_Local: {
 			        digits: true,
+			        requerido:true,
+			        minor:['P1_C_16_At_Pred','16']
 			    }, 		
 				P1_C_18_Comp: {
 			        valrango:[1,2,9],
@@ -2400,10 +2403,7 @@ $("#predio_i").validate({
 			        required:true,
 			    }, 	
 			    P1_B_3_7_DocPos_Fech:{
-			    	required:true,
-			    },
-			    P1_B_3_5_FecTit:{
-			        required:true,
+			    	requerido:true,
 			    },
 				P1_B_3_4_Tipo_TProp: {
 			        digits: true,
@@ -2416,9 +2416,12 @@ $("#predio_i").validate({
 			    }, 		
 				P1_B_3_8_At_Pred: {
 			        number: true,
+			        requerido:true,
 			    }, 			
 				P1_B_3_9_At_Local: {
 			        number: true,
+			        minor:['P1_B_3_8_At_Pred','3.8'],
+			        requerido:true,
 			    }, 		
 				P1_B_3_10_Comp: {
 			        required: true,
