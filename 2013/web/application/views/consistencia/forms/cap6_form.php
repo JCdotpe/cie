@@ -4074,6 +4074,7 @@ $(document).ready(function(){
 				success:function(json){
 					alert(json.msg);
 					bcar.removeAttr('disabled');
+					document.getElementById('P6_1_10_op14').scrollIntoView(true);
 				}
 			});
 		}
