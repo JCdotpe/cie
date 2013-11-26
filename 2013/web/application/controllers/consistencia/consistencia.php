@@ -68,9 +68,9 @@ class Consistencia extends CI_Controller {
 			}	
 
 			//udra
-			$this->load->model('procesamiento/dudra_model');
-			if($this->dudra_model->get_Udra_Consistencia($id)->num_rows == 0)
-				show_404();
+			// $this->load->model('procesamiento/dudra_model');
+			// if($this->dudra_model->get_Udra_Consistencia($id)->num_rows == 0)
+			// 	show_404();
 
 			$prd = (is_null($pr))? 1 : $pr;
 			$data['nav'] = TRUE;
