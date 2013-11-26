@@ -2432,8 +2432,8 @@ var as = 1;
 $.each( <?php echo json_encode($cap2_p2_d_3n->result()); ?>, function(i, data) {
 	   $('#P2_D_3_Nro_' +  as).val(data.P2_D_3_Nro);
 	   $('#P2_D_3_SumNro_' +  as).val(data.P2_D_3_SumNro);
-	   $('#P2_D_3_SumNro_' +  as).trigger('change');
 	   $('#P2_D_3_1DocRef_' +  as).val(data.P2_D_3_1DocRef);
+	   $('#P2_D_3_SumNro_' +  as).trigger('change');
 	   as++;
 }); 
 
@@ -2477,8 +2477,9 @@ var as = 1;
 $.each( <?php echo json_encode($cap2_p2_d_7n->result()); ?>, function(i, data) {
 	   $('#P2_D_7_Nro_' +  as).val(data.P2_D_7_Nro);
 	   $('#P2_D_7_SumNro_' +  as).val(data.P2_D_7_SumNro);
-	   $('#P2_D_7_SumNro_' +  as).trigger('change');
 	   $('#P2_D_7_1DocRef_' +  as).val(data.P2_D_7_1DocRef);
+	   
+	   $('#P2_D_7_SumNro_' +  as).trigger('change');
 	   as++;
 }); 
 
