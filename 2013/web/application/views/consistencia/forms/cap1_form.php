@@ -2315,11 +2315,9 @@ $("#cap1_ax").validate({
 			        valrango:[1,10,99],
 			    }, 				 
 				P1_C_16_At_Pred: {
-			        digits: true,
 			        requeridodis:true,
 			    }, 					       
 				P1_C_17_At_Local: {
-			        digits: true,
 			        requeridodis:true,
 			        minor:['P1_C_16_At_Pred','16']
 			    }, 		
