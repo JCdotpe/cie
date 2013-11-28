@@ -1671,6 +1671,7 @@ function btnies(n){
 //print axs
 $(document).on("change",'.anx',function() {
 	var son = $(this);
+if(son.val() != 99){	
 	var par = son.parent();
 	$('.anexo',par).remove();    
 	var dcm = son.data("cm");
@@ -1679,13 +1680,13 @@ $(document).on("change",'.anx',function() {
 	for(var i=1; i<=son.val(); i++){
 		    ax_str += '<div class="ax' + i + ' anexo">';
 		    ax_str +='<span class="prev_anexo">Nombre asignado al anexo N°</span> <input type="text" class="input2" style="margin-left: 15px" maxlength="2" id="P1_A_2_9_AnexNro_'+ dcm + '_' + as + '" value="' + i + '" readonly name="P1_A_2_9_AnexNro_'+ dcm + '[]">';
-		    ax_str +='<input type="text" style="margin-left: 34px; margin-right: 48px; width: 381px !important" class="input200" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" style="margin-left: 0; margin-right:19px" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:19px" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:20px" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input5" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
-		    ax_str +='<input type="text" class="input3" style="margin-left: 10px; margin-right:0" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" style="margin-left: 34px; margin-right: 48px; width: 381px !important" class="input200 P1_A_2_9_AnexNro" maxlength="200" id="P1_A_2_9_AnexNomb_'+ dcm + '_' + as + '" value="" name="P1_A_2_9_AnexNomb_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5 P1_A_2_9G_T1_Talu" style="margin-left: 0; margin-right:19px" maxlength="5" id="P1_A_2_9G_T1_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9G_T1_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3 P1_A_2_9H_T1_Taul" style="margin-left: 10px; margin-right:19px" maxlength="3" id="P1_A_2_9H_T1_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9H_T1_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5 P1_A_2_9I_T2_Talu" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9I_T2_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9I_T2_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3 P1_A_2_9J_T2_Taul" style="margin-left: 10px; margin-right:20px" maxlength="3" id="P1_A_2_9J_T2_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9J_T2_Taul_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input5 P1_A_2_9K_T3_Talu" style="margin-left: 10px; margin-right:19px" maxlength="5" id="P1_A_2_9K_T3_Talu_'+ dcm + '_' + as + '" value="" name="P1_A_2_9K_T3_Talu_'+ dcm + '[]">';
+		    ax_str +='<input type="text" class="input3 P1_A_2_9L_T3_Taul" style="margin-left: 10px; margin-right:0" maxlength="3" id="P1_A_2_9L_T3_Taul_'+ dcm + '_' + as + '" value="" name="P1_A_2_9L_T3_Taul_'+ dcm + '[]">';
 		    ax_str += '</div>';
 		   as++;
 	}	
@@ -1720,7 +1721,7 @@ $(document).on("change",'.anx',function() {
 			}); 
 		}
 	});  
-
+}
 });
 
 //valid cm
@@ -2165,7 +2166,27 @@ $("#cap1_ie").validate({
 
 
 
-
+$.validator.addClassRules('P1_A_2_9_AnexNro', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9G_T1_Talu', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9H_T1_Taul', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9I_T2_Talu', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9J_T2_Taul', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9K_T3_Talu', {
+  requeridodis: true,
+});
+$.validator.addClassRules('P1_A_2_9L_T3_Taul', {
+  requeridodis: true,
+});
 //cm update
 $("#cap1_cm").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
@@ -2188,7 +2209,6 @@ $("#cap1_cm").validate({
 			        requeridodis:true,
 			    },  						    
 				'P1_A_2_9F_CantAnex[]': {
-			       valrango:[0,3,9],
 			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9G_T1_Talu[]': {

@@ -397,7 +397,7 @@ class Cap1 extends CI_Controller {
 
 						$nro_axs = $cap1_p1_a_2_8n['P1_A_2_9F_CantAnex'][$cc];
 
-						if($nro_axs > 0){
+						if($nro_axs > 0 && $nro_axs != 99){
 							//insert axs por cod mod
 							for($o = 0; $o<=$nro_axs-1;$o++){
 										$cap1_p1_a_2_9n_data = null;
