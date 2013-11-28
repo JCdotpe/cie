@@ -941,6 +941,9 @@ $("#car_f").validate({
 		    	PC_A_7Dir_2_Nomb:{
 		    		required:true,
 		    	},
+		    	PC_A_9_RefDir:{
+		    		required:true,
+		    	},
 		    	PC_A_6_Ugel:{
 		    		required:true,
 		    	},
