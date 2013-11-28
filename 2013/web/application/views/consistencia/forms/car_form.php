@@ -429,8 +429,8 @@ echo '
 
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">1. Departamento </div> '. form_dropdown('PC_A_1_Dep', $depArray, FALSE,'class="input200" id="PC_A_1_Dep"') .' </li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '. form_dropdown('PC_A_2_Prov', $provArray, FALSE,'class="input200" id="PC_A_2_Prov"') .'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '. form_dropdown('PC_A_3_Dist', $distArray, FALSE,'class="input200" id="PC_A_3_Dist"') .'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '. form_dropdown('PC_A_2_Prov', $provArray, FALSE,'class="input200" id="PC_A_2_Prov"') .' <div class="help-block error"></div></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '. form_dropdown('PC_A_3_Dist', $distArray, FALSE,'class="input200" id="PC_A_3_Dist"') .' <div class="help-block error"></div></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($PC_A_4_CentroP).'<div class="help-block error"></div></li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($PC_A_5_NucleoUrb).'</li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">6. UGEL </div> '.form_input($PC_A_6_Ugel).'</li>
@@ -932,6 +932,12 @@ $('#pcar_num').trigger('change');
 
 $("#car_f").validate({
 		    rules: {  
+		    	PC_A_2_Prov:{
+		    		valueNotEquals:'-1',
+		    	},
+		    	PC_A_3_Dist:{
+		    		valueNotEquals:'-1',
+		    	},
 		    	PC_A_6_Ugel:{
 		    		required:true,
 		    	},
