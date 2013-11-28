@@ -125,6 +125,13 @@ $.extend(jQuery.validator.messages, {
     // max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+$.validator.addMethod("requeridodis", function(value, element, arg) {
+    flag = false;
+    if(value != '' || element.disabled || element.readOnly){
+      flag = true;
+    }
+    return flag;
+}, "El campo es requerido");
 $.validator.addMethod("requerido", function(value, element, arg) {
     flag = false;
     if(value != '' || element.disabled){

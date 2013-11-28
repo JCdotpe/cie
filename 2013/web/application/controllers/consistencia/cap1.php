@@ -361,6 +361,7 @@ class Cap1 extends CI_Controller {
 			$cm = null;
 
 			$cc = 0;
+			if($cap1_p1_a_2_8n['P1_A_2_9_NroCMod'] > 0){
 			foreach($cap1_p1_a_2_8n['P1_A_2_9_NroCMod'] as &$z){
 
 						foreach ($fields as $a=>$b) {
@@ -456,7 +457,7 @@ class Cap1 extends CI_Controller {
 					$cc++;									    
 
 			}	
-
+			}
 
 			$flag = 1;
 			$msg = 'Se ha actualizado satisfactoriamente los Códigos Modulares';

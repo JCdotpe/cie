@@ -701,7 +701,7 @@ echo '
 													<td>
 														<strong>2.2¿Cuáles son los apellidos y nombres del director?</strong>
 													</td>
-													<td>'.form_input($P1_A_2_2_Direc).'</td>
+													<td>'.form_input($P1_A_2_2_Direc).'<div class="help-block error"></div></td>
 												</tr>
 												<tr>
 													<td>
@@ -750,7 +750,7 @@ echo '
 												</tr>
 												<tr>
 													<td><strong>2.7¿Cargo del informante?</strong></td>
-													<td>'.form_input($P1_A_2_7_InformantCarg).'</td>
+													<td>'.form_input($P1_A_2_7_InformantCarg).' <div class="help-block error"></div></td>
 												</tr>
 												<tr>
 													<td><strong>2.8¿Cuántos códigos modulares tiene asignada una institución educativa?</strong></td>
@@ -2071,14 +2071,22 @@ $(document).on("click",'.ienro',function() {
 
 //guardar ie
 $("#cap1_ie").validate({
-		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
+		    rules: {     
+		    	P1_A_2_1_NomIE:{
+		    		required:true,
+		    	},     		
+		    	P1_A_2_2_Direc:{
+		    		required:true,
+		    	},	         		         		         		                  	         		         	         	          		                                                                             
 				P1_A_2_3_DocTip: {
 					valrango: [1,2,9],
+					required:true,
 			    },  		    
 				P1_A_2_3_DocNro: {
 		            digits:true,
 		            valrango: [1,9999999998,9999999999],
 		            maxlength: 10, 
+		            required:true,
 			    },  
 				P1_A_2_4_TelfIE: {
 					// valrango: [1,999999998,999999999],
@@ -2096,10 +2104,14 @@ $("#cap1_ie").validate({
 			    },  			
 				P1_A_2_6_Informant:{
 					validName:true,
+					required:true,
 				},
-
+				P1_A_2_7_InformantCarg:{
+					required:true,
+				},
 				P1_A_2_8_Can_CMod_IE: {
 			        digits: true,
+			        required:true,
 			    },  			    	    	    
 		    },
 
@@ -2165,33 +2177,43 @@ $("#cap1_cm").validate({
 			    },  	
 				'P1_A_2_9C_Nivel[]': {
 			         valrango:[1,11,99],
+			        requeridodis:true,
 			    },  	
 				'P1_A_2_9D_Car[]': {
 					valrango:[1,3,9],
+			        requeridodis:true,
 			    },  			    		    		    
 				'P1_A_2_9E_NroAnex[]': {
 					valrango:[0,3,9],
+			        requeridodis:true,
 			    },  						    
 				'P1_A_2_9F_CantAnex[]': {
 			       valrango:[0,3,9],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9G_T1_Talu[]': {
 			        valrango:[0,9998,9999],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9H_T1_Taul[]': {
 			         valrango:[0,998,999],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9I_T2_Talu[]': {
 			        valrango:[0,9998,9999],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9J_T2_Taul[]': {
 			        valrango:[0,998,999],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9K_T3_Talu[]': {
 			        valrango:[0,9998,9999],
+			        requeridodis:true,
 			    },  							    
 				'P1_A_2_9L_T3_Taul[]': {
 			        valrango:[0,998,999],
+			        requeridodis:true,
 			    },  							    
 		    },
 
