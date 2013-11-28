@@ -1352,6 +1352,7 @@ $(document).ready(function(){
 			            success:function(json){
 							alert(json.msg);
 							bcar.removeAttr('disabled');
+							document.getElementById('ctab7').scrollIntoView(true);
 			            }
 			        });
 		}
