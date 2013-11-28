@@ -2384,7 +2384,7 @@ $("#P1_B_3_11_CompCan").change(function(event) {
 if($(this).val() != '99'){
 		$("#pred_n").empty();
 		for(var i=1; i<=$(this).val(); i++){
-			$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"></li>')
+			$("#pred_n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_B_3_12_Nro_' + i + '" value="' + i + '" name="P1_B_3_12_Nro[]"><input type="text" id="P1_B_3_12_NombComp_' + i + '" value="" name="P1_B_3_12_NombComp[]"><div class="help-block error"></div></li>')
 		}
 
 
@@ -2481,7 +2481,10 @@ $("#predio_i").validate({
 				P1_B_3_11_CompCan: {
 			        required: true,
 			        valrango:[0,98,99],
-			    }, 				    		    			    	    	    	    			    
+			    }, 		
+			    'P1_B_3_12_NombComp[]':{
+			    	required:true,
+			    },		    		    			    	    	    	    			    
 		    },
 
 		    messages: {   
