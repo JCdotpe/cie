@@ -316,7 +316,7 @@ $(document).ready(function(){
 		var campo = $(this);
 		var cod = campo.attr('id');
 		array=cod.split("_");
-		if (campo.val() >= 2){
+		if (campo.val() == 2){
 			$('.cerco_' + array[4] + '_' + array[5]).val('');
 			$('.cerco_' + array[4] + '_' + array[5]).attr('readonly','readonly');
 		}else{
@@ -607,6 +607,7 @@ $(document).ready(function(){
 				'P4_2_1C_Cerco[]':{
 					digits:true,
 					valrango:[1,2,9],
+					required:true,
 				},
 				'P4_2_1D_Estruc[]':{
 					digits:true,
