@@ -388,7 +388,7 @@ $P6_2_13_O = array(
 $P6_2_14_1 = array(
 	'name'	=> 'P6_2_14_1',
 	'id'	=> 'P6_2_14_1',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',		
 	'disabled' => 'disabled',
 );
@@ -396,7 +396,7 @@ $P6_2_14_1 = array(
 $P6_2_14_2 = array(
 	'name'	=> 'P6_2_14_2',
 	'id'	=> 'P6_2_14_2',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',		
 	'disabled' => 'disabled',	
 );
@@ -404,7 +404,7 @@ $P6_2_14_2 = array(
 $P6_2_14_3 = array(
 	'name'	=> 'P6_2_14_3',
 	'id'	=> 'P6_2_14_3',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',			
 	'disabled' => 'disabled',
 );
@@ -412,7 +412,7 @@ $P6_2_14_3 = array(
 $P6_2_14_4 = array(
 	'name'	=> 'P6_2_14_4',
 	'id'	=> 'P6_2_14_4',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',			
 	'disabled' => 'disabled',
 );
@@ -420,7 +420,7 @@ $P6_2_14_4 = array(
 $P6_2_14_5 = array(
 	'name'	=> 'P6_2_14_5',
 	'id'	=> 'P6_2_14_5',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',			
 	'disabled' => 'disabled',
 );
@@ -428,7 +428,7 @@ $P6_2_14_5 = array(
 $P6_2_14_6 = array(
 	'name'	=> 'P6_2_14_6',
 	'id'	=> 'P6_2_14_6',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',			
 	'disabled' => 'disabled',
 );
@@ -436,7 +436,7 @@ $P6_2_14_6 = array(
 $P6_2_14a = array(
 	'name'	=> 'P6_2_14a',
 	'id'	=> 'P6_2_14a',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',		
 	'disabled' => 'disabled',
 );
@@ -444,7 +444,7 @@ $P6_2_14a = array(
 $P6_2_14b_1 = array(
 	'name'	=> 'P6_2_14b_1',
 	'id'	=> 'P6_2_14b_1',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',		
 	'disabled' => 'disabled',
 );
@@ -452,7 +452,7 @@ $P6_2_14b_1 = array(
 $P6_2_14b_2 = array(
 	'name'	=> 'P6_2_14b_2',
 	'id'	=> 'P6_2_14b_2',
-	'maxlength'	=> 9,
+	'maxlength'	=> 3,
 	'class' => 'input9',		
 	'disabled' => 'disabled',
 );
@@ -2787,7 +2787,7 @@ $(document).ready(function(){
 		$('#P6_3_1A').attr('disabled','disabled');
 		$('#P6_3_2').attr('disabled','disabled');
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_3_1A').removeAttr('disabled');
 			$('#P6_3_2').removeAttr('disabled');
@@ -3154,7 +3154,7 @@ $(document).ready(function(){
 
 			$('#P6_2_11_O').removeAttr('disabled');
 
-		}else if ( $(this).val() == 9 ) {
+		}else if ( $(this).val() == 99 ) {
 
 			$('#P6_2_11_O').removeAttr('disabled');
 			$('#P6_2_12').removeAttr('disabled');
@@ -3254,7 +3254,7 @@ $(document).ready(function(){
 
 			if ( $(this).val() == 16 ) $('#P6_2_13_O').removeAttr('disabled');
 
-		}else if( $(this).val() > 0 && $(this).val() <= 2 ){
+		}else if( ($(this).val() > 0 && $(this).val() <= 2 ) || $(this).val() == 99 ){
 			
 			$('#P6_2_14_1').removeAttr('disabled');
 			$('#P6_2_14_2').removeAttr('disabled');
@@ -3266,6 +3266,8 @@ $(document).ready(function(){
 			$('#P6_2_14b_1').removeAttr('disabled');
 			$('#P6_2_14b_2').removeAttr('disabled');
 		}
+
+		if ( $(this).val() == 99 ) $('#P6_2_13_O').removeAttr('disabled');
 	});
 
 	$('#P6_2_14_3').change(function(event) {
@@ -3303,6 +3305,7 @@ $(document).ready(function(){
 	$('#P6_2_15').change(function(event) {
 		
 		$('#P6_2_15a').removeAttr('disabled');
+		$('#P6_2_15_O').val('');
 		$('#P6_2_15_O').attr('disabled','disabled');
 
 		if ( $(this).val() == 6){
@@ -3310,7 +3313,7 @@ $(document).ready(function(){
 			$('#P6_2_15a').val('');
 			$('#P6_2_15a').attr('disabled','disabled');	
 
-		}else if ( $(this).val() == 7 ){
+		}else if ( $(this).val() == 7 || $(this).val() == 9 ){
 
 			$('#P6_2_15_O').removeAttr('disabled');
 
@@ -3395,6 +3398,7 @@ $(document).ready(function(){
 			break;
 
 			case '0':
+			case '9':
 				$('#P6_2_16a').removeAttr('disabled');
 				$('#P6_2_16b').removeAttr('disabled');
 				$('#P6_2_16c').removeAttr('disabled');
@@ -3416,7 +3420,7 @@ $(document).ready(function(){
 			break;
 
 			case '1':
-			case '9':
+			//case '9':
 				$('#P6_2_16a').val('');
 				$('#P6_2_16b').val('');
 				$('#P6_2_16c').val('');
@@ -3441,13 +3445,13 @@ $(document).ready(function(){
 
 	$('#P6_2_17d').change(function(event) {
 
-		if ( $(this).val() == 0 || $(this).val() == '' ){
+		if ( $(this).val() == 0 || $(this).val() == '' || $(this).val() == 9 ){
 
 			$('#P6_2_17a').removeAttr('disabled');
 			$('#P6_2_17b').removeAttr('disabled');
 			$('#P6_2_17c').removeAttr('disabled');
 
-		}else if( $(this).val() == 1 || $(this).val() == 9 ){
+		}else if( $(this).val() == 1 ){
 			$('#P6_2_17a').val('');
 			$('#P6_2_17b').val('');
 			$('#P6_2_17c').val('');
@@ -3537,6 +3541,7 @@ $(document).ready(function(){
 			break;
 
 			case '0':
+			case '9':
 				$('#P6_2_18a').removeAttr('disabled');
 				$('#P6_2_18b').removeAttr('disabled');
 				$('#P6_2_18c').removeAttr('disabled');
@@ -3557,7 +3562,7 @@ $(document).ready(function(){
 			break;
 
 			case '1':
-			case '9':
+			//case '9':
 				$('#P6_2_18a').val('');
 				$('#P6_2_18b').val('');
 				$('#P6_2_18c').val('');
@@ -3715,7 +3720,7 @@ $(document).ready(function(){
 			},
 			P6_2_13:{
 				digits:true,
-				valrango:[1,16,9],
+				valrango:[1,16,99],
 				required:true,
 			},
 			P6_2_14_1:{
