@@ -475,7 +475,7 @@ echo '
 							<tbody>
 
 								<tr>
-									<td>'.form_input($PC_A_7Dir_2_Nomb).'</td>
+									<td>'.form_input($PC_A_7Dir_2_Nomb).'<div class="help-block error"></div></td>
 									<td>'.form_input($PC_A_7Dir_3_Nro).'<div class="help-block error"></div></td>
 									<td>'.form_input($PC_A_7Dir_4_Piso).'<div class="help-block error"></div></td>
 									<td>'.form_input($PC_A_7Dir_5_Mz).'</td>
@@ -937,6 +937,9 @@ $("#car_f").validate({
 		    	},
 		    	PC_A_3_Dist:{
 		    		valueNotEquals:'-1',
+		    	},
+		    	PC_A_7Dir_2_Nomb:{
+		    		required:true,
 		    	},
 		    	PC_A_6_Ugel:{
 		    		required:true,
