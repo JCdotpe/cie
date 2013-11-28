@@ -2722,6 +2722,7 @@ $("#cap2_f").validate({
 				P2_B_8_Pelig: {
 			        valrango: [1,2,9],
 			    }, 		
+			    
 
 				'P2_B_9_Cod[]': {
 			        valrango: [0,1,9],
@@ -2735,7 +2736,7 @@ $("#cap2_f").validate({
 			    }, 
 				'P2_B_10_Cod[6]': {
 			        valrango: [0,1,9],
-			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5'],
+			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
 			    }, 
 
 				'P2_B_11_Cod[]': {
