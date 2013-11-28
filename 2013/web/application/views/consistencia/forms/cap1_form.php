@@ -2462,6 +2462,9 @@ $("#predio_i").validate({
 			        valrango:[1,10,99],
 			        requeridodis:true,
 			    }, 		
+				P1_B_3_6_DocPos_O: {
+			        requeridodis:true,
+			    }, 			    
 				P1_B_3_8_At_Pred: {
 			        number: true,
 			        requeridodis:true,
