@@ -2769,7 +2769,7 @@ $(document).ready(function(){
 		$('#P6_1_7').val('');
 		$('#P6_1_7').attr('disabled','disabled');
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_1_7').removeAttr('disabled');
 
@@ -3050,6 +3050,16 @@ $(document).ready(function(){
 		}
 	});
 	
+	function activar_flujo (inicio) {
+		
+		for (var i = inicio; i<14; i++) {
+			
+			$('#P6_2_'+i).val('');
+			$('#P6_2_'+i).attr('disabled','disabled');
+			$('#P6_2_'+i+'_O').val('');
+			$('#P6_2_'+i+'_O').attr('disabled','disabled');
+		}
+	}
 
 	$('#P6_2_7').change(function(event) {
 
@@ -3057,10 +3067,17 @@ $(document).ready(function(){
 			
 			$('#P6_2_7_O').removeAttr('disabled');
 
+		}else if ( $(this).val() == 9 ) {
+
+			$('#P6_2_7_O').removeAttr('disabled');
+			$('#P6_2_8').removeAttr('disabled');
+
 		}else{
 
 			$('#P6_2_7_O').val('');
 			$('#P6_2_7_O').attr('disabled','disabled');
+
+			activar_flujo(8);
 		}
 	});
 
@@ -3071,10 +3088,17 @@ $(document).ready(function(){
 
 			$('#P6_2_8_O').removeAttr('disabled');
 
+		}else if ( $(this).val() == 9 ) {
+
+			$('#P6_2_8_O').removeAttr('disabled');
+			$('#P6_2_9').removeAttr('disabled');
+
 		}else{
 
 			$('#P6_2_8_O').val('');
 			$('#P6_2_8_O').attr('disabled','disabled');
+
+			activar_flujo(9);
 		}
 	});
 
@@ -3085,10 +3109,17 @@ $(document).ready(function(){
 
 			$('#P6_2_9_O').removeAttr('disabled');
 
+		}else if ( $(this).val() == 9 ) {
+
+			$('#P6_2_9_O').removeAttr('disabled');
+			$('#P6_2_10').removeAttr('disabled');
+
 		}else{
 			
 			$('#P6_2_9_O').val('');
 			$('#P6_2_9_O').attr('disabled','disabled');
+
+			activar_flujo(10);
 
 		}
 	});
@@ -3100,10 +3131,17 @@ $(document).ready(function(){
 
 			$('#P6_2_10_O').removeAttr('disabled');
 
+		}else if ( $(this).val() == 9 ) {
+
+			$('#P6_2_10_O').removeAttr('disabled');
+			$('#P6_2_11').removeAttr('disabled');
+
 		}else{
 			
 			$('#P6_2_10_O').val('');
 			$('#P6_2_10_O').attr('disabled','disabled');
+
+			activar_flujo(11);
 
 		}
 		
@@ -3116,10 +3154,17 @@ $(document).ready(function(){
 
 			$('#P6_2_11_O').removeAttr('disabled');
 
+		}else if ( $(this).val() == 9 ) {
+
+			$('#P6_2_11_O').removeAttr('disabled');
+			$('#P6_2_12').removeAttr('disabled');
+
 		}else{
 			
 			$('#P6_2_11_O').val('');
 			$('#P6_2_11_O').attr('disabled','disabled');
+
+			activar_flujo(12);
 
 		}
 	});
@@ -3153,9 +3198,13 @@ $(document).ready(function(){
 			$('#P6_2_14b_1').attr('disabled','disabled');
 			$('#P6_2_14b_2').attr('disabled','disabled');
 
+			activar_flujo(13);
+
 			if ( $(this).val() == 7 ) $('#P6_2_12_O').removeAttr('disabled');
 
 		}else if ( $(this).val() == 8 ){
+
+			activar_flujo(13);
 
 			$('#P6_2_14_1').removeAttr('disabled');
 			$('#P6_2_14_2').removeAttr('disabled');
@@ -3166,6 +3215,11 @@ $(document).ready(function(){
 			//$('#P6_2_14a').removeAttr('disabled');
 			$('#P6_2_14b_1').removeAttr('disabled');
 			$('#P6_2_14b_2').removeAttr('disabled');
+		
+		}else if ( $(this).val() == 9 ){
+
+			$('#P6_2_12_O').removeAttr('disabled');
+			$('#P6_2_13').removeAttr('disabled');
 		}
 	});
 
@@ -3621,12 +3675,12 @@ $(document).ready(function(){
 			},
 			P6_2_5:{
 				digits:true,
-				valrango:[1,5,9],
+				range:[1,5],
 				required:true,
 			},
 			P6_2_6:{
 				digits:true,
-				valrango:[1,7,9],
+				range:[1,7],
 				required:true,
 			},
 			P6_2_7:{
