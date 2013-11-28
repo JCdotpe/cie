@@ -1572,7 +1572,7 @@ $('#P1_B_3_5_FecTit').change(function(event) {
 });
 
 $('#P1_B_3_3_AntReg_Nro').change(function(event) {
-	if($(this).val() == ''){
+	if($(this).val() == '' || $(this).val() == 999999999999){
 		$('#P1_B_3_4_Tipo_TProp').removeAttr('disabled');	
 		$('#P1_B_3_5_FecTit').removeAttr('disabled');	
 		$('#P1_B_3_6_DocPos').removeAttr('disabled');	
@@ -1597,7 +1597,7 @@ $('#P1_B_3_3_AntReg_Nro').change(function(event) {
 
 
 $('#P1_B_3_2_AntReg_Cod').change(function(event) {
-	if($(this).val() == 5 || $(this).val() == 9){
+	if($(this).val() == 5){
 		$('#P1_B_3_3_AntReg_Nro').val('');
 		$('#P1_B_3_3_AntReg_Nro').attr('disabled','disabled');		
 
