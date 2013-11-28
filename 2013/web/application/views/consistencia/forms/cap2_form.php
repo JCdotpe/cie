@@ -2642,21 +2642,23 @@ $("#cap2_f").validate({
 			        valrango: [1,2,9],
 			    }, 
 				P2_A_3A_Hel_Mini: {
-			        // required: true,
+			        requeridodis:true,
 			        valrango: [1,12,99],
 			    }, 			
 				P2_A_3A_Hel_Mfin: {
-			        // required: true,
 			        valrango: [1,12,99],
+			        requeridodis:true,
 			    }, 		
 				P2_A_4_Gra: {
 			        required: true,
 			        valrango: [1,2,9],
 			    }, 	
 				P2_A_4A_Gra_Mini: {
+			        requeridodis:true,
 			        valrango: [1,12,99],
 			    }, 	
 				P2_A_4A_Gra_Mfin: {
+			        requeridodis:true,
 			        valrango: [1,12,99],
 			    }, 				    			    	
 				P2_A_5_Vend: {
@@ -2666,9 +2668,11 @@ $("#cap2_f").validate({
 			        valrango: [1,2,9],
 			    }, 		
 				P2_A_5B_Vend_Mini: {
+			        requeridodis:true,
 			        valrango: [1,12,99],
 			    }, 		
 				P2_A_5B_Vend_Mfin: {
+			        requeridodis:true,
 			        valrango: [1,12,99],
 			    }, 		
 				P2_B_1_Topo: {
@@ -2722,7 +2726,7 @@ $("#cap2_f").validate({
 				P2_B_8_Pelig: {
 			        valrango: [1,2,9],
 			    }, 		
-			    
+
 
 				'P2_B_9_Cod[]': {
 			        valrango: [0,1,9],
