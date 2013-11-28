@@ -132,13 +132,7 @@ $.validator.addMethod("requeridodis", function(value, element, arg) {
     }
     return flag;
 }, "El campo es requerido");
-$.validator.addMethod("requerido", function(value, element, arg) {
-    flag = false;
-    if(value != '' || element.disabled){
-      flag = true;
-    }
-    return flag;
-}, "El campo es requerido");
+
 $.validator.addMethod("minor", function(value, element, arg) {
     flag = false;
     if(parseInt(value) <= parseInt($('#' + arg[0]).val())){
