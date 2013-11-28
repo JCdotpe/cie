@@ -2451,7 +2451,7 @@ $("#predio_i").validate({
 			    // },
 				P1_B_3_4_Tipo_TProp: {
 			        digits: true,
-			        range:[1,10],
+			        valrango:[1,10,99],
 			        requeridodis:true,
 			    }, 	
 			    P1_B_3_4_Tipo_TProp_O:{
