@@ -451,7 +451,7 @@ $(document).ready(function(){
 		}else if(ahua=='' || ahua==99){
 			//
 		}else{
-			alert('Dato Incorrecto');
+			// alert('Dato Incorrecto');
 		}
 
 
@@ -583,7 +583,7 @@ $(document).ready(function(){
 				},
 				P4_2_CantTram_Lfondo: {
 					digits:true,
-					range:[1,98,99],
+					range:[0,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lizq: {
