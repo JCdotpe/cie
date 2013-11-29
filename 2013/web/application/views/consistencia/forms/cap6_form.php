@@ -2812,7 +2812,7 @@ $(document).ready(function(){
 		$('#P6_3_2D').attr('disabled','disabled');
 		$('#P6_3_3').attr('disabled','disabled');
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_3_2A').removeAttr('disabled');
 			$('#P6_3_2B').removeAttr('disabled');
@@ -2829,7 +2829,7 @@ $(document).ready(function(){
 		$('#P6_3_3A').val('');
 		$('#P6_3_3A').attr('disabled','disabled');	
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 			
 			$('#P6_3_3A').removeAttr('disabled');
 
@@ -2842,7 +2842,7 @@ $(document).ready(function(){
 		$('#P6_4_1A').val('');
 		$('#P6_4_1A').attr('disabled','disabled');
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 			
 			$('#P6_4_1A').removeAttr('disabled');
 
@@ -2855,7 +2855,7 @@ $(document).ready(function(){
 		$('#P6_5_1A').val('');
 		$('#P6_5_1A').attr('disabled','disabled');
 
-		if ( $(this).val() == 1 ){
+		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_5_1A').removeAttr('disabled');
 
