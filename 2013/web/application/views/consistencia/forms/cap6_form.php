@@ -3109,7 +3109,7 @@ $(document).ready(function(){
 
 			$('#P6_2_9_O').removeAttr('disabled');
 
-		}else if ( $(this).val() == 9 ) {
+		}else if ( $(this).val() == 99 ) {
 
 			$('#P6_2_9_O').removeAttr('disabled');
 			$('#P6_2_10').removeAttr('disabled');
@@ -3700,7 +3700,7 @@ $(document).ready(function(){
 			},
 			P6_2_9:{
 				digits:true,
-				valrango:[1,17,9],
+				valrango:[1,17,99],
 				required:true,
 			},
 			P6_2_10:{
