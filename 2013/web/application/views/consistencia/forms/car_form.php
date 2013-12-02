@@ -752,6 +752,8 @@ $('#PC_C_2_Rfinal_resul').change(function(event) {
 		$('#ctab1').hide();
 		$('#ctab2').hide();
 		$('#ctab6').hide();
+		$('#PC_C_2_Rfinal_resul_O').val('');
+		$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');		
 	}else{
 		$('#ctab1').show();
 		$('#ctab2').show();
