@@ -745,19 +745,19 @@ $('#PC_C_2_Rfinal_resul').change(function(event) {
 
 	if($(this).val() == 5){
 		$('#PC_C_2_Rfinal_resul_O').removeAttr('disabled');
-		$('#ctab1').show();
-		$('#ctab2').show();		
-		$('#ctab6').show();
-	}else if($(this).val() == 4){
-		$('#ctab1').hide();
-		$('#ctab2').hide();
-		$('#ctab6').hide();
-		$('#PC_C_2_Rfinal_resul_O').val('');
-		$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');		
+		// $('#ctab1').show();
+		// $('#ctab2').show();		
+		// $('#ctab6').show();
+	// }else if($(this).val() == 4){
+	// 	$('#ctab1').hide();
+	// 	$('#ctab2').hide();
+	// 	$('#ctab6').hide();
+	// 	$('#PC_C_2_Rfinal_resul_O').val('');
+	// 	$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');		
 	}else{
-		$('#ctab1').show();
-		$('#ctab2').show();
-		$('#ctab6').show();
+		// $('#ctab1').show();
+		// $('#ctab2').show();
+		// $('#ctab6').show();
 		$('#PC_C_2_Rfinal_resul_O').val('');
 		$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');
 	}
