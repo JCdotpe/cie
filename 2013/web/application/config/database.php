@@ -46,7 +46,7 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'conexion_A';
 $active_record = TRUE;
 
 
@@ -62,42 +62,42 @@ $active_record = TRUE;
 		// $db['conexion_A']['username'] = 'mrvixio';
 		// $db['conexion_A']['password'] = 'mrvixio2';
 
-		$db['default']['hostname'] = 'ESTEJUANO-PC\SQLEXPRESS';// local
-		$db['default']['username'] = 'sa';
-		$db['default']['password'] = '123456';		
-		$db['default']['database'] = 'CIE2013';
+		$db['conexion_A']['hostname'] = 'ESTEJUANO-PC\SQLEXPRESS';// local
+		$db['conexion_A']['username'] = 'sa';
+		$db['conexion_A']['password'] = '123456';		
+		$db['conexion_A']['database'] = 'CIE2013';
 		//$db['conexion_A']['database'] = 'CIE2013';
-		$db['default']['dbdriver'] = 'mssql';
-		$db['default']['dbprefix'] = '';
-		$db['default']['pconnect'] = TRUE;
-		$db['default']['db_debug'] = TRUE;
-		$db['default']['cache_on'] = FALSE;
-		$db['default']['cachedir'] = '';
-		$db['default']['char_set'] = 'utf8';
-		$db['default']['dbcollat'] = 'utf8_general_ci';
+		$db['conexion_A']['dbdriver'] = 'mssql';
+		$db['conexion_A']['dbprefix'] = '';
+		$db['conexion_A']['pconnect'] = TRUE;
+		$db['conexion_A']['db_debug'] = TRUE;
+		$db['conexion_A']['cache_on'] = FALSE;
+		$db['conexion_A']['cachedir'] = '';
+		$db['conexion_A']['char_set'] = 'utf8';
+		$db['conexion_A']['dbcollat'] = 'utf8_general_ci';
 		// $db['conexion_A']['dbcollat'] = 'utf8';
-		$db['default']['swap_pre'] = '';
-		$db['default']['autoinit'] = TRUE;
-		$db['default']['stricton'] = FALSE;
+		$db['conexion_A']['swap_pre'] = '';
+		$db['conexion_A']['autoinit'] = TRUE;
+		$db['conexion_A']['stricton'] = FALSE;
 
 		// Nuestra segunda base de datos:
 
-		// $db['conexion_B']['hostname'] = '192.168.201.43';// Yanawara
-		// $db['conexion_B']['username'] = 'yechevarria';
-		// $db['conexion_B']['password'] = 'inei2106';
+		$db['conexion_B']['hostname'] = '192.168.201.43';// Yanawara
+		$db['conexion_B']['username'] = 'yechevarria';
+		$db['conexion_B']['password'] = 'inei2106';
 
-		// $db['conexion_B']['database'] = 'BDCIE2013_INFRAESTRUCTURA';
-		// $db['conexion_B']['dbdriver'] = 'mssql';
-		// $db['conexion_B']['dbprefix'] = '';
-		// $db['conexion_B']['pconnect'] = FALSE;
-		// $db['conexion_B']['db_debug'] = TRUE;
-		// $db['conexion_B']['cache_on'] = FALSE;
-		// $db['conexion_B']['cachedir'] = '';
-		// $db['conexion_B']['char_set'] = 'utf8';
-		// //$db['conexion_B']['dbcollat'] = 'utf8_general_ci';
-		// $db['conexion_B']['dbcollat'] = 'utf8';
-		// $db['conexion_B']['swap_pre'] = '';
-		// $db['conexion_B']['autoinit'] = FALSE;
-		// $db['conexion_B']['stricton'] = FALSE;
+		$db['conexion_B']['database'] = 'BDCIE2013_INFRAESTRUCTURA';
+		$db['conexion_B']['dbdriver'] = 'mssql';
+		$db['conexion_B']['dbprefix'] = '';
+		$db['conexion_B']['pconnect'] = FALSE;
+		$db['conexion_B']['db_debug'] = TRUE;
+		$db['conexion_B']['cache_on'] = FALSE;
+		$db['conexion_B']['cachedir'] = '';
+		$db['conexion_B']['char_set'] = 'utf8';
+		//$db['conexion_B']['dbcollat'] = 'utf8_general_ci';
+		$db['conexion_B']['dbcollat'] = 'utf8';
+		$db['conexion_B']['swap_pre'] = '';
+		$db['conexion_B']['autoinit'] = FALSE;
+		$db['conexion_B']['stricton'] = FALSE;
 /* End of file database.php */
 /* Location: ./application/config/database.php */
