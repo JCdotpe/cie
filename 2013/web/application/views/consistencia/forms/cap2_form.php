@@ -2711,13 +2711,13 @@ $("#cap2_f").validate({
 			       valzero: ['P2_B_5B_1','P2_B_5B_2','P2_B_5B_3'],
 			    }, 	
 				P2_B_6_Trec_H: {
-			        valrango: [0,24,99],
+			        valrango: [0,98,99],
 			    }, 		
 				P2_B_6_Trec_M: {
 			        valrango: [0,59,99],
 			    }, 				    	    		
 				P2_B_7_Ttramo_H: {
-			        valrango: [0,24,99],
+			        valrango: [0,98,99],
 			    }, 				    		        		    		    		    	    			    			    		    			    		    		    	    		    
 				P2_B_7_Ttramo_M: {
 			        valrango: [0,59,99],
