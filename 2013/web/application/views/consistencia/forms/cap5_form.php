@@ -276,7 +276,7 @@ $("#cap5_f").validate({
 	    rules: {
 			P5_Tot_E: {
 				digits:true,
-				range:[1,99],
+				range:[0,99],
 				required: true,
 			},
 			P5_Tot_P: {
