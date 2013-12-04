@@ -2378,7 +2378,7 @@ $.each( <?php echo json_encode($cap2_p2_a->row()); ?>, function(fila, valor) {
 
 //p2_b
 $.each( <?php echo json_encode($cap2_p2_b->row()); ?>, function(fila, valor) {
-		if(fila == 'P2_B_2_Suelo' || fila == 'P2_B_8_Pelig'){
+		if(fila == 'P2_B_2_Suelo' || fila == 'P2_B_8_Pelig' || fila == 'P2_B_5_3' || fila == 'P2_B_5A_Uso'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
 		}else{
