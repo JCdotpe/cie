@@ -1797,7 +1797,7 @@ $("#P1_C_19_CompCan").change(function(event) {
 
 	$("#ax20n").empty();
 	for(var i=1; i<=$(this).val(); i++){
-		$("#ax20n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_C_20_Nro_' + i + '" value="' + i + '" name="P1_C_20_Nro[]"><input type="text" maxlength="1" id="P1_C_20_NombComp_' + i + '" value="" name="P1_C_20_NombComp[]"></li>')
+		$("#ax20n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_C_20_Nro_' + i + '" value="' + i + '" name="P1_C_20_Nro[]"><input type="text" maxlength="80" id="P1_C_20_NombComp_' + i + '" value="" name="P1_C_20_NombComp[]"></li>')
 	}
 	var as = 1;
 
