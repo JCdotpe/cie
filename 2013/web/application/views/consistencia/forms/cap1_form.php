@@ -435,13 +435,13 @@ $P1_C_3_DistCod = array(
 $P1_C_4_CCPP = array(
 	'name'	=> 'P1_C_4_CCPP',
 	'id'	=> 'P1_C_4_CCPP',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 );
 
 $P1_C_5_NucleoUrb = array(
 	'name'	=> 'P1_C_5_NucleoUrb',
 	'id'	=> 'P1_C_5_NucleoUrb',
-	'maxlength'	=> 1,
+	'maxlength'	=> 80,
 );
 
 $P1_C_6Dir_1_Tvia = array(
@@ -521,7 +521,7 @@ $P1_C_7_RefDir = array(
 $P1_C_8_InmCod = array(
 	'name'	=> 'P1_C_8_InmCod',
 	'id'	=> 'P1_C_8_InmCod',
-	'maxlength'	=> 1,
+	'maxlength'	=> 12,
 );
 
 $P1_C_8_InmTip = array(
