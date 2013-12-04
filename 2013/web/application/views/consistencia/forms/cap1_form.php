@@ -2294,7 +2294,7 @@ $("#cap1_ax").validate({
 		    rules: {  
 
 				P1_C_1_CodLoc_Anex: {
-			         valrango:[1,998,999],
+			         valrango:[1,999998,999999],
 			    }, 	
 				P1_C_6Dir_1_Tvia: {
 			        valrango:[1,7,9],
