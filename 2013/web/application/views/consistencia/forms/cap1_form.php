@@ -2442,6 +2442,7 @@ $("#predio_i").validate({
 				P1_B_3_2_AntReg_Cod: {
 			        digits: true,
 			        valrango:[1,5,9],
+			        required:true,
 			    }, 				    		    			    	    
 				P1_B_3_3_AntReg_Nro: {
 			        required:true,
