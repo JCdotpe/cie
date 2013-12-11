@@ -457,9 +457,9 @@ $P1_C_6Dir_2_Nomb = array(
 	'maxlength'	=> 255,
 );
 
-$P1_C_6Dir_Nro = array(
-	'name'	=> 'P1_C_6Dir_Nro',
-	'id'	=> 'P1_C_6Dir_Nro',
+$P1_C_6Dir_3_Nro = array(
+	'name'	=> 'P1_C_6Dir_3_Nro',
+	'id'	=> 'P1_C_6Dir_3_Nro',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
 );
@@ -1226,7 +1226,7 @@ echo '
 
 								<tr>
 									<td>'.form_input($P1_C_6Dir_2_Nomb).'<div class="help-block error"></div></td>
-									<td>'.form_input($P1_C_6Dir_Nro).'<div class="help-block error"></div></td>
+									<td>'.form_input($P1_C_6Dir_3_Nro).'<div class="help-block error"></div></td>
 									<td>'.form_input($P1_C_6Dir_4_Piso).'<div class="help-block error"></div></td>
 									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
 									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
@@ -2341,7 +2341,7 @@ $("#cap1_ax").validate({
 			    P1_C_6Dir_2_Nomb:{
 			    	required:true,
 			    },
-			    P1_C_6Dir_Nro:{
+			    P1_C_6Dir_3_Nro:{
 			    	required:true,
 			    },
 			    P1_C_6Dir_4_Piso:{
