@@ -243,7 +243,7 @@ $.validator.addMethod("valninguno", function(value, element, arg){
     flag = true;
     if(value == 1){
         for(var i = 0; i<=arg.length; i++){
-               if($('#' + arg[i]).val() == 1)
+               if($('#' + arg[i]).val() == 1 || $('#' + arg[i]).val() == 9)
                flag = false;
         }
     }else{
