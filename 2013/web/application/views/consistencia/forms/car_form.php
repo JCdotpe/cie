@@ -502,7 +502,7 @@ echo '
 							</li>
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
-								'.form_input($PC_A_9_RefDir).'
+								'.form_input($PC_A_9_RefDir).'<div class="help-block error"></div>
 							</li>
 						</ul>
 
@@ -534,7 +534,7 @@ echo '
 								<h5 class="panel-title">Sección C: Entrevista y Supervision</h5> 
 							</div>
 
-							<p>Número de visitas: '.form_input($pcar_num).'</p>
+							<div>Número de visitas: '.form_input($pcar_num).'<div class="help-block error"></div></div>
 
 							<h6>1. Evaluación y Supervisión</h6>
 
@@ -916,7 +916,7 @@ $('#pcar_c_n tr').remove('.entrev');
 	}else if(ahua==''){
 		//
 	}else{
-		alert('10 Entrevistas máximo');
+		//alert('10 Entrevistas máximo');
 	}
 
 
@@ -988,7 +988,11 @@ $("#car_f").validate({
 			    PC_B_2_CantEv:{
 			    		range: [1,99],
 			    		required: true,
-			    },     
+			    },
+			    pcar_num:{
+			    	required: true,
+			    	range:[1,10],
+			    },
 			    PC_A_7Dir_3_Nro:{
 			    	required: true,
 			    },    		         	
