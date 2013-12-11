@@ -541,6 +541,7 @@ $P1_C_9_Prop = array(
 $P1_C_9_Prop_O = array(
 	'name'	=> 'P1_C_9_Prop_O',
 	'id'	=> 'P1_C_9_Prop_O',
+	'disabled' => 'disabled',
 );
 
 $P1_C_10_AntReg_Cod = array(
@@ -1181,8 +1182,8 @@ echo '
 								<ul class="list-group">
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">2. Provincia </div> '.form_dropdown('P1_C_2_ProvCod', $provArray, FALSE,'class="input200" id="P1_C_2_ProvCod"').' </li>
 									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">3. Distrito </div> '.form_dropdown('P1_C_3_DistCod', $distArray, FALSE,'class="input200" id="P1_C_3_DistCod"').'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'</li>
-									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'</li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">4. Centro Poblado </div> '.form_input($P1_C_4_CCPP).'<div class="help-block error"></div></li>
+									<li class="list-group-item"><div style="width:150px; margin-left:10px; float:left;">5. Nucleo Urbano </div> '.form_input($P1_C_5_NucleoUrb).'<div class="help-block error"></div></li>
 								</ul>
 
 						</div>
@@ -1224,9 +1225,9 @@ echo '
 							<tbody>
 
 								<tr>
-									<td>'.form_input($P1_C_6Dir_2_Nomb).'</td>
-									<td>'.form_input($P1_C_6Dir_Nro).'</td>
-									<td>'.form_input($P1_C_6Dir_4_Piso).'</td>
+									<td>'.form_input($P1_C_6Dir_2_Nomb).'<div class="help-block error"></div></td>
+									<td>'.form_input($P1_C_6Dir_Nro).'<div class="help-block error"></div></td>
+									<td>'.form_input($P1_C_6Dir_4_Piso).'<div class="help-block error"></div></td>
 									<td>'.form_input($P1_C_6Dir_5_Mz).'</td>
 									<td>'.form_input($P1_C_6Dir_6_Lt).'</td>
 									<td>'.form_input($P1_C_6Dir_7_Sect).'</td>
@@ -1246,7 +1247,7 @@ echo '
 
 							<li class="list-group-item">
 								9. Referencia de la dirección del local escolar
-								'.form_input($P1_C_7_RefDir).'
+								'.form_input($P1_C_7_RefDir).'<div class="help-block error"></div>
 							</li>
 						</ul>
 
@@ -1264,7 +1265,7 @@ echo '
 										<td>
 											'.form_input($P1_C_8_InmTip).' <div class="help-block error"></div> 1. No tiene constancia , 2. No sabe 
 											<br />
-											'.form_input($P1_C_8_InmCod).'
+											'.form_input($P1_C_8_InmCod).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1275,7 +1276,7 @@ echo '
 										</td>
 										<td>
 											'.form_input($P1_C_9_Prop).'  <div class="help-block error"></div> 1. Ministerio de educación?,  2. Institución educativa?, 3. Estado?, 4. Otro sector del estado?, 5.Propiedad de terceros? <br />
-											'.form_input($P1_C_9_Prop_O).' Especifique
+											'.form_input($P1_C_9_Prop_O).' Especifique <div class="help-block error"></div>
 
 										</td>
 									</tr>
@@ -1294,7 +1295,7 @@ echo '
 										<td><strong>¿Cuál es el número del antecedente registral?</strong></td>
 										<td>
 											<label>N° de antecedente registral</label>
-											'.form_input($P1_C_11_AntReg_Nro).'
+											'.form_input($P1_C_11_AntReg_Nro).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1305,7 +1306,7 @@ echo '
 										</td>
 										<td>
 											'.form_input($P1_C_12_Tipo_TProp).' <div class="help-block error"></div> <br />
-											'.form_input($P1_C_12_Tipo_TProp_O).'
+											'.form_input($P1_C_12_Tipo_TProp_O).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1324,7 +1325,7 @@ echo '
 										</td>
 										<td>
 											'.form_input($P1_C_14_DocPos).' <div class="help-block error"></div> <br />
-											'.form_input($P1_C_14_DocPos_O).'
+											'.form_input($P1_C_14_DocPos_O).' <div class="help-block error"></div>
 										</td>
 									</tr>
 									<tr>
@@ -1796,35 +1797,37 @@ $("#P1_C_2_ProvCod").change(function(event) {
 $("#P1_C_19_CompCan").change(function(event) {
 
 	$("#ax20n").empty();
-	for(var i=1; i<=$(this).val(); i++){
-		$("#ax20n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_C_20_Nro_' + i + '" value="' + i + '" name="P1_C_20_Nro[]"><input type="text" maxlength="80" id="P1_C_20_NombComp_' + i + '" value="" name="P1_C_20_NombComp[]"></li>')
-	}
-	var as = 1;
-
-	//Llenar Anexos x Cod Mod
-	var axc_data = {
-		id_local: $("input[name='id_local']").val(),
-		Nro_Pred: $("input[name='Nro_Pred']").val(),
-		P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
-		P1_A_2_9_NroCMod: $("#P1_A_2_9_NroCMod").val(),
-		P1_A_2_9_Nro: $("#P1_A_2_9_Nro").val(),
-		ajax:1
-	};						
-
-	$.ajax({
-		url: CI.site_url + "/consistencia/cap1/get_ax_c",
-		type:'POST',
-		data:axc_data,
-		dataType:'json',
-		success:function(json){
-			$.each( json.axic, function(i, data) {
-				$('#P1_C_20_Nro_' +  as).val(data.P1_C_20_Nro);
-				$('#P1_C_20_NombComp_' +  as).val(data.P1_C_20_NombComp);			
-				as++;							
-			}); 	
+	if ( $(this).val() < 99 )
+	{
+		for(var i=1; i<=$(this).val(); i++){
+			$("#ax20n").append('<li><input type="text" maxlength="2" class="input2" readonly id="P1_C_20_Nro_' + i + '" value="' + i + '" name="P1_C_20_Nro[]"><input type="text" maxlength="80" id="P1_C_20_NombComp_' + i + '" value="" name="P1_C_20_NombComp[]"> <div class="help-block error"></div></li>')
 		}
-	});  
+		var as = 1;
 
+		//Llenar Anexos x Cod Mod
+		var axc_data = {
+			id_local: $("input[name='id_local']").val(),
+			Nro_Pred: $("input[name='Nro_Pred']").val(),
+			P1_A_2_NroIE: $("#P1_A_2_NroIE").val(),
+			P1_A_2_9_NroCMod: $("#P1_A_2_9_NroCMod").val(),
+			P1_A_2_9_Nro: $("#P1_A_2_9_Nro").val(),
+			ajax:1
+		};						
+
+		$.ajax({
+			url: CI.site_url + "/consistencia/cap1/get_ax_c",
+			type:'POST',
+			data:axc_data,
+			dataType:'json',
+			success:function(json){
+				$.each( json.axic, function(i, data) {
+					$('#P1_C_20_Nro_' +  as).val(data.P1_C_20_Nro);
+					$('#P1_C_20_NombComp_' +  as).val(data.P1_C_20_NombComp);			
+					as++;							
+				}); 	
+			}
+		});  
+	}
 });
 
 
@@ -1863,7 +1866,7 @@ $(document).on("click",'.axnro',function() {
  				//Llenar anexo			
 				$.each( json.axi[0], function(fila, valor) {
 					if(fila != 'id_local' && fila != 'Nro_Pred' && fila != 'P1_A_2_NroIE'){							
-						   	if(fila == 'P1_C_2_ProvCod' || fila == 'P1_C_10_AntReg_Cod' || fila == 'P1_C_11_AntReg_Nro' || fila == 'P1_C_12_Tipo_TProp' || fila == 'P1_C_14_DocPos' || fila == 'P1_C_18_Comp'|| fila == 'P1_C_19_CompCan'){
+						   	if(fila == 'P1_C_2_ProvCod' || fila == 'P1_C_8_InmTip' || fila == 'P1_C_8_InmCod' || fila == 'P1_C_9_Prop' || fila == 'P1_C_10_AntReg_Cod' || fila == 'P1_C_11_AntReg_Nro' || fila == 'P1_C_12_Tipo_TProp' || fila == 'P1_C_14_DocPos' || fila == 'P1_C_18_Comp'|| fila == 'P1_C_19_CompCan'){
 						   		$('#' + fila).val(valor);
 						   		$('#' + fila).trigger('change');
 							}else if(fila == 'P1_C_3_DistCod'){
@@ -2285,8 +2288,35 @@ $("#cap1_cm").validate({
 				            }
 				    });  
 			}
-});  
+}); 
 
+
+$('#P1_C_8_InmTip').change(function(event) {
+	if( $(this).val() == '' ){
+		$('#P1_C_8_InmCod').removeAttr('disabled');
+	}else if( $(this).val() == 1 || $(this).val() == 2 ){
+		$('#P1_C_8_InmCod').val('');
+		$('#P1_C_8_InmCod').attr('disabled','disabled');			
+	}
+});
+
+$('#P1_C_8_InmCod').change(function(event) {
+	if( $(this).val() == '' ){
+		$('#P1_C_8_InmTip').removeAttr('disabled');
+	}else if( $(this).length > 0 ){
+		$('#P1_C_8_InmTip').val('');
+		$('#P1_C_8_InmTip').attr('disabled','disabled');			
+	}
+});
+
+$('#P1_C_9_Prop').change(function(event) {
+	if( $(this).val() == 4 || $(this).val() == 5 ){
+		$('#P1_C_9_Prop_O').removeAttr('disabled');
+	}else if( $(this).val() < 4 ){
+		$('#P1_C_9_Prop_O').val('');
+		$('#P1_C_9_Prop_O').attr('disabled','disabled');			
+	}
+});
 
 
 //ax update
@@ -2294,26 +2324,77 @@ $("#cap1_ax").validate({
 		    rules: {  
 
 				P1_C_1_CodLoc_Anex: {
-			         valrango:[1,999998,999999],
+					required: true,	
+			        valrango:[1,999998,999999],
 			    }, 	
+			    P1_C_4_CCPP:{
+			    	validName:true,
+					required:true,
+			    },
+			    P1_C_5_NucleoUrb:{
+			    	validName:true,
+					required:true,
+			    },
 				P1_C_6Dir_1_Tvia: {
 			        valrango:[1,7,9],
-			    }, 			    	 
+			    },
+			    P1_C_6Dir_2_Nomb:{
+			    	required:true,
+			    },
+			    P1_C_6Dir_Nro:{
+			    	required:true,
+			    },
+			    P1_C_6Dir_4_Piso:{
+			    	range:[1,20],
+			    	required:true,
+			    },
+			    P1_C_7_RefDir:{
+			    	required:true,
+			    },
 				P1_C_8_InmTip: {
 			        valrango:[1,2,9],
-			    }, 	
+			        required:true,
+			    }, 
+			    P1_C_8_InmCod: {
+			    	number:true,
+			        required:true,
+			    }, 
 				P1_C_9_Prop: {
+					required:true,
 			        valrango:[1,5,9],
-			    }, 		
+			    },
+			    P1_C_9_Prop_O: {
+					required:true,
+			    },
 				P1_C_10_AntReg_Cod: {
+					required:true,
 			        valrango:[1,5,9],
-			    }, 				    		    
+			    },
+			    P1_C_11_AntReg_Nro: {
+					required:true,
+			    },
 				P1_C_12_Tipo_TProp: {
+					required:true,
 			        valrango:[1,10,99],
-			    }, 	
+			    },
+			    P1_C_12_Tipo_TProp_O: {
+					required:true,
+			    },
+			    P1_C_13_FecTit: {
+					required:true,
+			    },
 				P1_C_14_DocPos: {
+					required:true,
 			        valrango:[1,10,99],
-			    }, 				 
+			    },
+			    P1_C_14_DocPos_O: {
+					required:true,
+			    },
+			    P1_C_15_DocPos_Fech: {
+					required:true,
+			    },
+
+
 				P1_C_16_At_Pred: {
 			        requeridodis:true,
 			    }, 					       
@@ -2322,11 +2403,16 @@ $("#cap1_ax").validate({
 			        minor:['P1_C_16_At_Pred','16']
 			    }, 		
 				P1_C_18_Comp: {
+					required:true,
 			        valrango:[1,2,9],
 			    }, 			
 				P1_C_19_CompCan: {
-			        range:[1,98,99],
-			    }, 				    		    	    		    
+					required:true,
+			        valrango:[1,98,99],
+			    },
+			    'P1_C_20_NombComp[]':{
+			    	required:true,
+			    }
 			},
 
 		    messages: {   
