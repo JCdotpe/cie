@@ -229,7 +229,7 @@ $.validator.addMethod("valzero", function(value, element, arg){
     flag = false;
     if(value == 0 && (!element.readOnly)){
         for(var i = 0; i<=arg.length; i++){
-               if($('#' + arg[i]).val() == 1)
+               if($('#' + arg[i]).val() == 1 || $('#' + arg[i]).val() == 9)
                flag = true;
         }
     }else{
@@ -237,6 +237,20 @@ $.validator.addMethod("valzero", function(value, element, arg){
     }
     return flag;
  }, "Debe ingresar al menos una opción, no pueden ser 0 todas las opciones.");  
+
+
+$.validator.addMethod("valninguno", function(value, element, arg){
+    flag = true;
+    if(value == 1){
+        for(var i = 0; i<=arg.length; i++){
+               if($('#' + arg[i]).val() == 1)
+               flag = false;
+        }
+    }else{
+      flag = true;
+    }
+    return flag;
+ }, "Selecciono la opción ( NINGUNO / NO TIENE ), todas las opciones anteriores deben ser 0."); 
 
 
  $.validator.addMethod("valrango", function(value, element,arg){

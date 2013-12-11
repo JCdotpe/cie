@@ -632,7 +632,7 @@ $P2_D_4_Energ_Emp = array(
 $P2_D_6_Agua_CantSum = array(
 	'name'	=> 'P2_D_6_Agua_CantSum',
 	'id'	=> 'P2_D_6_Agua_CantSum',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
 	'class'	=> 'input1',
 );
 
@@ -866,7 +866,7 @@ $P2_E_1_Prayo = array(
 $P2_E_2_Ptierra = array(
 	'name'	=> 'P2_E_2_Ptierra',
 	'id'	=> 'P2_E_2_Ptierra',
-	'maxlength'	=> 5,
+	'maxlength'	=> 2,
 	'class'	=> 'input5',
 );
 
@@ -1148,7 +1148,7 @@ $P2_G_2B_snip_6 = array(
 );
 
 $P2_G_2_Cod_7 = array(
-	'name'	=> 'P2_G_2_Cod[]',
+	'name'	=> 'P2_G_2_Cod[6]',
 	'id'	=> 'P2_G_2_Cod_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1 p2g2',
@@ -2177,7 +2177,7 @@ $('#P2_D_5_Cod_1').change(function(event) {
 
 
 $('#P2_D_1_Cod_1').change(function(event) {
-	if($(this).val() != 1){		
+	if( $(this).val() == 1 || $(this).val() == '' ){
 		$('#P2_D_2_Energ_CantSum').val('');
 		$('#P2_D_2_Energ_CantSum').attr('disabled','disabled');				
 		$('#P2_D_4_Energ_Emp').val('');
@@ -2321,7 +2321,7 @@ $('#P2_D_5_Cod_6').change(function(event) {
 
 $('#P2_D_1_Cod_4').change(function(event) {
 
-	if($(this).val() == 1){
+	if($(this).val() == 1 || $(this).val() == 9){
 		$('#P2_D_1_Cod_O').removeAttr('disabled');
 	}else{
 		$('#P2_D_1_Cod_O').val('');
@@ -2354,7 +2354,7 @@ $('#P2_B_11_Cod_11').change(function(event) {
 
 $('#P2_B_2_Suelo').change(function(event) {
 
-	if($(this).val() == 6){
+	if($(this).val() == 6 || $(this).val() == 9){
 		$('#P2_B_2_Suelo_O').removeAttr('disabled');
 	}else{
 		$('#P2_B_2_Suelo_O').val('');
@@ -2442,7 +2442,7 @@ $('#p2_d_3_n tr').remove('.sumin');
 	}else if(ahua==''){
 		//
 	}else{
-		alert('10 Entrevistas máximo');
+		//alert('10 Entrevistas máximo');
 	}
 
 
@@ -2487,7 +2487,7 @@ $('#p2_d_7_n tr').remove('.sumina');
 	}else if(ahua==''){
 		//
 	}else{
-		alert('10 Entrevistas máximo');
+		//alert('10 Entrevistas máximo');
 	}
 
 
@@ -2632,7 +2632,7 @@ $("#cap2_f").validate({
 		    		required:true,
 		    	},
 				P2_D_2_Energ_CantSum:{
-					range: [0,10],
+					valrango: [1,10,99],
 					required:true,
 				},
 
@@ -2641,6 +2641,7 @@ $("#cap2_f").validate({
 			        valrango: [1,3,9],
 			    },  
 				P2_B_4_CapAcc:{
+					required:true,
 					validName:true,
 				},			    
 				P2_A_2_Lluv: {
@@ -2680,9 +2681,11 @@ $("#cap2_f").validate({
 			        valrango: [1,12,99],
 			    }, 				    			    	
 				P2_A_5_Vend: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 				    	    			         				    	    			    	    
 				P2_A_5A_Vend_Tip: {
+					required: true,
 			        valrango: [1,2,9],
 			    }, 		
 				P2_A_5B_Vend_Mini: {
@@ -2694,39 +2697,49 @@ $("#cap2_f").validate({
 			        valrango: [1,12,99],
 			    }, 		
 				P2_B_1_Topo: {
+					required:true,
 			        valrango: [1,4,9],
 			    }, 		
 				P2_B_2_Suelo: {
+					required:true,
 			        valrango: [1,6,9],
 			    }, 	
 				P2_B_3_Prof: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 		
 				P2_B_5_1: {
 			        valrango: [0,1,9],
+			        required: true,
 			    }, 	
 				P2_B_5_2: {
-			         valrango: [0,1,9],
+					valrango: [0,1,9],
+					required: true,
 			    }, 
 				P2_B_5_3: {
-			         valrango: [0,1,9],
-			         valzero: ['P2_B_5_1','P2_B_5_2'],
+			        valrango: [0,1,9],
+			        valzero: ['P2_B_5_1','P2_B_5_2'],
+			        required: true,
 			    }, 			    	
 				P2_B_5A_Uso: {
 			        valrango: [1,2,9],
 			    }, 		
 				P2_B_5B_1: {
 			        valrango: [0,1,9],
+			        required: true,
 			    }, 		
 				P2_B_5B_2: {
 			        valrango: [0,1,9],
+			        required: true,
 			    }, 		
 				P2_B_5B_3: {
 			        valrango: [0,1,9],
+			        required: true,
 			    }, 				
-				P2_B_5B_4: {
-			       valrango: [0,1,9],
-			       valzero: ['P2_B_5B_1','P2_B_5B_2','P2_B_5B_3'],
+				P2_B_5B_4: {					
+			       	valrango: [0,1,9],
+			       	valzero: ['P2_B_5B_1','P2_B_5B_2','P2_B_5B_3'],
+			       	required:true,
 			    }, 	
 				P2_B_6_Trec_H: {
 			        valrango: [0,98,99],
@@ -2748,100 +2761,136 @@ $("#cap2_f").validate({
 
 				'P2_B_9_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 
 				'P2_B_9_Cod[9]': {
 					valrango: [0,1,9],
 			        valzero: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
+			        valninguno: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
 			    }, 
 				'P2_B_10_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 
 				'P2_B_10_Cod[6]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
+			        valninguno: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
 			    }, 
 
 				'P2_B_11_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 
 
 				'P2_B_11_Cod[11]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
+			        valninguno: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
 			    }, 	
 
 
 			    'P2_B_12_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 	
 
 				'P2_B_12_Cod[6]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
+			        valninguno: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
 			    }, 		
 
 				P2_C_1Locl_1_Energ: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 			    	    
 				P2_C_1Locl_2_Agua: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_3_Alc: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 			
 				P2_C_1Locl_4_Tfija: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_5_Tmov: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 		
 				P2_C_1Locl_6_Int: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 			
 				P2_C_2LocE_1_Energ: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 			
 				P2_C_2LocE_2_Agua: {
+					required:true,
 			        valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_3_Alc: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_4_Tfija: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 	
 				P2_C_2LocE_5_Tmov: {
-			       valrango: [1,2,9],
+					required:true,
+			       	valrango: [1,2,9],
 			    }, 		
 				P2_C_2LocE_6_Int: {
-			       valrango: [1,2,9],
-			    }, 		
+					required:true,
+			       	valrango: [1,2,9],
+			    },
 
 				'P2_D_1_Cod[]': {
 			        valrango: [0,1,9],
-			    }, 		
+			        required:true,
+			    },
 
-				// 'P2_D_1_Cod[3]': {
-			 //        valrango: [0,1,9],
-			 //        valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
-			 //    }, 	
+				'P2_D_1_Cod[3]': {
+					valrango: [0,1,9],
+					required:true,
+			 	//	valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
+			    }, 	
 
 				'P2_D_5_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 		
 
 				'P2_D_5_Cod[5]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5'],
+			        required:true,
 			    }, 
+
+			    P2_D_6_Agua_CantSum: {
+					required:true,
+			       	valrango: [1,10,99],
+			    },
+
+			    P2_D_8_Agua_Emp: {
+					required:true,
+			    },
 
 				'P2_D_9_Nro[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    }, 		
 
 				'P2_D_9_Nro[6]': {
+					required:true,
 			        valrango: [0,1,9],
 			        valzero:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
+			        valninguno:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
@@ -2855,9 +2904,11 @@ $("#cap2_f").validate({
 			    // E	
 				P2_E_1_Prayo: {
 			        valrango: [1,2,9],
+			        required:true,
 			    }, 	
 				P2_E_2_Ptierra: {
 			        valrango: [0,98,99],
+			        required:true,
 			    }, 		
 				P2_E_3_Ano: {
 			       year:true,
@@ -2866,11 +2917,12 @@ $("#cap2_f").validate({
 
 				'P2_F_1_ElimBas[]': {
 			        valrango: [0,1,9],
+			        required:true,
 			    },
 				'P2_F_1_ElimBas[9]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_F_1_ElimBas_1','P2_F_1_ElimBas_2','P2_F_1_ElimBas_3','P2_F_1_ElimBas_4','P2_F_1_ElimBas_5','P2_F_1_ElimBas_6','P2_F_1_ElimBas_7','P2_F_1_ElimBas_8','P2_F_1_ElimBas_9'],
-
+			        required:true,
 			    },
 			    // G
 
@@ -2883,12 +2935,17 @@ $("#cap2_f").validate({
 
 				'P2_G_2_Cod[]': {
 			        valrango: [0,1,9],
+			        required:true,
+			    },
+			    'P2_G_2_Cod[6]': {
+			        valrango: [0,1,9],
+			        valzero:['P2_G_2_Cod_1','P2_G_2_Cod_2','P2_G_2_Cod_3','P2_G_2_Cod_4','P2_G_2_Cod_5','P2_G_2_Cod_6'],
+			        required:true,
 			    },
 	
 				'P2_G_2A_EstPre[]': {
 			        valrango: [1,2,9],
-			    },	
-
+			    },
 			    	                        			    			      						    
 		    },
 
