@@ -928,8 +928,6 @@ $P6_2_20Obs = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-$attr = array('class' => 'form-vertical form-auth','id' => 'cap6_f');
-
 echo '
 
 <div class="panel panel-info">
@@ -955,8 +953,10 @@ echo '
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
-		  	    			</table>
-'.form_open($this->uri->uri_string(),$attr).'
+		  	    			</table>';
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap6_i');
+echo form_open($this->uri->uri_string(),$attr);
+echo '
 
 		  	    			<div style="background:#DDD;" class="panel">
 								<strong>Visualizar Edificaciones</strong>
@@ -1246,6 +1246,12 @@ echo '
 		  	    				</tr></tbody>
 		  	    				</table>
 							</div>
+							<div class="panel">'.form_submit('send', 'Guardar','class="btn btn-primary"').'</div>';
+echo form_close();
+
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap6_amb');
+echo form_open($this->uri->uri_string(),$attr);
+echo '
 
 
 						<div id="cap6_2_f" >
@@ -2234,13 +2240,19 @@ echo '
 		  	    				</tbody>
 		  	    				</table>
 
-		  	    				<!-- cierre caso 1-->
+		  	    				<div class="panel">'.form_submit('send', 'Guardar','class="btn btn-primary"').'</div>
+
+		  	    				<!-- cierre caso 1-->';
+echo form_close();
+echo '
 
 
 		  	    			</div>
 						</div>
-						<!-- cierre cap6_2_f-->
-
+						<!-- cierre cap6_2_f-->';
+$attr = array('class' => 'form-vertical form-auth','id' => 'cap6_i2');
+echo form_open($this->uri->uri_string(),$attr);
+echo '
 
 							<table class="table table-bordered">
 								<thead>
@@ -2511,7 +2523,9 @@ $(document).ready(function(){
 	$('#panel_edificaciones_vi').on('click','.combo_ins1',function(event){
 
 		//resetea form
-		$('#cap6_f')[0].reset(); 
+		$('#cap6_i')[0].reset(); 
+		$('#cap6_amb')[0].reset();
+		$('#cap6_i2')[0].reset(); 
 		resetea_edificacion_P6_1();
 		resetea_ambiente_P6_2();
 		//
@@ -2621,7 +2635,7 @@ $(document).ready(function(){
 		array=val.split(".")
 		
 		//vuelve original
-		$('#cap6_2_f input').val('');
+		$('#cap6_amb')[0].reset();
 		resetea_ambiente_P6_2();
 		//
 		$('#P6_2_1').val(array[0]);
@@ -3587,7 +3601,7 @@ $(document).ready(function(){
 
 	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-	$("#cap6_f").validate({
+	$("#cap6_i").validate({
 		rules: {
 			//Seccion A
 			Cant_Edif_6:{
@@ -3645,7 +3659,59 @@ $(document).ready(function(){
 				valrango:[0,1,9],
 				required: true,
 			},
+		},
 
+		messages: {
+			//FIN MESSAGES
+		},
+		errorPlacement: function(error, element) {
+			$(element).next().after(error);
+		},
+		invalidHandler: function(form, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				var message = errors == 1
+				? 'Por favor corrige estos errores:\n'
+				: 'Por favor corrige los ' + errors + ' errores.\n';
+				var errors = "";
+				if (validator.errorList.length > 0) {
+					for (x=0;x<validator.errorList.length;x++) {
+						errors += "\n\u25CF " + validator.errorList[x].message;
+					}
+				}
+				alert(message + errors);
+			}
+			validator.focusInvalid();
+		},
+		submitHandler: function(form) {
+			var cap6_data = $("#cap6_i").serializeArray();
+			cap6_data.push(
+				{name: 'ajax',value:1},
+				{name: 'id_local',value:$("input[name='id_local']").val()},      
+				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+			);
+
+			var bcar = $( "#cap6_i :submit" );
+			bcar.attr("disabled", "disabled");
+			$.ajax({
+				url: CI.site_url + "/consistencia/cap6",
+				type:'POST',
+				data:cap6_data,
+				dataType:'json',
+				success:function(json){
+					alert(json.msg);
+					bcar.removeAttr('disabled');
+				}
+			});
+		}
+	});
+
+
+
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	$("#cap6_amb").validate({
+		rules: {
 			//Seccion B
 			P5_NroPiso:{
 				digits:true,
@@ -4022,6 +4088,61 @@ $(document).ready(function(){
 				valrango:[0,98,99],
 				required:true,
 			},
+		},
+
+		messages: {
+			//FIN MESSAGES
+		},
+		errorPlacement: function(error, element) {
+			$(element).next().after(error);
+		},
+		invalidHandler: function(form, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				var message = errors == 1
+				? 'Por favor corrige estos errores:\n'
+				: 'Por favor corrige los ' + errors + ' errores.\n';
+				var errors = "";
+				if (validator.errorList.length > 0) {
+					for (x=0;x<validator.errorList.length;x++) {
+						errors += "\n\u25CF " + validator.errorList[x].message;
+					}
+				}
+				alert(message + errors);
+			}
+			validator.focusInvalid();
+		},
+		submitHandler: function(form) {
+			var cap6_data = $("#cap6_amb").serializeArray();
+			cap6_data.push(
+				{name: 'ajax',value:1},
+				{name: 'id_local',value:$("input[name='id_local']").val()},      
+				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
+				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()}
+			);
+
+			var bcar = $( "#cap6_amb :submit" );
+			bcar.attr("disabled", "disabled");
+			$.ajax({
+				url: CI.site_url + "/consistencia/cap6/cap6_amb",
+				type:'POST',
+				data:cap6_data,
+				dataType:'json',
+				success:function(json){
+					alert(json.msg);
+					bcar.removeAttr('disabled');
+					document.getElementById('P6_1_10_op14').scrollIntoView(true);
+				}
+			});
+		}
+	});
+
+
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	$("#cap6_i2").validate({
+		rules: {
+			//Seccion C
 			P6_3_1:{
 				digits:true,
 				valrango:[1,2,9],
@@ -4116,24 +4237,25 @@ $(document).ready(function(){
 			validator.focusInvalid();
 		},
 		submitHandler: function(form) {
-			var cap6_data = $("#cap6_f").serializeArray();
+			var cap6_data = $("#cap6_i2").serializeArray();
 			cap6_data.push(
 				{name: 'ajax',value:1},
 				{name: 'id_local',value:$("input[name='id_local']").val()},      
-				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
+				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()}
 			);
 
-			var bcar = $( "#cap6_f :submit" );
+			var bcar = $( "#cap6_i2 :submit" );
 			bcar.attr("disabled", "disabled");
 			$.ajax({
-				url: CI.site_url + "/consistencia/cap6",
+				url: CI.site_url + "/consistencia/cap6/cap6_i2",
 				type:'POST',
 				data:cap6_data,
 				dataType:'json',
 				success:function(json){
 					alert(json.msg);
 					bcar.removeAttr('disabled');
-					document.getElementById('P6_1_10_op14').scrollIntoView(true);
+					document.getElementById('ctab6').scrollIntoView(true);
 				}
 			});
 		}
