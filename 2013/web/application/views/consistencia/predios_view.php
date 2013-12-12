@@ -67,6 +67,12 @@ $(function(){
     $('.btn-primary').hide();
   }
 
+$(document).on("keyup",'.btn-primary',function(e) {    
+      var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+      if(key == 13)
+      $(this).trigger('click');
+   }); 
+
 
 
   $(window).keydown(function(event){

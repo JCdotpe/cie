@@ -664,6 +664,9 @@ $(document).ready(function(){
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								$('#ctab4').removeClass('active');
+								$('#ctab5 a').trigger('click');
+								window.scrollTo(0, 0);
 				            }
 				        });
 			}

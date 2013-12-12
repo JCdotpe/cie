@@ -2932,6 +2932,8 @@ $("#cap2_f").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								$('#ctab2').removeClass('active');
+								$('#ctab3 a').trigger('click');
 								window.scrollTo(0, 0);
 				            }
 				        });     			          	

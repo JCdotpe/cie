@@ -2649,7 +2649,7 @@ $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
 //ies
 btnies(<?php echo $cap1_p1_a_2n->num_rows(); ?>);
 
-$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
+// $('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 
 }); 
 </script>

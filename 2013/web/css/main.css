@@ -730,3 +730,8 @@ ul.predios_views {
 .fix_tabcontent{
   margin-top: 70px
 }
+
+
+.fix_tabcontent td, .fix_tabcontent .panel{
+   background: #EEE;
+  }

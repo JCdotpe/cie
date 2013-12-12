@@ -165,7 +165,7 @@ $PC_C_2_Rfinal_fecha = array(
 	'id'	=> 'PC_C_2_Rfinal_fecha',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
-	'readonly' => true,
+	// 'readonly' => true,
 );
 
 // FIN DETALLE - Sección C: Entrevista y Supervision
@@ -900,7 +900,7 @@ $('#pcar_c_n tr').remove('.entrev');
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="entrev">';
 	    asd +='<td><input type="text" class="input1 embc' + i + '" maxlength="1" readonly name="PC_C_1_NroVis[]" id="PC_C_1_NroVis_' + i + '" value="' + i + '" ></td>';
-	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap" readonly maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
+	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap"  maxlength="10" name="PC_C_1_Et_Fecha[]" id="PC_C_1_Et_Fecha_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hini[]" id="PC_C_1_Et_Hini_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input5 embc' + i + '" maxlength="5" name="PC_C_1_Et_Hfin[]" id="PC_C_1_Et_Hfin_' + i + '" value="" ><div class="help-block error"></div></td>';
 	    asd +='<td><input type="text" class="input10 embc' + i + ' fechap caraaf" maxlength="10" name="PC_C_1_Et_Fecha_Prox[]" id="PC_C_1_Et_Fecha_Prox_' + i + '" value="" ><div class="help-block error"></div></td>';
@@ -938,7 +938,7 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 	   $('#PC_C_1_Jb_Hfin_' +  as).val(data.PC_C_1_Jb_Hfin);
 	   as++;
 }); 
-$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
+// $('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 });
 
 $('#pcar_num').trigger('change');
@@ -1075,6 +1075,8 @@ $("#car_f").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								$('#ctab').removeClass('active');
+								$('#ctab1 a').trigger('click');
 								window.scrollTo(0, 0);
 				            }
 				        });     			          	
@@ -1083,7 +1085,7 @@ $("#car_f").validate({
 
 
 
-$('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
+// $('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 
 }); 
 </script>
