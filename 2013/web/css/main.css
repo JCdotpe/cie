@@ -701,3 +701,32 @@ input, textarea{
     margin: 0 10px 0 0 !important;
     width: auto !important;
 }
+
+
+
+.fx_fix{
+
+   background: #FFF;
+    position: fixed;
+    top: 110px;
+    z-index: 9999;
+
+}
+
+.fix_navcap{
+   background: #FFF;
+    position: fixed;
+    top: 190px;
+    z-index: 9999;
+}
+
+ul.predios_views {
+    background: #FFF;
+    position: fixed;
+    top: 150px;
+    z-index: 9999;
+}
+
+.fix_tabcontent{
+  margin-top: 70px
+}

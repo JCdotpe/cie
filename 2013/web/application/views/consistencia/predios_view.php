@@ -2,7 +2,7 @@
 <?php 
 $pr_view = ($pr == 0)? 'No se encontraron' : $pr;
  ?>
-<h4>Codigo de local: <?php echo $cod; ?> <button type="button" class="btn btn-success" id="prbtn">+</button> - Predio <?php echo $pr_view; ?></h4>
+<h4 class="fx_fix">Codigo de local: <?php echo $cod; ?> <button type="button" class="btn btn-success" id="prbtn">+</button> - Predio <?php echo $pr_view; ?></h4>
 
 
 <?php 
@@ -383,7 +383,7 @@ echo form_hidden('Nro_Pred', $pr);
 <div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
-		  <ul class="nav nav-tabs" style="text-align:center">
+		  <ul class="nav nav-tabs fix_navcap" style="text-align:center">
 		    <li id="ctab"><a href="#tabc" data-toggle="tab">Carátula</a></li>
 		    <li id="ctab1"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
 		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Capítulo II</a></li>
@@ -395,7 +395,7 @@ echo form_hidden('Nro_Pred', $pr);
 		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Capítulo VIII</a></li>
 		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Capítulo IX</a></li>
 		  </ul>
-		  <div class="tab-content">
+		  <div class="tab-content fix_tabcontent">
 		    <div class="tab-pane" id="tabc">
 		      <p><?php $this->load->view('consistencia/forms/car_form'); ?></p>
 		    </div>	
