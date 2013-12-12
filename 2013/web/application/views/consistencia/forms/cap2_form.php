@@ -2177,7 +2177,7 @@ $('#P2_D_5_Cod_1').change(function(event) {
 
 
 $('#P2_D_1_Cod_1').change(function(event) {
-	if( $(this).val() == 1 || $(this).val() == '' ){
+	if( $(this).val() == 0 || $(this).val() == '' ){
 		$('#P2_D_2_Energ_CantSum').val('');
 		$('#P2_D_2_Energ_CantSum').attr('disabled','disabled');				
 		$('#P2_D_4_Energ_Emp').val('');
@@ -2852,7 +2852,7 @@ $("#cap2_f").validate({
 
 				'P2_D_1_Cod[]': {
 			        valrango: [0,1,9],
-			        required:true,
+			        requeridodis:true,
 			    },
 
 				'P2_D_1_Cod[3]': {
