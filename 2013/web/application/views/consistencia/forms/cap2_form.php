@@ -2869,7 +2869,7 @@ $("#cap2_f").validate({
 				'P2_D_5_Cod[5]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5'],
-			        required:true,
+			        requeridodis:true,
 			    }, 
 
 			    P2_D_6_Agua_CantSum: {
