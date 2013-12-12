@@ -2857,19 +2857,19 @@ $("#cap2_f").validate({
 
 				'P2_D_1_Cod[3]': {
 					valrango: [0,1,9],
-					required:true,
+					requiredodis:true,
 			 	//	valzero:['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3'],
 			    }, 	
 
 				'P2_D_5_Cod[]': {
 			        valrango: [0,1,9],
-			        required:true,
+			        requiredodis:true,
 			    }, 		
 
 				'P2_D_5_Cod[5]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5'],
-			        requeridodis:true,
+			        requiredodis:true,
 			    }, 
 
 			    P2_D_6_Agua_CantSum: {
@@ -2883,11 +2883,11 @@ $("#cap2_f").validate({
 
 				'P2_D_9_Nro[]': {
 			        valrango: [0,1,9],
-			        required:true,
+			        requiredodis:true,
 			    }, 		
 
 				'P2_D_9_Nro[6]': {
-					required:true,
+					requiredodis:true,
 			        valrango: [0,1,9],
 			        valzero:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
 			        valninguno:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
@@ -2917,12 +2917,12 @@ $("#cap2_f").validate({
 
 				'P2_F_1_ElimBas[]': {
 			        valrango: [0,1,9],
-			        required:true,
+			        requiredodis:true,
 			    },
 				'P2_F_1_ElimBas[9]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_F_1_ElimBas_1','P2_F_1_ElimBas_2','P2_F_1_ElimBas_3','P2_F_1_ElimBas_4','P2_F_1_ElimBas_5','P2_F_1_ElimBas_6','P2_F_1_ElimBas_7','P2_F_1_ElimBas_8','P2_F_1_ElimBas_9'],
-			        required:true,
+			        requiredodis:true,
 			    },
 			    // G
 
@@ -2935,12 +2935,12 @@ $("#cap2_f").validate({
 
 				'P2_G_2_Cod[]': {
 			        valrango: [0,1,9],
-			        required:true,
+			        requiredodis:true,
 			    },
 			    'P2_G_2_Cod[6]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_G_2_Cod_1','P2_G_2_Cod_2','P2_G_2_Cod_3','P2_G_2_Cod_4','P2_G_2_Cod_5','P2_G_2_Cod_6'],
-			        required:true,
+			        requiredodis:true,
 			    },
 	
 				'P2_G_2A_EstPre[]': {

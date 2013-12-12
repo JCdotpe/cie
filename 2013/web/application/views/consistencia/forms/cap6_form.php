@@ -1246,6 +1246,7 @@ echo '
 		  	    				</tr></tbody>
 		  	    				</table>
 							</div>
+							<div></div>
 
 
 						<div id="cap6_2_f" >
