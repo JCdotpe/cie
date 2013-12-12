@@ -285,7 +285,7 @@ $P6_2_7_O = array(
 	'name'	=> 'P6_2_7_O',
 	'id'	=> 'P6_2_7_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -301,7 +301,7 @@ $P6_2_8_O = array(
 	'name'	=> 'P6_2_8_O',
 	'id'	=> 'P6_2_8_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -317,7 +317,7 @@ $P6_2_9_O = array(
 	'name'	=> 'P6_2_9_O',
 	'id'	=> 'P6_2_9_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -333,7 +333,7 @@ $P6_2_10_O = array(
 	'name'	=> 'P6_2_10_O',
 	'id'	=> 'P6_2_10_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -349,7 +349,7 @@ $P6_2_11_O = array(
 	'name'	=> 'P6_2_11_O',
 	'id'	=> 'P6_2_11_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -365,7 +365,7 @@ $P6_2_12_O = array(
 	'name'	=> 'P6_2_12_O',
 	'id'	=> 'P6_2_12_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -381,7 +381,7 @@ $P6_2_13_O = array(
 	'name'	=> 'P6_2_13_O',
 	'id'	=> 'P6_2_13_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -468,7 +468,7 @@ $P6_2_15_O = array(
 	'name'	=> 'P6_2_15_O',
 	'id'	=> 'P6_2_15_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -638,7 +638,7 @@ $P6_2_16e_O = array(
 	'name'	=> 'P6_2_16e_O',
 	'id'	=> 'P6_2_16e_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -677,7 +677,7 @@ $P6_2_17d = array(
 	'name'	=> 'P6_2_17d',
 	'id'	=> 'P6_2_17d',
 	'maxlength'	=> 1,
-	'class' => 'input1',	
+	'class' => 'input4',	
 	'disabled' => 'disabled',	
 );
 
@@ -840,7 +840,7 @@ $P6_2_18e_O = array(
 	'name'	=> 'P6_2_18e_O',
 	'id'	=> 'P6_2_18e_O',
 	'maxlength'	=> 200,
-	'class' => 'input200 ValObs',
+	'class' => 'input200',
 	'disabled' => 'disabled',
 );
 
@@ -1091,7 +1091,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op1" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op1" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1102,7 +1102,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op2" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op2" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1113,7 +1113,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op3" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op3" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1124,7 +1124,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op4" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op4" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1135,7 +1135,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op5" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op5" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1146,7 +1146,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op6" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op6" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1157,7 +1157,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op7" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op7" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1168,7 +1168,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op8" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op8" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1179,7 +1179,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op9" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op9" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1190,7 +1190,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op10" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op10" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1201,7 +1201,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op11" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op11" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1212,7 +1212,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op12" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op12" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1223,7 +1223,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op13" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op13" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1234,7 +1234,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[13]" id="P6_1_10_op14" class="input1" maxlength="1" value="" >
+															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op14" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1246,7 +1246,6 @@ echo '
 		  	    				</tr></tbody>
 		  	    				</table>
 							</div>
-							<div></div>
 
 
 						<div id="cap6_2_f" >
@@ -1314,7 +1313,7 @@ echo '
 		  	    							<tbody>
 		  	    								<tr>
 		  	    									<td>
-		  	    										<input type="text" name="P6_2_4Mod[0]" id="P6_2_4Mod_op1" maxlength="1" class="input1" value="" >
+		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op1" maxlength="1" class="input1" value="" >
 			  	    									1. Inicial cuna <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
@@ -1329,7 +1328,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[0]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1350,7 +1349,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[1]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1371,7 +1370,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[2]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1392,7 +1391,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[3]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1413,7 +1412,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[4]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1434,7 +1433,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[5]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1455,7 +1454,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[6]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1476,7 +1475,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[7]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1497,7 +1496,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[8]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1518,7 +1517,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[9]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1539,7 +1538,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[10]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1560,7 +1559,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[11]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1581,13 +1580,13 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[12]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
-		  	    										<input type="text" name="P6_2_4Mod[13]" id="P6_2_4Mod_op14" maxlength="1" class="input1" value="" >
+		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op14" maxlength="1" class="input1" value="" >
 			  	    									14. Ludoteca <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
@@ -1602,7 +1601,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[13]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1655,7 +1654,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_7).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_7_O).' <div class="help-block error"></div>
+			  	    						'.form_input($P6_2_7).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_7_O).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso5">
@@ -1665,7 +1664,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_8).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_8_O).' <div class="help-block error"></div>
+			  	    						'.form_input($P6_2_8).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_8_O).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso6">
@@ -1675,7 +1674,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_9).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_9_O).' <div class="help-block error"></div>
+			  	    						'.form_input($P6_2_9).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_9_O).'
 			  	    					</td>
 		  	    					</tr>
 		  	    					<tr id="P6caso7">
@@ -1685,7 +1684,7 @@ echo '
 			  	    						<br>(Acepte sólo un código)
 			  	    					</td>
 			  	    					<td>
-			  	    						'.form_input($P6_2_10).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_10_O).' <div class="help-block error"></div>
+			  	    						'.form_input($P6_2_10).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_10_O).'
 			  	    					</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1708,7 +1707,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_11).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_11_O).' <div class="help-block error"></div>
+		  	    							'.form_input($P6_2_11).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_11_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1730,7 +1729,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_12).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_12_O).' <div class="help-block error"></div>
+		  	    							'.form_input($P6_2_12).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_12_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1752,7 +1751,7 @@ echo '
 		  	    							</strong>
 		  	    						</td>
 		  	    						<td>
-		  	    							'.form_input($P6_2_13).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_13_O).' <div class="help-block error"></div>
+		  	    							'.form_input($P6_2_13).'<div class="help-block error"></div> - Especifique '.form_input($P6_2_13_O).'
 		  	    						</td>
 		  	    					</tr>
 		  	    				</tbody>
@@ -1882,9 +1881,9 @@ echo '
 			  	    							</thead>
 			  	    							<tbody>
 			  	    									<td>
-				  	    									<label>'.form_input($P6_2_15).' <div class="help-block error"></div></label>
-															<label>Especifique - '.form_input($P6_2_15_O).' <div class="help-block error"></div> </label>
-															
+				  	    									<label>'.form_input($P6_2_15).' <div class="help-block error"></div>
+																Especifique - '.form_input($P6_2_15_O).' 
+															</label>
 				  	    								</td>
 														<td>'.form_input($P6_2_15a).'<div class="help-block error"></div></td>
 			  	    								</tr>
@@ -1915,7 +1914,7 @@ echo '
 			  	    							<tbody>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16a).'
-				  	    									1. Metalica <div class="help-block error"></div>
+				  	    									1. Metalica
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1938,7 +1937,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16b).'
-				  	    									2. Metálica con vidrio <div class="help-block error"></div>
+				  	    									2. Metálica con vidrio
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1958,7 +1957,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16c).'
-				  	    									3. Madera <div class="help-block error"></div>
+				  	    									3. Madera
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1978,7 +1977,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16d).'
-				  	    									4. Madera con vidrio <div class="help-block error"></div>
+				  	    									4. Madera con vidrio
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1998,8 +1997,9 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-			  	    										'.form_input($P6_2_16e).' 5. Otro material <div class="help-block error"></div>
-				  	    									- Especifique '.form_input($P6_2_16e_O).'<div class="help-block error"></div>
+			  	    										<label>'.form_input($P6_2_16e).'
+				  	    										5. Otro material - Especifique '.form_input($P6_2_16e_O).'<div class="help-block error"></div>
+				  	    									<label>
 														</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -2018,8 +2018,12 @@ echo '
 				  	    								</td>
 			  	    								</tr>
 			  	    								<tr>
-			  	    									<td>'.form_input($P6_2_16f).' 6. No tiene
+			  	    									<td>
+			  	    										<label class="checkbox">
+																'.form_input($P6_2_16f).' 6. No tiene
 																<div class="help-block error"></div>
+															</label>
+
 				  	    								</td>
 				  	    								<td>
 
@@ -2070,8 +2074,8 @@ echo '
 			  	    									<td>'.form_input($P6_2_17c).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    									<tr>
-			  	    									<td>'.form_input($P6_2_17d).' 4. No tiene <div class="help-block error"></div></td>
-			  	    									<td></td>
+			  	    									<td>4. No tiene</td>
+			  	    									<td>'.form_input($P6_2_17d).'<div class="help-block error"></div></td>
 		  	    									</tr>
 		  	    								</tbody>
 		  	    							</table>
@@ -2162,7 +2166,7 @@ echo '
 			  	    									<td>
 				  	    									'.form_input($P6_2_18e).' 	5. Otro material
 				  	    									<div class="help-block error"></div>
-																<br /> '.form_input($P6_2_18e_O).' (Especifique) <div class="help-block error"></div>
+																<br /> '.form_input($P6_2_18e_O).' (Especifique)
 			  	    									</td>
 				  	    								<td>
 				  	    									'.form_input($P6_2_18e_b).'<div class="help-block error"></div>
@@ -2176,7 +2180,10 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>
-				  	    									'.form_input($P6_2_18f).' 6. No tiene <div class="help-block error"></div>
+				  	    									<label class="checkbox">
+																'.form_input($P6_2_18f).' 6. No tiene
+																<div class="help-block error"></div>
+															</label>
 				  	    								</td>
 				  	    								<td>
 
@@ -2939,21 +2946,11 @@ $(document).ready(function(){
 			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
 
-		}else if ( valor == 1 ){
+		}else if ( valor == 1 || valor == 9 ){
 
 			$('#P6_2_4Turno_M_op'+nro).removeAttr('readonly');
 			$('#P6_2_4Turno_T_op'+nro).removeAttr('readonly');
 			$('#P6_2_4Turno_N_op'+nro).removeAttr('readonly');
-			
-		}else if ( valor == 9 ) {
-
-			$('#P6_2_4Turno_M_op'+nro).attr('readonly','readonly');
-			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
-			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
-
-			$('#P6_2_4Turno_M_op'+nro).val('9');
-			$('#P6_2_4Turno_T_op'+nro).val('9');
-			$('#P6_2_4Turno_N_op'+nro).val('9');
 		}
 	}
 
@@ -3424,23 +3421,23 @@ $(document).ready(function(){
 
 			case '1':
 			//case '9':
-				// $('#P6_2_16a').val('');
-				// $('#P6_2_16b').val('');
-				// $('#P6_2_16c').val('');
-				// $('#P6_2_16d').val('');
-				// $('#P6_2_16e').val('');
+				$('#P6_2_16a').val('');
+				$('#P6_2_16b').val('');
+				$('#P6_2_16c').val('');
+				$('#P6_2_16d').val('');
+				$('#P6_2_16e').val('');
 
-				// $('#P6_2_16a').attr('disabled','disabled');
-				// $('#P6_2_16b').attr('disabled','disabled');
-				// $('#P6_2_16c').attr('disabled','disabled');
-				// $('#P6_2_16d').attr('disabled','disabled');
-				// $('#P6_2_16e').attr('disabled','disabled');
+				$('#P6_2_16a').attr('disabled','disabled');
+				$('#P6_2_16b').attr('disabled','disabled');
+				$('#P6_2_16c').attr('disabled','disabled');
+				$('#P6_2_16d').attr('disabled','disabled');
+				$('#P6_2_16e').attr('disabled','disabled');
 
-				// Preg16_activacion('a',0);
-				// Preg16_activacion('b',0);
-				// Preg16_activacion('c',0);
-				// Preg16_activacion('d',0);
-				// Preg16_activacion('e',0);
+				Preg16_activacion('a',0);
+				Preg16_activacion('b',0);
+				Preg16_activacion('c',0);
+				Preg16_activacion('d',0);
+				Preg16_activacion('e',0);
 			break;
 		}
 	});
@@ -3455,13 +3452,13 @@ $(document).ready(function(){
 			$('#P6_2_17c').removeAttr('disabled');
 
 		}else if( $(this).val() == 1 ){
-			// $('#P6_2_17a').val('');
-			// $('#P6_2_17b').val('');
-			// $('#P6_2_17c').val('');
+			$('#P6_2_17a').val('');
+			$('#P6_2_17b').val('');
+			$('#P6_2_17c').val('');
 
-			// $('#P6_2_17a').attr('disabled','disabled');
-			// $('#P6_2_17b').attr('disabled','disabled');
-			// $('#P6_2_17c').attr('disabled','disabled');
+			$('#P6_2_17a').attr('disabled','disabled');
+			$('#P6_2_17b').attr('disabled','disabled');
+			$('#P6_2_17c').attr('disabled','disabled');
 			
 		}
 
@@ -3566,30 +3563,26 @@ $(document).ready(function(){
 
 			case '1':
 			//case '9':
-				// $('#P6_2_18a').val('');
-				// $('#P6_2_18b').val('');
-				// $('#P6_2_18c').val('');
-				// $('#P6_2_18d').val('');
-				// $('#P6_2_18e').val('');
+				$('#P6_2_18a').val('');
+				$('#P6_2_18b').val('');
+				$('#P6_2_18c').val('');
+				$('#P6_2_18d').val('');
+				$('#P6_2_18e').val('');
 
-				// $('#P6_2_18a').attr('disabled','disabled');
-				// $('#P6_2_18b').attr('disabled','disabled');
-				// $('#P6_2_18c').attr('disabled','disabled');
-				// $('#P6_2_18d').attr('disabled','disabled');
-				// $('#P6_2_18e').attr('disabled','disabled');
+				$('#P6_2_18a').attr('disabled','disabled');
+				$('#P6_2_18b').attr('disabled','disabled');
+				$('#P6_2_18c').attr('disabled','disabled');
+				$('#P6_2_18d').attr('disabled','disabled');
+				$('#P6_2_18e').attr('disabled','disabled');
 
-				// Preg18_activacion('a',0);
-				// Preg18_activacion('b',0);
-				// Preg18_activacion('c',0);
-				// Preg18_activacion('d',0);
-				// Preg18_activacion('e',0);
+				Preg18_activacion('a',0);
+				Preg18_activacion('b',0);
+				Preg18_activacion('c',0);
+				Preg18_activacion('d',0);
+				Preg18_activacion('e',0);
 			break;
 		}
 	});
-
-$.validator.addClassRules('ValObs', {
-  required: true,
-});
 
 
 	///////////////////////////////////////////////////////////////////////////
@@ -3648,18 +3641,10 @@ $.validator.addClassRules('ValObs', {
 			},
 			'P6_1_10_e[]':{
 				digits:true,
+				maxlength: 1,
 				valrango:[0,1,9],
 				required: true,
 			},
-
-			'P6_1_10_e[13]':{
-				digits:true,
-				valrango:[0,1,9],
-				required: true,
-				valzero: ['P6_1_10_op1','P6_1_10_op2','P6_1_10_op3','P6_1_10_op4','P6_1_10_op5','P6_1_10_op6','P6_1_10_op7','P6_1_10_op8','P6_1_10_op9','P6_1_10_op10','P6_1_10_op11','P6_1_10_op12','P6_1_10_op13'],
-			},
-
-
 
 			//Seccion B
 			P5_NroPiso:{
@@ -3680,97 +3665,18 @@ $.validator.addClassRules('ValObs', {
 				digits:true,
 				valrango:[0,1,9],
 				required:true,
-			},			
-			'P6_2_4Mod[13]':{
-				digits:true,
-				valrango:[0,1,9],
-				required:true,
-				valzero: ['P6_2_4Mod_op1','P6_2_4Mod_op2','P6_2_4Mod_op3','P6_2_4Mod_op4','P6_2_4Mod_op5','P6_2_4Mod_op6','P6_2_4Mod_op7','P6_2_4Mod_op8','P6_2_4Mod_op9','P6_2_4Mod_op10','P6_2_4Mod_op11','P6_2_4Mod_op12','P6_2_4Mod_op13'],	
 			},
 			'P6_2_4Turno_M[]':{
 				digits:true,
 				valrango:[0,1,9],
-				requeridodis:true,
 			},
 			'P6_2_4Turno_T[]':{
 				digits:true,
 				valrango:[0,1,9],
-				requeridodis:true,
 			},
 			'P6_2_4Turno_N[]':{
 				digits:true,
 				valrango:[0,1,9],
-				requeridodis:true,
-			},
-			'P6_2_4Turno_N[0]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op1','P6_2_4Turno_T_op1','P6_2_4Turno_N_op1'],
-			},
-			'P6_2_4Turno_N[1]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op2','P6_2_4Turno_T_op2','P6_2_4Turno_N_op2'],
-			},
-			'P6_2_4Turno_N[2]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op3','P6_2_4Turno_T_op3','P6_2_4Turno_N_op3'],
-			},
-			'P6_2_4Turno_N[3]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op4','P6_2_4Turno_T_op4','P6_2_4Turno_N_op4'],
-			},
-			'P6_2_4Turno_N[4]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op5','P6_2_4Turno_T_op5','P6_2_4Turno_N_op5'],
-			},
-			'P6_2_4Turno_N[5]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op6','P6_2_4Turno_T_op6','P6_2_4Turno_N_op6'],
-			},
-			'P6_2_4Turno_N[6]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op7','P6_2_4Turno_T_op7','P6_2_4Turno_N_op7'],
-			},
-			'P6_2_4Turno_N[7]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op8','P6_2_4Turno_T_op8','P6_2_4Turno_N_op8'],
-			},
-			'P6_2_4Turno_N[8]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op9','P6_2_4Turno_T_op9','P6_2_4Turno_N_op9'],
-			},
-			'P6_2_4Turno_N[9]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op10','P6_2_4Turno_T_op10','P6_2_4Turno_N_op10'],
-			},
-			'P6_2_4Turno_N[10]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op1','P6_2_4Turno_T_op11','P6_2_4Turno_N_op11'],
-			},
-			'P6_2_4Turno_N[11]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op12','P6_2_4Turno_T_op12','P6_2_4Turno_N_op12'],
-			},
-			'P6_2_4Turno_N[12]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op13','P6_2_4Turno_T_op13','P6_2_4Turno_N_op13'],
-			},
-			'P6_2_4Turno_N[13]':{
-				digits:true,
-				valrango:[0,1,9],
-				valzero:['P6_2_4Turno_M_op14','P6_2_4Turno_T_op14','P6_2_4Turno_N_op14'],
 			},
 			P6_2_5:{
 				digits:true,
@@ -3804,7 +3710,7 @@ $.validator.addClassRules('ValObs', {
 			},
 			P6_2_11:{
 				digits:true,
-				valrango:[1,11,99],
+				valrango:[1,11,9],
 				required:true,
 			},
 			P6_2_12:{
@@ -3850,7 +3756,6 @@ $.validator.addClassRules('ValObs', {
 			P6_2_14a:{
 				digits:true,
 				valrango:[0,998,999],
-				required:true,
 			},
 			P6_2_14b_1:{
 				digits:true,
@@ -3976,8 +3881,6 @@ $.validator.addClassRules('ValObs', {
 				digits:true,
 				valrango:[0,1,9],
 				required:true,
-				valzero:['P6_2_16a','P6_2_16b','P6_2_16c','P6_2_16d','P6_2_16e'],
-				valninguno:['P6_2_16a','P6_2_16b','P6_2_16c','P6_2_16d','P6_2_16e'],
 			},
 			P6_2_17a:{
 				digits:true,
@@ -3998,8 +3901,6 @@ $.validator.addClassRules('ValObs', {
 				digits:true,
 				valrango:[0,1,9],
 				required:true,
-				valzerototal:['P6_2_17a','P6_2_17b','P6_2_17c'],
-				valningunototal:['P6_2_17a','P6_2_17b','P6_2_17c'],
 			},
 			P6_2_18a:{
 				digits:true,
@@ -4105,8 +4006,6 @@ $.validator.addClassRules('ValObs', {
 				digits:true,
 				valrango:[0,1,9],
 				required:true,
-				valzero:['P6_2_18a','P6_2_18b','P6_2_18c','P6_2_18d','P6_2_18e'],
-				valninguno:['P6_2_18a','P6_2_18b','P6_2_18c','P6_2_18d','P6_2_18e'],
 			},
 			P6_2_19a:{
 				digits:true,
