@@ -253,6 +253,33 @@ $.validator.addMethod("valninguno", function(value, element, arg){
  }, "Selecciono la opción ( NINGUNO / NO TIENE ), todas las opciones anteriores deben ser 0."); 
 
 
+$.validator.addMethod("valzerototal", function(value, element, arg){
+    flag = false;
+    if(value == 0 && (!element.readOnly)){
+        for(var i = 0; i<=arg.length; i++){
+               if($('#' + arg[i]).val() > 0)
+               flag = true;
+        }
+    }else{
+      flag = true;
+    }
+    return flag;
+ }, "Debe ingresar al menos una opción, no pueden ser 0 todas las opciones.");  
+
+$.validator.addMethod("valningunototal", function(value, element, arg){
+    flag = true;
+    if(value == 1){
+        for(var i = 0; i<=arg.length; i++){
+               if($('#' + arg[i]).val() > 0)
+               flag = false;
+        }
+    }else{
+      flag = true;
+    }
+    return flag;
+ }, "Selecciono la opción ( NINGUNO / NO TIENE ), todas las opciones anteriores deben ser 0."); 
+
+
  $.validator.addMethod("valrango", function(value, element,arg){
     var flag = false;
         if(((value >= arg[0] && value<=arg[1]) || value == arg[2]) || value=='')
