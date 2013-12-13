@@ -12,6 +12,7 @@ class Consistencia_ajax extends CI_Controller {
 		$this->lang->load('tank_auth');	
 
 		$this->load->model('consistencia/ubigeo_model');
+		$this->load->model('consistencia/principal_model');
 	}
 
 
@@ -46,5 +47,19 @@ class Consistencia_ajax extends CI_Controller {
 			show_404();
 		}
 	}		
+
+	public function get_ajax_dnic()
+	{
+		$this->output->cache(9999999999);
+		$is_ajax = $this->input->post('ajax');
+		$dni = $this->input->post('dni');
+		if($is_ajax){
+			$data['datos'] = $this->principal_model->get_dnic($dni)->row();
+			$this->load->view('backend/json/json_view', $data);	
+		}else{
+			show_404();
+		}
+	}	
+
 			
 }

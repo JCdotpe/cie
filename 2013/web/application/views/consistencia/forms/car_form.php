@@ -282,7 +282,7 @@ $PC_D_EvT_dni = array(
 	'name'	=> 'PC_D_EvT_dni',
 	'id'	=> 'PC_D_EvT_dni',
 	'maxlength'	=> 8,
-	'class' => 'input8',
+	'class' => 'input8 dnic',
 );
 
 $PC_D_EvT_Nomb = array(
@@ -290,13 +290,14 @@ $PC_D_EvT_Nomb = array(
 	'id'	=> 'PC_D_EvT_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
+	'readonly' => true,
 );
 
 $PC_D_JBri_dni = array(
 	'name'	=> 'PC_D_JBri_dni',
 	'id'	=> 'PC_D_JBri_dni',
 	'maxlength'	=> 8,
-	'class' => 'input8',
+	'class' => 'input8 dnic',
 );
 
 $PC_D_JBri_Nomb = array(
@@ -304,13 +305,14 @@ $PC_D_JBri_Nomb = array(
 	'id'	=> 'PC_D_JBri_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
+	'readonly' => true,
 );
 
 $PC_D_CProv_dni = array(
 	'name'	=> 'PC_D_CProv_dni',
 	'id'	=> 'PC_D_CProv_dni',
 	'maxlength'	=> 8,
-	'class' => 'input8',
+	'class' => 'input8 dnic',
 );
 
 $PC_D_CProv_Nomb = array(
@@ -318,13 +320,14 @@ $PC_D_CProv_Nomb = array(
 	'id'	=> 'PC_D_CProv_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
+	'readonly' => true,
 );
 
 $PC_D_CDep_dni = array(
 	'name'	=> 'PC_D_CDep_dni',
 	'id'	=> 'PC_D_CDep_dni',
 	'maxlength'	=> 8,
-	'class' => 'input8',
+	'class' => 'input8 dnic',
 );
 
 $PC_D_CDep_Nomb = array(
@@ -332,13 +335,14 @@ $PC_D_CDep_Nomb = array(
 	'id'	=> 'PC_D_CDep_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
+	'readonly' => true,
 );
 
 $PC_D_SupN_dni = array(
 	'name'	=> 'PC_D_SupN_dni',
 	'id'	=> 'PC_D_SupN_dni',
 	'maxlength'	=> 8,
-	'class' => 'input8',
+	'class' => 'input8 dnic',
 );
 
 $PC_D_SupN_Nomb = array(
@@ -346,6 +350,7 @@ $PC_D_SupN_Nomb = array(
 	'id'	=> 'PC_D_SupN_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
+	'readonly' => true,
 );
 
 $PC_E_1_TPred = array(
@@ -734,6 +739,30 @@ echo form_close();
 
 $(function(){
 
+
+$(".dnic").keyup(function() {
+	var idf = $(this).attr('id');
+	var idx = idf.substring(0, idf.length - 4);
+
+	if($(this).val().length == 8){
+						var asd = {
+					        dni: $(this).val(),
+					        ajax:1
+					    };
+
+				        $.ajax({
+				            url: CI.site_url + "/ajaxx/consistencia_ajax/get_ajax_dnic/" + $(this).val(),
+				            type:'POST',
+				            data:asd,
+				            dataType:'json',
+				            success:function(json){
+				            	$('#' + idx + '_Nomb').val(json.nombre1.trim() + ' ' + json.nombre2.trim() + ' ' + json.ap_paterno.trim() + ' ' + json.ap_materno.trim() )
+				            }
+				        });  
+	}else{
+		$('#' + idx + '_Nomb').val('');
+	}
+});
 
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {

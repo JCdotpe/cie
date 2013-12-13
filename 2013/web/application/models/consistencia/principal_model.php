@@ -1,5 +1,12 @@
 <?php 
 class Principal_model extends CI_MODEL{
+    //dni
+    function get_dnic($dni){
+        $this->db->where('dni',$dni);
+        $q = $this->db->get('registro');
+        return $q;
+    }
+
 
     //Seguridad
     function get_user_ubigeo($id){
