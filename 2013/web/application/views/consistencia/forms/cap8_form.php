@@ -720,6 +720,8 @@ $(document).ready(function(){
 			            success:function(data){
 							alert(data.msg);
 							bcar.removeAttr('disabled');
+							$('#cap8_f')[0].reset(); 
+							$('#P8_ejecuto').trigger('change');
 							if (data.newnro > 0){
 								Get_Nro_Edif(data.total,data.newtipo);	
 								$('#P8_2_Tipo').val(data.codtipo);
