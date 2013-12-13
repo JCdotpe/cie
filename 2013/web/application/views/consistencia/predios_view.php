@@ -716,6 +716,51 @@ $("#predios_add").validate({
     return ns;
   }
 
+$.ctrl = function(key, callback, args) {
+    var isCtrl = false;
+    $(document).keydown(function(e) {
+        if(!args) args=[]; // IE barks when args is null
+        
+        if(e.ctrlKey) isCtrl = true;
+        if(e.keyCode == key.charCodeAt(0) && isCtrl) {
+            callback.apply(this, args);
+            return false;
+        }
+    }).keyup(function(e) {
+        if(e.ctrlKey) isCtrl = false;
+    });        
+};
 
 
+
+$.ctrl('0', function() {
+  $('#ctab a').trigger('click');
+});
+$.ctrl('1', function() {
+  $('#ctab1 a').trigger('click');
+});
+$.ctrl('2', function() {
+  $('#ctab2 a').trigger('click');
+});
+$.ctrl('3', function() {
+  $('#ctab3 a').trigger('click');
+});
+$.ctrl('4', function() {
+  $('#ctab4 a').trigger('click');
+});
+$.ctrl('5', function() {
+  $('#ctab5 a').trigger('click');
+});
+$.ctrl('6', function() {
+  $('#ctab6 a').trigger('click');
+});
+$.ctrl('7', function() {
+  $('#ctab7 a').trigger('click');
+});
+$.ctrl('8', function() {
+  $('#ctab8 a').trigger('click');
+});
+$.ctrl('9', function() {
+  $('#ctab9 a').trigger('click');
+});
 </script>
