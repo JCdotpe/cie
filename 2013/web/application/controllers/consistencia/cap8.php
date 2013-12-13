@@ -87,6 +87,109 @@ class Cap8 extends CI_Controller {
 					}
 
 			}
+			
+			$tot_p = $this->cap8_model->get_tot_otrasedif_p5($id,$pr,1);
+			$tot_ld = $this->cap8_model->get_tot_otrasedif_p5($id,$pr,2);
+			$tot_cte = $this->cap8_model->get_tot_otrasedif_p5($id,$pr,3);
+			$tot_mc = $this->cap8_model->get_tot_otrasedif_p5($id,$pr,4);
+	
+			if ($tipo == 'P' && $tot_p > 0) {
+				$newpatio = $nro+1;
+				if ($newpatio <= $tot_p) {
+					$datos['newnro'] = $newpatio;
+					$datos['newtipo'] = 'cmb_P5_Tot_P';
+					$datos['total'] = $tot_p;
+					$datos['codtipo'] = 'P';
+				}else{			
+
+					if ($tot_ld > 0) {					
+						$datos['newtipo'] = 'cmb_P5_Tot_LD';
+						$datos['total'] = $tot_ld;
+						$datos['codtipo'] = 'LD';
+					}
+
+					if ($tot_cte > 0 && $tot_ld == 0) {
+						$datos['newtipo'] = 'cmb_P5_Tot_CTE';
+						$datos['total'] = $tot_cte;
+						$datos['codtipo'] = 'CTE';
+					}
+
+					if ($tot_mc > 0 && $tot_ld == 0 && $tot_cte == 0) {
+						$datos['newtipo'] = 'cmb_P5_Tot_MC';
+						$datos['total'] = $tot_mc;
+						$datos['codtipo'] = 'MC';
+					}else{
+						$datos['newnro'] = 0;
+						$datos['codtipo'] = '';
+					}
+
+					$datos['newnro'] = 1;
+				}
+			}
+
+			if ($tipo == 'LD' && $tot_ld > 0) {
+				$newld = $nro+1;
+				if ($newld <= $tot_ld){
+					$datos['newnro'] = $newld;
+					$datos['newtipo'] = 'cmb_P5_Tot_LD';
+					$datos['total'] = $tot_ld;
+					$datos['codtipo'] = 'LD';
+				}else{
+
+					if ($tot_cte > 0) {
+						$datos['newtipo'] = 'cmb_P5_Tot_CTE';
+						$datos['total'] = $tot_cte;
+						$datos['codtipo'] = 'CTE';
+					}
+
+					if ($tot_mc > 0 && $tot_cte == 0) {
+						$datos['newtipo'] = 'cmb_P5_Tot_MC';
+						$datos['total'] = $tot_mc;
+						$datos['codtipo'] = 'MC';
+					}else{
+						$datos['newnro'] = 0;	
+						$datos['codtipo'] = '';					
+					}
+
+					$datos['newnro'] = 1;
+					
+				}
+			}
+
+			if ($tipo == 'CTE' && $tot_cte > 0) {
+				$newcte = $nro+1;
+				if ($newcte <= $tot_cte) {
+					$datos['newnro'] = $newcte;
+					$datos['newtipo'] = 'cmb_P5_Tot_CTE';
+					$datos['total'] = $tot_cte;
+					$datos['codtipo'] = 'CTE';
+				}else{
+					if ($tot_mc > 0) {
+						$datos['newnro'] = 1;
+						$datos['newtipo'] = 'cmb_P5_Tot_MC';
+						$datos['total'] = $tot_mc;
+						$datos['codtipo'] = 'MC';
+					}else{
+						$datos['codtipo'] = '';
+						$datos['newnro'] = 0;
+					}
+				}
+			}
+
+			if ($tipo == 'MC' && $tot_mc > 0) {
+				$newmc = $nro+1;
+				if ($newmc <= $tot_mc && $tipo == 'MC') {
+					$datos['newnro'] = $newmc;
+					$datos['newtipo'] = 'cmb_P5_Tot_MC';
+					$datos['total'] = $tot_mc;
+					$datos['codtipo'] = 'MC';
+				}else{
+					$datos['newnro'] = 0;
+					$datos['newtipo'] = '';
+					$datos['total'] = 0;
+					$datos['codtipo'] = '';
+				}
+			}
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	

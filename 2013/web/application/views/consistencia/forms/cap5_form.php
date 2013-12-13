@@ -164,7 +164,7 @@ echo '
 		  	    					<th>RAMPA</th>
 		  	    					<td>'.form_input($P5_Tot_R).'<div class="help-block error"></div></td>
 		  	    				</tr>				  	    				
-		  	    				<tr style="visibility:none">
+		  	    				<tr style="display:none">
 		  	    					<th>OPINIÓN</th>
 		  	    					<td>'.form_input($P5_Opin).'<div class="help-block error"></div></td>
 		  	    				</tr>			  	    				

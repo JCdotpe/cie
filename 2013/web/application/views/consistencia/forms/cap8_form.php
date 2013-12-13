@@ -289,11 +289,12 @@ echo '
 			  	    				</tr>
 		  	    				</tbody>
 		  	    			</table>
+		  	    			'.form_submit('send', 'Guardar','class="btn btn-primary pull-right"').'
 
 		  	    		</div>
 
 ';
-echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+
 echo form_close();
  ?>
 
@@ -319,23 +320,50 @@ $(document).ready(function(){
 		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_i/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
 
 			$('#panel_tipo_edificaciones_viii > div').remove('.btn-group');
-
-			$.each(data, function(i, datos) {
-			
+			var cont = 0;
+			$.each(data, function(i, datos) {	
 				var asd ='<div class="btn-group">';
 					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 					asd+='<ul class="dropdown-menu">';
 				if (datos.P5_Tot_P > 0){
 					asd+='<li id="' + datos.P5_Tot_P +'.cmb_P5_Tot_P" class="combo_ins1"><a href="" data-toggle="dropdown"> Patios del local escolar</a></li>';
+					if (cont == 0) { 
+						$('#P8_2_Tipo').val('P');
+						$('#P8_2_Nro').val(1);
+						$('#Cant_Otras_Edif').val(datos.P5_Tot_P);
+						Get_Nro_Edif(datos.P5_Tot_P,'cmb_P5_Tot_P');
+						cont = 1;
+					}
 				}
 				if (datos.P5_Tot_LD > 0){
 					asd+='<li id="' + datos.P5_Tot_LD +'.cmb_P5_Tot_LD" class="combo_ins1"><a href="" data-toggle="dropdown"> Losas deportivas del local escolar</a></li>';
+					if (cont == 0) { 
+						$('#P8_2_Tipo').val('LD');
+						$('#P8_2_Nro').val(1);
+						$('#Cant_Otras_Edif').val(datos.P5_Tot_LD);
+						Get_Nro_Edif(datos.P5_Tot_LD,'cmb_P5_Tot_LD');
+						cont = 2;
+					}
 				}
 				if (datos.P5_Tot_CTE > 0){
 					asd+='<li id="' + datos.P5_Tot_CTE +'.cmb_P5_Tot_CTE" class="combo_ins1"><a href="" data-toggle="dropdown"> Cisternas y/o tanques del local escolar</a></li>';
+					if (cont == 0) { 
+						$('#P8_2_Tipo').val('CTE');
+						$('#P8_2_Nro').val(1);
+						$('#Cant_Otras_Edif').val(datos.P5_Tot_CTE);
+						Get_Nro_Edif(datos.P5_Tot_CTE,'cmb_P5_Tot_CTE');
+						cont = 3;
+					}
 				}
 				if (datos.P5_Tot_MC > 0){
 					asd+='<li id="' + datos.P5_Tot_MC +'.cmb_P5_Tot_MC" class="combo_ins1"><a href="" data-toggle="dropdown"> Muros de contención del local escolar</a></li>';
+					if (cont == 0) { 
+						$('#P8_2_Tipo').val('MC');
+						$('#P8_2_Nro').val(1);
+						$('#Cant_Otras_Edif').val(datos.P5_Tot_MC);
+						Get_Nro_Edif(datos.P5_Tot_MC,'cmb_P5_Tot_MC');
+						cont = 4;
+					}
 				}
 				asd+='</ul>';
 				asd+='</div>';
@@ -689,9 +717,16 @@ $(document).ready(function(){
 			            type:'POST',
 			            data:cap8_data,
 			            dataType:'json',
-			            success:function(json){
-							alert(json.msg);
+			            success:function(data){
+							alert(data.msg);
 							bcar.removeAttr('disabled');
+							if (data.newnro > 0){
+								Get_Nro_Edif(data.total,data.newtipo);	
+								$('#P8_2_Tipo').val(data.codtipo);
+								$('#P8_2_Nro').val(data.newnro);
+								$('#Cant_Otras_Edif').val(data.total);
+								$('#P8_2_Nro').focus();
+							}
 							window.scrollTo(0, 0);
 			            }
 			        });

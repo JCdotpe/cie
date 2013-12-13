@@ -102,18 +102,18 @@ class Cap5 extends CI_Controller {
 			}
 
 			//Actualiza PCar
-			$car_data['user_id'] = $this->tank_auth->get_user_id();
-			$car_data['last_ip'] =  $this->input->ip_address();
-			$car_data['user_agent'] = $this->agent->agent_string();
-			$car_data['modified'] = date('Y-m-d H:i:s');
+			// $car_data['user_id'] = $this->tank_auth->get_user_id();
+			// $car_data['last_ip'] =  $this->input->ip_address();
+			// $car_data['user_agent'] = $this->agent->agent_string();
+			// $car_data['modified'] = date('Y-m-d H:i:s');
 
-			$car_data['PC_E_3_TEdif'] = $tot_e;
-			$car_data['PC_E_4_TPat'] = $tot_p;
-			$car_data['PC_E_5_TLosa'] = $tot_ld;
-			$car_data['PC_E_6_TCist'] = $tot_cte;
-			$car_data['PC_E_7_TMurCon'] = $tot_mc;
+			// $car_data['PC_E_3_TEdif'] = $tot_e;
+			// $car_data['PC_E_4_TPat'] = $tot_p;
+			// $car_data['PC_E_5_TLosa'] = $tot_ld;
+			// $car_data['PC_E_6_TCist'] = $tot_cte;
+			// $car_data['PC_E_7_TMurCon'] = $tot_mc;
 
-			$this->car_model->update_car($id,$pr,$car_data);
+			// $this->car_model->update_car($id,$pr,$car_data);
 
 			////////////////////////////////////////////////////////////////cap6
 			//edificaciones

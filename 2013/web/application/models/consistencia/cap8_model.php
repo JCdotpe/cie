@@ -55,6 +55,32 @@ class Cap8_model extends CI_MODEL{
 		$this->db->delete('P8');
 		return $this->db->affected_rows() > 0;
 	}
+
+	function get_tot_otrasedif_p5($id,$pr,$tipo)
+	{
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$q = $this->db->get('P5');
+		if ($q->num_rows() > 0) $row = $q->row();
+		switch ($tipo) {
+			case '1':
+				return $row->P5_Tot_P;	
+				break;
+
+			case '2':
+				return $row->P5_Tot_LD;	
+				break;
+
+			case '3':
+				return $row->P5_Tot_CTE;	
+				break;
+
+			case '4':
+				return $row->P5_Tot_MC;	
+				break;
+		}
+	}
+
 }
 
 ?>
