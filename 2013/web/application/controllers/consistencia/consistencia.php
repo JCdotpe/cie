@@ -223,8 +223,8 @@ public function predio(){
 			foreach ($fields_ct as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 					$P1_B[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
-					if($b == 'P1_B_1_TPred')
-						$PC1_B['PC_E_1_TPred'] = ($this->input->post($b) == '') ? NULL : $this->input->post($b); 
+					// if($b == 'P1_B_1_TPred')
+					// 	$PC1_B['PC_E_1_TPred'] = ($this->input->post($b) == '') ? NULL : $this->input->post($b); 
 				}
 			}	
 
@@ -300,9 +300,9 @@ public function predio(){
 					$this->principal_model->update_prct($id,$pr,$P1_B);
 				}
 				//actualiza total pr caratula
-					$PC1_B['id_local'] = $id;
-					$PC1_B['Nro_Pred'] = $pr;				
-				$this->car_model->update_car($id,$pr,$PC1_B);
+				// 	$PC1_B['id_local'] = $id;
+				// 	$PC1_B['Nro_Pred'] = $pr;				
+				// $this->car_model->update_car($id,$pr,$PC1_B);
 			}
 
 
