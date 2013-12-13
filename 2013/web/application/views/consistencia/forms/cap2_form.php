@@ -618,8 +618,8 @@ $P2_C_2LocE_6_Int = array(
 $P2_D_2_Energ_CantSum = array(
 	'name'	=> 'P2_D_2_Energ_CantSum',
 	'id'	=> 'P2_D_2_Energ_CantSum',
-	'maxlength'	=> 2,
-	'class'	=> 'input2',
+	'maxlength'	=> 1,
+	'class'	=> 'input1',
 );
 
 $P2_D_4_Energ_Emp = array(
