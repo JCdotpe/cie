@@ -735,3 +735,38 @@ ul.predios_views {
 .fix_tabcontent td, .fix_tabcontent .panel{
    background: #EEE;
   }
+
+
+/* MINIMAL */
+
+
+.fix_tabcontent h3 {
+  font-size: 18.5px;
+  line-height: 22px;
+}
+
+.fix_tabcontent .table th, 
+.fix_tabcontent .table td{
+  padding: 5px;
+}
+
+
+.fix_tabcontent .table {
+  margin-bottom: 10px;
+}
+
+.fix_tabcontent .table th {
+    border-bottom: 1px solid #CCCCCC;
+}    
+
+.fix_tabcontent #panel_edificaciones_vi{
+  margin-bottom: 0 !important;
+}    
+
+.fix_tabcontent .panel-heading{
+  padding: 5px;
+}    
+
+.fix_tabcontent .panel-title{
+  font-size: 15.5px;
+}    

@@ -97,7 +97,7 @@ $(document).on("keyup",'input,select,textarea',function(e) {
 $(document).on("keyup",'input,select,textarea',function(e) {
 
     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-    var inputs = $(this).closest('div').find(":input:not(:disabled, [readonly='readonly'])");
+    var inputs = $(this).closest('form').find(":input:not(:disabled, [readonly='readonly'])");
     if(key == 13) {
       inputs.eq( inputs.index(this)+1).focus(); 
       

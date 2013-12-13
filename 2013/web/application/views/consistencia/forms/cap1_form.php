@@ -660,7 +660,7 @@ echo '
 							<div class="panel-heading">
 								<h5 style="text-transform: uppercase;" class="panel-title">Capitulo I Identificación de las instituciones eductivas, predios y anexos del local escolar</h5>
 							</div>
-
+							<form>
 							<table class="table table-bordered">
 								<thead>
 									<tr><th style="text-transform: uppercase;" colspan="2">Sección A: Instituciones educativas</th>
@@ -672,7 +672,7 @@ echo '
 
 								</tr></tbody>
 							</table>
-
+							</form>
 
 
 
@@ -2032,8 +2032,9 @@ $("#addIE").click(function(){
 				            dataType:'json',
 				            success:function(json){
 								alert(json.msg);
+								$('#P1_A_2_NroIE').focus();					
 								baddie.removeAttr('disabled');
-								btnies(json.nro);						
+								btnies(json.nro);	
 				            }
 				        });  
 				 }else{
@@ -2167,7 +2168,12 @@ $("#cap1_ie").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
-								gen_cms(json.nro_cms,json.cms);						
+								gen_cms(json.nro_cms,json.cms);		
+								if(parseInt($('#P1_A_2_8_Can_CMod_IE').val()) > 0 ){
+									$('#P1_A_2_9_NroCMod_1').focus();
+								}else{
+									$('#P1_B_1_TPred').focus();
+								}				
 				            }
 				    });  
 			}
@@ -2290,6 +2296,7 @@ $("#cap1_cm").validate({
 								alert(json.msg);
 								bcar.removeAttr('disabled');
 								btncmod(json.nrocms);
+								$('#P1_B_1_TPred').focus();
 								// gen_cms(json.nro_cms,json.cms);						
 				            }
 				    });  
