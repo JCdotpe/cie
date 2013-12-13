@@ -734,6 +734,22 @@ echo form_close();
 
 $(function(){
 
+
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // activated tab
+  e.relatedTarget // previous tab
+  window.scrollTo(0, 0);
+  if(e.delegateTarget.hash == "#tab1"){
+  	$("#P1_A_1_Cant_IE").focus();
+  }else{
+  	$("form:not(.filter) :input:visible:enabled:first").focus();
+  }
+
+});
+
+
+
 $(document).on("change",'.caraaf, .carbbf',function() {
 	if($(this).val() == '<?php echo date('Y-m-d'); ?>')
 		$(this).val('');
