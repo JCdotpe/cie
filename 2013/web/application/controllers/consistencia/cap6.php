@@ -371,6 +371,19 @@ class Cap6 extends CI_Controller {
 				    $cc++;
 			}
 
+			$tot_amb = $this->cap6_model->get_tot_amb_p5n($id,$pr,$nroedif,$p5_piso);
+			$newamb = $amb+1;
+			$nroamb = ($newamb <= $tot_amb) ? $newamb : 1;
+
+			if ($nroamb == 1) {
+				$nropiso = $this->cap6_model->get_nropiso_p5n($id,$pr,$nroedif);
+				$newpiso = $p5_piso+1;
+				$datos['newpiso'] = ($newpiso <= $nropiso) ? $newpiso : 0;
+			}else{
+				$datos['newpiso'] = $p5_piso;
+			}
+
+			$datos['newamb'] = $nroamb;
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	
 			$data['datos'] = $datos;
@@ -424,6 +437,10 @@ class Cap6 extends CI_Controller {
 					}
 			}
 
+			$tot_e = $this->cap6_model->get_tot_e_p5($id,$pr);
+			$newedif = $nroedif+1;
+			$datos['newedif'] = ($newedif <= $tot_e) ? $newedif : 0;
+			
 			$datos['flag'] = $flag;
 			$datos['msg'] = $msg;
 			$data['datos'] = $datos;

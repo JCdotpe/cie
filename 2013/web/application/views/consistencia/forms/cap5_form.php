@@ -188,7 +188,8 @@ echo form_close();
 
 <script type="text/javascript">
 
-$(function(){
+$(document).ready(function(){
+
 
 //cap5
 $.each( <?php echo json_encode($cap5_i->row()); ?>, function(fila, valor) {
@@ -239,6 +240,8 @@ $('#P5_cantNroPiso').change(function(event) {
 		});
 
 	});
+
+	$('#P5_TotAmb_p_1_a_1').focus();
 
 });
 $('#P5_cantNroPiso').trigger('change');

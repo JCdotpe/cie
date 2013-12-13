@@ -178,6 +178,39 @@ class Cap6_model extends CI_MODEL{
 		return $this->db->affected_rows() > 0;
 	}
 
+	function get_tot_e_p5($id,$pr)
+	{
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$q = $this->db->get('P5');
+
+		if ($q->num_rows() > 0) $row = $q->row();
+		return $row->P5_Tot_E;	
+	}
+
+	function get_tot_amb_p5n($id,$pr,$edi,$piso)
+	{
+		$this->db->select('P5_TotAmb');
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$this->db->where('P5_Ed_Nro', $edi );
+		$this->db->where('P5_NroPiso', $piso );
+		$q = $this->db->get('P5_N');
+		if ($q->num_rows() > 0) $row = $q->row();
+		return $row->P5_TotAmb;
+	}
+
+	function get_nropiso_p5n($id,$pr,$edi)
+	{
+		$this->db->select_max('P5_NroPiso');
+		$this->db->where('id_local', $id );
+		$this->db->where('Nro_Pred', $pr );
+		$this->db->where('P5_Ed_Nro', $edi );
+		$q = $this->db->get('P5_N');
+		if ($q->num_rows() > 0) $row = $q->row();
+		return $row->P5_NroPiso;
+	}
+
 }
 
 ?>

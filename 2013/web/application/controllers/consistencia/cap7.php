@@ -11,6 +11,7 @@ class Cap7 extends CI_Controller {
 		$this->lang->load('tank_auth');
 
 		$this->load->model('consistencia/cap7_model');
+		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/principal_model');
 
 		//User is logged in
@@ -86,6 +87,10 @@ class Cap7 extends CI_Controller {
 					}
 
 			}
+
+			$tot_e = $this->cap6_model->get_tot_e_p5($id,$pr);
+			$newedif = $nroedif+1;
+			$datos['newedif'] = ($newedif <= $tot_e) ? $newedif : 0;
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	

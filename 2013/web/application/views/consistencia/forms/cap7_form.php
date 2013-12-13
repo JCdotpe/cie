@@ -13,6 +13,7 @@ $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed_VII',
 	'maxlength'	=> 2,
+	'value' => 1,
 	'class' => 'input2',
 	'readonly' => 'true',
 );
@@ -1385,10 +1386,18 @@ $(document).ready(function(){
 			            type:'POST',
 			            data:cap7_data,
 			            dataType:'json',
-			            success:function(json){
-							alert(json.msg);
+			            success:function(data){
+							alert(data.msg);
 							bcar.removeAttr('disabled');
-							document.getElementById('ctab7').scrollIntoView(true);
+							$('#cap7_f')[0].reset();
+							if (data.newedif > 0){
+								$('#Nro_Ed_VII').val(data.newedif);
+								$('#Nro_Ed_VII').focus(); //por algún motivo se corre un input hacia adelante.
+							}else{
+								$('#ctab7').removeClass('active');
+								$('#ctab8 a').trigger('click');
+							}
+							window.scrollTo(0, 0);
 			            }
 			        });
 		}

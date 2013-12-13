@@ -20,6 +20,7 @@ $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed_VI',
 	'maxlength'	=> 2,
+	'value' => 1,
 	'class' => 'input2',
 	'readonly' => 'true',
 );
@@ -234,6 +235,7 @@ $P5_NroPiso = array(
 	'name'	=> 'P5_NroPiso',
 	'id'	=> 'P5_NroPiso',
 	'maxlength'	=> 2,
+	'value' => 1,
 	'class' => 'input2',
 	'readonly' => 'true',	
 );
@@ -247,6 +249,7 @@ $P6_2_1 = array(
 	'name'	=> 'P6_2_1',
 	'id'	=> 'P6_2_1',
 	'maxlength'	=> 2,
+	'value' => 1,
 	'class' => 'input2',
 	'readonly' => 'true',		
 );
@@ -1920,7 +1923,7 @@ echo '
 			  	    							<tbody>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16a).'
-				  	    									1. Metalica
+				  	    									1. Metalica <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1943,7 +1946,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16b).'
-				  	    									2. Metálica con vidrio
+				  	    									2. Metálica con vidrio <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1963,7 +1966,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16c).'
-				  	    									3. Madera
+				  	    									3. Madera <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -1983,7 +1986,7 @@ echo '
 			  	    								</tr>
 			  	    								<tr>
 			  	    									<td>'.form_input($P6_2_16d).'
-				  	    									4. Madera con vidrio
+				  	    									4. Madera con vidrio <div class="help-block error"></div>
 				  	    								</td>
 				  	    								<td>
 				  	    									<!--<label class="checkbox">-->
@@ -2462,11 +2465,10 @@ echo '
 								<label>Observaciones:</label>
 								'.form_textarea($P6_Obs).'
 							</div>
-
+							'.form_submit('send', 'Guardar','class="btn btn-primary pull-right"').'
 		  	    		</div>
-
 ';
-echo form_submit('send', 'Guardar','class="btn btn-primary pull-right"');
+
 echo form_close();
  ?>
 
@@ -2499,6 +2501,9 @@ $(document).ready(function(){
 				$('#panel_edificaciones_vi').html(asd);
 			});
 		});
+		
+		//$('#panel_edificaciones_vi').trigger('click');
+		
     });
 
 	ocultar_preg_8();
@@ -2553,7 +2558,7 @@ $(document).ready(function(){
 		}else if(ahua=='' || ahua==99){
 			//
 		}else{
-			alert('10 Pisos máximo');
+			//alert('10 Pisos máximo');
 		}
 
 	});
@@ -2780,22 +2785,20 @@ $(document).ready(function(){
 	//Saltos P6_1
 	$('#P6_1_6').change(function(event) {
 
-		$('#P6_1_7').val('');
 		$('#P6_1_7').attr('disabled','disabled');
 
 		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_1_7').removeAttr('disabled');
 
+		}else{
+			$('#P6_1_7').val('');
 		}
 	});
 
 
 	$('#P6_3_1').change(function(event) {
 
-		$('#P6_3_1A').val('');
-		$('#P6_3_2').val('');
-		
 		$('#P6_3_2').trigger('change');
 		
 		$('#P6_3_1A').attr('disabled','disabled');
@@ -2806,18 +2809,15 @@ $(document).ready(function(){
 			$('#P6_3_1A').removeAttr('disabled');
 			$('#P6_3_2').removeAttr('disabled');
 
+		}else{
+			$('#P6_3_1A').val('');
+			$('#P6_3_2').val('');
 		}
 	});
 
 
 	$('#P6_3_2').change(function(event) {
 
-		$('#P6_3_2A').val('');
-		$('#P6_3_2B').val('');
-		$('#P6_3_2C').val('');
-		$('#P6_3_2D').val('');
-		$('#P6_3_3').val('');
-		
 		$('#P6_3_3').trigger('change');
 
 		$('#P6_3_2A').attr('disabled','disabled');
@@ -2834,45 +2834,54 @@ $(document).ready(function(){
 			$('#P6_3_2D').removeAttr('disabled');
 			$('#P6_3_3').removeAttr('disabled');
 
+		}else{
+			$('#P6_3_2A').val('');
+			$('#P6_3_2B').val('');
+			$('#P6_3_2C').val('');
+			$('#P6_3_2D').val('');
+			$('#P6_3_3').val('');	
 		}
 	});
 
 
 	$('#P6_3_3').change(function(event) {
 		
-		$('#P6_3_3A').val('');
 		$('#P6_3_3A').attr('disabled','disabled');	
 
 		if ( $(this).val() == 1 || $(this).val() == 9 ){
 			
 			$('#P6_3_3A').removeAttr('disabled');
 
+		}else{
+			$('#P6_3_3A').val('');
 		}
 	});
 	
 
 	$('#P6_4_1').change(function(event) {
 		
-		$('#P6_4_1A').val('');
 		$('#P6_4_1A').attr('disabled','disabled');
 
 		if ( $(this).val() == 1 || $(this).val() == 9 ){
 			
 			$('#P6_4_1A').removeAttr('disabled');
 
+		}else{
+			$('#P6_4_1A').val('');
 		}
 	});
 	
 
 	$('#P6_5_1').change(function(event) {
 		
-		$('#P6_5_1A').val('');
 		$('#P6_5_1A').attr('disabled','disabled');
 
 		if ( $(this).val() == 1 || $(this).val() == 9 ){
 
 			$('#P6_5_1A').removeAttr('disabled');
 
+		}else{
+			$('#P6_5_1A').val('');	
 		}
 	});
 	///////////////////////////////////////////////////////////////////////////
@@ -3604,11 +3613,6 @@ $(document).ready(function(){
 	$("#cap6_i").validate({
 		rules: {
 			//Seccion A
-			Cant_Edif_6:{
-				digits:true,
-				range:[1,99],
-				required: true,
-			},
 			Nro_Ed:{
 				digits:true,
 				range:[1,99],
@@ -3637,6 +3641,7 @@ $(document).ready(function(){
 			P6_1_7:{
 				digits:true,
 				valrango:[1,2,9],
+				required:true,
 			},
 			P6_1_8:{
 				digits:true,
@@ -3646,7 +3651,7 @@ $(document).ready(function(){
 			'P6_1_8_Accesibilidad[]':{
 				digits:true,
 				valrango:[1,2,9],
-				required:true,
+				requeridodis:true,
 			},
 			P6_1_9:{
 				digits:true,
@@ -3657,7 +3662,7 @@ $(document).ready(function(){
 				digits:true,
 				maxlength: 1,
 				valrango:[0,1,9],
-				required: true,
+				requeridodis: true,
 			},
 		},
 
@@ -3701,6 +3706,8 @@ $(document).ready(function(){
 				success:function(json){
 					alert(json.msg);
 					bcar.removeAttr('disabled');
+					//$('#P6_2_3').focus();
+					$('#P5_NroPiso').focus();// por algún motivo se corre un input hacia adelante.
 				}
 			});
 		}
@@ -3730,19 +3737,19 @@ $(document).ready(function(){
 			'P6_2_4Mod[]':{
 				digits:true,
 				valrango:[0,1,9],
-				required:true,
+				requeridodis:true,
 			},
 			'P6_2_4Turno_M[]':{
 				digits:true,
-				valrango:[0,1,9],
+				requeridodis:[0,1,9],
 			},
 			'P6_2_4Turno_T[]':{
 				digits:true,
-				valrango:[0,1,9],
+				requeridodis:[0,1,9],
 			},
 			'P6_2_4Turno_N[]':{
 				digits:true,
-				valrango:[0,1,9],
+				requeridodis:[0,1,9],
 			},
 			P6_2_5:{
 				digits:true,
@@ -4128,10 +4135,18 @@ $(document).ready(function(){
 				type:'POST',
 				data:cap6_data,
 				dataType:'json',
-				success:function(json){
-					alert(json.msg);
+				success:function(data){
+					alert(data.msg);
 					bcar.removeAttr('disabled');
-					document.getElementById('P6_1_10_op14').scrollIntoView(true);
+					$('#cap6_amb')[0].reset();
+					if (data.newpiso == 0){
+						$('#P6_3_1').focus();//por algún motivo se corre un input hacia adelante.
+					}else{
+						$('#P6_2_1').val(data.newamb);
+						$('#P5_NroPiso').val(data.newpiso);
+						$('#P5_NroPiso').focus();//por algún motivo se corre un input hacia adelante.
+						document.getElementById('P6_1_10_op14').scrollIntoView(true);	
+					}				
 				}
 			});
 		}
@@ -4252,10 +4267,21 @@ $(document).ready(function(){
 				type:'POST',
 				data:cap6_data,
 				dataType:'json',
-				success:function(json){
-					alert(json.msg);
+				success:function(data){
+					alert(data.msg);
 					bcar.removeAttr('disabled');
-					document.getElementById('ctab6').scrollIntoView(true);
+					$('#cap6_i')[0].reset(); 
+					$('#cap6_amb')[0].reset();
+					$('#cap6_i2')[0].reset();
+					if (data.newedif > 0){
+						$('#Nro_Ed_VI').val(data.newedif);
+						$('#Nro_Ed_VI').focus(); //por algún motivo se corre un input hacia adelante.
+					}else{
+						$('#ctab6').removeClass('active');
+						$('#ctab7 a').trigger('click');
+					}
+					//document.getElementById('ctab6').scrollIntoView(true);
+					window.scrollTo(0, 0);
 				}
 			});
 		}
