@@ -22,11 +22,12 @@ $P3_1_3_NroPtos = array(
 	'disabled' => 'disabled',
 );
 
+
 $P3_1_4_ArchGPS = array(
 	'name'	=> 'P3_1_4_ArchGPS',
 	'id'	=> 'P3_1_4_ArchGPS',
 	'class' => 'input98p',		
-	'readonly' => true,		
+	'disabled' => 'disabled',		
 );
 
 $RutaFoto = array(

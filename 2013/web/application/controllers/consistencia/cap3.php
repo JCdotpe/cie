@@ -41,6 +41,7 @@ class Cap3 extends CI_Controller {
 	}
 
 
+
 	public function index()
 	{
 		$is_ajax = $this->input->post('ajax');
@@ -54,7 +55,7 @@ class Cap3 extends CI_Controller {
 
 			//pcar
 			foreach ($fields as $a=>$b) {
-				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified','P3_1_3_NroPtos','RutaFoto'))){
+				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified','P3_1_3_NroPtos','P3_1_4_ArchGPS','RutaFoto'))){
 					$c_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}	
