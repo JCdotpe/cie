@@ -357,7 +357,7 @@ $PC_E_1_TPred = array(
 	'name'	=> 'PC_E_1_TPred',
 	'id'	=> 'PC_E_1_TPred',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_2_TPred_NoCol = array(
@@ -371,35 +371,35 @@ $PC_E_3_TEdif = array(
 	'name'	=> 'PC_E_3_TEdif',
 	'id'	=> 'PC_E_3_TEdif',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_4_TPat = array(
 	'name'	=> 'PC_E_4_TPat',
 	'id'	=> 'PC_E_4_TPat',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_5_TLosa = array(
 	'name'	=> 'PC_E_5_TLosa',
 	'id'	=> 'PC_E_5_TLosa',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_6_TCist = array(
 	'name'	=> 'PC_E_6_TCist',
 	'id'	=> 'PC_E_6_TCist',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 $PC_E_7_TMurCon = array(
 	'name'	=> 'PC_E_7_TMurCon',
 	'id'	=> 'PC_E_7_TMurCon',
 	'class' => 'input2',
-	'disabled' => 'disabled',
+	// 'disabled' => 'disabled',
 );
 
 /////////////////
