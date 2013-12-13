@@ -135,7 +135,7 @@ $.extend(jQuery.validator.messages, {
 $.validator.addMethod("hora", function(value, element, arg) {
     var regeX = /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d))/;
     flag = false;
-    if(regeX.test(value.trim())){
+    if(value == '' || regeX.test(value.trim())){
       flag = true;
     }
     return flag;

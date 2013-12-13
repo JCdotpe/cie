@@ -1064,8 +1064,18 @@ $("#car_f").validate({
 			    'PC_C_1_Et_Hini[]':{
 			    		hora: true,
 			    },  
-
-
+			    'PC_C_1_Et_Hfin[]':{
+			    		hora: true,
+			    },  
+			    'PC_C_1_Et_Hora_Prox[]':{
+			    		hora: true,
+			    }, 
+			    'PC_C_1_Jb_Hini[]':{
+			    		hora: true,
+			    }, 
+			    'PC_C_1_Jb_Hfin[]':{
+			    		hora: true,
+			    }, 			    
 		    },
 
 		    messages: {   
