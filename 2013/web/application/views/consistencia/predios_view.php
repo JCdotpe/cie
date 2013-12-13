@@ -131,6 +131,16 @@ $.extend(jQuery.validator.messages, {
     // max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+
+$.validator.addMethod("hora", function(value, element, arg) {
+    var regeX = /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d))/;
+    flag = false;
+    if(regeX.test(value.trim())){
+      flag = true;
+    }
+    return flag;
+}, "Ingrese la hora correctamente");
+
 $.validator.addMethod("requeridodis", function(value, element, arg) {
     flag = false;
     if(value != '' || element.disabled || element.readOnly){
@@ -552,4 +562,160 @@ $("#predios_add").validate({
 }); 
 
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*******************************************************
+  function IsNumeric(valor) 
+  { 
+    var log=valor.length; var sw="S"; 
+    for (x=0; x<log; x++) 
+    { v1=valor.substr(x,1); 
+    v2 = parseInt(v1); 
+    //Compruebo si es un valor numérico 
+    if (isNaN(v2)) { sw= "N";} 
+    } 
+    if (sw=="S") {return true;} else {return false; } 
+  }
+
+  function IsRange(dia, mes) 
+  {
+    var sw=0;
+    switch(mes)
+    {
+      case '01':
+        if (dia<=31){ sw=1; }
+      break;
+      case '03':
+        if (dia<=31){ sw=1; }
+      break;
+      case '04':
+        if (dia<=30){ sw=1; }
+      break;
+      case '05':
+        if (dia<=31){ sw=1; }
+      break;
+      case '06':
+        if (dia<=30){ sw=1; }
+      break;
+      case '07':
+        if (dia<=31){ sw=1; }
+      break;
+      case '08':
+        if (dia<=31){ sw=1; }
+      break;
+      case '09':
+          if (dia<=30){ sw=1; }
+        break;
+        case '10':
+        if (dia<=31){ sw=1; }
+      break;
+      case '11':
+        if (dia<=30){ sw=1; }
+      break;
+      case '12':
+        if (dia<=31){ sw=1; }
+      break;
+    }
+    
+    if (sw==1) {return true;} else {return false; } 
+  }
+
+  var primerslap=false; 
+  var segundoslap=false; 
+
+  function formateafecha(fecha) 
+  { 
+    var long = fecha.length; 
+    var dia; 
+    var mes; 
+    var ano;
+    var d = new Date();
+    var diaactual = d.getDate();
+    var mesactual = d.getMonth()+1;
+    var anoactual = d.getFullYear();
+    if ((long>=2) && (primerslap==false)) { dia=fecha.substr(0,2); 
+    if ((IsNumeric(dia)==true) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
+    else { fecha=""; primerslap=false;} 
+    } 
+    else 
+    { dia=fecha.substr(0,1); 
+    if (IsNumeric(dia)==false) 
+    {fecha="";} 
+    if ((long<=2) && (primerslap=true)) {fecha=fecha.substr(0,1); primerslap=false; } 
+    } 
+    if ((long>=5) && (segundoslap==false)) 
+    { mes=fecha.substr(3,2); dia=fecha.substr(0,2);
+    if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
+    else { fecha=fecha.substr(0,3);; segundoslap=false;} 
+    } 
+    else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
+    if (long>=7) 
+    { ano=fecha.substr(6,4); 
+    if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
+    else { if (long==10){ if ((ano==0) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
+    }
+    if (long==5)
+    {
+      if (mes==mesactual){
+        if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+      }else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+    }
+
+    if (long==10)
+    {
+      dia=fecha.substr(0,2);
+      mes=fecha.substr(3,2);
+      // if ((ano<=2013) && (mes<9)){ fecha=""; }
+      // if ((ano==2013) && (mes==9) && (dia<9)){ fecha=""; }
+    }
+    if (long>=10) 
+    { 
+      fecha=fecha.substr(0,10); 
+      dia=fecha.substr(0,2); 
+      mes=fecha.substr(3,2); 
+      ano=fecha.substr(6,4); 
+      // Año no viciesto y es febrero y el dia es mayor a 28 
+      if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
+    } 
+    return (fecha); 
+  }
+
+
+
+
+
+  function makeday(s){
+    ns = '';
+    if(s != null && s != undefined && s != ''){
+    ss = s.split("-");
+    ns = ss[2] + '/' + ss[1] + '/' + ss[0];
+    }
+    return ns;
+  }
+
+  function makehour(s){
+    ns = '';
+    if(s != null && s != undefined && s != ''){
+      if(s.length == 2){
+        ns = s + ':';
+      }else{
+        ns = s;
+      }
+    }
+    return ns;
+  }
+
+
+
 </script>

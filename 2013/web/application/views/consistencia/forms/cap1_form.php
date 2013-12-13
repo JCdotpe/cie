@@ -316,6 +316,7 @@ $P1_B_3_5_FecTit = array(
 	'id'	=> 'P1_B_3_5_FecTit',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
+	'onKeyUp' => 'javascript:this.value=formateafecha(this.value);',
 	// 'readonly' => true,
 );
 
@@ -338,6 +339,7 @@ $P1_B_3_7_DocPos_Fech = array(
 	'id'	=> 'P1_B_3_7_DocPos_Fech',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
+	'onKeyUp' => 'javascript:this.value=formateafecha(this.value);',
 	// 'readonly' => true,
 );
 
@@ -576,6 +578,7 @@ $P1_C_13_FecTit = array(
 	'id'	=> 'P1_C_13_FecTit',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',	
+	'onKeyUp' => 'javascript:this.value=formateafecha(this.value);',
 	// 'readonly' => 'readonly',	
 );
 
@@ -597,6 +600,7 @@ $P1_C_15_DocPos_Fech = array(
 	'id'	=> 'P1_C_15_DocPos_Fech',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',	
+	'onKeyUp' => 'javascript:this.value=formateafecha(this.value);',
 	// 'readonly' => 'readonly',	
 );
 
@@ -1869,6 +1873,8 @@ $(document).on("click",'.axnro',function() {
 						   	if(fila == 'P1_C_2_ProvCod' || fila == 'P1_C_8_InmTip' || fila == 'P1_C_8_InmCod' || fila == 'P1_C_9_Prop' || fila == 'P1_C_10_AntReg_Cod' || fila == 'P1_C_11_AntReg_Nro' || fila == 'P1_C_12_Tipo_TProp' || fila == 'P1_C_14_DocPos' || fila == 'P1_C_18_Comp'|| fila == 'P1_C_19_CompCan'){
 						   		$('#' + fila).val(valor);
 						   		$('#' + fila).trigger('change');
+							}else if(fila == 'P1_C_15_DocPos_Fech' || fila == 'P1_C_13_FecTit'){
+								$('#' + fila).val(makeday(valor));	
 							}else if(fila == 'P1_C_3_DistCod'){
                                 var interval_DI_cp1 = setInterval(function(){
 	                                if($('#P1_C_3_DistCod option:nth-child(2)').length){
@@ -2638,9 +2644,12 @@ $.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 
 
 $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
-		if(fila == 'P1_B_1_TPred' || fila=='P1_B_3_InmCod' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' || fila == 'P1_B_3_4_Tipo_TProp' ||  fila == 'P1_B_3_3_AntReg_Nro'  || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_5_FecTit' || fila == 'P1_B_3_10_Comp' || fila == 'P1_B_3_11_CompCan'){
+		if(fila == 'P1_B_1_TPred' || fila=='P1_B_3_InmCod' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' || fila == 'P1_B_3_4_Tipo_TProp' ||  fila == 'P1_B_3_3_AntReg_Nro'  || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_10_Comp' || fila == 'P1_B_3_11_CompCan'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
+		}else if(fila == 'P1_B_3_7_DocPos_Fech' || fila == 'P1_B_3_5_FecTit'){
+			$('#' + fila).val(makeday(valor));	
+			$('#' + fila).trigger('change');
 		}else{
 	   		$('#' + fila).val(valor);
 		}

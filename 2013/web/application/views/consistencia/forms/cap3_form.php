@@ -287,6 +287,8 @@ $("#cap3_f").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								$('#ctab3').removeClass('active');
+								$('#ctab4 a').trigger('click');
 								window.scrollTo(0, 0);
 				            }
 				        });     			          	
