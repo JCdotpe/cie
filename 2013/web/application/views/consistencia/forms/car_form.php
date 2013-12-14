@@ -778,15 +778,15 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   }else if(e.delegateTarget.hash == "#tab3"){
   	$("#P3_1_1_LugGeoref").focus();
   }else if(e.delegateTarget.hash == "#tab4"){
-  	$("#P4_2_CantTram_Lfrente").focus();
+  	$("#P4_1_Foto").focus();
   }else if(e.delegateTarget.hash == "#tab5"){
-  	$("#P5_Tot_E").focus();
+  	$("#p5_focus").focus();
   }else if(e.delegateTarget.hash == "#tab6"){
-  	$("#P6_1_3").focus();
+  	$("#Nro_Ed_VI").focus();
   }else if(e.delegateTarget.hash == "#tab7"){
-  	$("#P7_1_2").focus();
+  	$("#Nro_Ed_VII").focus();
   }else if(e.delegateTarget.hash == "#tab8"){
-  	$("#P8_2_Nro").focus();
+  	$("#P8_2_Tipo").focus();
   }
 
 });
