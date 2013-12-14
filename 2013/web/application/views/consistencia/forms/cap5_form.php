@@ -132,8 +132,8 @@ echo '
 	  	    				<div class="panel-heading">Capitulo V: Esquema de distribución de las edificaciones con ambientes</div>
 
 
-	  	    				<h3>Resumen</h3>
-
+	  	    				<h3><input type="text" id="p5_focus" name="p5_focus" value="1" class="input1" readonly="true" />Resumen</h3>
+							
 
 		  	    			<table class="table table-bordered">
 		  	    				<tbody><tr>
