@@ -2263,7 +2263,7 @@ echo '
 										<th colspan="3">SECCIÓN C: INSTALACIONES ELÉCTRICAS INTERIORES DE LA EDIFICACIÓN</th>
 									</tr>
 									<tr>
-										<td colspan="3">Evaluador: Esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero deberá preguntar y luego verificar.</td>
+										<td colspan="3"><input type="text" id="focus_c_p4" name="focus_c_p4" style="width:3px; border:0px;" value="-" />Evaluador: Esta sección se realizará por observación directa excepto las preguntas 2, 3 y 3a, las cuales primero deberá preguntar y luego verificar.  </td>
 									</tr>
 								</thead>
 								<tbody>
@@ -4140,7 +4140,7 @@ $(document).ready(function(){
 					bcar.removeAttr('disabled');
 					$('#cap6_amb')[0].reset();
 					if (data.newpiso == 0){
-						$('#P6_3_1').focus();//por algún motivo se corre un input hacia adelante.
+						$('#focus_c_p4').focus();//por algún motivo se corre un input hacia adelante.
 					}else{
 						$('#P6_2_1').val(data.newamb);
 						$('#P5_NroPiso').val(data.newpiso);
