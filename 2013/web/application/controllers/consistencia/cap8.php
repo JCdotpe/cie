@@ -102,7 +102,7 @@ class Cap8 extends CI_Controller {
 					$datos['codtipo'] = 'P';
 				}else{			
 
-					if ($tot_ld > 0) {					
+					if ($tot_ld > 0) {
 						$datos['newtipo'] = 'cmb_P5_Tot_LD';
 						$datos['total'] = $tot_ld;
 						$datos['codtipo'] = 'LD';
@@ -118,7 +118,9 @@ class Cap8 extends CI_Controller {
 						$datos['newtipo'] = 'cmb_P5_Tot_MC';
 						$datos['total'] = $tot_mc;
 						$datos['codtipo'] = 'MC';
-					}else{
+					}
+
+					if ($tot_mc == 0 && $tot_ld == 0 && $tot_cte == 0) {
 						$datos['newnro'] = 0;
 						$datos['codtipo'] = '';
 					}
@@ -146,7 +148,8 @@ class Cap8 extends CI_Controller {
 						$datos['newtipo'] = 'cmb_P5_Tot_MC';
 						$datos['total'] = $tot_mc;
 						$datos['codtipo'] = 'MC';
-					}else{
+					}
+					if ($tot_mc == 0 && $tot_cte == 0) {
 						$datos['newnro'] = 0;	
 						$datos['codtipo'] = '';					
 					}

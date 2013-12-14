@@ -1094,7 +1094,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op1" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op1" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1105,7 +1105,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op2" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op2" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1116,7 +1116,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op3" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op3" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1127,7 +1127,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op4" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op4" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1138,7 +1138,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op5" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op5" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1149,7 +1149,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op6" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op6" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1160,7 +1160,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op7" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op7" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1171,7 +1171,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op8" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op8" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1182,7 +1182,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op9" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op9" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1193,7 +1193,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op10" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op10" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1204,7 +1204,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op11" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op11" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1215,7 +1215,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op12" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op12" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1226,7 +1226,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op13" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op13" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1237,7 +1237,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" id="P6_1_10_op14" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op14" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
