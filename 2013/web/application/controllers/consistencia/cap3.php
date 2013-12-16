@@ -52,6 +52,7 @@ class Cap3 extends CI_Controller {
 			//id
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
 
 			//pcar
 			foreach ($fields as $a=>$b) {
@@ -70,7 +71,8 @@ class Cap3 extends CI_Controller {
 			if ($this->cap3_model->get_cap3($id,$pr)->num_rows() == 0) {
 				$c_data['id_local'] = $id;
 				$c_data['Nro_Pred'] = $pr;
-				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				// $c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['user_id'] = $ui;
 				$c_data['created'] = date('Y-m-d H:i:s');
 				$c_data['last_ip'] =  $this->input->ip_address();
 				$c_data['user_agent'] = $this->agent->agent_string();					
@@ -84,7 +86,8 @@ class Cap3 extends CI_Controller {
 					}
 
 			} else {
-				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				// $c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['user_id'] = $ui;
 				$c_data['modified'] = date('Y-m-d H:i:s');
 				$c_data['last_ip'] =  $this->input->ip_address();
 				$c_data['user_agent'] = $this->agent->agent_string();					

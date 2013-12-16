@@ -668,7 +668,7 @@ echo '
 
 								<tbody>
 									<tr><td><strong>1.¿Cuantas instituciones educativas prestan servicio en este local escolar?</strong></td>
-									<td>N° de instituciones educativas '.form_input($P1_A_1_Cant_IE).' <input type="submit" class="btn btn-primary pull-right" id="addIE" value="Generar" name="AgregarIE"></td>
+									<td>N° de instituciones educativas '.form_input($P1_A_1_Cant_IE).' <input type="button" class="btn btn-primary pull-right" id="addIE" value="Generar" name="AgregarIE"></td>
 
 								</tr></tbody>
 							</table>
@@ -2020,6 +2020,7 @@ $("#addIE").click(function(){
 			        var addie_data = {
 			            id_local: $("input[name='id_local']").val(),
 			            Nro_Pred: $("input[name='Nro_Pred']").val(),
+			            user_id: $("input[name='user_id']").val(),
 			            P1_A_1_Cant_IE: tnroies,
 			            ajax:1
 			        };						
@@ -2154,7 +2155,8 @@ $("#cap1_ie").validate({
 				cap1_ie_data.push(
 					    {name: 'ajax',value:1},
 					    {name: 'id_local',value:$("input[name='id_local']").val()},      
-					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}    
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},    
+					    {name: 'user_id',value:$("input[name='user_id']").val()}    
 				);
 						
 				var bcar = $( "#cap1_ie :submit" );
@@ -2281,6 +2283,7 @@ $("#cap1_cm").validate({
 					    {name: 'ajax',value:1},
 					    {name: 'id_local',value:$("input[name='id_local']").val()},      
 					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},   
+					    {name: 'user_id',value:$("input[name='user_id']").val()},   
 					    {name: 'P1_A_2_NroIE',value:$("#P1_A_2_NroIE").val()}    
 				);
 						
@@ -2457,6 +2460,7 @@ $("#cap1_ax").validate({
 					    {name: 'ajax',value:1},
 					    {name: 'id_local',value:$("input[name='id_local']").val()},      
 					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},   
+					    {name: 'user_id',value:$("input[name='user_id']").val()},   
 					    {name: 'P1_A_2_NroIE',value:$("#P1_A_2_NroIE").val()}
 				);
 						
@@ -2615,7 +2619,8 @@ $("#predio_i").validate({
 				cap1_pri_data.push(
 					    {name: 'ajax',value:1},
 					    {name: 'id_local',value:$("input[name='id_local']").val()},      
-					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}
+					    {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
+					    {name: 'user_id',value:$("input[name='user_id']").val()}
 				);
 						
 				var bcar = $( "#predio_i :submit" );

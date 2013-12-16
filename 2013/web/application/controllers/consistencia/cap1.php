@@ -60,6 +60,8 @@ class Cap1 extends CI_Controller {
 		$is_ajax = $this->input->post('ajax');
 		$id = $this->input->post('id_local');
 		$pr = $this->input->post('Nro_Pred');
+		$ui = $this->input->post('user_id');
+
 		$nro_ies = $this->input->post('P1_A_1_Cant_IE');
 
 		if($is_ajax){
@@ -96,7 +98,8 @@ class Cap1 extends CI_Controller {
 
 			if($my_head_ie > 0){
 
-				$cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				// $cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap1_p1_a_data['user_id'] = $ui;
 				$cap1_p1_a_data['modified'] = date('Y-m-d H:i:s');
 				$cap1_p1_a_data['last_ip'] =  $this->input->ip_address();
 				$cap1_p1_a_data['user_agent'] = $this->agent->agent_string();
@@ -107,7 +110,8 @@ class Cap1 extends CI_Controller {
 				}
 			}else{
 
-				$cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				// $cap1_p1_a_data['user_id'] = $this->tank_auth->get_user_id();
+				$cap1_p1_a_data['user_id'] = $ui;
 				$cap1_p1_a_data['created'] = date('Y-m-d H:i:s');
 				$cap1_p1_a_data['last_ip'] =  $this->input->ip_address();
 				$cap1_p1_a_data['user_agent'] = $this->agent->agent_string();
@@ -121,7 +125,8 @@ class Cap1 extends CI_Controller {
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//IES
-			$cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			// $cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2n_data['user_id'] = $ui;
 			$cap1_p1_a_2n_data['created'] = date('Y-m-d H:i:s');
 			$cap1_p1_a_2n_data['last_ip'] =  $this->input->ip_address();
 			$cap1_p1_a_2n_data['user_agent'] = $this->agent->agent_string();			
@@ -200,6 +205,8 @@ class Cap1 extends CI_Controller {
 		if($is_ajax){
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			//nie
 			$ie = $this->input->post('P1_A_2_NroIE');
 			//ncodmod
@@ -228,7 +235,8 @@ class Cap1 extends CI_Controller {
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//IE
 
-			$cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			// $cap1_p1_a_2n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2n_data['user_id'] = $ui;
 			$cap1_p1_a_2n_data['modified'] = date('Y-m-d H:i:s');
 			$cap1_p1_a_2n_data['last_ip'] =  $this->input->ip_address();
 			$cap1_p1_a_2n_data['user_agent'] = $this->agent->agent_string();
@@ -247,7 +255,8 @@ class Cap1 extends CI_Controller {
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//COD MOD
-			$cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			// $cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2_8n_data['user_id'] = $ui;
 			$cap1_p1_a_2_8n_data['created'] = date('Y-m-d H:i:s');
 			$cap1_p1_a_2_8n_data['last_ip'] =  $this->input->ip_address();
 			$cap1_p1_a_2_8n_data['user_agent'] = $this->agent->agent_string();
@@ -304,6 +313,8 @@ class Cap1 extends CI_Controller {
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			$ie = $this->input->post('P1_A_2_NroIE');
 
 			$datos['ie'] = $this->cap1_model->get_cap1_ie($id,$pr,$ie)->row();	
@@ -328,6 +339,8 @@ class Cap1 extends CI_Controller {
 		if($is_ajax){
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			//nie
 			$ie = $this->input->post('P1_A_2_NroIE');
 			//ncodmod
@@ -341,7 +354,8 @@ class Cap1 extends CI_Controller {
 			$cap1_p1_a_2_8n_data['Nro_Pred'] = $pr;
 			$cap1_p1_a_2_8n_data['P1_A_2_NroIE'] = $ie;
 
-			$cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			// $cap1_p1_a_2_8n_data['user_id'] = $this->tank_auth->get_user_id();
+			$cap1_p1_a_2_8n_data['user_id'] = $ui;
 			$cap1_p1_a_2_8n_data['modified'] = date('Y-m-d H:i:s');
 			$cap1_p1_a_2_8n_data['last_ip'] =  $this->input->ip_address();
 			$cap1_p1_a_2_8n_data['user_agent'] = $this->agent->agent_string();
@@ -402,7 +416,8 @@ class Cap1 extends CI_Controller {
 							for($o = 0; $o<=$nro_axs-1;$o++){
 										$cap1_p1_a_2_9n_data = null;
 										//data insert ax
-										$cap1_p1_a_2_9n_data['user_id'] = $this->tank_auth->get_user_id();
+										// $cap1_p1_a_2_9n_data['user_id'] = $this->tank_auth->get_user_id();
+										$cap1_p1_a_2_9n_data['user_id'] = $ui;
 										$cap1_p1_a_2_9n_data['created'] = date('Y-m-d H:i:s');
 										$cap1_p1_a_2_9n_data['last_ip'] =  $this->input->ip_address();
 										$cap1_p1_a_2_9n_data['user_agent'] = $this->agent->agent_string();									
@@ -435,7 +450,8 @@ class Cap1 extends CI_Controller {
 
 									    ////////////////////////////////////////////////////////////////////////////////////
 									    //Info Anexos
-										$cap1_p1_c_data['user_id'] = $this->tank_auth->get_user_id();
+										// $cap1_p1_c_data['user_id'] = $this->tank_auth->get_user_id();
+										$cap1_p1_c_data['user_id'] = $ui;
 										$cap1_p1_c_data['created'] = date('Y-m-d H:i:s');
 										$cap1_p1_c_data['last_ip'] =  $this->input->ip_address();
 										$cap1_p1_c_data['user_agent'] = $this->agent->agent_string();	
@@ -483,6 +499,8 @@ class Cap1 extends CI_Controller {
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			$ie = $this->input->post('P1_A_2_NroIE');
 			$cm = $this->input->post('P1_A_2_9_NroCMod');
 			$ax = $this->cap1_model->get_cap1_ax($id,$pr,$ie,$cm);
@@ -504,6 +522,8 @@ class Cap1 extends CI_Controller {
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			$ie = $this->input->post('P1_A_2_NroIE');
 			$cm = $this->input->post('P1_A_2_9_NroCMod');
 			$ax = $this->input->post('P1_A_2_9_Nro');
@@ -527,6 +547,8 @@ class Cap1 extends CI_Controller {
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			$ie = $this->input->post('P1_A_2_NroIE');
 			$cm = $this->input->post('P1_A_2_9_NroCMod');
 			$ax = $this->input->post('P1_A_2_9_Nro');
@@ -550,6 +572,8 @@ class Cap1 extends CI_Controller {
 
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
 			$ie = $this->input->post('P1_A_2_NroIE');
 			$cm = $this->input->post('P1_A_2_9_NroCMod');
 			$ax = $this->input->post('P1_A_2_9_Nro');
@@ -575,7 +599,8 @@ class Cap1 extends CI_Controller {
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 
-			$P1_C_data['user_id'] = $this->tank_auth->get_user_id();
+			// $P1_C_data['user_id'] = $this->tank_auth->get_user_id();
+			$P1_C_data['user_id'] = $ui;
 			$P1_C_data['modified'] = date('Y-m-d H:i:s');
 			$P1_C_data['last_ip'] =  $this->input->ip_address();
 			$P1_C_data['user_agent'] = $this->agent->agent_string();	
@@ -593,7 +618,8 @@ class Cap1 extends CI_Controller {
 			//delete ax20n
 			$this->cap1_model->delete_cap1_ax_c($id,$pr,$ie,$cm,$ax,'P1_C_20N');
 			//insert
-			$P1_C_20N_data['user_id'] = $this->tank_auth->get_user_id();
+			// $P1_C_20N_data['user_id'] = $this->tank_auth->get_user_id();
+			$P1_C_20N_data['user_id'] = $ui;
 			$P1_C_20N_data['created'] = date('Y-m-d H:i:s');
 			$P1_C_20N_data['last_ip'] =  $this->input->ip_address();
 			$P1_C_20N_data['user_agent'] = $this->agent->agent_string();

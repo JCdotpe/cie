@@ -51,6 +51,7 @@ class Car extends CI_Controller {
 			//id
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
 			$pcar_num = $this->input->post('pcar_num');
 
 			//pcar
@@ -73,7 +74,8 @@ class Car extends CI_Controller {
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			if ($this->car_model->consulta_car($id,$pr)->num_rows() == 0) {
 
-				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				// $c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['user_id'] = $ui;
 				$c_data['created'] = date('Y-m-d H:i:s');
 				$c_data['last_ip'] =  $this->input->ip_address();
 				$c_data['user_agent'] = $this->agent->agent_string();
@@ -90,7 +92,8 @@ class Car extends CI_Controller {
 					}
 
 			} else {
-				$c_data['user_id'] = $this->tank_auth->get_user_id();
+				// $c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['user_id'] = $ui;
 				$c_data['modified'] =  date('Y-m-d H:i:s');
 				$c_data['last_ip'] =  $this->input->ip_address();
 				$c_data['user_agent'] = $this->agent->agent_string();				
@@ -107,7 +110,8 @@ class Car extends CI_Controller {
 
 			$this->car_model->delete_car_n($id,$pr);
 
-			$c_data_n['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data_n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_n['user_id'] = $ui;
 			$c_data_n['created'] = date('Y-m-d H:i:s');
 			$c_data_n['last_ip'] =  $this->input->ip_address();
 			$c_data_n['user_agent'] = $this->agent->agent_string();

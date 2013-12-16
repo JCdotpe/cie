@@ -339,7 +339,7 @@ $.validator.addMethod("valtexto", function(value, element,arg){
 	  		ahua = (data.P1_B_2A_PredNoCol==0)? 'Colindante' : 'No Colindante';
 	  	}
 
-		$('#predios').append('<li ' + act + '><a target="_self"  href="' + CI.site_url + '/consistencia/local/' + data.id_local + '/' + data.Nro_Pred + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
+		$('#predios').append('<li ' + act + '><a target="_self"  href="' + CI.site_url + '/consistencia/local/' + data.id_local + '/' + data.Nro_Pred + '/' + <?php echo $user_id; ?> + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
 	});
 
 }); 
@@ -352,6 +352,7 @@ if($pr!=0){
 
 echo form_hidden('id_local', $cod); 
 echo form_hidden('Nro_Pred', $pr); 
+echo form_hidden('user_id', $user_id); 
 ?>
 
 
