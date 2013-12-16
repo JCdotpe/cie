@@ -8,9 +8,9 @@ class Car_model extends CI_MODEL{
 		$this->db->select('p.CCPP, p.Nombre as provincia');
 		$this->db->select('di.CCDI, di.Nombre as distriton');
 		$this->db->from('PCar pc');
-        $this->db->join('DPTO d','pc.PC_A_1_Dep = d.CCDD','inner');	    	
-        $this->db->join('PROV p','pc.PC_A_1_Dep = p.CCDD and pc.PC_A_2_Prov = p.CCPP','inner');	    	
-        $this->db->join('DIST di','pc.PC_A_1_Dep = di.CCDD and pc.PC_A_2_Prov = di.CCPP and pc.PC_A_3_Dist = di.CCDI','inner');	    	
+        $this->db->join('DPTO d','pc.PC_A_1_Dep = d.CCDD','left');	    	
+        $this->db->join('PROV p','pc.PC_A_1_Dep = p.CCDD and pc.PC_A_2_Prov = p.CCPP','left');	    	
+        $this->db->join('DIST di','pc.PC_A_1_Dep = di.CCDD and pc.PC_A_2_Prov = di.CCPP and pc.PC_A_3_Dist = di.CCDI','left');	    	
         $this->db->where('pc.id_local', $id );
         $this->db->where('pc.Nro_Pred', $pr );
         $q = $this->db->get();

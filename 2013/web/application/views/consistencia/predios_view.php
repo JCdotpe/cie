@@ -60,6 +60,16 @@ echo '</div>';
 </ul>
 
 <script type="text/javascript">
+
+$("#nav_capit2").css({top: 142});
+
+$( "#menu_nav2" ).hide();
+$(".fx_fix").css({top: 70});
+$("ul.predios_views").css({top: 110});
+
+
+
+
 $(function(){
 
   // if(<?php //echo $level ?> == 1){
@@ -427,7 +437,7 @@ echo form_hidden('user_id', $user_id);
 <div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
 	<div class="span12" id="insidetabs" style="text-align:center">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
-		  <ul class="nav nav-tabs fix_navcap" style="text-align:center">
+		  <ul id='nav_capit2' class="nav nav-tabs fix_navcap">
 		    <li id="ctab"><a href="#tabc" data-toggle="tab">Carátula</a></li>
 		    <li id="ctab1"><a href="#tab1" data-toggle="tab">Capítulo I</a></li>
 		    <li id="ctab2"><a href="#tab2" data-toggle="tab">Capítulo II</a></li>
@@ -657,7 +667,7 @@ $("#predios_add").validate({
     } 
     if ((long>=5) && (segundoslap==false)) 
     { mes=fecha.substr(3,2); dia=fecha.substr(0,2);
-    if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
+    if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/2013"+fecha.substr(6,4); segundoslap=true; } 
     else { fecha=fecha.substr(0,3);; segundoslap=false;} 
     } 
     else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
@@ -677,6 +687,7 @@ $("#predios_add").validate({
     {
       dia=fecha.substr(0,2);
       mes=fecha.substr(3,2);
+      if ((ano!=2013)){ fecha=""; }
       // if ((ano<=2013) && (mes<9)){ fecha=""; }
       // if ((ano==2013) && (mes==9) && (dia<9)){ fecha=""; }
     }

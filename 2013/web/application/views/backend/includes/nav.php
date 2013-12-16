@@ -13,7 +13,7 @@
           </div>
       </div>
        <!--  <div class="navbar navbar-inverse navbar-fixed-top " > -->
-       <div class="navbar navbar-inverse navbar-fixed-top navbottom">
+       <div id="menu_nav2" class="navbar navbar-inverse navbar-fixed-top navbottom">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

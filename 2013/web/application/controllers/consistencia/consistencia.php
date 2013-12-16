@@ -55,10 +55,15 @@ class Consistencia extends CI_Controller {
 			if(is_null($pr))
 				redirect($id . '/' . 1 . '/' . $user_id);
 
+
+
+
 			// $flag = FALSE;
 			// $ubi = $this->principal_model->get_user_ubigeo($this->tank_auth->get_user_id());
-
-			// $local = $this->principal_model->get_padlocal($id);
+			$local = $this->principal_model->get_padlocal($id);
+			$data['fdep'] = $local->row()->cod_dpto;
+			$data['fprov'] = $local->row()->cod_prov;
+			$data['fdis'] = $local->row()->cod_dist;
 			// foreach ($ubi->result() as $u) {
 			// 	if($u->cod_sede_operativa == $local->row()->cod_sede_operativa){
 			// 		$flag = TRUE;
@@ -83,6 +88,7 @@ class Consistencia extends CI_Controller {
 
 			//si no tiene ningun predio
 			if($data['predios']->num_rows() == 0){
+
 				$pr_data['user_id'] = $this->tank_auth->get_user_id();
 				$pr_data['created'] = date('Y-m-d H:i:s');
 				$pr_data['last_ip'] =  $this->input->ip_address();

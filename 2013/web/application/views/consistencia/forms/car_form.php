@@ -290,7 +290,7 @@ $PC_D_EvT_Nomb = array(
 	'id'	=> 'PC_D_EvT_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
-	'readonly' => true,
+	//'readonly' => true,
 );
 
 $PC_D_JBri_dni = array(
@@ -305,7 +305,7 @@ $PC_D_JBri_Nomb = array(
 	'id'	=> 'PC_D_JBri_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
-	'readonly' => true,
+	//'readonly' => true,
 );
 
 $PC_D_CProv_dni = array(
@@ -320,7 +320,7 @@ $PC_D_CProv_Nomb = array(
 	'id'	=> 'PC_D_CProv_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
-	'readonly' => true,
+	//'readonly' => true,
 );
 
 $PC_D_CDep_dni = array(
@@ -335,7 +335,7 @@ $PC_D_CDep_Nomb = array(
 	'id'	=> 'PC_D_CDep_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
-	'readonly' => true,
+	//'readonly' => true,
 );
 
 $PC_D_SupN_dni = array(
@@ -350,7 +350,7 @@ $PC_D_SupN_Nomb = array(
 	'id'	=> 'PC_D_SupN_Nomb',
 	'maxlength'	=> 200,
 	'width' => 300,
-	'readonly' => true,
+	//'readonly' => true,
 );
 
 $PC_E_1_TPred = array(
@@ -600,11 +600,11 @@ echo '
 										<td>'.form_input($PC_C_2_Rfinal_fecha).'</td>
 										<td rowspan="2">
 											<ul>
-												<li>1.Completa</li>
-												<li>2.Rechazo</li>
-												<li>3.Incompleta</li>
-												<li>4.Local cerrado/desocupado</li>
-												<li>5.Otro (Especifique)</li>
+												<li>1. Completa</li>
+												<li>2. Incompleta</li>
+												<li>3. Rechazo</li>
+												<li>4. Local cerrado/desocupado</li>
+												<li>5. Otro (Especifique)</li>
 											</ul>
 										</td>
 									</tr>
@@ -922,14 +922,20 @@ $("#PC_A_2_Prov").change(function(event) {
 
 $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
 											if(fila == 'PC_A_1_Dep' || fila == 'PC_C_2_Rfinal_resul'){
+													if(valor == null && fila == 'PC_A_1_Dep'){
+	   													valor = '<?php echo $fdep; ?>';	
+	   												}
 	   												$('#' + fila).val(valor);
 	   												$('#' + fila).trigger('change');	
                                              }else if(fila == 'PC_A_2_Prov'){
                                                     var interval_PP = setInterval(function(){
                                                        if($('#PC_A_2_Prov option:nth-child(2)').length){
                                                             clearInterval(interval_PP);
+		 													if(valor == null){
+			   													valor = '<?php echo $fprov; ?>';	
+			   												}                                                           
                                                             $('#PC_A_2_Prov').val(valor);
-                                                             $('#PC_A_2_Prov').trigger('change');
+                                                            $('#PC_A_2_Prov').trigger('change');
                                                         }
                                                     }, 1000); 
 
@@ -937,7 +943,10 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                                     var interval_DI = setInterval(function(){
                                                         if($('#PC_A_3_Dist option:nth-child(2)').length){
                                                             clearInterval(interval_DI);
-                                                            $('#PC_A_3_Dist').val(valor);
+		 													if(valor == null){
+			   													valor = '<?php echo $fdis; ?>';	
+			   												} 
+			   													$('#PC_A_3_Dist').val(valor);                                                            
                                                         }
                                                     }, 1000);        
 
@@ -1080,7 +1089,7 @@ $("#car_f").validate({
 			    		// required: true,
 			        },  
 				PC_D_EvT_Nomb: {
-			    		required: true,
+			    		// required: true,
 			        },  			        
 				PC_D_JBri_dni: {
 			    		digits: true,
