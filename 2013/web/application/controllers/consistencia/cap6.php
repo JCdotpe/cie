@@ -13,26 +13,26 @@ class Cap6 extends CI_Controller {
 		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/principal_model');
 
-		//User is logged in
-		if (!$this->tank_auth->is_logged_in()) {
-			redirect('/auth/login/');
-		}
+		// //User is logged in
+		// if (!$this->tank_auth->is_logged_in()) {
+		// 	redirect('/auth/login/');
+		// }
 
-		//Check user privileges 
-		$roles = $this->tank_auth->get_roles();
-		$flag = FALSE;
-		foreach ($roles as $role) {
-			if($role->role_id == 16){
-				$flag = TRUE;
-				break;
-			}
-		}
+		// //Check user privileges 
+		// $roles = $this->tank_auth->get_roles();
+		// $flag = FALSE;
+		// foreach ($roles as $role) {
+		// 	if($role->role_id == 16){
+		// 		$flag = TRUE;
+		// 		break;
+		// 	}
+		// }
 
-		//If not author is the maintenance guy!
-		if (!$flag) {
-			show_404();
-			die();
-		}
+		// //If not author is the maintenance guy!
+		// if (!$flag) {
+		// 	show_404();
+		// 	die();
+		// }
 	}
 
 	public function index()
@@ -51,6 +51,7 @@ class Cap6 extends CI_Controller {
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
 			$nroedif = $this->input->post('Nro_Ed');
+			$ui = $this->input->post('user_id');
 			// $p5_piso = $this->input->post('P5_NroPiso');
 			// $amb = $this->input->post('P6_2_1');
 
@@ -94,7 +95,8 @@ class Cap6 extends CI_Controller {
 			///////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////
 			//P6_1
-			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['user_id'] = $ui;
 			$c_data['last_ip'] =  $this->input->ip_address();
 			$c_data['user_agent'] = $this->agent->agent_string();
 
@@ -132,7 +134,8 @@ class Cap6 extends CI_Controller {
 			//P6_1_8N
 			$this->cap6_model->delete_cap6_1_8n($id,$pr,$nroedif);
 
-			$c_data_8n['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data_8n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_8n['user_id'] = $ui;
 			$c_data_8n['last_ip'] =  $this->input->ip_address();
 			$c_data_8n['user_agent'] = $this->agent->agent_string();
 			$c_data_8n['created'] = date('Y-m-d H:i:s');
@@ -166,7 +169,8 @@ class Cap6 extends CI_Controller {
 			//P6_1_10N
 			$this->cap6_model->delete_cap6_1_10n($id,$pr,$nroedif);
 
-			$c_data_10n['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data_10n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_10n['user_id'] = $ui;
 			$c_data_10n['last_ip'] =  $this->input->ip_address();
 			$c_data_10n['user_agent'] = $this->agent->agent_string();
 			$c_data_10n['created'] = date('Y-m-d H:i:s');
@@ -269,7 +273,7 @@ class Cap6 extends CI_Controller {
 			$this->load->view('backend/json/json_view', $data);		
 
 		}else{
-			show_404();;
+			show_404();
 		}
 	}
 
@@ -288,6 +292,7 @@ class Cap6 extends CI_Controller {
 			$nroedif = $this->input->post('Nro_Ed');
 			$p5_piso = $this->input->post('P5_NroPiso');
 			$amb = $this->input->post('P6_2_1');
+			$ui = $this->input->post('user_id');
 
 			//P6_2
 			foreach ($fields_2 as $a=>$b) {
@@ -306,7 +311,8 @@ class Cap6 extends CI_Controller {
 			///////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////
 			//P6_2
-			$c_data_2['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data_2['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_2['user_id'] = $ui;
 			$c_data_2['last_ip'] =  $this->input->ip_address();
 			$c_data_2['user_agent'] = $this->agent->agent_string();
 			
@@ -344,7 +350,8 @@ class Cap6 extends CI_Controller {
 			//P6_2_4N
 			$this->cap6_model->delete_cap6_2_4n($id,$pr,$nroedif,$p5_piso,$amb);
 
-			$c_data_2_4n['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data_2_4n['user_id'] = $this->tank_auth->get_user_id();
+			$c_data_2_4n['user_id'] = $ui;
 			$c_data_2_4n['last_ip'] =  $this->input->ip_address();
 			$c_data_2_4n['user_agent'] = $this->agent->agent_string();
 			$c_data_2_4n['created'] = date('Y-m-d H:i:s');
@@ -390,7 +397,7 @@ class Cap6 extends CI_Controller {
 			$this->load->view('backend/json/json_view', $data);		
 
 		}else{
-			show_404();;
+			show_404();
 		}
 	}
 
@@ -405,6 +412,7 @@ class Cap6 extends CI_Controller {
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
 			$nroedif = $this->input->post('Nro_Ed');
+			$ui = $this->input->post('user_id');
 			
 			
 			//P6_1
@@ -418,7 +426,8 @@ class Cap6 extends CI_Controller {
 			///////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////
 			//P6_1
-			$c_data['user_id'] = $this->tank_auth->get_user_id();
+			// $c_data['user_id'] = $this->tank_auth->get_user_id();
+			$c_data['user_id'] = $ui;
 			$c_data['last_ip'] =  $this->input->ip_address();
 			$c_data['user_agent'] = $this->agent->agent_string();
 
@@ -440,6 +449,7 @@ class Cap6 extends CI_Controller {
 			$tot_e = $this->cap6_model->get_tot_e_p5($id,$pr);
 			$newedif = $nroedif+1;
 			$datos['newedif'] = ($newedif <= $tot_e) ? $newedif : 0;
+			// $datos['edif'] = $nroedif;
 			
 			$datos['flag'] = $flag;
 			$datos['msg'] = $msg;
@@ -447,7 +457,7 @@ class Cap6 extends CI_Controller {
 			$this->load->view('backend/json/json_view', $data);
 
 		}else{
-			show_404();;
+			show_404();
 		}
 	}
 

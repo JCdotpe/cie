@@ -348,7 +348,8 @@ $("#cap5_f").validate({
 				    cap5_data.push(
 				        {name: 'ajax',value:1},
 				        {name: 'id_local',value:$("input[name='id_local']").val()},      
-				        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+				        {name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
+				        {name: 'user_id',value:parseInt($("input[name='user_id']").val())}   
 				    );
 					
 			        var bcar = $( "#cap5_f :submit" );

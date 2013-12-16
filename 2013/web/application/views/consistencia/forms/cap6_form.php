@@ -3693,7 +3693,8 @@ $(document).ready(function(){
 			cap6_data.push(
 				{name: 'ajax',value:1},
 				{name: 'id_local',value:$("input[name='id_local']").val()},      
-				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()}      
+				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
+		        {name: 'user_id',value:parseInt($("input[name='user_id']").val())}   
 			);
 
 			var bcar = $( "#cap6_i :submit" );
@@ -4124,8 +4125,9 @@ $(document).ready(function(){
 			cap6_data.push(
 				{name: 'ajax',value:1},
 				{name: 'id_local',value:$("input[name='id_local']").val()},      
-				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
-				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()}
+				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},		        
+				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()},
+				{name: 'user_id',value:parseInt($("input[name='user_id']").val())}
 			);
 
 			var bcar = $( "#cap6_amb :submit" );
@@ -4257,7 +4259,8 @@ $(document).ready(function(){
 				{name: 'ajax',value:1},
 				{name: 'id_local',value:$("input[name='id_local']").val()},      
 				{name: 'Nro_Pred',value:$("input[name='Nro_Pred']").val()},
-				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()}
+				{name: 'Nro_Ed',value:$("input[name='Nro_Ed']").val()},
+				{name: 'user_id',value:parseInt($("input[name='user_id']").val())}
 			);
 
 			var bcar = $( "#cap6_i2 :submit" );
