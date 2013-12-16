@@ -1077,7 +1077,7 @@ $("#car_f").validate({
 			    },
 				PC_D_EvT_dni: {
 			    		digits: true,
-			    		required: true,
+			    		// required: true,
 			        },  
 				PC_D_EvT_Nomb: {
 			    		required: true,
