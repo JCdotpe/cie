@@ -62,10 +62,10 @@ echo '</div>';
 <script type="text/javascript">
 $(function(){
 
-  if(<?php echo $level ?> == 1){
-    $('input,select,textarea').attr('disabled','disabled');
-    $('.btn-primary').hide();
-  }
+  // if(<?php //echo $level ?> == 1){
+  //   $('input,select,textarea').attr('disabled','disabled');
+  //   $('.btn-primary').hide();
+  // }
 
 $(document).on("keyup",'.btn-primary',function(e) {    
       var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
