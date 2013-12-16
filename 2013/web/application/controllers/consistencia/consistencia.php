@@ -52,20 +52,20 @@ class Consistencia extends CI_Controller {
 
 	public function local($id, $pr = null)
 	{
-			$flag = FALSE;
-			$ubi = $this->principal_model->get_user_ubigeo($this->tank_auth->get_user_id());
+			// $flag = FALSE;
+			// $ubi = $this->principal_model->get_user_ubigeo($this->tank_auth->get_user_id());
 
-			$local = $this->principal_model->get_padlocal($id);
-			foreach ($ubi->result() as $u) {
-				if($u->cod_sede_operativa == $local->row()->cod_sede_operativa){
-					$flag = TRUE;
-					break;
-				}
-			}
-			if (!$flag) {
-				show_404();
-				die();
-			}	
+			// $local = $this->principal_model->get_padlocal($id);
+			// foreach ($ubi->result() as $u) {
+			// 	if($u->cod_sede_operativa == $local->row()->cod_sede_operativa){
+			// 		$flag = TRUE;
+			// 		break;
+			// 	}
+			// }
+			// if (!$flag) {
+			// 	show_404();
+			// 	die();
+			// }	
 
 			//udra
 			// $this->load->model('procesamiento/dudra_model');
