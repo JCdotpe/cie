@@ -165,7 +165,7 @@ $PC_C_2_Rfinal_fecha = array(
 	'id'	=> 'PC_C_2_Rfinal_fecha',
 	'maxlength'	=> 10,
 	'class' => 'input10 fechap',
-	// 'readonly' => true,
+	'onKeyUp' => "javascript:this.value=formateafecha(this.value);",
 );
 
 // FIN DETALLE - Sección C: Entrevista y Supervision
@@ -941,8 +941,10 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                                         }
                                                     }, 1000);        
 
+                                            }else if(fila == 'PC_C_2_Rfinal_fecha'){
+	   											$('#' + fila).val(makeday(valor));	
                                             }else{
-	   												$('#' + fila).val(valor);
+                                            	$('#' + fila).val(valor);
                                             }             	
 }); 
 
