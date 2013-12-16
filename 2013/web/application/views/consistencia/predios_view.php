@@ -667,7 +667,7 @@ $("#predios_add").validate({
     } 
     if ((long>=5) && (segundoslap==false)) 
     { mes=fecha.substr(3,2); dia=fecha.substr(0,2);
-    if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/2013"+fecha.substr(6,4); segundoslap=true; } 
+    if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
     else { fecha=fecha.substr(0,3);; segundoslap=false;} 
     } 
     else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
@@ -687,7 +687,7 @@ $("#predios_add").validate({
     {
       dia=fecha.substr(0,2);
       mes=fecha.substr(3,2);
-      if ((ano!=2013)){ fecha=""; }
+      // if ((ano!=2013)){ fecha=""; }
       // if ((ano<=2013) && (mes<9)){ fecha=""; }
       // if ((ano==2013) && (mes==9) && (dia<9)){ fecha=""; }
     }

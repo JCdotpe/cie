@@ -57,7 +57,10 @@ class Car extends CI_Controller {
 			//pcar
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-					$c_data[$b] = ($this->input->post($b) == '') ? NULL :  $this->input->post($b);
+					if($b == 'PC_C_2_Rfinal_fecha')
+						$c_data[$b] = ($this->input->post($b) == '') ? NULL :  makedaysql($this->input->post($b));
+					else
+						$c_data[$b] = ($this->input->post($b) == '') ? NULL :  $this->input->post($b);
 				}
 			}	
 
@@ -123,8 +126,11 @@ class Car extends CI_Controller {
 				foreach($pre_n['PC_C_1_NroVis'] as &$z){
 
 						foreach ($fields_n as $a=>$b) {
-							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){							
-								$c_data_n[$b] = (!isset($pre_n[$b][$cc]) || $pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
+							if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
+								if($b == 'PC_C_1_Et_Fecha' || $b == 'PC_C_1_Et_Fecha_Prox' || $b == 'PC_C_1_Jb_Fecha')							
+									$c_data_n[$b] = (!isset($pre_n[$b][$cc]) || $pre_n[$b][$cc] == '') ? NULL : makedaysql($pre_n[$b][$cc]);
+								else
+									$c_data_n[$b] = (!isset($pre_n[$b][$cc]) || $pre_n[$b][$cc] == '') ? NULL : $pre_n[$b][$cc];
 							}	
 						}
 					    $this->car_model->insert_car_n($c_data_n);			

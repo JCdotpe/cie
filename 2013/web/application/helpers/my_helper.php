@@ -316,4 +316,15 @@ if ( ! function_exists('givemethefuckingkml'))
         //header('Content-type: application/vnd.google-earth.kml+xml');
         return trim($kmlOutput);
     }
+
+if ( ! function_exists('makedaysql'))
+{
+    function makedaysql($string)
+    {
+       $ah = explode('/', $string);
+       $r = $ah[2] . '-' . $ah[1] . '-' . $ah[0];
+       return $r;
+    }
+}
+
 }

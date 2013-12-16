@@ -243,7 +243,10 @@ public function predio(){
 
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-					$P1_B_3N[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+					if($b == 'P1_B_3_5_FecTit' || $b == 'P1_B_3_7_DocPos_Fech')	
+						$P1_B_3N[$b] = ($this->input->post($b) == '') ? NULL : makedaysql($this->input->post($b));
+					else
+						$P1_B_3N[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}	
 

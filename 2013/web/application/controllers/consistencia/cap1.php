@@ -580,7 +580,10 @@ class Cap1 extends CI_Controller {
 
 			foreach ($fields as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','P1_A_2_NroIE','P1_A_2_9_NroCMod','P1_A_2_9_Nro','user_id','last_ip','user_agent','created','modified'))){
-					$P1_C_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+					if($b == 'P1_C_13_FecTit' || $b == 'P1_C_15_DocPos_Fech')
+						$P1_C_data[$b] = ($this->input->post($b) == '') ? NULL : makedaysql($this->input->post($b));
+					else
+						$P1_C_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
 				}
 			}	
 
