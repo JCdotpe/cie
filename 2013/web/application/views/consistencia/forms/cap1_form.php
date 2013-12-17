@@ -215,7 +215,7 @@ $P1_A_2_Obs = array(
 $P1_A_1_Cant_IE = array(
 	'name'	=> 'P1_A_1_Cant_IE',
 	'id'	=> 'P1_A_1_Cant_IE',
-	'maxlength'	=> 1,
+	'maxlength'	=> 2,
 );
 
 // TABLA P1_B
@@ -2014,9 +2014,9 @@ function gen_cms(n,re){
 //generar ie
 $("#addIE").click(function(){
 
-				var tnroies = $("#P1_A_1_Cant_IE").val();
+				var tnroies = parseInt($("#P1_A_1_Cant_IE").val());
 
-				if(tnroies !='' && tnroies >= 0){
+				if(tnroies !='' && tnroies > 0){
 			        var addie_data = {
 			            id_local: $("input[name='id_local']").val(),
 			            Nro_Pred: $("input[name='Nro_Pred']").val(),
@@ -2085,9 +2085,11 @@ $(document).on("click",'.ienro',function() {
 $("#cap1_ie").validate({
 		    rules: {     
 		    	P1_A_2_1_NomIE:{
+		    		letnum:true,
 		    		required:true,
 		    	},     		
 		    	P1_A_2_2_Direc:{
+		    		letnum:true,
 		    		required:true,
 		    	},	         		         		         		                  	         		         	         	          		                                                                             
 				P1_A_2_3_DocTip: {
@@ -2101,10 +2103,12 @@ $("#cap1_ie").validate({
 		            required:true,
 			    },  
 				P1_A_2_4_TelfIE: {
+					telef:true,
 					// valrango: [1,999999998,999999999],
 			        // digits: true,
 			    },  		
 				P1_A_2_4_TelfDir: {
+					telef:true,
 					// valrango: [1,999999998,999999999],
 			        // digits: true,
 			    },  	
@@ -2209,9 +2213,11 @@ $("#cap1_cm").validate({
 		    rules: {           			         		         		         		                  	         		         	         	          		                                                                             
 				'P1_A_2_9A_CMod[]': {
 			        valrango:[1,9999998,9999999],
+			        requeridodis:true,
 			    },  
 				'P1_A_2_9B_CodLocal[]': {
 			        valrango:[1,999998,999999],
+			        requeridodis:true,
 			    },  	
 				'P1_A_2_9C_Nivel[]': {
 			         valrango:[1,11,99],
@@ -2238,19 +2244,19 @@ $("#cap1_cm").validate({
 			    },  							    
 				'P1_A_2_9I_T2_Talu[]': {
 			        valrango:[0,9998,9999],
-			        requeridodis:true,
+			        // requeridodis:true,
 			    },  							    
 				'P1_A_2_9J_T2_Taul[]': {
 			        valrango:[0,998,999],
-			        requeridodis:true,
+			        // requeridodis:true,
 			    },  							    
 				'P1_A_2_9K_T3_Talu[]': {
 			        valrango:[0,9998,9999],
-			        requeridodis:true,
+			        // requeridodis:true,
 			    },  							    
 				'P1_A_2_9L_T3_Taul[]': {
 			        valrango:[0,998,999],
-			        requeridodis:true,
+			        // requeridodis:true,
 			    },  							    
 		    },
 

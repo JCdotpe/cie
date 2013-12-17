@@ -300,7 +300,7 @@ class Cap1 extends CI_Controller {
 			$this->load->view('backend/json/json_view', $data);
 
 		}else{
-			show_404();;
+			show_404();
 		}			
 	}
 

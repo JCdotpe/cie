@@ -156,6 +156,10 @@ $.validator.addMethod("letnum", function(value, element, param) {
   return value.match(new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"));
 }, "Caracteres no permitidos");
 
+$.validator.addMethod("telef", function(value, element, param) {
+  return value.match(new RegExp("^[0-9#*]*$"));
+}, "Ingrese un telefono valido");
+
 $.validator.addMethod("requeridodis", function(value, element, arg) {
     flag = false;
     if(value != '' || element.disabled || element.readOnly){
