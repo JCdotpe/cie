@@ -152,6 +152,10 @@ $.validator.addMethod("hora", function(value, element, arg) {
     return flag;
 }, "Ingrese la hora correctamente");
 
+$.validator.addMethod("letnum", function(value, element, param) {
+  return value.match(new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"));
+}, "Caracteres no permitidos");
+
 $.validator.addMethod("requeridodis", function(value, element, arg) {
     flag = false;
     if(value != '' || element.disabled || element.readOnly){
@@ -176,8 +180,13 @@ $.validator.addMethod("valueEquals", function (value, element, param) {
 }, "Acepta la declaración de veracidad?");
 
 $.validator.addMethod("peruDate",function(value, element) {
-    return value.match(/^\d\d?\-\d\d?\-\d\d\d\d$/);
-}, "Ingrese fecha: dd-mm-yyyy");
+    var regeX = /^\d\d?\/\d\d?\/\d\d\d\d$/;
+    flag = false;
+    if(value == '' || regeX.test(value.trim())){
+      flag = true;
+    }
+    return flag;
+}, "Ingrese fecha: dd/mm/yyyy");
 
  $.validator.addMethod("validName", function(value, element) {
     return this.optional(element) || /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/.test(value);

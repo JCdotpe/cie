@@ -64,6 +64,7 @@ class Consistencia extends CI_Controller {
 			$data['fdep'] = $local->row()->cod_dpto;
 			$data['fprov'] = $local->row()->cod_prov;
 			$data['fdis'] = $local->row()->cod_dist;
+			$data['cod_area'] = $local->row()->cod_area;
 			// foreach ($ubi->result() as $u) {
 			// 	if($u->cod_sede_operativa == $local->row()->cod_sede_operativa){
 			// 		$flag = TRUE;

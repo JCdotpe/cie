@@ -597,7 +597,7 @@ echo '
 								<tbody>
 									<tr>
 										<td>Fecha: </td>
-										<td>'.form_input($PC_C_2_Rfinal_fecha).'</td>
+										<td>'.form_input($PC_C_2_Rfinal_fecha).'<div class="help-block error"></div></td>
 										<td rowspan="2">
 											<ul>
 												<li>1. Completa</li>
@@ -739,6 +739,10 @@ echo form_close();
 
 $(function(){
 
+if(<?php echo $cod_area; ?> == '2'){
+	$("#PC_A_5_NucleoUrb").val('');
+	$("#PC_A_5_NucleoUrb").attr('disabled','disabled');
+}
 
 $(".dnic").keyup(function() {
 	var idf = $(this).attr('id');
@@ -920,20 +924,23 @@ $("#PC_A_2_Prov").change(function(event) {
 });
 
 
+
+if(<?php echo $car_i->num_rows() ?> == 1){
+
 $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
 											if(fila == 'PC_A_1_Dep' || fila == 'PC_C_2_Rfinal_resul'){
-													if(valor == null && fila == 'PC_A_1_Dep'){
-	   													valor = '<?php echo $fdep; ?>';	
-	   												}
+													// if(valor == null && fila == 'PC_A_1_Dep'){
+	   									// 				valor = '<?php echo $fdep; ?>';	
+	   									// 			}
 	   												$('#' + fila).val(valor);
 	   												$('#' + fila).trigger('change');	
                                              }else if(fila == 'PC_A_2_Prov'){
                                                     var interval_PP = setInterval(function(){
                                                        if($('#PC_A_2_Prov option:nth-child(2)').length){
                                                             clearInterval(interval_PP);
-		 													if(valor == null){
-			   													valor = '<?php echo $fprov; ?>';	
-			   												}                                                           
+		 													// if(valor == null){
+			   										// 			valor = '<?php echo $fprov; ?>';	
+			   										// 		}                                                           
                                                             $('#PC_A_2_Prov').val(valor);
                                                             $('#PC_A_2_Prov').trigger('change');
                                                         }
@@ -943,9 +950,9 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                                     var interval_DI = setInterval(function(){
                                                         if($('#PC_A_3_Dist option:nth-child(2)').length){
                                                             clearInterval(interval_DI);
-		 													if(valor == null){
-			   													valor = '<?php echo $fdis; ?>';	
-			   												} 
+		 													// if(valor == null){
+			   										// 			valor = '<?php echo $fdis; ?>';	
+			   										// 		} 
 			   													$('#PC_A_3_Dist').val(valor);                                                            
                                                         }
                                                     }, 1000);        
@@ -956,13 +963,35 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
                                             	$('#' + fila).val(valor);
                                             }             	
 }); 
+}else{
 
+	   										$('#PC_A_1_Dep').val('<?php echo $fdep; ?>');
+	   										$('#PC_A_1_Dep').trigger('change');	
+   
+                                            var interval_PP = setInterval(function(){
+                                                       if($('#PC_A_2_Prov option:nth-child(2)').length){
+                                                            clearInterval(interval_PP);                                                        
+                                                            $('#PC_A_2_Prov').val('<?php echo $fprov; ?>');
+                                                            $('#PC_A_2_Prov').trigger('change');
+                                                        }
+                                                    }, 1000); 
+
+
+                                            var interval_DI = setInterval(function(){
+                                                        if($('#PC_A_3_Dist option:nth-child(2)').length){
+                                                            clearInterval(interval_DI);
+			   													$('#PC_A_3_Dist').val('<?php echo $fdis; ?>');                                                            
+                                                        }
+                                                    }, 1000);        
+
+
+}
 
 //car N
-$('#pcar_num').val(<?php echo $car_n->num_rows(); ?>);
 
+$('#pcar_num').val((<?php echo $car_n->num_rows(); ?> > 0) ? <?php echo $car_n->num_rows(); ?> : '' );
 
-$('#pcar_num').change(function(event) {
+$('#pcar_num').keyup(function(event) {
 
 $('#pcar_c_n tr').remove('.entrev');
 	var ahua = $(this).val();
@@ -1011,7 +1040,8 @@ $.each( <?php echo json_encode($car_n->result()); ?>, function(i, data) {
 // $('.fechap').datepicker({ dateFormat: 'yy-mm-dd' });
 });
 
-$('#pcar_num').trigger('change');
+$('#pcar_num').trigger('keyup');
+// $('#pcar_num').trigger('change');
 
 $("#car_f").validate({
 		    rules: {  
@@ -1022,19 +1052,23 @@ $("#car_f").validate({
 		    		valueNotEquals:'-1',
 		    	},
 		    	PC_A_7Dir_2_Nomb:{
+					letnum: true,
 		    		required:true,
 		    	},
 		    	PC_A_9_RefDir:{
+					letnum: true,
 		    		required:true,
 		    	},
 		    	PC_A_6_Ugel:{
+					letnum: true,
 		    		required:true,
 		    	},
 				PC_A_4_CentroP: {
-						validName:true,
+						letnum: true,
 						required:true,
 			        },  	
 			    PC_A_5_NucleoUrb:{
+						letnum: true,
 						required:true,
 			       },
 				PC_A_7Dir_1_Tvia: {
@@ -1065,12 +1099,15 @@ $("#car_f").validate({
 			    	range:[1,10],
 			    },
 			    PC_A_7Dir_3_Nro:{
+			    	letnum:true,
 			    	required: true,
 			    },    		         	
 			    'PC_C_1_Et_Fecha[]':{
+			    	peruDate:true,
 			    	required:true,
 			    },	       
 			    'PC_C_1_Et_Fecha_Prox[]':{
+			    	peruDate:true,
 			    	//required:true,
 			    },  		              
 			    'PC_C_1_Et_Res[]':{
@@ -1118,6 +1155,12 @@ $("#car_f").validate({
 			    'PC_C_1_Jb_Hfin[]':{
 			    		hora: true,
 			    }, 			    
+			    'PC_C_1_Jb_Fecha[]':{
+			    	peruDate:true,
+			    },
+			    PC_C_2_Rfinal_fecha:{
+			    	peruDate:true,
+			    }
 		    },
 
 		    messages: {   
