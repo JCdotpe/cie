@@ -631,7 +631,7 @@ echo '
 											<li>5.Otro</li>
 										</ul>
 									</td>
-									<td>Otro '.form_input($PC_C_2_Rfinal_resul_O).'</td>
+									<td>Otro '.form_input($PC_C_2_Rfinal_resul_O).'<div class="help-block error"></div></td>
 								</tbody>
 							</table> -->
 
@@ -1081,6 +1081,7 @@ $("#car_f").validate({
 			        },  			                     			         		         		         		                  	         		         	         	          		                                                                             		    	
 				PC_C_2_Rfinal_resul: {
 			    		range: [1,5],
+						valcaresu: ['PC_C_1_Et_Res_', 'pcar_num'],
 			    		required: true,
 			        },  	
 				PC_C_2_Rfinal_resul_O:{
@@ -1103,11 +1104,11 @@ $("#car_f").validate({
 			    	required: true,
 			    },    		         	
 			    'PC_C_1_Et_Fecha[]':{
-			    	peruDate:true,
+			    	carperuDate:true,
 			    	required:true,
 			    },	       
 			    'PC_C_1_Et_Fecha_Prox[]':{
-			    	peruDate:true,
+			    	carperuDate:true,
 			    	//required:true,
 			    },  		              
 			    'PC_C_1_Et_Res[]':{
@@ -1159,7 +1160,7 @@ $("#car_f").validate({
 			    	peruDate:true,
 			    },
 			    PC_C_2_Rfinal_fecha:{
-			    	peruDate:true,
+			    	carperuDate:true,
 			    }
 		    },
 

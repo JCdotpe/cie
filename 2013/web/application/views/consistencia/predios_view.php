@@ -188,6 +188,27 @@ $.validator.addMethod("peruDate",function(value, element) {
     return flag;
 }, "Ingrese fecha: dd/mm/yyyy");
 
+$.validator.addMethod("carperuDate",function(value, element) {
+    var regeX = /^\d\d?\/\d\d?\/\d\d\d\d$/;
+    flag = false;
+    reus = value.split("/");
+    if(value == '' || (regeX.test(value.trim()) && parseInt(reus[1]) >= 9 && parseInt(reus[1]) <= 12 &&  parseInt(reus[2]) == 2013 )  ){
+      flag = true;
+    }
+    return flag;
+}, "Ingrese fecha: dd/mm/yyyy");
+
+$.validator.addMethod("valcaresu", function(value, element, arg){
+    flag = false;
+    var nro = $('#' + arg[1]).val();
+    if($('#' + arg[0] + nro).val() == value ){
+      flag = true;
+    }
+    return flag;
+ }, "El resultado final debe coincidir con el resultado de la ultima visita");  
+
+
+
  $.validator.addMethod("validName", function(value, element) {
     return this.optional(element) || /^[a-zA-ZàáâäãåąćęèéêëìíîïłńòóôöõøùúûüÿýżźñçčšžÀÁÂÄÃÅĄĆĘÈÉÊËÌÍÎÏŁŃÒÓÔÖÕØÙÚÛÜŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/.test(value);
 }, "Caracteres no permitidos"); 
