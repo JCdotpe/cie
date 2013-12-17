@@ -41,58 +41,67 @@ class Cap7 extends CI_Controller {
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
 
-			$fields = $this->principal_model->get_fields('P7');
-			
 			//id
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
 			$nroedif = $this->input->post('Nro_Ed');
 			$ui = $this->input->post('user_id');
-			
-			//P7
-			foreach ($fields as $a=>$b) {
-				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
-					$c_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+
+			if ($this->cap6_model->consulta_cap6($id,$pr,$nroedif)->num_rows() > 0) 
+			{
+
+				$fields = $this->principal_model->get_fields('P7');
+				
+				//P7
+				foreach ($fields as $a=>$b) {
+					if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
+						$c_data[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);
+					}
 				}
+
+				// $c_data['user_id'] = $this->tank_auth->get_user_id();
+				$c_data['user_id'] = $ui;
+				$c_data['last_ip'] =  $this->input->ip_address();
+				$c_data['user_agent'] = $this->agent->agent_string();
+
+				$flag = 0;
+				$msg = 'Error inesperado, por favor intentalo nuevamente';
+				if ($this->cap7_model->consulta_cap7($id,$pr,$nroedif)->num_rows() == 0) {
+					$c_data['created'] = date('Y-m-d H:i:s');
+
+					$c_data['id_local'] = $id;
+					$c_data['Nro_Pred'] = $pr;
+					// inserta nuevo registro
+						if($this->cap7_model->insert_cap7($c_data) > 0){
+							$flag = 1;
+							$msg = 'Se ha registrado satisfactoriamente el Cap VII';
+						}else{
+							$flag = 0;
+							$msg = 'Ocurrió un error 00x-Cap7-i';
+						}
+
+				} else {
+					$c_data['modified'] = date('Y-m-d H:i:s');
+					// actualiza
+						if($this->cap7_model->update_cap7($id,$pr,$nroedif,$c_data) > 0){
+							$flag = 1;
+							$msg = 'Se ha actualizado satisfactoriamente el Cap VII';
+						}else{
+							$flag = 0;
+							$msg = 'Ocurrió un error 00x-Cap7-u';		
+						}
+
+				}
+
+				// Pasar automáticamente a la siguiente edificación.
+				// $tot_e = $this->cap6_model->get_tot_e_p5($id,$pr);
+				// $newedif = $nroedif+1;
+				// $datos['newedif'] = ($newedif <= $tot_e) ? $newedif : 0;
+				// *********************************************************
+			}else{
+				$flag = 2;
+				$msg = 'Error. Aún no se registra la Edificación en el Cap 6';
 			}
-
-			// $c_data['user_id'] = $this->tank_auth->get_user_id();
-			$c_data['user_id'] = $ui;
-			$c_data['last_ip'] =  $this->input->ip_address();
-			$c_data['user_agent'] = $this->agent->agent_string();
-
-			$flag = 0;
-			$msg = 'Error inesperado, por favor intentalo nuevamente';
-			if ($this->cap7_model->consulta_cap7($id,$pr,$nroedif)->num_rows() == 0) {
-				$c_data['created'] = date('Y-m-d H:i:s');
-
-				$c_data['id_local'] = $id;
-				$c_data['Nro_Pred'] = $pr;
-				// inserta nuevo registro
-					if($this->cap7_model->insert_cap7($c_data) > 0){
-						$flag = 1;
-						$msg = 'Se ha registrado satisfactoriamente el Cap VII';
-					}else{
-						$flag = 0;
-						$msg = 'Ocurrió un error 00x-Cap7-i';
-					}
-
-			} else {
-				$c_data['modified'] = date('Y-m-d H:i:s');
-				// actualiza
-					if($this->cap7_model->update_cap7($id,$pr,$nroedif,$c_data) > 0){
-						$flag = 1;
-						$msg = 'Se ha actualizado satisfactoriamente el Cap VII';
-					}else{
-						$flag = 0;
-						$msg = 'Ocurrió un error 00x-Cap7-u';		
-					}
-
-			}
-
-			$tot_e = $this->cap6_model->get_tot_e_p5($id,$pr);
-			$newedif = $nroedif+1;
-			$datos['newedif'] = ($newedif <= $tot_e) ? $newedif : 0;
 
 			$datos['flag'] = $flag;	
 			$datos['msg'] = $msg;	

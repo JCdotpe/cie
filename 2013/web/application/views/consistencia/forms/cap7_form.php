@@ -13,9 +13,7 @@ $Nro_Ed = array(
 	'name'	=> 'Nro_Ed',
 	'id'	=> 'Nro_Ed_VII',
 	'maxlength'	=> 2,
-	'value' => 1,
 	'class' => 'input2',
-	'readonly' => 'true',
 );
 
 $P7_1_2 = array(
@@ -1391,14 +1389,18 @@ $(document).ready(function(){
 							alert(data.msg);
 							bcar.removeAttr('disabled');
 							$('#cap7_f')[0].reset();
-							if (data.newedif > 0){
-								$('#Nro_Ed_VII').val(data.newedif);
-								$('#Nro_Ed_VII').focus(); //por algún motivo se corre un input hacia adelante.
-							}else{
+							// if (data.newedif > 0){
+							// 	$('#Nro_Ed_VII').val(data.newedif);
+							// 	$('#Nro_Ed_VII').focus(); //por algún motivo se corre un input hacia adelante.
+							// }else{
+							// 	$('#ctab7').removeClass('active');
+							// 	$('#ctab8 a').trigger('click');
+							// }
+							if (data.flag == 1){
 								$('#ctab7').removeClass('active');
 								$('#ctab8 a').trigger('click');
-							}
-							window.scrollTo(0, 0);
+								window.scrollTo(0, 0);	
+							}							
 			            }
 			        });
 		}
