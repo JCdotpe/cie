@@ -1156,6 +1156,9 @@ $("#car_f").validate({
 			    'PC_C_1_Jb_Hfin[]':{
 			    		hora: true,
 			    }, 			    
+			    'PC_C_1_Et_Res_O[]':{
+			    	requeridodis:true,
+			    },
 			    'PC_C_1_Jb_Fecha[]':{
 			    	peruDate:true,
 			    },
