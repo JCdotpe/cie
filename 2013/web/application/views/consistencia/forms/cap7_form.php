@@ -1389,6 +1389,7 @@ $(document).ready(function(){
 							alert(data.msg);
 							bcar.removeAttr('disabled');
 							$('#cap7_f')[0].reset();
+							$('#P7_1_4').trigger('change');
 							// if (data.newedif > 0){
 							// 	$('#Nro_Ed_VII').val(data.newedif);
 							// 	$('#Nro_Ed_VII').focus(); //por algún motivo se corre un input hacia adelante.
