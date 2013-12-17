@@ -2033,7 +2033,7 @@ $("#addIE").click(function(){
 				            dataType:'json',
 				            success:function(json){
 								alert(json.msg);
-								$('#P1_A_2_NroIE').focus();					
+								$('#P1_A_2_1_NomIE').focus();					
 								baddie.removeAttr('disabled');
 								btnies(json.nro);	
 				            }
