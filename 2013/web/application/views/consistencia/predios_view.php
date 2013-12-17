@@ -586,6 +586,7 @@ $("#predios_add").validate({
             if (confirm('Esta seguro de agregar el predio - ' + strc + ' COLINDANTE?')) {
                     var pradd_data = {
                       id_local: $("input[name='id_local']").val(),
+                      user_id: $("input[name='user_id']").val(),
                       P1_B_2A_PredNoCol: $("#P1_B_2A_PredNoCol").val(),
                       ajax:1
                     };    
