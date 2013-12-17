@@ -610,7 +610,7 @@ echo '
 									</tr>
 									<tr>
 										<td>Resultado: </td>
-										<td>'.form_input($PC_C_2_Rfinal_resul).' - Especifique '.form_input($PC_C_2_Rfinal_resul_O).'</td>
+										<td>'.form_input($PC_C_2_Rfinal_resul).' - Especifique '.form_input($PC_C_2_Rfinal_resul_O).'<div class="help-block error"></div></td>
 									</tr>
 								</tbody>
 							</table>
