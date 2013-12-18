@@ -814,19 +814,37 @@ $('#PC_C_2_Rfinal_resul').change(function(event) {
 
 	if($(this).val() == 5){
 		$('#PC_C_2_Rfinal_resul_O').removeAttr('disabled');
-		// $('#ctab1').show();
-		// $('#ctab2').show();		
-		// $('#ctab6').show();
-	// }else if($(this).val() == 4){
-	// 	$('#ctab1').hide();
-	// 	$('#ctab2').hide();
-	// 	$('#ctab6').hide();
-	// 	$('#PC_C_2_Rfinal_resul_O').val('');
-	// 	$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');		
+		$('#ctab1').show();
+		$('#ctab2').show();
+		$('#ctab3').show();
+		$('#ctab4').show();	
+		$('#ctab5').hide();
+		$('#ctab6').hide();
+		$('#ctab7').hide();
+		$('#ctab8').hide();
+		$('#ctab9').hide();	
+	}else if($(this).val() == 3){
+		$('#ctab1').hide();
+		$('#ctab2').hide();
+		$('#ctab3').hide();
+		$('#ctab4').hide();
+		$('#ctab5').hide();
+		$('#ctab6').hide();
+		$('#ctab7').hide();
+		$('#ctab8').hide();
+		$('#ctab9').hide();	
+		$('#PC_C_2_Rfinal_resul_O').val('');
+		$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');		
 	}else{
-		// $('#ctab1').show();
-		// $('#ctab2').show();
-		// $('#ctab6').show();
+		$('#ctab1').show();
+		$('#ctab2').show();
+		$('#ctab3').show();
+		$('#ctab4').show();
+		$('#ctab5').show();
+		$('#ctab6').show();
+		$('#ctab7').show();
+		$('#ctab8').show();
+		$('#ctab9').show();			
 		$('#PC_C_2_Rfinal_resul_O').val('');
 		$('#PC_C_2_Rfinal_resul_O').attr('disabled','disabled');
 	}
@@ -1219,9 +1237,11 @@ $("#car_f").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
-								$('#ctab').removeClass('active');
-								$('#ctab1 a').trigger('click');
-								window.scrollTo(0, 0);
+								if(parseInt($('#PC_C_2_Rfinal_resul').val()) != 3){
+									$('#ctab').removeClass('active');
+									$('#ctab1 a').trigger('click');
+									window.scrollTo(0, 0);
+								}
 				            }
 				        });     			          	
 		    }       
