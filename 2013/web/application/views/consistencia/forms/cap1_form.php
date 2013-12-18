@@ -2416,7 +2416,7 @@ $("#cap1_ax").validate({
 					required:true,
 			    },
 			    P1_C_13_FecTit: {
-					required:true,
+			    	peruDate:true,
 			    },
 				P1_C_14_DocPos: {
 					required:true,
@@ -2426,7 +2426,7 @@ $("#cap1_ax").validate({
 					required:true,
 			    },
 			    P1_C_15_DocPos_Fech: {
-					required:true,
+					peruDate:true,
 			    },
 
 
@@ -2607,7 +2607,14 @@ $("#predio_i").validate({
 			    }, 		
 			    'P1_B_3_12_NombComp[]':{
 			    	required:true,
-			    },		    		    			    	    	    	    			    
+			    },		
+
+			    P1_B_3_5_FecTit:{
+			    	peruDate:true,
+			    },    	
+			    P1_B_3_7_DocPos_Fech:{
+			    	peruDate:true,
+			    }  			    	    			    	    	    	    			    
 		    },
 
 		    messages: {   
