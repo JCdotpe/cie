@@ -1231,7 +1231,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-															<input type="text" name="P6_1_10_e[]" maxlength="1" id="P6_1_10_op14" class="input1" value="" >
+															<input type="text" name="P6_1_10_e[13]" maxlength="1" id="P6_1_10_op14" class="input1" value="" >
 															<div class="help-block error"></div>
 														</label>
 			  	    								</td>
@@ -1331,7 +1331,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[0]" id="P6_2_4Turno_N_op1" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1352,7 +1352,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[1]" id="P6_2_4Turno_N_op2" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1373,7 +1373,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[2]" id="P6_2_4Turno_N_op3" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1394,7 +1394,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[3]" id="P6_2_4Turno_N_op4" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1415,7 +1415,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[4]" id="P6_2_4Turno_N_op5" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1436,7 +1436,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[5]" id="P6_2_4Turno_N_op6" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1457,7 +1457,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[6]" id="P6_2_4Turno_N_op7" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1478,7 +1478,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[7]" id="P6_2_4Turno_N_op8" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1499,7 +1499,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[8]" id="P6_2_4Turno_N_op9" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1520,7 +1520,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[9]" id="P6_2_4Turno_N_op10" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1541,7 +1541,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[10]" id="P6_2_4Turno_N_op11" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1562,7 +1562,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[11]" id="P6_2_4Turno_N_op12" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -1583,13 +1583,13 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[12]" id="P6_2_4Turno_N_op13" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
 		  	    								<tr>
 		  	    									<td>
-		  	    										<input type="text" name="P6_2_4Mod[]" id="P6_2_4Mod_op14" maxlength="1" class="input1" value="" >
+		  	    										<input type="text" name="P6_2_4Mod[13]" id="P6_2_4Mod_op14" maxlength="1" class="input1" value="" >
 			  	    									14. Ludoteca <div class="help-block error"></div>
 			  	    								</td>
 			  	    								<td>
@@ -1604,7 +1604,7 @@ echo '
 			  	    								</td>
 			  	    								<td>
 			  	    									<label class="checkbox">
-			  	    										<input type="text" name="P6_2_4Turno_N[]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
+			  	    										<input type="text" name="P6_2_4Turno_N[13]" id="P6_2_4Turno_N_op14" maxlength="1" class="input1" value="" readonly="true" ><div class="help-block error"></div>
 														</label>
 			  	    								</td>
 		  	    								</tr>
@@ -3790,6 +3790,12 @@ $(document).ready(function(){
 				valrango:[0,1,9],
 				requeridodis: true,
 			},
+			'P6_1_10_e[13]':{
+				digits:true,
+				maxlength: 1,
+				valrango:[0,1,9],
+				valzero:['P6_1_10_op1','P6_1_10_op2','P6_1_10_op3','P6_1_10_op4','P6_1_10_op5','P6_1_10_op6','P6_1_10_op7','P6_1_10_op8','P6_1_10_op9','P6_1_10_op10','P6_1_10_op11','P6_1_10_op12','P6_1_10_op13','P6_1_10_op14'],
+			}
 		},
 
 		messages: {
@@ -3866,17 +3872,110 @@ $(document).ready(function(){
 				valrango:[0,1,9],
 				requeridodis:true,
 			},
+			'P6_2_4Mod[13]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Mod_op1','P6_2_4Mod_op2','P6_2_4Mod_op3','P6_2_4Mod_op4','P6_2_4Mod_op5','P6_2_4Mod_op6','P6_2_4Mod_op7','P6_2_4Mod_op8','P6_2_4Mod_op9','P6_2_4Mod_op10','P6_2_4Mod_op11','P6_2_4Mod_op12','P6_2_4Mod_op13','P6_2_4Mod_op14'],
+			},
 			'P6_2_4Turno_M[]':{
 				digits:true,
-				requeridodis:[0,1,9],
+				valrango:[0,1,9],
+				requeridodis:true,
 			},
 			'P6_2_4Turno_T[]':{
 				digits:true,
-				requeridodis:[0,1,9],
+				valrango:[0,1,9],
+				requeridodis:true,
 			},
-			'P6_2_4Turno_N[]':{
+			// 'P6_2_4Turno_N[]':{
+			// 	digits:true,
+			// 	valrango:[0,1,9],
+			// 	requeridodis:true,
+			// },
+			'P6_2_4Turno_N[0]':{
 				digits:true,
-				requeridodis:[0,1,9],
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op1','P6_2_4Turno_T_op1'],
+			},
+			'P6_2_4Turno_N[1]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op2','P6_2_4Turno_T_op2'],
+			},
+			'P6_2_4Turno_N[2]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op3','P6_2_4Turno_T_op3'],
+			},
+			'P6_2_4Turno_N[3]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op4','P6_2_4Turno_T_op4'],
+			},
+			'P6_2_4Turno_N[4]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op5','P6_2_4Turno_T_op5'],
+			},
+			'P6_2_4Turno_N[5]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op6','P6_2_4Turno_T_op6'],
+			},
+			'P6_2_4Turno_N[6]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op7','P6_2_4Turno_T_op7'],
+			},
+			'P6_2_4Turno_N[7]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op8','P6_2_4Turno_T_op8'],
+			},
+			'P6_2_4Turno_N[8]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op9','P6_2_4Turno_T_op9'],
+			},
+			'P6_2_4Turno_N[9]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op10','P6_2_4Turno_T_op10'],
+			},
+			'P6_2_4Turno_N[10]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op11','P6_2_4Turno_T_op11'],
+			},
+			'P6_2_4Turno_N[11]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op12','P6_2_4Turno_T_op12'],
+			},
+			'P6_2_4Turno_N[12]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op13','P6_2_4Turno_T_op13'],
+			},
+			'P6_2_4Turno_N[13]':{
+				digits:true,
+				valrango:[0,1,9],
+				requeridodis:true,
+				valzero:['P6_2_4Turno_M_op14','P6_2_4Turno_T_op14'],
 			},
 			P6_2_5:{
 				digits:true,
