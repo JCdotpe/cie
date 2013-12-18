@@ -158,7 +158,7 @@ $P1_A_2_3_DocNro = array(
 $P1_A_2_4_TelfIE = array(
 	'name'	=> 'P1_A_2_4_TelfIE',
 	'id'	=> 'P1_A_2_4_TelfIE',
-	'maxlength'	=> 9,
+	'maxlength'	=> 10,
 	'class' => 'input10',	
 );
 
@@ -2204,16 +2204,16 @@ $.validator.addClassRules('P1_A_2_9H_T1_Taul', {
   requeridodis: true,
 });
 $.validator.addClassRules('P1_A_2_9I_T2_Talu', {
-  requeridodis: true,
+  // requeridodis: true,
 });
 $.validator.addClassRules('P1_A_2_9J_T2_Taul', {
-  requeridodis: true,
+  // requeridodis: true,
 });
 $.validator.addClassRules('P1_A_2_9K_T3_Talu', {
-  requeridodis: true,
+  // requeridodis: true,
 });
 $.validator.addClassRules('P1_A_2_9L_T3_Taul', {
-  requeridodis: true,
+  // requeridodis: true,
 });
 
 $.validator.addClassRules('cmreto', {
