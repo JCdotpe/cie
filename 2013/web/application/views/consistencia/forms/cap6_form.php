@@ -3051,7 +3051,7 @@ $(document).ready(function(){
 
 	function P4_activacion(nro,valor){
 
-		if ( valor == 0 ){
+		if ( valor == 0 || valor == 9 ){
 
 			$('#P6_2_4Turno_M_op'+nro).val('');
 			$('#P6_2_4Turno_T_op'+nro).val('');
@@ -3061,7 +3061,7 @@ $(document).ready(function(){
 			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
 
-		}else if ( valor == 1 || valor == 9 ){
+		}else if ( valor == 1 ){
 
 			$('#P6_2_4Turno_M_op'+nro).removeAttr('readonly');
 			$('#P6_2_4Turno_T_op'+nro).removeAttr('readonly');
@@ -3570,17 +3570,17 @@ $(document).ready(function(){
 
 			case '1':
 			//case '9':
-				$('#P6_2_16a').val('');
-				$('#P6_2_16b').val('');
-				$('#P6_2_16c').val('');
-				$('#P6_2_16d').val('');
-				$('#P6_2_16e').val('');
+				// $('#P6_2_16a').val('');
+				// $('#P6_2_16b').val('');
+				// $('#P6_2_16c').val('');
+				// $('#P6_2_16d').val('');
+				// $('#P6_2_16e').val('');
 
-				$('#P6_2_16a').attr('disabled','disabled');
-				$('#P6_2_16b').attr('disabled','disabled');
-				$('#P6_2_16c').attr('disabled','disabled');
-				$('#P6_2_16d').attr('disabled','disabled');
-				$('#P6_2_16e').attr('disabled','disabled');
+				// $('#P6_2_16a').attr('disabled','disabled');
+				// $('#P6_2_16b').attr('disabled','disabled');
+				// $('#P6_2_16c').attr('disabled','disabled');
+				// $('#P6_2_16d').attr('disabled','disabled');
+				// $('#P6_2_16e').attr('disabled','disabled');
 
 				Preg16_activacion('a',0);
 				Preg16_activacion('b',0);
@@ -3795,6 +3795,7 @@ $(document).ready(function(){
 				maxlength: 1,
 				valrango:[0,1,9],
 				valzero:['P6_1_10_op1','P6_1_10_op2','P6_1_10_op3','P6_1_10_op4','P6_1_10_op5','P6_1_10_op6','P6_1_10_op7','P6_1_10_op8','P6_1_10_op9','P6_1_10_op10','P6_1_10_op11','P6_1_10_op12','P6_1_10_op13','P6_1_10_op14'],
+				valnueves:['P6_1_10_op1','P6_1_10_op2','P6_1_10_op3','P6_1_10_op4','P6_1_10_op5','P6_1_10_op6','P6_1_10_op7','P6_1_10_op8','P6_1_10_op9','P6_1_10_op10','P6_1_10_op11','P6_1_10_op12','P6_1_10_op13','P6_1_10_op14'],
 			}
 		},
 
@@ -3876,7 +3877,8 @@ $(document).ready(function(){
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
-				valzero:['P6_2_4Mod_op1','P6_2_4Mod_op2','P6_2_4Mod_op3','P6_2_4Mod_op4','P6_2_4Mod_op5','P6_2_4Mod_op6','P6_2_4Mod_op7','P6_2_4Mod_op8','P6_2_4Mod_op9','P6_2_4Mod_op10','P6_2_4Mod_op11','P6_2_4Mod_op12','P6_2_4Mod_op13','P6_2_4Mod_op14'],
+				valzero:['P6_2_4Mod_op1','P6_2_4Mod_op2','P6_2_4Mod_op3','P6_2_4Mod_op4','P6_2_4Mod_op5','P6_2_4Mod_op6','P6_2_4Mod_op7','P6_2_4Mod_op8','P6_2_4Mod_op9','P6_2_4Mod_op10','P6_2_4Mod_op11','P6_2_4Mod_op12','P6_2_4Mod_op13'],
+				valnueves:['P6_2_4Mod_op1','P6_2_4Mod_op2','P6_2_4Mod_op3','P6_2_4Mod_op4','P6_2_4Mod_op5','P6_2_4Mod_op6','P6_2_4Mod_op7','P6_2_4Mod_op8','P6_2_4Mod_op9','P6_2_4Mod_op10','P6_2_4Mod_op11','P6_2_4Mod_op12','P6_2_4Mod_op13','P6_2_4Mod_op14'],
 			},
 			'P6_2_4Turno_M[]':{
 				digits:true,
@@ -3898,84 +3900,98 @@ $(document).ready(function(){
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op1','P6_2_4Turno_T_op1'],
+				valnueves:['P6_2_4Turno_M_op1','P6_2_4Turno_T_op1','P6_2_4Turno_N_op1'],
 			},
 			'P6_2_4Turno_N[1]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op2','P6_2_4Turno_T_op2'],
+				valnueves:['P6_2_4Turno_M_op2','P6_2_4Turno_T_op2','P6_2_4Turno_N_op2'],
 			},
 			'P6_2_4Turno_N[2]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op3','P6_2_4Turno_T_op3'],
+				valnueves:['P6_2_4Turno_M_op3','P6_2_4Turno_T_op3','P6_2_4Turno_N_op3'],
 			},
 			'P6_2_4Turno_N[3]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op4','P6_2_4Turno_T_op4'],
+				valnueves:['P6_2_4Turno_M_op4','P6_2_4Turno_T_op4','P6_2_4Turno_N_op4'],
 			},
 			'P6_2_4Turno_N[4]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op5','P6_2_4Turno_T_op5'],
+				valnueves:['P6_2_4Turno_M_op5','P6_2_4Turno_T_op5','P6_2_4Turno_N_op5'],
 			},
 			'P6_2_4Turno_N[5]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op6','P6_2_4Turno_T_op6'],
+				valnueves:['P6_2_4Turno_M_op6','P6_2_4Turno_T_op6','P6_2_4Turno_N_op6'],
 			},
 			'P6_2_4Turno_N[6]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op7','P6_2_4Turno_T_op7'],
+				valnueves:['P6_2_4Turno_M_op7','P6_2_4Turno_T_op7','P6_2_4Turno_N_op7'],
 			},
 			'P6_2_4Turno_N[7]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op8','P6_2_4Turno_T_op8'],
+				valnueves:['P6_2_4Turno_M_op8','P6_2_4Turno_T_op8','P6_2_4Turno_N_op8'],
 			},
 			'P6_2_4Turno_N[8]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op9','P6_2_4Turno_T_op9'],
+				valnueves:['P6_2_4Turno_M_op9','P6_2_4Turno_T_op9','P6_2_4Turno_N_op9'],
 			},
 			'P6_2_4Turno_N[9]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op10','P6_2_4Turno_T_op10'],
+				valnueves:['P6_2_4Turno_M_op10','P6_2_4Turno_T_op10','P6_2_4Turno_N_op10'],
 			},
 			'P6_2_4Turno_N[10]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op11','P6_2_4Turno_T_op11'],
+				valnueves:['P6_2_4Turno_M_op11','P6_2_4Turno_T_op11','P6_2_4Turno_N_op11'],
 			},
 			'P6_2_4Turno_N[11]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op12','P6_2_4Turno_T_op12'],
+				valnueves:['P6_2_4Turno_M_op12','P6_2_4Turno_T_op12','P6_2_4Turno_N_op12'],
 			},
 			'P6_2_4Turno_N[12]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op13','P6_2_4Turno_T_op13'],
+				valnueves:['P6_2_4Turno_M_op13','P6_2_4Turno_T_op13','P6_2_4Turno_N_op13'],
 			},
 			'P6_2_4Turno_N[13]':{
 				digits:true,
 				valrango:[0,1,9],
 				requeridodis:true,
 				valzero:['P6_2_4Turno_M_op14','P6_2_4Turno_T_op14'],
+				valnueves:['P6_2_4Turno_M_op14','P6_2_4Turno_T_op14','P6_2_4Turno_N_op14'],
 			},
 			P6_2_5:{
 				digits:true,
@@ -3992,35 +4008,63 @@ $(document).ready(function(){
 				valrango:[1,7,9],
 				required:true,
 			},
+			P6_2_7_O:{
+				required:true,
+				letnum: true,
+			},
 			P6_2_8:{
 				digits:true,
 				valrango:[1,6,9],
 				required:true,
+			},
+			P6_2_8_O:{
+				required:true,
+				letnum: true,
 			},
 			P6_2_9:{
 				digits:true,
 				valrango:[1,17,99],
 				required:true,
 			},
+			P6_2_9_O:{
+				required:true,
+				letnum: true,
+			},
 			P6_2_10:{
 				digits:true,
 				valrango:[1,8,9],
 				required:true,
 			},
+			P6_2_10_O:{
+				required:true,
+				letnum: true,
+			},
 			P6_2_11:{
 				digits:true,
-				valrango:[1,11,9],
+				valrango:[1,11,99],
 				required:true,
+			},
+			P6_2_11_O:{
+				required:true,
+				letnum: true,
 			},
 			P6_2_12:{
 				digits:true,
 				valrango:[1,8,9],
 				required:true,
 			},
+			P6_2_12_O:{
+				required:true,
+				letnum: true,
+			},
 			P6_2_13:{
 				digits:true,
 				valrango:[1,16,99],
 				required:true,
+			},
+			P6_2_13_O:{
+				required:true,
+				letnum: true,
 			},
 			P6_2_14_1:{
 				digits:true,
@@ -4055,6 +4099,7 @@ $(document).ready(function(){
 			P6_2_14a:{
 				digits:true,
 				valrango:[0,998,999],
+				required:true,
 			},
 			P6_2_14b_1:{
 				digits:true,
@@ -4070,6 +4115,10 @@ $(document).ready(function(){
 				digits:true,
 				valrango:[1,7,9],
 				required:true,
+			},
+			P6_2_15_O:{
+				required:true,
+				letnum: true,
 			},
 			P6_2_15a:{
 				digits:true,

@@ -300,6 +300,22 @@ $.validator.addMethod("valzero", function(value, element, arg){
  }, "Debe ingresar al menos una opción, no pueden ser 0 todas las opciones.");  
 
 
+$.validator.addMethod("valnueves", function(value, element, arg){
+    flag = true;
+    contador = 0;
+    if((!element.readOnly)){
+        for(var i = 0; i<=arg.length; i++){
+              if($('#' + arg[i]).val() == 9) 
+                contador += 1;
+        }
+        if( contador > 0 && contador < arg.length ){
+            flag = false;
+        }          
+    }
+    return flag;
+ }, "Existe 9, Todas las opciones deben ser omisión.");
+
+
 $.validator.addMethod("valninguno", function(value, element, arg){
     flag = true;
     if(value == 1){
