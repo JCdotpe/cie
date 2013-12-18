@@ -117,8 +117,8 @@ $(document).on("keyup",'input,select,textarea',function(e) {
     }
   }); 
 
-// jQuery Validator
 
+// jQuery Validator
 
 
 $.extend(jQuery.validator.messages, {

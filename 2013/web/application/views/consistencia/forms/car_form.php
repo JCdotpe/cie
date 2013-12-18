@@ -739,6 +739,11 @@ echo form_close();
 
 $(function(){
 
+$('#car_f').bind('submit', function() {
+         $(this).find('#PC_A_1_Dep,#PC_A_2_Prov,#PC_A_3_Dist').removeAttr('disabled');
+    });
+
+
 if(<?php echo $cod_area; ?> == '2'){
 	$("#PC_A_5_NucleoUrb").val('');
 	$("#PC_A_5_NucleoUrb").attr('disabled','disabled');
@@ -986,6 +991,9 @@ $.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
 
 
 }
+$('#PC_A_1_Dep').attr('disabled','disabled');	
+$('#PC_A_2_Prov').attr('disabled','disabled');		
+$('#PC_A_3_Dist').attr('disabled','disabled');	
 
 //car N
 
@@ -1085,7 +1093,7 @@ $("#car_f").validate({
 			    		required: true,
 			        },  	
 				PC_C_2_Rfinal_resul_O:{
-			    		required: true,
+			    		requeridodis: true,
 				},		        	   
 			    PC_A_7Dir_4_Piso: {
 			    		range: [0,10],
