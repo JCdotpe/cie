@@ -2158,7 +2158,7 @@ $('#P2_C_2LocE_1_Energ').change(function(event) {
 	}
 	$('#P2_D_1_Cod_1').trigger('change');
 	$('#P2_D_1_Cod_4').trigger('change');
-	$('#P2_D_2_Energ_CantSum').trigger('change');
+	$('#P2_D_2_Energ_CantSum').trigger('keyup');
 });
 
 
@@ -2172,7 +2172,7 @@ $('#P2_D_5_Cod_1').change(function(event) {
 		$('#P2_D_6_Agua_CantSum').removeAttr('disabled');
 		$('#P2_D_8_Agua_Emp').removeAttr('disabled');
 	}
-	$('#P2_D_6_Agua_CantSum').trigger('change');
+	$('#P2_D_6_Agua_CantSum').trigger('keyup');
 });
 
 
@@ -2186,7 +2186,7 @@ $('#P2_D_1_Cod_1').change(function(event) {
 		$('#P2_D_2_Energ_CantSum').removeAttr('disabled');
 		$('#P2_D_4_Energ_Emp').removeAttr('disabled');
 	}
-	$('#P2_D_2_Energ_CantSum').trigger('change');
+	$('#P2_D_2_Energ_CantSum').trigger('keyup');
 });
 
 
@@ -2427,7 +2427,7 @@ $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
 
 
 //p2_d_3n -----------------------------------------------------------JS
-$('#P2_D_2_Energ_CantSum').change(function(event) {
+$('#P2_D_2_Energ_CantSum').keyup(function(event) {
 $('#p2_d_3_n tr').remove('.sumin');
 	var ahua = $(this).val();
 	if(ahua >= 0 && ahua<=10){
@@ -2472,7 +2472,7 @@ $(document).on("change",'.cld2',function() {
 
 
 //p2_d_7n -----------------------------------------------------------JS
-$('#P2_D_6_Agua_CantSum').change(function(event) {
+$('#P2_D_6_Agua_CantSum').keyup(function(event) {
 $('#p2_d_7_n tr').remove('.sumina');
 	var ahua = $(this).val();
 	if(ahua >= 0 && ahua<=10){
@@ -2521,10 +2521,10 @@ $(document).on("change",'.cld6',function() {
 $.each( <?php echo json_encode($cap2_p2_d->row()); ?>, function(fila, valor) {
 		if(fila == 'P2_D_2_Energ_CantSum'){
 	   			$('#' + fila).val(valor);
-	   			$('#' + fila).trigger('change');	
+	   			$('#' + fila).trigger('keyup');	
         }else if(fila == 'P2_D_6_Agua_CantSum'){
 	   			$('#' + fila).val(valor);
-	   			$('#' + fila).trigger('change');	
+	   			$('#' + fila).trigger('keyup');	
         }else{
 	   			$('#' + fila).val(valor);
 	    }
