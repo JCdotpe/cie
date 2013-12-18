@@ -880,6 +880,21 @@ $(document).ready(function(){
 
 	///////////////////////////////////////////////////////////////////////////
 	//Saltos P7
+	$('#Nro_Ed_VII').change(function(event){
+		
+		edif = $('#Nro_Ed_VII').val();
+
+		//resetea form
+		$('#cap7_f')[0].reset();
+		$('#P7_1_4').trigger('change');
+		//
+
+		$('#Nro_Ed_VII').val(edif);
+
+		Get_Edif_VII(edif);
+
+	});
+
 
 	$('#P7_1_4').change(function(event){
 

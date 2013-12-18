@@ -3226,12 +3226,12 @@ $(document).ready(function(){
 			$('#P6_2_7_O').removeAttr('disabled');
 			$('#P6_2_8').removeAttr('disabled');
 
-		}else{
+		}else if ( $(this).val() > 0 && $(this).val() < 7 ) {
 
 			$('#P6_2_7_O').val('');
 			$('#P6_2_7_O').attr('disabled','disabled');
 
-			// activar_flujo(8);
+			activar_flujo(8);
 		}
 	});
 
@@ -3247,12 +3247,12 @@ $(document).ready(function(){
 			$('#P6_2_8_O').removeAttr('disabled');
 			$('#P6_2_9').removeAttr('disabled');
 
-		}else{
+		}else if( $(this).val() > 0 && $(this).val() < 6 ){
 
 			$('#P6_2_8_O').val('');
 			$('#P6_2_8_O').attr('disabled','disabled');
 
-			// activar_flujo(9);
+			activar_flujo(9);
 		}
 	});
 
@@ -3268,12 +3268,12 @@ $(document).ready(function(){
 			$('#P6_2_9_O').removeAttr('disabled');
 			$('#P6_2_10').removeAttr('disabled');
 
-		}else{
+		}else if ( $(this).val() > 0 && $(this).val() < 17 ){
 			
 			$('#P6_2_9_O').val('');
 			$('#P6_2_9_O').attr('disabled','disabled');
 
-			// activar_flujo(10);
+			activar_flujo(10);
 
 		}
 	});
@@ -3290,12 +3290,12 @@ $(document).ready(function(){
 			$('#P6_2_10_O').removeAttr('disabled');
 			$('#P6_2_11').removeAttr('disabled');
 
-		}else{
+		}else if ( $(this).val() > 0 && $(this).val() < 8 ){
 			
 			$('#P6_2_10_O').val('');
 			$('#P6_2_10_O').attr('disabled','disabled');
 
-			// activar_flujo(11);
+			activar_flujo(11);
 
 		}
 		
@@ -3313,12 +3313,12 @@ $(document).ready(function(){
 			$('#P6_2_11_O').removeAttr('disabled');
 			$('#P6_2_12').removeAttr('disabled');
 
-		}else{
+		}else if ( $(this).val() > 0 && $(this).val() < 11 ){
 			
 			$('#P6_2_11_O').val('');
 			$('#P6_2_11_O').attr('disabled','disabled');
 
-			// activar_flujo(12);
+			activar_flujo(12);
 
 		}
 	});
@@ -3352,7 +3352,7 @@ $(document).ready(function(){
 			$('#P6_2_14b_1').attr('disabled','disabled');
 			$('#P6_2_14b_2').attr('disabled','disabled');
 
-			// activar_flujo(13);
+			activar_flujo(13);
 
 			if ( $(this).val() == 7 ) $('#P6_2_12_O').removeAttr('disabled');
 
@@ -3559,10 +3559,10 @@ $(document).ready(function(){
 	$('#P6_2_16f').change(function(event) {
 		
 		//preg 17
-		$('#P6_2_17a').val('');
-		$('#P6_2_17b').val('');
-		$('#P6_2_17c').val('');
-		$('#P6_2_17d').val('');
+		// $('#P6_2_17a').val('');
+		// $('#P6_2_17b').val('');
+		// $('#P6_2_17c').val('');
+		// $('#P6_2_17d').val('');
 
 		$('#P6_2_17a').attr('disabled','disabled');
 		$('#P6_2_17b').attr('disabled','disabled');
@@ -3620,6 +3620,11 @@ $(document).ready(function(){
 				// $('#P6_2_16c').attr('disabled','disabled');
 				// $('#P6_2_16d').attr('disabled','disabled');
 				// $('#P6_2_16e').attr('disabled','disabled');
+
+				$('#P6_2_17a').val('');
+				$('#P6_2_17b').val('');
+				$('#P6_2_17c').val('');
+				$('#P6_2_17d').val('');
 
 				Preg16_activacion('a',0);
 				Preg16_activacion('b',0);
@@ -3703,9 +3708,9 @@ $(document).ready(function(){
 	$('#P6_2_18f').change(function(event) {
 		
 		//preg 19
-		$('#P6_2_19a').val('');
-		$('#P6_2_19b').val('');
-		$('#P6_2_19c').val('');
+		// $('#P6_2_19a').val('');
+		// $('#P6_2_19b').val('');
+		// $('#P6_2_19c').val('');
 		
 		$('#P6_2_19a').attr('disabled','disabled');
 		$('#P6_2_19b').attr('disabled','disabled');
