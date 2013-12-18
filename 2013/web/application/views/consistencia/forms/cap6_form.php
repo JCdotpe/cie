@@ -2531,6 +2531,27 @@ $(document).ready(function(){
 			bcap6_i2.removeAttr('disabled');
 		}
 
+		edif = $('#Nro_Ed_VI').val();
+		amb = $('#P6_2_1').val();
+		piso = $('#P5_NroPiso').val()
+
+		//resetea form
+		$('#cap6_i')[0].reset(); 
+		$('#cap6_amb')[0].reset();
+		$('#cap6_i2')[0].reset(); 
+		resetea_edificacion_P6_1();
+		resetea_ambiente_P6_2();
+		//
+		
+		$('#P6_2_1').val(amb);
+		$('#P5_NroPiso').val(piso);
+
+		
+		Get_Edif_VI(edif);
+		Get_Edif_VI_8n(edif);
+		Get_Edif_VI_10n(edif);
+		Get_Piso_Ambiente(edif);
+
 	});
 	$('#Nro_Ed_VI').trigger('change');
 
@@ -2910,7 +2931,7 @@ $(document).ready(function(){
 				$('#P6_2_4Mod_op'+i).attr('readonly','readonly');
 			}
 
-			$('#Nro_Ed_VI').trigger('change');
+			// $('#Nro_Ed_VI').trigger('change');
 
 		}else if ( ($(this).val() >= 1 && $(this).val() < 90) || $(this).val() == '' ) {
 
@@ -2940,7 +2961,7 @@ $(document).ready(function(){
 			$('#P6_2_18e').removeAttr('disabled');
 			$('#P6_2_18f').removeAttr('disabled');
 
-			$('#Nro_Ed_VI').trigger('change');
+			// $('#Nro_Ed_VI').trigger('change');
 
 		}else if( $(this).val() == 0 ){
 			$('#P5_NroPiso').attr('disabled','disabled');
@@ -2976,6 +2997,23 @@ $(document).ready(function(){
 
 			document.getElementById('P6_2_19c').scrollIntoView(true);
 		}
+
+	});
+
+	$('#P5_NroPiso').change(function(event) {
+
+		//vuelve original
+		amb = $('#P6_2_1').val();
+		piso = $('#P5_NroPiso').val()
+
+		$('#cap6_amb')[0].reset();
+		resetea_ambiente_P6_2();
+		//
+		$('#P6_2_1').val(amb);
+		$('#P5_NroPiso').val(piso);
+
+		Get_P6_2(amb,piso);
+		Get_P6_2_4N(amb,piso);
 
 	});
 
