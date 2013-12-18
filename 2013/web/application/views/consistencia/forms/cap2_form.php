@@ -2752,6 +2752,7 @@ $("#cap2_f").validate({
 				'P2_B_9_Cod[9]': {
 					valrango: [0,1,9],
 			        valzero: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
+			        valninguno: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
 			    }, 
 				'P2_B_10_Cod[]': {
 			        valrango: [0,1,9],
@@ -2759,6 +2760,7 @@ $("#cap2_f").validate({
 				'P2_B_10_Cod[6]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
+			        valninguno: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
 			    }, 
 
 				'P2_B_11_Cod[]': {
@@ -2768,6 +2770,7 @@ $("#cap2_f").validate({
 				'P2_B_11_Cod[11]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
+			        valninguno: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
 			    }, 	
 
 
@@ -2778,6 +2781,7 @@ $("#cap2_f").validate({
 				'P2_B_12_Cod[6]': {
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
+			        valninguno: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
 			    }, 		
 
 				P2_C_1Locl_1_Energ: {
@@ -2842,6 +2846,7 @@ $("#cap2_f").validate({
 				'P2_D_9_Nro[6]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
+			        valninguno:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
