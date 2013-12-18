@@ -1172,7 +1172,9 @@ $("#car_f").validate({
 			    },
 			    PC_C_2_Rfinal_fecha:{
 			    	carperuDate:true,
+			    	valcaresu: ['PC_C_1_Et_Fecha_', 'pcar_num'],
 			    }
+			    
 		    },
 
 		    messages: {   
