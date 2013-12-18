@@ -1557,7 +1557,7 @@ $('#P1_B_3_10_Comp').change(function(event) {
 		$('#P1_B_3_11_CompCan').removeAttr('disabled');	
 
 	}
-	$('#P1_B_3_11_CompCan').trigger('change');
+	$('#P1_B_3_11_CompCan').trigger('keyup');
 
 });
 
@@ -2501,7 +2501,7 @@ $("#cap1_ax").validate({
 });  
 
 //PREDIO N
-$("#P1_B_3_11_CompCan").change(function(event) {
+$("#P1_B_3_11_CompCan").keyup(function(event) {
 
 if($(this).val() != '99'){
 		$("#pred_n").empty();
@@ -2675,12 +2675,15 @@ $.each( <?php echo json_encode($cap1_p1_b->row()); ?>, function(fila, valor) {
 
 
 $.each( <?php echo json_encode($predio->row()); ?>, function(fila, valor) {
-		if(fila == 'P1_B_1_TPred' || fila=='P1_B_3_InmCod' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' || fila == 'P1_B_3_4_Tipo_TProp' ||  fila == 'P1_B_3_3_AntReg_Nro'  || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_10_Comp' || fila == 'P1_B_3_11_CompCan'){
+		if(fila == 'P1_B_1_TPred' || fila=='P1_B_3_InmCod' || fila == 'P1_B_3_1_Prop' || fila == 'P1_B_3_2_AntReg_Cod' || fila == 'P1_B_3_4_Tipo_TProp' ||  fila == 'P1_B_3_3_AntReg_Nro'  || fila == 'P1_B_3_6_DocPos' || fila == 'P1_B_3_10_Comp'){
 	   		$('#' + fila).val(valor);
 	   		$('#' + fila).trigger('change');
 		}else if(fila == 'P1_B_3_7_DocPos_Fech' || fila == 'P1_B_3_5_FecTit'){
 			$('#' + fila).val(makeday(valor));	
 			$('#' + fila).trigger('change');
+		}else if(fila == 'P1_B_3_11_CompCan'){
+			$('#' + fila).val(valor);	
+			$('#' + fila).trigger('keyup');		
 		}else{
 	   		$('#' + fila).val(valor);
 		}
