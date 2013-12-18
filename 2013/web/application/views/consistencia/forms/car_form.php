@@ -147,6 +147,7 @@ $PC_B_1_CodLocal = array(
 	'name'	=> 'PC_B_1_CodLocal',
 	'id'	=> 'PC_B_1_CodLocal',
 	'class' => 'input6',
+	'maxlength'	=> 6,
 	// 'disabled' => 'disabled',
 );
 
@@ -1174,7 +1175,7 @@ $("#car_f").validate({
 			    	carperuDate:true,
 			    	valcaresu: ['PC_C_1_Et_Fecha_', 'pcar_num'],
 			    }
-			    
+
 		    },
 
 		    messages: {   
