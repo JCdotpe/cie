@@ -1961,11 +1961,11 @@ function gen_cms(n,re){
 		cm_str += '<input id="P1_A_2_9E_NroAnex_' + i + '" style="margin-left: 10px; margin-right:42px" class="input1 p1cme" type="text" maxlength="1" value="" name="P1_A_2_9E_NroAnex[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9F_CantAnex_' + i + '" style="margin-left: 10px; margin-right:34px" class="input2 anx" type="text" maxlength="2" value="" name="P1_A_2_9F_CantAnex[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9G_T1_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9G_T1_Talu[]"> <div class="help-block error"></div>';
-		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" style="margin-left: 10px; margin-right:15px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9H_T1_Taul_' + i + '" style="margin-left: 10px; margin-right:15px" class="input3 cmreto" type="text" maxlength="3" value="" name="P1_A_2_9H_T1_Taul[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9I_T2_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9I_T2_Talu[]"> <div class="help-block error"></div>';
-		cm_str += '<input id="P1_A_2_9J_T2_Taul_' + i + '" style="margin-left: 10px; margin-right:16px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9J_T2_Taul_' + i + '" style="margin-left: 10px; margin-right:16px" class="input3 cmreto1" type="text" maxlength="3" value="" name="P1_A_2_9J_T2_Taul[]"> <div class="help-block error"></div>';
 		cm_str += '<input id="P1_A_2_9K_T3_Talu_' + i + '" style="margin-left: 10px; margin-right:15px" class="input5" type="text" maxlength="5" value="" name="P1_A_2_9K_T3_Talu[]"> <div class="help-block error"></div>';
-		cm_str += '<input id="P1_A_2_9L_T3_Taul_' + i + '" style="margin-left: 10px; margin-right:0px" class="input3" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul[]"> <div class="help-block error"></div>';
+		cm_str += '<input id="P1_A_2_9L_T3_Taul_' + i + '" style="margin-left: 10px; margin-right:0px" class="input3 cmreto2" type="text" maxlength="3" value="" name="P1_A_2_9L_T3_Taul[]"> <div class="help-block error"></div>';
 		//cm_str += '<button class="btn btncm btncm_nro' + i + '" type="button">Generar Anexos</button>';
 		cm_str += '</div>';
 	}
@@ -2214,6 +2214,16 @@ $.validator.addClassRules('P1_A_2_9K_T3_Talu', {
 });
 $.validator.addClassRules('P1_A_2_9L_T3_Taul', {
   requeridodis: true,
+});
+
+$.validator.addClassRules('cmreto', {
+  menorque: ['P1_A_2_9G_T1_Talu_'],
+});
+$.validator.addClassRules('cmreto1', {
+  menorque: ['P1_A_2_9I_T2_Talu_'],
+});
+$.validator.addClassRules('cmreto2', {
+  menorque: ['P1_A_2_9K_T3_Talu_'],
 });
 //cm update
 $("#cap1_cm").validate({

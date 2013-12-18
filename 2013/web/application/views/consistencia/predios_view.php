@@ -142,8 +142,16 @@ $.extend(jQuery.validator.messages, {
     // min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
 
+$.validator.addMethod("menorque", function(value, element, arg) {
+    flag = false;
+    if(value == '' || $('#' + arg[0] + element.id.substring(18,19)).val() >= value ){
+      flag = true;
+    }
+    return flag;
+}, "El numero de aulas debe ser menor al numero de alumnos");
+
+
 $.validator.addMethod("hora", function(value, element, arg) {
-    // var regeX = /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d))/;
     var regeX = /^([01]\d|2[0-3]):?([0-5]\d)$/;
     flag = false;
     if(value == '' || regeX.test(value.trim())){
