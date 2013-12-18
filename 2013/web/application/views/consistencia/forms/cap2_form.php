@@ -618,8 +618,8 @@ $P2_C_2LocE_6_Int = array(
 $P2_D_2_Energ_CantSum = array(
 	'name'	=> 'P2_D_2_Energ_CantSum',
 	'id'	=> 'P2_D_2_Energ_CantSum',
-	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'maxlength'	=> 2,
+	'class'	=> 'input2',
 );
 
 $P2_D_4_Energ_Emp = array(
@@ -632,8 +632,8 @@ $P2_D_4_Energ_Emp = array(
 $P2_D_6_Agua_CantSum = array(
 	'name'	=> 'P2_D_6_Agua_CantSum',
 	'id'	=> 'P2_D_6_Agua_CantSum',
-	'maxlength'	=> 1,
-	'class'	=> 'input1',
+	'maxlength'	=> 2,
+	'class'	=> 'input2',
 );
 
 $P2_D_8_Agua_Emp = array(
@@ -2429,8 +2429,8 @@ $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
 //p2_d_3n -----------------------------------------------------------JS
 $('#P2_D_2_Energ_CantSum').keyup(function(event) {
 $('#p2_d_3_n tr').remove('.sumin');
-	var ahua = $(this).val();
-	if(ahua >= 0 && ahua<=10){
+	var ahua = parseInt($(this).val());
+	if(ahua > 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumin">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
@@ -2474,8 +2474,8 @@ $(document).on("change",'.cld2',function() {
 //p2_d_7n -----------------------------------------------------------JS
 $('#P2_D_6_Agua_CantSum').keyup(function(event) {
 $('#p2_d_7_n tr').remove('.sumina');
-	var ahua = $(this).val();
-	if(ahua >= 0 && ahua<=10){
+	var ahua = parseInt($(this).val());
+	if(ahua > 0 && ahua<=10){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumina">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
