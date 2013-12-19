@@ -1148,7 +1148,7 @@ $P2_G_2B_snip_6 = array(
 );
 
 $P2_G_2_Cod_7 = array(
-	'name'	=> 'P2_G_2_Cod[]',
+	'name'	=> 'P2_G_2_Cod[6]',
 	'id'	=> 'P2_G_2_Cod_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1 p2g2',
@@ -2710,6 +2710,7 @@ $("#cap2_f").validate({
 				P2_B_5_3: {
 			         valrango: [0,1,9],
 			         valzero: ['P2_B_5_1','P2_B_5_2'],
+			         valnueves: ['P2_B_5_1','P2_B_5_2','P2_B_5_3'],
 			    }, 			    	
 				P2_B_5A_Uso: {
 			        valrango: [1,2,9],
@@ -2752,6 +2753,7 @@ $("#cap2_f").validate({
 					valrango: [0,1,9],
 			        valzero: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
 			        valninguno: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9'],
+			        valnueves: ['P2_B_9_Cod_1','P2_B_9_Cod_2','P2_B_9_Cod_3','P2_B_9_Cod_4','P2_B_9_Cod_5','P2_B_9_Cod_6','P2_B_9_Cod_7','P2_B_9_Cod_8','P2_B_9_Cod_9','P2_B_9_Cod_10'],
 			    }, 
 				'P2_B_10_Cod[]': {
 			        valrango: [0,1,9],
@@ -2760,6 +2762,7 @@ $("#cap2_f").validate({
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
 			        valninguno: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6'],
+			        valnueves: ['P2_B_10_Cod_1','P2_B_10_Cod_2','P2_B_10_Cod_3','P2_B_10_Cod_4','P2_B_10_Cod_5','P2_B_10_Cod_6','P2_B_10_Cod_7'],
 			    }, 
 
 				'P2_B_11_Cod[]': {
@@ -2770,6 +2773,7 @@ $("#cap2_f").validate({
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
 			        valninguno: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11'],
+			        valnueves: ['P2_B_11_Cod_1','P2_B_11_Cod_2','P2_B_11_Cod_3','P2_B_11_Cod_4','P2_B_11_Cod_5','P2_B_11_Cod_6','P2_B_11_Cod_7','P2_B_11_Cod_8','P2_B_11_Cod_9','P2_B_11_Cod_10','P2_B_11_Cod_11','P2_B_11_Cod_12'],
 			    }, 	
 
 
@@ -2781,6 +2785,7 @@ $("#cap2_f").validate({
 			        valrango: [0,1,9],
 			        valzero: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
 			        valninguno: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6'],
+			        valnueves: ['P2_B_12_Cod_1','P2_B_12_Cod_2','P2_B_12_Cod_3','P2_B_12_Cod_4','P2_B_12_Cod_5','P2_B_12_Cod_6','P2_B_12_Cod_7'],
 			    }, 		
 
 				P2_C_1Locl_1_Energ: {
@@ -2800,6 +2805,7 @@ $("#cap2_f").validate({
 			    }, 		
 				P2_C_1Locl_6_Int: {
 			       valrango: [1,2,9],
+			       valnueves: ['P2_C_1Locl_1_Energ','P2_C_1Locl_2_Agua','P2_C_1Locl_3_Alc','P2_C_1Locl_4_Tfija','P2_C_1Locl_5_Tmov','P2_C_1Locl_6_Int'],
 			    }, 			
 				P2_C_2LocE_1_Energ: {
 			       valrango: [1,2,9],
@@ -2818,11 +2824,15 @@ $("#cap2_f").validate({
 			    }, 		
 				P2_C_2LocE_6_Int: {
 			       valrango: [1,2,9],
+			       valnueves: ['P2_C_2LocE_1_Energ','P2_C_2LocE_2_Agua','P2_C_2LocE_3_Alc','P2_C_2LocE_4_Tfija','P2_C_2LocE_5_Tmov','P2_C_2LocE_6_Int'],
 			    }, 		
 
 				'P2_D_1_Cod[]': {
 			        valrango: [0,1,9],
 			    }, 		
+			    P2_D_1_Cod_4:{
+			       valnueves: ['P2_D_1_Cod_1','P2_D_1_Cod_2','P2_D_1_Cod_3','P2_D_1_Cod_4'],
+			    },
 
 				// 'P2_D_1_Cod[3]': {
 			 //        valrango: [0,1,9],
@@ -2836,6 +2846,7 @@ $("#cap2_f").validate({
 				'P2_D_5_Cod[5]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5'],
+			        valnueves:['P2_D_5_Cod_1','P2_D_5_Cod_2','P2_D_5_Cod_3','P2_D_5_Cod_4','P2_D_5_Cod_5','P2_D_5_Cod_6'],
 			    }, 
 
 				'P2_D_9_Nro[]': {
@@ -2846,6 +2857,8 @@ $("#cap2_f").validate({
 			        valrango: [0,1,9],
 			        valzero:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
 			        valninguno:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6'],
+			        valnueves:['P2_D_9_Nro_1','P2_D_9_Nro_2','P2_D_9_Nro_3','P2_D_9_Nro_4','P2_D_9_Nro_5','P2_D_9_Nro_6','P2_D_9_Nro_7'],
+
 			    }, 		
 
 				'P2_D_3_1DocRef[]': {
@@ -2874,7 +2887,7 @@ $("#cap2_f").validate({
 				'P2_F_1_ElimBas[9]': {
 			        valrango: [0,1,9],
 			        valzero:['P2_F_1_ElimBas_1','P2_F_1_ElimBas_2','P2_F_1_ElimBas_3','P2_F_1_ElimBas_4','P2_F_1_ElimBas_5','P2_F_1_ElimBas_6','P2_F_1_ElimBas_7','P2_F_1_ElimBas_8','P2_F_1_ElimBas_9'],
-
+			        valnueves:['P2_F_1_ElimBas_1','P2_F_1_ElimBas_2','P2_F_1_ElimBas_3','P2_F_1_ElimBas_4','P2_F_1_ElimBas_5','P2_F_1_ElimBas_6','P2_F_1_ElimBas_7','P2_F_1_ElimBas_8','P2_F_1_ElimBas_9','P2_F_1_ElimBas_10'],
 			    },
 			    // G
 
@@ -2888,7 +2901,12 @@ $("#cap2_f").validate({
 				'P2_G_2_Cod[]': {
 			        valrango: [0,1,9],
 			    },
-	
+				
+			    'P2_G_2_Cod[6]':{
+			        valrango: [0,1,9],
+			        valnueves:['P2_G_2_Cod_1','P2_G_2_Cod_2','P2_G_2_Cod_3','P2_G_2_Cod_4','P2_G_2_Cod_5','P2_G_2_Cod_6','P2_G_2_Cod_7'],
+			    },
+
 				'P2_G_2A_EstPre[]': {
 			        valrango: [1,2,9],
 			    },	
