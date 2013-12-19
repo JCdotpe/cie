@@ -1427,6 +1427,15 @@ $(function(){
 
 
 
+$('#P1_A_2_3_DocTip').change(function(event){
+	if(parseInt($(this).val()) == 1){
+		$("#P1_A_2_3_DocNro").attr('maxlength','8');
+	}else if(parseInt($(this).val()) == 2 || parseInt($(this).val()) == 9){
+		$("#P1_A_2_3_DocNro").attr('maxlength','10');	
+	}
+
+});
+
 
 $('#P1_B_3_InmCod').change(function(event) {
 	if($(this).val() != ''){
@@ -2070,7 +2079,12 @@ $(document).on("click",'.ienro',function() {
 			dataType:'json',
 			success:function(json){
 				$.each( json.ie, function(fila, valor) {
-					   $('#' + fila).val(valor);
+						if(fila == 'P1_A_2_3_DocTip'){
+						   	$('#' + fila).val(valor);
+						   	$('#' + fila).trigger('change');
+						}else{
+					  	    $('#' + fila).val(valor);
+					  	}
 				}); 	
 				//cod mod
 				gen_cms(json.nro_cms,json.cms);									
