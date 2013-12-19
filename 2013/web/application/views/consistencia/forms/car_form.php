@@ -1264,6 +1264,9 @@ $("#car_f").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								$('#PC_A_1_Dep').attr('disabled','disabled');	
+								$('#PC_A_2_Prov').attr('disabled','disabled');		
+								$('#PC_A_3_Dist').attr('disabled','disabled');									
 								if(parseInt($('#PC_C_2_Rfinal_resul').val()) != 3){
 									$('#ctab').removeClass('active');
 									$('#ctab1 a').trigger('click');
