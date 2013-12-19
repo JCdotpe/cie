@@ -49,24 +49,24 @@ $CodigoPuntoGPS = array(
 );
 
 $LatitudPuntof = array(
-	'name'	=> 'LatitudPuntof',
-	'id'	=> 'LatitudPuntof',
+	'name'	=> 'LatitudPunto_UltP',
+	'id'	=> 'LatitudPunto_UltP',
 	'class' => 'input10',		
-	'disabled' => 'disabled',		
+	// 'disabled' => 'disabled',		
 );
 
 $LongitudPuntof = array(
-	'name'	=> 'LongitudPuntof',
-	'id'	=> 'LongitudPuntof',
+	'name'	=> 'LongitudPunto_UltP',
+	'id'	=> 'LongitudPunto_UltP',
 	'class' => 'input10',			
-	'disabled' => 'disabled',		
+	// 'disabled' => 'disabled',		
 );
 
 $AltitudPuntof = array(
-	'name'	=> 'AltitudPuntof',
-	'id'	=> 'AltitudPuntof',
+	'name'	=> 'AltitudPunto_UltP',
+	'id'	=> 'AltitudPunto_UltP',
 	'class' => 'input10',		
-	'disabled' => 'disabled',		
+	// 'disabled' => 'disabled',		
 );
 
 
