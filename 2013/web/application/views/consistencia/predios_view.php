@@ -833,4 +833,45 @@ $.ctrl('8', function() {
 $.ctrl('9', function() {
   $('#ctab9 a').trigger('click');
 });
+
+
+
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // activated tab
+  e.relatedTarget // previous tab
+  window.scrollTo(0, 0);
+
+  var mxflag = 0;
+  if(parseInt(<?php echo $pr; ?>) == 1)
+    mxflag = 1;
+
+  if(e.delegateTarget.hash == "#tabc"){
+    $("#PC_A_4_CentroP").focus();  
+  }else if(e.delegateTarget.hash == "#tab1"){
+    if(mxflag == 1)
+      $("#P1_A_1_Cant_IE").focus();
+    else
+      $("#P1_B_3_InmCod").focus();
+  }else if(e.delegateTarget.hash == "#tab2"){
+    if(mxflag == 1)
+      $("#P2_A_1_Clima").focus();
+    else
+      $("#P2_B_1_Topo").focus();    
+  }else if(e.delegateTarget.hash == "#tab3"){
+    $("#P3_1_1_LugGeoref").focus();
+  }else if(e.delegateTarget.hash == "#tab4"){
+    $("#P4_2_CantTram_Lfrente").focus();
+  }else if(e.delegateTarget.hash == "#tab5"){
+    $("#P5_Tot_E").focus();
+  }else if(e.delegateTarget.hash == "#tab6"){
+    $("#Nro_Ed_VI").focus();
+  }else if(e.delegateTarget.hash == "#tab7"){
+    $("#Nro_Ed_VII").focus();
+  }else if(e.delegateTarget.hash == "#tab8"){
+    $("#P8_2_Tipo").focus();
+  }
+
+});
+
 </script>

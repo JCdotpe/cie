@@ -52,6 +52,7 @@ $LatitudPuntof = array(
 	'name'	=> 'LatitudPunto_UltP',
 	'id'	=> 'LatitudPunto_UltP',
 	'class' => 'input10',		
+	'maxlength'	=> 13,
 	// 'disabled' => 'disabled',		
 );
 
@@ -59,6 +60,7 @@ $LongitudPuntof = array(
 	'name'	=> 'LongitudPunto_UltP',
 	'id'	=> 'LongitudPunto_UltP',
 	'class' => 'input10',			
+	'maxlength'	=> 13,
 	// 'disabled' => 'disabled',		
 );
 
@@ -66,6 +68,7 @@ $AltitudPuntof = array(
 	'name'	=> 'AltitudPunto_UltP',
 	'id'	=> 'AltitudPunto_UltP',
 	'class' => 'input10',		
+	'maxlength'	=> 7,
 	// 'disabled' => 'disabled',		
 );
 

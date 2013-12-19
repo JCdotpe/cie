@@ -1179,7 +1179,7 @@ $P2_G_2B_snip_7 = array(
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 $attr = array('class' => 'form-vertical form-auth','id' => 'cap2_f');
-
+$boss_p = ( $pr!=1)? 'hide' : '';
 echo form_open($this->uri->uri_string(),$attr); 
 echo '
 
@@ -1188,7 +1188,7 @@ echo '
 								<h5 style="text-transform: uppercase;" class="panel-title">Capitulo II. Caracteristicas del clima y terreno - Servicios y obras en ejecución</h5>
 							</div>
 
-							<table class="table table-bordered">
+							<table class="table table-bordered ' . $boss_p . '">
 									<thead>
 										<tr>
 											<th colspan="3">
