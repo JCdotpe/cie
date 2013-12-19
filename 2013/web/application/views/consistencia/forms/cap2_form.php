@@ -1077,7 +1077,8 @@ $P2_G_2B_snip_3 = array(
 	'id'	=> 'P2_G_2B_snip_3',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
-	'readonly' => true,
+	// 'readonly' => true,
+	'disabled' => 'disabled',
 );
 
 

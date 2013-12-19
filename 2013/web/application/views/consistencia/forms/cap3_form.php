@@ -152,9 +152,9 @@ echo '
 												</tr>
 												<tr>
 													<th>Punto Final</th>
-													<td style="text-align:center;">'.form_input($LatitudPuntof).'</td>
-													<td style="text-align:center;">'.form_input($LongitudPuntof).'</td>
-													<td style="text-align:center;">'.form_input($AltitudPuntof).'</td>
+													<td style="text-align:center;">'.form_input($LatitudPuntof).'<div class="help-block error"></div></td>
+													<td style="text-align:center;">'.form_input($LongitudPuntof).'<div class="help-block error"></div></td>
+													<td style="text-align:center;">'.form_input($AltitudPuntof).'<div class="help-block error"></div></td>
 													<td style="text-align:center;">
 														<a class="map" href="#" target="_blank" id="map2"><img alt="" src="'.base_url().'img/map.png"></a>
 													</td>
@@ -201,9 +201,17 @@ echo form_close();
 
 $(function(){
 //car
+var xlat = null;
+var xlong = null;
 $.each( <?php echo json_encode($cap3_i->row()); ?>, function(fila, valor) {
-	   $('#' + fila).val(valor);
+	   $('#' + fila).val(valor);	
+	   if(fila == 'LatitudPunto_UltP')
+	   	xlat = valor;
+	   if(fila == 'LongitudPunto_UltP')
+	   	xlong = valor;   		   
+	   // 
 }); 
+$("#map2").attr("href", CI.site_url + '/mapa/gps/?lat1=' + xlat+'&long1='+ xlong);		
 
 var ahua = <?php echo $cap3_n->num_rows(); ?>;
 
@@ -226,10 +234,10 @@ $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
 	   $('#AltitudPunto' + '_' +  as).val(data.AltitudPunto);
 	   pts += 'lat' + as + '=' + data.LatitudPunto+'&long' + as + '='+ data.LongitudPunto + '&';
 	   if(as == ahua){
-		   $('#LatitudPuntof').val(data.LatitudPunto);
-		   $('#LongitudPuntof').val(data.LongitudPunto);
-		   $('#AltitudPuntof').val(data.AltitudPunto);	 
-		   $("#map2").attr("href", CI.site_url + '/mapa/gps/?lat1=' + data.LatitudPunto+'&long1='+ data.LongitudPunto);		
+		   // $('#LatitudPuntof').val(data.LatitudPunto);
+		   // $('#LongitudPuntof').val(data.LongitudPunto);
+		   // $('#AltitudPuntof').val(data.AltitudPunto);	 
+		   // $("#map2").attr("href", CI.site_url + '/mapa/gps/?lat1=' + data.LatitudPunto+'&long1='+ data.LongitudPunto);		
 		   $("#map2f").attr("href", CI.site_url + '/mapa/gps/diez/?' + pts);		
 	   }
 	   as++;
@@ -245,7 +253,16 @@ $("#cap3_f").validate({
 			        },  
 				P3_1_4_ArchGPS: {
 			    		maxlength: 255, 
-			    },  			        
+			    },  
+			    LatitudPunto_UltP:{
+			    	number:true,
+			    },	
+			    LongitudPunto_UltP:{
+			    	number:true,
+			    },		
+			    AltitudPunto_UltP:{
+			    	number:true,
+			    },				    		    	        
 		    },
 
 		    messages: {   
