@@ -2441,8 +2441,6 @@ $('#p2_d_3_n tr').remove('.sumin');
 	  }
 	}else if(ahua=='' || ahua == 99){
 		//
-	}else{
-		alert('10 Entrevistas máximo');
 	}
 
 
@@ -2486,8 +2484,6 @@ $('#p2_d_7_n tr').remove('.sumina');
 	  }
 	}else if(ahua=='' || ahua == 99){
 		//
-	}else{
-		alert('10 Entrevistas máximo');
 	}
 
 
