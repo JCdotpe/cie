@@ -144,7 +144,7 @@ $.extend(jQuery.validator.messages, {
 
 $.validator.addMethod("menorque", function(value, element, arg) {
     flag = false;
-    if(value == '' || $('#' + arg[0] + element.id.substring(18,19)).val() >= value ){
+    if(value == '' || parseInt($('#' + arg[0] + element.id.substring(18,19)).val()) >= parseInt(value) ){
       flag = true;
     }
     return flag;
@@ -758,7 +758,7 @@ $("#predios_add").validate({
       mes=fecha.substr(3,2); 
       ano=fecha.substr(6,4); 
       // Año no viciesto y es febrero y el dia es mayor a 28 
-      if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
+      // if ( (ano%4 != 0) && (mes ==02) && (dia > 28) ) { fecha=fecha.substr(0,2)+"/"; } 
     } 
     return (fecha); 
   }
