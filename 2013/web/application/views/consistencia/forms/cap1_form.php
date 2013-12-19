@@ -2123,6 +2123,7 @@ $("#cap1_ie").validate({
 					required:true,
 				},
 				P1_A_2_7_InformantCarg:{
+					letnum:true,
 					required:true,
 				},
 				P1_A_2_8_Can_CMod_IE: {

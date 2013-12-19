@@ -2430,7 +2430,7 @@ $.each( <?php echo json_encode($cap2_p2_c->row()); ?>, function(fila, valor) {
 $('#P2_D_2_Energ_CantSum').keyup(function(event) {
 $('#p2_d_3_n tr').remove('.sumin');
 	var ahua = parseInt($(this).val());
-	if(ahua > 0 && ahua<=10){
+	if(ahua > 0 && ahua<=10 && ahua!=99){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumin">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_3_Nro[]" id="P2_D_3_Nro_' + i + '" value="' + i + '" ></td>';
@@ -2439,7 +2439,7 @@ $('#p2_d_3_n tr').remove('.sumin');
 	    asd += '</tr>';
 	    $('#p2_d_3_n > tbody').append(asd);
 	  }
-	}else if(ahua==''){
+	}else if(ahua=='' || ahua == 99){
 		//
 	}else{
 		alert('10 Entrevistas máximo');
@@ -2475,7 +2475,7 @@ $(document).on("change",'.cld2',function() {
 $('#P2_D_6_Agua_CantSum').keyup(function(event) {
 $('#p2_d_7_n tr').remove('.sumina');
 	var ahua = parseInt($(this).val());
-	if(ahua > 0 && ahua<=10){
+	if(ahua > 0 && ahua<=10 && ahua != 99){
 	  for(var i=1; i<=ahua;i++){
 	    var asd = '<tr class="sumina">';
 	    asd +='<td><input type="text" class="input2 embc' + i + '" readonly name="P2_D_7_Nro[]" id="P2_D_7_Nro_' + i + '" value="' + i + '" ></td>';
@@ -2484,7 +2484,7 @@ $('#p2_d_7_n tr').remove('.sumina');
 	    asd += '</tr>';
 	    $('#p2_d_7_n > tbody').append(asd);
 	  }
-	}else if(ahua==''){
+	}else if(ahua=='' || ahua == 99){
 		//
 	}else{
 		alert('10 Entrevistas máximo');
@@ -2632,10 +2632,13 @@ $("#cap2_f").validate({
 		    		required:true,
 		    	},
 				P2_D_2_Energ_CantSum:{
-					range: [0,10],
+					valrango: [0,10,99],
 					required:true,
 				},
-
+				P2_D_6_Agua_CantSum:{
+					valrango: [0,10,99],
+					required:true,
+				},
 				P2_A_1_Clima: {
 			        required: true,
 			        valrango: [1,3,9],

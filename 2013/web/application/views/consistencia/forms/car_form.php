@@ -358,6 +358,7 @@ $PC_E_1_TPred = array(
 	'name'	=> 'PC_E_1_TPred',
 	'id'	=> 'PC_E_1_TPred',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -365,6 +366,7 @@ $PC_E_2_TPred_NoCol = array(
 	'name'	=> 'PC_E_2_TPred_NoCol',
 	'id'	=> 'PC_E_2_TPred_NoCol',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -372,6 +374,7 @@ $PC_E_3_TEdif = array(
 	'name'	=> 'PC_E_3_TEdif',
 	'id'	=> 'PC_E_3_TEdif',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -379,6 +382,7 @@ $PC_E_4_TPat = array(
 	'name'	=> 'PC_E_4_TPat',
 	'id'	=> 'PC_E_4_TPat',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -386,6 +390,7 @@ $PC_E_5_TLosa = array(
 	'name'	=> 'PC_E_5_TLosa',
 	'id'	=> 'PC_E_5_TLosa',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -393,6 +398,7 @@ $PC_E_6_TCist = array(
 	'name'	=> 'PC_E_6_TCist',
 	'id'	=> 'PC_E_6_TCist',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -400,6 +406,7 @@ $PC_E_7_TMurCon = array(
 	'name'	=> 'PC_E_7_TMurCon',
 	'id'	=> 'PC_E_7_TMurCon',
 	'class' => 'input2',
+	'maxlength'	=> 2,
 	// 'disabled' => 'disabled',
 );
 
@@ -716,13 +723,13 @@ echo '
 								</thead>
 								<tbody>
 									<tr>
-										<td class="' . $boss_p_ct . '">'.form_input($PC_E_1_TPred).'</td>
+										<td class="' . $boss_p_ct . '">'.form_input($PC_E_1_TPred).'<div class="help-block error"></div></td>
 										<td class="' . $boss_p_ct . '">'.form_input($PC_E_2_TPred_NoCol).'<div class="help-block error"></div></td>
-										<td>'.form_input($PC_E_3_TEdif).'</td>
-										<td>'.form_input($PC_E_4_TPat).'</td>
-										<td>'.form_input($PC_E_5_TLosa).'</td>
-										<td>'.form_input($PC_E_6_TCist).'</td>
-										<td>'.form_input($PC_E_7_TMurCon).'</td>
+										<td>'.form_input($PC_E_3_TEdif).'<div class="help-block error"></div></td>
+										<td>'.form_input($PC_E_4_TPat).'<div class="help-block error"></div></td>
+										<td>'.form_input($PC_E_5_TLosa).'<div class="help-block error"></div></td>
+										<td>'.form_input($PC_E_6_TCist).'<div class="help-block error"></div></td>
+										<td>'.form_input($PC_E_7_TMurCon).'<div class="help-block error"></div></td>
 									</tr>
 								</tbody>
 							</table>
@@ -1192,8 +1199,28 @@ $("#car_f").validate({
 			    PC_C_2_Rfinal_fecha:{
 			    	carperuDate:true,
 			    	valcaresu: ['PC_C_1_Et_Fecha_', 'pcar_num'],
-			    }
-
+			    },
+			    PC_E_1_TPred:{
+			    	range:[1,30],
+			    },
+			    PC_E_2_TPred_NoCol:{
+			    	range:[0,20],
+			    },
+			    PC_E_3_TEdif:{
+			    	range:[0,60],
+			    },
+			    PC_E_4_TPat:{
+			    	range:[0,20],
+			    },
+			    PC_E_5_TLosa:{
+			    	range:[0,20],
+			    },		
+			    PC_E_6_TCist:{
+			    	range:[0,20],
+			    },	
+			    PC_E_7_TMurCon:{
+			    	range:[0,20],
+			    },				    		   			    	    
 		    },
 
 		    messages: {   
