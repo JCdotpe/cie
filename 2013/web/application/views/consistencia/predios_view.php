@@ -666,7 +666,10 @@ $("#predios_add").validate({
     {
       case '01':
         if (dia<=31){ sw=1; }
-      break;
+      break;    
+      case '02':
+        if (dia<=29){ sw=1; }
+      break;          
       case '03':
         if (dia<=31){ sw=1; }
       break;
