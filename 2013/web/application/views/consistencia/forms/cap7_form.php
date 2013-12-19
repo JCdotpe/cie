@@ -1414,9 +1414,14 @@ $(document).ready(function(){
 							// }
 							if (data.flag == 1){
 								$('#ctab7').removeClass('active');
-								$('#ctab8 a').trigger('click');
-								window.scrollTo(0, 0);	
-							}							
+
+								if (confirm('Desea avanzar al Capítulo 8?')){
+									$('#ctab8 a').trigger('click');
+								}else{
+									$('#ctab6 a').trigger('click');
+								}			
+								window.scrollTo(0, 0);
+							}
 			            }
 			        });
 		}
