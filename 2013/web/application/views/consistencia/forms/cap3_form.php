@@ -146,8 +146,8 @@ echo '
 											<table class="table table-bordered">
 												<tbody><tr>
 													<td></td>
-													<th style="text-align:center;">Latitud</th>
 													<th style="text-align:center;">Longitud</th>
+													<th style="text-align:center;">Latitud</th>
 													<th style="text-align:center;">Altitud (msnm)</th>
 													<th style="text-align:center;">
 														<strong>Ver punto final en el Mapa</strong>
@@ -155,8 +155,8 @@ echo '
 												</tr>
 												<tr>
 													<th>Punto Final</th>
-													<td style="text-align:center;">'.form_input($LatitudPuntof).'<div class="help-block error"></div></td>
 													<td style="text-align:center;">'.form_input($LongitudPuntof).'<div class="help-block error"></div></td>
+													<td style="text-align:center;">'.form_input($LatitudPuntof).'<div class="help-block error"></div></td>													
 													<td style="text-align:center;">'.form_input($AltitudPuntof).'<div class="help-block error"></div></td>
 													<td style="text-align:center;">
 														<a class="map" href="#" target="_blank" id="map2"><img alt="" src="'.base_url().'img/map.png"></a>
