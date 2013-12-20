@@ -1175,24 +1175,31 @@ $("#car_f").validate({
 			    },
 			    PC_E_1_TPred:{
 			    	range:[1,30],
+			    	required:true,
 			    },
 			    PC_E_2_TPred_NoCol:{
 			    	range:[0,20],
+			    	required:true,
 			    },
 			    PC_E_3_TEdif:{
 			    	range:[0,60],
+			    	required:true,
 			    },
 			    PC_E_4_TPat:{
 			    	range:[0,20],
+			    	required:true,
 			    },
 			    PC_E_5_TLosa:{
 			    	range:[0,20],
+			    	required:true,
 			    },		
 			    PC_E_6_TCist:{
 			    	range:[0,20],
+			    	required:true,
 			    },	
 			    PC_E_7_TMurCon:{
 			    	range:[0,20],
+			    	required:true,	
 			    },				    		   			    	    
 		    },
 

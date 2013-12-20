@@ -2685,6 +2685,13 @@ $("#predio_i").validate({
 				            success:function(json){
 								alert(json.msg);
 								bcar.removeAttr('disabled');
+								if (json.flag == 1){
+									if (confirm('Desea avanzar al Capítulo 2?')){
+										$('#ctab1').removeClass('active');
+										$('#ctab2 a').trigger('click');
+										window.scrollTo(0, 0);
+									}			
+								}
 								// gen_cms(json.nro_cms,json.cms);						
 				            }
 				    });  
