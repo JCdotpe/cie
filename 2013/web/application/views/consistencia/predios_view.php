@@ -213,7 +213,8 @@ $.validator.addMethod("carperuDate",function(value, element) {
 $.validator.addMethod("valcaresu", function(value, element, arg){
     flag = false;
     var nro = $('#' + arg[1]).val();
-    if($('#' + arg[0] + nro).val() == value ){
+    var cox = $('#' + arg[0] + nro).val()
+    if( cox.localeCompare(value) == 0){
       flag = true;
     }
     return flag;
