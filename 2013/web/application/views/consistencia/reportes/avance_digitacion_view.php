@@ -27,13 +27,13 @@
 		'onKeyUp' => "javascript:this.value=formateafecha(this.value);",
 	);
 
-	$fecha_max = array(
-		'name'	=> 'fecha_max',
-		'id'	=> 'fecha_max',
-		'maxlength'	=> 10,
-		'class' => 'input10 fechap',
-		'onKeyUp' => "javascript:this.value=formateafecha(this.value);",
-	);
+	// $fecha_max = array(
+	// 	'name'	=> 'fecha_max',
+	// 	'id'	=> 'fecha_max',
+	// 	'maxlength'	=> 10,
+	// 	'class' => 'input10 fechap',
+	// 	'onKeyUp' => "javascript:this.value=formateafecha(this.value);",
+	// );
 
 ?>
 
@@ -53,14 +53,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<!-- <div class="span2">
 					<div class="control-group">
-						<?php echo form_label('Fecha de Fin', 'fxfin', $label_class); ?>
+						<?php //echo form_label('Fecha de Fin', 'fxfin', $label_class); ?>
 						<div class="controls">
-							<?php echo form_input($fecha_max); ?>
+							<?php //echo form_input($fecha_max); ?>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="span1">
 					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="Reportar()"'); ?>
 				</div>
@@ -68,7 +68,7 @@
 			<?php echo form_close(); ?>
 		</div>
 		<div id="grid_content" class="span10">
-			<table id="lista" style="width:950px;" class="display">
+			<!-- <table id="lista" style="width:950px;" class="display">
 				<thead>
 					<tr>
 						<th rowspan="2">Departamento</th>
@@ -97,7 +97,7 @@
 						<td class="center">val.avance</td>
 					</tr>
 				</tbody>
-			</table>
+			</table> -->
 		</div>
 		<div class="span12">
 			<?php echo form_button('expo','Exportar a Excel','class="btn btn-inverse pull-right" id="expo" style="margin-top:20px" disabled="disabled" onClick="exportExcel()"'); ?>
@@ -109,14 +109,15 @@
 function Reportar()
 {
 	var fecha_min = $('#fecha_min').val();
-	var fecha_max = $('#fecha_max').val();
+	// var fecha_max = $('#fecha_max').val();
+	$('#expo').removeAttr('disabled');
 
-	ViewResultado(fecha_min,fecha_max)
+	ViewResultado(fecha_min);
 }
 
-function ViewResultado(fxmin,fxmax)
+function ViewResultado(fxmin)
 {
-	$.getJSON(urlRoot('index.php')+'/consistencia/avance_digitacion/digitacion/' , {v_fxmin:fxmin,v_fxmax:fxmax}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/consistencia/avance_digitacion/digitacion/' , {v_fxmin:fxmin}, function(data, textStatus) {
 
 			table='<table id="lista" style="width:950px;" class="display">'+
 			'<thead>'+
@@ -141,13 +142,13 @@ function ViewResultado(fxmin,fxmax)
 			$.each(data, function(index, val) {
 
 				table+='<tr>'+
-						'<td class="center">'+val.departamento+'</td>'+
-						'<td class="center">'+val.meta+'</td>'+
-						'<td class="center">'+val.digitado_dia+'</td>'+
-						'<td class="center">'+val.digitado_acumulado+'</td>'+
-						'<td class="center">'+val.avance+'</td>'+
-						'<td class="center">'+val.falta_digitar+'</td>'+
-						'<td class="center">'+val.avance+'</td>'+
+						'<td class="center">'+val.Sede_Operativa+'</td>'+
+						'<td class="center">'+val.Meta+'</td>'+
+						'<td class="center">'+val.Digit_Dia+'</td>'+
+						'<td class="center">'+val.Digit_Acum+'</td>'+
+						'<td class="center">'+val.Avance1+'</td>'+
+						'<td class="center">'+val.Falta_Dig+'</td>'+
+						'<td class="center">'+val.Avance2+'</td>'+
 					'</tr>';
 			});
 
@@ -168,14 +169,14 @@ function ViewResultado(fxmin,fxmax)
 	function exportExcel()
 	{
 		var fecha_min = $('#fecha_min').val();
-		var fecha_max = $('#fecha_max').val();
+		// var fecha_max = $('#fecha_max').val();
 
-		if ( fecha_min == '' || fecha_max == '' )
+		if ( fecha_min == '' )
 		{ 
 			alert("Ud. No ha Ingresado Parámetros de Búsqueda");
 		}else{
 			document.forms[0].method='POST';
-			document.forms[0].action=urlRoot('index.php')+"/consistencia/csvExport/exp_avance_digitacion?v_fxmin="+fecha_min+"&v_fxmax="+fecha_max;
+			document.forms[0].action=urlRoot('index.php')+"/consistencia/csvExport/exp_avance_digitacion?v_fxmin="+fecha_min;
 			document.forms[0].target='_blank';
 			document.forms[0].submit();
 		}

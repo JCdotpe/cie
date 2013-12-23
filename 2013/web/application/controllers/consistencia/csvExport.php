@@ -17,8 +17,8 @@ class Csvexport extends CI_Controller {
 	{
 
 		$fecha_min = $this->input->get('v_fxmin');
-		$fecha_max = $this->input->get('v_fxmax');
-		$query = $this->reporte_model->get_avance_digitacion($fecha_min,$fecha_max);
+		// $fecha_max = $this->input->get('v_fxmax');
+		$query = $this->reporte_model->get_avance_digitacion($fecha_min);
 
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
@@ -46,11 +46,11 @@ class Csvexport extends CI_Controller {
 			$sheet->getColumnDimension('B')->setWidth(5);
 			$sheet->getColumnDimension('C')->setWidth(22);
 			$sheet->getColumnDimension('D')->setWidth(15);
-			$sheet->getColumnDimension('E')->setWidth(10);
-			$sheet->getColumnDimension('F')->setWidth(10);
-			$sheet->getColumnDimension('G')->setWidth(8);
-			$sheet->getColumnDimension('H')->setWidth(8);
-			$sheet->getColumnDimension('I')->setWidth(8);
+			$sheet->getColumnDimension('E')->setWidth(20);
+			$sheet->getColumnDimension('F')->setWidth(23);
+			$sheet->getColumnDimension('G')->setWidth(15);
+			$sheet->getColumnDimension('H')->setWidth(30);
+			$sheet->getColumnDimension('I')->setWidth(15);
 			
 
 			$sheet->getRowDimension(4)->setRowHeight(2);
@@ -83,10 +83,10 @@ class Csvexport extends CI_Controller {
 		// TITULOS
 
 		// CABECERA ESPECIAL
-					$sheet->setCellValue('B9','FECHAS:');
+					$sheet->setCellValue('B9','FECHA:');
 					$sheet->mergeCells('B9:C9');
 
-					$sheet->setCellValue('D9',$fecha_min." - ".$fecha_max);
+					$sheet->setCellValue('D9',$fecha_min);
 					$sheet->mergeCells('D9:E9');
 
 					$sheet->getStyle('D9:C9')->getFont()->setname('Arial')->setSize(12);
@@ -199,12 +199,12 @@ class Csvexport extends CI_Controller {
 		// CABECERA
 
 	    // CUERPO
-			$total = $query->num_rows()+ ($cab+2);
+			$total = $query->num_rows()+ ($cab+1);
 			
-			$sheet->getStyle("A".($cab+3).":I".$total)->getFont()->setname('Arial Narrow')->setSize(9);
+			$sheet->getStyle("A".($cab+2).":I".$total)->getFont()->setname('Arial')->setSize(9);
 
 			//bordes cuerpo
-			$sheet->getStyle("B".($cab+3).":I".$total)->applyFromArray(array(
+			$sheet->getStyle("B".($cab+2).":I".$total)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -212,7 +212,7 @@ class Csvexport extends CI_Controller {
 			));
 
 			// EXPORTACION A EXCEL
-			$row = $cab+2;
+			$row = $cab+1;
 			$col = 2;
 			$num = 0;
 			$cambio = FALSE;
@@ -221,13 +221,13 @@ class Csvexport extends CI_Controller {
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->Departamento)));
-			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->meta);
-			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->digitado_dia);
-			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->digitado_acumulado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->avance);
-			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->falta_digitar);
-			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->avance);
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->Sede_Operativa)));
+			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->Meta);
+			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($filas->Digit_Dia);
+			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->Digit_Acum);
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->Avance1);
+			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Falta_Dig);
+			  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Avance2);
 				//}
 				 $col = 2;
 				 //dar formato de color intercalado a cada fila
@@ -255,6 +255,31 @@ class Csvexport extends CI_Controller {
 
 		// PIE TOTALES
 			$celda_s = $total+1 ; // inicio de pie de resumenes
+
+			$sheet->setCellValue('B'.$celda_s,'TOTALES');
+			$sheet->mergeCells('B'.$celda_s.':C'.$celda_s);
+			// $sheet->mergeCells('H'.$celda_s.':Q'.$celda_s);
+			
+			$inicio_s = $cab+2 ; // inicio suma  de resumenes	
+			$fin_s = $total ; // fin suma de resumenes	
+
+			$sheet->setCellValue('D'. $celda_s ,'=SUM(D'.$inicio_s.':D'.$fin_s.')');
+			$sheet->setCellValue('E'. $celda_s ,'=SUM(E'.$inicio_s.':E'.$fin_s.')');
+			$sheet->setCellValue('F'. $celda_s ,'=SUM(F'.$inicio_s.':F'.$fin_s.')');
+			$sheet->setCellValue('G'. $celda_s ,'=ROUND((F'.$celda_s.'*100/(D'.$celda_s.'-F'.$celda_s.')),2)');
+			$sheet->setCellValue('H'. $celda_s ,'=SUM(H'.$inicio_s.':H'.$fin_s.')');
+			$sheet->setCellValue('I'. $celda_s ,'=ROUND((H'.$celda_s.'*100/D'.$celda_s.'),2)');
+
+			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
+	     	$sheet->getStyle('B'.$celda_s.':I'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+			// $sheet->getStyle('G'. $celda_s)->getNumberFormat()->setFormatCode('#,##0.00');
+			$sheet->getStyle('B'.$celda_s.':I'.$celda_s)->applyFromArray(array(
+			'borders' => array(
+						'allborders' => array(
+										'style' => PHPExcel_Style_Border::BORDER_THIN)
+					)
+			));
 
 			//fecha
 			$sheet->setCellValue('B'.($celda_s +2),'IMPRESO:' );

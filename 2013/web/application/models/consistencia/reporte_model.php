@@ -1,9 +1,8 @@
 <?php 
 class Reporte_model extends CI_MODEL{
-    //dni
-    function get_avance_digitacion($dni){
-        $this->db->where('dni',$dni);
-        $q = $this->db->get('registro');
-        return $q;
+
+    function get_avance_digitacion($fecha){
+        $q=$this->db->query("PA_Reporte_Digit_OTIN ?", array($fecha));
+		return $q;
     }
 }

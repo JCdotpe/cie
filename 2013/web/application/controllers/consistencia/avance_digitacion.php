@@ -52,9 +52,9 @@ class Avance_digitacion extends CI_Controller {
 	public function digitacion()
 	{
 		$fecha_min = $this->input->get('v_fxmin');
-		$fecha_max = $this->input->get('v_fxmax');
+		// $fecha_max = $this->input->get('v_fxmax');
 
-		$data = $this->reporte_model->get_avance_digitacion($fecha_min,$fecha_max);
+		$data = $this->reporte_model->get_avance_digitacion($fecha_min);
 
 		$i=0;
 		echo "[";
@@ -63,21 +63,13 @@ class Avance_digitacion extends CI_Controller {
 
 			if($i>0){echo",";}
 
-			$x= array("Sede" => $fila->Sede,
-			"Prov" => $fila->Prov,
-			"LocEscolares" => $fila->LocaProg,
-			"LocEscolar_Censado" => $fila->TotalVisitados,
-			"LocEscolar_Censado_Porc" => is_null($fila->PorAvance) ? '' : $fila->PorAvance,
-			"Completa" => is_null($fila->Tcompletos) ? '' : $fila->Tcompletos,
-			"Completa_Porc" => is_null($fila->Porcompletos) ? '' : $fila->Porcompletos,
-			"Incompleta" => is_null($fila->TIncompleto) ? '' : $fila->TIncompleto,
-			"Incompleta_Porc" => is_null($fila->PorInc) ? '' : $fila->PorInc,
-			"Rechazo" => is_null($fila->TRechazo) ? '' : $fila->TRechazo,
-			"Rechazo_Porc" => is_null($fila->PorRechazo) ? '' : $fila->PorRechazo,
-			"Desocupada" => is_null($fila->TLocal_Cerrado) ? '' : $fila->TLocal_Cerrado,
-			"Desocupada_Porc" => is_null($fila->PorLocal_Cerrado) ? '' : $fila->PorLocal_Cerrado,
-			"Otro" => is_null($fila->TOtros) ? '' : $fila->TOtros,
-			"Otro_Porc" => is_null($fila->PorOtros) ? '' : $fila->PorOtros
+			$x= array("Sede_Operativa" => $fila->Sede_Operativa,
+			"Meta" => $fila->Meta,
+			"Digit_Dia" => $fila->Digit_Dia,
+			"Digit_Acum" => $fila->Digit_Acum,
+			"Avance1" => $fila->Avance1,
+			"Falta_Dig" => $fila->Falta_Dig,
+			"Avance2" => $fila->Avance2
 			);
 
 			$jsonData = my_json_encode($x);
