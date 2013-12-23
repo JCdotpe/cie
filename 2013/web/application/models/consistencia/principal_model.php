@@ -7,6 +7,10 @@ class Principal_model extends CI_MODEL{
         return $q;
     }
 
+    function eliminar_cod($cod){
+        $q=$this->db->query("PA_Elimina_Data_Local_No_Cap3 ?, ?", array($cod,'hi')); 
+        return $q;        
+    }
 
     //Seguridad
     function get_user_ubigeo($id){

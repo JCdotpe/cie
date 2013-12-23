@@ -666,40 +666,40 @@ $("#predios_add").validate({
     {
       case '01':
         if (dia<=31){ sw=1; }
-      break;    
+        break;    
       case '02':
         if (dia<=29){ sw=1; }
-      break;          
+        break;          
       case '03':
         if (dia<=31){ sw=1; }
-      break;
+        break;
       case '04':
         if (dia<=30){ sw=1; }
-      break;
+        break;
       case '05':
         if (dia<=31){ sw=1; }
-      break;
+        break;
       case '06':
         if (dia<=30){ sw=1; }
-      break;
+        break;
       case '07':
         if (dia<=31){ sw=1; }
-      break;
+        break;
       case '08':
         if (dia<=31){ sw=1; }
-      break;
+        break;
       case '09':
           if (dia<=30){ sw=1; }
         break;
-        case '10':
+      case '10':
         if (dia<=31){ sw=1; }
-      break;
+        break;
       case '11':
         if (dia<=30){ sw=1; }
-      break;
+        break;
       case '12':
         if (dia<=31){ sw=1; }
-      break;
+        break;
     }
     
     if (sw==1) {return true;} else {return false; } 
@@ -739,12 +739,12 @@ $("#predios_add").validate({
     if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
     else { if (long==10){ if ((ano==0) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
     }
-    if (long==5)
-    {
-      if (mes==mesactual){
-        if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
-      }else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
-    }
+    // if (long==5)
+    // {
+    //   if (mes==mesactual){
+    //     if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+    //   }else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+    // }
 
     if (long==10)
     {
