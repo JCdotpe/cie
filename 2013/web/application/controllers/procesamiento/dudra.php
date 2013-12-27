@@ -12,25 +12,25 @@ class dudra extends CI_Controller {
 		
 		$this->load->model('procesamiento/dudra_model');
 		//User is logged in
-		if (!$this->tank_auth->is_logged_in()) {
-			redirect();
-		}
+		// if (!$this->tank_auth->is_logged_in()) {
+		// 	redirect();
+		// }
 
 		//Check user privileges 
-		$roles = $this->tank_auth->get_roles();
-		$flag = FALSE;
-		foreach ($roles as $role) {
-			if($role->role_id == 18){
-				$flag = TRUE;
-				break;
-			}
-		}
+		// $roles = $this->tank_auth->get_roles();
+		// $flag = FALSE;
+		// foreach ($roles as $role) {
+		// 	if($role->role_id == 18){
+		// 		$flag = TRUE;
+		// 		break;
+		// 	}
+		// }
 
-		//If not author is BENDER!
-		if (!$flag) {
-			show_404();
-			die();
-		}
+		// //If not author is BENDER!
+		// if (!$flag) {
+		// 	show_404();
+		// 	die();
+		// }
 	}
 
 	public function index()

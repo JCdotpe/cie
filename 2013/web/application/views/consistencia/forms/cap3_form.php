@@ -232,6 +232,7 @@ var ahua = <?php echo $cap3_n->num_rows(); ?>;
 var as = 1;
 var pts = '';
 $.each( <?php echo json_encode($cap3_n->result()); ?>, function(i, data) {
+
 	   $('#LatitudPunto' + '_' + as).val(data.LatitudPunto);
 	   $('#LongitudPunto' + '_' +  as).val(data.LongitudPunto);
 	   $('#AltitudPunto' + '_' +  as).val(data.AltitudPunto);
