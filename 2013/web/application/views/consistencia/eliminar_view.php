@@ -63,7 +63,7 @@ $("#eliminar").validate({
         submitHandler: function(form) {
             var strc = $("#cod_local").val(); 
             if (confirm('Esta seguro de eliminar el codigo local - ' + strc)) {
-                    var pradd_data = {
+                    var eli_data = {
                       cod_local: strc,
                       ajax:1
                     };    
@@ -73,14 +73,14 @@ $("#eliminar").validate({
                     $.ajax({
                         url: CI.site_url + "/consistencia/eliminar/del",
                         type:'POST',
-                        data:pradd_data,
+                        data:eli_data,
                         dataType:'json',
                         success:function(json){
                             bcar.removeAttr('disabled');
-                            // console.log(json);
                             alert('El codigo local fue eliminado');
-                        }
+                        },
                     });    
+                  
             }
         }       
 }); 

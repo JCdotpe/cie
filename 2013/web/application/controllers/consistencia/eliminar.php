@@ -53,10 +53,12 @@ class Eliminar extends CI_Controller {
 
 	public function del()
 	{
+
 		$is_ajax = $this->input->post('ajax');
 		$cod_local = $this->input->post('cod_local');
+		$datos['cod_local'] = $cod_local;
 		if($is_ajax){
-			$datos['flag'] = $this->principal_model->eliminar_cod($cod_local);
+			$this->principal_model->eliminar_cod($cod_local);
 			$data['datos'] = $datos;
 			$this->load->view('backend/json/json_view', $data);					
 		}else{
