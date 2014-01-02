@@ -5,4 +5,10 @@ class Reporte_model extends CI_MODEL{
         $q=$this->db->query("PA_Reporte_Digit_OTIN_Dpto");
 		return $q;
     }
+
+    function get_avance_digitacion_usuario(){
+        $q=$this->db->query("PA_Reporte_Digit_OTIN_User");
+		return $q;
+    }
+
 }

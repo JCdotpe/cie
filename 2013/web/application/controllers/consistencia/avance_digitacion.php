@@ -77,4 +77,43 @@ class Avance_digitacion extends CI_Controller {
 
 	}
 
+	public function index_usuario()
+	{
+		$data['option'] = 2;
+		$data['nav'] = TRUE;
+		$data['title'] = 'Reporte de Avance de Procesamiento por Usuario';
+		$data['main_content'] = 'consistencia/reportes/avance_digitacion_usuario_view';
+		$this->load->view('backend/includes/template', $data);
+	}
+
+
+	public function digitacion_usuario()
+	{
+		$data = $this->reporte_model->get_avance_digitacion_usuario();
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("Departamento" => $fila->Departamento,
+			"Meta" => $fila->Meta,
+			"Usuario" => is_null($fila->Usuario) ? '' : $fila->Usuario,
+			"Digitado" => $fila->Digitado,
+			"Avance" => $fila->Avance
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
 }
