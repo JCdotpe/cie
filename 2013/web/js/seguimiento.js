@@ -431,6 +431,9 @@ function cargarProv()
 			case '01':
 				if (dia<=31){ sw=1; }
 			break;
+			case '02':
+				if (dia<=29){ sw=1; }
+			break;
 			case '03':
 				if (dia<=31){ sw=1; }
 			break;
@@ -479,32 +482,72 @@ function cargarProv()
 		var diaactual = d.getDate();
 		var mesactual = d.getMonth()+1;
 		var anoactual = d.getFullYear();
-		if ((long>=2) && (primerslap==false)) { dia=fecha.substr(0,2); 
-		if ((IsNumeric(dia)==true) && (dia!="00")) { fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); primerslap=true; } 
-		else { fecha=""; primerslap=false;} 
-		} 
-		else 
-		{ dia=fecha.substr(0,1); 
-		if (IsNumeric(dia)==false) 
-		{fecha="";} 
-		if ((long<=2) && (primerslap=true)) {fecha=fecha.substr(0,1); primerslap=false; } 
-		} 
-		if ((long>=5) && (segundoslap==false)) 
-		{ mes=fecha.substr(3,2); dia=fecha.substr(0,2);
-		if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); segundoslap=true; } 
-		else { fecha=fecha.substr(0,3);; segundoslap=false;} 
-		} 
-		else { if ((long<=5) && (segundoslap=true)) { fecha=fecha.substr(0,4); segundoslap=false; } } 
-		if (long>=7) 
-		{ ano=fecha.substr(6,4); 
-		if (IsNumeric(ano)==false) { fecha=fecha.substr(0,6); } 
-		else { if (long==10){ if ((ano==0) || (ano<2013) || (ano>anoactual)) { fecha=fecha.substr(0,6); } } } 
+		
+		if ((long>=2) && (primerslap==false)) 
+		{ 
+			dia=fecha.substr(0,2); 
+			if ((IsNumeric(dia)==true) && (dia!="00")) { 
+				fecha=fecha.substr(0,2)+"/"+fecha.substr(3,7); 
+				primerslap=true; 
+			} else { 
+				fecha=""; 
+				primerslap=false;
+			} 
+		} else { 
+			dia=fecha.substr(0,1); 
+			if (IsNumeric(dia)==false) { fecha=""; } 
+			if ((long<=2) && (primerslap=true)) {
+				fecha=fecha.substr(0,1);
+				primerslap=false;
+			} 
 		}
+
+		
+		if ((long>=5) && (segundoslap==false)) 
+		{ 
+			mes=fecha.substr(3,2); 
+			dia=fecha.substr(0,2);
+			if ((IsNumeric(mes)==true) && (mes!="00") && (IsRange(dia,mes)==true)) { 
+				fecha=fecha.substr(0,5)+"/"+fecha.substr(6,4); 
+				segundoslap=true; 
+			} else { 
+				fecha=fecha.substr(0,3);
+				segundoslap=false;
+			} 
+		} else { 
+			if ((long<=5) && (segundoslap=true)) { 
+				fecha=fecha.substr(0,4);
+				segundoslap=false;
+			} 
+		} 
+		
+		
+		if (long>=7) 
+		{ 
+			ano=fecha.substr(6,4); 
+			if (IsNumeric(ano)==false) { 
+				fecha=fecha.substr(0,6); 
+			} else { 
+				if (long==10){ 
+					if ((ano==0) || (ano<2013) || (ano>anoactual)) { 
+						fecha=fecha.substr(0,6); 
+					}
+				}
+			}
+		}
+
+
 		if (long==5)
 		{
 			if (mes==mesactual){
-				if (dia>diaactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
-			}else if(mes>mesactual){ fecha=fecha.substr(0,3);; segundoslap=false; }
+				if (dia>diaactual){ 
+					fecha=fecha.substr(0,3);
+					segundoslap=false; 
+				}
+			// }else if(mes>mesactual){
+			// 	fecha=fecha.substr(0,3);
+			// 	segundoslap=false;
+			}
 		}
 
 		if (long==10)
@@ -514,6 +557,7 @@ function cargarProv()
 			if ((ano<=2013) && (mes<9)){ fecha=""; }
 			if ((ano==2013) && (mes==9) && (dia<9)){ fecha=""; }
 		}
+
 		if (long>=10) 
 		{ 
 			fecha=fecha.substr(0,10); 

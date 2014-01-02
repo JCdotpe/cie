@@ -44,17 +44,14 @@ class Avance_digitacion extends CI_Controller {
 	{
 		$data['option'] = 1;
 		$data['nav'] = TRUE;
-		$data['title'] = 'Reporte de Avance de Digitacion';
+		$data['title'] = 'Reporte de Avance de Procesamiento';
 		$data['main_content'] = 'consistencia/reportes/avance_digitacion_view';
 		$this->load->view('backend/includes/template', $data);
 	}
 
 	public function digitacion()
 	{
-		$fecha_min = $this->input->get('v_fxmin');
-		// $fecha_max = $this->input->get('v_fxmax');
-
-		$data = $this->reporte_model->get_avance_digitacion($fecha_min);
+		$data = $this->reporte_model->get_avance_digitacion();
 
 		$i=0;
 		echo "[";
@@ -63,13 +60,10 @@ class Avance_digitacion extends CI_Controller {
 
 			if($i>0){echo",";}
 
-			$x= array("Sede_Operativa" => $fila->Sede_Operativa,
+			$x= array("Departamento" => $fila->Departamento,
 			"Meta" => $fila->Meta,
-			"Digit_Dia" => $fila->Digit_Dia,
-			"Digit_Acum" => $fila->Digit_Acum,
-			"Avance1" => $fila->Avance1,
-			"Falta_Dig" => $fila->Falta_Dig,
-			"Avance2" => $fila->Avance2
+			"Digitado" => $fila->Digitado,
+			"Avance" => $fila->Avance
 			);
 
 			$jsonData = my_json_encode($x);
