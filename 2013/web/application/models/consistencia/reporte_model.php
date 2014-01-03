@@ -6,8 +6,8 @@ class Reporte_model extends CI_MODEL{
 		return $q;
     }
 
-    function get_avance_digitacion_usuario(){
-        $q=$this->db->query("PA_Reporte_Digit_OTIN_User");
+    function get_avance_digitacion_userdig(){
+        $q=$this->db->query("PA_Reporte_Digit_OTIN_Digitador");
 		return $q;
     }
 

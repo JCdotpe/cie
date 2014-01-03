@@ -77,19 +77,31 @@ class Avance_digitacion extends CI_Controller {
 
 	}
 
-	public function index_usuario()
+	public function index_userdig()
 	{
 		$data['option'] = 2;
 		$data['nav'] = TRUE;
-		$data['title'] = 'Reporte de Avance de Procesamiento por Usuario';
-		$data['main_content'] = 'consistencia/reportes/avance_digitacion_usuario_view';
+		$data['title'] = 'Reporte de Avance de Procesamiento por Digitador';
+		$data['main_content'] = 'consistencia/reportes/avance_digitacion_userdig_view';
 		$this->load->view('backend/includes/template', $data);
 	}
 
 
-	public function digitacion_usuario()
+	public function digitacion_userdig()
 	{
-		$data = $this->reporte_model->get_avance_digitacion_usuario();
+		$data = $this->reporte_model->get_avance_digitacion_userdig();
+
+		$t_local = 0;
+		$t_predio = 0;
+		$t_edif = 0;
+		$t_amb = 0;
+
+		foreach ($data->result() as $value) {
+			$t_local += $value->c_local;
+			$t_predio += $value->c_predio;
+			$t_edif += $value->c_edifica;
+			$t_amb += $value->c_ambient;
+		}
 
 		$i=0;
 		echo "[";
@@ -98,11 +110,15 @@ class Avance_digitacion extends CI_Controller {
 
 			if($i>0){echo",";}
 
-			$x= array("Departamento" => $fila->Departamento,
-			"Meta" => $fila->Meta,
-			"Usuario" => is_null($fila->Usuario) ? '' : $fila->Usuario,
-			"Digitado" => $fila->Digitado,
-			"Avance" => $fila->Avance
+			$x= array("user_id" => $fila->user_id,
+			"c_local" => $fila->c_local,
+			"prc_local" => ($t_local > 0) ? ($fila->c_local * 100) / $t_local : 0,
+			"c_predio" => $fila->c_predio,
+			"prc_predio" => ($t_predio > 0) ? ($fila->c_predio * 100) / $t_predio : 0, 
+			"c_edifica" => $fila->c_edifica,
+			"prc_edifica" => ($t_edif > 0) ? ($fila->c_edifica * 100) / $t_edif : 0,
+			"c_ambient" => $fila->c_ambient,
+			"prc_ambient" => ($t_amb > 0) ? ($fila->c_ambient * 100) / $t_amb : 0
 			);
 
 			$jsonData = my_json_encode($x);

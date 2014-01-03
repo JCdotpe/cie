@@ -36,32 +36,40 @@ $(document).ready(function(){
 
 function ViewResultado()
 {
-	$.getJSON(urlRoot('index.php')+'/consistencia/avance_digitacion/digitacion_usuario/' , {}, function(data, textStatus) {
+	$.getJSON(urlRoot('index.php')+'/consistencia/avance_digitacion/digitacion_userdig/' , {}, function(data, textStatus) {
 
 			table='<table id="lista" style="width:950px;" class="display">'+
 			'<thead>'+
 				'<tr>'+
-					'<th rowspan="2">Departamento</th>'+
-					'<th rowspan="2">Meta</th>'+
-					'<th rowspan="2">Usuario</th>'+
-					'<th>Numero de Locales Escolares</th>'+
-					'<th>%</th>'+
+					'<th>Usuario</th>'+
+					'<th>Cantidad de Locales</th>'+
+					'<th>% Locales Digitados</th>'+
+					'<th>Cantidad de Predios</th>'+
+					'<th>% Cantidad de Predios</th>'+
+					'<th>Cantidad de Edificaciones</th>'+
+					'<th>% Cantidad de Edificaciones</th>'+
+					'<th>Cantidad de Ambientes</th>'+
+					'<th>% Cantidad de Ambientes</th>'+
 				'</tr>'+
-				'<tr>'+
-					'<th>Digitado</th>'+
-					'<th>Avance</th>'+
-				'</tr>'+
+				// '<tr>'+
+				// 	'<th>Digitado</th>'+
+				// 	'<th>Avance</th>'+
+				// '</tr>'+
 			'</thead>'+
 			'<tbody>';
 
 			$.each(data, function(index, val) {
 
 				table+='<tr>'+
-						'<td class="center">'+val.Departamento+'</td>'+
-						'<td class="center">'+val.Meta+'</td>'+
-						'<td class="center">'+val.Usuario+'</td>'+
-						'<td class="center">'+val.Digitado+'</td>'+
-						'<td class="center">'+val.Avance+'</td>'+
+						'<td class="center">'+val.user_id+'</td>'+
+						'<td class="center">'+val.c_local+'</td>'+
+						'<td class="center">'+val.prc_local+'</td>'+
+						'<td class="center">'+val.c_predio+'</td>'+
+						'<td class="center">'+val.prc_predio+'</td>'+
+						'<td class="center">'+val.c_edifica+'</td>'+
+						'<td class="center">'+val.prc_edifica+'</td>'+
+						'<td class="center">'+val.c_ambient+'</td>'+
+						'<td class="center">'+val.prc_ambient+'</td>'+
 					'</tr>';
 			});
 
@@ -83,7 +91,7 @@ function ViewResultado()
 function exportExcel()
 {
 	document.forms[0].method='POST';
-	document.forms[0].action=urlRoot('index.php')+"/consistencia/csvExport/exp_avance_digitacion_usuario";
+	document.forms[0].action=urlRoot('index.php')+"/consistencia/csvExport/exp_avance_digitacion_userdig";
 	document.forms[0].target='_blank';
 	document.forms[0].submit();
 }

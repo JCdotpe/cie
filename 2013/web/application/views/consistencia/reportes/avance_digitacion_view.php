@@ -93,9 +93,11 @@ function ViewResultado()
 			"bJQueryUI": false,
 			"bFilter": false,
 			"bLengthChange": false,
-			"sPaginationType": "full_numbers",
+			"bPaginate":false,
+			// "sPaginationType": "full_numbers",
 			"bScrollCollapse": true,
-			"sScrollY": "300px"
+			"sScrollY": "400px",
+			// "iDisplayLength" : 50,
 		} );
 	});
 }

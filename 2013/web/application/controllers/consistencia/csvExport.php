@@ -265,10 +265,10 @@ class Csvexport extends CI_Controller {
 	}
 
 
-	public function exp_avance_digitacion_usuario()
+	public function exp_avance_digitacion_userdig()
 	{
 
-		$query = $this->reporte_model->get_avance_digitacion_usuario();
+		$query = $this->reporte_model->get_avance_digitacion_userdig();
 
 		// pestaña
 		$sheet = $this->phpexcel->getActiveSheet(0);
@@ -294,12 +294,16 @@ class Csvexport extends CI_Controller {
 		// ANCHO Y ALTURA DE COLUMNAS DEL FILE
 			$sheet->getColumnDimension('A')->setWidth(1);
 			$sheet->getColumnDimension('B')->setWidth(5);
-			$sheet->getColumnDimension('C')->setWidth(22);
+			$sheet->getColumnDimension('C')->setWidth(18);
 			$sheet->getColumnDimension('D')->setWidth(18);
-			$sheet->getColumnDimension('E')->setWidth(20);
-			$sheet->getColumnDimension('F')->setWidth(25);
-			$sheet->getColumnDimension('G')->setWidth(25);
-						
+			$sheet->getColumnDimension('E')->setWidth(18);
+			$sheet->getColumnDimension('F')->setWidth(18);
+			$sheet->getColumnDimension('G')->setWidth(18);
+			$sheet->getColumnDimension('H')->setWidth(18);
+			$sheet->getColumnDimension('I')->setWidth(18);
+			$sheet->getColumnDimension('J')->setWidth(18);
+			$sheet->getColumnDimension('K')->setWidth(18);
+
 
 			$sheet->getRowDimension(4)->setRowHeight(2);
 			$sheet->getRowDimension(6)->setRowHeight(2);
@@ -307,15 +311,15 @@ class Csvexport extends CI_Controller {
 
 		// TITULOS
 			$sheet->setCellValue('D3','INSTITUTO NACIONAL DE ESTADÍSTICA E INFORMATICA');
-			$sheet->mergeCells('D3:G3');
+			$sheet->mergeCells('D3:K3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
-			$sheet->mergeCells('D5:G5');
-			$sheet->setCellValue('D7','REPORTE DE AVANCE DE PROCESAMIENTO');
-			$sheet->mergeCells('D7:G7');
-			$sheet->getStyle('D3:G7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			$sheet->getStyle('D3:G7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
-			$sheet->getStyle('D3:G3')->getFont()->setname('Arial black')->setSize(14);
-			$sheet->getStyle('D5:G7')->getFont()->setname('Arial')->setSize(14);
+			$sheet->mergeCells('D5:K5');
+			$sheet->setCellValue('D7','REPORTE DE AVANCE DE PROCESAMIENTO POR DIGITADOR');
+			$sheet->mergeCells('D7:K7');
+			$sheet->getStyle('D3:K7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('D3:K7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
+			$sheet->getStyle('D3:K3')->getFont()->setname('Arial black')->setSize(16);
+			$sheet->getStyle('D5:K7')->getFont()->setname('Arial')->setSize(16);
 
 			// LOGO
 	          $objDrawing = new PHPExcel_Worksheet_Drawing();
@@ -362,37 +366,45 @@ class Csvexport extends CI_Controller {
 					$sheet->setCellValue('B'.$cab,'N°');
 					$sheet->mergeCells('B'.$cab.':B'.($cab+1));
 
-					$sheet->setCellValue('C'.$cab,'DEPARTAMENTO' );
+					$sheet->setCellValue('C'.$cab,'USUARIO' );
 					$sheet->mergeCells('C'.$cab.':C'.($cab+1));
-					$sheet->setCellValue('D'.$cab,'META' );
+					$sheet->setCellValue('D'.$cab,'CANTIDAD DE LOCALES' );
 					$sheet->mergeCells('D'.$cab.':D'.($cab+1));
-					$sheet->setCellValue('E'.$cab,'USUARIO' );
+					$sheet->setCellValue('E'.$cab,'% LOCALES DIGITADOS' );
 					$sheet->mergeCells('E'.$cab.':E'.($cab+1));
 
-					$sheet->setCellValue('F'.$cab,'Número de Locales Escolares');
-					$sheet->mergeCells('F'.$cab.':F'.$cab);
-						$sheet->setCellValue('F'.($cab+1),'DIGITADO');
-						$sheet->mergeCells('F'.($cab+1).':F'.($cab+1));
+					$sheet->setCellValue('F'.$cab,'CANTIDAD DE PREDIOS');
+					$sheet->mergeCells('F'.$cab.':F'.($cab+1));
+						// $sheet->setCellValue('F'.($cab+1),'DIGITADO');
+						// $sheet->mergeCells('F'.($cab+1).':F'.($cab+1));
+					$sheet->setCellValue('G'.$cab,'% CANTIDAD DE PREDIOS');
+					$sheet->mergeCells('G'.$cab.':G'.($cab+1));
 
-					$sheet->setCellValue('G'.$cab,'%');
-					$sheet->mergeCells('G'.$cab.':G'.$cab);
-						$sheet->setCellValue('G'.($cab+1),'AVANCE');
-						$sheet->mergeCells('G'.($cab+1).':G'.($cab+1));
+					$sheet->setCellValue('H'.$cab,'CANTIDAD DE EDIFICACIONES');
+					$sheet->mergeCells('H'.$cab.':H'.($cab+1));
+					$sheet->setCellValue('I'.$cab,'% CANTIDAD DE EDIFICACIONES');
+					$sheet->mergeCells('I'.$cab.':I'.($cab+1));
+
+					$sheet->setCellValue('J'.$cab,'CANTIDAD DE AMBIENTES');
+					$sheet->mergeCells('J'.$cab.':J'.($cab+1));
+					$sheet->setCellValue('K'.$cab,'% CANTIDAD DE AMBIENTES');
+					$sheet->mergeCells('K'.$cab.':K'.($cab+1));
+						
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
-				$sheet->getStyle("B".$cab.":G".($cab+1))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
-				$sheet->getStyle("B".$cab.":G".($cab+1))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
-				$sheet->getStyle("B".$cab.":G".($cab+1))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
-				$sheet->getStyle("B".$cab.":G".($cab+1))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-				$sheet->getStyle("B".$cab.":G".($cab+1))->getFont()->setname('Arial')->setSize(9);
+				$sheet->getStyle("B".$cab.":K".($cab+1))->getAlignment()->setWrapText(true);// AJUSTA TEXTO A CELDA
+				$sheet->getStyle("B".$cab.":K".($cab+1))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
+				$sheet->getStyle("B".$cab.":K".($cab+1))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
+				$sheet->getStyle("B".$cab.":K".($cab+1))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
+				$sheet->getStyle("B".$cab.":K".($cab+1))->getFont()->setname('Arial')->setSize(9);
 
 
 
-		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":G".($cab+1));
+		     	$headStyle = $this->phpexcel->getActiveSheet()->getStyle("B".$cab.":K".($cab+1));
 				$headStyle->applyFromArray($color_celda_cabeceras);
 
-				$sheet->getStyle("B".$cab.":G".($cab+1))->applyFromArray(array(
+				$sheet->getStyle("B".$cab.":K".($cab+1))->applyFromArray(array(
 				'borders' => array(
 							'allborders' => array(
 											'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -405,10 +417,10 @@ class Csvexport extends CI_Controller {
 	    // CUERPO
 			$total = $query->num_rows()+ ($cab+1);
 			
-			$sheet->getStyle("A".($cab+2).":G".$total)->getFont()->setname('Arial')->setSize(9);
+			$sheet->getStyle("A".($cab+2).":K".$total)->getFont()->setname('Arial')->setSize(9);
 
 			//bordes cuerpo
-			$sheet->getStyle("B".($cab+2).":G".$total)->applyFromArray(array(
+			$sheet->getStyle("B".($cab+2).":K".$total)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -420,22 +432,46 @@ class Csvexport extends CI_Controller {
 			$col = 2;
 			$num = 0;
 			$cambio = FALSE;
+
+			$t_local = 0;
+			$t_predio = 0;
+			$t_edif = 0;
+			$t_amb = 0;
+
+			foreach ($query->result() as $value) {
+				$t_local += $value->c_local;
+				$t_predio += $value->c_predio;
+				$t_edif += $value->c_edifica;
+				$t_amb += $value->c_ambient;
+			}
+
 			 foreach($query->result() as $filas){
 			    $row ++;
 			    $num ++;			    
 			    $sheet->getCellByColumnAndRow(1, $row)->setValue($num);// para numerar los registros
 			  		
-			  		$sheet->getCellByColumnAndRow(2, $row)->setValue(utf8_encode(trim($filas->Departamento)));
-			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->Meta);
-			  		$usuario = is_null($filas->Usuario) ? '' : $filas->Usuario;
-			  		$sheet->getCellByColumnAndRow(4, $row)->setValue($usuario);
-			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->Digitado);
-			  		$sheet->getCellByColumnAndRow(6, $row)->setValue($filas->Avance);
+			  		$sheet->getCellByColumnAndRow(2, $row)->setValue($filas->user_id);
+			  		
+			  		$sheet->getCellByColumnAndRow(3, $row)->setValue($filas->c_local);
+			  		$prc_local = ($t_local > 0) ? ($filas->c_local * 100) / $t_local : 0;
+			  		$sheet->getCellByColumnAndRow(4, $row)->setValue(round($prc_local,2));
+
+			  		$sheet->getCellByColumnAndRow(5, $row)->setValue($filas->c_predio);
+			  		$prc_predio = ($t_predio > 0) ? ($filas->c_predio * 100) / $t_predio : 0;
+			  		$sheet->getCellByColumnAndRow(6, $row)->setValue(round($prc_predio,2));
+
+			  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->c_edifica);
+			  		$prc_edifica = ($t_edif > 0) ? ($filas->c_edifica * 100) / $t_edif : 0;
+			  		$sheet->getCellByColumnAndRow(8, $row)->setValue(round($prc_edifica,2));
+
+			  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->c_ambient);
+			  		$prc_ambient = ($t_amb > 0) ? ($filas->c_ambient * 100) / $t_amb : 0;
+			  		$sheet->getCellByColumnAndRow(10, $row)->setValue(round($prc_ambient,2));
 				//}
 				 $col = 2;
 				 //dar formato de color intercalado a cada fila
 				 if($cambio){
-			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":G".$row);
+			     	$fila_color = $this->phpexcel->getActiveSheet()->getStyle("B".$row.":K".$row);
 			        
 					$fila_color->applyFromArray(
 					    array(
@@ -450,9 +486,9 @@ class Csvexport extends CI_Controller {
 				
 			}
 
-			$sheet->getStyle('B'.($cab+2).':G'.$total)->getAlignment()->setWrapText(true)->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-
-			$sheet->getStyle('D'.($cab+2).':G'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$sheet->getStyle('B'.($cab+2).':K'.$total)->getAlignment()->setWrapText(true)->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+			$sheet->getStyle('C'.($cab+2).':K'.$total)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			// $sheet->getStyle('E'.($cab+2).':E'.$total)->getNumberFormat()->setFormatCode('#,##0.00');
 
  		// CUERPO
 
@@ -467,16 +503,21 @@ class Csvexport extends CI_Controller {
 			$fin_s = $total ; // fin suma de resumenes	
 
 			$sheet->setCellValue('D'. $celda_s ,'=SUM(D'.$inicio_s.':D'.$fin_s.')');
+			$sheet->setCellValue('E'. $celda_s ,'=SUM(E'.$inicio_s.':E'.$fin_s.')');
 			$sheet->setCellValue('F'. $celda_s ,'=SUM(F'.$inicio_s.':F'.$fin_s.')');
-			$sheet->setCellValue('G'. $celda_s ,'=ROUND((F'.$celda_s.'/D'.$celda_s.')*100,2)');
+			$sheet->setCellValue('G'. $celda_s ,'=SUM(G'.$inicio_s.':G'.$fin_s.')');
+			$sheet->setCellValue('H'. $celda_s ,'=SUM(H'.$inicio_s.':H'.$fin_s.')');
+			$sheet->setCellValue('I'. $celda_s ,'=SUM(I'.$inicio_s.':I'.$fin_s.')');
+			$sheet->setCellValue('J'. $celda_s ,'=SUM(J'.$inicio_s.':J'.$fin_s.')');
+			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
+			
 			
 
 			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
-			$sheet->getStyle('E'.$celda_s)->applyFromArray($color_celda_cabeceras);
-	     	$sheet->getStyle('B'.$celda_s.':G'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+	     	$sheet->getStyle('B'.$celda_s.':K'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
 			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-			// $sheet->getStyle('G'. $celda_s)->getNumberFormat()->setFormatCode('#,##0.00');
-			$sheet->getStyle('B'.$celda_s.':G'.$celda_s)->applyFromArray(array(
+			
+			$sheet->getStyle('B'.$celda_s.':K'.$celda_s)->applyFromArray(array(
 			'borders' => array(
 						'allborders' => array(
 										'style' => PHPExcel_Style_Border::BORDER_THIN)
@@ -504,13 +545,13 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Reporte Avance Procesamiento");
+				$sheet->setTitle("Avance por Digitador");
 				$this->phpexcel->getProperties()
-				->setTitle("Reporte Avance Procesamiento")
-				->setDescription("Reporte de Avande de Procesamiento");
+				->setTitle("Rpt Avnc Procesamiento")
+				->setDescription("Reporte de Avande de Procesamiento por Digitador");
 
 			header("Content-Type: application/vnd.ms-excel");
-			$nombreArchivo = 'Reporte_Avance_Procesamiento_'.date('Y-m-d');
+			$nombreArchivo = 'Reporte_Avance_Procesamiento_Digitador'.date('Y-m-d');
 			header("Content-Disposition: attachment; filename=\"$nombreArchivo.xls\""); //EXCEL
 			header("Cache-Control: max-age=0");
 			
