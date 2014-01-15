@@ -508,6 +508,7 @@ echo form_hidden('user_id', $user_id);
 		    <li id="ctab7"><a href="#tab7" data-toggle="tab">Capítulo VII</a></li>
 		    <li id="ctab8"><a href="#tab8" data-toggle="tab">Capítulo VIII</a></li>
 		    <li id="ctab9"><a href="#tab9" data-toggle="tab">Capítulo IX</a></li>
+        <li id="ctab10"><a href="#tab10" data-toggle="tab">Validación</a></li>
 		  </ul>
 		  <div class="tab-content fix_tabcontent">
 		    <div class="tab-pane" id="tabc">
@@ -549,6 +550,10 @@ echo form_hidden('user_id', $user_id);
 		    <div class="tab-pane" id="tab9">
 		      <p><?php $this->load->view('consistencia/forms/cap9_form'); ?></p>
 		    </div>  
+
+        <div class="tab-pane" id="tab10">
+          <p><?php $this->load->view('consistencia/forms/validacion_form'); ?></p>
+        </div>  
 
 		  </div>
 		</div>
