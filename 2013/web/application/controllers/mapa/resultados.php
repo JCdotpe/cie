@@ -33,12 +33,21 @@ class Resultados extends CI_Controller {
 		echo json_encode($data->result());
 	}
 
+	public function dist()
+	{
+		$dpto = $this->input->get('ccdd');
+		$prov = $this->input->get('ccpp');
+		$data = $this->ubigeo_model->Get_Dist($dpto, $prov);
+		echo json_encode($data->result());
+	}
+
 	public function busqueda()
 	{
 		$dpto = $this->input->get('dpto');
 		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
 		$ot = $this->input->get('opt');
-		$data = $this->ubigeo_model->Get_Busqueda( $dpto, $prov, $ot );
+		$data = $this->ubigeo_model->Get_Busqueda( $dpto, $prov, $dist, $ot );
 		echo json_encode($data->result());
 	}
 

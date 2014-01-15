@@ -17,9 +17,19 @@ class Ubigeo_model extends CI_MODEL{
         return $q;
     }
 
-    function Get_Busqueda( $dpto, $prov, $ot)
+    function Get_Dist( $ccdd, $ccpp )
     {
-        $q = $this->db->query('PA_Resultado_Infra_OT ?,?,?', array($dpto,$prov,$ot));
+        $this->db->select('CCDI, Nombre');              
+        $this->db->where('CCDD', $ccdd);
+        $this->db->where('CCPP', $ccpp);
+        $this->db->order_by('Nombre', 'asc');
+        $q = $this->db->get('DIST');
+        return $q;
+    }
+
+    function Get_Busqueda( $dpto, $prov, $dist, $ot)
+    {
+        $q = $this->db->query('PA_Resultado_Infra_OT ?,?,?,?', array($dpto,$prov,$dist,$ot));
         return $q;
     }
 }

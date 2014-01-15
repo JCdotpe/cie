@@ -185,7 +185,7 @@
       });
 
       // A function to create the marker and set up the event window
-      function createMarkerLEN(latlng,name,html,category,icon,texto) {
+      function createMarkerLEN(latlng,name,html,category,icon) {
           var contentString = html;
           var color = null;
           var myCoordsLenght = 6;
@@ -201,18 +201,6 @@
             case '3':
                 color=urlRoot('web/')+'img/infra/ot3.png';
               break;
-            case '4':
-                color=urlRoot('web/')+'img/infra/ot4.png';
-              break;
-            case '5':
-                color=urlRoot('web/')+'img/infra/ot5.png';
-              break;
-            case '6':
-                color=urlRoot('web/')+'img/infra/ot6.png';
-              break;
-            case '7':
-                color=urlRoot('web/')+'img/infra/ot7.png';
-              break;
           }
 
 
@@ -224,10 +212,10 @@
               icon: color,
               title: name,
               zIndex: Math.round(latlng.lat()*-100000)<<5,
-              labelContent: texto,
-              labelAnchor: new google.maps.Point(22, 0),
-              labelClass: "glabels", // the CSS class for the label
-              labelStyle: {opacity: 0.75}
+              // labelContent: texto,
+              // labelAnchor: new google.maps.Point(22, 0),
+              // labelClass: "glabels", // the CSS class for the label
+              // labelStyle: {opacity: 0.75}
               });
               // === Store the category and name info as a marker properties ===
               marker.mycategory = category;
@@ -243,9 +231,6 @@
               google.maps.event.addListener(marker, 'dragend', function(evt){
                 document.getElementById('latitud').value = evt.latLng.lat().toFixed(myCoordsLenght);
                 document.getElementById('longitud').value = evt.latLng.lng().toFixed(myCoordsLenght);
-                var Local_Predio=texto.split('-');
-                document.getElementById('local').value = Local_Predio[0];
-                document.getElementById('predio').value = Local_Predio[1];
 
                 $('#edit_gps').slideDown(200);
 
@@ -305,25 +290,36 @@
         $('#infra').hide();
 
         $('#NOM_PROV').attr('disabled', true);
+        $('#NOM_DIST').attr('disabled', true);
+
 
         $('#RESULTADO').change(function(event) {
+          
+          var html_leyenda = '';
+          var html_subtitulo = '';
 
           switch( $(this).val() )
           {
             case '1':
               $('#infra').show();
               $('#OP_TECNICA').val(0);
+              html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Rehabilitación, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" /> Demolición</p>';
+              html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
               break;
             default:
               $('#infra').hide();
               break;
           }
 
+          $('#geo_leyenda').html(html_leyenda);
+          $('#subtitulo').html(html_subtitulo);
+
         });
+
 
         $('#OP_TECNICA').change(function(event) {
 
-           puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#OP_TECNICA').val());
+           puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#OP_TECNICA').val());
 
         });
 
@@ -348,6 +344,8 @@
 
             combo_prov($(this).val());
 
+            $('#NOM_DIST').val(0);
+            $('#NOM_DIST').attr('disabled', true);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -381,6 +379,8 @@
           $('#NOM_PROV').html(html);
 
           $('#NOM_PROV').change(function(event) {
+            combo_dist( $('#NOM_DPTO').val(), $(this).val() );
+
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -394,9 +394,40 @@
         });
     }
 
-    function puntosGPS(departamento,provincia,opinion){
+    function combo_dist(dpto,prov){
 
-        $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,opt:opinion}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/dist', {ccdd:dpto,ccpp:prov}, function(data, textStatus) {
+
+          var html='<option value="0">SELECCIONE...</option>';
+          html+='<option value="0">TODOS</option>';
+
+          $('#NOM_DIST').attr('disabled', false);
+
+          $.each(data, function(i, datos) {
+
+            html+='<option value="'+datos.CCDI+'">'+datos.Nombre+'</option>';
+
+          });
+
+          $('#NOM_DIST').html(html);
+
+          $('#NOM_DIST').change(function(event) {
+            $('#RESULTADO').val(0);
+            $('#RESULTADO').trigger('change');
+            $('#OP_TECNICA').val(0);
+          });
+
+        }).fail(function( jqxhr, textStatus, error ) {
+
+          var err = textStatus + ', ' + error;
+          console.log( "Request Failed: " + err);
+
+        });
+    }
+
+    function puntosGPS(departamento,provincia,distrito,opinion){
+
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,dist:distrito,opt:opinion}, function(data, textStatus) {
 
                 for (var i=0; i<gmarkers.length; i++) {
                         if (gmarkers[i].mycategory == 'punto') {
@@ -421,7 +452,7 @@
                     "</div>";
                     
                     var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-                    var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, datos.codigo_de_local+" - Predio:"+datos.Nro_Pred+" - T.E:"+datos.Tot_Ed);
+                    var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT);
                 });
 
             });
@@ -463,6 +494,15 @@
   </div>
 
   <div class="row-fluid control-group span9">
+    <label class="preguntas_sub2" for="NOM_DIST">DISTRITO</label>
+    <div class="controls">
+    <select id="NOM_DIST" class="span12" name="NOM_DIST">
+      <option value="0">SELECCIONE...</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="row-fluid control-group span9">
     <label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
     <div class="controls">
     <select id="RESULTADO" class="span12" name="RESULTADO">
@@ -477,7 +517,7 @@
     <div class="controls">
     <select id="OP_TECNICA" class="span12" name="OP_TECNICA">
       <option value="0">SELECCIONE...</option>
-      <option value="4">TODOS</option>
+      <option value="0">TODOS</option>
       <option value="1">MANTENIMIENTO</option>
       <option value="2">REFORZAMIENTO ESTRUCTURAL</option>
       <option value="3">DEMOLICION</option>
@@ -516,13 +556,12 @@
 <div id="footer">
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span9">
-      <p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Rehabilitación, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" /> Demolición</p>
+    <div id="geo_leyenda" class="span9">
+      <!-- ajax -->
     </div>
 
-    <div class="span3">
-      <p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>
-     
+    <div id="subtitulo" class="span3">
+      <!-- ajax -->
     </div>    
 
  
