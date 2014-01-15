@@ -112,13 +112,99 @@ class Avance_digitacion extends CI_Controller {
 
 			$x= array("user_id" => $fila->user_id,
 			"c_local" => $fila->c_local,
-			"prc_local" => ($t_local > 0) ? ($fila->c_local * 100) / $t_local : 0,
+			"prc_local" => ($t_local > 0) ? round(($fila->c_local * 100) / $t_local,1) : 0,
 			"c_predio" => $fila->c_predio,
-			"prc_predio" => ($t_predio > 0) ? ($fila->c_predio * 100) / $t_predio : 0, 
+			"prc_predio" => ($t_predio > 0) ? round(($fila->c_predio * 100) / $t_predio,1) : 0, 
 			"c_edifica" => $fila->c_edifica,
-			"prc_edifica" => ($t_edif > 0) ? ($fila->c_edifica * 100) / $t_edif : 0,
+			"prc_edifica" => ($t_edif > 0) ? round(($fila->c_edifica * 100) / $t_edif,1) : 0,
 			"c_ambient" => $fila->c_ambient,
-			"prc_ambient" => ($t_amb > 0) ? ($fila->c_ambient * 100) / $t_amb : 0
+			"prc_ambient" => ($t_amb > 0) ? round(($fila->c_ambient * 100) / $t_amb,1) : 0
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
+	public function index_estadsitua()
+	{
+		$data['option'] = 3;
+		$data['nav'] = TRUE;
+		$data['title'] = 'Reporte de Estado Situacional';
+		$data['main_content'] = 'consistencia/reportes/estado_situacional_view';
+		$this->load->view('backend/includes/template', $data);
+	}
+
+	public function estado_situacional()
+	{
+		$data = $this->reporte_model->get_estado_situacional();
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("cod_dpto" => $fila->cod_dpto,
+			"Dpto" => $fila->Dpto,
+			"Total_Meta" => $fila->Total_Meta,
+			"Total_Cant" => $fila->Total_Cant,
+			"Total_Porc" => $fila->Total_Porc,
+			"Tablet_Meta" => $fila->Tablet_Meta,
+			"Tablet_Cant" => $fila->Tablet_Cant,
+			"Tablet_Porc" => $fila->Tablet_Porc,
+			"OTIN_Meta" => $fila->OTIN_Meta,
+			"OTIN_Udra" => is_null($fila->OTIN_Udra) ? '' : $fila->OTIN_Udra,
+			"OTIN_Cant" => $fila->OTIN_Cant,
+			"OTIN_Porc" => $fila->OTIN_Porc
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
+	public function index_coberotin()
+	{
+		$data['option'] = 4;
+		$data['nav'] = TRUE;
+		$data['title'] = 'Reporte de Cobertura de OTIN';
+		$data['main_content'] = 'consistencia/reportes/cobertura_otin_view';
+		$this->load->view('backend/includes/template', $data);
+	}
+
+
+	public function cobertura_otin()
+	{
+		$data = $this->reporte_model->get_cobertura_otin();
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("Sede_Operativa" => $fila->Sede_Operativa,
+			"Provincia_Operativa" => $fila->Provincia_Operativa,
+			"Departamento" => $fila->Departamento,
+			"Provincia" => $fila->Provincia,
+			"Distrito" => $fila->Distrito,
+			"codigo_de_local" => $fila->codigo_de_local,
+			"Digitado" => $fila->Digitado
 			);
 
 			$jsonData = my_json_encode($x);
