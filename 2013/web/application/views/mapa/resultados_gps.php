@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Georeferenciación de Locales Escolares</title>
+    <title>Resultados Georefenciados</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script src="<?php echo base_url('js/general/jquery-1.10.2.min.js'); ?>"></script>
@@ -185,17 +185,31 @@
           var color = null;
           var myCoordsLenght = 6;
 
-          /*for (var i=0; i<gmarkers.length; i++) {
-                  if (gmarkers[i].mycategory == 'punto') {
-                      gmarkers[i].setVisible(false);
-               }
-          } */
-
-          if(icon==0){
-             color=urlRoot('web/')+'img/colindante.png';
-          }else{
-             color=urlRoot('web/')+'img/nocolindante.png'
+          switch (icon)
+          {
+            case '1':
+                color=urlRoot('web/')+'img/infra/ot1.png';
+              break;
+            case '2':
+                color=urlRoot('web/')+'img/infra/ot2.png';
+              break;
+            case '3':
+                color=urlRoot('web/')+'img/infra/ot3.png';
+              break;
+            case '4':
+                color=urlRoot('web/')+'img/infra/ot4.png';
+              break;
+            case '5':
+                color=urlRoot('web/')+'img/infra/ot5.png';
+              break;
+            case '6':
+                color=urlRoot('web/')+'img/infra/ot6.png';
+              break;
+            case '7':
+                color=urlRoot('web/')+'img/infra/ot7.png';
+              break;
           }
+
 
           var marker = new MarkerWithLabel({
               draggable: true,
@@ -238,7 +252,8 @@
           var myOptions = {
             zoom: 6,
             center: new google.maps.LatLng(-7.1663,-71.455078),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            // mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
             zoomControl: true,
             zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE,
@@ -272,35 +287,6 @@
     }
 
 
-    function reg_form_activo(){
-
-
-        var form_data= new Array();
-
-        form_data.push(
-            {name: 'LatitudPunto',value:$( "#latitud" ).val()},
-            {name: 'LongitudPunto',value:$( "#longitud" ).val()},
-            {name: 'id_local',value:$( "#local" ).val()},
-            {name: 'Nro_Pred',value:$( "#predio" ).val()},
-            {name: 'user_id',value:$( "#user_id" ).val()}
-        );
-        form_data = $.param(form_data);
-
-        $.ajax({
-            type: "POST",
-            url: urlRoot('index.php') +"/visor/gps/updateP313nimputar_post",
-            data: form_data,
-            success: function(response){
-                alert("La solicitud de actualización de coordenadas han sido enviado para su validación.");
-            },
-            error: function(error) {
-                alert("Una actualización de coordenadas ya ha sido enviada o revise su conexión a internet. Por favor comunicarse con el área de informática.");
-            }
-        });
-    }
-
-
-
     </script>
 
     <script type="text/javascript">
@@ -309,58 +295,57 @@
 
         initialize();
 
-        combosede();
+        combo_dpto();
 
-        $('.edit_gps').attr('disabled', true);
-        $('#edit_gps').hide();
+        $('#infra').hide();
 
         $('#NOM_PROV').attr('disabled', true);
-        $('#PERIODO').attr('disabled', true);
 
-        $('#PERIODO').change(function(event) {
+        $('#RESULTADO').change(function(event) {
 
-           puntosGPS($('#NOM_SEDE').val(),$('#NOM_PROV').val(),$('#PERIODO').val());
+          switch( $(this).val() )
+          {
+            case '1':
+              $('#infra').show();
+              $('#OP_TECNICA').val(0);
+              break;
+            default:
+              $('#infra').hide();
+              break;
+          }
 
         });
 
-        $('#save_edit').click(function(){
+        $('#OP_TECNICA').change(function(event) {
 
-            if (confirm("Se enviará una solicitud para actualizar las coordenas del LOCAL: "+ $('#local').val()+" - PREDIO: "+ $('#predio').val()+"\n\nSolo se permite una solicitud por local escolar, desea continuar?")){
-              reg_form_activo();
-            }
+           puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#OP_TECNICA').val());
 
         });
-
-         $('input').attr({
-            disabled : true,
-         });
-
-         $('#cancel_edit').click(function(event) {
-           $('#edit_gps').hide();
-         });
 
     });
 
-    function combosede(){
+    function combo_dpto(){
 
-        $.getJSON(urlRoot('index.php')+'/visor/gps/sedeOperativa', {token: getToken()}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/dpto', {}, function(data, textStatus) {
 
           var html='<option value="0">SELECCIONE...</option>';
+          html+='<option class="cmbsede" value="0">TODOS</option>';
 
-          $.each(data, function(index, val) {
+          $.each(data, function(i, datos) {
 
-            html+='<option class="cmbsede" value="'+val.cod_sede_operativa+'">'+val.sede_operativa+'</option>';
+            html+='<option class="cmbsede" value="'+datos.CCDD+'">'+datos.Nombre+'</option>';
 
           });
 
-          $('#NOM_SEDE').html(html);
+          $('#NOM_DPTO').html(html);
 
-          $('#NOM_SEDE').change(function(event){
+          $('#NOM_DPTO').change(function(event){
 
-            comboprovincia($(this).val());
+            combo_prov($(this).val());
 
-            $('#PERIODO').attr('disabled', true);
-            $('#PERIODO').val(0)
+            $('#RESULTADO').val(0);
+            $('#RESULTADO').trigger('change');
+            $('#OP_TECNICA').val(0);
 
           });
 
@@ -373,25 +358,27 @@
 
     }
 
-     function comboprovincia(code){
+     function combo_prov(code){
 
-        $.getJSON(urlRoot('index.php')+'/visor/gps/provinciaOperativa', {token: getToken(),code:code}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/prov', {ccdd:code}, function(data, textStatus) {
 
           var html='<option value="0">SELECCIONE...</option>';
+          html+='<option value="0">TODOS</option>';
 
           $('#NOM_PROV').attr('disabled', false);
 
-          $.each(data, function(index, val) {
+          $.each(data, function(i, datos) {
 
-            html+='<option value="'+val.cod_prov_operativa+'">'+val.prov_operativa_ugel+'</option>';
+            html+='<option value="'+datos.CCPP+'">'+datos.Nombre+'</option>';
 
           });
 
           $('#NOM_PROV').html(html);
 
           $('#NOM_PROV').change(function(event) {
-            $('#PERIODO').attr('disabled', false);
-            $('#PERIODO').val(0)
+            $('#RESULTADO').val(0);
+            $('#RESULTADO').trigger('change');
+            $('#OP_TECNICA').val(0);
           });
 
         }).fail(function( jqxhr, textStatus, error ) {
@@ -400,29 +387,36 @@
           console.log( "Request Failed: " + err);
 
         });
-
     }
 
-    function puntosGPS(sede,provincia,periodo){
+    function puntosGPS(departamento,provincia,opinion){
 
-        $.getJSON(urlRoot('index.php')+'/visor/procedure/Lista_GPS', {token: getToken(),sede:sede,provincia:provincia,periodo:periodo}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,opt:opinion}, function(data, textStatus) {
 
-                $.each(data, function(i, val){
+                for (var i=0; i<gmarkers.length; i++) {
+                        if (gmarkers[i].mycategory == 'punto') {
+                            gmarkers[i].setVisible(false);
+                     }
+                }
+                infowindow.close();
+
+                $.each(data, function(i, datos){
 
                     var contentString="<div>"+
-                    "<div id=C"+val.LatitudPunto+'.'+val.LongitudPunto+"><strong>Codigo de local: </strong>"+val.codigo_de_local+"<br /></div>"+
-                    "<div id=P"+val.LatitudPunto+'.'+val.LongitudPunto+"><strong>Predio: </strong>"+val.Nro_Pred+"<br /></div>"+
-                    "<strong>Departamento: </strong>"+val.Departamento+"<br />"+
-                    "<strong>Provincia: </strong>"+val.Provincia+"<br />"+
-                    "<strong>Distrito: </strong>"+val.Distrito+"<br />"+
-                    "<strong>Latitud: </strong>"+val.LatitudPunto+"<br />"+
-                    "<strong>Longitud: </strong>"+val.LongitudPunto+"<br />"+
-                    "<strong>Altitud: </strong>"+val.AltitudPunto+"<br />"+
+                    "<div><strong>Codigo de local: </strong>"+datos.codigo_de_local+"<br /></div>"+
+                    "<div><strong>Predio: </strong>"+datos.Nro_Pred+"<br /></div>"+
+                    "<strong>Departamento: </strong>"+datos.dpto_nombre+"<br />"+
+                    "<strong>Provincia: </strong>"+datos.prov_nombre+"<br />"+
+                    "<strong>Distrito: </strong>"+datos.dist_nombre+"<br />"+
+                    "<strong>Tipo de Area: </strong>"+datos.des_area+"<br />"+
+                    "<strong>1. Mantenimiento: </strong>"+datos.OT_1+"<br />"+
+                    "<strong>2. Reforzamiento Estruc.: </strong>"+datos.OT_2+"<br />"+
+                    "<strong>3. Demolicion: </strong>"+datos.OT_3+"<br />"+
+                    "<strong>Total Edificaciones: </strong>"+datos.Tot_Ed+"<br />"+
                     "</div>";
-
-                    var point = new google.maps.LatLng(val.LatitudPunto,val.LongitudPunto);
-                    var marker = createMarkerLEN(point, val.codigo_de_local, contentString,'punto',val.Tipo, val.codigo_de_local+" - "+val.Nro_Pred);
-
+                    
+                    var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+                    var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, datos.codigo_de_local+" - Predio:"+datos.Nro_Pred+" - T.E:"+datos.Tot_Ed);
                 });
 
             });
@@ -448,14 +442,14 @@
 
 <div class="filtro_map preguntas_sub2 span2">
   <div class="row-fluid control-group span9">
-  <label class="preguntas_sub2" for="NOM_SEDE">SEDE OPERATIVA</label>
+  <label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
   <div class="controls span">
-  <select id="NOM_SEDE" class="span12" name="NOM_SEDE">
+  <select id="NOM_DPTO" class="span12" name="NOM_DPTO">
     <!-- AJAX -->
   </select></div></div>
 
   <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="NOM_DD">PROVINCIA</label>
+    <label class="preguntas_sub2" for="NOM_PROV">PROVINCIA</label>
     <div class="controls">
     <select id="NOM_PROV" class="span12" name="NOM_PROV">
       <option value="0">SELECCIONE...</option>
@@ -464,24 +458,24 @@
   </div>
 
   <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="PERIODO">PERIODO</label>
+    <label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
     <div class="controls">
-    <select id="PERIODO" class="span12" name="PERIODO">
+    <select id="RESULTADO" class="span12" name="RESULTADO">
       <option value="0">SELECCIONE...</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
+      <option value="1">INFRAESTRUCTURA</option>
+    </select>
+    </div>
+  </div>
+
+  <div id="infra" class="row-fluid control-group span9">
+    <label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA DEL E.T.</label>
+    <div class="controls">
+    <select id="OP_TECNICA" class="span12" name="OP_TECNICA">
+      <option value="0">SELECCIONE...</option>
+      <option value="4">TODOS</option>
+      <option value="1">MANTENIMIENTO</option>
+      <option value="2">REFORZAMIENTO ESTRUCTURAL</option>
+      <option value="3">DEMOLICION</option>
     </select>
     </div>
   </div>
@@ -489,14 +483,14 @@
 
 </div>
 
-<div class="coordenadas_map preguntas_sub2 span2" id="edit_gps">
+<!-- <div class="coordenadas_map preguntas_sub2 span2" id="edit_gps">
 
- <!--  <div class="row-fluid control-group span9"> -->
+ 
     <div>
       <h5>Actualizar Coordenadas <span id="id_local"></span></h5>
     </div>
 
-    <input type="text" class="edit_gps" id="user_id" style="width:155px" value="<?php echo $user_id ?> ">
+    <input type="text" class="edit_gps" id="user_id" style="width:155px" value="<?php #echo $user_id ?> ">
     <label>Local Escolar:</label>
     <input type="text" class="edit_gps" id="local" style="width:155px">
     <label>Predio:</label>
@@ -509,9 +503,9 @@
 
     <button type="submit" id="save_edit" class="btn">Actualizar</button>
     <button type="submit" id="cancel_edit" class="btn">Cancelar</button>
- <!--  </div> -->
+ 
 
-</div>
+</div> -->
 
 
 <div id="footer">
