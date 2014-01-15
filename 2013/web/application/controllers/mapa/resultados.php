@@ -9,6 +9,7 @@ class Resultados extends CI_Controller {
 		$this->lang->load('tank_auth');
 		$this->load->helper('my');
 		$this->load->model('mapa/ubigeo_model');
+		$this->load->model('mapa/resultados_model');
 
 		$this->load->library('session');
 	}
@@ -47,7 +48,7 @@ class Resultados extends CI_Controller {
 		$prov = $this->input->get('prov');
 		$dist = $this->input->get('dist');
 		$ot = $this->input->get('opt');
-		$data = $this->ubigeo_model->Get_Busqueda( $dpto, $prov, $dist, $ot );
+		$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $ot );
 		echo json_encode($data->result());
 	}
 
