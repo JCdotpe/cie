@@ -152,6 +152,11 @@
   width: auto; display:inline;
 }
 
+
+#footer .pull-right {
+    color: #F4EB13;
+}
+
    </style>
 
 
@@ -253,7 +258,7 @@
             zoom: 6,
             center: new google.maps.LatLng(-7.1663,-71.455078),
             // mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeId: google.maps.MapTypeId.HYBRID,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoomControl: true,
             zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE,
@@ -468,7 +473,7 @@
   </div>
 
   <div id="infra" class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA DEL E.T.</label>
+    <label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
     <div class="controls">
     <select id="OP_TECNICA" class="span12" name="OP_TECNICA">
       <option value="0">SELECCIONE...</option>
@@ -512,12 +517,15 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span9">
-      <p>COBERTURA DE LOCALES ESCOLARES</p>
+      <p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Rehabilitación, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" /> Demolición</p>
     </div>
 
     <div class="span3">
-      <p class="pull-right">CIE 2013</p>
-    </div>
+      <p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>
+     
+    </div>    
+
+ 
 
   </div>
 </div>
