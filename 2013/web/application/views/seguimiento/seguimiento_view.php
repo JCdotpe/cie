@@ -120,7 +120,6 @@
 				{name:'foto_ruta',index:'foto_ruta', width:80, align:"center"},
 				{name:'avance',index:'avance', width:80, align:"center"},
 				{name:'detalle',index:'detalle', width:80,  align:"center"}
-				
 			],
 			pager: '#pager2',
 			rowNum:20,

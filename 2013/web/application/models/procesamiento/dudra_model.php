@@ -12,16 +12,28 @@ class dudra_model extends CI_MODEL{
 
 	public function insert_cedulas($data)
 	{
-		$sql="INSERT INTO fichas_Udra (id_local, cnt_01, cnt_01A, cnt_01B, cod_legajo, idUser,resultado) VALUES ('".$data['id_local']."', ".$data['cnt_01'].", '".$data['cnt_01A']."', '".$data['cnt_01B']."', '".$data['cod_legajo']."', '".$data['idUser']."', '".$data['result']."') ";
+		$sql="INSERT INTO fichas_Udra (id_local, cnt_01, cnt_01A, cnt_01B, cod_legajo, idUser,resultado) VALUES ('".$data['id_local']."', ".$data['cnt_01'].", '".$data['cnt_01A']."', '".$data['cnt_01B']."', '".$data['cod_legajo']."', '".$data['idUser']."', '".$data['resultado']."') ";
 		//echo $sql;
 		$this->db->query($sql);
-		 return $this->db->affected_rows() > 0;
+		return $this->db->affected_rows() > 0;
 	}
 
+    function update_cedulas($id,$data){
+        $this->db->where('id_local',$id);
+        $this->db->update('fichas_Udra', $data);
+        return $this->db->affected_rows() > 0;
+    }
+
+    function cantidad_fichas_udra($id)
+    {
+        $this->db->select('*');
+        $this->db->where('id_local',$id);
+        $query = $this->db->get('fichas_Udra');
+        return $query->num_rows();
+    }
 
 
-
-     function update_udra($req,$cod)
+    function update_udra($req,$cod)
     {
         $this->db->where('codigo_udra', $cod );
         $this->db->update('udra', $req );
@@ -73,8 +85,6 @@ class dudra_model extends CI_MODEL{
     }
 
 
-
-
     function get_mov_udra($cod)
     {
         $this->db->select('*');
@@ -115,7 +125,7 @@ class dudra_model extends CI_MODEL{
 
         public function get_locales_for_udra($ord, $ascdesc, $inicio, $final, $condicion1)
     {
-        $sql="SELECT * FROM (  SELECT ROW_NUMBER() OVER (ORDER BY fecha_reg desc) as row,id_local,cnt_01,cnt_01A,cnt_01B, cod_legajo ,convert(varchar(10),fecha_reg,103) as fecha_reg ,resultado=case resultado when 1 then 'Completo' when 2 then 'Incompleto' when 3 then 'Rechazo' when 4 then'Local Cerrado' when 5 then 'OTROS' ELSE 'ERROR' end FROM fichas_Udra $condicion1) a WHERE a.row > $inicio and a.row <= $final";
+        $sql="SELECT * FROM (  SELECT ROW_NUMBER() OVER (ORDER BY fecha_reg desc) as row,id_local,cnt_01,cnt_01A,cnt_01B, cod_legajo ,fecha_reg ,resultado=case resultado when 1 then 'Completo' when 2 then 'Incompleto' when 3 then 'Rechazo' when 4 then'Local Cerrado' when 5 then 'OTROS' ELSE 'ERROR' end, Envio_dig, Envio_dig_Local, Envio_dig_fec FROM fichas_Udra $condicion1) a WHERE a.row > $inicio and a.row <= $final";
         $q=$this->db->query($sql);
         return $q;
     }
