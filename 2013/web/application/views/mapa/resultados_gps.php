@@ -205,7 +205,7 @@
 
 
           var marker = new MarkerWithLabel({
-              draggable: true,
+              draggable: false,
               raiseOnDrag: false,
               position: latlng,
               map: map,
