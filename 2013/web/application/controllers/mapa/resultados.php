@@ -47,8 +47,9 @@ class Resultados extends CI_Controller {
 		$dpto = $this->input->get('dpto');
 		$prov = $this->input->get('prov');
 		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
 		$ot = $this->input->get('opt');
-		$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $ot );
+		$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $tiparea, $ot );
 		echo json_encode($data->result());
 	}
 

@@ -242,7 +242,7 @@
           var myOptions = {
             zoom: 6,
             center: new google.maps.LatLng(-7.1663,-71.455078),
-            // mapTypeId: google.maps.MapTypeId.ROADMAP,
+            // mapTypeId: google.maps.MapTypeId.SATELLITE,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoomControl: true,
             zoomControlOptions: {
@@ -291,6 +291,13 @@
 
         $('#NOM_PROV').attr('disabled', true);
         $('#NOM_DIST').attr('disabled', true);
+        $('#NOM_AREA').attr('disabled', true);
+
+        $('#NOM_AREA').change(function(event) {
+            $('#RESULTADO').val(0);
+            $('#RESULTADO').trigger('change');
+            $('#OP_TECNICA').val(0);
+        });
 
 
         $('#RESULTADO').change(function(event) {
@@ -319,7 +326,7 @@
 
         $('#OP_TECNICA').change(function(event) {
 
-           puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#OP_TECNICA').val());
+           puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
 
         });
 
@@ -344,8 +351,11 @@
 
             combo_prov($(this).val());
 
+            $('#NOM_PROV').attr('disabled', false);
             $('#NOM_DIST').val(0);
             $('#NOM_DIST').attr('disabled', true);
+            $('#NOM_AREA').val(0);
+            $('#NOM_AREA').attr('disabled', true);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -368,8 +378,6 @@
           var html='<option value="0">SELECCIONE...</option>';
           html+='<option value="0">TODOS</option>';
 
-          $('#NOM_PROV').attr('disabled', false);
-
           $.each(data, function(i, datos) {
 
             html+='<option value="'+datos.CCPP+'">'+datos.Nombre+'</option>';
@@ -380,7 +388,9 @@
 
           $('#NOM_PROV').change(function(event) {
             combo_dist( $('#NOM_DPTO').val(), $(this).val() );
-
+            $('#NOM_DIST').attr('disabled', false);
+            $('#NOM_AREA').val(0);
+            $('#NOM_AREA').attr('disabled', true);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -401,8 +411,6 @@
           var html='<option value="0">SELECCIONE...</option>';
           html+='<option value="0">TODOS</option>';
 
-          $('#NOM_DIST').attr('disabled', false);
-
           $.each(data, function(i, datos) {
 
             html+='<option value="'+datos.CCDI+'">'+datos.Nombre+'</option>';
@@ -412,8 +420,10 @@
           $('#NOM_DIST').html(html);
 
           $('#NOM_DIST').change(function(event) {
+            $('#NOM_AREA').val(0);         
+            $('#NOM_AREA').attr('disabled', false);
             $('#RESULTADO').val(0);
-            $('#RESULTADO').trigger('change');
+            $('#RESULTADO').trigger('change');   
             $('#OP_TECNICA').val(0);
           });
 
@@ -425,9 +435,9 @@
         });
     }
 
-    function puntosGPS(departamento,provincia,distrito,opinion){
+    function puntosGPS(departamento,provincia,distrito,tipoarea,opinion){
 
-        $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,dist:distrito,opt:opinion}, function(data, textStatus) {
+        $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(data, textStatus) {
 
                 for (var i=0; i<gmarkers.length; i++) {
                         if (gmarkers[i].mycategory == 'punto') {
@@ -498,6 +508,18 @@
     <div class="controls">
     <select id="NOM_DIST" class="span12" name="NOM_DIST">
       <option value="0">SELECCIONE...</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="row-fluid control-group span9">
+    <label class="preguntas_sub2" for="NOM_AREA">TIPO DE AREA</label>
+    <div class="controls">
+    <select id="NOM_AREA" class="span12" name="NOM_AREA">
+      <option value="0">SELECCIONE...</option>
+      <option value="0">TODOS</option>
+      <option value="URBANO">URBANO</option>
+      <option value="RURAL">RURAL</option>
     </select>
     </div>
   </div>
