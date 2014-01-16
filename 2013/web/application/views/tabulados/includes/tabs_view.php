@@ -8,6 +8,10 @@
 <script type="text/javascript">
 
 	$(function () {// los tabs
+
+		$('.front').removeClass('container');
+		$('.front').addClass('container-fluid');
+
 		$('#Tabs a').click(function (e) { 
 		  e.preventDefault();
 		  $(this).tab('show').slow;
