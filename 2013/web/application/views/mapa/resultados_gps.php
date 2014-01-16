@@ -203,7 +203,6 @@
               break;
           }
 
-
           var marker = new MarkerWithLabel({
               draggable: false,
               raiseOnDrag: false,
@@ -235,9 +234,9 @@
                 $('#edit_gps').slideDown(200);
 
               });
-
       }
 
+      
       function initialize() {
           var myOptions = {
             zoom: 6,
@@ -274,6 +273,87 @@
               infowindow.close();
           });
 
+        var kmlPeru = '<?php echo base_url('kml/peru.kml') ; ?>';
+        
+        kmlPeruLayer = new google.maps.KmlLayer ( kmlPeru, {preserveViewport:true});
+        kmlPeruLayer.setMap(map);
+
+          // KML MAPS LAYERS
+     
+        var kmlAmazonas = '<?php echo base_url('kml/amazonas.kml') ; ?>';;
+       kmlAmazonasLayer = new google.maps.KmlLayer ( kmlAmazonas, {preserveViewport:true});
+     
+       var kmlAncash = '<?php echo base_url('kml/ancash.kml') ; ?>';
+       kmlAncashLayer = new google.maps.KmlLayer ( kmlAncash, {preserveViewport:true});       
+       
+       var kmlApurimac = '<?php echo base_url('kml/apurimac.kml') ; ?>';
+       kmlApurimacLayer = new google.maps.KmlLayer ( kmlApurimac, {preserveViewport:true});              
+       
+       var kmlArequipa = '<?php echo base_url('kml/arequipa.kml') ; ?>';
+       kmlArequipaLayer = new google.maps.KmlLayer ( kmlArequipa, {preserveViewport:true});                     
+
+       var kmlAyacucho = '<?php echo base_url('kml/ayacucho.kml') ; ?>';
+       kmlAyacuchoLayer = new google.maps.KmlLayer ( kmlAyacucho, {preserveViewport:true});                            
+       
+       var kmlCajamarca = '<?php echo base_url('kml/cajamarca.kml') ; ?>';
+       kmlCajamarcaLayer = new google.maps.KmlLayer ( kmlCajamarca, {preserveViewport:true});                            
+       
+       var kmlCallao = '<?php echo base_url('kml/callao.kml') ; ?>';
+       kmlCallaoLayer = new google.maps.KmlLayer ( kmlCallao, {preserveViewport:true});                                   
+       
+       var kmlCusco = '<?php echo base_url('kml/cusco.kml') ; ?>';
+       kmlCuscoLayer = new google.maps.KmlLayer ( kmlCusco, {preserveViewport:true});                                          
+       
+       var kmlHuancavelica = '<?php echo base_url('kml/huancavelica.kml') ; ?>';
+       kmlHuancavelicaLayer = new google.maps.KmlLayer ( kmlHuancavelica, {preserveViewport:true});                                                 
+       
+       var kmlHuanuco = '<?php echo base_url('kml/huanuco.kml') ; ?>';
+       kmlHuanucoLayer = new google.maps.KmlLayer ( kmlHuanuco, {preserveViewport:true});                                                        
+       
+       var kmlIca = '<?php echo base_url('kml/ica.kml') ; ?>';
+       kmlIcaLayer = new google.maps.KmlLayer ( kmlIca, {preserveViewport:true});                                                               
+       
+       var kmlJunin = '<?php echo base_url('kml/junin.kml') ; ?>';
+       kmlJuninLayer = new google.maps.KmlLayer ( kmlJunin, {preserveViewport:true});                                                                      
+       
+       var kmlLambayeque = '<?php echo base_url('kml/lambayeque.kml') ; ?>'
+       kmlLambayequeLayer = new google.maps.KmlLayer ( kmlLambayeque, {preserveViewport:true});                                                                             
+       
+       var kmlLibertad = '<?php echo base_url('kml/libertad.kml') ; ?>'
+       kmlLibertadLayer = new google.maps.KmlLayer ( kmlLibertad, {preserveViewport:true});                                                                                    
+       
+       var kmlLima = '<?php echo base_url('kml/lima.kml') ; ?>';
+       kmlLimaLayer = new google.maps.KmlLayer ( kmlLima, {preserveViewport:true});                                                                                           
+       
+       var kmlLoreto = '<?php echo base_url('kml/loreto.kml') ; ?>';
+       kmlLoretoLayer = new google.maps.KmlLayer ( kmlLoreto, {preserveViewport:true});                                                                                                  
+       
+       var kmlMadre = '<?php echo base_url('kml/madre.kml') ; ?>';
+       kmlMadreLayer = new google.maps.KmlLayer ( kmlMadre, {preserveViewport:true});                                                                                                         
+       
+       var kmlMartin = '<?php echo base_url('kml/martin.kml') ; ?>';
+       kmlMartinLayer = new google.maps.KmlLayer ( kmlMartin, {preserveViewport:true});                                                                                                                
+       
+       var kmlMoquegua = '<?php echo base_url('kml/moquegua.kml') ; ?>';
+       kmlMoqueguaLayer = new google.maps.KmlLayer ( kmlMoquegua, {preserveViewport:true});                                                                                                                       
+       
+       var kmlPasco = '<?php echo base_url('kml/pasco.kml') ; ?>';
+       kmlPascoLayer = new google.maps.KmlLayer ( kmlPasco, {preserveViewport:true});                                                                                                                              
+       
+       var kmlPiura = '<?php echo base_url('kml/piura.kml') ; ?>';
+       kmlPiuraLayer = new google.maps.KmlLayer ( kmlPiura, {preserveViewport:true});                                                                                                                                     
+       
+       var kmlPuno = '<?php echo base_url('kml/puno.kml') ; ?>';
+       kmlPunoLayer = new google.maps.KmlLayer ( kmlPuno, {preserveViewport:true});                                                                                                                                            
+       
+       var kmlTacna = '<?php echo base_url('kml/tacna.kml') ; ?>';
+       kmlTacnaLayer = new google.maps.KmlLayer ( kmlTacna, {preserveViewport:true});                                                                                                                                                   
+       
+       var kmlTumbes = '<?php echo base_url('kml/tumbes.kml') ; ?>';
+       kmlTumbesLayer = new google.maps.KmlLayer ( kmlTumbes, {preserveViewport:true});                                                                                                                                                          
+       
+       var kmlUcayali = '<?php echo base_url('kml/ucayali.kml') ; ?>';
+       kmlUcayaliLayer = new google.maps.KmlLayer ( kmlUcayali, {preserveViewport:true});
     }
 
 
@@ -293,6 +373,7 @@
         $('#NOM_DIST').attr('disabled', true);
         
         $('#NOM_AREA').change(function(event) {
+            clean_map();
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -303,6 +384,8 @@
           
           var html_leyenda = '';
           var html_subtitulo = '';
+
+          clean_map();
 
           switch( $(this).val() )
           {
@@ -347,8 +430,10 @@
           $('#NOM_DPTO').html(html);
 
           $('#NOM_DPTO').change(function(event){
-
+            
             combo_prov($(this).val());
+            kml_dpto($(this).val());
+            clean_map();
 
             $('#NOM_PROV').attr('disabled', false);
             $('#NOM_DIST').val(0);
@@ -369,6 +454,170 @@
 
     }
 
+    function kml_dpto(code){
+
+      kmlPeruLayer.setMap(null);
+
+      kmlAmazonasLayer.setMap(null);
+      kmlAncashLayer.setMap(null);
+      kmlApurimacLayer.setMap(null);
+      kmlArequipaLayer.setMap(null);
+      kmlAyacuchoLayer.setMap(null);
+      kmlCajamarcaLayer.setMap(null);
+      kmlCallaoLayer.setMap(null);
+      kmlCuscoLayer.setMap(null);
+      kmlHuancavelicaLayer.setMap(null);
+      kmlHuanucoLayer.setMap(null);
+      kmlIcaLayer.setMap(null);
+      kmlJuninLayer.setMap(null);
+      kmlLibertadLayer.setMap(null);
+      kmlLambayequeLayer.setMap(null);
+      kmlLimaLayer.setMap(null);
+      kmlLoretoLayer.setMap(null);
+      kmlMadreLayer.setMap(null);
+      kmlMoqueguaLayer.setMap(null);
+      kmlPascoLayer.setMap(null);
+      kmlPiuraLayer.setMap(null);
+      kmlPunoLayer.setMap(null);
+      kmlMartinLayer.setMap(null);
+      kmlTacnaLayer.setMap(null);
+      kmlTumbesLayer.setMap(null);
+      kmlUcayaliLayer.setMap(null);
+      
+      switch (code)
+      {
+        case '0':
+            kmlPeruLayer.setMap(map);
+            break;
+        case '01':
+            kmlAmazonasLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-5.06036873877975,-78.056629714081));
+            map.setZoom(8);
+            break;
+        case '02':
+            kmlAncashLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-9.40575405924352, -77.6734802079553));
+            map.setZoom(9);
+            break;
+        case '03':
+            kmlApurimacLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-14.030814122799, -72.9736536493109));
+            map.setZoom(9);
+            break;
+        case '04':
+            kmlArequipaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-15.8418343150547, -72.4808283366732));
+            map.setZoom(8);
+            break;
+        case '05':
+            kmlAyacuchoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-14.0892883309093, -74.075890651585));
+            map.setZoom(8);
+            break;
+        case '06':
+            kmlCajamarcaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-6.43276922845617, -78.7435054751844));
+            map.setZoom(8);
+            break;
+        case '07':
+            kmlCallaoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-11.955555624777,-77.1416258913623));
+            map.setZoom(12);
+            break;
+        case '08':
+            kmlCuscoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-13.2000014858382, -72.1637731157334));
+            map.setZoom(9);
+            break;
+        case '09':
+            kmlHuancavelicaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-13.0287170903714, -75.0036723168008));
+            map.setZoom(9);
+            break;
+        case '10':
+            kmlHuanucoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-9.41976048562642, -76.0330524961483));
+            map.setZoom(9);
+            break;
+        case '11':
+            kmlIcaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-14.2334842159937,-75.5735306802363));
+            map.setZoom(9);
+            break;
+        case '12':
+            kmlJuninLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-11.5436597300396,-74.8749510303952));
+            map.setZoom(8);
+            break;
+        case '13':
+            kmlLibertadLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-7.9169754349312,-78.3810111865851));
+            map.setZoom(8);
+            break;
+        case '14':
+            kmlLambayequeLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-6.36380361377563,-79.8249923276084));
+            map.setZoom(8);
+            break;
+        case '15':
+            kmlLimaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-11.7866731456649, -76.6324097107669));
+            map.setZoom(8);
+            break;
+        case '16':
+            kmlLoretoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-4.12302517090165,-74.4265053944273));
+            map.setZoom(7);
+            break;
+        case '17':
+            kmlMadreLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-11.9781015474597,-70.5450541729619));
+            map.setZoom(9);
+            break;
+        case '18':
+            kmlMoqueguaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-16.8651923223222,-70.8510673506577));
+            map.setZoom(8);
+            break;
+        case '19':
+            kmlPascoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-10.4033365152324,-75.3099258151342));
+            map.setZoom(9);
+            break;
+        case '20':
+            kmlPiuraLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-5.12938480280296 , -80.3297169479797));
+            map.setZoom(8);
+            break;
+        case '21':
+            kmlPunoLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-14.9320741925803, -69.9489916069943));
+            map.setZoom(8);
+            break;
+        case '22':
+            kmlMartinLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-7.03440262104589,-76.7157680323349));
+            map.setZoom(9);
+            break;
+        case '23':
+            kmlTacnaLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-17.6416549925828, -70.2785118500858));
+            map.setZoom(8);
+            break;
+        case '24':
+            kmlTumbesLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-3.85033718439041,-80.541902047432));
+            map.setZoom(9);
+            break;
+        case '25':
+            kmlUcayaliLayer.setMap(map);
+            map.setCenter(new google.maps.LatLng(-9.61980385850328, -73.4371206808515));
+            map.setZoom(8);
+            break;
+      }
+      
+    }
+
      function combo_prov(code){
 
         $.getJSON(urlRoot('index.php')+'/mapa/resultados/prov', {ccdd:code}, function(data, textStatus) {
@@ -385,6 +634,7 @@
           $('#NOM_PROV').html(html);
 
           $('#NOM_PROV').change(function(event) {
+            clean_map();
             combo_dist( $('#NOM_DPTO').val(), $(this).val() );
             $('#NOM_DIST').attr('disabled', false);
             $('#NOM_AREA').val(0);
@@ -417,6 +667,7 @@
           $('#NOM_DIST').html(html);
 
           $('#NOM_DIST').change(function(event) {
+            clean_map();
             $('#NOM_AREA').val(0);         
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');   
@@ -434,18 +685,14 @@
     function puntosGPS(departamento,provincia,distrito,tipoarea,opinion){
 
         $.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(data, textStatus) {
-
-                for (var i=0; i<gmarkers.length; i++) {
-                        if (gmarkers[i].mycategory == 'punto') {
-                            gmarkers[i].setVisible(false);
-                     }
-                }
-                infowindow.close();
+                
+                clean_map();
 
                 $.each(data, function(i, datos){
 
                     var contentString="<div>"+
                     "<div><strong>Codigo de local: </strong>"+datos.codigo_de_local+"<br /></div>"+
+                    "<div><strong>Nombre de Colegios: </strong><br /></div>"+
                     "<div><strong>Predio: </strong>"+datos.Nro_Pred+"<br /></div>"+
                     "<strong>Departamento: </strong>"+datos.dpto_nombre+"<br />"+
                     "<strong>Provincia: </strong>"+datos.prov_nombre+"<br />"+
@@ -455,6 +702,7 @@
                     "<strong>2. Reforzamiento Estruc.: </strong>"+datos.OT_2+"<br />"+
                     "<strong>3. Demolicion: </strong>"+datos.OT_3+"<br />"+
                     "<strong>Total Edificaciones: </strong>"+datos.Tot_Ed+"<br />"+
+                    "<strong>Total Aulas: </strong><br />"+
                     "</div>";
                     
                     var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
@@ -462,7 +710,15 @@
                 });
 
             });
+    }
 
+    function clean_map () {
+      for (var i=0; i<gmarkers.length; i++) {
+              if (gmarkers[i].mycategory == 'punto') {
+                  gmarkers[i].setVisible(false);
+           }
+      }
+      infowindow.close();
     }
 
 
