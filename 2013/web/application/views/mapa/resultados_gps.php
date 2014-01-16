@@ -291,8 +291,7 @@
 
         $('#NOM_PROV').attr('disabled', true);
         $('#NOM_DIST').attr('disabled', true);
-        $('#NOM_AREA').attr('disabled', true);
-
+        
         $('#NOM_AREA').change(function(event) {
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
@@ -355,7 +354,6 @@
             $('#NOM_DIST').val(0);
             $('#NOM_DIST').attr('disabled', true);
             $('#NOM_AREA').val(0);
-            $('#NOM_AREA').attr('disabled', true);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -390,7 +388,6 @@
             combo_dist( $('#NOM_DPTO').val(), $(this).val() );
             $('#NOM_DIST').attr('disabled', false);
             $('#NOM_AREA').val(0);
-            $('#NOM_AREA').attr('disabled', true);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');
             $('#OP_TECNICA').val(0);
@@ -421,7 +418,6 @@
 
           $('#NOM_DIST').change(function(event) {
             $('#NOM_AREA').val(0);         
-            $('#NOM_AREA').attr('disabled', false);
             $('#RESULTADO').val(0);
             $('#RESULTADO').trigger('change');   
             $('#OP_TECNICA').val(0);
