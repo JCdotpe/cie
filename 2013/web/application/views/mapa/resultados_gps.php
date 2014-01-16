@@ -10,164 +10,15 @@
     <meta charset="utf-8">
     <script src="<?php echo base_url('js/general/jquery-1.10.2.min.js'); ?>"></script>
 
-    <style>
-
-
-
-.map_container {
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-      html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-      table,td,tr,th{
-        border:1px solid #BBB;
-        border-spacing:0;
-        border-collapse:collapse;
-        padding: 8px;
-      }
-    </style>
-    <style type="text/css">
-       .glabels {
-         color: black;
-         font-family: "Lucida Grande", "Arial", sans-serif;
-         font-size: 15px;
-         font-weight: bold;
-         text-align: center;
-         width: auto;
-         white-space: nowrap;
-         background: #FFF;
-         padding: 2px;
-         border: 1px solid black;
-       }
-
-#footer {
-    font-size: 80%;
-}
-#footer {
-    background: none repeat scroll 0 0 #333333;
-    border-top: 1px solid #000000;
-    bottom: 0;
-    color: #C2C2C2;
-    display: block;
-    padding: 5px 0 3px;
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
-
-
-#footer p {
-    margin: 0;
-}
-
-#footer img {
-    margin-left: 15px;
-    padding-right: 5px;
-}
-
-#header {
-    background: none repeat scroll 0 0 #FFFFFF !important;
-    border-bottom: 7px solid #00A1C7 !important;
-    padding: 10px 20px 5px;
-    position: relative;
-}
-
-#oted {
-    color: #00A1C7;
-    height: 30px;
-    position: absolute;
-    right: 20px;
-    text-align: right;
-    text-transform: uppercase;
-    top: 33px;
-}
-
-
-
-.filtro_map {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
-    border-radius: 5px 5px 5px 5px;
-    top: 80px;
-    left: 20px;
-    margin: 0 !important;
-    padding: 7px 12px !important;
-    position: absolute;
-}
-
-.coordenadas_map {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
-    border-radius: 5px 5px 5px 5px;
-    top: 380px;
-    left: 20px;
-    margin: 0 !important;
-    padding: 7px 12px !important;
-    position: absolute;
-}
-
-.preguntas_sub2 {
-    font-size: 11px !important;
-    line-height: 20px !important;
-    margin-bottom: 1px !important;
-    margin-top: 1px !important;
-    padding: 8px 10px !important;
-    text-align: left;
-}
-
-.preguntas_sub2 {
-    font-size: 11px !important;
-    line-height: 20px !important;
-    margin-bottom: 1px !important;
-    margin-top: 1px !important;
-    padding: 8px 10px !important;
-    text-align: left;
-}
-
-.filtro_map .control-group .controls {
-    margin-left: 0;
-}
-
-
-#footer .row-fluid [class*="span"] {
-    min-height: 22px;
-}
-
-
-#footer .span3{height: auto; padding-top: 0}
-
-.filtro_map .control-group {
-    margin-left: 0;
-}
-
-#map-canvas img {
-  max-width: none;
-}
-
-#map-canvas label {
-  width: auto; display:inline;
-}
-
-
-#footer .pull-right {
-    color: #F4EB13;
-}
-
-   </style>
-
-
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
-
 
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.spacelab.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/bootstrap-responsive.min.css'); ?>">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php echo base_url('css/maps.css'); ?>">
 
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -690,20 +541,26 @@
 
                 $.each(data, function(i, datos){
 
-                    var contentString="<div>"+
-                    "<div><strong>Codigo de local: </strong>"+datos.codigo_de_local+"<br /></div>"+
-                    "<div><strong>Nombre de Colegios: </strong><br /></div>"+
-                    "<div><strong>Predio: </strong>"+datos.Nro_Pred+"<br /></div>"+
-                    "<strong>Departamento: </strong>"+datos.dpto_nombre+"<br />"+
-                    "<strong>Provincia: </strong>"+datos.prov_nombre+"<br />"+
-                    "<strong>Distrito: </strong>"+datos.dist_nombre+"<br />"+
-                    "<strong>Tipo de Area: </strong>"+datos.des_area+"<br />"+
-                    "<strong>1. Mantenimiento: </strong>"+datos.OT_1+"<br />"+
-                    "<strong>2. Reforzamiento Estruc.: </strong>"+datos.OT_2+"<br />"+
-                    "<strong>3. Demolicion: </strong>"+datos.OT_3+"<br />"+
-                    "<strong>Total Edificaciones: </strong>"+datos.Tot_Ed+"<br />"+
-                    "<strong>Total Aulas: </strong><br />"+
-                    "</div>";
+                    var contentString="<div><div class='marker activeMarker'>"+
+                      "<div class='markerInfo activeInfo' style='display: block'>"+
+                        "<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+                        "<p><b>Departamento:</b> "+datos.dpto_nombre+"</p>"+
+                        "<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+                        "<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+                        "<p><b>Tipo de Área:</b> "+datos.des_area+"</p>"+
+                        "<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+                        
+                        "<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+                        "<p>"+datos.dpto_nombre+"</p>"+
+
+                        "<h3>EDIFICACIONES</h3>"+
+                        "<p><b>Total:</b> "+datos.Tot_Ed+"</p>"+
+                        "<p><b>Mantenimiento:</b> "+datos.OT_1+"</p>"+
+                        "<p><b>Reforzamiento:</b> "+datos.OT_2+"</p>"+
+                        "<p><b>Demolicion:</b> "+datos.OT_3+"</p>"+
+                        "<p class='detalle'><a href='#'>Ir a detalle ambiente por edificación →</a></p>"+
+                      "</div>"+
+                    "</div><div>";
                     
                     var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
                     var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT);

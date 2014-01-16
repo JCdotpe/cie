@@ -62,11 +62,10 @@ $active_record = TRUE;
 		// $db['conexion_A']['username'] = 'mrvixio';
 		// $db['conexion_A']['password'] = 'mrvixio2';
 
-		$db['conexion_A']['hostname'] = 'ESTEJUANO-PC\SQLEXPRESS';// local
-		$db['conexion_A']['username'] = 'sa';
-		$db['conexion_A']['password'] = '123456';		
+		$db['conexion_A']['hostname'] = '192.168.201.43';// Yanawara
+		$db['conexion_A']['username'] = 'yechevarria';
+		$db['conexion_A']['password'] = 'inei2106';
 		$db['conexion_A']['database'] = 'CIE2013';
-		//$db['conexion_A']['database'] = 'CIE2013';
 		$db['conexion_A']['dbdriver'] = 'mssql';
 		$db['conexion_A']['dbprefix'] = '';
 		$db['conexion_A']['pconnect'] = TRUE;
