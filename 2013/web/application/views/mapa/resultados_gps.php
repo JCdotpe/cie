@@ -126,9 +126,11 @@
               infowindow.close();
           });
 
+          
          <?php $urlKml = 'http://webinei.inei.gob.pe/cie/2013/web/'; ?>
          var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'; ?>';
          // var kmlPeru = 'http://www.uxglass.com/kml/demo.kml';
+         // http://www.uxglass.com/lenguas/departamento/
                  
 
          kmlPeruLayer = new google.maps.KmlLayer ( kmlPeru, {preserveViewport:true});
