@@ -7,6 +7,12 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_Busqueda_Lima( $dpto, $tiparea, $ot)
+    {
+        $q = $this->db->query('PA_Resultado_Infra_OT_LIMA ?,?,?', array($dpto,$tiparea,$ot));
+        return $q;
+    }
+
     function Get_Detalle_OT( $codigo )
     {
         $this->db->select('Nro_Pred, P5_Ed_Nro, Cant_Aula, P7_2_1');

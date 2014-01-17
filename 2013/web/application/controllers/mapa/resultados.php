@@ -49,7 +49,13 @@ class Resultados extends CI_Controller {
 		$dist = $this->input->get('dist');
 		$tiparea = $this->input->get('area');
 		$ot = $this->input->get('opt');
-		$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $tiparea, $ot );
+		
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data = $this->resultados_model->Get_Busqueda_Lima( $dpto, $tiparea, $ot );
+		}else{
+			$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $tiparea, $ot );
+		}
+
 		echo json_encode($data->result());
 	}
 
