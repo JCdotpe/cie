@@ -56,7 +56,7 @@
 								echo '</thead>';
 								echo '<tbody>';
 
-									$x = 1; $z = 0;  $u = 0; $c = 0; $f = 1;
+									$x = 1; $z = 0;  $u = 0; $c = 0; $f = 1; $c_fila = 0;
 									//$totales = array_fill(1, $cant_v,0); 
 									$totales = array(
 										'Total' => array_fill(1, $cant_v,0),
@@ -65,12 +65,9 @@
 									$array_porc=null; $index = null;$diff = 0;
 									$array_porc_tot=null; $index_tot = null;$diff_tot = 0;
 									$array_porc_dep = null;$index_porc_dep = null; $diff_tot_dep = 0;
-									$Urbano = 0;
 
 									foreach($tables->result()  as $ki =>$filas){
-										if ($filas->AREA == 'Urbano') {
-											$Urbano = $filas->TOTAL;
-										}
+
 										echo '<tr>';
 											if($respuesta_unica){// tabular al 100% en respuestas unicas
 												foreach ($filas as  $key => $value) {
@@ -124,20 +121,19 @@
 												}
 
 												echo '<tr><td class="to_rowspan">'.$filas->DEPARTAMENTO.'</td><td>Total</td>';
-												for ($h=0; $h < $cant_v ; $h++) { //console.log();
-													
+												for ($h=0; $h < $cant_v ; $h++) { 
 													$acum = $absolutos[$h][$ki] + $absolutos[$h][$ki + 1] ; 
 													$porcen = round( ( ($acum_total_dep >0) ? $acum*100/$acum_total_dep + ( ( $diff_tot_dep<>0 && $h == $index_porc_dep[0] ) ? $diff_tot_dep : 0 ) : 0),1) ;
-													echo '<td style="text-align:center;">'. $acum .'</td><td style="text-align:center;">'.(($h == 0) ? ( ($acum>0)? 100 : 0) : $porcen ).'</td>';
+													echo '<td style="text-align:center;">'. $acum .'</td><td style="text-align:center;">'.(($h == 0) ? ( ($acum>0)? 100 : 0) : $datas_tot[$h-1][$c_fila] =  $porcen ).'</td>';
 												}
-												echo '</tr>';
+												echo '</tr>'; $c_fila++;
 											}
 											$x = 1; $z = 0; $u++; $f++ ; $c = 0; 
 
 										echo '</tr>';
 									}	
 									//TOTALES
-									foreach ($totales as $idx => $celda) {
+									foreach ($totales as $idx => $celda){
 										echo '<tr>';
 										echo '<td class="'.( ($idx == 'Total' )?'to_rowspan"':'td_remove"').'>NACIONAL</td>';						
 										echo '<td>'.$idx.'</td>';
@@ -165,14 +161,22 @@
 										$array_porc_tot=null; $index_tot = null;$diff_tot = 0;// reiniciando valores
 									}			
 								echo '</tbody>';
-							echo '</table></div>'; //var_dump($absolutos);
+							echo '</table></div>';
+
+							// $series = array(
+							// 				array("name" => $variable_1 	,"data" => $datas[0]),
+							// 				array("name" => $variable_2 	,"data" => $datas[1]),
+							// 				array("name" => $variable_3 	,"data" => $datas[2]),);
+							// if ($NEP > 0) { array_push( $series, array("name" => 'No especificado'	,"data" => $datas[($cant_v-2)]) ); }//agrega NEP al arreglo para los graficos
+							// array_push($series, array("name" => 'TOTAL'	,"data" => $totales_porc));var_dump($datas_tot[0]);
 
 							$series = array(
-											array("name" => $variable_1 	,"data" => $datas[0]),
-											array("name" => $variable_2 	,"data" => $datas[1]),
-											array("name" => $variable_3 	,"data" => $datas[2]),);
-							if ($NEP > 0) { array_push( $series, array("name" => 'No especificado'	,"data" => $datas[($cant_v-2)]) ); }//agrega NEP al arreglo para los graficos
-							array_push($series, array("name" => 'TOTAL'	,"data" => $totales_porc));
+											array("name" => $variable_1 	,"data" => $datas_tot[0]),
+											array("name" => $variable_2 	,"data" => $datas_tot[1]),
+											array("name" => $variable_3 	,"data" => $datas_tot[2]),);
+							if ($NEP > 0) { array_push( $series, array("name" => 'No especificado'	,"data" => $datas_tot[($cant_v-2)]) ); }//agrega NEP al arreglo para los graficos
+							array_push($series, array("name" => 'TOTAL'	,"data" => $totales_porc));var_dump($datas_tot[0]);
+
 
 							$data['tipo'] =  'column';// << column >> or << bar >> 
 							$data['xx'] =  2030; // ancho
@@ -191,7 +195,7 @@
 			<div class="tab-pane" id="grafico">
 				  	<!-- INICIO GRAFICO -->
 							<?php 
-								//$this->load->view('tabulados/includes/grafico_view.php', $data); 
+								$this->load->view('tabulados/includes/grafico_view.php', $data); 
 							?>
 							<h5>Fuente: Instituto Nacional de Estadística e Informática - Censo Nacional de Infraestructura Educativa 2013.</h5>
 				  	<!-- FIN GRAFICO -->

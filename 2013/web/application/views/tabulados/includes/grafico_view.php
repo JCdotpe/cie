@@ -78,7 +78,7 @@
 
 		var cant_variables 	= <?php echo count($series);?>;
 		var num_tabulado = <?php echo $opcion;?>;
-		var name_dep = ['Amazonas','Ancash','Apurímac','Arequipa','Ayacucho','Cajamarca','Cusco','Huancavelica','Huánuco','Ica','Junín','La Libertad','Lambayeque','Lima','Loreto','Madre de Dios','Moquegua','Pasco','Piura','Puno' ,'San Martín','Tacna','Tumbes', 'Ucayali'];
+		var name_dep = ['Amazonas','Ancash','Apurímac','Arequipa','Ayacucho','Cajamarca','Cusco','Huancavelica','Huánuco','Ica','Junín','La Libertad','Lambayeque','Lima Metropolitana','Lima Provincias','Loreto','Madre de Dios','Moquegua','Pasco','Piura','Puno' ,'San Martín','Tacna','Tumbes', 'Ucayali'];
 		var name_dep_sorter = new Array();
 		var num_color = 1; // num de colores
 		var enableDataLabels = true; // labels	
