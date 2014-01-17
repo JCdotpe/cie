@@ -25,6 +25,10 @@
     <script src="<?php echo base_url('js/map/markerwithlabel.js'); ?>"></script>
     <script src="<?php echo base_url('js/general/basic.js'); ?>"></script>
 
+    <script src="http://tympanus.net/Development/PerspectivePageViewNavigation/js/modernizr.custom.25376.js"></script>
+
+
+
     <script>
 
       var gmarkers = [];
@@ -592,26 +596,26 @@
 
           var contentString2="<div><div class='marker activeMarker'>"+
                       "<div class='markerInfo activeInfo' style='display: block'>"+
-                      "<table><tr><td>Predio</td><td>Edificacion</td><td>N° de Aulas</td></tr>";
+                      "<table class='table box-header'><thead><tr><th>PREDIO</th><th>EDIFICACIÓN</th><th>N° DE AULAS</td></th></thead><tbody>";
 
             $.each(data, function(i, datos){
                 var clase = "";
                 switch (datos.P7_2_1)
                 {
                   case 1:
-                    clase ="background-color:green;";  
+                    clase ="background-color:#dff0d8;";  
                     break;
                   case 2:
-                    clase ="background-color:yellow;";
+                    clase ="background-color:#f2dede;";
                     break;
                   case 3:
-                    clase ="background-color:red;";
+                    clase ="background-color:#fcf8e3;";
                     break;
                 }
-               contentString2+="<tr><td>P-"+datos.Nro_Pred+"</td><td style='"+clase+"'>E-"+datos.P5_Ed_Nro+"</td><td>"+datos.Cant_Aula+"</td></tr>";
+               contentString2+="<tr><td style='"+clase+"'>P-"+datos.Nro_Pred+"</td><td style='"+clase+"'>E-"+datos.P5_Ed_Nro+"</td><td style='"+clase+"'>"+datos.Cant_Aula+"</td></tr>";
             });
 
-          contentString2+="</table><a href='#' onclick='ver_atras()'>regresar →</a>"+
+          contentString2+="</tbody></table><p class='detalle'><a href='#' onclick='ver_atras()'>← Regresar </a></p>"+
                       "</div>"+
                     "</div><div>";
           infowindow.setContent(contentString2);
@@ -624,126 +628,119 @@
 
 
     </script>
+
   </head>
   <body>
 
-<div class="map_container">
-  <div id="map-canvas"></div>
-</div>
 
-<div id="header" style="display: block;">
-  <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a>
-  <div id="oted">Oficina Técnica de Estadísticas Departamentales - OTED</div>
-</div>
+
+    <div id="perspective" class="perspective effect-airbnb">
+      <div class="container">
+        <div class="wrapper"><!-- wrapper needed for scroll -->
 
 
 
+              <div class="map_container">
+                <div id="map-canvas"></div>
+              </div>
 
-<div class="filtro_map preguntas_sub2 span2">
-  <div class="row-fluid control-group span9">
-  <label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
-  <div class="controls span">
-  <select id="NOM_DPTO" class="span12" name="NOM_DPTO">
-    <!-- AJAX -->
-  </select></div></div>
+              <div id="header" style="display: block;">
+                <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a>
+                <div id="oted">OFICINA TÉCNICA DE ESTADÍSTICAS DEPARTAMENTALES - OTED</div>
+              </div>
 
-  <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="NOM_PROV">PROVINCIA</label>
-    <div class="controls">
-    <select id="NOM_PROV" class="span12" name="NOM_PROV">
-      <option value="0">SELECCIONE...</option>
-    </select>
-    </div>
-  </div>
+              <button id="showMenu">ver menu</button>
 
-  <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="NOM_DIST">DISTRITO</label>
-    <div class="controls">
-    <select id="NOM_DIST" class="span12" name="NOM_DIST">
-      <option value="0">SELECCIONE...</option>
-    </select>
-    </div>
-  </div>
+              <div id="footer">
+                <div class="container-fluid">
+                  <div class="row-fluid">
+                    <div id="geo_leyenda" class="span9">
+                      <!-- ajax -->
+                    </div>
 
-  <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="NOM_AREA">TIPO DE AREA</label>
-    <div class="controls">
-    <select id="NOM_AREA" class="span12" name="NOM_AREA">
-      <option value="0">SELECCIONE...</option>
-      <option value="0">TODOS</option>
-      <option value="URBANO">URBANO</option>
-      <option value="RURAL">RURAL</option>
-    </select>
-    </div>
-  </div>
+                    <div id="subtitulo" class="span3">
+                      <!-- ajax -->
+                    </div>    
 
-  <div class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
-    <div class="controls">
-    <select id="RESULTADO" class="span12" name="RESULTADO">
-      <option value="0">SELECCIONE...</option>
-      <option value="1">INFRAESTRUCTURA</option>
-    </select>
-    </div>
-  </div>
+                 
 
-  <div id="infra" class="row-fluid control-group span9">
-    <label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
-    <div class="controls">
-    <select id="OP_TECNICA" class="span12" name="OP_TECNICA">
-      <option value="0">SELECCIONE...</option>
-      <option value="0">TODOS</option>
-      <option value="1">MANTENIMIENTO</option>
-      <option value="2">REFORZAMIENTO ESTRUCTURAL</option>
-      <option value="3">DEMOLICION</option>
-    </select>
-    </div>
-  </div>
+                  </div>
+                </div>
+                </div>
 
 
-</div>
-
-<!-- <div class="coordenadas_map preguntas_sub2 span2" id="edit_gps">
-
- 
-    <div>
-      <h5>Actualizar Coordenadas <span id="id_local"></span></h5>
-    </div>
-
-    <input type="text" class="edit_gps" id="user_id" style="width:155px" value="<?php #echo $user_id ?> ">
-    <label>Local Escolar:</label>
-    <input type="text" class="edit_gps" id="local" style="width:155px">
-    <label>Predio:</label>
-    <input type="text" class="edit_gps" id="predio" style="width:155px">
-    <label>Latitud:</label>
-    <input type="text" class="edit_gps" id="latitud" style="width:155px">
-    <label>Longitud:</label>
-    <input type="text" class="edit_gps" id="longitud" style="width:155px">
+        </div><!-- wrapper -->
+      </div><!-- /container -->
+      <nav class="outer-nav left vertical">
 
 
-    <button type="submit" id="save_edit" class="btn">Actualizar</button>
-    <button type="submit" id="cancel_edit" class="btn">Cancelar</button>
- 
+          <div class="filtro_map preguntas_sub2 span2">
+            <div class="row-fluid control-group span9">
+            <label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
+            <div class="controls span">
+            <select id="NOM_DPTO" class="span12" name="NOM_DPTO">
+              <!-- AJAX -->
+            </select></div></div>
 
-</div> -->
+            <div class="row-fluid control-group span9">
+              <label class="preguntas_sub2" for="NOM_PROV">PROVINCIA</label>
+              <div class="controls">
+              <select id="NOM_PROV" class="span12" name="NOM_PROV">
+                <option value="0">SELECCIONE...</option>
+              </select>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group span9">
+              <label class="preguntas_sub2" for="NOM_DIST">DISTRITO</label>
+              <div class="controls">
+              <select id="NOM_DIST" class="span12" name="NOM_DIST">
+                <option value="0">SELECCIONE...</option>
+              </select>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group span9">
+              <label class="preguntas_sub2" for="NOM_AREA">TIPO DE AREA</label>
+              <div class="controls">
+              <select id="NOM_AREA" class="span12" name="NOM_AREA">
+                <option value="0">SELECCIONE...</option>
+                <option value="0">TODOS</option>
+                <option value="URBANO">URBANO</option>
+                <option value="RURAL">RURAL</option>
+              </select>
+              </div>
+            </div>
+
+            <div class="row-fluid control-group span9">
+              <label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
+              <div class="controls">
+              <select id="RESULTADO" class="span12" name="RESULTADO">
+                <option value="0">SELECCIONE...</option>
+                <option value="1">INFRAESTRUCTURA</option>
+              </select>
+              </div>
+            </div>
+
+            <div id="infra" class="row-fluid control-group span9">
+              <label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
+              <div class="controls">
+              <select id="OP_TECNICA" class="span12" name="OP_TECNICA">
+                <option value="0">SELECCIONE...</option>
+                <option value="0">TODOS</option>
+                <option value="1">MANTENIMIENTO</option>
+                <option value="2">REFORZAMIENTO ESTRUCTURAL</option>
+                <option value="3">DEMOLICION</option>
+              </select>
+              </div>
+            </div>
 
 
-<div id="footer">
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div id="geo_leyenda" class="span9">
-      <!-- ajax -->
-    </div>
+          </div>
 
-    <div id="subtitulo" class="span3">
-      <!-- ajax -->
-    </div>    
-
- 
-
-  </div>
-</div>
-</div>
-
+      </nav>
+    </div><!-- /perspective -->
+    <script src="http://tympanus.net/Development/PerspectivePageViewNavigation/js/classie.js"></script>
+    <script src="http://tympanus.net/Development/PerspectivePageViewNavigation/js/menu.js"></script>
   </body>
 </html>
