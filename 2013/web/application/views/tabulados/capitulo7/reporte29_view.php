@@ -22,7 +22,7 @@
 							$respuesta_unica = TRUE;
 
 			    		echo form_open("/tabulados/export");
-			    			$c_title = 'PERÚ: PESCADORES POR ACTIVIDAD ECONÓMICA ADICIONAL QUE REALIZA, SEGÚN DEPARTAMENTO, 2013';
+			    			//$c_title = 'PERÚ: PESCADORES POR ACTIVIDAD ECONÓMICA ADICIONAL QUE REALIZA, SEGÚN DEPARTAMENTO, 2013';
 
 							$this->load->view('tabulados/includes/tab_logo_view.php');
 
@@ -30,12 +30,13 @@
 								echo '<caption><h3>
 												CUADRO N° '. sprintf("%02d",$opcion) .'
 												<br><strong>
-												'. $c_title  .' </strong>
+												'. utf8_encode($c_title)  .' </strong>
 								     </h3></caption>';
 
 								echo '<thead>';
 									echo '<tr>';
 									echo '<th rowspan="3" style="vertical-align:middle;text-align:center">Departamento</th>';					
+									echo '<th rowspan="3" style="vertical-align:middle;text-align:center">Área</th>';					
 									echo '<th rowspan="2" colspan="2" style="vertical-align:middle;text-align:center">Total</th>';																																																																																										
 									echo '<th colspan="'. ( ($NEP == 0) ? ($cant_v - 1)*2 : ($cant_v - 2)*2 ).'" style="text-align:center">Percepción en la variación de la cantidad de peces</th>';
 									echo ($NEP>0) ? ('<th colspan="2" rowspan="2" style="vertical-align:middle;text-align:center">No especificado</th>'): '';																																														
@@ -55,16 +56,25 @@
 								echo '</thead>';
 								echo '<tbody>';
 
-									$x = 1; $z = 0;  $u = 0;
-									$totales = array_fill(1, $cant_v,0); 
+									$x = 1; $z = 0;  $u = 0; $c = 0; $f = 1;
+									//$totales = array_fill(1, $cant_v,0); 
+									$totales = array(
+										'Total' => array_fill(1, $cant_v,0),
+										'Urbano' => array_fill(1, $cant_v,0),
+										'Rural' => array_fill(1, $cant_v,0) );
 									$array_porc=null; $index = null;$diff = 0;
 									$array_porc_tot=null; $index_tot = null;$diff_tot = 0;
+									$array_porc_dep = null;$index_porc_dep = null; $diff_tot_dep = 0;
+									$Urbano = 0;
 
-									foreach($tables->result() as $filas){
+									foreach($tables->result()  as $ki =>$filas){
+										if ($filas->AREA == 'Urbano') {
+											$Urbano = $filas->TOTAL;
+										}
 										echo '<tr>';
 											if($respuesta_unica){// tabular al 100% en respuestas unicas
 												foreach ($filas as  $key => $value) {
-													if($key == 'CCDD' || $key == 'DEPARTAMENTO' || $key == 'TOTAL' ){}
+													if($key == 'CCDD' || $key == 'DEPARTAMENTO' || $key == 'TOTAL' || $key == 'AREA' ){}
 													else{
 														$array_porc[$key]= ( ($filas->TOTAL>0) ? round( ($value*100/ $filas->TOTAL),1)  : 0  ) ; 
 													}
@@ -74,53 +84,88 @@
 													$diff = round( (100-array_sum($array_porc)),1);
 												}else if( round(array_sum($array_porc),1) < 100){
 													$diff = round( (100-array_sum($array_porc)),1);
-													array_pop($array_porc);//delete NEP
+													if ($NEP>0){array_pop($array_porc);}//delete NEP
 													$array_porc =  array_filter($array_porc); //solo valores no ceros
 													$index = (!empty($array_porc)) ? ( array_keys($array_porc,min($array_porc)) ) :  null;//echo $filas->DEPARTAMENTO . '  '. $diff .'_menor_'.  $index[0] . '<br>';
 												}
 											}
-											foreach ($filas as  $key => $value) {
+											foreach ($filas as  $key => $value) {// absolutos filas ($f)desde 1, cols ($c) desde 0
 												if($key != 'CCDD'){
-														if($key == 'NEP' && $NEP == 0 ){}else{echo '<td style="text-align:'. ( ($key == 'DEPARTAMENTO') ? 'left' : 'center') .'">' . ( ( $key == 'DEPARTAMENTO') ? $value : number_format( $value, 0 ,',',' ') ) . '</td>';}	
-													if($key != 'DEPARTAMENTO'){ if(isset($totales[$x])){ $totales[$x]+= $value; $x++; } 
+													if($key == 'NEP' && $NEP == 0 ){}else{echo '<td '.( ($key == 'DEPARTAMENTO' )?'class="td_remove"':'').' style="text-align:'. ( ($key == 'DEPARTAMENTO' || $key == 'AREA') ? 'left' : 'center') .'">' . ( ( $key == 'DEPARTAMENTO' || $key == 'AREA') ? $value :  number_format( $absolutos[$c++][$f] = $value, 0 ,',',' ') ) . '</td>';}	
+													if($key != 'DEPARTAMENTO' && $key != 'AREA'){
+														//TOTALES,URBANO, RURAL,  
+														if(isset($totales['Total'][$x])){ $totales['Total'][$x]+= $value; if($filas->AREA == 'Urbano'){$totales['Urbano'][$x]+= $value;}else if($filas->AREA == 'Rural'){$totales['Rural'][$x]+= $value;}$x++; } 
 														if($key == 'NEP' && $NEP == 0 ){}else{
-															echo '<td style="text-align:center;">' . number_format( ( ($key == 'TOTAL') ? ( ($filas->TOTAL==0) ? 0 : 100 )  :  $datas[$z++][$u] = ( ( ($filas->TOTAL>0) ? round( ($value*100/ $filas->TOTAL),1) : 0 ) +  ( ( $diff<>0 && $key == $index[0] ) ? $diff : 0 ) ) ),1,',',' ' ) .'</td>'; }
+															echo '<td style="text-align:center;">' . number_format( ( ($key == 'TOTAL') ? ( ($filas->TOTAL==0) ? 0 : 100 )  :  $datas[$z++][$u] = ( ( ($filas->TOTAL>0) ? round( ($value*100/ $filas->TOTAL),1) : 0 ) +  ( ( $diff<>0 && $key == $index[0] ) ? $diff : 0 ) ) ),1,',',' ' ) .'</td>'; }													
 													};
-													
+													// totales departamentales
 												}
-											} $x = 1; $z = 0; $u++;
+											} 
+											$array_porc=null; $index = null;$diff = 0; // reiniciando valores
+											$array_porc_dep = null; $index_porc_dep = null; $diff_tot_dep = 0; // reiniciando valores
+											$total_dep[] = $filas->TOTAL; // guarda Total absoluto departamental
 
-											$array_porc=null; $index = null;$diff = 0;
-											$total_dep[] = $filas->TOTAL;
+											if ($filas->AREA == 'Rural') {
+												$acum_total_dep = $absolutos[0][$ki] + $absolutos[0][$ki + 1] ;
+												if($respuesta_unica){// tabular al 100% en respuestas unicas
+													for ($vb=1; $vb < $cant_v ; $vb++) { //desde 1
+														$acum = $absolutos[$vb][$ki] + $absolutos[$vb][$ki + 1] ; $porcen = round( ( ($acum_total_dep >0) ? $acum*100/$acum_total_dep : 0),1) ; 
+														$array_porc_dep[$vb] =  ($acum_total_dep >0) ?  round(($acum*100/$acum_total_dep),1) : 0 ;
+													}
+													if(round(array_sum($array_porc_dep),1)>100){
+														$index_porc_dep =  array_keys($array_porc_dep,max($array_porc_dep));
+														$diff_tot_dep = round((100-array_sum($array_porc_dep)),1);
+													}else if(round(array_sum($array_porc_dep),1)<100){
+														$diff_tot_dep = round((100-array_sum($array_porc_dep)),1);
+														if ($NEP>0){array_pop($array_porc_dep);}; // delete el NEP, para sea el caso no aumentar al NEP
+														$array_porc_dep = array_filter($array_porc_dep); // solo valores no ceros, para sea el caso no aumentar a los ceros
+														$index_porc_dep = (!empty($array_porc_dep)) ? array_keys($array_porc_dep,min($array_porc_dep))  : null;
+													}
+												}
+
+												echo '<tr><td class="to_rowspan">'.$filas->DEPARTAMENTO.'</td><td>Total</td>';
+												for ($h=0; $h < $cant_v ; $h++) { //console.log();
+													
+													$acum = $absolutos[$h][$ki] + $absolutos[$h][$ki + 1] ; 
+													$porcen = round( ( ($acum_total_dep >0) ? $acum*100/$acum_total_dep + ( ( $diff_tot_dep<>0 && $h == $index_porc_dep[0] ) ? $diff_tot_dep : 0 ) : 0),1) ;
+													echo '<td style="text-align:center;">'. $acum .'</td><td style="text-align:center;">'.(($h == 0) ? ( ($acum>0)? 100 : 0) : $porcen ).'</td>';
+												}
+												echo '</tr>';
+											}
+											$x = 1; $z = 0; $u++; $f++ ; $c = 0; 
+
 										echo '</tr>';
 									}	
 									//TOTALES
-									echo '<tr>';
-									echo '<td>Total</td>';						
+									foreach ($totales as $idx => $celda) {
+										echo '<tr>';
+										echo '<td class="'.( ($idx == 'Total' )?'to_rowspan"':'td_remove"').'>NACIONAL</td>';						
+										echo '<td>'.$idx.'</td>';
+
 										if($respuesta_unica){// tabular al 100% en respuestas unicas
 											for ($i = 2; $i<=$cant_v ; $i++) {
-													$array_porc_tot[$i]=  round( ($totales[$i]*100/$totales[1] ),1); 
+												$array_porc_tot[$i]=  round( ($totales[$idx][$i]*100/$totales[$idx][1] ),1); 
 											}
 											if ( round(array_sum($array_porc_tot),1) > 100 ) {
 												$index_tot = array_keys($array_porc_tot,max($array_porc_tot));
 												$diff_tot = round( (100-array_sum($array_porc_tot)),1);
 											}else if( round(array_sum($array_porc_tot),1) < 100){
 												$diff_tot = round( (100-array_sum($array_porc_tot)),1);
-												array_pop($array_porc_tot);//delete NEP 
+												if ($NEP>0){array_pop($array_porc_tot);}//delete NEP 
 												$array_porc_tot =  array_filter($array_porc_tot);//solo valores no ceros
 												$index_tot = ( array_keys($array_porc_tot,min($array_porc_tot)) );
 											}
-										}							
+										}
+											for ($i=1; $i <= $cant_v ; $i++) { 
+										echo '<td style="text-align:center">' . number_format($totales[$idx][$i],0,',',' ') . '</td>';										
+										echo '<td style="text-align:center;"> '. number_format($totales_porc[$i] = (round( ( ($i==1) ? ( ($filas->TOTAL==0) ? 0 : 100 ) : $totales[$idx][$i]*100/$totales[$idx][1] ),1) + ( ($diff_tot<>0 && $i == $index_tot[0]) ? $diff_tot : 0 ) ),1,',', ' ' ).'</td>';	
+											}$totales_porc[1] = $totales[$idx][1];//guardando nacional (TECHO)
+										echo '</tr>';
 
-										for ($i=1; $i <= $cant_v ; $i++) { 
-									echo '<td style="text-align:center">' . number_format($totales[$i],0,',',' ') . '</td>';										
-									echo '<td style="text-align:center;"> '. number_format($totales_porc[$i] = (round( ( ($i==1) ? ( ($filas->TOTAL==0) ? 0 : 100 ) : $totales[$i]*100/$totales[1] ),1) + ( ($diff_tot<>0 && $i == $index_tot[0]) ? $diff_tot : 0 ) ),1,',', ' ' ).'</td>';	
-										}$totales_porc[1] = $totales[1];//guardando nacional (TECHO)
-									echo '</tr>';
-									echo '</tr>';
-
+										$array_porc_tot=null; $index_tot = null;$diff_tot = 0;// reiniciando valores
+									}			
 								echo '</tbody>';
-							echo '</table></div>';
+							echo '</table></div>'; //var_dump($absolutos);
 
 							$series = array(
 											array("name" => $variable_1 	,"data" => $datas[0]),
@@ -146,7 +191,7 @@
 			<div class="tab-pane" id="grafico">
 				  	<!-- INICIO GRAFICO -->
 							<?php 
-								$this->load->view('tabulados/includes/grafico_view.php', $data); 
+								//$this->load->view('tabulados/includes/grafico_view.php', $data); 
 							?>
 							<h5>Fuente: Instituto Nacional de Estadística e Informática - Censo Nacional de Infraestructura Educativa 2013.</h5>
 				  	<!-- FIN GRAFICO -->
@@ -155,7 +200,7 @@
 			<div class="tab-pane" id="mapa">
 				  	<!-- INICIO MAPA -->
 				  			<?php  
-				  				$this->load->view('tabulados/includes/mapa_view.php', $data); 
+				  				//$this->load->view('tabulados/includes/mapa_view.php', $data); 
 				  			?>
 				  	<!-- FIN MAPA -->
 			</div>

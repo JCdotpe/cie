@@ -28,9 +28,16 @@ $(function(){
 		    }); 
 		   }
 		 }); 
- 
-		$('#tabul').moveRow(28, 3);
+ 		for (var i = 5; i<=78; i+=3) {
+ 			$('#tabul').moveRow(i, i-2); 
 
+ 		};
+		$('#tabul').moveRow(78, 3);
+		$('#tabul').moveRow(79, 4);
+		$('#tabul').moveRow(80, 5);
+		$(".td_remove").remove();
+		$(".to_rowspan").attr('rowspan',3);
+		$(".to_rowspan").css("vertical-align","middle");
       	//carga la tabla dentro del objeto
       	$("#excel_div").val( $("<div>").append( $("#tabul").eq(0).clone()).html());
 

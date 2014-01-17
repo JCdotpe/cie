@@ -121,11 +121,13 @@ class Capitulo7 extends CI_Controller {
 	public function reporte29()
 	{
 			$data['restriccion'] = $this->restriccion ;
-			$data['nav'] = TRUE;
+			//$data['nav'] = TRUE;
 			$data['title'] = 'TAB | Capitulo 7 | 29';	
 			$data['nom_tabulados'] = $this->tabulados_model->get_nombre_tabulados();
 			$data['opcion'] = 29;		
 			$data['tables'] = $this->tabulados_model->get_report29();
+			$data['c_title'] = ($this->tabulados_model->get_nombre_cuadro($data['opcion'])->num_rows()==1) ? $this->tabulados_model->get_nombre_cuadro($data['opcion'])->row('no_cuadro') : 'No existe titulo';
+			//$data['c_title'] =  $this->tabulados_model->get_nombre_cuadro($data['opcion'])->num_rows();
 			// *** PARA COMENTARIOS ***
 			// $texto = ($this->tabulados_model->get_texto(1,$data['opcion'])->num_rows() > 0)  ?  $texto = $this->tabulados_model->get_texto(1,$data['opcion'])->row()->texto  :  '';
 			// $data['texto'] =  $texto; 

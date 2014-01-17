@@ -54,17 +54,23 @@ class Tabulados_model extends CI_MODEL
     }
     //TEXTO COMENTARIOS
 
-    //NOMBRE GRAFICOS
-
-    function get_nombre_mapa($cuadro)
+    //NOMBRE MAPA  - GRAFICOS
+    function get_nombre_mapa($num)
     {
-        $this->db->where('nu_tabulado',$cuadro);
+        $this->db->where('nu_tabulado',$num);
         $q = $this->db->get('tabulados_nombre_mapa');
         return $q;
     }
 
+    //NOMBRE CUADRO
+    function get_nombre_cuadro($num)
+    {
+        $this->db->where('nu_tabulado',$num);
+        $q = $this->db->get('tabulados_nombre_cuadro');
+        return $q;
+    }
 
-    //NOMBRE GRAFICOS
+
 
 
 function get_dptos (){
@@ -85,16 +91,51 @@ function get_dptos (){
 
 
 function get_report29(){ 
-    $q = $this->db->query('
+        // select co_departamento as CCDD, no_departamento AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  from tabulados_dep TAB
+        // left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 is not  null group by cod_dpto, des_area) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
+        // left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 1 group by cod_dpto, des_area) as C1 on TAB.co_departamento = C1.cod_dpto and TAB.fl_area = C1.des_area
+        // left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 2 group by cod_dpto, des_area) as C2 on TAB.co_departamento = C2.cod_dpto and TAB.fl_area = C2.des_area
+        // left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 3 group by cod_dpto, des_area) as C3 on TAB.co_departamento = C3.cod_dpto and TAB.fl_area = C3.des_area
+        // left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 9 group by cod_dpto, des_area) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
+        // ORDER BY co_departamento asc,fl_area desc;
+    $q = $this->db->query("
         /* CAPITULO 7 - SEC B - 1*/
-        select CCDD, Nombre AS DEPARTAMENTO, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  from DPTO
-        left join (select cod_dpto, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 is not  null group by cod_dpto) as C0 on DPTO.CCDD = C0.cod_dpto
-        left join (select cod_dpto, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 1 group by cod_dpto) as C1 on DPTO.CCDD = C1.cod_dpto
-        left join (select cod_dpto, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 2 group by cod_dpto) as C2 on DPTO.CCDD = C2.cod_dpto
-        left join (select cod_dpto, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 3 group by cod_dpto) as C3 on DPTO.CCDD = C3.cod_dpto
-        left join (select cod_dpto, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 9 group by cod_dpto) as C4 on DPTO.CCDD = C4.cod_dpto
-        ORDER BY CCDD; 
-                    ');
+        SELECT * FROM (
+        select co_departamento as CCDD, no_departamento AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  from tabulados_dep TAB
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 is not  null group by cod_dpto, des_area) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 1 group by cod_dpto, des_area) as C1 on TAB.co_departamento = C1.cod_dpto and TAB.fl_area = C1.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 2 group by cod_dpto, des_area) as C2 on TAB.co_departamento = C2.cod_dpto and TAB.fl_area = C2.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 3 group by cod_dpto, des_area) as C3 on TAB.co_departamento = C3.cod_dpto and TAB.fl_area = C3.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 9 group by cod_dpto, des_area) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
+        WHERE co_departamento NOT IN ('07','15')
+        UNION
+        SELECT co_departamento as CCDD, replace(no_departamento,'LIMA','LIMA METROPOLITANA') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 is not  null group by cod_dpto, des_area ) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 = 1 group by cod_dpto, des_area ) as C1 on TAB.co_departamento = C1.cod_dpto and TAB.fl_area = C1.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 = 2 group by cod_dpto, des_area ) as C2 on TAB.co_departamento = C2.cod_dpto and TAB.fl_area = C2.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 = 3 group by cod_dpto, des_area ) as C3 on TAB.co_departamento = C3.cod_dpto and TAB.fl_area = C3.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 = 9 group by cod_dpto, des_area ) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
+        WHERE co_departamento='15'
+        UNION
+        SELECT replace(co_departamento,'15','15B') as CCDD, replace(no_departamento,'LIMA','LIMA PROVINCIAS') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 is not  null group by cod_dpto, des_area ) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 = 1 group by cod_dpto, des_area ) as C1 on TAB.co_departamento = C1.cod_dpto and TAB.fl_area = C1.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 = 2 group by cod_dpto, des_area ) as C2 on TAB.co_departamento = C2.cod_dpto and TAB.fl_area = C2.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 = 3 group by cod_dpto, des_area ) as C3 on TAB.co_departamento = C3.cod_dpto and TAB.fl_area = C3.des_area
+        left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
+        where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 = 9 group by cod_dpto, des_area ) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
+        WHERE co_departamento='15') as table1
+        order by CCDD, AREA desc;
+                    ");
     return $q;
 }
 
