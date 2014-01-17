@@ -124,10 +124,15 @@
               infowindow.close();
           });
 
-        var kmlPeru = '<?php echo base_url('kml/peru.kml') ; ?>';
-        
+
+         var kmlPeru = '<?php echo base_url('kml/peru.kml') ; ?>';
+        // var kmlPeru = 'http://www.uxglass.com/kml/demo.kml';
+        // var kmlArray = [];
+
         kmlPeruLayer = new google.maps.KmlLayer ( kmlPeru, {preserveViewport:true});
+        // kmlArray.push({id:0, nomkml:kmlPeruLayer});
         kmlPeruLayer.setMap(map);
+        // kmlArray[0].nomkml.setMap(map);
 
           // KML MAPS LAYERS
      
@@ -551,14 +556,14 @@
                         "<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
                         
                         "<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-                        "<p>"+datos.dpto_nombre+"</p>"+
+                        "<p>"+datos.nombres_IIEE+"</p>"+
 
                         "<h3>EDIFICACIONES</h3>"+
                         "<p><b>Total:</b> "+datos.Tot_Ed+"</p>"+
                         "<p><b>Mantenimiento:</b> "+datos.OT_1+"</p>"+
                         "<p><b>Reforzamiento:</b> "+datos.OT_2+"</p>"+
                         "<p><b>Demolicion:</b> "+datos.OT_3+"</p>"+
-                        "<p class='detalle'><a href='#'>Ir a detalle ambiente por edificación →</a></p>"+
+                        "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
                       "</div>"+
                     "</div><div>";
                     
@@ -578,6 +583,44 @@
       infowindow.close();
     }
 
+    var contenido = "";
+
+    function ver_detalle(code){
+      $.getJSON(urlRoot('index.php')+'/mapa/resultados/detalle_ot', {codigo:code}, function(data, textStatus) {
+          
+          contenido = infowindow.getContent();   
+
+          var contentString2="<div><div class='marker activeMarker'>"+
+                      "<div class='markerInfo activeInfo' style='display: block'>"+
+                      "<table><tr><td>Predio</td><td>Edificacion</td><td>N° de Aulas</td></tr>";
+
+            $.each(data, function(i, datos){
+                var clase = "";
+                switch (datos.P7_2_1)
+                {
+                  case 1:
+                    clase ="background-color:green;";  
+                    break;
+                  case 2:
+                    clase ="background-color:yellow;";
+                    break;
+                  case 3:
+                    clase ="background-color:red;";
+                    break;
+                }
+               contentString2+="<tr><td>P-"+datos.Nro_Pred+"</td><td style='"+clase+"'>E-"+datos.P5_Ed_Nro+"</td><td>"+datos.Cant_Aula+"</td></tr>";
+            });
+
+          contentString2+="</table><a href='#' onclick='ver_atras()'>regresar →</a>"+
+                      "</div>"+
+                    "</div><div>";
+          infowindow.setContent(contentString2);
+      });
+    }
+
+    function ver_atras(){
+        infowindow.setContent(contenido);
+    }
 
 
     </script>
@@ -592,6 +635,7 @@
   <a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a>
   <div id="oted">Oficina Técnica de Estadísticas Departamentales - OTED</div>
 </div>
+
 
 
 

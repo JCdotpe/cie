@@ -53,4 +53,11 @@ class Resultados extends CI_Controller {
 		echo json_encode($data->result());
 	}
 
+	public function detalle_ot()
+	{
+		$codigo = $this->input->get('codigo');
+		$data = $this->resultados_model->Get_Detalle_OT( $codigo );
+		echo json_encode($data->result());
+	}
+
 }
