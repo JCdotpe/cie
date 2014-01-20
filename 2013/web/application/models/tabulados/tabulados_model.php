@@ -107,9 +107,8 @@ function get_report29(){
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 2 group by cod_dpto, des_area) as C2 on TAB.co_departamento = C2.cod_dpto and TAB.fl_area = C2.des_area
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 3 group by cod_dpto, des_area) as C3 on TAB.co_departamento = C3.cod_dpto and TAB.fl_area = C3.des_area
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local where P7_2_1 = 9 group by cod_dpto, des_area) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
-        WHERE co_departamento NOT IN ('07','15')
         UNION
-        SELECT co_departamento as CCDD, replace(no_departamento,'LIMA','LIMA METROPOLITANA') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
+        SELECT replace(co_departamento,'15','LM') as CCDD, replace(no_departamento,'LIMA','LIMA METROPOLITANA') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
         where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 is not  null group by cod_dpto, des_area ) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
@@ -122,7 +121,7 @@ function get_report29(){
         where cod_dpto  in ('15','07')  and cod_prov = '01'  and P7_2_1 = 9 group by cod_dpto, des_area ) as C4 on TAB.co_departamento = C4.cod_dpto and TAB.fl_area = C4.des_area
         WHERE co_departamento='15'
         UNION
-        SELECT replace(co_departamento,'15','15B') as CCDD, replace(no_departamento,'LIMA','LIMA PROVINCIAS') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
+        SELECT replace(co_departamento,'15','LP') as CCDD, replace(no_departamento,'LIMA','LIMA PROVINCIAS') AS DEPARTAMENTO,fl_area as AREA, COALESCE(C0.t,0) as TOTAL,COALESCE(C1.t,0) as MANTENIMIENTO,COALESCE(C2.t,0) as REFORZAMIENTO,COALESCE(C3.t,0) as DEMOLICION,COALESCE(C4.t,0) as NEP  FROM tabulados_dep TAB
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 
         where cod_dpto  in ('15')  and cod_prov <> '01'  and P7_2_1 is not  null group by cod_dpto, des_area ) as C0 on TAB.co_departamento = C0.cod_dpto and TAB.fl_area = C0.des_area
         left join (select cod_dpto, des_area, COUNT(*) t from P7 p  inner join padlocal d on p.id_local = d.codigo_de_local 

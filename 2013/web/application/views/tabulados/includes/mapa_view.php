@@ -70,7 +70,7 @@
 			    var valor_max = 0;
 			    var valor_acu = 0;
 
-			    for (var i = 0; i < 24; i++) {
+			    for (var i = 0; i < 25; i++) {
 			    	if (valor_dep[var_num][i] > valor_max) {
 			    		valor_max = valor_dep[var_num][i];
 			    	} 
@@ -136,6 +136,7 @@
 					    		var valor = (valor_dep[var_num][index]).toFixed(1);							    		
 					    		var nom = mi_json[index].nom;
 					    		if (index == 4 || index == 5) { nom = '\n'+ nom };//<br> a CAJAMARCA Y AYACUCHO
+					    		
 					    		nom = nom +'\n' + ((valor.toString()).replace(".",","));
 					    		nom = nom + '\n' + '[' + valor_dep_abs[var_num][index] + ']'; 
 
@@ -159,9 +160,9 @@
 						            	alert('medio: '+valor_medio + ', max: ' + valor_max + ', valor: ' + valor);
 						            }
 						        //    
-					    		
-					    		//createPOLYGON.style = {fill: true, fillColor: thematic, strokeWidth: "1", strokeColor: "#e1e1e1", label:nom};
-					    		createPOLYGON.style = {fill: true, fillColor: thematic, strokeWidth: "1", strokeColor: "#F3C768", label:nom, fontSize:"14"};
+												    		
+					    		if (index == 6 ) { tex_align = 'rt' }else if(index == 14){tex_align = 'cb'}else{tex_align = 'cc'};//align especial para Callao y Lima
+					    		createPOLYGON.style = {fill: true, fillColor: thematic, strokeWidth: "1", strokeColor: "#F3C768", label:nom,fontFamily: "Calibri", fontSize:"14",fontOpacity: 0.9,labelAlign: tex_align,};
 
 					    		vectors.addFeatures(createPOLYGON);
 

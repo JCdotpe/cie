@@ -28,16 +28,18 @@ $(function(){
 		    }); 
 		   }
 		 }); 
- 		for (var i = 5; i<=78; i+=3) {
+ 		for (var i = 5; i<=84; i+=3) {
  			$('#tabul').moveRow(i, i-2); 
 
  		};
-		$('#tabul').moveRow(78, 3);
-		$('#tabul').moveRow(79, 4);
-		$('#tabul').moveRow(80, 5);
+		$('#tabul').moveRow(84, 3);
+		$('#tabul').moveRow(85, 4);
+		$('#tabul').moveRow(86, 5);
 		$(".td_remove").remove();
 		$(".to_rowspan").attr('rowspan',3);
 		$(".to_rowspan").css("vertical-align","middle");
+		$(".td_lima > td").css("border-top","3px double");
+		
       	//carga la tabla dentro del objeto
       	$("#excel_div").val( $("<div>").append( $("#tabul").eq(0).clone()).html());
 

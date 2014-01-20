@@ -78,7 +78,7 @@
 
 		var cant_variables 	= <?php echo count($series);?>;
 		var num_tabulado = <?php echo $opcion;?>;
-		var name_dep = ['Amazonas','Ancash','Apurímac','Arequipa','Ayacucho','Cajamarca','Cusco','Huancavelica','Huánuco','Ica','Junín','La Libertad','Lambayeque','Lima Metropolitana','Lima Provincias','Loreto','Madre de Dios','Moquegua','Pasco','Piura','Puno' ,'San Martín','Tacna','Tumbes', 'Ucayali'];
+		var name_dep = ['Amazonas','Ancash','Apurímac','Arequipa','Ayacucho','Cajamarca','Callao','Cusco','Huancavelica','Huánuco','Ica','Junín','La Libertad','Lambayeque','Lima','Loreto','Madre de Dios','Moquegua','Pasco','Piura','Puno' ,'San Martín','Tacna','Tumbes', 'Ucayali'];
 		var name_dep_sorter = new Array();
 		var num_color = 1; // num de colores
 		var enableDataLabels = true; // labels	
@@ -113,7 +113,7 @@
 				$v=0;
 				if (isset($nombres_mapa)) {// titulos de los nombres de mapas, en la base de datos
 					foreach ($nombres_mapa->result() as $key => $value) {
-						echo 'name_mapa['.$key.'] = "'. $value->nombre . '";';
+						echo 'name_mapa['.$key.'] = "'. utf8_encode($value->nombre) . '";';
 					}
 				}
 				foreach ($series as  $y) {// nombres del array PHP
@@ -123,17 +123,16 @@
 					$v++;
 				}						
 				
-					
-
-
 				// GUARDANDO LOS VALORES NACIONALES Y NOMBRES VARIABLES,  EN SORTER
 				$cant_variables = count($series);
-				arsort($series[$cant_variables-1]['data']);
-				$cc = 0;
-				foreach ($series[$cant_variables-1]['data'] as $key => $value) {
-					if ($key == 1){
+				arsort($series[$cant_variables-1]['data']); // ordena desc
+				$cc = 0; $td_2 = 5;
+				foreach ($series[$cant_variables-1]['data'] as $key => $value) {//array totalles_porc, (totales % nacional)
+
+					if ($key == 1){//1 es el valor nacionaL (TECHO)
 						echo 'total_nacional = '. $value . ';';
 					}else{
+						echo 'valor_nac_abs_sorter['.$cc.']  =  ($("#tabul tbody tr:first-child td:nth-child('.(5+($key-2)*2).')").html()).replace(" ","");';
 						echo 'valor_nac_sorter['. $cc .'] = '. $value . ';';
 						echo 'name_var_sorter['. $cc .'] = name_var['. ($key-2) . '];';$cc++;
 					}
@@ -157,25 +156,24 @@
 					$p++;
 				}
 
-
-
 				// GUARDANDO ABSOLUTO DE LOS DEPARTAMENTALES -----------------------------------------------------
-				if($opcion >1){ $d = 3; }// totales especiales solo TAB N°1
+				if($opcion >1){ $td = 5; }// totales especiales solo TAB N°1
 				else{ $d = 1; ;}	
 
 				for ($k = 0; $k < count($series); $k++) {
 					echo 'var hpd_1 = new Array();';
-					$d = 1 + $d;
-					for ($i = 0; $i < 24; $i++) {
-						echo 'hpd_1['.$i.'] = ($("#tabul tbody tr:nth-child('.($i+2).') td:nth-child('.$d.')").html());';
+					$tr = 7;
+					for ($i = 0; $i < 25; $i++) {
+						if($i==0){echo 'hpd_1['.$i.'] = ($("#tabul tbody tr:nth-child(4) td:nth-child('.$td.')").html());';}
+						else{echo 'hpd_1['.$i.'] = ($("#tabul tbody tr:nth-child('.($tr).') td:nth-child('.$td.')").html());'; $tr+=3;}
 					};	
-					$d++;
 					echo 'valor_dep_abs['.$k.'] = hpd_1;';
+					$td+=2;
 					//if($opcion >1){ $d = 3; }// reiniciando, totales especiales solo TAB N°1
 					//else{ $d = 1; ;}
 				};		
 
-				// GUARDANDO PORCENTUAL Y ABSOLUTO DE LOS DEPARTAMENTALES EN SORTER -----------------------------------------------------
+				// ORDENANDO ..> GUARDANDO PORCENTUAL Y ABSOLUTO DE LOS DEPARTAMENTALES (EN SORTER) -----------------------------------------------------
 				$kk = 0; 
 				foreach ($series  as $index => $filas){
 					echo 'valor_dep['.$index.'] =  new Array();';//alert(valor_dep['.$index.']['.$key.']);
@@ -203,7 +201,7 @@
 			    	} 
 			    };	
 			};	
-			//console.log(valor_dep_abs_sorter);
+			console.log(valor_nac_abs_sorter);
 			//$(document).ready(function() {
 			//******************************************************************************************************************************************************************************************
 			//******************************************************************************************************************************************************************************************		
@@ -230,11 +228,11 @@
 		                },	                
 		                subtitle: {
 		                    text: name_mapa[0] + "<br>[Porcentaje]",
-		                    useHTML: true,
+		                    //useHTML: true,
 						    style: {
 						        //color: '#000000',
 						        //fontWeight: 'bold',
-						        fontSize:  "<?php echo ( ( strlen($c_title)<94) ? '32px' : '23px' ) ; ?>" , 
+						        fontSize:  "<?php echo ( ( strlen($c_title)<94) ? '31px' : '21px' ) ; ?>" , 
 				                'white-space': 'normal',
 				                left: '0px',
 				                top: '0px',
@@ -407,7 +405,7 @@
 		                    plotShadow: true,	                    
 		                },
 		                title: {
-		                    text: 'GRÁFICO N° '+ "<?php echo sprintf('%02d',$opcion); ?>" + '', 
+		                   	text: 'GRÁFICO N° '+ "<?php echo sprintf('%02d',$opcion); ?>" + '', 
 		                    style: {
 								//color: '#3E576F',
 								fontSize: '28px',
@@ -418,14 +416,14 @@
 		                },	                
 		                subtitle: {
 		                    //useHTML:true,		                	
-		                    text: "<?php echo str_replace('SEGÚN DEPARTAMENTO,','',$c_title); ?>" + "<br>[Porcentaje]",
+		                    text: "<?php echo str_replace('SEGÚN DEPARTAMENTO,','',utf8_encode($c_title)); ?>" + "<br>[Porcentaje]",
 				            align: 'center',
 				            x: 1,
 						    style: {
 						    	height:'250px',
 						        //color: '#000000',
 						        //fontWeight: 'bold',
-						       fontSize:  "<?php echo ( ( strlen($c_title)<90) ? '30px' : '20px' ) ; ?>" , 
+						       	fontSize:  "<?php echo ( ( strlen($c_title)<90) ? '23px' : '20px' ) ; ?>" , 
 				                'white-space': 'nowrap',
 				                left: '0px',
 				                top: '0px',
@@ -757,11 +755,11 @@
 					                    formatter: function() {
 					                    	var x=0;
 					                    	if($("#cbo_type_graph_nac").val()==0){ 
-					                    	 	//return Highcharts.numberFormat(this.y, 1,',',' ')+ '%<br>['  + valor_dep_abs_sorter[$("#hd_variable").val()][this.point.x] + ']'; }
-					                    	 	return Highcharts.numberFormat(this.y, 1,',',' ')  + '%'; }
+					                    	 	return Highcharts.numberFormat(this.y, 1,',',' ')+ '%<br>['  +  Highcharts.numberFormat(valor_nac_abs_sorter[this.point.x], 0,',',' ') + ']'; }
+					                    	 	//return Highcharts.numberFormat(this.y, 1,',',' ')  + '%'; }
 					                    	else{
-					                    		//return   chart_nac.xAxis[0].categories[this.point.x] + '<br>'+ Highcharts.numberFormat(this.y, 1,',',' ')+ '%<br>['  + valor_dep_abs_sorter[$("#hd_variable").val()][this.point.x] + ']';}
-					                    		return   chart_nac.xAxis[0].categories[this.point.x] + '<br>'+ Highcharts.numberFormat(this.y, 1,',',' ')+ '%';}
+					                    		return   chart_nac.xAxis[0].categories[this.point.x] + '<br>'+ Highcharts.numberFormat(this.y, 1,',',' ')+ '%<br>['  + Highcharts.numberFormat(valor_nac_abs_sorter[this.point.x], 0,',',' ') + ']';}
+					                    		//return   chart_nac.xAxis[0].categories[this.point.x] + '<br>'+ Highcharts.numberFormat(this.y, 1,',',' ')+ '%';}
 					                    },			                
 						            }
 						        });							
