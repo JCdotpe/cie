@@ -35,22 +35,37 @@
 		});
 
 		// A function to create the marker and set up the event window
-		function createMarkerLEN(latlng,name,html,category,icon) {
+		function createMarkerLEN(latlng,name,html,category,icon,tiporesul) {
 			var contentString = html;
 			var color = null;
 			var myCoordsLenght = 6;
-			switch (icon)
+
+			if (tiporesul == 1)
 			{
-				case '1':
-					color=urlRoot('web/')+'img/infra/ot1.png';
-					break;
-				case '2':
-					color=urlRoot('web/')+'img/infra/ot2.png';
-					break;
-				case '3':
-					color=urlRoot('web/')+'img/infra/ot3.png';
-					break;
+				switch (icon)
+				{
+					case '1':
+						color=urlRoot('web/')+'img/infra/ot1.png';
+						break;
+					case '2':
+						color=urlRoot('web/')+'img/infra/ot2.png';
+						break;
+					case '3':
+						color=urlRoot('web/')+'img/infra/ot3.png';
+						break;
+				}
+			}else if (tiporesul > 1 && tiporesul <= 5){
+				switch (icon)
+				{
+					case '1':
+						color=urlRoot('web/')+'img/infra/resul_si.png';
+						break;
+					case '2':
+						color=urlRoot('web/')+'img/infra/resul_no.png';
+						break;
+				}
 			}
+			
 
 			var marker = new MarkerWithLabel({
 			draggable: false,
@@ -280,6 +295,24 @@
 						html_leyenda = '<p>LEYENDA: </p>';
 						html_subtitulo = '<p class="pull-right">INSPERCCIONADA POR DEFENSA CIVIL</p>';
 						break;
+					case '3':
+						$('#altriesg').show();
+						$('#ALT_RIESGO').val(0);
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">INHABITABLES EN ALTO RIESGO</p>';
+						break;
+					case '4':
+						$('#patcult').show();
+						$('#PAT_CULT').val(0);
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">PATRIMONIO CULTURAL</p>';
+						break;
+					case '5':
+						$('#obejec').show();
+						$('#OBR_EJEC').val(0);
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">OBRAS EN EJECUCION</p>';
+						break;
 				}
 
 				$('#geo_leyenda').html(html_leyenda);
@@ -294,11 +327,26 @@
 			$('#DEF_CIVIL').change(function(event) {
 				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
 			});
+
+			$('#ALT_RIESGO').change(function(event) {
+				AltoRiesgo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#ALT_RIESGO').val());
+			});
+
+			$('#PAT_CULT').change(function(event) {
+				PatrimonioCultural($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#PAT_CULT').val());
+			});
+
+			$('#OBR_EJEC').change(function(event) {
+				ObrasEjecucion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OBR_EJEC').val());
+			});
 		});
 
 		function ocultar_cmb () {
 			$('#infra').hide();
 			$('#def').hide();
+			$('#altriesg').hide();
+			$('#patcult').hide();
+			$('#obejec').hide();
 		}
 
 		function kml_dpto(code){
@@ -448,7 +496,7 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 1);
 				});
 			});
 		}
@@ -482,10 +530,114 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', defecivil);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_DC, 2);
 				});
 			});
 		}
+
+		function AltoRiesgo(departamento,provincia,distrito,tipoarea,altriesg){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/alto_riesgo', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,ar:altriesg}, function(data, textStatus) {
+
+				clean_map();
+
+				$.each(data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>INHABITABLES EN ALTO RIESGO</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
+						"<p><b>Si:</b> "+datos.AR+"</p>"+
+						"<p><b>No:</b> "+datos.NAR+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_AR, 3);
+				});
+			});
+		}
+
+
+		function PatrimonioCultural(departamento,provincia,distrito,tipoarea,patricult){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/patrimonio_cultural', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,pc:patricult}, function(data, textStatus) {
+
+				clean_map();
+
+				$.each(data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>PATRIMONIO CULTURAL DEL INMUEBLE</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
+						"<p><b>Si:</b> "+datos.PC+"</p>"+
+						"<p><b>No:</b> "+datos.NPC+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_PC, 4);
+				});
+			});
+		}
+
+		function ObrasEjecucion(departamento,provincia,distrito,tipoarea,obejec){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/obras_ejecucion', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,oj:obejec}, function(data, textStatus) {
+
+				clean_map();
+
+				$.each(data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>OBRAS EN EJECUCION</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
+						"<p><b>Si:</b> "+datos.OB+"</p>"+
+						"<p><b>No:</b> "+datos.NOB+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OB, 5);
+				});
+			});
+		}
+
 
 
 		function clean_map () {
@@ -597,6 +749,9 @@
 					<option value="0">SELECCIONE...</option>
 					<option value="1">INFRAESTRUCTURA</option>
 					<option value="2">DEFENSA CIVIL</option>
+					<option value="3">ALTO RIESGO</option>
+					<option value="4">PATRIMONIO CULTURAL</option>
+					<option value="5">OBRAS EN EJECUCION</option>
 				</select>
 			</div>
 		</div>
@@ -626,6 +781,42 @@
 			</div>
 		</div>
 
+		<div id="altriesg" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="ALT_RIESGO">INHABITABLES EN ALTO RIESGO</label>
+			<div class="controls">
+				<select id="ALT_RIESGO" class="span12" name="ALT_RIESGO">
+					<option value="0">SELECCIONE...</option>
+					<option value="0">TODOS</option>
+					<option value="1">SI</option>
+					<option value="2">NO</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="patcult" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="PAT_CULT">PATRIMONIO CULTURAL</label>
+			<div class="controls">
+				<select id="PAT_CULT" class="span12" name="PAT_CULT">
+					<option value="0">SELECCIONE...</option>
+					<option value="0">TODOS</option>
+					<option value="1">SI</option>
+					<option value="2">NO</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="obejec" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="OBR_EJEC">OBRAS EN EJECUCION</label>
+			<div class="controls">
+				<select id="OBR_EJEC" class="span12" name="OBR_EJEC">
+					<option value="0">SELECCIONE...</option>
+					<option value="0">TODOS</option>
+					<option value="1">SI</option>
+					<option value="2">NO</option>
+				</select>
+			</div>
+		</div>
+
 	</div>
 
 	<div id="footer">
@@ -634,9 +825,9 @@
 				<div id="geo_leyenda" class="span9">
 					<!-- ajax -->
 				</div>
-			</div>
-			<div id="subtitulado" class="span3">
-				<!-- ajax -->
+				<div id="subtitulo" class="span3">
+					<!-- ajax -->
+				</div>
 			</div>
 		</div>
 	</div>

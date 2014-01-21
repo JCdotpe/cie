@@ -27,6 +27,49 @@ class Resultados_model extends CI_MODEL{
         $q = $this->db->query('PA_Resultado_Defensa_Civil ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$df));
         return $q;
     }
+
+    function Get_DefensaCivil_Lima( $dpto, $tiparea, $df)
+    {
+        $q = $this->db->query('PA_Resultado_Defensa_Civil_Lima ?,?,?', array($dpto,$tiparea,$df));
+        return $q;
+    }
+
+    function Get_AltoRiesgo( $dpto, $prov, $dist, $tiparea, $ar)
+    {
+        $q = $this->db->query('PA_Resultado_Alto_Riesgo ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ar));
+        return $q;
+    }
+
+    function Get_AltoRiesgo_Lima( $dpto, $tiparea, $ar)
+    {
+        $q = $this->db->query('PA_Resultado_Alto_Riesgo_Lima ?,?,?', array($dpto,$tiparea,$ar));
+        return $q;
+    }
+
+    function Get_PatrimCultural( $dpto, $prov, $dist, $tiparea, $pc)
+    {
+        $q = $this->db->query('PA_Resultado_Patrimonio_Cultural ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$pc));
+        return $q;
+    }
+
+    function Get_PatrimCultural_Lima( $dpto, $tiparea, $pc)
+    {
+        $q = $this->db->query('PA_Resultado_Patrimonio_Cultural_Lima ?,?,?', array($dpto,$tiparea,$pc));
+        return $q;
+    }
+
+    function Get_ObrasEjecucion( $dpto, $prov, $dist, $tiparea, $oj)
+    {
+        $q = $this->db->query('PA_Resultado_Obras_Ejecucion ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$oj));
+        return $q;
+    }
+
+    function Get_ObrasEjecucion_Lima( $dpto, $tiparea, $oj)
+    {
+        $q = $this->db->query('PA_Resultado_Obras_Ejecucion_Lima ?,?,?', array($dpto,$tiparea,$oj));
+        return $q;
+    }
+
 }
 
 ?>
