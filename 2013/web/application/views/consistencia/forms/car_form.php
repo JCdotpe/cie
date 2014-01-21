@@ -1182,7 +1182,7 @@ $("#car_f").validate({
 			    	required:true,
 			    },
 			    PC_E_3_TEdif:{
-			    	range:[0,60],
+			    	range:[0,62],
 			    	required:true,
 			    },
 			    PC_E_4_TPat:{
