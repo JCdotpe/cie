@@ -130,16 +130,19 @@
 			    map_thematic.addLayers([vectors]);
 
 					    	$.each(mi_json, function(index) {
+					    		var valor = 0;
 					    		var geo = mi_json[index].geo;
 					    		var cen = mi_json[index].cen;
 					    		var ubi = mi_json[index].ubi;
-					    		var valor = (valor_dep[var_num][index]).toFixed(1);							    		
 					    		var nom = mi_json[index].nom;
-					    		if (index == 4 || index == 5) { nom = '\n'+ nom };//<br> a CAJAMARCA Y AYACUCHO
-					    		
-					    		nom = nom +'\n' + ((valor.toString()).replace(".",","));
-					    		nom = nom + '\n' + '[' + valor_dep_abs[var_num][index] + ']'; 
 
+					    		if (index < 25) {//valores que no sean TITICACA
+					    			valor = (valor_dep[var_num][index]).toFixed(1); 
+					    								    		
+						    		if (index == 4 || index == 5) { nom = '\n'+ nom };//<br> a CAJAMARCA Y AYACUCHO
+						    		nom = nom +'\n' + ((valor.toString()).replace(".",","));
+						    		nom = nom + '\n' + '[' + valor_dep_abs[var_num][index] + ']'; 
+								}
 					    		var format = new OpenLayers.Format.WKT();
 					    		var createPOLYGON = format.read("POLYGON(("+geo+"))");
 					    		
@@ -160,8 +163,8 @@
 						            	alert('medio: '+valor_medio + ', max: ' + valor_max + ', valor: ' + valor);
 						            }
 						        //    
-												    		
-					    		if (index == 6 ) { tex_align = 'rt' }else if(index == 14){tex_align = 'cb'}else{tex_align = 'cc'};//align especial para Callao y Lima
+								if(index == 25)	{thematic = "#00A1C7";}		    		
+					    		if(index == 6 ) { tex_align = 'rt' }else if(index == 14){tex_align = 'cb'}else{tex_align = 'cc'};//align especial para Callao y Lima
 					    		createPOLYGON.style = {fill: true, fillColor: thematic, strokeWidth: "1", strokeColor: "#F3C768", label:nom,fontFamily: "Calibri", fontSize:"14",fontOpacity: 0.9,labelAlign: tex_align,};
 
 					    		vectors.addFeatures(createPOLYGON);
