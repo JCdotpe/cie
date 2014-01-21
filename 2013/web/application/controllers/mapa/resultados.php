@@ -42,7 +42,7 @@ class Resultados extends CI_Controller {
 		echo json_encode($data->result());
 	}
 
-	public function busqueda()
+	public function opinion_tecnica()
 	{
 		$dpto = $this->input->get('dpto');
 		$prov = $this->input->get('prov');
@@ -51,9 +51,9 @@ class Resultados extends CI_Controller {
 		$ot = $this->input->get('opt');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data = $this->resultados_model->Get_Busqueda_Lima( $dpto, $tiparea, $ot );
+			$data = $this->resultados_model->Get_OpinionTecnica_Lima( $dpto, $tiparea, $ot );
 		}else{
-			$data = $this->resultados_model->Get_Busqueda( $dpto, $prov, $dist, $tiparea, $ot );
+			$data = $this->resultados_model->Get_OpinionTecnica( $dpto, $prov, $dist, $tiparea, $ot );
 		}
 
 		echo json_encode($data->result());
@@ -63,6 +63,23 @@ class Resultados extends CI_Controller {
 	{
 		$codigo = $this->input->get('codigo');
 		$data = $this->resultados_model->Get_Detalle_OT( $codigo );
+		echo json_encode($data->result());
+	}
+
+	public function defensa_civil()
+	{
+		$dpto = $this->input->get('dpto');
+		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
+		$df = $this->input->get('df');
+		
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data = $this->resultados_model->Get_OpinionTecnica_Lima( $dpto, $tiparea, $ot );
+		}else{
+			$data = $this->resultados_model->Get_DefensaCivil( $dpto, $prov, $dist, $tiparea, $df );
+		}
+
 		echo json_encode($data->result());
 	}
 

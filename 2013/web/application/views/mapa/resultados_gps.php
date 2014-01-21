@@ -248,8 +248,7 @@
 			initialize();
 
 			combo_dpto();
-
-			$('#infra').hide();
+			ocultar_cmb();
 
 			$('#NOM_PROV').attr('disabled', true);
 			$('#NOM_DIST').attr('disabled', true);
@@ -265,6 +264,7 @@
 				var html_leyenda = '';
 				var html_subtitulo = '';
 				clean_map();
+				ocultar_cmb();
 
 				switch( $(this).val() )
 				{
@@ -274,8 +274,11 @@
 						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Rehabilitación, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
 						html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
 						break;
-					default:
-						$('#infra').hide();
+					case '2':
+						$('#def').show();
+						$('#DEF_CIVIL').val(0);
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">INSPERCCIONADA POR DEFENSA CIVIL</p>';
 						break;
 				}
 
@@ -285,9 +288,18 @@
 
 
 			$('#OP_TECNICA').change(function(event) {
-				puntosGPS($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+				OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+			});
+
+			$('#DEF_CIVIL').change(function(event) {
+				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
 			});
 		});
+
+		function ocultar_cmb () {
+			$('#infra').hide();
+			$('#def').hide();
+		}
 
 		function kml_dpto(code){
 
@@ -406,9 +418,9 @@
 		}
 
 
-		function puntosGPS(departamento,provincia,distrito,tipoarea,opinion){
+		function OpinionTecnica(departamento,provincia,distrito,tipoarea,opinion){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/busqueda', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/opinion_tecnica', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(data, textStatus) {
 
 				clean_map();
 
@@ -437,6 +449,40 @@
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT);
+				});
+			});
+		}
+
+		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/defensa_civil', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,df:defecivil}, function(data, textStatus) {
+
+				clean_map();
+
+				$.each(data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>INSPECCIONADAS POR DEFENSA CIVIL</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
+						"<p><b>Si:</b> "+datos.DC+"</p>"+
+						"<p><b>No:</b> "+datos.NDC+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', defecivil);
 				});
 			});
 		}
@@ -550,6 +596,7 @@
 				<select id="RESULTADO" class="span12" name="RESULTADO">
 					<option value="0">SELECCIONE...</option>
 					<option value="1">INFRAESTRUCTURA</option>
+					<option value="2">DEFENSA CIVIL</option>
 				</select>
 			</div>
 		</div>
@@ -563,6 +610,18 @@
 					<option value="1">MANTENIMIENTO</option>
 					<option value="2">REFORZAMIENTO ESTRUCTURAL</option>
 					<option value="3">DEMOLICION</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="def" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="DEF_CIVIL">INSPERCCIONADA POR DEFENSA CIVIL</label>
+			<div class="controls">
+				<select id="DEF_CIVIL" class="span12" name="DEF_CIVIL">
+					<option value="0">SELECCIONE...</option>
+					<option value="0">TODOS</option>
+					<option value="1">SI</option>
+					<option value="2">NO</option>
 				</select>
 			</div>
 		</div>
