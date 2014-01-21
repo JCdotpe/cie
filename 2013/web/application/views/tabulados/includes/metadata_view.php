@@ -4,31 +4,31 @@
 	<h3>METADATOS</h3><hr>
 <table id="tab_meta"  >
 	<tr>
-		<td style='width="30px";'><h5>1. TABULADO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_tabulado" name="txt_tabulado" rows="1" cols="160"><?php //echo $txt_tabulado; ?></textarea></td>
+		<td style='width="30px";'><h5>1. TABULADO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_tabulado" name="txt_tabulado" rows="1" cols="160"><?php echo $txt_tabulado; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>2. CONTENIDO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_contenido" name="txt_contenido" rows="1" cols="160"><?php //echo $txt_contenido; ?></textarea></td>
+		<td style='width="30px";'><h5>2. CONTENIDO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_contenido" name="txt_contenido" rows="1" cols="160"><?php echo $txt_contenido; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>3. CASOS </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_casos" name="txt_casos" rows="1" cols="160"><?php //echo $txt_casos; ?></textarea></td>
+		<td style='width="30px";'><h5>3. CASOS </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_casos" name="txt_casos" rows="1" cols="160"><?php echo $txt_casos; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>4. VARIABLES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_variables" name="txt_variables" rows="1" cols="160"><?php //echo $txt_variables; ?></textarea></td>
+		<td style='width="30px";'><h5>4. VARIABLES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_variables" name="txt_variables" rows="1" cols="160"><?php echo $txt_variables; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>5. ALTERNATIVAS </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_alternativas" name="txt_alternativas" rows="1" cols="160"><?php //echo $txt_alternativas; ?></textarea></td>
+		<td style='width="30px";'><h5>5. ALTERNATIVAS </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_alternativas" name="txt_alternativas" rows="1" cols="160"><?php echo $txt_alternativas; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>6. OTRO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_otro" name="txt_otro" rows="1" cols="160"><?php //echo $txt_otro; ?></textarea></td>
+		<td style='width="30px";'><h5>6. OTRO </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_otro" name="txt_otro" rows="1" cols="160"><?php echo $txt_otro; ?></textarea></td>
 	</tr>		
 	<tr>
-		<td style='width="30px";'><h5>7. DATOS FALTANTES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_faltantes" name="txt_faltantes" rows="1" cols="160"><?php //echo $txt_faltantes; ?></textarea></td>
+		<td style='width="30px";'><h5>7. DATOS FALTANTES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_faltantes" name="txt_faltantes" rows="1" cols="160"><?php echo $txt_faltantes; ?></textarea></td>
 	</tr>
 	<tr>
-		<td style='width="30px";'><h5>8. INSTITUCIÓN </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_productor" name="txt_productor" rows="1" cols="160"><?php //echo $txt_productor; ?></textarea></td>
+		<td style='width="30px";'><h5>8. INSTITUCIÓN </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_productor" name="txt_productor" rows="1" cols="160"><?php echo $txt_productor; ?></textarea></td>
 	</tr>		
 	<tr>
-		<td style='width="30px";'><h5>9. DEFINICIONES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_definiciones" name="txt_definiciones" rows="10" cols="160"><?php //echo $txt_definiciones; ?></textarea></td>
+		<td style='width="30px";'><h5>9. DEFINICIONES </h5></td><td colspan="10" style="padding-left:2em"><textarea class="span12" id="txt_definiciones" name="txt_definiciones" rows="10" cols="160"><?php echo $txt_definiciones; ?></textarea></td>
 	</tr>
 </table>
 <input type="hidden" id="cantidad_var" name="cantidad_var" value="<?php echo count($series); ?>">
@@ -69,13 +69,9 @@ $(function(){
       		}
       	?>
 		var direccion ;
-		<?php if ($opcion<100) {
-			echo 'direccion = "tabulados/pescador/metadata" ;';
-		} else if ($opcion<198){
-			echo 'direccion = "tabulados/acuicultor/metadata" ;';
-		}else if ($opcion<253){
-			echo 'direccion = "tabulados/comunidad/metadata" ;';
-		}; ?>
+		<?php 
+			echo 'direccion = "/tabulados/capitulo'.$capitulo.'/metadata" ;';
+		?>
 	
 		$('#btn_metadata').click(function() {
 
@@ -99,7 +95,8 @@ $(function(){
 			        bsub3.attr("disabled", "disabled");
 
 			        $.ajax({
-			            url: CI.base_url + direccion ,
+			            //url: CI.base_url + direccion ,
+			            url: CI.site_url + direccion ,
 			            type:'POST',
 			            data:t_data,
 			            success:function(){

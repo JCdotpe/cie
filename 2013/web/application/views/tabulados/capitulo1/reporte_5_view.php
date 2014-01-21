@@ -17,9 +17,11 @@
 							foreach ($tables->result() as $value) {
 										$NEP += $value->NEP;
 								}
-							$cant_v = ($NEP == 0) ? 4 : 5; // cantidad de variables (incluir NEP y Total)
-						// PREGUNTAS MULTIPLES
-							$respuesta_unica = TRUE;
+							//***************************************************************************************************************************
+							$cant_v = ($NEP == 0) ? 15 : 16; // cantidad de variables (incluir NEP y Total)
+								// PREGUNTAS MULTIPLES
+							$respuesta_unica = FALSE;
+							//***************************************************************************************************************************
 
 			    		echo form_open("/tabulados/export");
 			    			//$c_title = 'PERÚ: PESCADORES POR ACTIVIDAD ECONÓMICA ADICIONAL QUE REALIZA, SEGÚN DEPARTAMENTO, 2013';
@@ -38,14 +40,25 @@
 									echo '<th rowspan="3" style="vertical-align:middle;text-align:center">Departamento</th>';					
 									echo '<th rowspan="3" style="vertical-align:middle;text-align:center">Área</th>';					
 									echo '<th rowspan="2" colspan="2" style="vertical-align:middle;text-align:center">Total</th>';																																																																																										
-									echo '<th colspan="'. ( ($NEP == 0) ? ($cant_v - 1)*2 : ($cant_v - 2)*2 ).'" style="text-align:center">Opinión Técnica</th>';
+									echo '<th colspan="'. ( ($NEP == 0) ? ($cant_v - 1)*2 : ($cant_v - 2)*2 ).'" style="text-align:center">EDIFICACIONES EVALUADAS PARA SU MANTENIMIENTO SEGÚN NIVEL O MODALIDAD, POR DEPARTAMENTO Y ÁREA</th>';
 									echo ($NEP>0) ? ('<th colspan="2" rowspan="2" style="vertical-align:middle;text-align:center">No especificado</th>'): '';																																														
 									echo '</tr>';
-									echo '<tr>';
-										echo '<th colspan="2" style="text-align:center">'. ($variable_1 = 'Mantenimiento (rehabilitación menor)') .'</th>';										
-										echo '<th colspan="2" style="text-align:center">'. ($variable_2 = 'Reforzamiento estructural (rehabilitación mayor)' ) .'</th>';						
-										echo '<th colspan="2" style="text-align:center">'. ($variable_3 = 'Demolición' ) .'</th>';																												
-									echo '</tr>';
+									echo '<tr>'; //***************************************************************************************************************************
+										echo '<th colspan="2" style="text-align:center">'. ($variable_1 = 'Inicial cuna') .'</th>';										
+										echo '<th colspan="2" style="text-align:center">'. ($variable_2 = 'Inicial jardin' ) .'</th>';						
+										echo '<th colspan="2" style="text-align:center">'. ($variable_3 = 'inicial cuna jardin' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_4 = 'Primaria' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_5 = 'Secundaria' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_6 = 'Educación Básica Alternativa(EBA)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_7 = 'Educación Básica Especial(EBE)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_8 = 'Educación Superior de Formación(ESFA)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_9 = 'Educación Superior Tecnológico' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_10 = 'Instituto Superior Pedagógico (ISP)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_11 = 'Centro de Educación Técnico Productivo (CETPRO)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_12 = 'Programa No Escolarizado de Educación Inicial (PRONOEI)' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_13 = 'Sala de Educación Temprana' ) .'</th>';																												
+										echo '<th colspan="2" style="text-align:center">'. ($variable_14 = 'Ludoteca' ) .'</th>';																												
+									echo '</tr>';//***************************************************************************************************************************
 
 									echo '<tr>';
 										for ($i=1; $i <=$cant_v ; $i++) { 
@@ -175,11 +188,24 @@
 							// 				array("name" => $variable_3 	,"data" => $datas[2]),);
 							// if ($NEP > 0) { array_push( $series, array("name" => 'No especificado'	,"data" => $datas[($cant_v-2)]) ); }//agrega NEP al arreglo para los graficos
 							// array_push($series, array("name" => 'TOTAL'	,"data" => $totales_porc));var_dump($datas_tot[0]);
-
+							//***************************************************************************************************************************
 							$series = array(
 											array("name" => $variable_1 	,"data" => $datas_tot[0]),
 											array("name" => $variable_2 	,"data" => $datas_tot[1]),
-											array("name" => $variable_3 	,"data" => $datas_tot[2]),);
+											array("name" => $variable_3 	,"data" => $datas_tot[2]),
+											array("name" => $variable_4 	,"data" => $datas_tot[3]),
+											array("name" => $variable_5 	,"data" => $datas_tot[4]),
+											array("name" => $variable_6 	,"data" => $datas_tot[5]),
+											array("name" => $variable_7 	,"data" => $datas_tot[6]),
+											array("name" => $variable_8 	,"data" => $datas_tot[7]),
+											array("name" => $variable_9		,"data" => $datas_tot[8]),
+											array("name" => $variable_10	,"data" => $datas_tot[9]),
+											array("name" => $variable_11 	,"data" => $datas_tot[10]),
+											array("name" => $variable_12 	,"data" => $datas_tot[11]),
+											array("name" => $variable_13 	,"data" => $datas_tot[12]),
+											array("name" => $variable_14 	,"data" => $datas_tot[13]),
+											);
+							//***************************************************************************************************************************
 							if ($NEP > 0) { array_push( $series, array("name" => 'No especificado'	,"data" => $datas_tot[($cant_v-2)]) ); }//agrega NEP al arreglo para los graficos
 							array_push($series, array("name" => 'TOTAL'	,"data" => $totales_porc));
 

@@ -2,8 +2,8 @@
 <div class="row-fluid">
 	<h3>COMENTARIO</h3><hr>
 	<table>
-		<tr><td style='width="30px";'><textarea class="span12" id="textn" name="textn" rows="2" cols="183"  ><?php //echo $texto; ?></textarea></td></tr>
-		<tr><td style='width="30px";'><textarea class="span12" id="textn_2" name="textn_2" rows="3" cols="183"  ><?php //echo $texto_2; ?></textarea></td></tr>
+		<tr><td style='width="30px";'><textarea class="span12" id="textn" name="textn" rows="2" cols="183"  ><?php echo $texto; ?></textarea></td></tr>
+		<tr><td style='width="30px";'><textarea class="span12" id="textn_2" name="textn_2" rows="3" cols="183"  ><?php echo $texto_2; ?></textarea></td></tr>
 	</table>
 	
 </div>
@@ -55,13 +55,9 @@ $(function(){
       	?>
 
 		var direccion ;
-		<?php if ($opcion<100) {
-			echo 'direccion = "tabulados/pescador/texto" ;';
-		} else if ($opcion<198){
-			echo 'direccion = "tabulados/acuicultor/texto" ;';
-		}else if ($opcion<253){
-			echo 'direccion = "tabulados/comunidad/texto" ;';
-		}; ?>
+		<?php 
+			echo 'direccion = "/tabulados/capitulo'.$capitulo.'/texto" ;';
+		?>
 		$('#btab').click(function() {
 
 				    var t_data = {
@@ -77,7 +73,8 @@ $(function(){
 			        bsub3.attr("disabled", "disabled");
 
 			        $.ajax({
-			            url: CI.base_url + direccion ,
+			            url: CI.site_url + direccion ,
+			            //url: CI.base_url + direccion ,
 			            type:'POST',
 			            data:t_data,
 			            success:function(){

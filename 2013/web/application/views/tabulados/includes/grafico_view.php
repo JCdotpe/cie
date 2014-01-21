@@ -86,6 +86,7 @@
 		var valor_nac 		= []; // arreglo de valores nacionales
 		var valor_nac_sorter 		= []; // arreglo de valores nacionales
 		var valor_nac_abs 	= new Array(); // arreglo de valores nacionales
+		var data_pie_valor_nac = new Array();
 		var valor_nac_abs_sorter 	= new Array(); // arreglo de valores nacionales
 		var valor_dep  = new Array();			
 		var valor_dep_sorter  = new Array();			
@@ -134,32 +135,26 @@
 					}else{
 						echo 'valor_nac_abs_sorter['.$cc.']  =  ($("#tabul tbody tr:first-child td:nth-child('.(5+($key-2)*2).')").html()).replace(" ","");';
 						echo 'valor_nac_sorter['. $cc .'] = '. $value . ';';
-						echo 'name_var_sorter['. $cc .'] = name_var['. ($key-2) . '];';$cc++;
+						echo 'name_var_sorter['. $cc .'] = name_var['. ($key-2) . '];';
+						echo 'data_pie_valor_nac['.$cc.'] = [name_var_sorter['. $cc .'],valor_nac_sorter['. $cc .']];';$cc++;
 					}
 				}
 				array_pop($series);// QUITANDO LOS TOTALES
 
 				// GUARDANDO ABSOLUTO Y PORCENTUAL NACIONALES  ----------------------------------------------------
-				if($opcion >1){
-				$a = 3; 
-				$p = 4;}
-				else{// totales especiales solo TAB N°1
+
 				$a = 1; 
-				$p = 2;}
-				
+				$p = 4;
 				for ($i=0; $i < count($series); $i++) {
 					$a = 1 + $a; 
-					$p = 1 + $p;
+					$p+=2;
 					echo 'valor_nac_abs['.$i.']  =  ($("#tabul tbody tr:first-child td:nth-child('.$a.')").html()).replace(" ","");';
 					echo 'valor_nac['.$i.']  = parseFloat((($("#tabul tbody tr:first-child td:nth-child('.$p.')").html()).replace(",",".") ).replace(" ",""));';
 					$a++;
-					$p++;
 				}
 
 				// GUARDANDO ABSOLUTO DE LOS DEPARTAMENTALES -----------------------------------------------------
-				if($opcion >1){ $td = 5; }// totales especiales solo TAB N°1
-				else{ $d = 1; ;}	
-
+		 		$td = 5; // totales especiales solo TAB N°1
 				for ($k = 0; $k < count($series); $k++) {
 					echo 'var hpd_1 = new Array();';
 					$tr = 7;
@@ -201,7 +196,7 @@
 			    	} 
 			    };	
 			};	
-			console.log(valor_nac_abs_sorter);
+			console.log(data_pie_valor_nac);
 			//$(document).ready(function() {
 			//******************************************************************************************************************************************************************************************
 			//******************************************************************************************************************************************************************************************		
@@ -402,7 +397,9 @@
 		                    marginTop:130,
 		                    marginLeft:200,
 		                    marginBottom:120,
-		                    plotShadow: true,	                    
+					        plotBackgroundColor: null,
+			                plotBorderWidth: null,
+			                plotShadow: false
 		                },
 		                title: {
 		                   	text: 'GRÁFICO N° '+ "<?php echo sprintf('%02d',$opcion); ?>" + '', 
@@ -452,6 +449,8 @@
 					    	}	                    
 						},
 		                yAxis: {
+		                    tickLength: 1,
+		                    tickWidth: 2,		                	
 		                    min: 0,
 		                    //max:100,
 		                    //lineWidth:2,
@@ -468,6 +467,7 @@
 			                    style: {
 									fontSize: '16px',
 								},	
+								y:30,	
 		                    },
 		                },
 		                plotOptions: {
@@ -483,11 +483,11 @@
 					        	grouping: false,
 					        	cursor: 'pointer',
 					        	allowPointSelect: true,
-					            //size:600,
+					            //size:500,
 					            dataLabels: {
 					                //verticalAlign:'top',
 					            },
-					            //showInLegend: true,
+					            showInLegend: true,
 					        },	                	
 				            series: {
 				                groupPadding: 0,
@@ -532,7 +532,10 @@
 				       //      downloadPDF: 'Descargar imagen como PDF',
 				       //      downloadSVG: 'Descargar imagen como SVG'
 				      	// }, 		                
-		                series: [{type:'pie',showInLegend: true,data:valor_nac_sorter}],
+		                series: [{
+			                name: 'CIE',
+			                data:data_pie_valor_nac 
+			            	}],
 		                credits: {
 		                    text: 'Fuente: Instituto Nacional de Estadística e Informática - Primer Censo Nacional de Pesca Continental 2013.',
 						    style: {
@@ -631,6 +634,7 @@
 				    // TTipo de grafico NAC / DEP	
 	    			
 				    $('#cbo_nac_dep').change(function() {
+				    	chart.redraw();					    	
 				    	chart_nac.redraw();					    	
 				    	if($(this).val() == 0 ){
 				    		$("#chart_div").hide('slow');
@@ -652,12 +656,11 @@
 				    		$("#btn_plot-line").show('slow');
 				    		$("#data-max-value").show('slow');
 				    		$("#data-min-value").show('slow');
-				    		$("#cbo_type_graph").trigger('change');				    		
 				    	}
 				    	num_color = 0; $('#btn_data-color').trigger('click');
 				    });			
 
-					$("ul li").click(function(e) {
+					$("ul li").click(function(e) {// Cambio de variable, grafico nacional
 						if( $(this).parent().attr('id') == "combo-graf"){
 							if( $(this).val() < 99 ){
 								var var_num = $(this).val();
@@ -750,7 +753,6 @@
 						                connectorWidth: 2,
 						                verticalAlign:'top',
 						                backgroundColor: 'none',
-						                //y:20,
 						                distance: 60, // distancias del label
 					                    formatter: function() {
 					                    	var x=0;
@@ -836,7 +838,7 @@
 				    	}else{
 							chart.exportChart({
 								type: "image/png",
-								filename: 'CENPESCO_' + num_tabulado + '-' + $("hd_variable").val(),
+								filename: 'CENPESCO_' + num_tabulado + '-' + ($("#hd_variable").val()+1),
 							});
 						}
 				    });
@@ -849,9 +851,9 @@
 				            chart.yAxis[0].addPlotLine({
 					            value: valor_plot,
 					            color: 'red',
-					            width: 2,
+					            width: 1,
 					            label: {
-					                text: 'Perú: ' + (valor_plot).toString().replace('.',',') +'%',						                
+					                text: 'Perú: ' + Highcharts.numberFormat(valor_plot,1,',',' ') +'%',						                
 					                style: {
 					                    color: 'red',
 					                    fontSize:'20px',
@@ -859,8 +861,8 @@
 					                },
 					                align: 'right',					                
 					            },
-					             zIndex: 5,
-					             dashStyle: 'longdashdot',
+					            zIndex: 5,
+					            dashStyle: 'longdashdot',
 					             //id: 'plot-line-1'
 				            });
 				            $(this).html('Quitar nacional');

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Capitulo7 extends CI_Controller {
+class Capitulo2 extends CI_Controller {
 
 	function __construct()
 	{
@@ -40,7 +40,8 @@ class Capitulo7 extends CI_Controller {
 		}
 		//dando restricciones para los comentarios 
 	    $u_id = $this->tank_auth->get_user_id();
-	    $this->restriccion = ( ($u_id == 259) || ($u_id == 266) || ($u_id == 269) || ($u_id == 262) || ($u_id == 267) || ($u_id == 258) || ($u_id == 260) ) ? FALSE : TRUE ;
+	    $this->restriccion = ( ($u_id == 1) || ($u_id == 266) || ($u_id == 269) || ($u_id == 262) || ($u_id == 267) || ($u_id == 258) || ($u_id == 260) ) ? FALSE : TRUE ;
+	    $this->capitulo = 2;
 
 
 	}
@@ -50,19 +51,20 @@ class Capitulo7 extends CI_Controller {
 		$texto_2 = $this->input->post('texto_2');
 		$preg = $this->input->post('preg');
 		$is_ajax = $this->input->post('ajax');
-		if ($is_ajax) {
-			if( !is_null($this->tabulados_model->get_texto(1,$preg)->row()->texto) ){
+		if ($is_ajax) { 
+			if( $this->tabulados_model->get_texto($this->capitulo,$preg)->num_rows() > 0 ){
 					$c_data['user_id'] = $this->tank_auth->get_user_id();
 					$c_data['texto'] = $texto;
 					$c_data['texto_2'] = $texto_2;
-				$this->tabulados_model->update_texto(1,$preg,$c_data);	
+				echo 'modificados :'. $this->tabulados_model->update_texto($this->capitulo,$preg,$c_data);	
+
 			}else{
 					$c_data['user_id'] = $this->tank_auth->get_user_id();
-					$c_data['pregunta'] = $preg;
-					$c_data['tipo'] = 1;
+					$c_data['no_pregunta'] = $preg;
+					$c_data['no_capitulo'] = $this->capitulo;
 					$c_data['texto'] = $texto;				
 					$c_data['texto_2'] = $texto_2;				
-				$this->tabulados_model->insert_texto($c_data);	
+				echo 'insertados :'. $this->tabulados_model->insert_texto($c_data);	
 			}
 		}else{
 			show_404();;
@@ -83,7 +85,7 @@ class Capitulo7 extends CI_Controller {
 		$preg 				= $this->input->post('preg');
 		$is_ajax = $this->input->post('ajax');
 		if ($is_ajax) {//modifica
-			if( $this->tabulados_model->get_metadata(1,$preg)->num_rows() == 1 ){
+			if( $this->tabulados_model->get_metadata($this->capitulo,$preg)->num_rows() == 1 ){
 					$c_data['tabulado'] 	= ($txt_tabulado == '') ? NULL : $txt_tabulado;
 					$c_data['contenido'] 	= ($txt_contenido == '') ? NULL : $txt_contenido;
 					$c_data['casos'] 		= ($txt_casos == '') ? NULL : $txt_casos;
@@ -95,10 +97,10 @@ class Capitulo7 extends CI_Controller {
 					$c_data['definiciones'] = ($txt_definiciones == '') ? NULL : $txt_definiciones;
 					$c_data['last_modified']= date('Y-m-d H:i:s');
 					$c_data['last_user_id'] = $this->tank_auth->get_user_id();					
-				$this->tabulados_model->update_metadata(1,$preg,$c_data);	
+				echo 'modificados :'. $this->tabulados_model->update_metadata($this->capitulo,$preg,$c_data);	
 			}else{//inserta nuevo
-					$c_data['tipo'] 		= 1;
-					$c_data['pregunta'] 	= $preg;
+					$c_data['no_capitulo'] 	= $this->capitulo;
+					$c_data['no_pregunta'] 	= $preg;
 					$c_data['tabulado'] 	= ($txt_tabulado == '') ? NULL : $txt_tabulado;
 					$c_data['contenido'] 	= ($txt_contenido == '') ? NULL : $txt_contenido;
 					$c_data['casos'] 		= ($txt_casos == '') ? NULL : $txt_casos;
@@ -109,7 +111,7 @@ class Capitulo7 extends CI_Controller {
 					$c_data['productor'] 	= ($txt_productor == '') ? NULL : $txt_productor;
 					$c_data['definiciones'] = ($txt_definiciones == '') ? NULL : $txt_definiciones;
 					$c_data['user_id'] 		= $this->tank_auth->get_user_id();
-				$this->tabulados_model->insert_metadata($c_data);	
+				echo 'insertados :'. $this->tabulados_model->insert_metadata($c_data);	
 			}
 		}else{
 			show_404();;
@@ -118,39 +120,8 @@ class Capitulo7 extends CI_Controller {
 
 
 
-	public function reporte29()
-	{
-			$data['restriccion'] = $this->restriccion ;
-			//$data['nav'] = TRUE;
-			$data['title'] = 'TAB | Capitulo 7 | 29';	
-			$data['nom_tabulados'] = $this->tabulados_model->get_nombre_tabulados();
-			$data['opcion'] = 29;		
-			$data['tables'] = $this->tabulados_model->get_report29();
-			$data['c_title'] = ($this->tabulados_model->get_nombre_cuadro($data['opcion'])->num_rows()==1) ? $this->tabulados_model->get_nombre_cuadro($data['opcion'])->row('no_cuadro') : 'No existe titulo';
-			//$data['c_title'] =  $this->tabulados_model->get_nombre_cuadro($data['opcion'])->num_rows();
-			// *** PARA COMENTARIOS ***
-			// $texto = ($this->tabulados_model->get_texto(1,$data['opcion'])->num_rows() > 0)  ?  $texto = $this->tabulados_model->get_texto(1,$data['opcion'])->row()->texto  :  '';
-			// $data['texto'] =  $texto; 
-			// $texto_2 = ($this->tabulados_model->get_texto(1,$data['opcion'])->num_rows() > 0)  ?  $texto_2 = $this->tabulados_model->get_texto(1,$data['opcion'])->row()->texto_2  :  '';
-			// $data['texto_2'] =  $texto_2; 
-			$data['nombres_mapa'] = $this->tabulados_model->get_nombre_mapa($data['opcion']); // nombre de los tabulados
 
-			// *** PARA METADATO ****
-			// $metadata = $this->tabulados_model->get_metadata(1,$data['opcion']); 
-			// $data['txt_tabulado'] 	= ( $metadata->num_rows()==1 )  ?  $metadata->row()->tabulado  :  ''; 
-			// $data['txt_contenido'] 	= ( $metadata->num_rows()==1 )  ?  $metadata->row()->contenido  :  ''; 
-			// $data['txt_casos'] 		= ( $metadata->num_rows()==1 )  ?  $metadata->row()->casos  :  ''; 
-			// $data['txt_variables'] 	= ( $metadata->num_rows()==1 )  ?  $metadata->row()->variable  :  ''; 
-			// $data['txt_alternativas'] = ( $metadata->num_rows()==1 )  ?  $metadata->row()->alternativas  :  ''; 
-			// $data['txt_otro'] 		= ( $metadata->num_rows()==1 )  ?  $metadata->row()->otro  :  ''; 
-			// $data['txt_faltantes'] 	= ( $metadata->num_rows()==1 )  ?  $metadata->row()->faltantes  :  ''; 
-			// $data['txt_productor'] 	= ( $metadata->num_rows()==1 )  ?  $metadata->row()->productor :  ''; 
-			// $data['txt_definiciones'] = ( $metadata->num_rows()==1 )  ?  $metadata->row()->definiciones  :  '';	
 
-			$data['main_content'] = 'tabulados/capitulo7/reporte29_view';
-
-			$this->load->view('backend/includes/template', $data);		
-	}
 
 
 }
