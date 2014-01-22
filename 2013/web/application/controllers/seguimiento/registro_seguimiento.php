@@ -330,7 +330,7 @@ class Registro_Seguimiento extends CI_Controller {
 			//$nro_fila++;
 			$fecha_hora = trim($fila->Fecha_Registro).' '.trim($fila->Hora_Registro);
 			$respuesta->rows[$i]['id'] = $fila->nro_visita;
-			$respuesta->rows[$i]['cell'] = array($fila->nro_visita,$fila->codlocal,$fila->NEstado, $fila->fecha_visita,$fecha_hora);
+			$respuesta->rows[$i]['cell'] = array($fila->nro_visita,$fila->codlocal,utf8_encode($fila->NEstado), $fila->fecha_visita,$fecha_hora);
 			$i++;
 		}
 
