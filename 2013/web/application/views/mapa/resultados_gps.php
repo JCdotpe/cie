@@ -468,11 +468,11 @@
 
 		function OpinionTecnica(departamento,provincia,distrito,tipoarea,opinion){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/opinion_tecnica', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/opinion_tecnica', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(json_data, textStatus) {
 
 				clean_map();
 
-				$.each(data, function(i, datos){
+				$.each(json_data, function(i, datos){
 
 					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
@@ -503,11 +503,11 @@
 
 		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/defensa_civil', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,df:defecivil}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/defensa_civil', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,df:defecivil}, function(json_data, textStatus) {
 
 				clean_map();
 
-				$.each(data, function(i, datos){
+				$.each(json_data, function(i, datos){
 
 					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
@@ -537,11 +537,11 @@
 
 		function AltoRiesgo(departamento,provincia,distrito,tipoarea,altriesg){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/alto_riesgo', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,ar:altriesg}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/alto_riesgo', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,ar:altriesg}, function(json_data, textStatus) {
 
 				clean_map();
 
-				$.each(data, function(i, datos){
+				$.each(json_data, function(i, datos){
 
 					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
@@ -572,11 +572,11 @@
 
 		function PatrimonioCultural(departamento,provincia,distrito,tipoarea,patricult){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/patrimonio_cultural', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,pc:patricult}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/patrimonio_cultural', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,pc:patricult}, function(json_data, textStatus) {
 
 				clean_map();
 
-				$.each(data, function(i, datos){
+				$.each(json_data, function(i, datos){
 
 					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
@@ -606,11 +606,11 @@
 
 		function ObrasEjecucion(departamento,provincia,distrito,tipoarea,obejec){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/obras_ejecucion', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,oj:obejec}, function(data, textStatus) {
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/obras_ejecucion', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,oj:obejec}, function(json_data, textStatus) {
 
 				clean_map();
 
-				$.each(data, function(i, datos){
+				$.each(json_data, function(i, datos){
 
 					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
