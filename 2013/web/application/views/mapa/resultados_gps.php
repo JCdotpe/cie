@@ -21,10 +21,13 @@
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script type="text/javascript" src="<?php echo base_url('js/map/markerwithlabel.js'); ?>"></script>
+	<!-- <script type="text/javascript" src="<?php #echo base_url('js/map/markerclusterer.js'); ?>"></script>-->
 	<script type="text/javascript" src="<?php echo base_url('js/general/basic.js'); ?>"></script>
 
 	<script type="text/javascript">
 		var kmlArray = [];
+		// var markerCluster = null;
+		// var markers = [];
 
 		var gmarkers = [];
 		var map = null;
@@ -87,7 +90,8 @@
 
 			gmarkers.push(marker);
 
-			google.maps.event.addListener(marker, 'click', function() {
+
+			google.maps.event.addDomListener(marker, 'click', function() {
 				infowindow.setContent(contentString);
 				infowindow.open(map,marker);
 			});
@@ -134,7 +138,6 @@
 			google.maps.event.addListener(map, 'click', function() {
 				infowindow.close();
 			});
-
 			          
 			<?php $urlKml = 'http://webinei.inei.gob.pe/cie/2013/web/'; ?>
 			var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'; ?>';
@@ -367,8 +370,8 @@
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/dpto', {}, function(data, textStatus) {
 
-				var html='<option value="0">SELECCIONE...</option>';
-				html+='<option class="cmbsede" value="0">TODOS</option>';
+				var html='<option value="-1">SELECCIONE...</option>';
+				// html+='<option class="cmbsede" value="0">TODOS</option>';
 
 				$.each(data, function(i, datos) {
 					html+='<option class="cmbsede" value="'+datos.CCDD+'">'+datos.Nombre+'</option>';
@@ -497,7 +500,15 @@
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 1);
+					// var marker = new google.maps.Marker({
+						// position: point
+					// });
+					// markers.push(marker);
 				});
+				// markerCluster = new MarkerClusterer(map, markers);
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -641,12 +652,21 @@
 
 
 		function clean_map () {
-			for (var i=0; i<gmarkers.length; i++) {
-				if (gmarkers[i].mycategory == 'punto') {
-					gmarkers[i].setVisible(false);
+			if (gmarkers.length > 0)
+			{
+				for (var i=0; i<gmarkers.length; i++) {
+				// for (var i=0; i<markers.length; i++) {
+					if (gmarkers[i].mycategory == 'punto') {
+						// gmarkers[i].setVisible(false);
+						gmarkers[i].setMap(null);
+					}
 				}
+
+				gmarkers = [];
+
+				infowindow.close();
 			}
-			infowindow.close();
+			
 		}
 
 		var contenido = "";
@@ -703,7 +723,7 @@
 	</div>
 
 	<div class="filtro_map preguntas_sub2 span2">
-		<div class="row-fluid control-group span9">
+		<div class="row-fluid span9">
 			<label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
 			<div class="controls span">
 				<select id="NOM_DPTO" class="span12" name="NOM_DPTO">
