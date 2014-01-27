@@ -70,6 +70,30 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_Servicios( $dpto, $prov, $dist, $tiparea, $ee, $ag, $alc)
+    {
+        $q = $this->db->query('PA_Resultado_Servicios ?,?,?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ee,$ag,$alc));
+        return $q;
+    }
+
+    function Get_Servicios_Lima( $dpto, $tiparea, $ee, $ag, $alc)
+    {
+        $q = $this->db->query('PA_Resultado_Servicios_LIMA ?,?,?,?,?', array($dpto,$tiparea,$ee,$ag,$alc));
+        return $q;
+    }
+
+    function Get_Comunicacion( $dpto, $prov, $dist, $tiparea, $tf, $tm, $inter)
+    {
+        $q = $this->db->query('PA_Resultado_Comunicacion ?,?,?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$tf,$tm,$inter));
+        return $q;
+    }
+
+    function Get_Comunicacion_Lima( $dpto, $tiparea, $tf, $tm, $inter)
+    {
+        $q = $this->db->query('PA_Resultado_Comunicacion_LIMA ?,?,?,?,?', array($dpto,$tiparea,$tf,$tm,$inter));
+        return $q;
+    }
+
 }
 
 ?>

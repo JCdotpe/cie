@@ -57,7 +57,7 @@
 						color=urlRoot('web/')+'img/infra/ot3.png';
 						break;
 				}
-			}else if (tiporesul > 1 && tiporesul <= 5){
+			}else if (tiporesul > 1 && tiporesul <= 7){
 				switch (icon)
 				{
 					case '1':
@@ -316,6 +316,18 @@
 						html_leyenda = '<p>LEYENDA: </p>';
 						html_subtitulo = '<p class="pull-right">OBRAS EN EJECUCION</p>';
 						break;
+					case '6':
+						$('#serv').show();
+						$('#serv input[type=checkbox]').removeAttr('checked');
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">SERVICIOS</p>';
+						break;
+					case '7':
+						$('#comuni').show();
+						$('#comuni input[type=checkbox]').removeAttr('checked');
+						html_leyenda = '<p>LEYENDA: </p>';
+						html_subtitulo = '<p class="pull-right">COMUNICACION</p>';
+						break;
 				}
 
 				$('#geo_leyenda').html(html_leyenda);
@@ -350,6 +362,8 @@
 			$('#altriesg').hide();
 			$('#patcult').hide();
 			$('#obejec').hide();
+			$('#serv').hide();
+			$('#comuni').hide();
 		}
 
 		function kml_dpto(code){
@@ -650,6 +664,83 @@
 		}
 
 
+		function Servicios(){
+
+			var ee = ($('#energia').is(':checked')) ? 1 : 0;
+			var ag = ($('#agua').is(':checked')) ? 1 : 0;
+			var alc = ($('#alcantarillado').is(':checked')) ? 1 : 0;
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/servicios', {dpto:$('#NOM_DPTO').val(),prov:$('#NOM_PROV').val(),dist:$('#NOM_DIST').val(),area:$('#NOM_AREA').val(),ee:ee,ag:ag,alc:alc}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>SERVICIOS</h3>"+
+						"<p><b>Energía Eléctrica:</b> "+(datos.EE == 1 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Agua Potable:</b> "+(datos.AP == 1 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Alcantarillado:</b> "+(datos.ALC == 1 ? 'Si' : 'No')+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', '1', 6);
+				});
+			});
+		}
+
+		function Comunicacion(){
+
+			var tf = ($('#tfija').is(':checked')) ? 1 : 0;
+			var tm = ($('#tmovil').is(':checked')) ? 1 : 0;
+			var inter = ($('#inter').is(':checked')) ? 1 : 0;
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/comunicacion', {dpto:$('#NOM_DPTO').val(),prov:$('#NOM_PROV').val(),dist:$('#NOM_DIST').val(),area:$('#NOM_AREA').val(),tf:tf,tm:tm,inter:inter}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>COMUNICACION</h3>"+
+						"<p><b>Telefonía Fija:</b> "+(datos.TF == 1 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Telefonía Móvil:</b> "+(datos.TM == 1 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Internet:</b> "+(datos.INTER == 1 ? 'Si' : 'No')+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', '1', 7);
+				});
+			});
+		}
+
+
 
 		function clean_map () {
 			if (gmarkers.length > 0)
@@ -723,7 +814,7 @@
 	</div>
 
 	<div class="filtro_map preguntas_sub2 span2">
-		<div class="row-fluid span9">
+		<div class="row-fluid control-group span9">
 			<label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
 			<div class="controls span">
 				<select id="NOM_DPTO" class="span12" name="NOM_DPTO">
@@ -772,6 +863,8 @@
 					<option value="3">ALTO RIESGO</option>
 					<option value="4">PATRIMONIO CULTURAL</option>
 					<option value="5">OBRAS EN EJECUCION</option>
+					<option value="6">SERVICIOS</option>
+					<option value="7">COMUNICACION</option>
 				</select>
 			</div>
 		</div>
@@ -834,6 +927,34 @@
 					<option value="1">SI</option>
 					<option value="2">NO</option>
 				</select>
+			</div>
+		</div>
+
+		<div id="serv" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="SERV">SERVICIOS</label>
+			<div class="controls">
+				<div>
+					<input type="checkbox" name="energia" id="energia"> Energía Eléctrica <br>
+					<input type="checkbox" name="agua" id="agua"> Agua Potable <br>
+					<input type="checkbox" name="alcantarillado" id="alcantarillado"> Alcantarillado <br>
+				</div><br>
+				<div>
+					<input type="submit" name="btn_serv" id="btn_serv" value="Consultar" class="btn btn-primary" onclick="Servicios();">
+				</div>
+			</div>
+		</div>
+
+		<div id="comuni" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="COMUNI">COMUNICACIÓN</label>
+			<div class="controls">
+				<div>
+					<input type="checkbox" name="tfija" id="tfija"> Telefonía Fija <br>
+					<input type="checkbox" name="tmovil" id="tmovil"> Telefonía Móvil <br>
+					<input type="checkbox" name="inter" id="inter"> Internet <br>
+				</div><br>
+				<div>
+					<input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="Comunicacion();">
+				</div>
 			</div>
 		</div>
 

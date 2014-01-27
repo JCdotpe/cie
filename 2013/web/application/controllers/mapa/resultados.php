@@ -134,4 +134,43 @@ class Resultados extends CI_Controller {
 		$this->load->view('backend/json/json_view', $data);
 	}
 
+
+	public function servicios()
+	{
+		$dpto = $this->input->get('dpto');
+		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
+		$ee = $this->input->get('ee');
+		$ag = $this->input->get('ag');
+		$alc = $this->input->get('alc');
+
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data['datos'] = $this->resultados_model->Get_Servicios_Lima( $dpto, $tiparea, $ee, $ag, $alc )->result();
+		}else{
+			$data['datos'] = $this->resultados_model->Get_Servicios( $dpto, $prov, $dist, $tiparea, $ee, $ag, $alc )->result();
+		}
+
+		$this->load->view('backend/json/json_view', $data);
+	}
+
+	public function comunicacion()
+	{
+		$dpto = $this->input->get('dpto');
+		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
+		$tf = $this->input->get('tf');
+		$tm = $this->input->get('tm');
+		$inter = $this->input->get('inter');
+
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data['datos'] = $this->resultados_model->Get_Comunicacion_Lima( $dpto, $tiparea, $tf, $tm, $inter )->result();
+		}else{
+			$data['datos'] = $this->resultados_model->Get_Comunicacion( $dpto, $prov, $dist, $tiparea, $tf, $tm, $inter )->result();
+		}
+
+		$this->load->view('backend/json/json_view', $data);
+	}
+
 }
