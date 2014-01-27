@@ -791,20 +791,20 @@ class Csvexport extends CI_Controller {
 
 			$sheet->setCellValue('D'. $celda_s ,'=SUM(D'.$inicio_s.':D'.$fin_s.')');
 			$sheet->setCellValue('E'. $celda_s ,'=SUM(E'.$inicio_s.':E'.$fin_s.')');
-			$sheet->setCellValue('F'. $celda_s ,'=(E'.$celda_s.'/D'.$celda_s.')*100');
+			$sheet->setCellValue('F'. $celda_s ,'=ROUND((E'.$celda_s.'/D'.$celda_s.')*100,1)');
 
 			$sheet->setCellValue('G'. $celda_s ,'=SUM(G'.$inicio_s.':G'.$fin_s.')');
 			$sheet->setCellValue('H'. $celda_s ,'=SUM(H'.$inicio_s.':H'.$fin_s.')');
-			$sheet->setCellValue('I'. $celda_s ,'=(H'.$celda_s.'/D'.$celda_s.')*100');
+			$sheet->setCellValue('I'. $celda_s ,'=ROUND((H'.$celda_s.'/G'.$celda_s.')*100,1)');
 
 			$sheet->setCellValue('J'. $celda_s ,'=SUM(J'.$inicio_s.':J'.$fin_s.')');
 			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
 			$sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
-			$sheet->setCellValue('M'. $celda_s ,'=(L'.$celda_s.'/D'.$celda_s.')*100');
+			$sheet->setCellValue('M'. $celda_s ,'=ROUND((L'.$celda_s.'/K'.$celda_s.')*100,1)');
 			
 
 			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
-	     	$sheet->getStyle('B'.$celda_s.':M'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
+	     	$sheet->getStyle('B'.$celda_s.':C'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	
 			$sheet->getStyle('B'.$celda_s)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 			
 			
