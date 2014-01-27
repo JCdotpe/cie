@@ -57,7 +57,7 @@
 						color=urlRoot('web/')+'img/infra/ot3.png';
 						break;
 				}
-			}else if (tiporesul > 1 && tiporesul <= 7){
+			}else if (tiporesul > 1 && tiporesul <= 5){
 				switch (icon)
 				{
 					case '1':
@@ -65,6 +65,19 @@
 						break;
 					case '2':
 						color=urlRoot('web/')+'img/infra/resul_no.png';
+						break;
+				}
+			}else if (tiporesul > 5 && tiporesul <= 7){
+				switch (category)
+				{
+					case 'Op1':
+						color=urlRoot('web/')+'img/infra/resul_op1.png';
+						break;
+					case 'Op2':
+						color=urlRoot('web/')+'img/infra/resul_op2.png';
+						break;
+					case 'Op3':
+						color=urlRoot('web/')+'img/infra/resul_op3.png';
 						break;
 				}
 			}
@@ -295,37 +308,37 @@
 					case '2':
 						$('#def').show();
 						$('#DEF_CIVIL').val(0);
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">INSPERCCIONADA POR DEFENSA CIVIL</p>';
 						break;
 					case '3':
 						$('#altriesg').show();
 						$('#ALT_RIESGO').val(0);
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">INHABITABLES EN ALTO RIESGO</p>';
 						break;
 					case '4':
 						$('#patcult').show();
 						$('#PAT_CULT').val(0);
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">PATRIMONIO CULTURAL</p>';
 						break;
 					case '5':
 						$('#obejec').show();
 						$('#OBR_EJEC').val(0);
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">OBRAS EN EJECUCION</p>';
 						break;
 					case '6':
 						$('#serv').show();
 						$('#serv input[type=checkbox]').removeAttr('checked');
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Energía Eléctrica, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Agua Potable, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" />Alcantarillado</p>';
 						html_subtitulo = '<p class="pull-right">SERVICIOS</p>';
 						break;
 					case '7':
 						$('#comuni').show();
 						$('#comuni input[type=checkbox]').removeAttr('checked');
-						html_leyenda = '<p>LEYENDA: </p>';
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Telefonía Fija, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Telefonía Móvil, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" />Internet</p>';
 						html_subtitulo = '<p class="pull-right">COMUNICACION</p>';
 						break;
 				}
@@ -670,6 +683,16 @@
 			var ag = ($('#agua').is(':checked')) ? 1 : 0;
 			var alc = ($('#alcantarillado').is(':checked')) ? 1 : 0;
 
+			categ = 'punto';
+
+			if (ee == 1 && ag == 0 && alc == 0){
+				categ = 'Op1';
+			}else if (ee == 0 && ag == 1 && alc == 0){
+				categ = 'Op2';
+			}else if (ee == 0 && ag == 0 && alc == 1){
+				categ = 'Op3';
+			}
+
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/servicios', {dpto:$('#NOM_DPTO').val(),prov:$('#NOM_PROV').val(),dist:$('#NOM_DIST').val(),area:$('#NOM_AREA').val(),ee:ee,ag:ag,alc:alc}, function(json_data, textStatus) {
 
 				clean_map();
@@ -697,7 +720,7 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', '1', 6);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,categ, '0', 6);
 				});
 			});
 		}
@@ -707,6 +730,16 @@
 			var tf = ($('#tfija').is(':checked')) ? 1 : 0;
 			var tm = ($('#tmovil').is(':checked')) ? 1 : 0;
 			var inter = ($('#inter').is(':checked')) ? 1 : 0;
+
+			categ = 'punto';
+
+			if (tf == 1 && tm == 0 && inter == 0){
+				categ = 'Op1';
+			}else if (tf == 0 && tm == 1 && inter == 0){
+				categ = 'Op2';
+			}else if (tf == 0 && tm == 0 && inter == 1){
+				categ = 'Op3';
+			}
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/comunicacion', {dpto:$('#NOM_DPTO').val(),prov:$('#NOM_PROV').val(),dist:$('#NOM_DIST').val(),area:$('#NOM_AREA').val(),tf:tf,tm:tm,inter:inter}, function(json_data, textStatus) {
 
@@ -735,7 +768,7 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', '1', 7);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,categ, '0', 7);
 				});
 			});
 		}
@@ -747,7 +780,7 @@
 			{
 				for (var i=0; i<gmarkers.length; i++) {
 				// for (var i=0; i<markers.length; i++) {
-					if (gmarkers[i].mycategory == 'punto') {
+					if (gmarkers[i].mycategory == 'punto' || gmarkers[i].mycategory == 'Op1' || gmarkers[i].mycategory == 'Op2' || gmarkers[i].mycategory == 'Op3') {
 						// gmarkers[i].setVisible(false);
 						gmarkers[i].setMap(null);
 					}
