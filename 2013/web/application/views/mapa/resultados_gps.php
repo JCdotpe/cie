@@ -153,7 +153,7 @@
 			});
 			          
 			<?php $urlKml = 'http://webinei.inei.gob.pe/cie/2013/web/'; ?>
-			var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'."?nocache"; ?>';
+			var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'."?nocache|=".time(); ?>';
 			// var kmlPeru = 'http://www.uxglass.com/kml/demo.kml';
 			// http://www.uxglass.com/lenguas/departamento/
 
@@ -163,111 +163,111 @@
 			kmlArray[0].nomkml.setMap(map);
 
 			// KML MAPS LAYERS
-			var kmlAmazonas = '<?php echo $urlKml.'kml/amazonas.kml'."?nocache"; ?>';
+			var kmlAmazonas = '<?php echo $urlKml.'kml/amazonas.kml'."?nocache|=".time(); ?>';
 			kmlAmazonasLayer = new google.maps.KmlLayer ( kmlAmazonas, {preserveViewport:true});
 			kmlArray.push({cd:'01', nomkml:kmlAmazonasLayer, lat:-5.06036873877975, lng:-78.056629714081, zm:8});
 
-			var kmlAncash = '<?php echo $urlKml.'kml/ancash.kml'."?nocache"; ?>';
+			var kmlAncash = '<?php echo $urlKml.'kml/ancash.kml'."?nocache|=".time(); ?>';
 			kmlAncashLayer = new google.maps.KmlLayer ( kmlAncash, {preserveViewport:true});       
 			kmlArray.push({cd:'02', nomkml:kmlAncashLayer, lat:-9.40575405924352, lng:-77.6734802079553, zm:9});
 
-			var kmlApurimac = '<?php echo $urlKml.'kml/apurimac.kml'."?nocache"; ?>';
+			var kmlApurimac = '<?php echo $urlKml.'kml/apurimac.kml'."?nocache|=".time(); ?>';
 			kmlApurimacLayer = new google.maps.KmlLayer ( kmlApurimac, {preserveViewport:true});
 			kmlArray.push({cd:'03', nomkml:kmlApurimacLayer, lat:-14.030814122799, lng:-72.9736536493109, zm:9});
 
-			var kmlArequipa = '<?php echo $urlKml.'kml/arequipa.kml'."?nocache"; ?>';
+			var kmlArequipa = '<?php echo $urlKml.'kml/arequipa.kml'."?nocache|=".time(); ?>';
 			kmlArequipaLayer = new google.maps.KmlLayer ( kmlArequipa, {preserveViewport:true});
 			kmlArray.push({cd:'04', nomkml:kmlArequipaLayer, lat:-15.8418343150547, lng:-72.4808283366732, zm:8});
 
-			var kmlAyacucho = '<?php echo $urlKml.'kml/ayacucho.kml'."?nocache"; ?>';
+			var kmlAyacucho = '<?php echo $urlKml.'kml/ayacucho.kml'."?nocache|=".time(); ?>';
 			kmlAyacuchoLayer = new google.maps.KmlLayer ( kmlAyacucho, {preserveViewport:true});
 			kmlArray.push({cd:'05', nomkml:kmlAyacuchoLayer, lat:-14.0892883309093, lng:-74.075890651585, zm:8});
 
-			var kmlCajamarca = '<?php echo $urlKml.'kml/cajamarca.kml'."?nocache"; ?>';
+			var kmlCajamarca = '<?php echo $urlKml.'kml/cajamarca.kml'."?nocache|=".time(); ?>';
 			kmlCajamarcaLayer = new google.maps.KmlLayer ( kmlCajamarca, {preserveViewport:true});
 			kmlArray.push({cd:'06', nomkml:kmlCajamarcaLayer, lat:-6.43276922845617, lng:-78.7435054751844, zm:8});
 
-			var kmlCallao = '<?php echo $urlKml.'kml/callao.kml'."?nocache"; ?>';
+			var kmlCallao = '<?php echo $urlKml.'kml/callao.kml'."?nocache|=".time(); ?>';
 			kmlCallaoLayer = new google.maps.KmlLayer ( kmlCallao, {preserveViewport:true});
 			kmlArray.push({cd:'07', nomkml:kmlCallaoLayer, lat:-11.955555624777, lng:-77.1416258913623, zm:12});
 
-			var kmlCusco = '<?php echo $urlKml.'kml/cusco.kml'."?nocache"; ?>';
+			var kmlCusco = '<?php echo $urlKml.'kml/cusco.kml'."?nocache|=".time(); ?>';
 			kmlCuscoLayer = new google.maps.KmlLayer ( kmlCusco, {preserveViewport:true});
 			kmlArray.push({cd:'08', nomkml:kmlCuscoLayer, lat:-13.2000014858382, lng:-72.1637731157334, zm:9});
 
-			var kmlHuancavelica = '<?php echo $urlKml.'kml/huancavelica.kml'."?nocache"."?nocache"; ?>';
+			var kmlHuancavelica = '<?php echo $urlKml.'kml/huancavelica.kml'."?nocache|=".time(); ?>';
 			kmlHuancavelicaLayer = new google.maps.KmlLayer ( kmlHuancavelica, {preserveViewport:true});
 			kmlArray.push({cd:'09', nomkml:kmlHuancavelicaLayer, lat:-13.0287170903714, lng:-75.0036723168008, zm:9});
 
-			var kmlHuanuco = '<?php echo $urlKml.'kml/huanuco.kml'."?nocache"; ?>';
+			var kmlHuanuco = '<?php echo $urlKml.'kml/huanuco.kml'."?nocache|=".time(); ?>';
 			kmlHuanucoLayer = new google.maps.KmlLayer ( kmlHuanuco, {preserveViewport:true});
 			kmlArray.push({cd:'10', nomkml:kmlHuanucoLayer, lat:-9.41976048562642, lng:-76.0330524961483, zm:9});
 
-			var kmlIca = '<?php echo $urlKml.'kml/ica.kml'."?nocache"; ?>';
+			var kmlIca = '<?php echo $urlKml.'kml/ica.kml'."?nocache|=".time(); ?>';
 			kmlIcaLayer = new google.maps.KmlLayer ( kmlIca, {preserveViewport:true});
 			kmlArray.push({cd:'11', nomkml:kmlIcaLayer, lat:-14.2334842159937, lng:-75.5735306802363, zm:9});
 
-			var kmlJunin = '<?php echo $urlKml.'kml/junin.kml'."?nocache"; ?>';
+			var kmlJunin = '<?php echo $urlKml.'kml/junin.kml'."?nocache|=".time(); ?>';
 			kmlJuninLayer = new google.maps.KmlLayer ( kmlJunin, {preserveViewport:true});
 			kmlArray.push({cd:'12', nomkml:kmlJuninLayer, lat:-11.5436597300396, lng:-74.8749510303952, zm:8});
 
-			var kmlLibertad = '<?php echo $urlKml.'kml/libertad.kml'."?nocache"; ?>'
+			var kmlLibertad = '<?php echo $urlKml.'kml/libertad.kml'."?nocache|=".time(); ?>'
 			kmlLibertadLayer = new google.maps.KmlLayer ( kmlLibertad, {preserveViewport:true});
 			kmlArray.push({cd:'13', nomkml:kmlLibertadLayer, lat:-7.9169754349312, lng:-78.3810111865851, zm:8});
 
-			var kmlLambayeque = '<?php echo $urlKml.'kml/lambayeque.kml'."?nocache"; ?>'
+			var kmlLambayeque = '<?php echo $urlKml.'kml/lambayeque.kml'."?nocache|=".time(); ?>'
 			kmlLambayequeLayer = new google.maps.KmlLayer ( kmlLambayeque, {preserveViewport:true});
 			kmlArray.push({cd:'14', nomkml:kmlLambayequeLayer, lat:-6.36380361377563, lng:-79.8249923276084, zm:8});
 
-			var kmlLima = '<?php echo $urlKml.'kml/lima.kml'."?nocache"; ?>';
+			var kmlLima = '<?php echo $urlKml.'kml/lima.kml'."?nocache|=".time(); ?>';
 			kmlLimaLayer = new google.maps.KmlLayer ( kmlLima, {preserveViewport:true});
 			kmlArray.push({cd:'15', nomkml:kmlLimaLayer, lat:-11.7866731456649, lng:-76.6324097107669, zm:8});
 
-			var kmlLoreto = '<?php echo $urlKml.'kml/loreto.kml'."?nocache"; ?>';
+			var kmlLoreto = '<?php echo $urlKml.'kml/loreto.kml'."?nocache|=".time(); ?>';
 			kmlLoretoLayer = new google.maps.KmlLayer ( kmlLoreto, {preserveViewport:true});
 			kmlArray.push({cd:'16', nomkml:kmlLoretoLayer, lat:-4.12302517090165, lng:-74.4265053944273, zm:7});
 
-			var kmlMadre = '<?php echo $urlKml.'kml/madre.kml'."?nocache"; ?>';
+			var kmlMadre = '<?php echo $urlKml.'kml/madre.kml'."?nocache|=".time(); ?>';
 			kmlMadreLayer = new google.maps.KmlLayer ( kmlMadre, {preserveViewport:true});
 			kmlArray.push({cd:'17', nomkml:kmlMadreLayer, lat:-11.9781015474597, lng:-70.5450541729619, zm:9});
 
-			var kmlMoquegua = '<?php echo $urlKml.'kml/moquegua.kml'."?nocache"; ?>';
+			var kmlMoquegua = '<?php echo $urlKml.'kml/moquegua.kml'."?nocache|=".time(); ?>';
 			kmlMoqueguaLayer = new google.maps.KmlLayer ( kmlMoquegua, {preserveViewport:true});
 			kmlArray.push({cd:'18', nomkml:kmlMoqueguaLayer, lat:-16.8651923223222, lng:-70.8510673506577, zm:8});
 
-			var kmlPasco = '<?php echo $urlKml.'kml/pasco.kml'."?nocache"; ?>';
+			var kmlPasco = '<?php echo $urlKml.'kml/pasco.kml'."?nocache|=".time(); ?>';
 			kmlPascoLayer = new google.maps.KmlLayer ( kmlPasco, {preserveViewport:true});
 			kmlArray.push({cd:'19', nomkml:kmlPascoLayer, lat:-10.4033365152324, lng:-75.3099258151342, zm:9});
 
-			var kmlPiura = '<?php echo $urlKml.'kml/piura.kml'."?nocache"; ?>';
+			var kmlPiura = '<?php echo $urlKml.'kml/piura.kml'."?nocache|=".time(); ?>';
 			kmlPiuraLayer = new google.maps.KmlLayer ( kmlPiura, {preserveViewport:true});
 			kmlArray.push({cd:'20', nomkml:kmlPiuraLayer, lat:-5.12938480280296, lng:-80.3297169479797, zm:8});  
 
-			var kmlPuno = '<?php echo $urlKml.'kml/puno.kml'."?nocache"; ?>';
+			var kmlPuno = '<?php echo $urlKml.'kml/puno.kml'."?nocache|=".time(); ?>';
 			kmlPunoLayer = new google.maps.KmlLayer ( kmlPuno, {preserveViewport:true});
 			kmlArray.push({cd:'21', nomkml:kmlPunoLayer, lat:-14.9320741925803, lng:-69.9489916069943, zm:8});
 
-			var kmlMartin = '<?php echo $urlKml.'kml/martin.kml'."?nocache"; ?>';
+			var kmlMartin = '<?php echo $urlKml.'kml/martin.kml'."?nocache|=".time(); ?>';
 			kmlMartinLayer = new google.maps.KmlLayer ( kmlMartin, {preserveViewport:true});
 			kmlArray.push({cd:'22', nomkml:kmlMartinLayer, lat:-7.03440262104589, lng:-76.7157680323349, zm:9});
 
-			var kmlTacna = '<?php echo $urlKml.'kml/tacna.kml'."?nocache"; ?>';
+			var kmlTacna = '<?php echo $urlKml.'kml/tacna.kml'."?nocache|=".time(); ?>';
 			kmlTacnaLayer = new google.maps.KmlLayer ( kmlTacna, {preserveViewport:true});
 			kmlArray.push({cd:'23', nomkml:kmlTacnaLayer, lat:-17.6416549925828, lng:-70.2785118500858, zm:8});
 
-			var kmlTumbes = '<?php echo $urlKml.'kml/tumbes.kml'."?nocache"; ?>';
+			var kmlTumbes = '<?php echo $urlKml.'kml/tumbes.kml'."?nocache|=".time(); ?>';
 			kmlTumbesLayer = new google.maps.KmlLayer ( kmlTumbes, {preserveViewport:true});
 			kmlArray.push({cd:'24', nomkml:kmlTumbesLayer, lat:-3.85033718439041, lng:-80.541902047432, zm:9});
 
-			var kmlUcayali = '<?php echo $urlKml.'kml/ucayali.kml'."?nocache"; ?>';
+			var kmlUcayali = '<?php echo $urlKml.'kml/ucayali.kml'."?nocache|=".time(); ?>';
 			kmlUcayaliLayer = new google.maps.KmlLayer ( kmlUcayali, {preserveViewport:true});
 			kmlArray.push({cd:'25', nomkml:kmlUcayaliLayer, lat:-9.61980385850328, lng:-73.4371206808515, zm:8});
 
-			var kmlLimaMetro = '<?php echo $urlKml.'kml/limametro.kml'."?nocache"; ?>';
+			var kmlLimaMetro = '<?php echo $urlKml.'kml/limametro.kml'."?nocache|=".time(); ?>';
 			kmlLimaMetroLayer = new google.maps.KmlLayer ( kmlLimaMetro, {preserveViewport:true});
 			kmlArray.push({cd:'1501', nomkml:kmlLimaMetroLayer, lat:-11.7866731456649, lng:-76.6324097107669, zm:8});
 
-			var kmlLimaProv = '<?php echo $urlKml.'kml/limaprov.kml'."?nocache"; ?>';
+			var kmlLimaProv = '<?php echo $urlKml.'kml/limaprov.kml'."?nocache|=".time(); ?>';
 			kmlLimaProvLayer = new google.maps.KmlLayer ( kmlLimaProv, {preserveViewport:true});
 			kmlArray.push({cd:'1502', nomkml:kmlLimaProvLayer, lat:-11.7866731456649, lng:-76.6324097107669, zm:8});
 		}
