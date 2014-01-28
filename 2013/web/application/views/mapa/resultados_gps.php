@@ -80,6 +80,31 @@
 						color=urlRoot('web/')+'img/infra/resul_op3.png';
 						break;
 				}
+			}if (tiporesul == 8){
+				switch (icon)
+				{
+					case 1:
+						color=urlRoot('web/')+'img/infra/resul_op1.png';
+						break;
+					case 2:
+						color=urlRoot('web/')+'img/infra/resul_op2.png';
+						break;
+					case 3:
+						color=urlRoot('web/')+'img/infra/resul_op3.png';
+						break;
+					case 4:
+						color=urlRoot('web/')+'img/infra/resul_op4.png';
+						break;
+					case 5:
+						color=urlRoot('web/')+'img/infra/resul_op5.png';
+						break;
+					case 6:
+						color=urlRoot('web/')+'img/infra/resul_op6.png';
+						break;
+					case 7:
+						color=urlRoot('web/')+'img/infra/resul_op7.png';
+						break;
+				}
 			}
 			
 
@@ -341,6 +366,12 @@
 						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Telefonía Fija, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Telefonía Móvil, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" />Internet</p>';
 						html_subtitulo = '<p class="pull-right">COMUNICACION</p>';
 						break;
+					case '8':
+						$('#vulne').show();
+						$('#vulne input[type=checkbox]').removeAttr('checked');
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Cercanía lecho de río, quebrada, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Cercanía a vía ferrea, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> Cercanía a barranco o precipicio, <img src="<?php echo base_url('img/infra/resul_op4.png') ; ?>" /> Cercanía a cuartel militar o policial, <img src="<?php echo base_url('img/infra/resul_op5.png') ; ?>" /> Erosión fluvial de laderas, <img src="<?php echo base_url('img/infra/resul_op6.png') ; ?>" /> Otro, <img src="<?php echo base_url('img/infra/resul_op7.png') ; ?>" /> Ninguno</p>';
+						html_subtitulo = '<p class="pull-right">VULNERABILIDAD</p>';
+						break;
 				}
 
 				$('#geo_leyenda').html(html_leyenda);
@@ -377,6 +408,7 @@
 			$('#obejec').hide();
 			$('#serv').hide();
 			$('#comuni').hide();
+			$('#vulne').hide();
 		}
 
 		function kml_dpto(code){
@@ -773,6 +805,54 @@
 			});
 		}
 
+		function Vulnerabilidad(){
+
+			var v1 = ($('#v1').is(':checked')) ? 1 : 0;
+			var v2 = ($('#v2').is(':checked')) ? 2 : 0;
+			var v3 = ($('#v3').is(':checked')) ? 3 : 0;
+			var v4 = ($('#v4').is(':checked')) ? 4 : 0;
+			var v5 = ($('#v5').is(':checked')) ? 5 : 0;
+			var v6 = ($('#v6').is(':checked')) ? 6 : 0;
+			var v7 = ($('#v7').is(':checked')) ? 7 : 0;
+
+			var vt = v1+v2+v3+v4+v5+v6+v7;
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/vulnerabilidad', {dpto:$('#NOM_DPTO').val(),prov:$('#NOM_PROV').val(),dist:$('#NOM_DIST').val(),area:$('#NOM_AREA').val(),v1:v1,v2:v2,v3:v3,v4:v4,v5:v5,v6:v6,v7:v7}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>VULNERABILIDAD</h3>"+
+						"<p><b>Cercanía lecho de río, quebrada?:</b> "+(datos.Op1 == 1 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Cercanía a vía ferrea?:</b> "+(datos.Op2 == 2 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Cercanía a barranco o precipicio?:</b> "+(datos.Op3 == 3 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Cercanía a cuartel militar o policial?:</b> "+(datos.Op4 == 4 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Erosión fluvial de laderas?:</b> "+(datos.Op5 == 5 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Otro?:</b> "+(datos.Op6 == 6 ? 'Si' : 'No')+"</p>"+
+						"<p><b>Ninguno:</b> "+(datos.Op7 == 7 ? 'Si' : 'No')+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', vt, 8);
+				});
+			});
+		}
+
 
 
 		function clean_map () {
@@ -898,6 +978,7 @@
 					<option value="5">OBRAS EN EJECUCION</option>
 					<option value="6">SERVICIOS</option>
 					<option value="7">COMUNICACION</option>
+					<option value="8">VULNERABILIDAD</option>
 				</select>
 			</div>
 		</div>
@@ -987,6 +1068,24 @@
 				</div><br>
 				<div>
 					<input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="Comunicacion();">
+				</div>
+			</div>
+		</div>
+
+		<div id="vulne" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="VULNE">VULNERABILIDAD</label>
+			<div class="controls">
+				<div>
+					<input type="checkbox" name="v1" id="v1"> Cercanía lecho de río, quebrada? <br>
+					<input type="checkbox" name="v2" id="v2"> Cercanía a vía ferrea? <br>
+					<input type="checkbox" name="v3" id="v3"> Cercanía a barranco o precipicio? <br>
+					<input type="checkbox" name="v4" id="v4"> Cercanía a cuartel militar o policial? <br>
+					<input type="checkbox" name="v5" id="v5"> Erosión fluvial de laderas? <br>
+					<input type="checkbox" name="v6" id="v6"> Otro? <br>
+					<input type="checkbox" name="v7" id="v7"> Ninguno <br>
+				</div><br>
+				<div>
+					<input type="submit" name="btn_vulne" id="btn_vulne" value="Consultar" class="btn btn-primary" onclick="Vulnerabilidad();">
 				</div>
 			</div>
 		</div>

@@ -94,6 +94,18 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_Vulnerabilidad( $dpto, $prov, $dist, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7)
+    {
+        $q = $this->db->query('PA_Resultado_Vulnerabilidad ?,?,?,?,?,?,?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$v1,$v2,$v3,$v4,$v5,$v6,$v7));
+        return $q;
+    }
+
+    function Get_Vulnerabilidad_Lima( $dpto, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7)
+    {
+        $q = $this->db->query('PA_Resultado_Vulnerabilidad_LIMA ?,?,?,?,?,?,?,?,?', array($dpto,$tiparea,$v1,$v2,$v3,$v4,$v5,$v6,$v7));
+        return $q;
+    }
+
 }
 
 ?>

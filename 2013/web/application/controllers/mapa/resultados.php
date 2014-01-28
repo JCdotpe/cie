@@ -173,4 +173,27 @@ class Resultados extends CI_Controller {
 		$this->load->view('backend/json/json_view', $data);
 	}
 
+	public function vulnerabilidad()
+	{
+		$dpto = $this->input->get('dpto');
+		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
+		$v1 = $this->input->get('v1');
+		$v2 = $this->input->get('v2');
+		$v3 = $this->input->get('v3');
+		$v4 = $this->input->get('v4');
+		$v5 = $this->input->get('v5');
+		$v6 = $this->input->get('v6');
+		$v7 = $this->input->get('v7');
+
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data['datos'] = $this->resultados_model->Get_Vulnerabilidad_Lima( $dpto, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 )->result();
+		}else{
+			$data['datos'] = $this->resultados_model->Get_Vulnerabilidad( $dpto, $prov, $dist, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 )->result();
+		}
+
+		$this->load->view('backend/json/json_view', $data);
+	}
+
 }
