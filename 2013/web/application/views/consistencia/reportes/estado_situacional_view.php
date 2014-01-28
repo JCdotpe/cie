@@ -31,45 +31,6 @@
 					<div id="table" class="span12">
 					</div>
 				<?php echo form_close(); ?>
-			<!-- <table id="lista" style="width:950px;" class="display">
-				<thead>
-					<tr>
-						<th rowspan="2">N°</th>
-						<th rowspan="2">Departamento</th>
-						<th colspan="3" class="border-total">TOTAL</th>
-						<th colspan="3" class="border-total">TABLET</th>
-						<th colspan="4" class="border-total">OTIN</th>
-					</tr>
-					<tr>
-						<th class="border_l">Meta</th>
-						<th>En BD</th>
-						<th>Avance %</th>
-						<th class="border_l">Meta</th>
-						<th>Procesado</th>
-						<th>Avance %</th>
-						<th class="border_l">Meta</th>
-						<th>UDRA</th>
-						<th>Procesado</th>
-						<th class="border_r">Avance %</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="center">val.cod_dpto</td>
-						<td class="center">val.Dpto</td>
-						<td class="center">val.Total_Meta</td>
-						<td class="center">val.Total_Cant</td>
-						<td class="center">val.Total_Porc</td>
-						<td class="center">val.Tablet_Meta</td>
-						<td class="center">val.Tablet_Cant</td>
-						<td class="center">val.Tablet_Porc</td>
-						<td class="center">val.OTIN_Meta</td>
-						<td class="center">val.OTIN_Udra</td>
-						<td class="center">val.OTIN_Cant</td>
-						<td class="center">val.OTIN_Porc</td>
-					</tr>
-				</tbody>
-			</table> -->
 		</div>
 		<div class="span12">
 			<?php echo form_button('expo','Exportar a Excel','class="btn btn-inverse pull-right" id="expo" style="margin-top:20px" onClick="exportExcel()"'); ?>
@@ -92,19 +53,19 @@ function ViewResultado()
 					'<th rowspan="2">N°</th>'+
 					'<th rowspan="2">Departamento</th>'+
 					'<th colspan="3" class="border-total">TOTAL</th>'+
-					'<th colspan="3" class="border-total">TABLET</th>'+
-					'<th colspan="4" class="border-total">OTIN</th>'+
+					'<th colspan="3" class="border-total">PERIODO 9 - 14</th>'+
+					'<th colspan="4" class="border-total">PERIODO 1 - 8</th>'+
 				'</tr>'+
 				'<tr>'+
 					'<th class="border_l">Meta</th>'+
 					'<th>En BD</th>'+
 					'<th>Avance %</th>'+
 					'<th class="border_l">Meta</th>'+
-					'<th>Procesado</th>'+
+					'<th>Procesado TABLET</th>'+
 					'<th>Avance %</th>'+
 					'<th class="border_l">Meta</th>'+
-					'<th>UDRA</th>'+
-					'<th>Procesado</th>'+
+					'<th>Procesado TABLET</th>'+
+					'<th>Procesado OTIN</th>'+
 					'<th class="border_r">Avance %</th>'+
 				'</tr>'+
 			'</thead>'+

@@ -597,11 +597,11 @@ class Csvexport extends CI_Controller {
 			$sheet->getColumnDimension('E')->setWidth(10);
 			$sheet->getColumnDimension('F')->setWidth(10);
 			$sheet->getColumnDimension('G')->setWidth(10);
-			$sheet->getColumnDimension('H')->setWidth(10);
+			$sheet->getColumnDimension('H')->setWidth(12);
 			$sheet->getColumnDimension('I')->setWidth(10);
 			$sheet->getColumnDimension('J')->setWidth(10);
-			$sheet->getColumnDimension('K')->setWidth(10);
-			$sheet->getColumnDimension('L')->setWidth(10);
+			$sheet->getColumnDimension('K')->setWidth(12);
+			$sheet->getColumnDimension('L')->setWidth(12);
 			$sheet->getColumnDimension('M')->setWidth(10);
 
 
@@ -614,7 +614,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:M3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:M5');
-			$sheet->setCellValue('D7','REPORTE DE ESTADO SITUACIONAL');
+			$sheet->setCellValue('D7','REPORTE DE ESTADO SITUACIONAL DE LA BASE DE DATOS');
 			$sheet->mergeCells('D7:M7');
 			$sheet->getStyle('D3:M7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:M7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -660,7 +660,7 @@ class Csvexport extends CI_Controller {
 		// CABECERA
 			// INICIO DE LA  cabecera
 			$cab = 11;	
-				
+
 			// NOMBRE CABECERAS
 	
 					$sheet->setCellValue('B'.$cab,'N°');
@@ -672,31 +672,31 @@ class Csvexport extends CI_Controller {
 					$sheet->setCellValue('D'.$cab,'TOTAL' );
 					$sheet->mergeCells('D'.$cab.':F'.$cab);
 						$sheet->setCellValue('D'.($cab+1),'Meta');
-						$sheet->mergeCells('D'.($cab+1).':D'.($cab+1));
+						// $sheet->mergeCells('D'.($cab+1).':D'.($cab+1));
 						$sheet->setCellValue('E'.($cab+1),'En BD');
-						$sheet->mergeCells('E'.($cab+1).':E'.($cab+1));
+						// $sheet->mergeCells('E'.($cab+1).':E'.($cab+1));
 						$sheet->setCellValue('F'.($cab+1),'Avance %');
-						$sheet->mergeCells('F'.($cab+1).':F'.($cab+1));
+						// $sheet->mergeCells('F'.($cab+1).':F'.($cab+1));
 
-					$sheet->setCellValue('G'.$cab,'TABLET');
+					$sheet->setCellValue('G'.$cab,'PERIODO 9 - 14');
 					$sheet->mergeCells('G'.$cab.':I'.$cab);
 						$sheet->setCellValue('G'.($cab+1),'Meta');
-						$sheet->mergeCells('G'.($cab+1).':G'.($cab+1));
-						$sheet->setCellValue('H'.($cab+1),'Procesado');
-						$sheet->mergeCells('H'.($cab+1).':H'.($cab+1));
+						// $sheet->mergeCells('G'.($cab+1).':G'.($cab+1));
+						$sheet->setCellValue('H'.($cab+1),'Procesado TABLET');
+						// $sheet->mergeCells('H'.($cab+1).':H'.($cab+1));
 						$sheet->setCellValue('I'.($cab+1),'Avance %');
-						$sheet->mergeCells('I'.($cab+1).':I'.($cab+1));
+						// $sheet->mergeCells('I'.($cab+1).':I'.($cab+1));
 
-					$sheet->setCellValue('J'.$cab,'OTIN');
+					$sheet->setCellValue('J'.$cab,'PERIODO 1 - 8');
 					$sheet->mergeCells('J'.$cab.':M'.$cab);
 						$sheet->setCellValue('J'.($cab+1),'Meta');
-						$sheet->mergeCells('J'.($cab+1).':J'.($cab+1));
-						$sheet->setCellValue('K'.($cab+1),'UDRA');
-						$sheet->mergeCells('K'.($cab+1).':K'.($cab+1));
-						$sheet->setCellValue('L'.($cab+1),'Procesado');
-						$sheet->mergeCells('L'.($cab+1).':L'.($cab+1));
+						// $sheet->mergeCells('J'.($cab+1).':J'.($cab+1));
+						$sheet->setCellValue('K'.($cab+1),'Procesado TABLET');
+						// $sheet->mergeCells('K'.($cab+1).':K'.($cab+1));
+						$sheet->setCellValue('L'.($cab+1),'Procesado OTIN');
+						// $sheet->mergeCells('L'.($cab+1).':L'.($cab+1));
 						$sheet->setCellValue('M'.($cab+1),'Avance %');
-						$sheet->mergeCells('M'.($cab+1).':M'.($cab+1));
+						// $sheet->mergeCells('M'.($cab+1).':M'.($cab+1));
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
@@ -704,7 +704,7 @@ class Csvexport extends CI_Controller {
 				$sheet->getStyle("B".$cab.":M".($cab+1))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);						
 				$sheet->getStyle("B".$cab.":M".($cab+1))->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);						
 				$sheet->getStyle("B".$cab.":M".($cab+1))->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
-				$sheet->getStyle("B".$cab.":M".($cab+1))->getFont()->setname('Arial')->setSize(9);
+				$sheet->getStyle("B".$cab.":M".($cab+1))->getFont()->setname('Arial')->setSize(10);
 
 
 
