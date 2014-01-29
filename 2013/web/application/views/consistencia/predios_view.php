@@ -406,7 +406,7 @@ $.validator.addMethod("valtexto", function(value, element,arg){
 	  	var ahua = 'Principal';
 	  	var act = (<?php echo $pr; ?> == data.Nro_Pred)? 'class="active"' : '';
 	  	if(data.Nro_Pred != 1){
-	  		ahua = (data.P1_B_2A_PredNoCol==0)? 'Colindante' : 'No Colindante';
+	  		ahua = (data.P1_B_2A_PredNoCol==0 || data.P1_B_2A_PredNoCol==null)? 'Colindante' : 'No Colindante';
 	  	}
 
 		$('#predios').append('<li ' + act + '><a target="_self"  href="' + CI.site_url + '/consistencia/local/' + data.id_local + '/' + data.Nro_Pred + '/' + <?php echo $user_id; ?> + '">'+ data.Nro_Pred  + ' - ' + ahua + '</a></li>')
@@ -426,7 +426,7 @@ echo form_hidden('user_id', $user_id);
 ?>
 
 
-<?php if($predio_b->row()->P1_B_2A_PredNoCol == 0 && $pr!=1){
+<?php if(($predio_b->row()->P1_B_2A_PredNoCol == 0 || is_null($predio_b->row()->P1_B_2A_PredNoCol) ) && $pr!=1){
   ?>
 
 <div class="row-fluid" id="pesc_tabs" style="margin-top:10px">
