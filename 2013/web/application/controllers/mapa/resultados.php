@@ -196,4 +196,21 @@ class Resultados extends CI_Controller {
 		$this->load->view('backend/json/json_view', $data);
 	}
 
+	public function algoritmo_edificacion()
+	{
+		$dpto = $this->input->get('dpto');
+		$prov = $this->input->get('prov');
+		$dist = $this->input->get('dist');
+		$tiparea = $this->input->get('area');
+		$ot = $this->input->get('opt');
+		
+		if ( $dpto == '1501' || $dpto == '1502' ) {
+			$data['datos'] = $this->resultados_model->Get_AlgoritmoEdificacion_Lima( $dpto, $tiparea, $ot )->result();
+		}else{
+			$data['datos'] = $this->resultados_model->Get_AlgoritmoEdificacion( $dpto, $prov, $dist, $tiparea, $ot )->result();
+		}
+
+		$this->load->view('backend/json/json_view', $data);
+	}
+
 }

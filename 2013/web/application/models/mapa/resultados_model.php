@@ -106,6 +106,18 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_AlgoritmoEdificacion( $dpto, $prov, $dist, $tiparea, $ot)
+    {
+        $q = $this->db->query('PA_Nivel_Interv_IE ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ot));
+        return $q;
+    }
+
+    function Get_AlgoritmoEdificacion_Lima( $dpto, $tiparea, $ot)
+    {
+        $q = $this->db->query('PA_Nivel_Interv_IE_LIMA ?,?,?', array($dpto,$tiparea,$ot));
+        return $q;
+    }
+
 }
 
 ?>

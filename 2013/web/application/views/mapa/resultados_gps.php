@@ -43,7 +43,7 @@
 			var color = null;
 			var myCoordsLenght = 6;
 
-			if (tiporesul == 1)
+			if (tiporesul == 1 || tiporesul == 9)
 			{
 				switch (icon)
 				{
@@ -325,10 +325,25 @@
 				switch( $(this).val() )
 				{
 					case '1':
+					case '9':
 						$('#infra').show();
 						$('#OP_TECNICA').val(0);
-						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Rehabilitación, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
-						html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
+						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
+						$('#OP_TECNICA').off("change"); 
+						if ( $(this).val() == 1)
+						{
+							$('#lbl_optecnica').text('OPINIÓN TÉCNICA INICIAL');
+							html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
+							$('#OP_TECNICA').on("change", function(event) { 
+     							OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+							});
+						}else{
+							$('#lbl_optecnica').text('ALGORITMO EDIFICACIÓN');
+							html_subtitulo = '<p class="pull-right">ALGORITMO EDIFICACIÓN</p>';
+							$('#OP_TECNICA').on("change", function(event) { 
+     							AlgoritmoEdificacion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+							});
+						}
 						break;
 					case '2':
 						$('#def').show();
@@ -379,9 +394,9 @@
 			});
 
 
-			$('#OP_TECNICA').change(function(event) {
-				OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
-			});
+			// $('#OP_TECNICA').change(function(event) {
+			// 	OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+			// });
 
 			$('#DEF_CIVIL').change(function(event) {
 				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
@@ -854,6 +869,55 @@
 		}
 
 
+		function AlgoritmoEdificacion(departamento,provincia,distrito,tipoarea,opinion){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/algoritmo_edificacion', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>EDIFICACIONES</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Total_Ed+"</p>"+
+						"<p><b>Mantenimiento:</b> "+datos.Cant_Ed_M+"</p>"+
+						"<p><b>Reforzamiento:</b> "+datos.Cant_Ed_R+"</p>"+
+						"<p><b>Demolicion:</b> "+datos.Cant_Ed_S+"</p>"+
+						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+						"</div>"+
+						"</div><div>";
+					
+						var iconito = '';
+
+						if (datos.Nivel_Int_F == 'M'){
+							iconito = '1';
+						}else if (datos.Nivel_Int_F == 'R'){
+							iconito = '2';
+						}else if (datos.Nivel_Int_F == 'S'){
+							iconito = '3';
+						}
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 9);
+				});
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+			});
+		}
+
+
 
 		function clean_map () {
 			if (gmarkers.length > 0)
@@ -979,12 +1043,13 @@
 					<option value="6">SERVICIOS</option>
 					<option value="7">COMUNICACION</option>
 					<option value="8">VULNERABILIDAD</option>
+					<option value="9">ALGORITMO EDIFICACION</option>
 				</select>
 			</div>
 		</div>
 
 		<div id="infra" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
+			<label id="lbl_optecnica" class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
 			<div class="controls">
 				<select id="OP_TECNICA" class="span12" name="OP_TECNICA">
 					<option value="0">SELECCIONE...</option>
