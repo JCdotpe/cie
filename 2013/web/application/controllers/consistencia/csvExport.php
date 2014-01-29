@@ -672,31 +672,21 @@ class Csvexport extends CI_Controller {
 					$sheet->setCellValue('D'.$cab,'TOTAL' );
 					$sheet->mergeCells('D'.$cab.':F'.$cab);
 						$sheet->setCellValue('D'.($cab+1),'Meta');
-						// $sheet->mergeCells('D'.($cab+1).':D'.($cab+1));
 						$sheet->setCellValue('E'.($cab+1),'En BD');
-						// $sheet->mergeCells('E'.($cab+1).':E'.($cab+1));
 						$sheet->setCellValue('F'.($cab+1),'Avance %');
-						// $sheet->mergeCells('F'.($cab+1).':F'.($cab+1));
 
 					$sheet->setCellValue('G'.$cab,'PERIODO 9 - 14');
 					$sheet->mergeCells('G'.$cab.':I'.$cab);
 						$sheet->setCellValue('G'.($cab+1),'Meta');
-						// $sheet->mergeCells('G'.($cab+1).':G'.($cab+1));
-						$sheet->setCellValue('H'.($cab+1),'Procesado TABLET');
-						// $sheet->mergeCells('H'.($cab+1).':H'.($cab+1));
-						$sheet->setCellValue('I'.($cab+1),'Avance %');
-						// $sheet->mergeCells('I'.($cab+1).':I'.($cab+1));
+						$sheet->setCellValue('H'.($cab+1),'Procesado TABLET');						
+						$sheet->setCellValue('I'.($cab+1),'Avance %');						
 
 					$sheet->setCellValue('J'.$cab,'PERIODO 1 - 8');
 					$sheet->mergeCells('J'.$cab.':M'.$cab);
 						$sheet->setCellValue('J'.($cab+1),'Meta');
-						// $sheet->mergeCells('J'.($cab+1).':J'.($cab+1));
-						$sheet->setCellValue('K'.($cab+1),'Procesado TABLET');
-						// $sheet->mergeCells('K'.($cab+1).':K'.($cab+1));
-						$sheet->setCellValue('L'.($cab+1),'Procesado OTIN');
-						// $sheet->mergeCells('L'.($cab+1).':L'.($cab+1));
-						$sheet->setCellValue('M'.($cab+1),'Avance %');
-						// $sheet->mergeCells('M'.($cab+1).':M'.($cab+1));
+						$sheet->setCellValue('K'.($cab+1),'Procesado TABLET');						
+						$sheet->setCellValue('L'.($cab+1),'Procesado OTIN');						
+						$sheet->setCellValue('M'.($cab+1),'Avance %');						
 			// NOMBRE CABECERAS
 
 			// ESTILOS  CABECERAS
@@ -717,7 +707,6 @@ class Csvexport extends CI_Controller {
 											'style' => PHPExcel_Style_Border::BORDER_THIN)
 						)
 				));
-				// $sheet->getStyle('K16')->getFont()->setname('Arial Narrow')->setSize(9); // tamaño especial para esta celda
 			// ESTILOS  CABECERAS
 		// CABECERA
 
@@ -751,7 +740,7 @@ class Csvexport extends CI_Controller {
 		  		$sheet->getCellByColumnAndRow(7, $row)->setValue($filas->Tablet_Cant);
 		  		$sheet->getCellByColumnAndRow(8, $row)->setValue($filas->Tablet_Porc);
 		  		$sheet->getCellByColumnAndRow(9, $row)->setValue($filas->OTIN_Meta);
-		  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->OTIN_Udra);
+		  		$sheet->getCellByColumnAndRow(10, $row)->setValue($filas->Tablet_Cant_1_8);
 		  		$sheet->getCellByColumnAndRow(11, $row)->setValue($filas->OTIN_Cant);
 		  		$sheet->getCellByColumnAndRow(12, $row)->setValue($filas->OTIN_Porc);
 				//}
@@ -800,8 +789,8 @@ class Csvexport extends CI_Controller {
 			$sheet->setCellValue('J'. $celda_s ,'=SUM(J'.$inicio_s.':J'.$fin_s.')');
 			$sheet->setCellValue('K'. $celda_s ,'=SUM(K'.$inicio_s.':K'.$fin_s.')');
 			$sheet->setCellValue('L'. $celda_s ,'=SUM(L'.$inicio_s.':L'.$fin_s.')');
-			$sheet->setCellValue('M'. $celda_s ,'=ROUND((L'.$celda_s.'/K'.$celda_s.')*100,1)');
-			
+			$sheet->setCellValue('M'. $celda_s ,'=ROUND(((SUM(K'.$celda_s.':L'.$celda_s.'))/J'.$celda_s.')*100,1)');
+
 
 			$sheet->getStyle('B'.$celda_s)->applyFromArray($color_celda_cabeceras);
 	     	$sheet->getStyle('B'.$celda_s.':C'.$celda_s)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);	

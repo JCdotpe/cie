@@ -83,7 +83,7 @@ function ViewResultado()
 						'<td class="center">'+val.Tablet_Cant+'</td>'+
 						'<td class="center">'+val.Tablet_Porc+'</td>'+
 						'<td class="center">'+val.OTIN_Meta+'</td>'+
-						'<td class="center">'+val.OTIN_Udra+'</td>'+
+						'<td class="center">'+val.Tablet_Cant_1_8+'</td>'+
 						'<td class="center">'+val.OTIN_Cant+'</td>'+
 						'<td class="center">'+val.OTIN_Porc+'</td>'+
 					'</tr>';

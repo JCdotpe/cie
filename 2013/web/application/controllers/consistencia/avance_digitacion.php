@@ -161,7 +161,7 @@ class Avance_digitacion extends CI_Controller {
 			"Tablet_Cant" => $fila->Tablet_Cant,
 			"Tablet_Porc" => $fila->Tablet_Porc,
 			"OTIN_Meta" => $fila->OTIN_Meta,
-			"OTIN_Udra" => is_null($fila->OTIN_Udra) ? '' : $fila->OTIN_Udra,
+			"Tablet_Cant_1_8" => is_null($fila->Tablet_Cant_1_8) ? '' : $fila->Tablet_Cant_1_8,
 			"OTIN_Cant" => $fila->OTIN_Cant,
 			"OTIN_Porc" => $fila->OTIN_Porc
 			);
