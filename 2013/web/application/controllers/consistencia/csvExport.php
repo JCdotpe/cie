@@ -614,7 +614,7 @@ class Csvexport extends CI_Controller {
 			$sheet->mergeCells('D3:M3');
 			$sheet->setCellValue('D5','CENSO DE INFRAESTRUCTURA EDUCATIVA 2013');
 			$sheet->mergeCells('D5:M5');
-			$sheet->setCellValue('D7','REPORTE DE ESTADO SITUACIONAL DE LA BASE DE DATOS');
+			$sheet->setCellValue('D7','REPORTE DE LOCALES PROCESADOS EN BASE DE DATOS');
 			$sheet->mergeCells('D7:M7');
 			$sheet->getStyle('D3:M7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D3:M7')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
@@ -830,10 +830,10 @@ class Csvexport extends CI_Controller {
 
 		// SALIDA EXCEL
 			// Propiedades del archivo excel
-				$sheet->setTitle("Reporte Estado Situacional");
+				$sheet->setTitle("Locales Procesados en BD");
 				$this->phpexcel->getProperties()
-				->setTitle("Reporte Estado Situacional")
-				->setDescription("Reporte de Estado Situacional");
+				->setTitle("Locales Procesados en BD")
+				->setDescription("Locales Procesados en BD");
 
 			header("Content-Type: application/vnd.ms-excel");
 			$nombreArchivo = 'Reporte_Estado_Situacional_'.date('Y-m-d');

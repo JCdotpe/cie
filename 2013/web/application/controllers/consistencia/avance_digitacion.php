@@ -132,9 +132,50 @@ class Avance_digitacion extends CI_Controller {
 
 	}
 
-	public function index_estadsitua()
+	public function index_coberotin()
 	{
 		$data['option'] = 3;
+		$data['nav'] = TRUE;
+		$data['title'] = 'Reporte de Cobertura de OTIN';
+		$data['main_content'] = 'consistencia/reportes/cobertura_otin_view';
+		$this->load->view('backend/includes/template', $data);
+	}
+
+
+	public function cobertura_otin()
+	{
+		$data = $this->reporte_model->get_cobertura_otin();
+
+		$i=0;
+		echo "[";
+
+		foreach ($data->result() as $fila ){
+
+			if($i>0){echo",";}
+
+			$x= array("Sede_Operativa" => $fila->Sede_Operativa,
+			"Provincia_Operativa" => $fila->Provincia_Operativa,
+			"Departamento" => $fila->Departamento,
+			"Provincia" => $fila->Provincia,
+			"Distrito" => $fila->Distrito,
+			"codigo_de_local" => $fila->codigo_de_local,
+			"Digitado" => $fila->Digitado
+			);
+
+			$jsonData = my_json_encode($x);
+
+			prettyPrint($jsonData);
+
+			$i++;
+		}
+
+		echo "]";
+
+	}
+
+	public function index_estadsitua()
+	{
+		$data['option'] = 4;
 		$data['nav'] = TRUE;
 		$data['title'] = 'Reporte de Estado Situacional';
 		$data['main_content'] = 'consistencia/reportes/estado_situacional_view';
@@ -164,47 +205,6 @@ class Avance_digitacion extends CI_Controller {
 			"Tablet_Cant_1_8" => is_null($fila->Tablet_Cant_1_8) ? '' : $fila->Tablet_Cant_1_8,
 			"OTIN_Cant" => $fila->OTIN_Cant,
 			"OTIN_Porc" => $fila->OTIN_Porc
-			);
-
-			$jsonData = my_json_encode($x);
-
-			prettyPrint($jsonData);
-
-			$i++;
-		}
-
-		echo "]";
-
-	}
-
-	public function index_coberotin()
-	{
-		$data['option'] = 4;
-		$data['nav'] = TRUE;
-		$data['title'] = 'Reporte de Cobertura de OTIN';
-		$data['main_content'] = 'consistencia/reportes/cobertura_otin_view';
-		$this->load->view('backend/includes/template', $data);
-	}
-
-
-	public function cobertura_otin()
-	{
-		$data = $this->reporte_model->get_cobertura_otin();
-
-		$i=0;
-		echo "[";
-
-		foreach ($data->result() as $fila ){
-
-			if($i>0){echo",";}
-
-			$x= array("Sede_Operativa" => $fila->Sede_Operativa,
-			"Provincia_Operativa" => $fila->Provincia_Operativa,
-			"Departamento" => $fila->Departamento,
-			"Provincia" => $fila->Provincia,
-			"Distrito" => $fila->Distrito,
-			"codigo_de_local" => $fila->codigo_de_local,
-			"Digitado" => $fila->Digitado
 			);
 
 			$jsonData = my_json_encode($x);
