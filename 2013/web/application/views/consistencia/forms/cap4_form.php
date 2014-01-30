@@ -583,12 +583,12 @@ $(document).ready(function(){
 				},
 				P4_2_CantTram_Lfondo: {
 					digits:true,
-					range:[0,98,99],
+					valrango:[1,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lizq: {
 					digits:true,
-					range:[1,98,99],
+					valrango:[1,98,99],
 					required: true,
 				},
 				'P4_2_1A_i[]':{
