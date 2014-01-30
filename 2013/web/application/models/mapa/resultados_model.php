@@ -106,6 +106,18 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_NivelEducativo( $dpto, $prov, $dist, $tiparea, $ne, $ot)
+    {
+        $q = $this->db->query('PA_Resultado_Nivel_Educativo ?,?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ne,$ot));
+        return $q;
+    }
+
+    function Get_NivelEducativo_Lima( $dpto, $tiparea, $ne, $ot)
+    {
+        $q = $this->db->query('PA_Resultado_Nivel_Educativo_LIMA ?,?,?,?', array($dpto,$tiparea,$ne,$ot));
+        return $q;
+    }
+
     function Get_AlgoritmoEdificacion( $dpto, $prov, $dist, $tiparea, $ot)
     {
         $q = $this->db->query('PA_Nivel_Interv_IE ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ot));

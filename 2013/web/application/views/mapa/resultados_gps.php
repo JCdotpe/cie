@@ -43,17 +43,17 @@
 			var color = null;
 			var myCoordsLenght = 6;
 
-			if (tiporesul == 1 || tiporesul == 9)
+			if (tiporesul == 1 || tiporesul == 9 || tiporesul == 10)
 			{
 				switch (icon)
 				{
-					case '1':
+					case 1:
 						color=urlRoot('web/')+'img/infra/ot1.png';
 						break;
-					case '2':
+					case 2:
 						color=urlRoot('web/')+'img/infra/ot2.png';
 						break;
-					case '3':
+					case 3:
 						color=urlRoot('web/')+'img/infra/ot3.png';
 						break;
 				}
@@ -325,7 +325,7 @@
 				switch( $(this).val() )
 				{
 					case '1':
-					case '9':
+					case '10':
 						$('#infra').show();
 						$('#OP_TECNICA').val(0);
 						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
@@ -337,7 +337,7 @@
 							$('#OP_TECNICA').on("change", function(event) { 
      							OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
 							});
-						}else{
+						}else if ( $(this).val() == 10){
 							$('#lbl_optecnica').text('ALGORITMO EDIFICACIÓN');
 							html_subtitulo = '<p class="pull-right">ALGORITMO EDIFICACIÓN</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
@@ -387,16 +387,19 @@
 						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Cercanía lecho de río, quebrada, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Cercanía a vía ferrea, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> Cercanía a barranco o precipicio, <img src="<?php echo base_url('img/infra/resul_op4.png') ; ?>" /> Cercanía a cuartel militar o policial, <img src="<?php echo base_url('img/infra/resul_op5.png') ; ?>" /> Erosión fluvial de laderas, <img src="<?php echo base_url('img/infra/resul_op6.png') ; ?>" /> Otro, <img src="<?php echo base_url('img/infra/resul_op7.png') ; ?>" /> Ninguno</p>';
 						html_subtitulo = '<p class="pull-right">VULNERABILIDAD</p>';
 						break;
+					case '9':
+						$('#niveledu').show();
+						$('#NIVEL_EDU').val(0);
+						$('#OP_TECNICA').off("change");
+						$('#lbl_optecnica').text('OPINIÓN TÉCNICA INICIAL');
+						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
+						html_subtitulo = '<p class="pull-right">NIVEL EDUCATIVO</p>';
+						break;
 				}
 
 				$('#geo_leyenda').html(html_leyenda);
 				$('#subtitulo').html(html_subtitulo);
 			});
-
-
-			// $('#OP_TECNICA').change(function(event) {
-			// 	OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
-			// });
 
 			$('#DEF_CIVIL').change(function(event) {
 				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
@@ -413,6 +416,16 @@
 			$('#OBR_EJEC').change(function(event) {
 				ObrasEjecucion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OBR_EJEC').val());
 			});
+
+			$('#NIVEL_EDU').change(function(event) {
+				clean_map();
+				$('#infra').show();
+				$('#OP_TECNICA').val(0);
+				$('#OP_TECNICA').off("change");
+				$('#OP_TECNICA').on("change", function(event) { 
+     				NivelEducativo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#NIVEL_EDU').val(),$('#OP_TECNICA').val());
+				});
+			});
 		});
 
 		function ocultar_cmb () {
@@ -424,6 +437,7 @@
 			$('#serv').hide();
 			$('#comuni').hide();
 			$('#vulne').hide();
+			$('#niveledu').hide();
 		}
 
 		function kml_dpto(code){
@@ -610,7 +624,6 @@
 						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
 						"<p><b>Si:</b> "+datos.DC+"</p>"+
 						"<p><b>No:</b> "+datos.NDC+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -644,7 +657,6 @@
 						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
 						"<p><b>Si:</b> "+datos.AR+"</p>"+
 						"<p><b>No:</b> "+datos.NAR+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -679,7 +691,6 @@
 						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
 						"<p><b>Si:</b> "+datos.PC+"</p>"+
 						"<p><b>No:</b> "+datos.NPC+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -713,7 +724,6 @@
 						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
 						"<p><b>Si:</b> "+datos.OB+"</p>"+
 						"<p><b>No:</b> "+datos.NOB+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -762,7 +772,6 @@
 						"<p><b>Energía Eléctrica:</b> "+(datos.EE == 1 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Agua Potable:</b> "+(datos.AP == 1 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Alcantarillado:</b> "+(datos.ALC == 1 ? 'Si' : 'No')+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -810,7 +819,6 @@
 						"<p><b>Telefonía Fija:</b> "+(datos.TF == 1 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Telefonía Móvil:</b> "+(datos.TM == 1 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Internet:</b> "+(datos.INTER == 1 ? 'Si' : 'No')+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -858,7 +866,6 @@
 						"<p><b>Erosión fluvial de laderas?:</b> "+(datos.Op5 == 5 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Otro?:</b> "+(datos.Op6 == 6 ? 'Si' : 'No')+"</p>"+
 						"<p><b>Ninguno:</b> "+(datos.Op7 == 7 ? 'Si' : 'No')+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 
@@ -894,22 +901,21 @@
 						"<p><b>Mantenimiento:</b> "+datos.Cant_Ed_M+"</p>"+
 						"<p><b>Reforzamiento:</b> "+datos.Cant_Ed_R+"</p>"+
 						"<p><b>Demolicion:</b> "+datos.Cant_Ed_S+"</p>"+
-						// "<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
 						"</div><div>";
 					
-						var iconito = '';
+						var iconito = 0;
 
 						if (datos.Nivel_Int_F == 'M'){
-							iconito = '1';
+							iconito = 1;
 						}else if (datos.Nivel_Int_F == 'R'){
-							iconito = '2';
+							iconito = 2;
 						}else if (datos.Nivel_Int_F == 'S'){
-							iconito = '3';
+							iconito = 3;
 						}
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 9);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 10);
 				});
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -917,7 +923,41 @@
 			});
 		}
 
+		function NivelEducativo(departamento,provincia,distrito,tipoarea,nivedu,opinion){
 
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/nivel_educativo', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,ne:nivedu,opt:opinion}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>EDIFICACIONES</h3>"+
+						"<p><b>Mantenimiento:</b> "+datos.OT_1+"</p>"+
+						"<p><b>Reforzamiento:</b> "+datos.OT_2+"</p>"+
+						"<p><b>Demolicion:</b> "+datos.OT_3+"</p>"+
+						"</div>"+
+						"</div><div>";
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 9);
+				});
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+			});
+		}
 
 		function clean_map () {
 			if (gmarkers.length > 0)
@@ -1043,7 +1083,31 @@
 					<option value="6">SERVICIOS</option>
 					<option value="7">COMUNICACION</option>
 					<option value="8">VULNERABILIDAD</option>
-					<option value="9">ALGORITMO EDIFICACION</option>
+					<option value="9">NIVEL EDUCATIVO</option>
+					<option value="10">ALGORITMO EDIFICACION</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="niveledu" class="row-fluid control-group span9">
+			<label class="preguntas_sub2" for="NIVEL_EDU">NIVEL EDUCATIVO</label>
+			<div class="controls">
+				<select id="NIVEL_EDU" class="span12" name="NIVEL_EDU">
+					<option value="0">SELECCIONE...</option>
+					<option value="1">Inicial Cuna?</option>
+					<option value="2">Inicial Jardin?</option>
+					<option value="3">Inicial Cuna Jardin?</option>
+					<option value="4">Primaria?</option>
+					<option value="5">Secundaria?</option>
+					<option value="6">Educación Básica Alternativa (EBA)?</option>
+					<option value="7">Educación Básica Especial (EBE)?</option>
+					<option value="8">Educación Superior de Formación Artística (ESFA)?</option>
+					<option value="9">Instituto Superior Tecnológico (IST)?</option>
+					<option value="10">Instituto Superior Pedagógico (ISP)?</option>
+					<option value="11">Centro de Educación Técnico Productivo (CETPRO)?</option>
+					<option value="12">Programa No Escolarizado de Educación Inicial (PRONOEI)?</option>
+					<option value="13">Sala de Educación Temprana?</option>
+					<option value="14">Ludoteca?</option>
 				</select>
 			</div>
 		</div>
