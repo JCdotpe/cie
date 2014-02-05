@@ -130,6 +130,18 @@ class Resultados_model extends CI_MODEL{
         return $q;
     }
 
+    function Get_AlgoritmoAulas( $dpto, $prov, $dist, $tiparea, $ot)
+    {
+        $q = $this->db->query('PA_Nivel_Interv_IE_xAula ?,?,?,?,?', array($dpto,$prov,$dist,$tiparea,$ot));
+        return $q;
+    }
+
+    function Get_AlgoritmoAulas_Lima( $dpto, $tiparea, $ot)
+    {
+        $q = $this->db->query('PA_Nivel_Interv_IE_xAula_LIMA ?,?,?', array($dpto,$tiparea,$ot));
+        return $q;
+    }
+
 }
 
 ?>

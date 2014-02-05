@@ -43,7 +43,9 @@
 			var color = null;
 			var myCoordsLenght = 6;
 
-			if (tiporesul == 1 || tiporesul == 9 || tiporesul == 10)
+			color = urlRoot('web/')+'img/infra/default.png';
+
+			if (tiporesul == 1 || (tiporesul >= 9 && tiporesul <= 11))
 			{
 				switch (icon)
 				{
@@ -326,6 +328,7 @@
 				{
 					case '1':
 					case '10':
+					case '11':
 						$('#infra').show();
 						$('#OP_TECNICA').val(0);
 						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
@@ -342,6 +345,12 @@
 							html_subtitulo = '<p class="pull-right">ALGORITMO EDIFICACIÓN</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
      							AlgoritmoEdificacion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+							});
+						}else if ( $(this).val() == 11){
+							$('#lbl_optecnica').text('ALGORITMO AULAS');
+							html_subtitulo = '<p class="pull-right">ALGORITMO AULAS</p>';
+							$('#OP_TECNICA').on("change", function(event) { 
+     							AlgoritmoAulas($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
 							});
 						}
 						break;
@@ -923,6 +932,53 @@
 			});
 		}
 
+		function AlgoritmoAulas(departamento,provincia,distrito,tipoarea,opinion){
+
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/algoritmo_aulas', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(json_data, textStatus) {
+
+				clean_map();
+
+				$.each(json_data, function(i, datos){
+
+					var contentString="<div><div class='marker activeMarker'>"+
+						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
+
+						"<h3>AULAS</h3>"+
+						"<p><b>Total de Aulas:</b> "+datos.Total_Au+"</p>"+
+						"<p><b>Mantenimiento:</b> "+datos.Cant_Au_M+"</p>"+
+						"<p><b>Reforzamiento:</b> "+datos.Cant_Au_R+"</p>"+
+						"<p><b>Demolicion:</b> "+datos.Cant_Au_S+"</p>"+
+						"</div>"+
+						"</div><div>";
+					
+						var iconito = 0;
+
+						if (datos.Nivel_Int_F == 'M'){
+							iconito = 1;
+						}else if (datos.Nivel_Int_F == 'R'){
+							iconito = 2;
+						}else if (datos.Nivel_Int_F == 'S'){
+							iconito = 3;
+						}
+
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 11);
+				});
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+			});
+		}
+
 		function NivelEducativo(departamento,provincia,distrito,tipoarea,nivedu,opinion){
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/nivel_educativo', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,ne:nivedu,opt:opinion}, function(json_data, textStatus) {
@@ -1085,6 +1141,7 @@
 					<option value="8">VULNERABILIDAD</option>
 					<option value="9">NIVEL EDUCATIVO</option>
 					<option value="10">ALGORITMO EDIFICACION</option>
+					<option value="11">ALGORITMO AULAS</option>
 				</select>
 			</div>
 		</div>
