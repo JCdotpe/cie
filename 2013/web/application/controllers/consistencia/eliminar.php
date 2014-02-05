@@ -51,8 +51,9 @@ class Eliminar extends CI_Controller {
 			// $datos['flag'] = $flag;	
 			// $datos['msg'] = $msg;	
 			// $data['datos'] = $datos;
-			$data['main_content'] = 'consistencia/eliminar_view';
-	  		$this->load->view('backend/includes/template', $data);					
+			// $data['main_content'] = 'consistencia/eliminar_view';
+	  		// $this->load->view('backend/includes/template', $data);
+			show_404();
 	}
 
 
@@ -63,9 +64,9 @@ class Eliminar extends CI_Controller {
 		$cod_local = $this->input->post('cod_local');
 		$datos['cod_local'] = $cod_local;
 		if($is_ajax){
-			$this->principal_model->eliminar_cod($cod_local);
-			$data['datos'] = $datos;
-			$this->load->view('backend/json/json_view', $data);					
+			// $this->principal_model->eliminar_cod($cod_local);
+			// $data['datos'] = $datos;
+			// $this->load->view('backend/json/json_view', $data);
 		}else{
 			show_404();
 		}
