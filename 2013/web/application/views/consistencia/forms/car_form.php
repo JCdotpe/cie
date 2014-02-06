@@ -1186,19 +1186,19 @@ $("#car_f").validate({
 			    	required:true,
 			    },
 			    PC_E_4_TPat:{
-			    	range:[0,20],
+			    	range:[0,62],
 			    	required:true,
 			    },
 			    PC_E_5_TLosa:{
-			    	range:[0,20],
+			    	range:[0,62],
 			    	required:true,
 			    },		
 			    PC_E_6_TCist:{
-			    	range:[0,20],
+			    	range:[0,62],
 			    	required:true,
 			    },	
 			    PC_E_7_TMurCon:{
-			    	range:[0,20],
+			    	range:[0,62],
 			    	required:true,	
 			    },				    		   			    	    
 		    },
