@@ -1077,8 +1077,8 @@ $P2_G_2B_snip_3 = array(
 	'id'	=> 'P2_G_2B_snip_3',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
-	// 'readonly' => true,
-	'disabled' => 'disabled',
+	'readonly' => true,
+	// 'disabled' => 'disabled',
 );
 
 
@@ -1155,7 +1155,7 @@ $P2_G_2_Cod_7 = array(
 	'class'	=> 'input1 p2g2',
 );
 $P2_G_2A_EstPre_7 = array(
-	'name'	=> 'P2_G_2A_EstPre[]',
+	'name'	=> 'P2_G_2A_EstPre[6]',
 	'id'	=> 'P2_G_2A_EstPre_7',
 	'maxlength'	=> 1,
 	'class'	=> 'input1',
@@ -1163,7 +1163,7 @@ $P2_G_2A_EstPre_7 = array(
 );
 
 $P2_G_2B_snip_7 = array(
-	'name'	=> 'P2_G_2B_snip[]',
+	'name'	=> 'P2_G_2B_snip[6]',
 	'id'	=> 'P2_G_2B_snip_7',
 	'maxlength'	=> 6,
 	'class'	=> 'input6',
