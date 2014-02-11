@@ -953,6 +953,7 @@ $(document).ready(function(){
 
 		switch( $(this).val() ){
 			case '1':
+			case '9':
 					$('#P7_1_5').removeAttr('disabled');
 					$('#P7_1_6').removeAttr('disabled');
 					$('#P7_1_7').removeAttr('disabled');
@@ -1192,7 +1193,7 @@ $(document).ready(function(){
 			},
 			P7_1_4:{
 				digits:true,
-				range:[1,8],
+				valrango:[1,8,9],
 				required:true,
 			},
 			P7_1_5:{
