@@ -144,7 +144,7 @@ $.extend(jQuery.validator.messages, {
 
 $.validator.addMethod("menorque", function(value, element, arg) {
     flag = false;
-    if(value == '' || parseInt($('#' + arg[0] + element.id.substring(18,19)).val()) >= parseInt(value) ){
+    if(value == '' || value == 999 || parseInt($('#' + arg[0] + element.id.substring(18,19)).val()) >= parseInt(value) ){
       flag = true;
     }
     return flag;
