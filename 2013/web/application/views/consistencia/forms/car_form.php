@@ -125,7 +125,7 @@ $PC_A_7Dir_9_Et = array(
 $PC_A_7Dir_10_Km = array(
 	'name'	=> 'PC_A_7Dir_10_Km',
 	'id'	=> 'PC_A_7Dir_10_Km',
-	'maxlength'	=> 3,
+	'maxlength'	=> 4,
 	'class' => 'input3',
 );
 
