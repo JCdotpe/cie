@@ -37,6 +37,8 @@
 			size: new google.maps.Size(300,400)
 		});
 
+		var maploaded = false;
+
 		// A function to create the marker and set up the event window
 		function createMarkerLEN(latlng,name,html,category,icon,tiporesul) {
 			var contentString = html;
@@ -136,12 +138,25 @@
 				infowindow.open(map,marker);
 			});
 
-			// google.maps.event.addListener(marker, 'dragend', function(evt){
-			// 	document.getElementById('latitud').value = evt.latLng.lat().toFixed(myCoordsLenght);
-			// 	document.getElementById('longitud').value = evt.latLng.lng().toFixed(myCoordsLenght);
-			// 	$('#edit_gps').slideDown(200);
-			// });
 		}
+
+		function checkGoogleMap() {
+			
+			//specify the target element for our messages
+			var msg = document.getElementById('msg');
+
+			if (maploaded == false) {
+				//if we dont have a fully loaded map - show the message
+				msg.innerHTML = 'Cargando puntos...';
+				$("#msg").slideDown("fast");
+
+			} else {
+				//otherwise, show 'loaded' message then hide the message after a second
+				msg.innerHTML = 'Puntos cargados.'
+				$("#msg").slideUp("slow");
+			} 
+		}
+
 
 		function initialize() {
 			var myOptions = {
@@ -328,7 +343,7 @@
 				{
 					case '1':
 					case '10':
-					case '11':
+					case '11':						
 						$('#infra').show();
 						$('#OP_TECNICA').val(0);
 						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
@@ -338,19 +353,34 @@
 							$('#lbl_optecnica').text('OPINIÓN TÉCNICA INICIAL');
 							html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
+								
+								maploaded = false;
+								checkGoogleMap();
+
      							OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+
 							});
 						}else if ( $(this).val() == 10){
 							$('#lbl_optecnica').text('ALGORITMO EDIFICACIÓN');
 							html_subtitulo = '<p class="pull-right">ALGORITMO EDIFICACIÓN</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
+
+								maploaded = false;
+								checkGoogleMap();
+
      							AlgoritmoEdificacion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+
 							});
 						}else if ( $(this).val() == 11){
 							$('#lbl_optecnica').text('ALGORITMO AULAS');
 							html_subtitulo = '<p class="pull-right">ALGORITMO AULAS</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
+
+								maploaded = false;
+								checkGoogleMap();
+
      							AlgoritmoAulas($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
+
 							});
 						}
 						break;
@@ -411,18 +441,34 @@
 			});
 
 			$('#DEF_CIVIL').change(function(event) {
+				
+				maploaded = false;
+				checkGoogleMap();
+				
 				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
 			});
 
 			$('#ALT_RIESGO').change(function(event) {
+				
+				maploaded = false;
+				checkGoogleMap();
+
 				AltoRiesgo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#ALT_RIESGO').val());
 			});
 
 			$('#PAT_CULT').change(function(event) {
+
+				maploaded = false;
+				checkGoogleMap();
+
 				PatrimonioCultural($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#PAT_CULT').val());
 			});
 
 			$('#OBR_EJEC').change(function(event) {
+				
+				maploaded = false;
+				checkGoogleMap();
+
 				ObrasEjecucion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OBR_EJEC').val());
 			});
 
@@ -432,7 +478,12 @@
 				$('#OP_TECNICA').val(0);
 				$('#OP_TECNICA').off("change");
 				$('#OP_TECNICA').on("change", function(event) { 
+					
+					maploaded = false;
+					checkGoogleMap();
+
      				NivelEducativo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#NIVEL_EDU').val(),$('#OP_TECNICA').val());
+
 				});
 			});
 		});
@@ -602,7 +653,11 @@
 					// });
 					// markers.push(marker);
 				});
+
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
 				// markerCluster = new MarkerClusterer(map, markers);
+
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
 				console.log( "Request Failed: " + err);
@@ -610,6 +665,8 @@
 		}
 
 		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
+
+			
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/defensa_civil', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,df:defecivil}, function(json_data, textStatus) {
 
@@ -639,6 +696,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_DC, 2);
 				});
+
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -672,6 +736,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_AR, 3);
 				});
+				
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -706,6 +777,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_PC, 4);
 				});
+
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -739,8 +817,28 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OB, 5);
 				});
+				
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
+
+		function ini_button(posicion) {
+		 	maploaded = false;
+			checkGoogleMap();
+			
+			if ( posicion == 1 ) { 
+				Servicios(); 
+			}else if ( posicion == 2) {
+				Comunicacion();
+			}else if ( posicion == 3 ) {
+				Vulnerabilidad();
+			}
+		 }
 
 
 		function Servicios(){
@@ -787,6 +885,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,categ, '0', 6);
 				});
+				
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -834,6 +939,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,categ, '0', 7);
 				});
+			
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -881,6 +993,13 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', vt, 8);
 				});
+			
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
 			});
 		}
 
@@ -926,6 +1045,10 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 10);
 				});
+				
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
 				console.log( "Request Failed: " + err);
@@ -973,6 +1096,10 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', iconito, 11);
 				});
+
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
 				console.log( "Request Failed: " + err);
@@ -1009,6 +1136,10 @@
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
 					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 9);
 				});
+
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
 				console.log( "Request Failed: " + err);
@@ -1072,208 +1203,213 @@
 		function ver_atras(){
 			infowindow.setContent(contenido);
 		}
+
 	</script>
 
 </head>
 <body>
-
-	<div class="map_container">
-		<div id="map-canvas"></div>
-	</div>
 
 	<div id="header" style="display: block;">
 		<a id="logo" href="#"><img src="<?php echo base_url('img/brand_gps.png') ; ?>" alt="CIE2013"></a>
 		<div id="oted">Oficina Técnica de Estadísticas Departamentales - OTED</div>
 	</div>
 
-	<div class="filtro_map preguntas_sub2 span2">
-		<div class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
-			<div class="controls span">
-				<select id="NOM_DPTO" class="span12" name="NOM_DPTO">
-				<!-- AJAX -->
-				</select>
-			</div>
+	<div id="cuerpo" >
+		<div id="msg"></div>
+		<div class="map_container">
+			<div id="map-canvas"></div>
 		</div>
 
-		<div id="dv_prov" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="NOM_PROV">PROVINCIA</label>
-			<div class="controls">
-				<select id="NOM_PROV" class="span12" name="NOM_PROV">
-					<option value="0">SELECCIONE...</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="dv_dist" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="NOM_DIST">DISTRITO</label>
-			<div class="controls">
-				<select id="NOM_DIST" class="span12" name="NOM_DIST">
-					<option value="0">SELECCIONE...</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="NOM_AREA">TIPO DE AREA</label>
-			<div class="controls">
-				<select id="NOM_AREA" class="span12" name="NOM_AREA">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="URBANO">URBANO</option>
-					<option value="RURAL">RURAL</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
-			<div class="controls">
-				<select id="RESULTADO" class="span12" name="RESULTADO">
-					<option value="0">SELECCIONE...</option>
-					<option value="1">INFRAESTRUCTURA</option>
-					<option value="2">DEFENSA CIVIL</option>
-					<option value="3">ALTO RIESGO</option>
-					<option value="4">PATRIMONIO CULTURAL</option>
-					<option value="5">OBRAS EN EJECUCION</option>
-					<option value="6">SERVICIOS</option>
-					<option value="7">COMUNICACION</option>
-					<option value="8">VULNERABILIDAD</option>
-					<option value="9">NIVEL EDUCATIVO</option>
-					<option value="10">ALGORITMO EDIFICACION</option>
-					<option value="11">ALGORITMO AULAS</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="niveledu" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="NIVEL_EDU">NIVEL EDUCATIVO</label>
-			<div class="controls">
-				<select id="NIVEL_EDU" class="span12" name="NIVEL_EDU">
-					<option value="0">SELECCIONE...</option>
-					<option value="1">Inicial Cuna?</option>
-					<option value="2">Inicial Jardin?</option>
-					<option value="3">Inicial Cuna Jardin?</option>
-					<option value="4">Primaria?</option>
-					<option value="5">Secundaria?</option>
-					<option value="6">Educación Básica Alternativa (EBA)?</option>
-					<option value="7">Educación Básica Especial (EBE)?</option>
-					<option value="8">Educación Superior de Formación Artística (ESFA)?</option>
-					<option value="9">Instituto Superior Tecnológico (IST)?</option>
-					<option value="10">Instituto Superior Pedagógico (ISP)?</option>
-					<option value="11">Centro de Educación Técnico Productivo (CETPRO)?</option>
-					<option value="12">Programa No Escolarizado de Educación Inicial (PRONOEI)?</option>
-					<option value="13">Sala de Educación Temprana?</option>
-					<option value="14">Ludoteca?</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="infra" class="row-fluid control-group span9">
-			<label id="lbl_optecnica" class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
-			<div class="controls">
-				<select id="OP_TECNICA" class="span12" name="OP_TECNICA">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="1">MANTENIMIENTO</option>
-					<option value="2">REFORZAMIENTO ESTRUCTURAL</option>
-					<option value="3">DEMOLICION</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="def" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="DEF_CIVIL">INSPERCCIONADA POR DEFENSA CIVIL</label>
-			<div class="controls">
-				<select id="DEF_CIVIL" class="span12" name="DEF_CIVIL">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="1">SI</option>
-					<option value="2">NO</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="altriesg" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="ALT_RIESGO">INHABITABLES EN ALTO RIESGO</label>
-			<div class="controls">
-				<select id="ALT_RIESGO" class="span12" name="ALT_RIESGO">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="1">SI</option>
-					<option value="2">NO</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="patcult" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="PAT_CULT">PATRIMONIO CULTURAL</label>
-			<div class="controls">
-				<select id="PAT_CULT" class="span12" name="PAT_CULT">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="1">SI</option>
-					<option value="2">NO</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="obejec" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="OBR_EJEC">OBRAS EN EJECUCION</label>
-			<div class="controls">
-				<select id="OBR_EJEC" class="span12" name="OBR_EJEC">
-					<option value="0">SELECCIONE...</option>
-					<option value="0">TODOS</option>
-					<option value="1">SI</option>
-					<option value="2">NO</option>
-				</select>
-			</div>
-		</div>
-
-		<div id="serv" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="SERV">SERVICIOS</label>
-			<div class="controls">
-				<div>
-					<input type="checkbox" name="energia" id="energia"> Energía Eléctrica <br>
-					<input type="checkbox" name="agua" id="agua"> Agua Potable <br>
-					<input type="checkbox" name="alcantarillado" id="alcantarillado"> Alcantarillado <br>
-				</div><br>
-				<div>
-					<input type="submit" name="btn_serv" id="btn_serv" value="Consultar" class="btn btn-primary" onclick="Servicios();">
+		<div class="filtro_map preguntas_sub2 span2">
+			<div class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
+				<div class="controls span">
+					<select id="NOM_DPTO" class="span12" name="NOM_DPTO">
+					<!-- AJAX -->
+					</select>
 				</div>
 			</div>
-		</div>
 
-		<div id="comuni" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="COMUNI">COMUNICACIÓN</label>
-			<div class="controls">
-				<div>
-					<input type="checkbox" name="tfija" id="tfija"> Telefonía Fija <br>
-					<input type="checkbox" name="tmovil" id="tmovil"> Telefonía Móvil <br>
-					<input type="checkbox" name="inter" id="inter"> Internet <br>
-				</div><br>
-				<div>
-					<input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="Comunicacion();">
+			<div id="dv_prov" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="NOM_PROV">PROVINCIA</label>
+				<div class="controls">
+					<select id="NOM_PROV" class="span12" name="NOM_PROV">
+						<option value="0">SELECCIONE...</option>
+					</select>
 				</div>
 			</div>
-		</div>
 
-		<div id="vulne" class="row-fluid control-group span9">
-			<label class="preguntas_sub2" for="VULNE">VULNERABILIDAD</label>
-			<div class="controls">
-				<div>
-					<input type="checkbox" name="v1" id="v1"> Cercanía lecho de río, quebrada? <br>
-					<input type="checkbox" name="v2" id="v2"> Cercanía a vía ferrea? <br>
-					<input type="checkbox" name="v3" id="v3"> Cercanía a barranco o precipicio? <br>
-					<input type="checkbox" name="v4" id="v4"> Cercanía a cuartel militar o policial? <br>
-					<input type="checkbox" name="v5" id="v5"> Erosión fluvial de laderas? <br>
-					<input type="checkbox" name="v6" id="v6"> Otro? <br>
-					<input type="checkbox" name="v7" id="v7"> Ninguno <br>
-				</div><br>
-				<div>
-					<input type="submit" name="btn_vulne" id="btn_vulne" value="Consultar" class="btn btn-primary" onclick="Vulnerabilidad();">
+			<div id="dv_dist" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="NOM_DIST">DISTRITO</label>
+				<div class="controls">
+					<select id="NOM_DIST" class="span12" name="NOM_DIST">
+						<option value="0">SELECCIONE...</option>
+					</select>
 				</div>
 			</div>
+
+			<div class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="NOM_AREA">TIPO DE AREA</label>
+				<div class="controls">
+					<select id="NOM_AREA" class="span12" name="NOM_AREA">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="URBANO">URBANO</option>
+						<option value="RURAL">RURAL</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="RESULTADO">RESULTADO</label>
+				<div class="controls">
+					<select id="RESULTADO" class="span12" name="RESULTADO">
+						<option value="0">SELECCIONE...</option>
+						<option value="1">INFRAESTRUCTURA</option>
+						<option value="2">DEFENSA CIVIL</option>
+						<option value="3">ALTO RIESGO</option>
+						<option value="4">PATRIMONIO CULTURAL</option>
+						<option value="5">OBRAS EN EJECUCION</option>
+						<option value="6">SERVICIOS</option>
+						<option value="7">COMUNICACION</option>
+						<option value="8">VULNERABILIDAD</option>
+						<option value="9">NIVEL EDUCATIVO</option>
+						<option value="10">ALGORITMO EDIFICACION</option>
+						<option value="11">ALGORITMO AULAS</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="niveledu" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="NIVEL_EDU">NIVEL EDUCATIVO</label>
+				<div class="controls">
+					<select id="NIVEL_EDU" class="span12" name="NIVEL_EDU">
+						<option value="0">SELECCIONE...</option>
+						<option value="1">Inicial Cuna?</option>
+						<option value="2">Inicial Jardin?</option>
+						<option value="3">Inicial Cuna Jardin?</option>
+						<option value="4">Primaria?</option>
+						<option value="5">Secundaria?</option>
+						<option value="6">Educación Básica Alternativa (EBA)?</option>
+						<option value="7">Educación Básica Especial (EBE)?</option>
+						<option value="8">Educación Superior de Formación Artística (ESFA)?</option>
+						<option value="9">Instituto Superior Tecnológico (IST)?</option>
+						<option value="10">Instituto Superior Pedagógico (ISP)?</option>
+						<option value="11">Centro de Educación Técnico Productivo (CETPRO)?</option>
+						<option value="12">Programa No Escolarizado de Educación Inicial (PRONOEI)?</option>
+						<option value="13">Sala de Educación Temprana?</option>
+						<option value="14">Ludoteca?</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="infra" class="row-fluid control-group span9">
+				<label id="lbl_optecnica" class="preguntas_sub2" for="OP_TECNICA">OPINIÓN TÉCNICA INICIAL</label>
+				<div class="controls">
+					<select id="OP_TECNICA" class="span12" name="OP_TECNICA">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="1">MANTENIMIENTO</option>
+						<option value="2">REFORZAMIENTO ESTRUCTURAL</option>
+						<option value="3">DEMOLICION</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="def" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="DEF_CIVIL">INSPERCCIONADA POR DEFENSA CIVIL</label>
+				<div class="controls">
+					<select id="DEF_CIVIL" class="span12" name="DEF_CIVIL">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="1">SI</option>
+						<option value="2">NO</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="altriesg" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="ALT_RIESGO">INHABITABLES EN ALTO RIESGO</label>
+				<div class="controls">
+					<select id="ALT_RIESGO" class="span12" name="ALT_RIESGO">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="1">SI</option>
+						<option value="2">NO</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="patcult" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="PAT_CULT">PATRIMONIO CULTURAL</label>
+				<div class="controls">
+					<select id="PAT_CULT" class="span12" name="PAT_CULT">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="1">SI</option>
+						<option value="2">NO</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="obejec" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="OBR_EJEC">OBRAS EN EJECUCION</label>
+				<div class="controls">
+					<select id="OBR_EJEC" class="span12" name="OBR_EJEC">
+						<option value="0">SELECCIONE...</option>
+						<option value="0">TODOS</option>
+						<option value="1">SI</option>
+						<option value="2">NO</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="serv" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="SERV">SERVICIOS</label>
+				<div class="controls">
+					<div>
+						<input type="checkbox" name="energia" id="energia"> Energía Eléctrica <br>
+						<input type="checkbox" name="agua" id="agua"> Agua Potable <br>
+						<input type="checkbox" name="alcantarillado" id="alcantarillado"> Alcantarillado <br>
+					</div><br>
+					<div>
+						<input type="submit" name="btn_serv" id="btn_serv" value="Consultar" class="btn btn-primary" onclick="ini_button(1);">
+					</div>
+				</div>
+			</div>
+
+			<div id="comuni" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="COMUNI">COMUNICACIÓN</label>
+				<div class="controls">
+					<div>
+						<input type="checkbox" name="tfija" id="tfija"> Telefonía Fija <br>
+						<input type="checkbox" name="tmovil" id="tmovil"> Telefonía Móvil <br>
+						<input type="checkbox" name="inter" id="inter"> Internet <br>
+					</div><br>
+					<div>
+						<input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="ini_button(2);">
+					</div>
+				</div>
+			</div>
+
+			<div id="vulne" class="row-fluid control-group span9">
+				<label class="preguntas_sub2" for="VULNE">VULNERABILIDAD</label>
+				<div class="controls">
+					<div>
+						<input type="checkbox" name="v1" id="v1"> Cercanía lecho de río, quebrada? <br>
+						<input type="checkbox" name="v2" id="v2"> Cercanía a vía ferrea? <br>
+						<input type="checkbox" name="v3" id="v3"> Cercanía a barranco o precipicio? <br>
+						<input type="checkbox" name="v4" id="v4"> Cercanía a cuartel militar o policial? <br>
+						<input type="checkbox" name="v5" id="v5"> Erosión fluvial de laderas? <br>
+						<input type="checkbox" name="v6" id="v6"> Otro? <br>
+						<input type="checkbox" name="v7" id="v7"> Ninguno <br>
+					</div><br>
+					<div>
+						<input type="submit" name="btn_vulne" id="btn_vulne" value="Consultar" class="btn btn-primary" onclick="ini_button(3);">
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 	</div>
@@ -1290,6 +1426,8 @@
 			</div>
 		</div>
 	</div>
+
+	
 </body>
 </html>
 <script>
