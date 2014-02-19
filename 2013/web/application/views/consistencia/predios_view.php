@@ -183,6 +183,13 @@ $.validator.addMethod("minor", function(value, element, arg) {
     }
     return flag;
 }, "Debe ser menor que la pregunta {1}");
+$.validator.addMethod("minor_car", function(value, element, arg) {
+    flag = false;
+    if(parseInt(value) < parseInt($('#' + arg[0]).val())){
+      flag = true;
+    }
+    return flag;
+}, "Debe ser menor que el Total de Predios");
 $.validator.addMethod("year", function(value, element, param) {
     return this.optional(element) || ( (value > 1950 && value <= CI.year) || value == 9999 ) ;
 }, "Ingrese un año válido");

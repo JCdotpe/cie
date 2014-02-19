@@ -1126,9 +1126,6 @@ $("#car_f").validate({
 			    		range: [1,5],
 			    		// required: true,			    	
 			    },                    	
-			    PC_E_2_TPred_NoCol:{
-			    	required: true,
-			    },
 				PC_D_EvT_dni: {
 			    		digits: true,
 			    		required: true,
@@ -1180,6 +1177,7 @@ $("#car_f").validate({
 			    PC_E_2_TPred_NoCol:{
 			    	range:[0,20],
 			    	required:true,
+			    	minor_car:['PC_E_1_TPred'],
 			    },
 			    PC_E_3_TEdif:{
 			    	range:[0,62],
