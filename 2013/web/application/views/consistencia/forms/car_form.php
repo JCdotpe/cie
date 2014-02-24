@@ -1171,7 +1171,8 @@ $("#car_f").validate({
 			    	valcaresu: ['PC_C_1_Et_Fecha_', 'pcar_num'],
 			    },
 			    PC_E_1_TPred:{
-			    	range:[1,30],
+			    	valrango:[0,30,99],
+			    	minimo_car:['PC_C_2_Rfinal_resul'],
 			    	required:true,
 			    },
 			    PC_E_2_TPred_NoCol:{

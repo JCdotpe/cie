@@ -185,7 +185,7 @@ $.validator.addMethod("minor", function(value, element, arg) {
 }, "Debe ser menor que la pregunta {1}");
 $.validator.addMethod("minor_car", function(value, element, arg) {
     flag = false;
-    if(parseInt(value) < parseInt($('#' + arg[0]).val())){
+    if( (parseInt(value) < parseInt($('#' + arg[0]).val())) || parseInt($('#' + arg[0]).val()) == 0 ){
       flag = true;
     }
     return flag;
@@ -379,6 +379,16 @@ $.validator.addMethod("valningunototal", function(value, element, arg){
           flag = true;
    return flag;
 }, "Seleccione un valor entre {0}, {1} o {2}");
+
+ $.validator.addMethod("minimo_car", function(value, element,arg){
+    var flag = true;
+
+    var result = $('#'+arg[0]).val();
+
+    if ( result < 3 && value == 0 )
+      flag = false;
+   return flag;
+}, "Por favor ingrese un valor mayor a 0");
 
 
  $.validator.addMethod("valjango", function(value, element,arg){
