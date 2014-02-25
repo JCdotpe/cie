@@ -211,7 +211,7 @@ $.validator.addMethod("carperuDate",function(value, element) {
     var regeX = /^\d\d?\/\d\d?\/\d\d\d\d$/;
     flag = false;
     reus = value.split("/");
-    if(value == '' || (regeX.test(value.trim()) && parseInt(reus[1]) >= 9 && parseInt(reus[1]) <= 12 &&  parseInt(reus[2]) == 2013 )  ){
+    if(value == '' || (regeX.test(value.trim()) && parseInt(reus[1]) >= 9 && parseInt(reus[1]) <= 12 &&  parseInt(reus[2]) == 2013 ) || (regeX.test(value.trim()) && parseInt(reus[1]) >= 1 && parseInt(reus[1]) < 4 &&  parseInt(reus[2]) == 2014 ) ){
       flag = true;
     }
     return flag;
