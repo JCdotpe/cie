@@ -277,7 +277,7 @@
                         "bScrollCollapse": false,
                         "sScrollY": "360px",
                         "oLanguage": {
-                            "sEmptyTable": "El codigo no pertenece a su Sede Operativa"
+                            "sEmptyTable": "El codigo de local se encuentra cerrado"
                         }
                     } );
 

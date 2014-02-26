@@ -19,31 +19,40 @@ class Cap2 extends CI_Controller {
 		$this->load->model('consistencia/principal_model');		
 
 		//User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
 		//Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
 
 		//If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }		
+		if (!$flag) {
+			show_404();
+			die();
+		}		
 	}
 
 	public function index()
 	{
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
+			//id
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 
 			$cap2_p2_a = $this->principal_model->get_fields('P2_A');
 			$cap2_p2_b = $this->principal_model->get_fields('P2_B');
@@ -62,11 +71,7 @@ class Cap2 extends CI_Controller {
 			$cap2_p2_f = $this->principal_model->get_fields('P2_F');
 			$cap2_p2_g = $this->principal_model->get_fields('P2_G');
 			$cap2_p2_g_2n = $this->principal_model->get_fields('P2_G_2N');
-
-			//id
-			$id = $this->input->post('id_local');
-			$pr = $this->input->post('Nro_Pred');
-			$ui = $this->input->post('user_id');
+			
 			$flag = 0;
 			$msg = 'Error inesperado, por favor intentalo nuevamente';
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

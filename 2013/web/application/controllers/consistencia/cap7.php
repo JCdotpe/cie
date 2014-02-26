@@ -14,26 +14,26 @@ class Cap7 extends CI_Controller {
 		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/principal_model');
 
-		// //User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		//User is logged in
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
-		// //Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		//Check user privileges 
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
 
-		// //If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }
+		//If not author is the maintenance guy!
+		if (!$flag) {
+			show_404();
+			die();
+		}
 	}
 
 	public function index()
@@ -46,6 +46,11 @@ class Cap7 extends CI_Controller {
 			$pr = $this->input->post('Nro_Pred');
 			$nroedif = $this->input->post('Nro_Ed');
 			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 
 			if ($this->cap6_model->consulta_cap6($id,$pr,$nroedif)->num_rows() > 0) 
 			{

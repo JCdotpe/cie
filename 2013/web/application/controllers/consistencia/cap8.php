@@ -13,26 +13,26 @@ class Cap8 extends CI_Controller {
 		$this->load->model('consistencia/cap8_model');
 		$this->load->model('consistencia/principal_model');
 
-		// //User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		//User is logged in
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
-		// //Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		//Check user privileges 
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
 
-		// //If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }
+		//If not author is the maintenance guy!
+		if (!$flag) {
+			show_404();
+			die();
+		}
 	}
 
 	public function index()
@@ -48,6 +48,11 @@ class Cap8 extends CI_Controller {
 			$tipo = $this->input->post('P8_2_Tipo');
 			$nro = $this->input->post('P8_2_Nro');
 			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 			
 			//P8
 			foreach ($fields as $a=>$b) {

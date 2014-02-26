@@ -19,25 +19,25 @@ class Cap3 extends CI_Controller {
 		$this->load->model('consistencia/principal_model');		
 
 		//User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
 		//Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
 
 		//If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }		
+		if (!$flag) {
+			show_404();
+			die();
+		}		
 	}
 
 
@@ -47,12 +47,17 @@ class Cap3 extends CI_Controller {
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
 
-			$fields = $this->principal_model->get_fields('P3_1');
-
 			//id
 			$id = $this->input->post('id_local');
 			$pr = $this->input->post('Nro_Pred');
 			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
+
+			$fields = $this->principal_model->get_fields('P3_1');
 
 			//pcar
 			foreach ($fields as $a=>$b) {

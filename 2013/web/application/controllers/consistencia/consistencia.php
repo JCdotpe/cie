@@ -20,26 +20,26 @@ class Consistencia extends CI_Controller {
 		$this->load->model('consistencia/cap5_model');
 		$this->load->model('consistencia/cap9_model');
 		//User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
 		//Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$this->level = $role->level;
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$this->level = $role->level;
+				$flag = TRUE;
+				break;
+			}
+		}
 
 		//If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }				
+		if (!$flag) {
+			show_404();
+			die();
+		}
 	}
 
 	public function index()
@@ -57,24 +57,29 @@ class Consistencia extends CI_Controller {
 
 
 
-
-			// $flag = FALSE;
-			// $ubi = $this->principal_model->get_user_ubigeo($this->tank_auth->get_user_id());
 			$local = $this->principal_model->get_padlocal($id);
 			$data['fdep'] = $local->row()->cod_dpto;
 			$data['fprov'] = $local->row()->cod_prov;
 			$data['fdis'] = $local->row()->cod_dist;
 			$data['cod_area'] = $local->row()->cod_area;
-			// foreach ($ubi->result() as $u) {
-			// 	if($u->cod_sede_operativa == $local->row()->cod_sede_operativa){
-			// 		$flag = TRUE;
-			// 		break;
-			// 	}
-			// }
-			// if (!$flag) {
-			// 	show_404();
-			// 	die();
-			// }	
+
+			$flag = FALSE;
+			$ubi = $this->principal_model->get_user_ubigeo($user_id);
+			foreach ($ubi->result() as $u) {
+				if($u->cod_sede_operativa == $local->row()->cod_sede_operativa && $local->row()->Recuperacion == 1 ){
+					$flag = TRUE;
+					break;
+				}
+			}
+			if (!$flag) {
+				show_404();
+				die();
+			}
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $user_id;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 
 			//udra
 			// $this->load->model('procesamiento/dudra_model');
@@ -191,6 +196,12 @@ class Consistencia extends CI_Controller {
 			$id = $this->input->post('id_local');
 			$ui = $this->input->post('user_id');
 			$predios = $this->principal_model->get_predios($id)->num_rows();
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
+
 			//pcar
 			// $c_data['user_id'] = $this->tank_auth->get_user_id();
 			$c_data['user_id'] = $ui;
@@ -224,16 +235,22 @@ class Consistencia extends CI_Controller {
 public function predio(){
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
+
 
 			$fields_ct = $this->principal_model->get_fields('P1_B');
 
 			$fields = $this->principal_model->get_fields('P1_B_3N');
 			$fields_n = $this->principal_model->get_fields('P1_B_3_12N');
 
-			$id = $this->input->post('id_local');
-			$pr = $this->input->post('Nro_Pred');
-			$ui = $this->input->post('user_id');
-
+			
 			foreach ($fields_ct as $a=>$b) {
 				if(!in_array($b, array('id_local','Nro_Pred','user_id','last_ip','user_agent','created','modified'))){
 					$P1_B[$b] = ($this->input->post($b) == '') ? NULL : $this->input->post($b);

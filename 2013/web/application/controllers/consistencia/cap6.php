@@ -13,32 +13,42 @@ class Cap6 extends CI_Controller {
 		$this->load->model('consistencia/cap6_model');
 		$this->load->model('consistencia/principal_model');
 
-		// //User is logged in
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// }
+		//User is logged in
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 
-		// //Check user privileges 
-		// $roles = $this->tank_auth->get_roles();
-		// $flag = FALSE;
-		// foreach ($roles as $role) {
-		// 	if($role->role_id == 16){
-		// 		$flag = TRUE;
-		// 		break;
-		// 	}
-		// }
+		//Check user privileges 
+		$roles = $this->tank_auth->get_roles();
+		$flag = FALSE;
+		foreach ($roles as $role) {
+			if($role->role_id == 16){
+				$flag = TRUE;
+				break;
+			}
+		}
 
-		// //If not author is the maintenance guy!
-		// if (!$flag) {
-		// 	show_404();
-		// 	die();
-		// }
+		//If not author is the maintenance guy!
+		if (!$flag) {
+			show_404();
+			die();
+		}
 	}
 
 	public function index()
 	{
 		$is_ajax = $this->input->post('ajax');
 		if($is_ajax){
+			//id
+			$id = $this->input->post('id_local');
+			$pr = $this->input->post('Nro_Pred');
+			$nroedif = $this->input->post('Nro_Ed');
+			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 
 			$fields = $this->principal_model->get_fields('P6_1');
 			$fields_8n = $this->principal_model->get_fields('P6_1_8N');
@@ -46,15 +56,8 @@ class Cap6 extends CI_Controller {
 			// $fields_2 = $this->principal_model->get_fields('P6_2');
 			// $fields_2_4n = $this->principal_model->get_fields('P6_2_4N');
 			
-			
-			//id
-			$id = $this->input->post('id_local');
-			$pr = $this->input->post('Nro_Pred');
-			$nroedif = $this->input->post('Nro_Ed');
-			$ui = $this->input->post('user_id');
 			// $p5_piso = $this->input->post('P5_NroPiso');
 			// $amb = $this->input->post('P6_2_1');
-
 			
 			//P6_1
 			foreach ($fields as $a=>$b) {
@@ -290,6 +293,11 @@ class Cap6 extends CI_Controller {
 			$amb = $this->input->post('P6_2_1');
 			$ui = $this->input->post('user_id');
 
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
+
 			if ($this->cap6_model->consulta_cap6($id,$pr,$nroedif)->num_rows() > 0) 
 			{
 			
@@ -422,6 +430,11 @@ class Cap6 extends CI_Controller {
 			$pr = $this->input->post('Nro_Pred');
 			$nroedif = $this->input->post('Nro_Ed');
 			$ui = $this->input->post('user_id');
+
+			//update padlocal
+			$padlocal_data['update_caps'] = date('Y-m-d H:i:s');
+			$padlocal_data['update_user'] = $ui;
+			$this->principal_model->update_padlocal_caps($id,$padlocal_data);
 
 			if ($this->cap6_model->consulta_cap6($id,$pr,$nroedif)->num_rows() > 0) 
 			{
