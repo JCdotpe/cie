@@ -579,6 +579,7 @@
 					}
 					map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
 					map.setZoom(kmlArray[i].zm);
+					break;
 				}
 			}
 		}
@@ -589,7 +590,7 @@
 			code = $('#NOM_DPTO').val();
 
 			for (var i = 0; i < kmlArray.length; i++) {
-				if (kmlArray[i].cd == code){
+				if (kmlArray[i].cd == code || code == -1){
 					if ( ckb == 0 )
 					{
 						kmlArray[i].nomkml.setMap(null);
@@ -597,9 +598,9 @@
 						kmlArray[i].nomkml.setMap(map);
 						map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
 					}
+					break;
 				}
 			}
-
 		}
 
 		function combo_dpto(){
