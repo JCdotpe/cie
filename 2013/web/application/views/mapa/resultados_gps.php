@@ -39,6 +39,21 @@
 
 		var maploaded = false;
 
+		var ot1 = 0;
+		var ot2 = 0;
+		var ot3 = 0;
+
+		var r1 = 0;
+		var r2 = 0;
+
+		var op1 = 0;
+		var op2 = 0;
+		var op3 = 0;
+		var op4 = 0;
+		var op5 = 0;
+		var op6 = 0;
+		var op7 = 0;
+
 		// A function to create the marker and set up the event window
 		function createMarkerLEN(latlng,name,html,category,icon,tiporesul) {
 			var contentString = html;
@@ -53,12 +68,15 @@
 				{
 					case 1:
 						color=urlRoot('web/')+'img/infra/ot1.png';
+						ot1++;
 						break;
 					case 2:
 						color=urlRoot('web/')+'img/infra/ot2.png';
+						ot2++;
 						break;
 					case 3:
 						color=urlRoot('web/')+'img/infra/ot3.png';
+						ot3++;
 						break;
 				}
 			}else if (tiporesul > 1 && tiporesul <= 5){
@@ -66,9 +84,11 @@
 				{
 					case '1':
 						color=urlRoot('web/')+'img/infra/resul_si.png';
+						r1++;
 						break;
 					case '2':
 						color=urlRoot('web/')+'img/infra/resul_no.png';
+						r2++;
 						break;
 				}
 			}else if (tiporesul > 5 && tiporesul <= 7){
@@ -76,12 +96,15 @@
 				{
 					case 'Op1':
 						color=urlRoot('web/')+'img/infra/resul_op1.png';
+						op1++;
 						break;
 					case 'Op2':
 						color=urlRoot('web/')+'img/infra/resul_op2.png';
+						op2++;
 						break;
 					case 'Op3':
 						color=urlRoot('web/')+'img/infra/resul_op3.png';
+						op3++;
 						break;
 				}
 			}if (tiporesul == 8){
@@ -89,24 +112,31 @@
 				{
 					case 1:
 						color=urlRoot('web/')+'img/infra/resul_op1.png';
+						op1++;
 						break;
 					case 2:
 						color=urlRoot('web/')+'img/infra/resul_op2.png';
+						op2++;
 						break;
 					case 3:
 						color=urlRoot('web/')+'img/infra/resul_op3.png';
+						op3++;
 						break;
 					case 4:
 						color=urlRoot('web/')+'img/infra/resul_op4.png';
+						op4++;
 						break;
 					case 5:
 						color=urlRoot('web/')+'img/infra/resul_op5.png';
+						op5++;
 						break;
 					case 6:
 						color=urlRoot('web/')+'img/infra/resul_op6.png';
+						op6++;
 						break;
 					case 7:
 						color=urlRoot('web/')+'img/infra/resul_op7.png';
+						op7++;
 						break;
 				}
 			}
@@ -346,25 +376,27 @@
 					case '11':						
 						$('#infra').show();
 						$('#OP_TECNICA').val(0);
-						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
 						$('#OP_TECNICA').off("change"); 
 						if ( $(this).val() == 1)
 						{
 							$('#lbl_optecnica').text('OPINIÓN TÉCNICA INICIAL');
 							html_subtitulo = '<p class="pull-right">OPINIÓN TÉCNICA INICIAL</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
-								
+								ot1 = 0;
+								ot2 = 0;
+								ot3 = 0;
 								maploaded = false;
 								checkGoogleMap();
 
      							OpinionTecnica($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OP_TECNICA').val());
-
 							});
 						}else if ( $(this).val() == 10){
 							$('#lbl_optecnica').text('ALGORITMO EDIFICACIÓN');
 							html_subtitulo = '<p class="pull-right">ALGORITMO EDIFICACIÓN</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
-
+								ot1 = 0;
+								ot2 = 0;
+								ot3 = 0;
 								maploaded = false;
 								checkGoogleMap();
 
@@ -375,7 +407,9 @@
 							$('#lbl_optecnica').text('ALGORITMO AULAS');
 							html_subtitulo = '<p class="pull-right">ALGORITMO AULAS</p>';
 							$('#OP_TECNICA').on("change", function(event) { 
-
+								ot1 = 0;
+								ot2 = 0;
+								ot3 = 0;
 								maploaded = false;
 								checkGoogleMap();
 
@@ -387,43 +421,36 @@
 					case '2':
 						$('#def').show();
 						$('#DEF_CIVIL').val(0);
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">INSPERCCIONADA POR DEFENSA CIVIL</p>';
 						break;
 					case '3':
 						$('#altriesg').show();
 						$('#ALT_RIESGO').val(0);
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">INHABITABLES EN ALTO RIESGO</p>';
 						break;
 					case '4':
 						$('#patcult').show();
 						$('#PAT_CULT').val(0);
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">PATRIMONIO CULTURAL</p>';
 						break;
 					case '5':
 						$('#obejec').show();
 						$('#OBR_EJEC').val(0);
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" />  SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> NO</p>';
 						html_subtitulo = '<p class="pull-right">OBRAS EN EJECUCION</p>';
 						break;
 					case '6':
 						$('#serv').show();
 						$('#serv input[type=checkbox]').removeAttr('checked');
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Energía Eléctrica, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Agua Potable, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" />Alcantarillado</p>';
 						html_subtitulo = '<p class="pull-right">SERVICIOS</p>';
 						break;
 					case '7':
 						$('#comuni').show();
 						$('#comuni input[type=checkbox]').removeAttr('checked');
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Telefonía Fija, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Telefonía Móvil, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" />Internet</p>';
 						html_subtitulo = '<p class="pull-right">COMUNICACION</p>';
 						break;
 					case '8':
 						$('#vulne').show();
 						$('#vulne input[type=checkbox]').removeAttr('checked');
-						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  Cercanía lecho de río, quebrada, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> Cercanía a vía ferrea, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> Cercanía a barranco o precipicio, <img src="<?php echo base_url('img/infra/resul_op4.png') ; ?>" /> Cercanía a cuartel militar o policial, <img src="<?php echo base_url('img/infra/resul_op5.png') ; ?>" /> Erosión fluvial de laderas, <img src="<?php echo base_url('img/infra/resul_op6.png') ; ?>" /> Otro, <img src="<?php echo base_url('img/infra/resul_op7.png') ; ?>" /> Ninguno</p>';
 						html_subtitulo = '<p class="pull-right">VULNERABILIDAD</p>';
 						break;
 					case '9':
@@ -431,45 +458,51 @@
 						$('#NIVEL_EDU').val(0);
 						$('#OP_TECNICA').off("change");
 						$('#lbl_optecnica').text('OPINIÓN TÉCNICA INICIAL');
-						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" />  Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" />Demolición</p>';
 						html_subtitulo = '<p class="pull-right">NIVEL EDUCATIVO</p>';
 						break;
 				}
-
 				$('#geo_leyenda').html(html_leyenda);
 				$('#subtitulo').html(html_subtitulo);
 			});
 
 			$('#DEF_CIVIL').change(function(event) {
-				
+				r1 = 0;
+				r2 = 0;
 				maploaded = false;
 				checkGoogleMap();
 				
 				DefensaCivil($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#DEF_CIVIL').val());
+
 			});
 
 			$('#ALT_RIESGO').change(function(event) {
-				
+				r1 = 0;
+				r2 = 0;
 				maploaded = false;
 				checkGoogleMap();
 
 				AltoRiesgo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#ALT_RIESGO').val());
+
 			});
 
 			$('#PAT_CULT').change(function(event) {
-
+				r1 = 0;
+				r2 = 0;
 				maploaded = false;
 				checkGoogleMap();
 
 				PatrimonioCultural($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#PAT_CULT').val());
+
 			});
 
 			$('#OBR_EJEC').change(function(event) {
-				
+				r1 = 0;
+				r2 = 0;
 				maploaded = false;
 				checkGoogleMap();
 
 				ObrasEjecucion($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#OBR_EJEC').val());
+
 			});
 
 			$('#NIVEL_EDU').change(function(event) {
@@ -478,12 +511,14 @@
 				$('#OP_TECNICA').val(0);
 				$('#OP_TECNICA').off("change");
 				$('#OP_TECNICA').on("change", function(event) { 
-					
+					ot1 = 0;
+					ot2 = 0;
+					ot3 = 0;
 					maploaded = false;
 					checkGoogleMap();
 
      				NivelEducativo($('#NOM_DPTO').val(),$('#NOM_PROV').val(),$('#NOM_DIST').val(),$('#NOM_AREA').val(),$('#NIVEL_EDU').val(),$('#OP_TECNICA').val());
-
+     				
 				});
 			});
 		});
@@ -500,18 +535,71 @@
 			$('#niveledu').hide();
 		}
 
+		function view_leyenda () {
+			
+			switch( $('#RESULTADO').val() )
+				{
+					case '1':
+					case '9':
+					case '10':
+					case '11':
+						html_leyenda = '<p>LEYENDA:  <img src="<?php echo base_url('img/infra/ot1.png') ; ?>" /> ('+ot1+') Mantenimiento, <img src="<?php echo base_url('img/infra/ot2.png') ; ?>" /> ('+ot2+') Reforzamiento, <img src="<?php echo base_url('img/infra/ot3.png') ; ?>" /> ('+ot3+') Demolición</p>';
+						break;
+					case '2':
+					case '3':
+					case '4':
+					case '5':
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_si.png') ; ?>" /> ('+r1+') SI, <img src="<?php echo base_url('img/infra/resul_no.png') ; ?>" /> ('+r2+') NO</p>';
+						break;
+					case '6':
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" /> ('+op1+') Energía Eléctrica, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> ('+op2+') Agua Potable, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> ('+op3+') Alcantarillado</p>';
+						break;
+					case '7':
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" /> ('+op1+') Telefonía Fija, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> ('+op2+') Telefonía Móvil, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> ('+op3+') Internet</p>';
+						break;
+					case '8':
+						html_leyenda = '<p>LEYENDA: <img src="<?php echo base_url('img/infra/resul_op1.png') ; ?>" />  ('+op1+') Cercanía lecho de río, quebrada, <img src="<?php echo base_url('img/infra/resul_op2.png') ; ?>" /> ('+op2+') Cercanía a vía ferrea, <img src="<?php echo base_url('img/infra/resul_op3.png') ; ?>" /> ('+op3+') Cercanía a barranco o precipicio, <img src="<?php echo base_url('img/infra/resul_op4.png') ; ?>" /> ('+op4+') Cercanía a cuartel militar o policial, <img src="<?php echo base_url('img/infra/resul_op5.png') ; ?>" /> ('+op5+') Erosión fluvial de laderas, <img src="<?php echo base_url('img/infra/resul_op6.png') ; ?>" /> ('+op6+') Otro, <img src="<?php echo base_url('img/infra/resul_op7.png') ; ?>" /> ('+op7+') Ninguno</p>';
+						break;
+				}
+
+				$('#geo_leyenda').html(html_leyenda);
+		}
+
 		function kml_dpto(code){
+
+			ckb = ($('#ckb_kml').is(':checked')) ? 0 : 1;
 
 			for (var i = 0; i < kmlArray.length; i++) {
 
 				kmlArray[i].nomkml.setMap(null);
 
 				if (kmlArray[i].cd == code){
-					kmlArray[i].nomkml.setMap(map);
+					if ( ckb == 1 ){
+						kmlArray[i].nomkml.setMap(map);
+					}
 					map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
 					map.setZoom(kmlArray[i].zm);
 				}
 			}
+		}
+
+		function clean_kml_dpto(){
+
+			ckb = ($('#ckb_kml').is(':checked')) ? 0 : 1;
+			code = $('#NOM_DPTO').val();
+
+			for (var i = 0; i < kmlArray.length; i++) {
+				if (kmlArray[i].cd == code){
+					if ( ckb == 0 )
+					{
+						kmlArray[i].nomkml.setMap(null);
+					}else{
+						kmlArray[i].nomkml.setMap(map);
+						map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
+					}
+				}
+			}
+
 		}
 
 		function combo_dpto(){
@@ -656,6 +744,7 @@
 
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				// markerCluster = new MarkerClusterer(map, markers);
 
 			}).fail(function( jqxhr, textStatus, error ) {
@@ -665,8 +754,6 @@
 		}
 
 		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
-
-			
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/defensa_civil', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,df:defecivil}, function(json_data, textStatus) {
 
@@ -699,6 +786,7 @@
 
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -739,7 +827,8 @@
 				
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
-				
+				view_leyenda();
+
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
 				console.log( "Request Failed: " + err);
@@ -780,6 +869,7 @@
 
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -820,6 +910,7 @@
 				
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -828,6 +919,13 @@
 		}
 
 		function ini_button(posicion) {
+			op1 = 0;
+			op2 = 0;
+			op3 = 0;
+			op4 = 0;
+			op5 = 0;
+			op6 = 0;
+			op7 = 0;
 		 	maploaded = false;
 			checkGoogleMap();
 			
@@ -888,6 +986,7 @@
 				
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -942,6 +1041,7 @@
 			
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -996,6 +1096,7 @@
 			
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -1048,6 +1149,7 @@
 				
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -1099,6 +1201,7 @@
 
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -1139,6 +1242,7 @@
 
 				maploaded = true;
 				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 
 			}).fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ', ' + error;
@@ -1221,6 +1325,10 @@
 		</div>
 
 		<div class="filtro_map preguntas_sub2 span2">
+			<div class="row-fluid control-group span9">
+				<input type="checkbox" name="ckb_kml" id="ckb_kml" onclick="clean_kml_dpto();" > Ocultar KML
+			</div>
+
 			<div class="row-fluid control-group span9">
 				<label class="preguntas_sub2" for="NOM_DPTO">DEPARTAMENTO</label>
 				<div class="controls span">
