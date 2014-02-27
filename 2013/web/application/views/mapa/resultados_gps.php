@@ -709,6 +709,7 @@
 		function OpinionTecnica(departamento,provincia,distrito,tipoarea,opinion){
 
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/opinion_tecnica', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(json_data, textStatus) {
+			// $.getJSON('<?php echo base_url(); ?>' + 'json/opinion_tecnica.json', function(json_data, textStatus) {
 
 				clean_map();
 
