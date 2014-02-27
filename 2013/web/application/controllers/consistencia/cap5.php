@@ -285,8 +285,8 @@ class Cap5 extends CI_Controller {
 						$nro_amb = $c_data_n['P5_TotAmb'];
 						if ($hay_ambientes > $nro_amb){
 							//borrar sobrantes
-							for($i=$hay_ambientes; $i!=$nro_amb; $i--){
-								$this->cap6_model->delete_p6_2_from_p5($id,$pr,$c_data_n['P5_Ed_Nro'],$c_data_n['P5_NroPiso'],$i);
+							for($w=$hay_ambientes; $w!=$nro_amb; $w--){
+								$this->cap6_model->delete_p6_2_from_p5($id,$pr,$c_data_n['P5_Ed_Nro'],$c_data_n['P5_NroPiso'],$w);
 							}
 						}
 
