@@ -56,12 +56,12 @@ class Resultados extends CI_Controller {
 		$ot = $this->input->get('opt');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_OpinionTecnica_Lima( $dpto, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_OpinionTecnica_Lima( $dpto, $tiparea, $ot );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_OpinionTecnica( $dpto, $prov, $dist, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_OpinionTecnica( $dpto, $prov, $dist, $tiparea, $ot );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function detalle_ot()
@@ -80,12 +80,12 @@ class Resultados extends CI_Controller {
 		$df = $this->input->get('df');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_DefensaCivil_Lima( $dpto, $tiparea, $df )->result();
+			$datos = $this->resultados_model->Get_DefensaCivil_Lima( $dpto, $tiparea, $df );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_DefensaCivil( $dpto, $prov, $dist, $tiparea, $df )->result();
+			$datos = $this->resultados_model->Get_DefensaCivil( $dpto, $prov, $dist, $tiparea, $df );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function alto_riesgo()
@@ -97,12 +97,12 @@ class Resultados extends CI_Controller {
 		$ar = $this->input->get('ar');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_AltoRiesgo_Lima( $dpto, $tiparea, $ar )->result();
+			$datos = $this->resultados_model->Get_AltoRiesgo_Lima( $dpto, $tiparea, $ar );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_AltoRiesgo( $dpto, $prov, $dist, $tiparea, $ar )->result();
+			$datos = $this->resultados_model->Get_AltoRiesgo( $dpto, $prov, $dist, $tiparea, $ar );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function patrimonio_cultural()
@@ -114,12 +114,12 @@ class Resultados extends CI_Controller {
 		$pc = $this->input->get('pc');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_PatrimCultural_Lima( $dpto, $tiparea, $pc )->result();
+			$datos = $this->resultados_model->Get_PatrimCultural_Lima( $dpto, $tiparea, $pc );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_PatrimCultural( $dpto, $prov, $dist, $tiparea, $pc )->result();
+			$datos = $this->resultados_model->Get_PatrimCultural( $dpto, $prov, $dist, $tiparea, $pc );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function obras_ejecucion()
@@ -131,12 +131,12 @@ class Resultados extends CI_Controller {
 		$oj = $this->input->get('oj');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_ObrasEjecucion_Lima( $dpto, $tiparea, $oj )->result();
+			$datos = $this->resultados_model->Get_ObrasEjecucion_Lima( $dpto, $tiparea, $oj );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_ObrasEjecucion( $dpto, $prov, $dist, $tiparea, $oj )->result();
+			$datos = $this->resultados_model->Get_ObrasEjecucion( $dpto, $prov, $dist, $tiparea, $oj );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 
@@ -151,12 +151,12 @@ class Resultados extends CI_Controller {
 		$alc = $this->input->get('alc');
 
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_Servicios_Lima( $dpto, $tiparea, $ee, $ag, $alc )->result();
+			$datos = $this->resultados_model->Get_Servicios_Lima( $dpto, $tiparea, $ee, $ag, $alc );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_Servicios( $dpto, $prov, $dist, $tiparea, $ee, $ag, $alc )->result();
+			$datos = $this->resultados_model->Get_Servicios( $dpto, $prov, $dist, $tiparea, $ee, $ag, $alc );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function comunicacion()
@@ -170,12 +170,12 @@ class Resultados extends CI_Controller {
 		$inter = $this->input->get('inter');
 
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_Comunicacion_Lima( $dpto, $tiparea, $tf, $tm, $inter )->result();
+			$datos = $this->resultados_model->Get_Comunicacion_Lima( $dpto, $tiparea, $tf, $tm, $inter );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_Comunicacion( $dpto, $prov, $dist, $tiparea, $tf, $tm, $inter )->result();
+			$datos = $this->resultados_model->Get_Comunicacion( $dpto, $prov, $dist, $tiparea, $tf, $tm, $inter );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function vulnerabilidad()
@@ -193,12 +193,12 @@ class Resultados extends CI_Controller {
 		$v7 = $this->input->get('v7');
 
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_Vulnerabilidad_Lima( $dpto, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 )->result();
+			$datos = $this->resultados_model->Get_Vulnerabilidad_Lima( $dpto, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_Vulnerabilidad( $dpto, $prov, $dist, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 )->result();
+			$datos = $this->resultados_model->Get_Vulnerabilidad( $dpto, $prov, $dist, $tiparea, $v1, $v2, $v3, $v4, $v5, $v6, $v7 );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function nivel_educativo()
@@ -211,12 +211,12 @@ class Resultados extends CI_Controller {
 		$ot = $this->input->get('opt');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_NivelEducativo_Lima( $dpto, $tiparea, $ne, $ot )->result();
+			$datos = $this->resultados_model->Get_NivelEducativo_Lima( $dpto, $tiparea, $ne, $ot );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_NivelEducativo( $dpto, $prov, $dist, $tiparea, $ne, $ot )->result();
+			$datos = $this->resultados_model->Get_NivelEducativo( $dpto, $prov, $dist, $tiparea, $ne, $ot );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function algoritmo_edificacion()
@@ -228,12 +228,12 @@ class Resultados extends CI_Controller {
 		$ot = $this->input->get('opt');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_AlgoritmoEdificacion_Lima( $dpto, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_AlgoritmoEdificacion_Lima( $dpto, $tiparea, $ot );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_AlgoritmoEdificacion( $dpto, $prov, $dist, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_AlgoritmoEdificacion( $dpto, $prov, $dist, $tiparea, $ot );
 		}
 
-		$this->load->view('backend/json/json_view', $data);
+		$this->convert_uft8_array($datos);
 	}
 
 	public function algoritmo_aulas()
@@ -245,11 +245,20 @@ class Resultados extends CI_Controller {
 		$ot = $this->input->get('opt');
 		
 		if ( $dpto == '1501' || $dpto == '1502' ) {
-			$data['datos'] = $this->resultados_model->Get_AlgoritmoAulas_Lima( $dpto, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_AlgoritmoAulas_Lima( $dpto, $tiparea, $ot );
 		}else{
-			$data['datos'] = $this->resultados_model->Get_AlgoritmoAulas( $dpto, $prov, $dist, $tiparea, $ot )->result();
+			$datos = $this->resultados_model->Get_AlgoritmoAulas( $dpto, $prov, $dist, $tiparea, $ot );
 		}
 
+		$this->convert_uft8_array($datos);
+	}
+
+	function convert_uft8_array($datos)
+	{
+		$data['datos'] = array();
+		foreach ($datos->result_array() as $row) {
+			array_push($data['datos'], array_map('utf8_encode', $row));
+		}
 		$this->load->view('backend/json/json_view', $data);
 	}
 
