@@ -737,7 +737,7 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 1);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', parseInt(datos.R_OT), 1);
 					// var marker = new google.maps.Marker({
 						// position: point
 					// });
@@ -1239,7 +1239,7 @@
 						"</div><div>";
 
 					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', datos.R_OT, 9);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', parseInt(datos.R_OT), 9);
 				});
 
 				maploaded = true;
