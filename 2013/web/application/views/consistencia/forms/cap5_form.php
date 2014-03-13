@@ -311,7 +311,7 @@ $("#cap5_f").validate({
 			},
 			P5_cantNroPiso: {
 				digits:true,
-				range:[1,99],
+				range:[0,99],
 				required: true,
 			},
 			'P5_TotAmb[]':{

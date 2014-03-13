@@ -488,7 +488,7 @@ $P6_2_16a_b = array(
 	'id'	=> 'P6_2_16a_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',		
-	'disabled' => 'disabled',
+	'readonly' => true,
 );
 
 $P6_2_16a_r = array(
@@ -496,7 +496,7 @@ $P6_2_16a_r = array(
 	'id'	=> 'P6_2_16a_r',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16a_m = array(
@@ -504,7 +504,7 @@ $P6_2_16a_m = array(
 	'id'	=> 'P6_2_16a_m',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16b = array(
@@ -519,7 +519,7 @@ $P6_2_16b_b = array(
 	'id'	=> 'P6_2_16b_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16b_r = array(
@@ -527,7 +527,7 @@ $P6_2_16b_r = array(
 	'id'	=> 'P6_2_16b_r',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16b_m = array(
@@ -535,7 +535,7 @@ $P6_2_16b_m = array(
 	'id'	=> 'P6_2_16b_m',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16c = array(
@@ -550,7 +550,7 @@ $P6_2_16c_b = array(
 	'id'	=> 'P6_2_16c_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16c_r = array(
@@ -558,7 +558,7 @@ $P6_2_16c_r = array(
 	'id'	=> 'P6_2_16c_r',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16c_m = array(
@@ -566,7 +566,7 @@ $P6_2_16c_m = array(
 	'id'	=> 'P6_2_16c_m',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16d = array(
@@ -581,7 +581,7 @@ $P6_2_16d_b = array(
 	'id'	=> 'P6_2_16d_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16d_r = array(
@@ -589,7 +589,7 @@ $P6_2_16d_r = array(
 	'id'	=> 'P6_2_16d_r',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16d_m = array(
@@ -597,7 +597,7 @@ $P6_2_16d_m = array(
 	'id'	=> 'P6_2_16d_m',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16e = array(
@@ -612,7 +612,7 @@ $P6_2_16e_b = array(
 	'id'	=> 'P6_2_16e_b',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16e_r = array(
@@ -620,7 +620,7 @@ $P6_2_16e_r = array(
 	'id'	=> 'P6_2_16e_r',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16e_m = array(
@@ -628,7 +628,7 @@ $P6_2_16e_m = array(
 	'id'	=> 'P6_2_16e_m',
 	'maxlength'	=> 4,
 	'class' => 'input4',	
-	'disabled' => 'disabled',		
+	'readonly' => true,		
 );
 
 $P6_2_16e_O = array(
@@ -3089,7 +3089,7 @@ $(document).ready(function(){
 
 	function P4_activacion(nro,valor){
 
-		if ( valor == 0 || valor == 9 ){
+		if ( valor == 0 || valor == 9){
 
 			$('#P6_2_4Turno_M_op'+nro).val('');
 			$('#P6_2_4Turno_T_op'+nro).val('');
@@ -3098,6 +3098,12 @@ $(document).ready(function(){
 			$('#P6_2_4Turno_M_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_T_op'+nro).attr('readonly','readonly');
 			$('#P6_2_4Turno_N_op'+nro).attr('readonly','readonly');
+
+			if ( valor == 9 ) {
+				$('#P6_2_4Turno_M_op'+nro).val(9);
+				$('#P6_2_4Turno_T_op'+nro).val(9);
+				$('#P6_2_4Turno_N_op'+nro).val(9);
+			}
 
 		}else if ( valor == 1 ){
 
@@ -3545,21 +3551,26 @@ $(document).ready(function(){
 			$('#P6_2_16'+letra+'_b').val('');
 			$('#P6_2_16'+letra+'_r').val('');
 			$('#P6_2_16'+letra+'_m').val('');
-			
 
-			$('#P6_2_16'+letra+'_b').attr('disabled','disabled');
-			$('#P6_2_16'+letra+'_r').attr('disabled','disabled');
-			$('#P6_2_16'+letra+'_m').attr('disabled','disabled');
+			$('#P6_2_16'+letra+'_b').attr('readonly','readonly');
+			$('#P6_2_16'+letra+'_r').attr('readonly','readonly');
+			$('#P6_2_16'+letra+'_m').attr('readonly','readonly');
 
 			if ( letra == 'e' ){
 				$('#P6_2_16e_O').val('');
 				$('#P6_2_16e_O').attr('disabled','disabled');	
 			}
 
+			if ( valor == 9) {
+				$('#P6_2_16'+letra+'_b').val(9);
+				$('#P6_2_16'+letra+'_r').val(9);
+				$('#P6_2_16'+letra+'_m').val(9);
+			}
+
 		}else if ( valor == 1 ){
-			$('#P6_2_16'+letra+'_b').removeAttr('disabled');
-			$('#P6_2_16'+letra+'_r').removeAttr('disabled');
-			$('#P6_2_16'+letra+'_m').removeAttr('disabled');
+			$('#P6_2_16'+letra+'_b').removeAttr('readonly');
+			$('#P6_2_16'+letra+'_r').removeAttr('readonly');
+			$('#P6_2_16'+letra+'_m').removeAttr('readonly');
 
 			if ( letra == 'e' ) $('#P6_2_16e_O').removeAttr('disabled');
 		}
@@ -4212,17 +4223,17 @@ $(document).ready(function(){
 			P6_2_16a_b:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16a_r:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16a_m:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16b:{
 				digits:true,
@@ -4232,17 +4243,17 @@ $(document).ready(function(){
 			P6_2_16b_b:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16b_r:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16b_m:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16c:{
 				digits:true,
@@ -4252,17 +4263,17 @@ $(document).ready(function(){
 			P6_2_16c_b:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16c_r:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16c_m:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16d:{
 				digits:true,
@@ -4272,17 +4283,17 @@ $(document).ready(function(){
 			P6_2_16d_b:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16d_r:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16d_m:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16e:{
 				digits:true,
@@ -4296,17 +4307,17 @@ $(document).ready(function(){
 			P6_2_16e_b:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16e_r:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16e_m:{
 				digits:true,
 				valrango:[0,9998,9999],
-				required:true,
+				requeridodis:true,
 			},
 			P6_2_16f:{
 				digits:true,
