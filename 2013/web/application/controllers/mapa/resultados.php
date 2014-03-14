@@ -23,7 +23,8 @@ class Resultados extends CI_Controller {
 		// fwrite($fp, json_encode($datos->result()));
 		// fclose($fp);
 
-		$this->load->view('mapa/resultados_gps.php', $data);
+		// $this->load->view('mapa/resultados_gps.php', $data);
+		$this->load->view('mapa/resultados_fusiontable.php', $data);
 
 	}
 
