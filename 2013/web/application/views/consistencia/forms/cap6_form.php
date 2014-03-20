@@ -244,8 +244,8 @@ $P5_Ed_Nro = array(
 $P6_2_1 = array(
 	'name'	=> 'P6_2_1',
 	'id'	=> 'P6_2_1',
-	'maxlength'	=> 2,
-	'class' => 'input2',
+	'maxlength'	=> 3,
+	'class' => 'input3',
 );
 
 $P6_2_3 = array(
@@ -2925,7 +2925,7 @@ $(document).ready(function(){
 
 	$('#P6_2_1').change(function(event) {
 
-		if ( $(this).val() >= 90 && $(this).val() < 99 )
+		if ( $(this).val() >= 90 && $(this).val() < 999 )
 		{
 
 			$('#P5_NroPiso').removeAttr('disabled');
@@ -3950,7 +3950,7 @@ $(document).ready(function(){
 			},
 			P6_2_1:{
 				digits:true,
-				range:[1,99],
+				range:[1,999],
 				required: true,
 			},
 			P6_2_3:{
