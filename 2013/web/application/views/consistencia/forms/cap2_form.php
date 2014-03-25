@@ -1957,24 +1957,31 @@ $(function(){
 
 $('#P2_B_5A_Uso').change(function(event) {
 	// if($('#P2_B_5_1').val() == 0){
-
 	if ( $(this).val() != '' )
 	{
-		if($('#P2_B_5A_Uso').val() > 0 && $('#P2_B_5A_Uso').val() < 3){
-			$('#P2_B_5B_1').val('');
-			$('#P2_B_5B_1').attr('readonly','readonly');
-			$('#P2_B_5B_2').val('');
-			$('#P2_B_5B_2').attr('readonly','readonly');
-			$('#P2_B_5B_3').val('');
-			$('#P2_B_5B_3').attr('readonly','readonly');
-			$('#P2_B_5B_4').val('');
-			$('#P2_B_5B_4').attr('readonly','readonly');
-		}else{
-			$('#P2_B_5B_1').removeAttr('readonly');
-			$('#P2_B_5B_2').removeAttr('readonly');
-			$('#P2_B_5B_3').removeAttr('readonly');
-			$('#P2_B_5B_4').removeAttr('readonly');
+		op1 = $('#P2_B_5_1').val();
+		op2 = $('#P2_B_5_2').val();
+
+		$('#P2_B_5B_1').removeAttr('readonly');
+		$('#P2_B_5B_2').removeAttr('readonly');
+		$('#P2_B_5B_3').removeAttr('readonly');
+		$('#P2_B_5B_4').removeAttr('readonly');
+
+		if( op1 != 1 ) {
+
+			if($('#P2_B_5A_Uso').val() > 0 && $('#P2_B_5A_Uso').val() < 3){
+				$('#P2_B_5B_1').val('');
+				$('#P2_B_5B_1').attr('readonly','readonly');
+				$('#P2_B_5B_2').val('');
+				$('#P2_B_5B_2').attr('readonly','readonly');
+				$('#P2_B_5B_3').val('');
+				$('#P2_B_5B_3').attr('readonly','readonly');
+				$('#P2_B_5B_4').val('');
+				$('#P2_B_5B_4').attr('readonly','readonly');
+			}
+
 		}
+
 	}
 	
 });
@@ -1998,9 +2005,7 @@ $('#P2_B_5_3').change(function(event) {
 		$('#P2_B_5A_Uso').attr('readonly','readonly');
 
 	}else if ( op1 == 1 && op2 == 1  && op3 == 0 ){
-
 		// nothing
-
 	}else if ( op1 == 0 && op2 == 1  && op3 == 1 ){
 
 		$('#P2_B_5B_1').val('');
@@ -2031,7 +2036,7 @@ $('#P2_B_5_3').change(function(event) {
 		$('#P2_B_5B_4').val('');
 		$('#P2_B_5B_4').attr('readonly','readonly');
 
-	}else if ( op1 == 1 && op2 == 1  && op3 == 0 ){
+	}else if ( op1 == 1 && op2 == 1  && op3 == 1 ){
 		//nothing
 	}
 	
