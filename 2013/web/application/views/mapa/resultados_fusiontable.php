@@ -26,6 +26,7 @@
 
 	<script type="text/javascript">
 		var kmlArray = [];
+		var layer = new google.maps.FusionTablesLayer();
 		// var markerCluster = null;
 		// var markers = [];
 
@@ -190,39 +191,52 @@
 
 		function initialize() {
 			var myOptions = {
-			zoom: 6,
-			center: new google.maps.LatLng(-7.1663,-71.455078),
-			// mapTypeId: google.maps.MapTypeId.SATELLITE,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			zoomControl: true,
-			zoomControlOptions: {
-				style: google.maps.ZoomControlStyle.LARGE,
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			streetViewControl: true,
-			streetViewControlOptions:{
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			panControl: false,
-			panControlOptions: {
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			scaleControl: false,
-			scaleControlOptions: {
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			},
-			mapTypeControl: true,
-			mapTypeControlOptions: {
-				style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-				position: google.maps.ControlPosition.RIGHT_CENTER
-			}
+				zoom: 6,
+				center: new google.maps.LatLng(-7.1663,-71.455078),
+				// mapTypeId: google.maps.MapTypeId.SATELLITE,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				zoomControl: true,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.LARGE,
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				},
+				streetViewControl: true,
+				streetViewControlOptions:{
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				},
+				panControl: false,
+				panControlOptions: {
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				},
+				scaleControl: false,
+				scaleControlOptions: {
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				},
+				mapTypeControl: true,
+				mapTypeControlOptions: {
+					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				}
 			}
 
 			map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
-			google.maps.event.addListener(map, 'click', function() {
-				infowindow.close();
+			google.maps.event.addListener(layer, 'click', function(e) {
+
+				// e.infoWindowHtml = "Hola!";
+				// update the content of the InfoWindow
+				e.infoWindowHtml = e.row['codigo_de_local'].value + "<br />";
+
+				// if the delivery == yes, add content to the window
+				if (e.row['Nro_Pred'].value == 1) {
+					e.infoWindowHtml += "Delivers!";
+				}
+
 			});
+
+			// google.maps.event.addListener(map, 'click', function() {
+			// 	infowindow.close();
+			// });
 
 			// layer = new google.maps.FusionTablesLayer({
 			// 	map: map,
@@ -237,6 +251,7 @@
 			// 		templateId: 2
 			// 	}
 			// });
+
 
 			<?php $urlKml = 'http://webinei.inei.gob.pe/cie/2013/web/'; ?>
 			var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'."?nocache|=".time(); ?>';
@@ -595,7 +610,6 @@
 					}
 					map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
 					map.setZoom(kmlArray[i].zm);
-					break;
 				}
 			}
 		}
@@ -720,51 +734,91 @@
 				console.log( "Request Failed: " + err);
 			});
 		}
-
+		
+		// $('.dtaulas').onClick(ver_detalle('000019'));
 
 		function OpinionTecnica(departamento,provincia,distrito,tipoarea,opinion){
-			var query = "SELECT codigo_de_local, Nro_Pred, dpto_nombre, prov_nombre, dist_nombre, des_area, nombres_IIEE, Tot_Ed, OT_1, OT_2, OT_3, R_OT, LatitudPunto, LongitudPunto FROM " +
-				'1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM';
-			var encodedQuery = encodeURIComponent(query);
 
-			// Construct the URL
-			var url = ['https://www.googleapis.com/fusiontables/v1/query'];
-			url.push('?sql=' + encodedQuery);
-			url.push('&key=AIzaSyAkIa4SdnQDXiuLkg2tPW42vgVrR9wWarA');
-			url.push('&callback=?');
+			if ( layer != undefined ) layer.setMap(null);
 
+			var condicion =  ( opinion > 0 ) ? 'R_OT = '+opinion+' ' : 'R_OT > '+opinion+' ';
 
-			$.getJSON(url.join(''),null, function( data ) {
-				clean_map();
+			if ( departamento > 0 )
+			{
+				condicion += 'AND cod_dpto = '+departamento+' ';
+				if ( provincia > 0 )
+				{
+					condicion += 'AND cod_prov = '+provincia+' ';
+					if ( distrito > 0 ){
+						condicion += 'AND cod_dist = '+distrito+' ';
+					}
+				}checkGoogleMap()
+			}
 
-				var rows = data['rows'];
-				for (i in rows) {
+			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"'" : "";
 
-					var contentString="<div><div class='marker activeMarker'>"+
-						"<div class='markerInfo activeInfo' style='display: block'>"+
-						"<h2>LOCAL: "+rows[i][0]+" - PREDIO: "+rows[i][1]+"</h2>"+
-						"<p><b>Departamento:</b> "+rows[i][2]+"</p>"+
-						"<p><b>Provincia:</b> "+rows[i][3]+"</p>"+
-						"<p><b>Distrito:</b> "+rows[i][4]+"</p>"+
-						"<p><b>Tipo de área:</b> "+rows[i][5]+"</p>"+
-						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+rows[i][0]+"/"+rows[i][1]+"/1'>Ir a cédula censal evaluada →</a></p>"+
-
-						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-						"<p>"+rows[i][6]+"</p>"+
-
-						"<h3>EDIFICACIONES</h3>"+
-						"<p><b>Total de edificaciones:</b> "+rows[i][7]+"</p>"+
-						"<p><b>Mantenimiento:</b> "+rows[i][8]+"</p>"+
-						"<p><b>Reforzamiento:</b> "+rows[i][9]+"</p>"+
-						"<p><b>Demolicion:</b> "+rows[i][10]+"</p>"+
-						"<p class='detalle'><a href='#' onclick='ver_detalle(\""+rows[i][0]+"\")'>Ir a detalle aulas por edificación →</a></p>"+
-						"</div>"+
-						"</div><div>";
-
-					var point = new google.maps.LatLng(rows[i][12],rows[i][13]);
-					var marker = createMarkerLEN(point, rows[i][0], contentString,'punto', parseInt(rows[i][11]), 1);
-					
+			layer = new google.maps.FusionTablesLayer({
+				query: {
+					select: "codigo_de_local, Nro_Pred, dpto_nombre, prov_nombre, dist_nombre, des_area, nombres_IIEE, Tot_Ed, OT_1, OT_2, OT_3, R_OT, LatitudPunto, LongitudPunto",
+					from: "1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM",
+					where: condicion
+				},
+				map:map,
+				options: {
+					styleId: 2,
+					templateId: 2
 				}
+			});
+
+			layer.setMap(map);
+
+			maploaded = true;
+			setTimeout('checkGoogleMap()',1000);
+			view_leyenda();
+
+
+			// var query = "SELECT codigo_de_local, Nro_Pred, dpto_nombre, prov_nombre, dist_nombre, des_area, nombres_IIEE, Tot_Ed, OT_1, OT_2, OT_3, R_OT, LatitudPunto, LongitudPunto FROM " +
+			// 	'1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM';
+			// var encodedQuery = encodeURIComponent(query);
+
+			// // Construct the URL
+			// var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+			// url.push('?sql=' + encodedQuery);
+			// url.push('&key=AIzaSyAkIa4SdnQDXiuLkg2tPW42vgVrR9wWarA');
+			// url.push('&callback=?');
+
+
+			// $.getJSON(url.join(''),null, function( data ) {
+			// 	clean_map();
+
+			// 	var rows = data['rows'];
+			// 	for (i in rows) {
+
+			// 		var contentString="<div><div class='marker activeMarker'>"+
+			// 			"<div class='markerInfo activeInfo' style='display: block'>"+
+			// 			"<h2>LOCAL: "+rows[i][0]+" - PREDIO: "+rows[i][1]+"</h2>"+
+			// 			"<p><b>Departamento:</b> "+rows[i][2]+"</p>"+
+			// 			"<p><b>Provincia:</b> "+rows[i][3]+"</p>"+
+			// 			"<p><b>Distrito:</b> "+rows[i][4]+"</p>"+
+			// 			"<p><b>Tipo de área:</b> "+rows[i][5]+"</p>"+
+			// 			"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+rows[i][0]+"/"+rows[i][1]+"/1'>Ir a cédula censal evaluada →</a></p>"+
+
+			// 			"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+			// 			"<p>"+rows[i][6]+"</p>"+
+
+			// 			"<h3>EDIFICACIONES</h3>"+
+			// 			"<p><b>Total de edificaciones:</b> "+rows[i][7]+"</p>"+
+			// 			"<p><b>Mantenimiento:</b> "+rows[i][8]+"</p>"+
+			// 			"<p><b>Reforzamiento:</b> "+rows[i][9]+"</p>"+
+			// 			"<p><b>Demolicion:</b> "+rows[i][10]+"</p>"+
+			// 			"<p class='detalle'><a href='#' onclick='ver_detalle(\""+rows[i][0]+"\")'>Ir a detalle aulas por edificación →</a></p>"+
+			// 			"</div>"+
+			// 			"</div><div>";
+
+			// 		var point = new google.maps.LatLng(rows[i][12],rows[i][13]);
+			// 		var marker = createMarkerLEN(point, rows[i][0], contentString,'punto', parseInt(rows[i][11]), 1);
+					
+			// 	}
 
 				// $.each(json_data, function(i, datos){
 
@@ -797,15 +851,15 @@
 				// 	// markers.push(marker);
 				// });
 
-				maploaded = true;
-				setTimeout('checkGoogleMap()',1000);
-				view_leyenda();
+				// maploaded = true;
+				// setTimeout('checkGoogleMap()',1000);
+				// view_leyenda();
 				// markerCluster = new MarkerClusterer(map, markers);
 
-			}).fail(function( jqxhr, textStatus, error ) {
-				var err = textStatus + ', ' + error;
-				console.log( "Request Failed: " + err);
-			});
+			// }).fail(function( jqxhr, textStatus, error ) {
+			// 	var err = textStatus + ', ' + error;
+			// 	console.log( "Request Failed: " + err);
+			// });
 		}
 
 		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
@@ -1327,36 +1381,38 @@
 
 		function ver_detalle(code){
 
-			$.getJSON(urlRoot('index.php')+'/mapa/resultados/detalle_ot', {codigo:code}, function(data, textStatus){
+			alert("Hola! Soy el Atributo OnClick");
 
-				contenido = infowindow.getContent();
+			// $.getJSON(urlRoot('index.php')+'/mapa/resultados/detalle_ot', {codigo:code}, function(data, textStatus){
 
-				var contentString2="<div><div class='marker activeMarker'>"+
-					"<div class='markerInfo activeInfo' style='display: block'>"+
-					"<table class='table box-header'><thead><tr><th>N° DE PREDIO</th><th>EDIFICACIÓN</th><th>N° DE AULAS</td></th></thead><tbody>";
+			// 	contenido = infowindow.getContent();
 
-				$.each(data, function(i, datos){
-					var clase = "";
-					switch (datos.P7_2_1)
-					{
-						case 1:
-							clase ="background-color:#dff0d8;";
-							break;
-						case 2:
-							clase ="background-color:#f2dede;";
-							break;
-						case 3:
-							clase ="background-color:#fcf8e3;";
-							break;
-					}
-					contentString2+="<tr><td style='"+clase+"'>"+datos.Nro_Pred+"</td><td style='"+clase+"'>E-"+datos.P5_Ed_Nro+"</td><td style='"+clase+"'>"+datos.Cant_Aula+"</td></tr>";
-				});
+			// 	var contentString2="<div><div class='marker activeMarker'>"+
+			// 		"<div class='markerInfo activeInfo' style='display: block'>"+
+			// 		"<table class='table box-header'><thead><tr><th>N° DE PREDIO</th><th>EDIFICACIÓN</th><th>N° DE AULAS</td></th></thead><tbody>";
 
-				contentString2+="</tbody></table><p class='detalle'><a href='#' onclick='ver_atras()'>← Regresar</a></p>"+
-					"</div>"+
-					"</div><div>";
-				infowindow.setContent(contentString2);
-			});
+			// 	$.each(data, function(i, datos){
+			// 		var clase = "";
+			// 		switch (datos.P7_2_1)
+			// 		{
+			// 			case 1:
+			// 				clase ="background-color:#dff0d8;";
+			// 				break;
+			// 			case 2:
+			// 				clase ="background-color:#f2dede;";
+			// 				break;
+			// 			case 3:
+			// 				clase ="background-color:#fcf8e3;";
+			// 				break;
+			// 		}
+			// 		contentString2+="<tr><td style='"+clase+"'>"+datos.Nro_Pred+"</td><td style='"+clase+"'>E-"+datos.P5_Ed_Nro+"</td><td style='"+clase+"'>"+datos.Cant_Aula+"</td></tr>";
+			// 	});
+
+			// 	contentString2+="</tbody></table><p class='detalle'><a href='#' onclick='ver_atras()'>← Regresar</a></p>"+
+			// 		"</div>"+
+			// 		"</div><div>";
+			// 	infowindow.setContent(contentString2);
+			// });
 		}
 
 		function ver_atras(){
@@ -1417,8 +1473,8 @@
 					<select id="NOM_AREA" class="span12" name="NOM_AREA">
 						<option value="0">SELECCIONE...</option>
 						<option value="0">TODOS</option>
-						<option value="URBANO">URBANO</option>
-						<option value="RURAL">RURAL</option>
+						<option value="Urbano">URBANO</option>
+						<option value="Rural">RURAL</option>
 					</select>
 				</div>
 			</div>
