@@ -26,7 +26,6 @@
 
 	<script type="text/javascript">
 		var kmlArray = [];
-		var layer = new google.maps.FusionTablesLayer();
 		// var markerCluster = null;
 		// var markers = [];
 
@@ -191,78 +190,40 @@
 
 		function initialize() {
 			var myOptions = {
-				zoom: 6,
-				center: new google.maps.LatLng(-7.1663,-71.455078),
-				// mapTypeId: google.maps.MapTypeId.SATELLITE,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				zoomControl: true,
-				zoomControlOptions: {
-					style: google.maps.ZoomControlStyle.LARGE,
-					position: google.maps.ControlPosition.RIGHT_CENTER
-				},
-				streetViewControl: true,
-				streetViewControlOptions:{
-					position: google.maps.ControlPosition.RIGHT_CENTER
-				},
-				panControl: false,
-				panControlOptions: {
-					position: google.maps.ControlPosition.RIGHT_CENTER
-				},
-				scaleControl: false,
-				scaleControlOptions: {
-					position: google.maps.ControlPosition.RIGHT_CENTER
-				},
-				mapTypeControl: true,
-				mapTypeControlOptions: {
-					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-					position: google.maps.ControlPosition.RIGHT_CENTER
-				}
+			zoom: 6,
+			center: new google.maps.LatLng(-7.1663,-71.455078),
+			// mapTypeId: google.maps.MapTypeId.SATELLITE,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			zoomControl: true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.LARGE,
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			},
+			streetViewControl: true,
+			streetViewControlOptions:{
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			},
+			panControl: false,
+			panControlOptions: {
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			},
+			scaleControl: false,
+			scaleControlOptions: {
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			},
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			}
 			}
 
 			map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
-			// layer = new google.maps.FusionTablesLayer({
-			// 	map: map,
-			// 	// heatmap: { enabled: false },
-			// 	query: {
-			// 		select: "col4\x3e\x3e1",
-			// 		from: "1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM",
-			// 		where: ""
-			// 		},
-			// 	suppressInfoWindows: true
-			// 	// 	,
-			// 	// options: {
-			// 	// 	styleId: 2,
-			// 	// 	templateId: 2
-			// 	// }
-			// });
-
-
-			// google.maps.event.addListener(layer, 'click', function(e) {
-
-			// 	// e.infoWindowHtml = "Hola!";
-			// 	// update the content of the InfoWindow
-			// 	e.infoWindowHtml = e.row['codigo_de_local'].value + "<br />";
-
-			// 	// if the delivery == yes, add content to the window
-			// 	if (e.row['Nro_Pred'].value == 1) {
-			// 		e.infoWindowHtml += "Delivers!";
-			// 	}
-
-			// 	var contentString = e.infoWindowHtml;
-
-			// 	infowindow.setContent(contentString);
-			// 	infolatlng = new google.maps.LatLng( parseFloat(e.row['LatitudPunto'].value),parseFloat(e.row['LongitudPunto'].value)),
-			// 	infowindow.setPosition(infolatlng);
-			// 	infowindow.open(map);
-
-			// });
-
-			// google.maps.event.addListener(map, 'click', function() {
-			// 	infowindow.close();
-			// });
-
-
+			google.maps.event.addListener(map, 'click', function() {
+				infowindow.close();
+			});
+			          
 			<?php $urlKml = 'http://webinei.inei.gob.pe/cie/2013/web/'; ?>
 			var kmlPeru = '<?php echo $urlKml.'kml/peru.kml'."?nocache|=".time(); ?>';
 			// var kmlPeru = 'http://www.uxglass.com/kml/demo.kml';
@@ -271,7 +232,7 @@
 
 			kmlPeruLayer = new google.maps.KmlLayer ( kmlPeru, {preserveViewport:true});
 			kmlArray.push({cd:'0', nomkml:kmlPeruLayer, lat:-7.1663, lng:-71.455078, zm:6});
-			// kmlArray[0].nomkml.setMap(map);
+			kmlArray[0].nomkml.setMap(map);
 
 			// KML MAPS LAYERS
 			var kmlAmazonas = '<?php echo $urlKml.'kml/amazonas.kml'."?nocache|=".time(); ?>';
@@ -382,8 +343,6 @@
 			kmlLimaProvLayer = new google.maps.KmlLayer ( kmlLimaProv, {preserveViewport:true});
 			kmlArray.push({cd:'1502', nomkml:kmlLimaProvLayer, lat:-11.7866731456649, lng:-76.6324097107669, zm:8});
 		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
 
 	</script>
 	<script type="text/javascript">
@@ -620,6 +579,7 @@
 					}
 					map.setCenter(new google.maps.LatLng(kmlArray[i].lat,kmlArray[i].lng));
 					map.setZoom(kmlArray[i].zm);
+					break;
 				}
 			}
 		}
@@ -744,199 +704,55 @@
 				console.log( "Request Failed: " + err);
 			});
 		}
-		
-		// $('.dtaulas').onClick(ver_detalle('000019'));
+
 
 		function OpinionTecnica(departamento,provincia,distrito,tipoarea,opinion){
 
-			if ( layer != undefined ) layer.setMap(null);
+			$.getJSON(urlRoot('index.php')+'/mapa/resultados/opinion_tecnica', {dpto:departamento,prov:provincia,dist:distrito,area:tipoarea,opt:opinion}, function(json_data, textStatus) {
+			// $.getJSON('<?php echo base_url(); ?>' + 'json/opinion_tecnica.json', function(json_data, textStatus) {
 
-			var condicion =  ( opinion > 0 ) ? 'R_OT = '+opinion+' ' : 'R_OT > '+opinion+' ';
+				clean_map();
 
-			if ( departamento > 0 )
-			{
-				condicion += 'AND cod_dpto = '+departamento+' ';
-				if ( provincia > 0 )
-				{
-					condicion += 'AND cod_prov = '+provincia+' ';
-					if ( distrito > 0 ){
-						condicion += 'AND cod_dist = '+distrito+' ';
-					}
-				}checkGoogleMap()
-			}
+				$.each(json_data, function(i, datos){
 
-			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"'" : "";
-
-			layer = new google.maps.FusionTablesLayer({
-				query: {
-					select: "codigo_de_local, Nro_Pred, dpto_nombre, prov_nombre, dist_nombre, des_area, nombres_IIEE, Tot_Ed, OT_1, OT_2, OT_3, R_OT, LatitudPunto, LongitudPunto",
-					from: "1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM",
-					where: condicion
-				},
-				suppressInfoWindows: true,
-				// ,
-				// map:map,
-				options: {
-					styleId: 2,
-					templateId: 2
-				}
-			});
-
-			layer.setMap(map);
-
-			infowindow.close();
-
-			// google.maps.event.addListener(layer, 'click', function(e) {
-
-			// 	// e.infoWindowHtml = "Hola!";
-			// 	// update the content of the InfoWindow
-			// 	e.infoWindowHtml = e.row['codigo_de_local'].value + "<br />";
-
-			// 	// if the delivery == yes, add content to the window
-			// 	if (e.row['Nro_Pred'].value == 1) {
-			// 		e.infoWindowHtml += "Delivers!";
-			// 	}
-
-			// 	// alert(e.infoWindowHtml);
-
-			// });
-
-			google.maps.event.addListener(layer, 'click', function(e) {
-
-				// e.infoWindowHtml = "Hola!";
-				// update the content of the InfoWindow
-				e.infoWindowHtml = e.row['codigo_de_local'].value + "<br />";
-
-				// if the delivery == yes, add content to the window
-				if (e.row['Nro_Pred'].value == 1) {
-					e.infoWindowHtml += "Delivers!";
-				}
-				
-				var contentString = "<div>"+
-					"<div class='marker activeMarker'>"+
+					var contentString="<div><div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
+						"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
+						"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
+						"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
+						"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
+						"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
+						"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
 
-							"<h2>LOCAL: "+e.row['codigo_de_local'].value+" - PREDIO: "+e.row['Nro_Pred'].value+"</h2>"+
-							"<p><b>Departamento:</b> "+e.row['dpto_nombre'].value+"</p>"+
-							"<p><b>Provincia:</b> "+e.row['prov_nombre'].value+"</p>"+
-							"<p><b>Distrito:</b> "+e.row['dist_nombre'].value+"</p>"+
-							"<p><b>Tipo de área:</b> "+e.row['des_area'].value+"</p>"+
-							"<p class='detalle'>"+
-							"<a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+e.row['codigo_de_local'].value+"/"+e.row['Nro_Pred'].value+"/1'>Ir a cédula censal evaluada →</a>"+
-							"</p>"+
+						"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
+						"<p>"+datos.nombres_IIEE+"</p>"+
 
-							"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-							"<p>"+e.row['nombres_IIEE'].value+"</p>"+
-
-							"<h3>EDIFICACIONES</h3>"+
-							"<p><b>Total de edificaciones:</b> "+e.row['Tot_Ed'].value+"</p>"+
-							"<p><b>Mantenimiento:</b> "+e.row['OT_1'].value+"</p>"+
-							"<p><b>Reforzamiento:</b> "+e.row['OT_2'].value+"</p>"+
-							"<p><b>Demolicion:</b> "+e.row['OT_3'].value+"</p>"+
-							"<p class='detalle'>"+
-							"<a href='#' onclick='ver_detalle(\""+e.row['codigo_de_local'].value+"\")'>Ir a detalle aulas por edificación →</a></p>"+
-
+						"<h3>EDIFICACIONES</h3>"+
+						"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
+						"<p><b>Mantenimiento:</b> "+datos.OT_1+"</p>"+
+						"<p><b>Reforzamiento:</b> "+datos.OT_2+"</p>"+
+						"<p><b>Demolicion:</b> "+datos.OT_3+"</p>"+
+						"<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
 						"</div>"+
-					"</div>"+
-				"<div>";
+						"</div><div>";
 
-				// var contentString = e.infoWindowHtml;
+					var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
+					var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', parseInt(datos.R_OT), 1);
+					// var marker = new google.maps.Marker({
+						// position: point
+					// });
+					// markers.push(marker);
+				});
 
-				infowindow.setContent(contentString);
-				infolatlng = new google.maps.LatLng( parseFloat(e.row['LatitudPunto'].value),parseFloat(e.row['LongitudPunto'].value)),
-				infowindow.setPosition(infolatlng);
-				infowindow.open(map);
-
-			});
-
-			maploaded = true;
-			setTimeout('checkGoogleMap()',1000);
-			view_leyenda();
-
-
-			// var query = "SELECT codigo_de_local, Nro_Pred, dpto_nombre, prov_nombre, dist_nombre, des_area, nombres_IIEE, Tot_Ed, OT_1, OT_2, OT_3, R_OT, LatitudPunto, LongitudPunto FROM " +
-			// 	'1NTiF0yLsmYVDU3KqSmZcYcl3IMTT1AAfTfqr9gUM';
-			// var encodedQuery = encodeURIComponent(query);
-
-			// // Construct the URL
-			// var url = ['https://www.googleapis.com/fusiontables/v1/query'];
-			// url.push('?sql=' + encodedQuery);
-			// url.push('&key=AIzaSyAkIa4SdnQDXiuLkg2tPW42vgVrR9wWarA');
-			// url.push('&callback=?');
-
-
-			// $.getJSON(url.join(''),null, function( data ) {
-			// 	clean_map();
-
-			// 	var rows = data['rows'];
-			// 	for (i in rows) {
-
-			// 		var contentString="<div><div class='marker activeMarker'>"+
-			// 			"<div class='markerInfo activeInfo' style='display: block'>"+
-			// 			"<h2>LOCAL: "+rows[i][0]+" - PREDIO: "+rows[i][1]+"</h2>"+
-			// 			"<p><b>Departamento:</b> "+rows[i][2]+"</p>"+
-			// 			"<p><b>Provincia:</b> "+rows[i][3]+"</p>"+
-			// 			"<p><b>Distrito:</b> "+rows[i][4]+"</p>"+
-			// 			"<p><b>Tipo de área:</b> "+rows[i][5]+"</p>"+
-			// 			"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+rows[i][0]+"/"+rows[i][1]+"/1'>Ir a cédula censal evaluada →</a></p>"+
-
-			// 			"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-			// 			"<p>"+rows[i][6]+"</p>"+
-
-			// 			"<h3>EDIFICACIONES</h3>"+
-			// 			"<p><b>Total de edificaciones:</b> "+rows[i][7]+"</p>"+
-			// 			"<p><b>Mantenimiento:</b> "+rows[i][8]+"</p>"+
-			// 			"<p><b>Reforzamiento:</b> "+rows[i][9]+"</p>"+
-			// 			"<p><b>Demolicion:</b> "+rows[i][10]+"</p>"+
-			// 			"<p class='detalle'><a href='#' onclick='ver_detalle(\""+rows[i][0]+"\")'>Ir a detalle aulas por edificación →</a></p>"+
-			// 			"</div>"+
-			// 			"</div><div>";
-
-			// 		var point = new google.maps.LatLng(rows[i][12],rows[i][13]);
-			// 		var marker = createMarkerLEN(point, rows[i][0], contentString,'punto', parseInt(rows[i][11]), 1);
-					
-			// 	}
-
-				// $.each(json_data, function(i, datos){
-
-				// 	var contentString="<div><div class='marker activeMarker'>"+
-				// 		"<div class='markerInfo activeInfo' style='display: block'>"+
-				// 		"<h2>LOCAL: "+datos.codigo_de_local+" - PREDIO: "+datos.Nro_Pred+"</h2>"+
-				// 		"<p><b>Departamento:</b> "+datos.dpto_nombre.trim()+"</p>"+
-				// 		"<p><b>Provincia:</b> "+datos.prov_nombre+"</p>"+
-				// 		"<p><b>Distrito:</b> "+datos.dist_nombre+"</p>"+
-				// 		"<p><b>Tipo de área:</b> "+datos.des_area+"</p>"+
-				// 		"<p class='detalle'><a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+datos.codigo_de_local+"/"+datos.Nro_Pred+"/1'>Ir a cédula censal evaluada →</a></p>"+
-
-				// 		"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-				// 		"<p>"+datos.nombres_IIEE+"</p>"+
-
-				// 		"<h3>EDIFICACIONES</h3>"+
-				// 		"<p><b>Total de edificaciones:</b> "+datos.Tot_Ed+"</p>"+
-				// 		"<p><b>Mantenimiento:</b> "+datos.OT_1+"</p>"+
-				// 		"<p><b>Reforzamiento:</b> "+datos.OT_2+"</p>"+
-				// 		"<p><b>Demolicion:</b> "+datos.OT_3+"</p>"+
-				// 		"<p class='detalle'><a href='#' onclick='ver_detalle(\""+datos.codigo_de_local+"\")'>Ir a detalle aulas por edificación →</a></p>"+
-				// 		"</div>"+
-				// 		"</div><div>";
-
-				// 	var point = new google.maps.LatLng(datos.UltP_Latitud,datos.UltP_Longitud);
-				// 	var marker = createMarkerLEN(point, datos.codigo_de_local, contentString,'punto', parseInt(datos.R_OT), 1);
-				// 	// var marker = new google.maps.Marker({
-				// 		// position: point
-				// 	// });
-				// 	// markers.push(marker);
-				// });
-
-				// maploaded = true;
-				// setTimeout('checkGoogleMap()',1000);
-				// view_leyenda();
+				maploaded = true;
+				setTimeout('checkGoogleMap()',1000);
+				view_leyenda();
 				// markerCluster = new MarkerClusterer(map, markers);
 
-			// }).fail(function( jqxhr, textStatus, error ) {
-			// 	var err = textStatus + ', ' + error;
-			// 	console.log( "Request Failed: " + err);
-			// });
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+			});
 		}
 
 		function DefensaCivil(departamento,provincia,distrito,tipoarea,defecivil){
@@ -1458,8 +1274,6 @@
 
 		function ver_detalle(code){
 
-			// alert("Hola! Soy el Atributo OnClick");
-
 			$.getJSON(urlRoot('index.php')+'/mapa/resultados/detalle_ot', {codigo:code}, function(data, textStatus){
 
 				contenido = infowindow.getContent();
@@ -1550,8 +1364,8 @@
 					<select id="NOM_AREA" class="span12" name="NOM_AREA">
 						<option value="0">SELECCIONE...</option>
 						<option value="0">TODOS</option>
-						<option value="Urbano">URBANO</option>
-						<option value="Rural">RURAL</option>
+						<option value="URBANO">URBANO</option>
+						<option value="RURAL">RURAL</option>
 					</select>
 				</div>
 			</div>

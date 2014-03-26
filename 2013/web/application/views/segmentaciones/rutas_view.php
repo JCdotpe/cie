@@ -4,6 +4,16 @@
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/segmentaciones.js'); ?>"></script>
 
+<style type="text/css">
+	/*.span11 {
+		background-color: #000 !important;
+	}*/
+	#ap-content{
+		/*background-color: #000 !important;	*/
+		width: 1060px !important;
+	}
+</style>
+
 <?php
 
 	$sedeArray = array(-1 => 'Seleccione...');
