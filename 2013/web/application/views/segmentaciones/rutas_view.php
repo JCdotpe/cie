@@ -4,25 +4,143 @@
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/segmentaciones.js'); ?>"></script>
 
+
+
 <style type="text/css">
-	/*.span11 {
+	/*span11{
 		background-color: #000 !important;
 	}*/
+
 	#ap-content{
-		/*background-color: #000 !important;	*/
-		width: 1060px !important;
+		width:1200px !important;
+		/*background-color: #000 !important;*/ 
+		/*border-width: 0px !important;*/
+		
 	}
+
+
+	.clasliz{
+		/*lista de rutas*/
+		/*background-color: #000 !important;*/
+		width: 1210px !important;
+		/*border-width: 10px !important;*/
+		position: relative !important;
+		top: 30px !important;
+	}
+
+
+	.ui-jqgrid-sortable{
+		font-size: 10px !important;
+	}
+
+
+	.ui-jqgrid-title{
+		font-size: 15px !important;
+	}
+
+
+/*	.ui-jqgrid-htable{
+		width:1210px !important;
+	}*/
+	
+	.capa{
+		/*boton buscar*/
+		position: relative !important;
+		left:60px !important;
+		top: 30px !important;
+	}
+
+	
+	.medio{
+		position: relative !important;
+		/*left:0px !important;*/
+		top: 10px !important;
+		font-family: arial !important;
+		font-size: 0px !important;
+		width: 1200px !important;
+		
+
+	}
+
+
+	.claslii
+	{
+		border-width: 0px !important;
+		background-color: #F2F2F1 !important;
+		height: 0px !important;
+	}
+
+
+	.clasgrupo{
+		/*background-color:#000 !important ;*/
+		font-size: 100px !important;
+		/*width: 1200px !important;*/
+		height: 80px !important;
+	}
+
+
+	.clasbc{
+		position: relative;
+		left:40px !important; 
+		top:20px !important;
+		/*font-weight:bold !important;
+		font-size: 10px !important;*/
+
+	}
+
+	.clasbtn2{
+		/*botones recargar y*/
+		position: relative;
+		top: 10px !important;
+		/*left: 50px !important;*/
+		
+		/*background-color: #000 !important;*/
+	}
+
+	/*.ui-jqgrid-btable{
+		width: 10px !important;
+	}*/
+.ui-jqgrid-btable{
+	width: 1210px !important;
+}
+
+#btnagregar{
+	left: 100px !important;
+	
+	background-color: #000 !important;
+	
+	  
+}
+
+
+.span11{
+/*background-color: #000 !important;*/
+width: 1210px !important;
+
+}
+
+.tbody{
+
+/*background-color: #000 !important;*/
+width: 1500px !important;	
+text-align: center !important;
+}
+
+
+
 </style>
+
+
 
 <?php
 
 	$sedeArray = array(-1 => 'Seleccione...');
-    foreach($sedeoperativa->result() as $filas)
-    {
-      $sedeArray[$filas->cod_sede_operativa]=utf8_encode(strtoupper($filas->sede_operativa));
-    }
+	foreach($sedeoperativa->result() as $filas)
+	{
+	  $sedeArray[$filas->cod_sede_operativa]=utf8_encode(strtoupper($filas->sede_operativa));
+	}
 
-    $provArray = array(-1 => '');
+	$provArray = array(-1 => '');
 
 $txtcodigolocal = array(
 	'name'	=> 'codigolocal',
@@ -64,13 +182,14 @@ $txtECodLocal =array(
 	'readonly' => 'true',
 	'style' => 'width: 50px;'	
 );
-
+/*aqui en set_value(depa) poner el nombre predeterminado de un departamento grande e ir probando
+para hacerlo mas pequeño el tamaño*/
 $departamento =array(
 	'name'	=> 'depa',
 	'id'	=> 'depa',
 	'value'	=> set_value('depa'),
 	'readonly' => 'true',
-	'style' => 'width: 120px;'
+	'style' => 'width: 100px;'
 );
 
 $provincia =array(
@@ -78,7 +197,7 @@ $provincia =array(
 	'id'	=> 'prov',
 	'value'	=> set_value('prov'),
 	'readonly' => 'true',
-	'style' => 'width: 120px;'
+	'style' => 'width: 100px;'
 );
 
 $distrito =array(
@@ -86,7 +205,7 @@ $distrito =array(
 	'id'	=> 'dist',
 	'value'	=> set_value('dist'),
 	'readonly' => 'true',
-	'style' => 'width: 120px;'
+	'style' => 'width: 100px;'
 );
 
 $centro_poblado =array(
@@ -94,7 +213,7 @@ $centro_poblado =array(
 	'id'	=> 'cent_pob',
 	'value'	=> set_value('cent_pob'),
 	'readonly' => 'true',
-	'style' => 'width: 120px;'
+	'style' => 'width: 100px;'
 );
 
 $periodo =array(
@@ -102,7 +221,7 @@ $periodo =array(
 	'id'	=> 'periodo',
 	'value'	=> set_value('periodo'),
 	'maxlength'	=> 2,
-	'style' => 'width: 70px;',
+	'style' => 'width: 20px;',
 	'tabindex' => '5',
 	'onblur' => 'valida_periodo_jb(this)',
 	'onkeypress' => 'return validar_numeros(event)'
@@ -267,7 +386,7 @@ $observaciones =array(
 	'id'	=> 'observaciones',
 	'value'	=> set_value('observaciones'),
 	'maxlength'	=> 200,
-	'style' => 'width: 350px;',
+	'style' => 'width: 300px' ,'top=>100px;',
 	'tabindex' => '17',
 	'rows' => '4',
 	'cols' => '6'
@@ -284,23 +403,24 @@ $txtBuscarCodigo = array(
 );
 
 $btnconsultar = array(
-    'name' => 'consulta',
-    'id' => 'consulta',
-    'type' => 'button',
-    'class' => 'btn btn-primary pull-left',
-    'style' => 'margin-top:20px',
-    'tabindex' => '2',
-    'onclick' => 'buscar_local()'
+	'name' => 'consulta',
+	'id' => 'consulta',
+	'type' => 'button',
+	'class' => 'btn btn-primary pull-left',
+	'style' => 'margin-top:20px',
+	'tabindex' => '2',
+	'onclick' => 'buscar_local()'
 );
 
 $btnagregar = array(
-    'name' => 'agregar',
-    'id' => 'agregar',
-    'onclick' => 'Form_Validar()',
-    'type' => 'button',
-    'content' => 'Agregar',
-    'tabindex' => '18',
-    'class' => 'btn btn-primary pull-left'
+	'name' => 'agregar',
+	'id' => 'agregar',
+	'onclick' => 'Form_Validar()',
+	'type' => 'button',
+	'content' => 'Agregar',
+	'tabindex' => '18',
+	'class' => 'btn btn-primary pull-left'
+
 );
 
 $btnBuscarCodigoLocal = array(
@@ -308,26 +428,26 @@ $btnBuscarCodigoLocal = array(
 	'id' => 'BuscarCL',
 	'type' => 'button',
 	'onclick' => 'BuscarCodigoLocal()',
-    'content' => 'Buscar Código de Local',
-    'class' => 'btn btn-primary pull-right'
+	'content' => 'Buscar Código de Local',
+	'class' => 'btn btn-primary pull-right'
 );
 
 $btnRecargar = array(
-    'name' => 'recargar',
-    'id' => 'recargar',    
-    'type' => 'button',
-    'content' => 'Recargar',
-    'onclick' => 'mostrar();',
-    'class' => 'btn btn-inverse pull-left'
+	'name' => 'recargar',
+	'id' => 'recargar',    
+	'type' => 'button',
+	'content' => 'Recargar',
+	'onclick' => 'mostrar();',
+	'class' => 'btn btn-inverse pull-left'
 );
 
 $btneliminar = array(
-    'name' => 'eliminar',
-    'id' => 'eliminar',    
-    'type' => 'button',
-    'style' => 'margin-left:5px',
-    'content' => 'Eliminar',
-    'class' => 'btn btn-inverse pull-right'
+	'name' => 'eliminar',
+	'id' => 'eliminar',    
+	'type' => 'button',
+	'style' => 'margin-left:5px',
+	'content' => 'Eliminar',
+	'class' => 'btn btn-inverse pull-right'
 );
 
 /*
@@ -337,11 +457,14 @@ $txtRangoFechas =array(
 */
 $attr = array('id' => 'frm_registro');
 ?>
+
+
+
 <div class="row-fluid">
 	<div class="span11">
 		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
-				<div class="span3">
+			<div class="row-fluid well top-conv claslii">
+				<div class="span3 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Sede Operativa', 'sede'); ?>
 						<div class="controls">
@@ -349,7 +472,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span3 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Provincia Operativa', 'provincia'); ?>
 						<div class="controls">
@@ -357,7 +480,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span3 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Código de Local Educativo', 'local'); ?>
 						<div class="controls">
@@ -365,26 +488,26 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span1">
+				<div class="span1 clasbc">
 					<?php echo form_button($btnconsultar, 'Consulta'); ?>	
 				</div>
 			</div>
 		</div>
 		<?php echo form_open('',$attr); ?>		
-		<div id="ap-content" class="span10">
-		<table >
+		<div id="ap-content" class="span10 medio">
+		<table class="tbody">
 			<tbody>
 				<tr>
-					<td><?php echo form_label('Jefe de Brigada', 'lblJefeBrigada'); ?></td>
-					<td><?php echo form_label('Código de Ruta', 'lblCodRuta'); ?></td>
-					<td><?php echo form_label('Código de Local', 'lblCodLocal'); ?></td>
+					<td><?php echo form_label('Jefe de <br/>Brigada', 'lblJefeBrigada'); ?></td>
+					<td><?php echo form_label('Código de <br/> Ruta', 'lblCodRuta'); ?></td>
+					<td><?php echo form_label('Código de <br/>Local', 'lblCodLocal'); ?></td>
 					<td><?php echo form_label('Departamento', 'lblDepartamento'); ?></td>
 					<td><?php echo form_label('Provincia', 'lblProvincia'); ?></td>
 					<td><?php echo form_label('Distrito', 'lblDistrito'); ?></td>
 					<td><?php echo form_label('Centro Poblado', 'lblCentroPoblado'); ?></td>
 					<td><?php echo form_label('Periodo', 'lblPeriodo'); ?></td>
 					<td><?php echo form_label('Fecha Inicio', 'lblFechaInicio'); ?></td>
-					<td><?php echo form_label('Fecha Final', 'lblFechaFinal'); ?></td>					
+					<td><?php echo form_label('Fecha Final', 'lblFechaFinal'); ?></td>				
 				</tr>
 				<tr>
 					<td><?php echo form_input($txtJefeBrigada); ?></td>
@@ -409,9 +532,9 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Gabinete', 'lblGabinete'); ?></td>
 					<td><?php echo form_label('Descanso', 'lblDescanso'); ?></td>
 					<td><?php echo form_label('Total de Dias', 'lblTotalDias'); ?></td>
-					<td><?php echo form_label('Movilidad Local MA', 'lblMovLocalMA'); ?></td>
-					<td><?php echo form_label('Gasto Operativo MA', 'lblGastoOpeMA'); ?></td>
-					<td><?php echo form_label('Movilidad Local AF', 'lblMovLocalAF'); ?></td>					
+					<td><?php echo form_label('Movilidad <br/>Local MA', 'lblMovLocalMA'); ?></td>
+					<td><?php echo form_label('Gasto Operativo <br/> MA', 'lblGastoOpeMA'); ?></td>
+					<td><?php echo form_label('Movilidad Local<br/> AF', 'lblMovLocalAF'); ?></td>					
 				</tr>
 				<tr>
 					<td><?php echo form_input($traslado); ?></td>
@@ -426,7 +549,7 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($movlocal_af); ?></td>
 				</tr>
 				<tr>
-					<td><?php echo form_label('Gasto Operativo AF', 'lblGastoOpeAF'); ?></td>
+					<td><?php echo form_label('Gasto Operativo<br/> AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
 					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
 					<td colspan="4"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
@@ -449,61 +572,73 @@ $attr = array('id' => 'frm_registro');
 		<?php echo form_close(); ?>		
 	</div>	
 </div>
+
+
+
+<div class="capa">
 	<div class="form-search" style="float: right; margin-right: 20px; margin-bottom: 10px;">		
 		<?php echo form_input($txtBuscarCodigo); ?>
 		<?php echo form_button($btnBuscarCodigoLocal); ?>		
 	</div>
+
+</div>
+
+
+
 <div class="row-fluid">
-	<div id="grid_content" class="span12">
+	
+	<div id="grid_content" class="span12 clasliz">
 		<table id="list2"></table>
 		<div id="pager2"></div>
-		<div class="span2 pull-right">
+		<div class="span2 pull-right clasbtn2">
 			<?php echo form_button($btnRecargar); ?>
 			<?php echo form_button($btneliminar); ?>
 		</div>
 	</div>
+
 </div>
+
 
 <script type="text/javascript">
 
 	$(document).ready(function() {
 		jQuery("#list2").jqGrid({
-		   	type:"POST",
-		   	url:'registro_rutas/ver_datos',
+			type:"POST",
+			url:'registro_rutas/ver_datos',
 			datatype: "json",
 			height: 255,
-		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
-		   	colModel:[		   		
-		   		{name:'centroPoblado',index:'centroPoblado', width:100, align:"center"},
-		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel', width:100, align:"center"},
-		   		{name:'codlocal',index:'codlocal', width:90},
-		   		{name:'periodo',index:'periodo', width:60},
-		   		{name:'fxinicio',index:'convert(datetime,fxinicio)', width:80, align:"center"},
-		   		{name:'fxfinal',index:'convert(datetime,fxfinal)', width:80,},
-		   		{name:'traslado',index:'traslado', width:80, align:"center"},
-		   		{name:'trabajo_supervisor',index:'trabajo_supervisor', width:80,},
-		   		{name:'recuperacion',index:'recuperacion', width:80,},
-		   		{name:'retornosede',index:'retornosede', width:80,},
-		   		{name:'gabinete',index:'gabinete', width:80,},
-		   		{name:'descanso',index:'descanso', width:80,},
-		   		{name:'totaldias',index:'totaldias', width:80,},
-		   		{name:'movilocal_ma',index:'movilocal_ma', width:80,},
-		   		{name:'gastooperativo_ma',index:'gastooperativo_ma', width:80,},
-		   		{name:'movilocal_af',index:'movilocal_af', width:80,},
-		   		{name:'gastooperativo_af',index:'gastooperativo_af', width:80,},
-		   		{name:'pasaje',index:'pasaje', width:80,},
-		   		{name:'total_af',index:'total_af', width:80,},
-		   		{name:'observaciones',index:'observaciones', width:150,},
-		   		{name:'idruta',index:'idruta', width:90},
-		   	],
-		   	pager: '#pager2',
-		   	rowNum:10,
-		   	rowList:[10,20,30],
-		   	sortname: 'convert(datetime,fxinicio,103), prov_operativa_ugel',
-		    viewrecords: true,
-		    sortorder: "asc",
-		    caption:"Lista de Rutas",
-		    editurl:"registro_rutas/eliminar"
+			colNames:['C. Poblado', 'Prov. Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Ret. Sede', 'Gabinete', 'Descanso', 'T. Días', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Obs.', 'Ruta'],
+			colModel:[		   		
+				{name:'centroPoblado',index:'centroPoblado', width:100, align:"center"},
+				{name:'prov_operativa_ugel',index:'prov_operativa_ugel', width:100, align:"center"},
+				{name:'codlocal',index:'codlocal', width:100},
+				{name:'periodo',index:'periodo', width:100},
+				{name:'fxinicio',index:'convert(datetime,fxinicio)', width:100, align:"center"},
+				{name:'fxfinal',index:'convert(datetime,fxfinal)', width:100,},
+				{name:'traslado',index:'traslado', width:100, align:"center"},
+				{name:'trabajo_supervisor',index:'trabajo_supervisor', width:100,},
+				{name:'recuperacion',index:'recuperacion', width:100,},
+				{name:'retornosede',index:'retornosede', width:100,},
+				{name:'gabinete',index:'gabinete', width:100,},
+				{name:'descanso',index:'descanso', width:100,},
+				{name:'totaldias',index:'totaldias', width:100,},
+				{name:'movilocal_ma',index:'movilocal_ma', width:100,},
+				{name:'gastooperativo_ma',index:'gastooperativo_ma', width:100,},
+				{name:'movilocal_af',index:'movilocal_af', width:100,},
+				{name:'gastooperativo_af',index:'gastooperativo_af', width:100,},
+				{name:'pasaje',index:'pasaje', width:100,},
+				{name:'total_af',index:'total_af', width:100,},
+				{name:'observaciones',index:'observaciones', width:100,},
+				{name:'idruta',index:'idruta', width:100},
+			],
+			pager: '#pager2',
+			rowNum:10,
+			rowList:[10,20,30],
+			sortname: 'convert(datetime,fxinicio,103), prov_operativa_ugel',
+			viewrecords: true,
+			sortorder: "asc",
+			caption:"Lista de Rutas",
+			editurl:"registro_rutas/eliminar"
 		});
 		jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false,search:false});
 		$("#list2").setGridWidth($('#grid_content').width(), true);
@@ -529,15 +664,15 @@ $("#eliminar").click(function(){
 
 	function BuscarCodigoLocal()
 	{
-    	var codigolocal = $("#BuscarCodigo").val();
+		var codigolocal = $("#BuscarCodigo").val();
 
-    	if (codigolocal == "")
-    	{
-    		alert("Ingrese un Código de Local a Buscar");
-    	}else{
-    		jQuery("#list2").jqGrid('setGridParam',{url:"registro_rutas/Buscar_Grilla?codigolocal="+codigolocal,page:1}).trigger("reloadGrid");
-    		$("#BuscarCodigo").val('');
-    	}
+		if (codigolocal == "")
+		{
+			alert("Ingrese un Código de Local a Buscar");
+		}else{
+			jQuery("#list2").jqGrid('setGridParam',{url:"registro_rutas/Buscar_Grilla?codigolocal="+codigolocal,page:1}).trigger("reloadGrid");
+			$("#BuscarCodigo").val('');
+		}
 	}
 
 </script>
