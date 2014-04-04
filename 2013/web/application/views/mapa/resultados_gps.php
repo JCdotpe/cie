@@ -22,6 +22,13 @@
 	<script type="text/javascript" src="http://geoxml3.googlecode.com/svn/branches/polys/geoxml3.js"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
+	<style type="text/css">
+		.check_load{
+			font-family: Brush Script Std;
+			font-size: 18px;
+		}
+	</style>
+
 	<script type="text/javascript">
 		var html;
 		var condicion;
@@ -42,12 +49,12 @@
 			var msg = document.getElementById('msg');
 
 			if (maploaded == false) {
-				msg.innerHTML = 'Cargando puntos...';
+				msg.innerHTML = '<center><span class="check_load">Cargando Puntos.</span><img src="<?php echo base_url('img/294.gif'); ?>"></center>';
 				$("#msg").slideDown("fast");
 
 			} else {
-				msg.innerHTML = 'Puntos cargados.'
-				$("#msg").slideUp("slow");
+				msg.innerHTML = '<center><span class="check_load">Puntos cargados.<span><img src="<?php echo base_url('img/08.gif') ?>"></center>';
+				$("#msg").slideUp(1900);
 			} 
 		}
 
@@ -89,9 +96,9 @@
 					from: "1GpIA0mBHMTame6QFenQeQCazLW4NiLciy3lfLvSZ"
 				},
 				options: {
-					styleId: 2
-				},
-				suppressInfoWindows : true
+					styleId: 2,
+					templateId: 2
+				}
 			});
 
 			capaKml.setMap(map);
@@ -244,11 +251,13 @@
 						if ( layer != undefined ) layer.setMap(null);
 						$('#serv').show();
 						$('#serv input[type=checkbox]').removeAttr('checked');
+						check_servicios();
 						break;
 					case '7':
 						if ( layer != undefined ) layer.setMap(null);
 						$('#comuni').show();
 						$('#comuni input[type=checkbox]').removeAttr('checked');
+						check_comunicacion();
 						break;
 					case '8':
 						if ( layer != undefined ) layer.setMap(null);
@@ -335,17 +344,20 @@
 
 		function check_servicios() {
 
-			ee = ($('#energia').is(':checked')) ? 'EE = 1 ' : '';
-			ee_and = (ee.length > 0 ) ? 'AND ' : '';
-			ag = ($('#agua').is(':checked')) ? 'AP = 1 ' : '';
-			ag_and = (ag.length > 0 ) ? 'AND ' : '';
-			alc = ($('#alcantarillado').is(':checked')) ? 'ALC = 1 ' : '';
-
-			condicion = ee + ee_and + ag + ag_and + alc;
-
-			alert(condicion);
+			condicion = ($('#energia').is(':checked')) ? 'EE = 1 ' : 'EE >= 0 ';
+			condicion += ($('#agua').is(':checked')) ? 'AND AP = 1 ' : 'AND AP >= 0 ';
+			condicion += ($('#alcantarillado').is(':checked')) ? 'AND ALC = 1 ' : 'AND ALC >= 0 ';
 
 			set_filtro( '1XokUv9mD-BC709eY16RB3V_6c4TJ_nPpoC1Ygt8m' );
+		}
+
+		function check_comunicacion() {
+
+			condicion = ($('#tfija').is(':checked')) ? 'TF = 1 ' : 'TF >= 0 ';
+			condicion += ($('#tmovil').is(':checked')) ? 'AND TM = 1 ' : 'AND TM >= 0 ';
+			condicion += ($('#inter').is(':checked')) ? 'AND INTER = 1 ' : 'AND INTER >= 0 ';
+
+			set_filtro( '1gC78Msw7kvfbb2t7fqwgK_dTenY3St_eLOzLVPKV' );
 		}
 
 		function check_vulnerabilidad() {
@@ -369,7 +381,7 @@
 			condicion += ($('#v6').is(':checked')) ? 'AND Op6 = 1 ' : 'AND Op6 >= 0 ';
 			condicion += ($('#v7').is(':checked')) ? 'AND Op7 = 1 ' : 'AND Op7 >= 0 ';
 
-			set_filtro( '1LRkvNy5ZcU8MbyVx_GWRn24YI2LHu5YfSNif73B8' );
+			set_filtro( '1EZYxtqLgVlYQwsnjDpkZsyTLYv7Dsns4XMMJpSOW' );
 		}
 
 		function combo_dpto(){
@@ -442,9 +454,9 @@
 					where: cond,
 				},
 				options: {
-					styleId: 2
-				},
-				suppressInfoWindows: true
+					styleId: 2,
+					templateId: 2
+				}
 			});
 			capaKml.setMap(map);
 
@@ -511,8 +523,10 @@
 					$('#obras_ejec').trigger('change');
 					break;
 				case '6':
+					check_servicios();
 					break;
 				case '7':
+					check_comunicacion();
 					break;
 				case '8':
 					check_vulnerabilidad();
@@ -564,11 +578,11 @@
 					from: tabla,
 					where: condicion
 				},
-				suppressInfoWindows: true,
 				options: {
 					styleId: 2
 					// templateId: 2
-				}
+				},
+				suppressInfoWindows: true
 				// styles:[
 				// 	{
 				// 		where: 'R_OT = 1',
@@ -920,9 +934,9 @@
 				<label class="preguntas_sub2">COMUNICACIÓN</label>
 				<div class="controls">
 					<div>
-						<input type="checkbox" name="tfija" id="tfija"> Telefonía Fija <br>
-						<input type="checkbox" name="tmovil" id="tmovil"> Telefonía Móvil <br>
-						<input type="checkbox" name="inter" id="inter"> Internet <br>
+						<input type="checkbox" name="tfija" id="tfija" onchange="check_comunicacion()"> Telefonía Fija <br>
+						<input type="checkbox" name="tmovil" id="tmovil" onchange="check_comunicacion()"> Telefonía Móvil <br>
+						<input type="checkbox" name="inter" id="inter" onchange="check_comunicacion()"> Internet <br>
 					</div><br>
 					<div>
 						<!-- <input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="ini_button(2);"> -->
