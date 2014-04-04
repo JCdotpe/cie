@@ -16,7 +16,7 @@
 */
 
 	//$config['base_url']	= 'http://192.168.202.191/cie/2013/web/';
-$config['base_url']	= 'http://localhost/cie/2013/web/';
+$config['base_url']	= 'http://127.0.0.1/cie/2013/web/';
 
 
 /*
