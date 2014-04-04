@@ -81,7 +81,7 @@
 
 	.clasbc{
 		position: relative;
-		left:40px !important; 
+		left:10px !important; 
 		top:20px !important;
 		/*font-weight:bold !important;
 		font-size: 10px !important;*/
