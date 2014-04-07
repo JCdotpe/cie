@@ -550,14 +550,14 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Gasto Operativo<br/> AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
 					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
-					<td colspan="4"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
+					<td colspan="4" align="left"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
 					<td colspan="4"></td>
 				</tr>
 				<tr>
 					<td valign="top"><?php echo form_input($gastoperativo_af); ?></td>
 					<td valign="top"><?php echo form_input($pasaje); ?></td>
 					<td valign="top"><?php echo form_input($total_af); ?></td>
-					<td colspan="3"><?php echo form_textarea($observaciones); ?></td>
+					<td colspan="3" align="left"><?php echo form_textarea($observaciones); ?></td>
 					<td colspan="3">
 						<?php echo form_button($btnagregar); ?>
 						<input type="hidden" id="rangofechas" name="rangofechas" value="">

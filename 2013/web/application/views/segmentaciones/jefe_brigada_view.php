@@ -79,26 +79,20 @@
 
 
 	.clasgrupo{
-		/*background-color:#000 !important ;*/
+	/*background-color:#000 !important ;*/
 		font-size: 100px !important;
 		/*width: 1200px !important;*/
 		height: 70px !important;
+		top: 50px !important;
 	}
 
-	span2 .clasgrupo1{
-
-	/*font-size: 100px !important;*/
-	height: 70px !important;
-
-	}
-
+	    
 	.clasbc{
 		position: relative;
 		/*left:20px !important; */
 		top:20px !important;
 		/*font-weight:bold !important;
 		font-size: 10px !important;*/
-
 	}
 
 	.clasbtn2{
@@ -106,18 +100,11 @@
 		position: relative;
 		top: 5px !important;
 		/*left: 50px !important;*/
-		
-		/*background-color: #000 !important;*/
 	}
 
-	/*.ui-jqgrid-btable{
-		width: 10px !important;
-	}*/
 .ui-jqgrid-btable{
 	width: 1210px !important;
 }
-
-
 
 
 .span11{
@@ -133,6 +120,11 @@ width: 1500px !important;
 text-align: center !important;
 }
 
+control-group.group1{
+
+background-color: 	#000 !important;
+left: 50px !important;
+}
 
 
 </style>
@@ -436,7 +428,8 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span2 clasgrupo1">
+				
+				<div class="span2 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Jefe de Brigada', 'jefe'); ?>
 						<div class="controls">
@@ -444,7 +437,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span2 clasgrupo1">
+				<div class="span2 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Código de Local Educativo', 'local'); ?>
 						<div class="controls">
@@ -452,6 +445,8 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
+			
+
 				<div class="span1 clasbc">
 					<?php echo form_button($btnconsultar, 'Consulta'); ?>
 				</div>
@@ -462,7 +457,7 @@ $attr = array('id' => 'frm_registro');
 		<table class=tbody >
 			<tbody>
 				<tr align="center">
-					<td><?php echo form_label('Código de Local', 'lblCodLocal'); ?></td>
+					<td><?php echo form_label('Código de <br/> Local', 'lblCodLocal'); ?></td>
 					<td><?php echo form_label('Departamento', 'lblDepartamento'); ?></td>
 					<td><?php echo form_label('Provincia', 'lblProvincia'); ?></td>
 					<td><?php echo form_label('Distrito', 'lblDistrito'); ?></td>
@@ -510,11 +505,11 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($total_af); ?></td>
 				</tr>
 				<tr>		
-					<td colspan="4"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
+					<td colspan="4" align="left"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
 					<td colspan="4"></td>
 				</tr>
 				<tr>				
-					<td colspan="4"><?php echo form_textarea($observaciones); ?></td>
+					<td colspan="4" align="left"><?php echo form_textarea($observaciones); ?></td>
 					<td colspan="5">
 						<?php echo form_button($btnagregar); ?>
 						<input type="hidden" id="rangofechas" name="rangofechas" value="">
