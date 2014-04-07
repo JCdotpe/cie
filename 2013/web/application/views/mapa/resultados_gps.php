@@ -204,6 +204,8 @@
 							set_filtro( '13AXj1E5m7hUELP-Kzut8tbi2TeWjg7qWk-qhm7TM' );
 						});
 						$('#op_tecnica').trigger('change');
+						cnt_subtitulo = 'OPINIÓN TÉCNICA INICIAL';
+						view_leyenda(1);
 						break;
 					case '10':
 						$('#optecnica').show();
@@ -215,6 +217,8 @@
 							set_filtro( '1YLjP_0XhDd6tQvO6lFACYjQNrHvG7lxNjmo2Ze35' );
 						});
 						$('#op_tecnica').trigger('change');
+						cnt_subtitulo = 'ALGORITMO DE EDIFICACIÓN';
+						view_leyenda(1);
 						break;
 					case '11':
 						$('#optecnica').show();
@@ -226,50 +230,64 @@
 							set_filtro( '16tqf_gNezguGiFjPKdXRF0GyB9h354sNmmSsGDGC' );
 						});
 						$('#op_tecnica').trigger('change');
+						cnt_subtitulo = 'ALGORITMO DE AULAS';
+						view_leyenda(1);
 						break;
 					case '2':
 						$('#defcivil').show();
 						$('#def_civil').val(0);
 						$('#def_civil').trigger('change');
 						cnt_subtitulo = 'INSPECCIONADAS POR DEFENSA CIVIL';
+						view_leyenda(2);
 						break;
 					case '3':
 						$('#altriesgo').show();
 						$('#alt_riesgo').val(0);
 						$('#alt_riesgo').trigger('change');
 						cnt_subtitulo = 'INHABITABLES EN ALTO RIESGO';
+						view_leyenda(2);
 						break;
 					case '4':
 						$('#patricult').show();
 						$('#patri_cult').val(0);
 						$('#patri_cult').trigger('change');
+						cnt_subtitulo = 'PATRIMONIO CULTURAL DEL INMUEBLE';
+						view_leyenda(2);
 						break;
 					case '5':
 						$('#obrasejec').show();
 						$('#obras_ejec').val(0);
 						$('#obras_ejec').trigger('change');
+						cnt_subtitulo = 'OBRAS EN EJECUCION';
+						view_leyenda(2);
 						break;
 					case '6':
 						if ( layer != undefined ) layer.setMap(null);
 						$('#serv').show();
 						$('#serv input[type=checkbox]').removeAttr('checked');
 						check_servicios();
+						cnt_subtitulo = 'SERVICIOS';
+						view_leyenda(3);
 						break;
 					case '7':
 						if ( layer != undefined ) layer.setMap(null);
 						$('#comuni').show();
 						$('#comuni input[type=checkbox]').removeAttr('checked');
 						check_comunicacion();
+						cnt_subtitulo = 'COMUNICACIÓN';
+						view_leyenda(4);
 						break;
 					case '8':
 						if ( layer != undefined ) layer.setMap(null);
 						$('#vulne').show();
 						$('#vulne input[type=checkbox]').removeAttr('checked');
 						check_vulnerabilidad();
+						cnt_subtitulo = 'VULNERABILIDAD';
 						break;
 					case '9':
 						$('#niveledu').show();
 						$('#nivel_edu').val(0);
+						if ( layer != undefined ) layer.setMap(null);
 
 						$('#op_tecnica').on('change',function(event) {
 							param1 = $('#nivel_edu').val();
@@ -280,17 +298,47 @@
 
 							set_filtro( '1pvWte9BqPnkGk2AxbrUTEt1cfuu3R7ZltPd-clFE' );
 						});
+						cnt_subtitulo = 'NIVEL EDUCATIVO';
+						view_leyenda(1);
 						break;
 					default:
 						if ( layer != undefined ) layer.setMap(null);
 						cnt_subtitulo = '';
+						$('#geo_leyenda').empty();
+						break;
+				}
+				
+				$('#subtitulo p').html(cnt_subtitulo);
+
+			});
+
+			function view_leyenda(tipo) {
+				switch (tipo){
+					case 1:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mantenimiento';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Reforzamiento';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Demolición';
+						break;
+					case 2:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> SI';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> NO';
+						break;
+					case 3:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Energía Eléctrica';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_azul.png'); ?>"> Agua Potable';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Alcantarillado';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
+						break;
+					case 4:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_azul.png'); ?>"> Telefonía Fija';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Telefonía Móvil';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Internet';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
 						break;
 				}
 
-				
-				$('#subtitulo').html(cnt_subtitulo);
-
-			});
+				$('#geo_leyenda').html(cnt_leyenda);
+			}
 
 			$('#nivel_edu').change(function(event) {
 				
@@ -975,8 +1023,6 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div id="geo_leyenda" class="span9">
-					<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>">
-					<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>">
 				</div>
 				<div id="subtitulo" class="span3">
 					<p class="pull-right"></p>
