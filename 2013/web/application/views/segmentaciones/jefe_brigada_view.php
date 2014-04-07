@@ -4,6 +4,141 @@
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/segmentaciones.js'); ?>"></script>
 
+
+
+<style type="text/css">
+	/*span11{
+		background-color: #000 !important;
+	}*/
+
+	#ap-content{
+		width:1200px !important;
+		/*background-color: #000 !important;*/ 
+		/*border-width: 0px !important;*/
+		
+	}
+
+
+	.clasliz{
+		/*lista de rutas*/
+		/*background-color: #000 !important;*/
+		width: 1210px !important;
+		/*border-width: 10px !important;*/
+		position: relative !important;
+		top: 20px !important;
+	}
+
+
+	.ui-jqgrid-sortable{
+		font-size: 10px !important;
+	}
+
+
+	.ui-jqgrid-title{
+		font-size: 15px !important;
+	}
+
+
+/*	.ui-jqgrid-htable{
+		width:1210px !important;
+	}*/
+	
+	
+
+	.capa{
+		/*boton buscar*/
+		position: relative !important;
+		left:60px !important;
+		top: 25px !important;
+        /*float: right;*/
+        /*margin-right: 20px !important;*/
+        margin-bottom: 20px !important;
+
+
+	}
+
+
+	.medio{
+		position: relative !important;
+		/*left:0px !important;*/
+		top: 10px !important;
+		font-family: arial !important;
+		font-size: 0px !important;
+		width: 1200px !important;
+		
+
+	}
+
+
+	.claslii
+	{
+		border-width: 0px !important;
+		background-color: #F2F2F1 !important;
+		height: 0px !important;
+	}
+
+
+	.clasgrupo{
+		/*background-color:#000 !important ;*/
+		font-size: 100px !important;
+		/*width: 1200px !important;*/
+		height: 70px !important;
+	}
+
+	span2 .clasgrupo1{
+
+	/*font-size: 100px !important;*/
+	height: 70px !important;
+
+	}
+
+	.clasbc{
+		position: relative;
+		/*left:20px !important; */
+		top:20px !important;
+		/*font-weight:bold !important;
+		font-size: 10px !important;*/
+
+	}
+
+	.clasbtn2{
+		/*botones recargar y*/
+		position: relative;
+		top: 5px !important;
+		/*left: 50px !important;*/
+		
+		/*background-color: #000 !important;*/
+	}
+
+	/*.ui-jqgrid-btable{
+		width: 10px !important;
+	}*/
+.ui-jqgrid-btable{
+	width: 1210px !important;
+}
+
+
+
+
+.span11{
+/*background-color: #000 !important;*/
+width: 1210px !important;
+
+}
+
+.tbody{
+
+/*background-color: #000 !important;*/
+width: 1500px !important;	
+text-align: center !important;
+}
+
+
+
+</style>
+
+
+
 <?php
 
 	$sedeArray = array(-1 => 'Seleccione...');
@@ -284,8 +419,8 @@ $attr = array('id' => 'frm_registro');
 <div class="row-fluid">
 	<div class="span12">
 		<div id="ap-content" class="span12">
-			<div class="row-fluid well top-conv">
-				<div class="span3">
+			<div class="row-fluid well top-conv claslii">
+				<div class="span3 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Sede Operativa', 'sede'); ?>
 						<div class="controls">
@@ -293,7 +428,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span3 clasgrupo">
 					<div class="control-group">
 							<?php echo form_label('Provincia Operativa', 'provincia'); ?>
 						<div class="controls">
@@ -301,7 +436,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span2 clasgrupo1">
 					<div class="control-group">
 							<?php echo form_label('Jefe de Brigada', 'jefe'); ?>
 						<div class="controls">
@@ -309,7 +444,7 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span2 clasgrupo1">
 					<div class="control-group">
 							<?php echo form_label('Código de Local Educativo', 'local'); ?>
 						<div class="controls">
@@ -317,14 +452,14 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span1">
+				<div class="span1 clasbc">
 					<?php echo form_button($btnconsultar, 'Consulta'); ?>
 				</div>
 			</div>
 		</div>
 		<?php echo form_open('',$attr); ?>		
-		<div id="ap-content" class="span12">
-		<table >
+		<div id="ap-content" class="span12 medio">
+		<table class=tbody >
 			<tbody>
 				<tr align="center">
 					<td><?php echo form_label('Código de Local', 'lblCodLocal'); ?></td>
@@ -391,15 +526,22 @@ $attr = array('id' => 'frm_registro');
 		<?php echo form_close(); ?>
 	</div>
 </div>
+
+<div class="capa">
 	<div class="form-search" style="float: right; margin-right: 20px; margin-bottom: 10px;">
+		<div class="row-fluid" style="margin-right: 10px">
 		<?php echo form_input($txtBuscarCodigo); ?>
-		<?php echo form_button($btnBuscarCodigoLocal); ?>		
+		<?php echo form_button($btnBuscarCodigoLocal); ?>
+		</div>		
 	</div>
+</div>
+
+
 <div class="row-fluid">
-	<div id="grid_content" class="span12">
+	<div id="grid_content" class="span12 clasliz">
 		<table id="list2"></table>
 		<div id="pager2"></div>
-		<div class="span2 pull-right">
+		<div class="span2 pull-right clasbtn2">
 			<?php echo form_button($btneliminar); ?>
 		</div>
 	</div>
@@ -413,28 +555,28 @@ $attr = array('id' => 'frm_registro');
 		   	url:'registro_jefe_brigada/ver_datos',
 			datatype: "json",
 			height: 255,
-		   	colNames:['Centro Poblado', 'Provincia Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones', 'Ruta'],
+		   	colNames:['C. Poblado', 'Prov. Operativa', 'Local', 'Periodo', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Ret. Sede', 'Gabinete', 'Descanso', 'T. Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Obs.', 'Ruta'],
 		   	colModel:[		   		
 		   		{name:'centroPoblado',index:'centroPoblado', width:100, align:"center"},
 		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel', width:100, align:"center"},
 		   		{name:'codigo_de_local',index:'codigo_de_local', width:100},
-		   		{name:'periodo_jb',index:'periodo_jb', width:80},
-		   		{name:'fxinicio_jb',index:'convert(datetime,fxinicio_jb,103)', width:80, align:"center"},
-		   		{name:'fxfinal_jb',index:'convert(datetime,fxfinal_jb,103)', width:80,},
-		   		{name:'traslado_jb',index:'traslado_jb', width:80, align:"center"},
-		   		{name:'trabajo_supervisor_jb',index:'trabajo_supervisor_jb', width:80,},
-		   		{name:'retornosede_jb',index:'retornosede_jb', width:80,},
-		   		{name:'gabinete_jb',index:'gabinete_jb', width:80,},
-		   		{name:'descanso_jb',index:'descanso_jb', width:80,},
-		   		{name:'totaldias_jb',index:'totaldias_jb', width:80,},
-		   		{name:'movilocal_ma_jb',index:'movilocal_ma_jb', width:80,},
-		   		{name:'gastooperativo_ma_jb',index:'gastooperativo_ma_jb', width:80,},
-		   		{name:'movilocal_af_jb',index:'movilocal_af_jb', width:80,},
-		   		{name:'gastooperativo_af_jb',index:'gastooperativo_af_jb', width:80,},
-		   		{name:'pasaje_jb',index:'pasaje_jb', width:80,},
-		   		{name:'total_af_jb',index:'total_af_jb', width:80,},
-		   		{name:'observaciones_jb',index:'observaciones_jb', width:150,},
-		   		{name:'idruta',index:'idruta', width:90},
+		   		{name:'periodo_jb',index:'periodo_jb', width:100},
+		   		{name:'fxinicio_jb',index:'convert(datetime,fxinicio_jb,103)', width:100, align:"center"},
+		   		{name:'fxfinal_jb',index:'convert(datetime,fxfinal_jb,103)', width:100,},
+		   		{name:'traslado_jb',index:'traslado_jb', width:100, align:"center"},
+		   		{name:'trabajo_supervisor_jb',index:'trabajo_supervisor_jb', width:100,},
+		   		{name:'retornosede_jb',index:'retornosede_jb', width:100,},
+		   		{name:'gabinete_jb',index:'gabinete_jb', width:100,},
+		   		{name:'descanso_jb',index:'descanso_jb', width:100,},
+		   		{name:'totaldias_jb',index:'totaldias_jb', width:100,},
+		   		{name:'movilocal_ma_jb',index:'movilocal_ma_jb', width:100,},
+		   		{name:'gastooperativo_ma_jb',index:'gastooperativo_ma_jb', width:100,},
+		   		{name:'movilocal_af_jb',index:'movilocal_af_jb', width:100,},
+		   		{name:'gastooperativo_af_jb',index:'gastooperativo_af_jb', width:100,},
+		   		{name:'pasaje_jb',index:'pasaje_jb', width:100,},
+		   		{name:'total_af_jb',index:'total_af_jb', width:100,},
+		   		{name:'observaciones_jb',index:'observaciones_jb', width:100,},
+		   		{name:'idruta',index:'idruta', width:100},
 		   	],
 		   	pager: '#pager2',
 		   	rowNum:10,

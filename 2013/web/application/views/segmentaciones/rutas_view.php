@@ -25,7 +25,7 @@
 		width: 1210px !important;
 		/*border-width: 10px !important;*/
 		position: relative !important;
-		top: 30px !important;
+		top: 20px !important;
 	}
 
 
@@ -43,11 +43,17 @@
 		width:1210px !important;
 	}*/
 	
+	
+
 	.capa{
 		/*boton buscar*/
 		position: relative !important;
 		left:60px !important;
-		top: 30px !important;
+		top: 25px !important;
+        /*float: right;*/
+        /*margin-right: 20px !important;*/
+        margin-bottom: 20px !important;
+
 	}
 
 	
@@ -75,13 +81,13 @@
 		/*background-color:#000 !important ;*/
 		font-size: 100px !important;
 		/*width: 1200px !important;*/
-		height: 80px !important;
+		height: 70px !important;
 	}
 
 
 	.clasbc{
 		position: relative;
-		left:10px !important; 
+		/*left:20px !important; */
 		top:20px !important;
 		/*font-weight:bold !important;
 		font-size: 10px !important;*/
@@ -91,7 +97,7 @@
 	.clasbtn2{
 		/*botones recargar y*/
 		position: relative;
-		top: 10px !important;
+		top: 5px !important;
 		/*left: 50px !important;*/
 		
 		/*background-color: #000 !important;*/
@@ -102,14 +108,6 @@
 	}*/
 .ui-jqgrid-btable{
 	width: 1210px !important;
-}
-
-#btnagregar{
-	left: 100px !important;
-	
-	background-color: #000 !important;
-	
-	  
 }
 
 
@@ -577,8 +575,11 @@ $attr = array('id' => 'frm_registro');
 
 <div class="capa">
 	<div class="form-search" style="float: right; margin-right: 20px; margin-bottom: 10px;">		
+		<div class="row-fluid" style="margin-right: 10px">
 		<?php echo form_input($txtBuscarCodigo); ?>
-		<?php echo form_button($btnBuscarCodigoLocal); ?>		
+	  
+		<?php echo form_button($btnBuscarCodigoLocal); ?>	
+       </div>
 	</div>
 
 </div>
