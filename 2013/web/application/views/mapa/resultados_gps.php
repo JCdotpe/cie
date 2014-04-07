@@ -231,11 +231,13 @@
 						$('#defcivil').show();
 						$('#def_civil').val(0);
 						$('#def_civil').trigger('change');
+						cnt_subtitulo = 'INSPECCIONADAS POR DEFENSA CIVIL';
 						break;
 					case '3':
 						$('#altriesgo').show();
 						$('#alt_riesgo').val(0);
 						$('#alt_riesgo').trigger('change');
+						cnt_subtitulo = 'INHABITABLES EN ALTO RIESGO';
 						break;
 					case '4':
 						$('#patricult').show();
@@ -281,8 +283,12 @@
 						break;
 					default:
 						if ( layer != undefined ) layer.setMap(null);
+						cnt_subtitulo = '';
 						break;
 				}
+
+				
+				$('#subtitulo').html(cnt_subtitulo);
 
 			});
 
@@ -969,10 +975,11 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div id="geo_leyenda" class="span9">
-					<!-- ajax -->
+					<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>">
+					<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>">
 				</div>
 				<div id="subtitulo" class="span3">
-					<!-- ajax -->
+					<p class="pull-right"></p>
 				</div>
 			</div>
 		</div>
