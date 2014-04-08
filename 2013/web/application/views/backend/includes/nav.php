@@ -1,11 +1,13 @@
 
+    
 
        <div class="navtopper navbar navbar-inverse navbar-fixed-top ">
             <div class=" navbar-inner navtopper-inner" id="navbarflex">
-                <div class="container">
+                <div class="container-left">
                   <div class="row">
-                    <div class="span12 text-center">
+                    <div class="span12">
                       <a href="<?php echo base_url(); ?>"><img style="margin-top: 2.5px;" src="<?php echo base_url('img/brand.jpg'); ?>"/></a>
+                      <div id="oted">OFICINA TECNICA DE ESTADISTICA DEPARTAMENTALES - OTED</div>
                     </div>
                   </div>
 
@@ -24,7 +26,21 @@
                     <div class="nav-collapse collapse">
 
 
+<style type="text/css">
 
+#oted {
+color: #00A1C7 !important;
+height: 30px !important;
+position: absolute !important;
+right: 20px !important;
+text-align: right !important;
+text-transform: uppercase !important;
+top: 25px !important;
+font-family: 'Open Sans', sans-serif !important;
+font-size: 14px !important;
+}
+
+</style>
 
 
       <?php
