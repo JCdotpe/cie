@@ -5,7 +5,7 @@
                 <div class="container-left">
                   <div class="row">
                     <div class="span12 ima1">
-                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 10px;position:relative;left:20px;" src="<?php echo base_url('img/brandcopia.jpg'); ?>"/></a>
+                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 9px;position:relative;left:20px;" src="<?php echo base_url('img/brandcopia.jpg'); ?>"/></a>
                       <div id="oted">OFICINA TÉCNICA DE ESTADÍSTICA DEPARTAMENTALES - OTED</div>
                     </div>
                   </div>
@@ -43,7 +43,7 @@ left: 1000px;*/
 
   #navbarflex {
   background: none repeat scroll 0 0 #FFFFFF !important;
-  border-bottom: 15px solid #00A1C7 !important;
+  border-bottom: 20px solid #00A1C7 !important;
   top: 20px !important;
 
   }
