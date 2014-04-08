@@ -347,7 +347,7 @@ $(document).ready(function(){
 				asd += '</tr>';				
 			}
 			$('#lindero_frente > tbody').html(asd);
-		}else if(ahua=='' || ahua==99){
+		}else if(ahua=='' || ahua==99 || ahua == 0){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -398,7 +398,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_derecha > tbody').append(asd);
 			}
-		}else if(ahua=='' || ahua==99){
+		}else if(ahua=='' || ahua==99 || ahua == 0){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -448,7 +448,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_fondo > tbody').append(asd);
 			}
-		}else if(ahua=='' || ahua==99){
+		}else if(ahua=='' || ahua==99 || ahua == 0){
 			//
 		}else{
 			// alert('Dato Incorrecto');
@@ -497,7 +497,7 @@ $(document).ready(function(){
 				asd += '</tr>';
 				$('#lindero_izquierda > tbody').append(asd);
 			}
-		}else if(ahua=='' || ahua==99){
+		}else if(ahua=='' || ahua==99 || ahua == 0){
 			//
 		}else{
 			alert('Dato Incorrecto');
@@ -573,22 +573,22 @@ $(document).ready(function(){
 		    rules: {
 				P4_2_CantTram_Lfrente: {
 					digits:true,
-					valrango:[1,98,99],
+					valrango:[0,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lderecho: {
 					digits:true,
-					valrango:[1,98,99],
+					valrango:[0,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lfondo: {
 					digits:true,
-					valrango:[1,98,99],
+					valrango:[0,98,99],
 					required: true,
 				},
 				P4_2_CantTram_Lizq: {
 					digits:true,
-					valrango:[1,98,99],
+					valrango:[0,98,99],
 					required: true,
 				},
 				'P4_2_1A_i[]':{
