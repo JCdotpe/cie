@@ -92,7 +92,8 @@
 			    $("#map-tematico").html('<div style="position:relative;"><div ><div id="img_mapa"style="position:absolute;" class="span12"> </div>   	</div>	<div id="porcentaje"> <strong>' + tipo_dato + '</strong> </div> 	<div id="cuadro_uno"><div class="cuadro_porc" id="cuadro_num1"></div> </div> <div id="cuadro_dos"><div class="cuadro_porc" id="cuadro_num2"></div> </div>  <div id="cuadro_tres"><div class="cuadro_porc" id="cuadro_num3"></div> </div>  </div>');
 			    $("#img_mapa").append('<div class = "span2" style = "position:relative"><img style="margin-top: 2.5px;height: 103px;" src="<?php echo  base_url('img/inei.gif'); ?>"/>');
 			    $("#img_mapa").append("<div id='title' class='span8' style='margin:0px;'><h3><strong> "+ name_mapa[var_num] + "</strong></h3><div>");			    
-			    $("#img_mapa").append('<div class = "span2" style = "position:relative;left:60px"><img style="margin-top: 2.5px;height: 105px;" src="<?php echo  base_url('img/cenpesco.png'); ?>"/>');
+			    <!--$("#img_mapa").append('<div class = "span2" style = "position:relative;left:60px"><img style="margin-top: 2.5px;height: 105px;" src="<?php echo  base_url('img/cenpesco.png'); ?>"/>');-->
+				$("#img_mapa").append('<div class = "span2" style = "position:relative;left:60px"></div>');
 
 			 	// var imagen = new Image();
 			 	// imagen.src = "<?php echo  base_url('img/tabulados/cuadro'.$opcion.'.jpg'); ?>";
