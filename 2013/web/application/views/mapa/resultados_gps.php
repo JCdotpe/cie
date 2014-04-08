@@ -61,8 +61,8 @@
 		function initialize() {
 			var myOptions = {
 				zoom: 6,
-				center: new google.maps.LatLng(-9.817329,-69.920655),
-				// mapTypeId: google.maps.MapTypeId.SATELLITE,
+				center: new google.maps.LatLng(-10.089204, -69.802552),
+				// mapTypeId: google.maps.MapTypeId.SATELLITE,-9.817329,-69.920655
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				zoomControl: true,
 				zoomControlOptions: {
@@ -283,6 +283,7 @@
 						$('#vulne input[type=checkbox]').removeAttr('checked');
 						check_vulnerabilidad();
 						cnt_subtitulo = 'VULNERABILIDAD';
+						view_leyenda(5);
 						break;
 					case '9':
 						$('#niveledu').show();
@@ -333,6 +334,16 @@
 						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_azul.png'); ?>"> Telefonía Fija';
 						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Telefonía Móvil';
 						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Internet';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
+						break;
+					case 5:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Lecho de río, quebrada';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_azul.png'); ?>"> Vía ferrea';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_purpura.png'); ?>"> Barranco o precipicio';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_azul.png'); ?>"> Cuartel militar o policial';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_verde.png'); ?>"> Erosión fluvial de laderas';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_amarillo.png'); ?>"> Otro';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Ninguno';
 						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
 						break;
 				}
@@ -522,7 +533,7 @@
 
 				query.send(zoomTo);
 			}else{
-				zomCenter = new google.maps.LatLng(-9.817329,-69.920655);
+				zomCenter = new google.maps.LatLng(-10.089204, -69.802552);
 				zom = 6;
 				map.setCenter( zomCenter );
 				map.setZoom( zom );
@@ -614,7 +625,10 @@
 				condicion += (departamento == 26) ? "AND cod_dpto in('07','15') AND cod_prov = '01' " : "AND cod_dpto = '15' AND cod_prov > '01' ";
 			}
 
-			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"'" : "";
+			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"' " : " ";
+
+			// sirve pa no-cache;
+			condicion += "AND dpto_nombre does not contain '" + new Date().getTime() +"'";
 
 			tipo_resul = $('#resultado').val();
 
@@ -634,7 +648,6 @@
 				},
 				options: {
 					styleId: 2
-					// templateId: 2
 				},
 				suppressInfoWindows: true
 				// styles:[
@@ -673,8 +686,8 @@
 							"<p><b>Distrito:</b> "+e.row['dist_nombre'].value+"</p>"+
 							"<p><b>Tipo de área:</b> "+e.row['des_area'].value+"</p>"+
 							"<p class='detalle'>"+
-							"<a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+e.row['codigo_de_local'].value+"/"+e.row['Nro_Pred'].value+"/114'>Ir a cédula censal evaluada →</a>"+
-							"</p>"+
+							// "<a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+e.row['codigo_de_local'].value+"/"+e.row['Nro_Pred'].value+"/114'>Ir a cédula censal evaluada →</a>"+
+							// "</p>"+
 
 							"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
 							"<p>"+e.row['nombres_IIEE'].value+"</p>";
