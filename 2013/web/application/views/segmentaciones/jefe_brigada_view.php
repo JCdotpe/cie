@@ -198,7 +198,7 @@ $periodo =array(
 	'id'	=> 'periodo',
 	'value'	=> set_value('periodo'),
 	'maxlength'	=> 2,
-	'style' => 'width: 70px;',
+	'style' => 'width: 20px;',
 	'tabindex' => '3',
 	'onblur' => 'valida_periodo_jb(this)',
 	'onkeypress' => 'return validar_numeros(event)'
@@ -481,14 +481,14 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($trabajo_supervisor); ?></td>
 				</tr>				
 				<tr align="center">
-					<td><?php echo form_label('Retorno a Sede', 'lblRetornoSede'); ?></td>
+					<td><?php echo form_label('Retorno<br/> a Sede', 'lblRetornoSede'); ?></td>
 					<td><?php echo form_label('Gabinete', 'lblGabinete'); ?></td>
 					<td><?php echo form_label('Descanso', 'lblDescanso'); ?></td>
 					<td><?php echo form_label('Total de Dias', 'lblTotalDias'); ?></td>
-					<td><?php echo form_label('Movi. Local MA', 'lblMovLocalMA'); ?></td>
-					<td><?php echo form_label('Gasto Ope. MA', 'lblGastoOpeMA'); ?></td>
-					<td><?php echo form_label('Movi. Local AF', 'lblMovLocalAF'); ?></td>
-					<td><?php echo form_label('Gasto Ope. AF', 'lblGastoOpeAF'); ?></td>
+					<td><?php echo form_label('Movilidad <br/>Local MA', 'lblMovLocalMA'); ?></td>
+					<td><?php echo form_label('Gasto <br/>Ope. MA', 'lblGastoOpeMA'); ?></td>
+					<td><?php echo form_label('Movilidad <br/>Local AF', 'lblMovLocalAF'); ?></td>
+					<td><?php echo form_label('Gasto <br/>Ope. AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
 					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
 				</tr>
@@ -505,11 +505,11 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($total_af); ?></td>
 				</tr>
 				<tr>		
-					<td colspan="4" align="left"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
-					<td colspan="4"></td>
+					<td colspan="3" align="left"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>
+					<td colspan="3"></td>
 				</tr>
 				<tr>				
-					<td colspan="4" align="left"><?php echo form_textarea($observaciones); ?></td>
+					<td colspan="3" align="left"><?php echo form_textarea($observaciones); ?></td>
 					<td colspan="5">
 						<?php echo form_button($btnagregar); ?>
 						<input type="hidden" id="rangofechas" name="rangofechas" value="">

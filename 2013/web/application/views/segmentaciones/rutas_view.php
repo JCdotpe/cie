@@ -526,13 +526,13 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_label('Traslado', 'lblTraslado'); ?></td>
 					<td><?php echo form_label('Trabajo', 'lblTrabajo'); ?></td>
 					<td><?php echo form_label('Recuperación', 'lblRecuperacion'); ?></td>
-					<td><?php echo form_label('Retorno a Sede', 'lblRetornoSede'); ?></td>
+					<td><?php echo form_label('Retorno<br/> a Sede', 'lblRetornoSede'); ?></td>
 					<td><?php echo form_label('Gabinete', 'lblGabinete'); ?></td>
 					<td><?php echo form_label('Descanso', 'lblDescanso'); ?></td>
 					<td><?php echo form_label('Total de Dias', 'lblTotalDias'); ?></td>
-					<td><?php echo form_label('Movilidad <br/>Local MA', 'lblMovLocalMA'); ?></td>
-					<td><?php echo form_label('Gasto Operativo <br/> MA', 'lblGastoOpeMA'); ?></td>
-					<td><?php echo form_label('Movilidad Local<br/> AF', 'lblMovLocalAF'); ?></td>					
+					<td><?php echo form_label('Movilidad Local<br/> MA', 'lblMovLocalMA'); ?></td>
+					<td><?php echo form_label('Gasto <br/>Ope.  MA', 'lblGastoOpeMA'); ?></td>
+					<td><?php echo form_label('Movilidad<br/> Local AF', 'lblMovLocalAF'); ?></td>					
 				</tr>
 				<tr>
 					<td><?php echo form_input($traslado); ?></td>
@@ -547,7 +547,7 @@ $attr = array('id' => 'frm_registro');
 					<td><?php echo form_input($movlocal_af); ?></td>
 				</tr>
 				<tr>
-					<td><?php echo form_label('Gasto Operativo<br/> AF', 'lblGastoOpeAF'); ?></td>
+					<td><?php echo form_label('Gasto<br/>  Ope.AF', 'lblGastoOpeAF'); ?></td>
 					<td><?php echo form_label('Pasaje', 'lblPasaje'); ?></td>
 					<td><?php echo form_label('Total AF', 'lblTotalAF'); ?></td>
 					<td colspan="4" align="left"><?php echo form_label('Observaciones', 'lblObservaciones'); ?></td>

@@ -1,13 +1,12 @@
 
-    
 
-       <div class="navtopper navbar navbar-inverse navbar-fixed-top ">
+       <div class="navtopper navbar navbar-inverse navbar-fixed-top">
             <div class=" navbar-inner navtopper-inner" id="navbarflex">
                 <div class="container-left">
                   <div class="row">
-                    <div class="span12">
-                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 2.5px;" src="<?php echo base_url('img/brand.jpg'); ?>"/></a>
-                      <div id="oted">OFICINA TECNICA DE ESTADISTICA DEPARTAMENTALES - OTED</div>
+                    <div class="span12 ima1">
+                      <a href="<?php echo base_url(); ?>"><img style="margin-top: 10px;position:relative;left:20px;" src="<?php echo base_url('img/brandcopia.jpg'); ?>"/></a>
+                      <div id="oted">OFICINA TÉCNICA DE ESTADÍSTICA DEPARTAMENTALES - OTED</div>
                     </div>
                   </div>
 
@@ -15,7 +14,7 @@
           </div>
       </div>
        <!--  <div class="navbar navbar-inverse navbar-fixed-top " > -->
-       <div id="menu_nav2" class="navbar navbar-inverse navbar-fixed-top navbottom">
+       <div id="menu_nav2" class="navbar navbar-inverse navbar-fixed-top navbottom ">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -26,21 +25,50 @@
                     <div class="nav-collapse collapse">
 
 
-<style type="text/css">
+  <style type="text/css">
 
-#oted {
-color: #00A1C7 !important;
-height: 30px !important;
-position: absolute !important;
-right: 20px !important;
-text-align: right !important;
-text-transform: uppercase !important;
-top: 25px !important;
-font-family: 'Open Sans', sans-serif !important;
-font-size: 14px !important;
+
+.ima1{
+
+text-align: 10px !important;
+/*position: absolute;
+left: 1000px;*/
+/*top:50px !important;*/
+/*margin-right: 1000px !important;*/
+
 }
 
-</style>
+
+
+
+  #navbarflex {
+  background: none repeat scroll 0 0 #FFFFFF !important;
+  border-bottom: 15px solid #00A1C7 !important;
+  top: 20px !important;
+
+  }
+
+
+  #oted{
+  color: #00A1C7;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  top: 33px;
+  font-size: 14px !important;
+ /*font-family: 'Open Sans', sans-serif;*/
+  }
+
+#container-fluid{
+
+  height: 60px !important;
+}
+
+
+
+  </style>
 
 
       <?php
