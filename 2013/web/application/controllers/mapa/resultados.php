@@ -17,15 +17,12 @@ class Resultados extends CI_Controller {
 	public function index(){
 
 		$data['user_id'] = $this->session->userdata('user_id');
+		$this->load->view('mapa/resultados_gps.php', $data);
 
 		// $datos = $this->resultados_model->Get_OpinionTecnica( 0, 0, 0, 0, 0 );
 		// $fp = fopen('json/opinion_tecnica.json', 'w');
 		// fwrite($fp, json_encode($datos->result()));
 		// fclose($fp);
-
-		$this->load->view('mapa/resultados_gps.php', $data);
-		// $this->load->view('mapa/resultados_fusiontable.php', $data);
-
 	}
 
 	public function dpto()
