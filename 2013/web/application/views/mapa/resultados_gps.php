@@ -61,8 +61,8 @@
 		function initialize() {
 			var myOptions = {
 				zoom: 6,
-				center: new google.maps.LatLng(-9.817329,-69.920655),
-				// mapTypeId: google.maps.MapTypeId.SATELLITE,
+				center: new google.maps.LatLng(-10.089204, -69.802552),
+				// mapTypeId: google.maps.MapTypeId.SATELLITE,-9.817329,-69.920655
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				zoomControl: true,
 				zoomControlOptions: {
@@ -130,9 +130,6 @@
 
 				$('#prov').val(0);
 				$('#dist').val(0);
-				// $('#area').val(0);
-				// $('#resultado').val(0);
-				// ocultar_cmb();
 
 				if ( $(this).val() != 0 ){
 					load_kml_ft( '1GpIA0mBHMTame6QFenQeQCazLW4NiLciy3lfLvSZ', code );
@@ -148,9 +145,6 @@
 			$('#prov').change(function(event) {
 
 				combo_dist( $('#dpto').val(), $(this).val() );
-				// $('#area').val(0);
-				// $('#resultado').val(0);
-				// ocultar_cmb();
 
 				code = $('#dpto').val() + $(this).val();
 
@@ -166,10 +160,6 @@
 
 			$('#dist').change(function(event) {
 				
-				// $('#area').val(0);
-				// $('#resultado').val(0);
-				// ocultar_cmb();
-
 				code = $('#dpto').val() + $('#prov').val() + $(this).val();
 				if ( $(this).val() != 0 ){
 					load_kml_ft( '1Qvu7A-6HA7TCPVTAJ6xgld_3J7UFBr2SIlbQBz4w', code );
@@ -283,6 +273,7 @@
 						$('#vulne input[type=checkbox]').removeAttr('checked');
 						check_vulnerabilidad();
 						cnt_subtitulo = 'VULNERABILIDAD';
+						view_leyenda(5);
 						break;
 					case '9':
 						$('#niveledu').show();
@@ -335,6 +326,16 @@
 						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Internet';
 						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
 						break;
+					case 5:
+						cnt_leyenda = '<img width="20" height="20" src="<?php echo base_url('img/elipse_amarillo.png'); ?>"> Lecho de río, quebrada';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_azul.png'); ?>"> Vía ferrea';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_purpura.png'); ?>"> Barranco o precipicio';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_azul.png'); ?>"> Cuartel militar o policial';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_verde.png'); ?>"> Erosión fluvial de laderas';
+						cnt_leyenda += '<img width="30" height="20" src="<?php echo base_url('img/marker_amarillo.png'); ?>"> Otro';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_rojo.png'); ?>"> Ninguno';
+						cnt_leyenda += '<img width="20" height="20" src="<?php echo base_url('img/elipse_verde.png'); ?>"> Mas de una opción';
+						break;
 				}
 
 				$('#geo_leyenda').html(cnt_leyenda);
@@ -385,15 +386,6 @@
 		function ocultar_cmb() {
 
 			$('.gps_view').hide();
-			// $('#optecnica').hide();
-			// $('#defcivil').hide();
-			// $('#altriesgo').hide();
-			// $('#patricult').hide();
-			// $('#obrasejec').hide();
-			// $('#serv').hide();
-			// $('#comuni').hide();
-			// $('#vulne').hide();
-			// $('#niveledu').hide();
 		}
 
 		function check_servicios() {
@@ -522,7 +514,7 @@
 
 				query.send(zoomTo);
 			}else{
-				zomCenter = new google.maps.LatLng(-9.817329,-69.920655);
+				zomCenter = new google.maps.LatLng(-10.089204, -69.802552);
 				zom = 6;
 				map.setCenter( zomCenter );
 				map.setZoom( zom );
@@ -598,8 +590,6 @@
 			distrito = $('#dist').val();
 			tipoarea = $('#area').val();
 
-			// condicion =  ( valor > 0 ) ? ''+campo+' = '+valor+' ' : ''+campo+' > '+valor+' ';
-
 			if ( departamento > 0  && departamento < 26 )
 			{
 				condicion += 'AND cod_dpto = '+departamento+' ';
@@ -614,7 +604,10 @@
 				condicion += (departamento == 26) ? "AND cod_dpto in('07','15') AND cod_prov = '01' " : "AND cod_dpto = '15' AND cod_prov > '01' ";
 			}
 
-			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"'" : "";
+			condicion += ( tipoarea != 0 ) ? "AND des_area = '"+tipoarea+"' " : " ";
+
+			// sirve pa no-cache;
+			condicion += "AND dpto_nombre does not contain '" + new Date().getTime() +"'";
 
 			tipo_resul = $('#resultado').val();
 
@@ -634,7 +627,6 @@
 				},
 				options: {
 					styleId: 2
-					// templateId: 2
 				},
 				suppressInfoWindows: true
 				// styles:[
@@ -673,8 +665,6 @@
 							"<p><b>Distrito:</b> "+e.row['dist_nombre'].value+"</p>"+
 							"<p><b>Tipo de área:</b> "+e.row['des_area'].value+"</p>"+
 							"<p class='detalle'>"+
-							"<a target='_blank' href='http://webinei.inei.gob.pe/cie/2013/web/index.php/consistencia/local/"+e.row['codigo_de_local'].value+"/"+e.row['Nro_Pred'].value+"/114'>Ir a cédula censal evaluada →</a>"+
-							"</p>"+
 
 							"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
 							"<p>"+e.row['nombres_IIEE'].value+"</p>";
@@ -978,9 +968,6 @@
 						<input type="checkbox" name="agua" id="agua" onchange="check_servicios()"> Agua Potable <br>
 						<input type="checkbox" name="alcantarillado" id="alcantarillado" onchange="check_servicios()"> Alcantarillado <br>
 					</div><br>
-					<!-- <div>
-						<input type="submit" name="btn_serv" id="btn_serv" value="Consultar" class="btn btn-primary" onclick="ini_button(1);">
-					</div> -->
 				</div>
 			</div>
 
@@ -992,9 +979,6 @@
 						<input type="checkbox" name="tmovil" id="tmovil" onchange="check_comunicacion()"> Telefonía Móvil <br>
 						<input type="checkbox" name="inter" id="inter" onchange="check_comunicacion()"> Internet <br>
 					</div><br>
-					<div>
-						<!-- <input type="submit" name="btn_comuni" id="btn_comuni" value="Consultar" class="btn btn-primary" onclick="ini_button(2);"> -->
-					</div>
 				</div>
 			</div>
 
@@ -1010,9 +994,6 @@
 						<input type="checkbox" name="v6" id="v6" onchange="check_vulnerabilidad()"> Otro? <br>
 						<input type="checkbox" name="v7" id="v7" onchange="check_vulnerabilidad()"> Ninguno <br>
 					</div><br>
-					<div>
-						<!-- <input type="submit" name="btn_vulne" id="btn_vulne" value="Consultar" class="btn btn-primary" onclick="ini_button(3);"> -->
-					</div>
 				</div>
 			</div>
 
