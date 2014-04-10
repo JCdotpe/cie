@@ -62,7 +62,7 @@
 		position: relative !important;
 		/*left:0px !important;*/
 		top: 10px !important;
-		font-family: arial !important;
+		/*font-family: arial !important;*/
 		font-size: 0px !important;
 		width: 1200px !important;
 		
@@ -78,19 +78,11 @@
 	}
 
 
-	.clasgrupo{
-	/*background-color:#000 !important ;*/
-		font-size: 100px !important;
-		/*width: 1200px !important;*/
-		height: 70px !important;
-		top: 50px !important;
-	}
-
-	    
+   /*Boton consulta*/ 
 	.clasbc{
 		position: relative;
-		/*left:20px !important; */
-		top:20px !important;
+		left:200px !important; 
+		top: 5px !important;
 		/*font-weight:bold !important;
 		font-size: 10px !important;*/
 	}
@@ -102,29 +94,50 @@
 		/*left: 50px !important;*/
 	}
 
-.ui-jqgrid-btable{
-	width: 1210px !important;
-}
+	.ui-jqgrid-btable{
+		width: 1210px !important;
+	}
 
 
-.span11{
-/*background-color: #000 !important;*/
-width: 1210px !important;
+	.span11{
+		/*background-color: #000 !important;*/
+		width: 1210px !important;
 
-}
+	}
 
-.tbody{
+	.tbody{
 
-/*background-color: #000 !important;*/
-width: 1500px !important;	
-text-align: center !important;
-}
+		/*background-color: #000 !important;*/
+		width: 1500px !important;	
+		text-align: center !important;
+	}
 
-control-group.group1{
 
-background-color: 	#000 !important;
-left: 50px !important;
-}
+	.lblcodigo{
+		position: relative !important;
+		left:150px !important;
+		top:5px !important;
+
+    }
+
+	.provope{
+	position: relative !important;
+	left:50px !important;
+	top:5px !important;	
+	}
+
+	.jefebrig{
+		position: relative !important;
+		left:100px !important;
+		top:5px !important;	
+	}
+
+	.sedeopera{
+		position: relative !important;
+		top:5px !important;
+
+	}
+
 
 
 </style>
@@ -175,6 +188,7 @@ $provincia =array(
 	'value'	=> set_value('prov'),
 	'readonly' => 'true',
 	'style' => 'width: 120px;'
+
 );
 
 $distrito =array(
@@ -412,7 +426,7 @@ $attr = array('id' => 'frm_registro');
 	<div class="span12">
 		<div id="ap-content" class="span12">
 			<div class="row-fluid well top-conv claslii">
-				<div class="span3 clasgrupo">
+				<div class="span2 sedeopera">
 					<div class="control-group">
 							<?php echo form_label('Sede Operativa', 'sede'); ?>
 						<div class="controls">
@@ -420,24 +434,24 @@ $attr = array('id' => 'frm_registro');
 						</div>
 					</div>
 				</div>
-				<div class="span3 clasgrupo">
+				<div class="span2 provope">
 					<div class="control-group">
 							<?php echo form_label('Provincia Operativa', 'provincia'); ?>
 						<div class="controls">
-							<?php echo form_dropdown('provoperativa', $provArray, '#', 'id="provoperativa" onChange="cargar_JB();" style="width:100%"'); ?>
+							<?php echo form_dropdown('provoperativa', $provArray, '#', 'id="provoperativa" onChange="cargar_JB();" style="width:100%;"'); ?>
 						</div>
 					</div>
 				</div>
 				
-				<div class="span2 clasgrupo">
+				<div class="span2 jefebrig">
 					<div class="control-group">
 							<?php echo form_label('Jefe de Brigada', 'jefe'); ?>
 						<div class="controls">
-							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada" onChange="mostrar_grilla_jb();" style="width:100%"'); ?>
+							<?php echo form_dropdown('jefebrigada', $jefeArray, '#', 'id="jefebrigada" onChange="mostrar_grilla_jb();" style="width:100%;"'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="span2 clasgrupo">
+				<div class="span2 lblcodigo">
 					<div class="control-group">
 							<?php echo form_label('Código de Local Educativo', 'local'); ?>
 						<div class="controls">
