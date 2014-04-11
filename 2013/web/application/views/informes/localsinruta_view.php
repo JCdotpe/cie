@@ -3,11 +3,82 @@
 <script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/segmentaciones.js'); ?>"></script>
+
 <style>
 	.ui-jqgrid tr.jqgrow td {
 		white-space: normal !important;
 	}
+
+    .clasliz{
+		/*lista de rutas*/
+		/*background-color: #000 !important;*/
+		width: 1210px !important;
+		/*border-width: 10px !important;*/
+		position: relative !important;
+		top: 0px !important;
+		right:30px !important;
+
+	}
+
+	.claslii{
+
+		border-width: 0px !important;
+		background-color: #F2F2F1 !important;
+		height: 0px !important;
+	}
+
+	.sedeopera{
+		position: relative !important;
+		top:5px !important;
+
+	}
+
+	.provope{
+	position: relative !important;
+	left:100px !important;
+	top:5px !important;	
+	}
+
+	
+
+	.arribderech{
+	position: relative !important;
+	top: 25px !important;
+	left: 60px !important;	
+	/*width:10% !important;*/
+
+	}
+
+
+	 /*Boton Visualizar*/ 
+	.clasbv{
+		position: relative;
+		left:200px !important; 
+		top: 20px !important;
+		/*font-weight:bold !important;
+		font-size: 10px !important;*/
+	}
+
+	.ui-jqgrid-sortable{
+		font-size: 10px !important;
+	}
+
+
+	.ui-jqgrid-title{
+		font-size: 15px !important;
+	}
+
+	.ui-jqgrid-btable{
+		width: 1210px !important;
+	}
+
+
+
 </style>
+
+
+
+
 <?php
 	$label_class =  array('class' => 'control-label');
 	$sedeArray = array(-1 => 'Seleccione...');
@@ -24,10 +95,10 @@
 		<div id="ap-sidebar" class="span2">
 			<?php $this->load->view('informes/includes/sidebar_segmentacion_view.php'); ?>
 		</div>
-		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
+		<div id="ap-content" class="span10 arribderech">
+			<div class="row-fluid well top-conv claslii">
 				<?php echo form_open('','id="frm_reporte"'); ?>
-				<div class="span3">
+				<div class="span3 sedeopera">
 					<div class="control-group">
 						<?php echo form_label('Sede Operativa', 'sede', $label_class); ?>
 						<div class="controls">
@@ -35,7 +106,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span3 provope">
 					<div class="control-group">
 						<?php echo form_label('Provincia Operativa', 'provincia', $label_class); ?>
 						<div class="controls">
@@ -43,7 +114,7 @@
 						</div>
 					</div>
 				</div>				
-				<div class="span1">
+				<div class="span1 clasbv">
 					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>
 			</div>
@@ -51,8 +122,8 @@
 			<input type="hidden" name="cod_prov" id="cod_prov" value="" />
 			<?php echo form_close(); ?>
 		</div>
-		<div id="grid_content" class="span12">
-			<div class="span6">
+		<div id="grid_content" class="span12 clasliz">
+			<div class="span12">
 				<table id="list2"></table>
 				<div id="pager2"></div>
 			</div>
@@ -73,7 +144,7 @@
 			height: 255,			
 		   	colNames:['Nro', 'Departamento', 'Provincia', 'Distrito', 'Centro Poblado', 'Codigo de Local', 'Sede Operativa', 'Provincia Operativa',  'Dirección'],
 		   	colModel:[
-		   		{name:'nro_fila',sortable:false,width:25,align:"center"},
+		   		{name:'nro_fila',sortable:false,width:50,align:"center"},
 		   		{name:'NomDept',index:'NomDept',align:"center"},
 		   		{name:'NomProv',index:'NomProv',align:"center"},
 		   		{name:'NomDist',index:'NomDist',align:"center"},

@@ -41,14 +41,14 @@
 
 	.codrutas{
 	position: relative !important;
-	left:60px !important;
+	left:55px !important;
 	top:15px !important;	
 	
 	}
 
 	.peri{
 	position: relative !important;
-	left:20px !important;
+	left:10px !important;
 	top:15px !important;
 
 	}
@@ -83,6 +83,7 @@
 	.ui-jqgrid-btable{
 		width: 1210px !important;
 	}
+
 
 
 </style>
@@ -138,7 +139,7 @@
 		<div id="ap-content" class="span10 arribderech">
 			<div class="row-fluid well top-conv claslii">
 				<?php echo form_open('','id="frm_reporte"'); ?>
-				<div class="span3">
+				<div class="span3 sedeopera">
 					<div class="control-group">
 						<?php echo form_label('Sede Operativa', 'sede', $label_class); ?>
 						<div class="controls">

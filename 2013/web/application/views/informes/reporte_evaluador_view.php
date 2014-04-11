@@ -87,6 +87,8 @@
 
 
 </style>
+
+
 <?php
 	$label_class =  array('class' => 'control-label');
 	$sedeArray = array(-1 => 'Seleccione...');
