@@ -3,10 +3,89 @@
 <script src="<?php echo base_url('js/jqgrid/i18n/grid.locale-es.js'); ?>"></script>
 <script src="<?php echo base_url('js/jqgrid/jquery.jqGrid.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/segmentaciones.js'); ?>"></script>
+
+
 <style>
 	.ui-jqgrid tr.jqgrow td {
 		white-space: normal !important;
 	}
+
+    .clasliz{
+		/*lista de rutas*/
+		/*background-color: #000 !important;*/
+		width: 1210px !important;
+		/*border-width: 10px !important;*/
+		position: relative !important;
+		top: 0px !important;
+		right:30px !important;
+
+	}
+
+	.claslii{
+
+		border-width: 0px !important;
+		background-color: #F2F2F1 !important;
+		height: 0px !important;
+	}
+
+	.sedeopera{
+		position: relative !important;
+		top:5px !important;
+
+	}
+
+	.provope{
+	position: relative !important;
+	left:20px !important;
+	top:5px !important;	
+	}
+
+	.codrutas{
+	position: relative !important;
+	left:60px !important;
+	top:15px !important;	
+	
+	}
+
+	.peri{
+	position: relative !important;
+	left:20px !important;
+	top:15px !important;
+
+	}
+
+	.arribderech{
+	position: relative !important;
+	top: 25px !important;
+	left: 60px !important;	
+	/*width:10% !important;*/
+
+	}
+
+
+	 /*Boton Visualizar*/ 
+	.clasbv{
+		position: relative;
+		left:10px !important; 
+		top: 20px !important;
+		/*font-weight:bold !important;
+		font-size: 10px !important;*/
+	}
+
+	.ui-jqgrid-sortable{
+		font-size: 10px !important;
+	}
+
+
+	.ui-jqgrid-title{
+		font-size: 15px !important;
+	}
+
+	.ui-jqgrid-btable{
+		width: 1210px !important;
+	}
+
+
 </style>
 <?php
 	$label_class =  array('class' => 'control-label');
@@ -54,10 +133,10 @@
 		<div id="ap-sidebar" class="span2">
 			<?php $this->load->view('informes/includes/sidebar_segmentacion_view.php'); ?>
 		</div>
-		<div id="ap-content" class="span10">
-			<div class="row-fluid well top-conv">
+		<div id="ap-content" class="span10 arribderech">
+			<div class="row-fluid well top-conv claslii">
 				<?php echo form_open('','id="frm_reporte"'); ?>
-				<div class="span3">
+				<div class="span3 sedeopera ">
 					<div class="control-group">
 						<?php echo form_label('Sede Operativa', 'sede', $label_class); ?>
 						<div class="controls">
@@ -65,7 +144,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="span3">
+				<div class="span3 provope">
 					<div class="control-group">
 						<?php echo form_label('Provincia Operativa', 'provincia', $label_class); ?>
 						<div class="controls">
@@ -73,7 +152,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span2 codrutas">
 					<div class="control-group">
 						<?php echo form_label('Código de Ruta', 'ruta', $label_class); ?>
 						<div class="controls">
@@ -81,7 +160,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="span2">
+				<div class="span2 peri">
 					<div class="control-group">
 						<?php echo form_label('Periodos', 'periodos', $label_class); ?>
 						<div class="controls">
@@ -90,7 +169,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="span1">
+				<div class="span1 clasbv">
 					<?php echo form_button('ver','Visualizar','class="btn btn-primary" id="ver" style="margin-top:20px" onClick="reportar()"'); ?>
 				</div>
 			</div>
@@ -101,8 +180,8 @@
 			<input type="hidden" name="periodo_2" id="periodo_2" value="" />
 			<?php echo form_close(); ?>
 		</div>
-		<div id="grid_content" class="span12">
-			<div class="span6">
+		<div id="grid_content" class="span12 clasliz">
+			<div class="span12">
 				<table id="list2"></table>
 				<div id="pager2"></div>
 			</div>
@@ -121,33 +200,33 @@
 		   	url:'reporte_evaluador/obtenreporte',
 			datatype: "json",
 			height: 255,			
-		   	colNames:['Nro', 'Departamento', 'Provincia', 'Distrito', 'Centro Poblado', 'Codigo de Local', 'Sede Operativa', 'Provincia Operativa', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Observaciones','Ruta'],
+		   	colNames:['Nro', 'Departamento', 'Provincia', 'Distrito', 'Centro Poblado', 'Codigo de Local', 'S. Operativa', 'Prov. Operativa', 'F. Inicio', 'F. Final', 'Traslado', 'Trabajo', 'Recuperación', 'Retorno Sede', 'Gabinete', 'Descanso', 'Total Dias', 'Mov. Local MA', 'Gasto Op. MA', 'Mov. Local AF', 'Gasto Op. AF', 'Pasaje', 'Total AF', 'Obs','Ruta'],
 		   	colModel:[
-		   		{name:'nro_filas',sortable:false,width:80,align:"center"},
-		   		{name:'NomDept',index:'NomDept',width:350,align:"center"},
-		   		{name:'NomProv',index:'NomProv',width:350,align:"center"},
-		   		{name:'NomDist',index:'NomDist',width:350,align:"center"},
-		   		{name:'centroPoblado',index:'centroPoblado',width:350,align:"center"},
-		   		{name:'codlocal',index:'codlocal',width:200,align:"center"},
-		   		{name:'sede_operativa',index:'sede_operativa',width:350,align:"center"},
-		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel',width:350,align:"center"},
-		   		{name:'fxinicio',index:'convert(datetime,fxinicio)',width:200,align:"center"},
-		   		{name:'fxfinal',index:'convert(datetime,fxfinal)',width:200,align:"center"},
-		   		{name:'traslado',index:'traslado',width:350,align:"center"},
-		   		{name:'trabajo_supervisor',index:'trabajo_supervisor',width:350,align:"center"},
-		   		{name:'recuperacion',index:'recuperacion',width:350,align:"center"},
-		   		{name:'retornosede',index:'retornosede',width:350,align:"center"},
-		   		{name:'gabinete',index:'gabinete',width:350,align:"center"},
-		   		{name:'descanso',index:'descanso',width:350,align:"center"},
-		   		{name:'totaldias',index:'totaldias',width:350,align:"center"},
-		   		{name:'movilocal_ma',index:'movilocal_ma',width:350,align:"center"},
-		   		{name:'gastooperativo_ma',index:'gastooperativo_ma',width:350,align:"center"},
-		   		{name:'movilocal_af',index:'movilocal_af',width:350,align:"center"},
-		   		{name:'gastooperativo_af',index:'gastooperativo_af',width:350,align:"center"},
-		   		{name:'pasaje',index:'pasaje',width:350,align:"center"},
-		   		{name:'total_af',index:'total_af',width:350,align:"center"},
-		   		{name:'observaciones',index:'observaciones',width:350,align:"center"},
-		   		{name:'idruta',index:'idruta',width:350,align:"center"}
+		   		{name:'nro_filas',sortable:false,width:100,align:"center"},
+		   		{name:'NomDept',index:'NomDept',width:100,align:"center"},
+		   		{name:'NomProv',index:'NomProv',width:100,align:"center"},
+		   		{name:'NomDist',index:'NomDist',width:100,align:"center"},
+		   		{name:'centroPoblado',index:'centroPoblado',width:100,align:"center"},
+		   		{name:'codlocal',index:'codlocal',width:100,align:"center"},
+		   		{name:'sede_operativa',index:'sede_operativa',width:100,align:"center"},
+		   		{name:'prov_operativa_ugel',index:'prov_operativa_ugel',width:100,align:"center"},
+		   		{name:'fxinicio',index:'convert(datetime,fxinicio)',width:100,align:"center"},
+		   		{name:'fxfinal',index:'convert(datetime,fxfinal)',width:100,align:"center"},
+		   		{name:'traslado',index:'traslado',width:100,align:"center"},
+		   		{name:'trabajo_supervisor',index:'trabajo_supervisor',width:100,align:"center"},
+		   		{name:'recuperacion',index:'recuperacion',width:100,align:"center"},
+		   		{name:'retornosede',index:'retornosede',width:100,align:"center"},
+		   		{name:'gabinete',index:'gabinete',width:100,align:"center"},
+		   		{name:'descanso',index:'descanso',width:100,align:"center"},
+		   		{name:'totaldias',index:'totaldias',width:100,align:"center"},
+		   		{name:'movilocal_ma',index:'movilocal_ma',width:100,align:"center"},
+		   		{name:'gastooperativo_ma',index:'gastooperativo_ma',width:100,align:"center"},
+		   		{name:'movilocal_af',index:'movilocal_af',width:100,align:"center"},
+		   		{name:'gastooperativo_af',index:'gastooperativo_af',width:100,align:"center"},
+		   		{name:'pasaje',index:'pasaje',width:100,align:"center"},
+		   		{name:'total_af',index:'total_af',width:100,align:"center"},
+		   		{name:'observaciones',index:'observaciones',width:100,align:"center"},
+		   		{name:'idruta',index:'idruta',width:100,align:"center"}
 		   	],
 		   	rowNum:10,
 		   	rowList:[10,20,30],		   	
