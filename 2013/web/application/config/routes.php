@@ -60,7 +60,7 @@ $route['consistencia/predio/(:any)/(:number)'] = "consistencia/consistencia/pred
 $route['consistencia'] = "consistencia/consistencia";
 $route['ajax'] = "ajax/ajax";
 $route['ajaxx'] = "ajaxx/ajax";
-$route['tabulados'] = "tabulados/tabulados";
+$route['tabulados'] = "tabulados/capitulo1/reporte_1";
 
 
 
