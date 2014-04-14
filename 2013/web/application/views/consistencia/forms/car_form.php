@@ -1181,7 +1181,7 @@ $("#car_f").validate({
 			    	minor_car:['PC_E_1_TPred'],
 			    },
 			    PC_E_3_TEdif:{
-			    	range:[0,62],
+			    	range:[0,80],
 			    	required:true,
 			    },
 			    PC_E_4_TPat:{
