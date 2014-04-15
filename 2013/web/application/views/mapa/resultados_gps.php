@@ -475,7 +475,9 @@
 				html ='<option value="0">TODOS</option>';
 
 				$.each(data, function(i, datos) {
-					html+='<option value="'+datos.CCDI+'">'+datos.Nombre+'</option>';
+					if ( datos.CCDI != 99 ) {
+						html+='<option value="'+datos.CCDI+'">'+datos.Nombre+'</option>';
+					}
 				});
 
 				$('#dist').html(html);
@@ -491,7 +493,7 @@
 
 			capaKml.setMap(null);
 
-			cond = ( code != 0 ) ? 'Ubigeo = ' + code : 'Ubigeo >= ' + code 
+			cond = ( code != 0 ) ? 'Ubigeo = ' + code : 'Ubigeo >= ' + code;
 
 			capaKml = new google.maps.FusionTablesLayer({
 				query: {
