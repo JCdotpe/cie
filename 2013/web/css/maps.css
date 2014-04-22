@@ -148,8 +148,8 @@
 
 
 .marker {
- height: 460px;
-    width: 380px;
+    height: 680px;
+    width:  300px;
 }
 
 .markerInfo {
@@ -157,8 +157,9 @@
     display: none;
     font-size: 12px;
     padding: 10px 15px;
-    width: 340px;
+    width: 270px;
     z-index: 1002;
+    height: auto;
 }
 
 .markerInfo a {
@@ -171,8 +172,8 @@ z-index: 2;
     border-bottom: 2px solid #00A1C7;
     color: #00A1C7;
     display: block;
-    font-size: 20px !important;
-    font-weight: normal;
+    font-size: 16px !important;
+    font-weight: 400;
     line-height: 25px !important;
     margin: 20px 0 10px;
     padding-bottom: 0;
@@ -188,8 +189,8 @@ z-index: 2;
     border-bottom: 2px solid #00A1C7;
     color: #00A1C7;
     display: block;
-    font-size: 20px;
-    font-weight: normal;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 25px;
     margin: 20px 0 10px;
     padding-bottom: 0;
