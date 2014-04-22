@@ -45,6 +45,43 @@ class Resultados extends CI_Controller {
 		echo json_encode($data->result());
 	}
 
+	public function getphoto()
+	{
+		$ftp = ftp_connect("jc.pe");
+		ftp_login($ftp, "jcpuntope", "cie@2013");
+
+
+		$cod = $this->input->get('cod');
+		$pred = $this->input->get('pred');
+
+
+		$files = ftp_nlist($ftp, 'jc.pe/portafolio/cie2013/img/'.$cod.'/PRED_'.$pred.'/CAP3');
+		
+		if(ftp_nlist($ftp, 'jc.pe/portafolio/cie2013/img/'.$cod.'/PRED_'.$pred.'/CAP3')){
+			// $datos['FILES'] = $files;
+			$filecount = count($files);
+		}else{
+			$filecount = 0;
+		}
+
+		$datos['nro_files'] = $filecount;
+		ftp_close($ftp);
+
+		if ( $filecount > 0 ) {
+			$arr_file = explode("/", $files[0]);
+			$pos = count($arr_file);
+			$name_img = $arr_file[$pos - 1];
+		}else{
+			$name_img = '';
+		}
+
+		$datos['name_img'] = $name_img;
+
+		$data['datos'] = $datos;
+
+		$this->load->view('backend/json/json_view', $data);
+	}
+
 	public function opinion_tecnica()
 	{
 		$dpto = $this->input->get('dpto');

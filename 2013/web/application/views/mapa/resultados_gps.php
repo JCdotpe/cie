@@ -657,6 +657,9 @@
 
 			google.maps.event.addListener(layer, 'click', function(e) {
 
+				var codigo = e.row['codigo_de_local'].value;
+				var predio = e.row['Nro_Pred'].value;
+
 				var contentString = "<div>"+
 					"<div class='marker activeMarker'>"+
 						"<div class='markerInfo activeInfo' style='display: block'>"+
@@ -669,7 +672,24 @@
 							"<p class='detalle'>"+
 
 							"<h3>INSTITUCIONES EDUCATIVAS</h3>"+
-							"<p>"+e.row['nombres_IIEE'].value+"</p>";
+							"<p>"+e.row['nombres_IIEE'].value+"</p>"+
+							"<p id='photo'> </p>";
+
+							$.getJSON(urlRoot('index.php')+'/mapa/resultados/getphoto', {cod:codigo,pred:predio}, function(data, textStatus) {
+
+								$.each(data, function(i, datos) {
+
+									if ( data.nro_files > 0 )
+									{
+										$("#photo").append('<img src="http://jc.pe/portafolio/cie2013/img/'+codigo+'/PRED_'+predio+'/CAP3/'+data.name_img+'" width="100%" />');
+									}else{
+										$("#photo").append('No tiene foto');
+									}
+
+									return false;
+								});
+							});
+
 
 							switch( tipo )
 							{
