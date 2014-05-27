@@ -251,7 +251,7 @@ $P6_2_1 = array(
 $P6_2_3 = array(
 	'name'	=> 'P6_2_3',
 	'id'	=> 'P6_2_3',
-	'maxlength'	=> 2,
+	'maxlength'	=> 1,
 	'class' => 'input2',		
 );
 
@@ -2483,11 +2483,13 @@ $(document).ready(function(){
 				var asd ='<div class="btn-group">';
 					asd+='<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Seleccione una Edificación <span class="caret"></span></a>';
 					asd+='<ul class="dropdown-menu">';
-				if (datos.P5_Tot_E > 0)
+				if (datos.P5_Tot_E > 0 && datos.P5_Tot_E < 99 )
 				{
 					for (var i=1; i<=datos.P5_Tot_E; i++) {
 						asd+='<li id="' + i +'.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: ' + i +'</a></li>';
 					}			
+				}else if (datos.P5_Tot_E == 99) {
+					asd+='<li id="99.cmb6_P5_Tot_E" class="combo_ins1"><a href="" data-toggle="dropdown">Edificación Nro: 99 </a></li>';
 				}
 				asd+='</ul>';
 				asd+='</div>';
@@ -2609,7 +2611,7 @@ $(document).ready(function(){
 				}else{
 					$('#' + fila).val(Math.round(valor));
 				}
-				if (fila=='P6_1_8') mostrar_preg_8(valor);
+				if (fila=='P6_1_8' && valor != 99) mostrar_preg_8(valor);
 				P6_1_call_saltos(fila);
 			});
 
@@ -2652,9 +2654,16 @@ $(document).ready(function(){
 			asd+='<ul class="dropdown-menu">';
 
 			$.each( data, function(i, datos) {	
-				for (var i=1; i<=datos.P5_TotAmb; i++){
-					asd+='<li id="' + i +'.Ambiente.' + datos.P5_NroPiso + '.Piso" class="combo_ins1"><a href="" data-toggle="dropdown">Ambiente N°: ' + i + ' - Piso N°: ' + datos.P5_NroPiso + '</a></li>';
+
+				if ( datos.P5_TotAmb != 999)
+				{
+					for (var i=1; i<=datos.P5_TotAmb; i++){
+						asd+='<li id="' + i +'.Ambiente.' + datos.P5_NroPiso + '.Piso" class="combo_ins1"><a href="" data-toggle="dropdown">Ambiente N°: ' + i + ' - Piso N°: ' + datos.P5_NroPiso + '</a></li>';
+					}
+				}else if ( datos.P5_TotAmb == 999 ) {
+					asd+='<li id="' + datos.P5_TotAmb + '.Ambiente.99.Piso" class="combo_ins1"><a href="" data-toggle="dropdown">Ambiente N°: ' + datos.P5_TotAmb + ' - Piso N°: 99</a></li>';
 				}
+				
 			});
 
 			asd+='</ul>';

@@ -196,50 +196,71 @@ $.each( <?php echo json_encode($cap5_i->row()); ?>, function(fila, valor) {
 	   $('#' + fila).val(valor);
 });
 
-$('#P5_cantNroPiso').val(<?php echo $cap5_f->num_rows(); ?>);
+$('#P5_cantNroPiso').val(<?php echo $cap5_f; ?>);
 
 $('#P5_cantNroPiso').change(function(event) {
 	$('#cap_5 table').remove('#cap5_detalle');
 	var ahua = $(this).val();
 	var edi = document.getElementById('P5_Tot_E').value;
 	
-	for(var i=1; i<=ahua;i++){
-		var asd = '<table id="cap5_detalle" class="table table-bordered">';
-		asd+='<thead><tr>';
-		asd+='<thead><tr>';
-		asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" readonly="true" name="P5_NroPiso[]" id="P5_NroPiso' + '_p_' + i + '" value="' + i + '" ></th>';
-		asd+='</tr></thead>';
-		asd+='<tbody id="piso' + i + '">';
-		asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
-			for (var j=1;j<=edi;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
-			}
-		asd+='</tbody></table>';
-		$('#cap_5').append(asd);
-	}
+	if ( ahua > 0 && ahua != 99 && edi != 99)
+	{
+		for(var i=1; i<=ahua;i++)
+		{
+			var asd = '<table id="cap5_detalle" class="table table-bordered">';
+			asd+='<thead><tr>';
+			asd+='<thead><tr>';
+			asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" readonly="true" name="P5_NroPiso[]" id="P5_NroPiso' + '_p_' + i + '" value="' + i + '" ></th>';
+			asd+='</tr></thead>';
+			asd+='<tbody id="piso' + i + '">';
+			asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
+				for (var j=1;j<=edi;j++){
+					asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+					asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
+				}
+			asd+='</tbody></table>';
+			$('#cap_5').append(asd);
+		}
 
-	var as = 1;
-	$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_f/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
+		var as = 1;
+		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_f/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>}, function(data, textStatus) {
 
-		$.each(data, function(i, datos) {
+			$.each(data, function(i, datos) {
 
-			$('#P5_NroPiso' + '_p_' + as).val(datos.P5_NroPiso);
-			$('#P5_Foto' + '_p_' + as).val(datos.P5_Foto);
-			
-			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:datos.id_local,predio:datos.Nro_Pred,piso:datos.P5_NroPiso}, function(data, textStatus) {
-					var ad = 1;
-					$.each(data, function(i, valor) {
-						$('#P5_Ed_Nro' + '_p_' + valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
-						$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
-						ad++;
-					});
+				// $('#P5_NroPiso' + '_p_' + as).val(datos.P5_NroPiso);
+				$('#P5_Foto' + '_p_' + as).val(datos.P5_Foto);
+				
+				$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:datos.id_local,predio:datos.Nro_Pred,piso:datos.P5_NroPiso}, function(data, textStatus) {
+						var ad = 1;
+						$.each(data, function(i, valor) {
+							$('#P5_Ed_Nro' + '_p_' + valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
+							$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
+							ad++;
+						});
+				});
+
+				as++;
 			});
 
-			as++;
 		});
 
-	});
+	}else if (ahua == 99 && edi == 99 ) {
+		i = 1;
+		j = 1;
+		var asd = '<table id="cap5_detalle" class="table table-bordered">';
+			asd+='<thead><tr>';
+			asd+='<thead><tr>';
+			asd+='<th colspan="2">Piso N° <input type="text" class="span3 embc' + i + '" readonly="true" name="P5_NroPiso[]" id="P5_NroPiso' + '_p_' + i + '" value="99" ></th>';
+			asd+='</tr></thead>';
+			asd+='<tbody id="piso' + i + '">';
+			asd+='<tr><td colspan="2"><input type="text" readonly="true" class="input98p" name="P5_Foto[]" id="P5_Foto' + '_p_' + i + '" value="" ></td></tr>';
+				
+			asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="99" ></th>';
+			asd+='<td>Cantidad de Ambientes: <input type="text" class="input3 totamb" maxlength="3" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="999" ><div class="help-block error"></div></td></tr>';
+				
+			asd+='</tbody></table>';
+			$('#cap_5').append(asd);
+	}
 
 	$('#P5_TotAmb_p_1_a_1').focus();
 
@@ -252,24 +273,37 @@ $('#P5_Tot_E').change(function(event) {
 	var ahua = $(this).val();
 	var n_pisos = $('#P5_cantNroPiso').val();
 
-	for(var i=1; i<=n_pisos;i++){
-		var asd = "";
-			for (var j=1;j<=ahua;j++){
-				asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
-				asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
-			}
-		$('tbody#piso'+i).append(asd);
-	}
+	if ( ahua > 0 && ahua != 99 && n_pisos != 99 ) 
+	{
+		for(var i=1; i<=n_pisos;i++)
+		{
+			var asd = "";
+				for (var j=1;j<=ahua;j++){
+					asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="' + j + '" ></th>';
+					asd+='<td>Cantidad de Ambientes: <input type="text" class="input2 totamb" maxlength="2" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="" ><div class="help-block error"></div></td></tr>';
+				}
+			$('tbody#piso'+i).append(asd);
+		}
+
+		for (var i=1; i<=n_pisos;i++)
+		{
+			$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,piso:i}, function(data, textStatus) {
+					var ad = 1;
+					$.each( data, function(i, valor) {
+						$('#P5_Ed_Nro' + '_p_' +  valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
+						$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
+						ad++;
+					});
+			});
+		}
 		
-	for (var i=1; i<=n_pisos;i++){
-		$.getJSON(urlRoot('index.php')+'/consistencia/cap5/cap5_n/', {codigo:'<?php echo $cod; ?>',predio:<?php echo $pr; ?>,piso:i}, function(data, textStatus) {
-				var ad = 1;
-				$.each( data, function(i, valor) {
-					$('#P5_Ed_Nro' + '_p_' +  valor.P5_NroPiso + '_e_' + ad).val(valor.P5_Ed_Nro);
-					$('#P5_TotAmb' + '_p_' + valor.P5_NroPiso + '_a_' + ad).val(valor.P5_TotAmb);
-					ad++;
-				});
-		});
+	}else if ( ahua == 99 && n_pisos == 99 ) {
+		i = 1;
+		j = 1;
+		var asd = "";
+		asd+='<tr class="detalle"><th>Edificación N° <input type="text" readonly="true" class="span3 embc' + i + '" name="P5_Ed_Nro[]" id="P5_Ed_Nro' + '_p_' + i + '_e_' + j + '" value="99" ></th>';
+		asd+='<td>Cantidad de Ambientes: <input type="text" class="input3 totamb" maxlength="3" name="P5_TotAmb[]" id="P5_TotAmb' + '_p_' + i + '_a_' + j + '" value="999" ><div class="help-block error"></div></td></tr>';
+		$('tbody#piso'+i).append(asd);
 	}
 	
 });
@@ -316,7 +350,7 @@ $("#cap5_f").validate({
 			},
 			'P5_TotAmb[]':{
 				digits:true,
-				range:[0,99],
+				valrango:[0,99,999],
 				required:true,
 			},
 	    },

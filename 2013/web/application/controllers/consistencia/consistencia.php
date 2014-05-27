@@ -171,7 +171,7 @@ class Consistencia extends CI_Controller {
 			$data['cap4_i'] = $this->cap4_model->get_cap4($id,$prd);
 			$data['cap4_n'] = $this->cap4_model->get_cap4_n($id,$prd);
 			$data['cap5_i'] = $this->cap5_model->get_cap5($id,$prd);
-			$data['cap5_f'] = $this->cap5_model->get_cap5_f($id,$prd);
+			$data['cap5_f'] = $this->cap5_model->get_cant_p5f($id,$prd);
 
 
 			$data['cap9_f'] = $this->cap9_model->get_cap9_f($id,$prd);
