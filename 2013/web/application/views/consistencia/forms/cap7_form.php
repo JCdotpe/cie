@@ -854,6 +854,9 @@ $(document).ready(function(){
 			$.each( data, function(fila, valor) {
 				$('#' + fila).val(valor);
 				P7_call_saltos(fila);
+				if ( fila == 'P7_1_22' && valor == 9 ) $('#P7_1_22').trigger('change'); // codigo por cambio de omision por ultimo minuto
+				if ( fila == 'P7_1_11' && valor == 9 ) $('#P7_1_11').trigger('change'); // codigo por cambio de omision por ultimo minuto
+				if ( fila == 'P7_1_16' && valor == 9 ) $('#P7_1_16').trigger('change'); // codigo por cambio de omision por ultimo minuto
 			});
 
 		});
@@ -1144,19 +1147,21 @@ $(document).ready(function(){
 	//$('#P7_1_16').trigger('change');
 
 
-	// $('#P7_1_22').change(function(event){
+	// Antes stuvo comentado para el flujo normal, por temas de omision se descomento.
+	$('#P7_1_22').change(function(event){
 
-	// 	var valor=$(this).val();
+		var valor=$(this).val();
 		
-	// 	if (valor!=''){
-	// 		$('#P7_1_23').attr('disabled','disabled');
-	// 		$('#P7_1_24').attr('disabled','disabled');
-	// 		$('#P7_1_25').attr('disabled','disabled');
-	// 		$('#P7_1_26').attr('disabled','disabled');
-	// 		$('#P7_1_27').attr('disabled','disabled');
-	// 		$('#P7_1_28').attr('disabled','disabled');
-	// 	}
-	// });
+		if ( valor == 9 )
+		{
+			$('#P7_1_23').removeAttr('disabled','disabled');
+			$('#P7_1_24').removeAttr('disabled','disabled');
+			$('#P7_1_25').removeAttr('disabled','disabled');
+			$('#P7_1_26').removeAttr('disabled','disabled');
+			$('#P7_1_27').removeAttr('disabled','disabled');
+			$('#P7_1_28').removeAttr('disabled','disabled');
+		}
+	});
 	//$('#P7_1_22').trigger('change');
 
 
