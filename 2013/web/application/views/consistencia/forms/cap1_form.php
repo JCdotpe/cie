@@ -2099,7 +2099,7 @@ $(document).on("click",'.ienro',function() {
 $("#cap1_ie").validate({
 		    rules: {     
 		    	P1_A_2_1_NomIE:{
-		    		letnum:true,
+		    		// letnum:true,
 		    		required:true,
 		    	},     		
 		    	P1_A_2_2_Direc:{

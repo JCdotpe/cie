@@ -161,7 +161,7 @@ $.validator.addMethod("hora", function(value, element, arg) {
 }, "Ingrese la hora correctamente");
 
 $.validator.addMethod("letnum", function(value, element, param) {
-  return value.match(new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"));
+  return value.match(new RegExp("^[A-Za-z0-9 _ñÑ]*[A-Za-z0-9ñÑ][A-Za-z0-9 _ñÑ]*$"));
 }, "Caracteres no permitidos");
 
 $.validator.addMethod("telef", function(value, element, param) {

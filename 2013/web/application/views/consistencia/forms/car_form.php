@@ -931,7 +931,19 @@ $("#PC_A_2_Prov").change(function(event) {
 
 if(<?php echo $car_i->num_rows() ?> == 1){
 
-$.each( <?php echo json_encode($car_i->row()); ?>, function(fila, valor) {
+$.each( <?php
+
+			$datos = $car_i->row();
+
+			foreach ($datos as &$value)
+			{
+				$value = utf8_encode($value);
+			}
+
+			echo json_encode($datos); 
+			// echo json_encode($car_i->row()); 
+
+		?>, function(fila, valor) {
 											if(fila == 'PC_A_1_Dep' || fila == 'PC_C_2_Rfinal_resul'){
 													// if(valor == null && fila == 'PC_A_1_Dep'){
 	   									// 				valor = '<?php echo $fdep; ?>';	

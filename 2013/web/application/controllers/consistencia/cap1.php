@@ -327,6 +327,7 @@ class Cap1 extends CI_Controller {
 			$ie = $this->input->post('P1_A_2_NroIE');
 
 			$datos['ie'] = $this->cap1_model->get_cap1_ie($id,$pr,$ie)->row();	
+			$datos['ie'] = $this->convert_uft8_array($datos['ie']);
 			//ultimos cms para generar
 			$cms = $this->cap1_model->get_cap1_codmod($id,$pr,$ie);	
 
@@ -338,6 +339,16 @@ class Cap1 extends CI_Controller {
 		}else{
 			show_404();;
 		}	
+	}
+
+	function convert_uft8_array($datos)
+	{
+		foreach ($datos as &$value)
+		{
+			$value = utf8_encode($value);
+		}
+
+		return $datos;
 	}
 
 	public function cm()
