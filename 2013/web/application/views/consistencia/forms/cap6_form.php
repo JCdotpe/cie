@@ -3342,7 +3342,7 @@ $(document).ready(function(){
 
 		}else if ( $(this).val() == 99 ) {
 
-			// $('#P6_2_11_O').removeAttr('disabled');
+			$('#P6_2_11_O').removeAttr('disabled');
 			$('#P6_2_12').removeAttr('disabled');
 
 		}else if ( $(this).val() > 0 && $(this).val() < 11 ){
