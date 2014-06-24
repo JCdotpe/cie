@@ -3264,6 +3264,9 @@ $(document).ready(function(){
 			$('#P6_2_7_O').attr('disabled','disabled');
 
 			activar_flujo(8);
+		}else if ( $(this).val() == '') {
+			$('#P6_2_7_O').val('');
+			$('#P6_2_7_O').attr('disabled','disabled');
 		}
 	});
 
@@ -3285,6 +3288,9 @@ $(document).ready(function(){
 			$('#P6_2_8_O').attr('disabled','disabled');
 
 			activar_flujo(9);
+		}else if ( $(this).val() == '') {
+			$('#P6_2_8_O').val('');
+			$('#P6_2_8_O').attr('disabled','disabled');
 		}
 	});
 
@@ -3307,6 +3313,9 @@ $(document).ready(function(){
 
 			activar_flujo(10);
 
+		}else if ( $(this).val() == '') {
+			$('#P6_2_9_O').val('');
+			$('#P6_2_9_O').attr('disabled','disabled');
 		}
 	});
 
@@ -3329,6 +3338,9 @@ $(document).ready(function(){
 
 			activar_flujo(11);
 
+		}else if ( $(this).val() == '') {
+			$('#P6_2_10_O').val('');
+			$('#P6_2_10_O').attr('disabled','disabled');
 		}
 		
 	});
@@ -3352,6 +3364,9 @@ $(document).ready(function(){
 
 			activar_flujo(12);
 
+		}else if ( $(this).val() == '') {
+			$('#P6_2_11_O').val('');
+			$('#P6_2_11_O').attr('disabled','disabled');
 		}
 	});
 
