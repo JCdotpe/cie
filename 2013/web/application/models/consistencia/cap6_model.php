@@ -162,6 +162,7 @@ class Cap6_model extends CI_MODEL{
 		$this->db->where('Nro_Pred', $pr );
 		$this->db->where('P5_Ed_Nro', $edi );
 		$this->db->where('P5_NroPiso', $piso );
+		$this->db->where('P6_2_1 < 90');
 		$q = $this->db->get('P6_2');
 
 		if ($q->num_rows() > 0) $row = $q->row();
